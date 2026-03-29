@@ -1,1 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bacchus Karma</title>
+  <meta name="description" content="部品・盤面・骨牌を作成し、運任で引いた結果を因果として盤面へ落とし込む構築型シミュレーション。" />
+  <style>
+    :root {
+      color-scheme: light dark;
+    }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+      line-height: 1.7;
+      background: #111;
+      color: #f5f5f5;
+    }
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 48px 20px 80px;
+    }
+    h1, h2, h3 {
+      line-height: 1.3;
+    }
+    h1 {
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+    h2 {
+      font-size: 26px;
+      margin-top: 48px;
+      margin-bottom: 12px;
+    }
+    p, li {
+      font-size: 16px;
+    }
+    a {
+      color: #8ec5ff;
+    }
+    .hero {
+      background: linear-gradient(135deg, rgba(20,20,20,1), rgba(30,30,30,1));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 32px 24px;
+      margin-bottom: 32px;
+    }
+    .lead {
+      font-size: 18px;
+      color: #d6d6d6;
+      margin-top: 0;
+    }
+    .tag {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #111;
+      background: #f0c419;
+      border-radius: 999px;
+      padding: 6px 12px;
+      margin-bottom: 16px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 20px;
+    }
+    .footer-links {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .quote {
+      font-size: 18px;
+      color: #f0f0f0;
+      margin: 20px 0 0;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <div class="tag">Bacchus Karma</div>
+      <h1>Bacchus Karma</h1>
+      <p class="lead">
+        部品・盤面・骨牌を作成し、運任で引いた結果を因果として盤面へ落とし込む構築型シミュレーション。
+      </p>
+      <p class="quote">札は沈黙を破り、盤は落下を受け入れる。
+形は報いの器。因果がまだ液体だった頃の記憶。</p>
+    </section>
 
+    <section>
+      <h2>概要</h2>
+      <p>
+        Bacchus Karma は、部品、盤面、骨牌を自分で作り、
+        運任で引いた結果を因果として盤面へ反映していくシミュレーションです。
+        構築と抽選、そして落下の結果がひとつにつながる体験を楽しめます。
+      </p>
+    </section>
+
+    <section>
+      <h2>主な機能</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>部品作成</h3>
+          <p>5×5の部品を編集し、保存・読込できます。</p>
+        </div>
+        <div class="card">
+          <h3>盤面作成</h3>
+          <p>盤面サイズや配置を調整し、自分だけの土台を作れます。</p>
+        </div>
+        <div class="card">
+          <h3>骨牌作成</h3>
+          <p>部品やFREE/CANCELを含む骨牌を設定できます。</p>
+        </div>
+        <div class="card">
+          <h3>運任作成</h3>
+          <p>選択した骨牌を確認し、秒数や即因果を調整できます。</p>
+        </div>
+        <div class="card">
+          <h3>因果作成</h3>
+          <p>運任で選ばれた結果を盤面へ落とし込み、挙動を観測できます。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>このアプリについて</h2>
+      <p>
+        ある遊戯の規則と、焦ったときの人間の判断に興味を持ったことから生まれました。
+        失敗を裁くためではなく、条件が揃ったときに人がどこへ落ちるのかを静かに見届けるための器として設計されています。
+      </p>
+    </section>
+
+    <section class="footer-links">
+      <h2>リンク</h2>
+      <ul>
+        <li><a href="https://tsukigashizumu-cmd.github.io/bacchus-karma/support/">Support</a></li>
+        <li><a href="https://tsukigashizumu-cmd.github.io/bacchus-karma/privacy/">Privacy Policy</a></li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
