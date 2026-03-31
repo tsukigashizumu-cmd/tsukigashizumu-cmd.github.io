@@ -1,1 +1,136 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>カイドキ帳</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+    }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+      line-height: 1.8;
+      background: #ffffff;
+      color: #111111;
+    }
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 20px 64px;
+    }
+    h1 {
+      font-size: 36px;
+      margin: 0 0 12px;
+    }
+    h2 {
+      font-size: 24px;
+      margin: 40px 0 16px;
+      border-bottom: 1px solid #dddddd;
+      padding-bottom: 8px;
+    }
+    p, li {
+      font-size: 16px;
+    }
+    ul {
+      padding-left: 1.5em;
+    }
+    .lead {
+      font-size: 18px;
+      color: #444444;
+      margin-bottom: 24px;
+    }
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 24px 0 8px;
+    }
+    .button {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 12px;
+      background: #0a84ff;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .button.secondary {
+      background: #f2f2f7;
+      color: #111111;
+    }
+    .note {
+      margin-top: 24px;
+      font-size: 14px;
+      color: #666666;
+    }
+    a {
+      color: #0a84ff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: #111111;
+        color: #f5f5f5;
+      }
+      h2 {
+        border-bottom-color: #333333;
+      }
+      .lead {
+        color: #cccccc;
+      }
+      .button.secondary {
+        background: #2c2c2e;
+        color: #f5f5f5;
+      }
+      .note {
+        color: #aaaaaa;
+      }
+      a {
+        color: #4da3ff;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>カイドキ帳</h1>
+    <p class="lead">
+      単価計算、相場確認、差額比較で、買い時の判断を助けるアプリです。
+    </p>
 
+    <p>
+      入力した価格や数量をもとに、単価や相場（平均・中央値・最小・最大）、差額などを分かりやすく表示します。
+      買い物メモとして使いながら、どれが安いか、今が買い時かを整理しやすくします。
+    </p>
+
+    <div class="links">
+      <a class="button" href="support/">サポートを見る</a>
+      <a class="button secondary" href="../privacy/">プライバシーポリシー</a>
+    </div>
+
+    <h2>主な機能</h2>
+    <ul>
+      <li>価格・数量から単価を計算</li>
+      <li>平均・中央値・最小・最大などの相場表示</li>
+      <li>差額や比較結果の確認</li>
+      <li>入力内容の保存と見直し</li>
+      <li>買い物判断の補助</li>
+    </ul>
+
+    <h2>サポート</h2>
+    <p>
+      不具合報告やお問い合わせは、サポートページをご確認ください。<br>
+      <a href="support/">https://tsukigashizumu-cmd.github.io/kaidoki/support</a>
+    </p>
+
+    <p class="note">
+      このページは「カイドキ帳」の公式案内ページです。
+    </p>
+  </div>
+</body>
+</html>
