@@ -1,1 +1,619 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ValuePop</title>
+  <meta name="description" content="入力は4つでOK。使うほど登録候補で入力が楽になり、見た目も心地いい。使い続けやすさにこだわった価格比較アプリ。">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f4ef;
+      --card: rgba(255, 255, 255, 0.82);
+      --card-strong: rgba(255, 255, 255, 0.92);
+      --text: #34261c;
+      --subtext: #6c5b4f;
+      --line: rgba(132, 96, 69, 0.18);
+      --shadow: 0 18px 40px rgba(70, 44, 22, 0.10);
+      --accent: #f4b44f;
+      --accent-strong: #da9b33;
+      --button-text: #2f2319;
+      --max-width: 1080px;
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+    }
 
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(244, 180, 79, 0.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(187, 146, 97, 0.12), transparent 24%),
+        linear-gradient(180deg, #fcfaf7 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(247, 244, 239, 0.78);
+      border-bottom: 1px solid rgba(132, 96, 69, 0.10);
+    }
+
+    .site-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 72px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 22px rgba(70, 44, 22, 0.16);
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      font-size: 1.05rem;
+    }
+
+    .header-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-link,
+    .nav-button {
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 0.95rem;
+      color: var(--subtext);
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav-link:hover,
+    .nav-button:hover {
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .nav-button {
+      background: linear-gradient(180deg, #ffd18a 0%, var(--accent) 100%);
+      color: var(--button-text);
+      font-weight: 700;
+      box-shadow: 0 10px 24px rgba(218, 155, 51, 0.22);
+    }
+
+    .hero {
+      padding: 52px 0 28px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      padding: 12px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+      color: var(--subtext);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    h1 {
+      margin: 16px 0 14px;
+      font-size: clamp(2.2rem, 5vw, 4.25rem);
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-lead {
+      margin: 0;
+      font-size: clamp(1.06rem, 1.8vw, 1.25rem);
+      color: var(--subtext);
+      max-width: 40rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button-primary,
+    .button-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      border-radius: 999px;
+      padding: 0 18px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+
+    .button-primary {
+      background: linear-gradient(180deg, #ffd18a 0%, var(--accent) 100%);
+      color: var(--button-text);
+      box-shadow: 0 12px 24px rgba(218, 155, 51, 0.24);
+    }
+
+    .button-secondary {
+      background: rgba(255, 255, 255, 0.8);
+      color: var(--text);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+    }
+
+    .button-primary:hover,
+    .button-secondary:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero-note {
+      margin-top: 16px;
+      font-size: 0.92rem;
+      color: var(--subtext);
+    }
+
+    .hero-visual-card {
+      position: relative;
+      border-radius: var(--radius-xl);
+      padding: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.78) 100%);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-visual-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top right, rgba(244, 180, 79, 0.18), transparent 32%),
+        radial-gradient(circle at bottom left, rgba(160, 127, 95, 0.10), transparent 28%);
+      pointer-events: none;
+    }
+
+    .hero-visual-card img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      border-radius: 22px;
+      border: 1px solid rgba(132, 96, 69, 0.10);
+    }
+
+    .section {
+      padding: 28px 0;
+    }
+
+    .section-title {
+      margin: 0 0 10px;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    .section-lead {
+      margin: 0;
+      color: var(--subtext);
+      max-width: 42rem;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .feature-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.04rem;
+      letter-spacing: -0.02em;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: var(--subtext);
+      font-size: 0.98rem;
+    }
+
+    .screenshot-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .shot-card {
+      background: var(--card-strong);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .shot-card img {
+      width: 100%;
+      border-radius: 22px;
+      border: 1px solid rgba(132, 96, 69, 0.10);
+      background: #fff;
+    }
+
+    .shot-card p {
+      margin: 12px 2px 0;
+      color: var(--subtext);
+      font-size: 0.95rem;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .info-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .info-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.04rem;
+      letter-spacing: -0.02em;
+    }
+
+    .info-card p,
+    .info-card li {
+      color: var(--subtext);
+    }
+
+    .info-card ul {
+      margin: 0;
+      padding-left: 1.1em;
+    }
+
+    .cta-card {
+      margin-top: 24px;
+      border-radius: var(--radius-xl);
+      padding: 26px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(255,248,236,0.92) 100%);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .cta-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.18rem;
+      letter-spacing: -0.02em;
+    }
+
+    .cta-card p {
+      margin: 0;
+      color: var(--subtext);
+    }
+
+    .site-footer {
+      padding: 36px 0 52px;
+      color: var(--subtext);
+      font-size: 0.94rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(132, 96, 69, 0.12);
+      padding-top: 18px;
+    }
+
+    .footer-links {
+      display: inline-flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .feature-grid,
+      .screenshot-grid,
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 32px;
+      }
+
+      .site-header-inner {
+        min-height: 68px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(calc(100% - 20px), var(--max-width));
+      }
+
+      .site-header-inner {
+        align-items: flex-start;
+        padding: 12px 0;
+      }
+
+      .brand-text {
+        font-size: 1rem;
+      }
+
+      .header-nav {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .cta-card {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <a class="brand" href="./">
+        <span class="brand-icon">
+          <img src="./assets/app-icon.png" alt="ValuePop app icon">
+        </span>
+        <span class="brand-text">ValuePop</span>
+      </a>
+
+      <nav class="header-nav" aria-label="Primary">
+        <a class="nav-link" href="#features">特長</a>
+        <a class="nav-link" href="#screenshots">スクリーンショット</a>
+        <a class="nav-link" href="./support/">サポート</a>
+        <a class="nav-link" href="./privacy/">プライバシー</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">価格比較を、見やすく心地よく。</div>
+          <h1>ValuePop</h1>
+          <p class="hero-lead">
+            入力は4つでOK。使うほど登録候補で入力が楽になり、見た目も心地いい。
+            使い続けやすさにこだわった価格比較アプリ。
+          </p>
+
+          <div class="hero-actions">
+            <a class="button-primary" href="#screenshots">スクリーンショットを見る</a>
+            <a class="button-secondary" href="./support/">サポートを見る</a>
+          </div>
+
+          <p class="hero-note">
+            最安値・平均・中央値を見比べながら、毎日の買い物を納得して選べます。
+          </p>
+        </div>
+
+        <div class="hero-visual-card">
+          <img src="./assets/screenshots/valuepop-01.png" alt="ValuePop screenshot">
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="container">
+        <h2 class="section-title">ValuePop の特長</h2>
+        <p class="section-lead">
+          毎日の比較を、無理なく続けられることを大切にしています。
+        </p>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>入力は4つでOK</h3>
+            <p>
+              必要な情報をすばやく入れて、価格比較をすぐ始められます。
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>使うほど入力が楽に</h3>
+            <p>
+              登録候補を使って、よく使う店舗名や商品名を効率よく入力できます。
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>見た目も心地いい</h3>
+            <p>
+              文字や表示の雰囲気を整えながら、使っていて気持ちいい画面に調整できます。
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>価格差を見やすく確認</h3>
+            <p>
+              最安値だけでなく、平均との差や並びも見ながら判断できます。
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>最安値・平均・中央値に対応</h3>
+            <p>
+              価格の位置づけをひと目で把握しやすく、納得して選びやすくなります。
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>続けやすさを重視</h3>
+            <p>
+              毎日開きたくなる使い心地を目指して、比較体験全体を整えています。
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="screenshots" class="section">
+      <div class="container">
+        <h2 class="section-title">スクリーンショット</h2>
+        <p class="section-lead">
+          比較画面、デザイン調整、文字の雰囲気調整など、ValuePop の使い心地が伝わる画面です。
+        </p>
+
+        <div class="screenshot-grid">
+          <article class="shot-card">
+            <img src="./assets/screenshots/valuepop-01.png" alt="ValuePop screenshot 1">
+            <p>店舗ごとの価格を見比べながら、最安値や差を確認できます。</p>
+          </article>
+
+          <article class="shot-card">
+            <img src="./assets/screenshots/valuepop-02.png" alt="ValuePop screenshot 2">
+            <p>色や雰囲気を調整しながら、自分に合った見た目に整えられます。</p>
+          </article>
+
+          <article class="shot-card">
+            <img src="./assets/screenshots/valuepop-03.png" alt="ValuePop screenshot 3">
+            <p>文字の雰囲気も調整でき、心地よく続けられる画面づくりを目指せます。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">こんな人に向いています</h2>
+        <p class="section-lead">
+          買い物比較を、ただの記録で終わらせず、毎日の判断に活かしたい人に向いています。
+        </p>
+
+        <div class="info-grid">
+          <article class="info-card">
+            <h3>毎日の買い物で比較したい</h3>
+            <ul>
+              <li>どこで買うと安いかを見たい</li>
+              <li>価格差をわかりやすく把握したい</li>
+              <li>最安値だけでなく全体の位置づけも知りたい</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <h3>使い心地にもこだわりたい</h3>
+            <ul>
+              <li>入力をできるだけ楽にしたい</li>
+              <li>見やすさや文字の雰囲気も大事にしたい</li>
+              <li>無理なく使い続けられるアプリを探している</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="cta-card">
+          <div>
+            <h3>Support / Privacy</h3>
+            <p>お問い合わせやプライバシーポリシーは、下のリンクから確認できます。</p>
+          </div>
+          <div class="hero-actions" style="margin-top: 0;">
+            <a class="button-secondary" href="./support/">サポート</a>
+            <a class="button-primary" href="./privacy/">プライバシー</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© ValuePop</div>
+      <div class="footer-links">
+        <a href="./support/">Support</a>
+        <a href="./privacy/">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
