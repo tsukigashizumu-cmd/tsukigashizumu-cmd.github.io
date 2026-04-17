@@ -1,1 +1,477 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ValuePop Privacy Policy</title>
+  <meta name="description" content="ValuePop のプライバシーポリシーです。取得する情報、広告、アプリ内課金、お問い合わせについて案内しています。">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f4ef;
+      --card: rgba(255, 255, 255, 0.82);
+      --card-strong: rgba(255, 255, 255, 0.92);
+      --text: #34261c;
+      --subtext: #6c5b4f;
+      --line: rgba(132, 96, 69, 0.18);
+      --shadow: 0 18px 40px rgba(70, 44, 22, 0.10);
+      --accent: #f4b44f;
+      --button-text: #2f2319;
+      --max-width: 1080px;
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+    }
 
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(244, 180, 79, 0.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(187, 146, 97, 0.12), transparent 24%),
+        linear-gradient(180deg, #fcfaf7 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(247, 244, 239, 0.78);
+      border-bottom: 1px solid rgba(132, 96, 69, 0.10);
+    }
+
+    .site-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 72px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 22px rgba(70, 44, 22, 0.16);
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+      flex-shrink: 0;
+    }
+
+    .brand-icon img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-text {
+      font-size: 1.05rem;
+    }
+
+    .header-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-link {
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 0.95rem;
+      color: var(--subtext);
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav-link:hover {
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      padding: 52px 0 28px;
+    }
+
+    .hero-card {
+      border-radius: var(--radius-xl);
+      padding: 30px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.78) 100%);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+      color: var(--subtext);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    h1 {
+      margin: 16px 0 14px;
+      font-size: clamp(2rem, 4.4vw, 3.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-lead {
+      margin: 0;
+      font-size: 1.05rem;
+      color: var(--subtext);
+      max-width: 44rem;
+    }
+
+    .section {
+      padding: 28px 0;
+    }
+
+    .section-title {
+      margin: 0 0 10px;
+      font-size: clamp(1.45rem, 2.8vw, 2.05rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    .section-lead {
+      margin: 0;
+      color: var(--subtext);
+      max-width: 44rem;
+    }
+
+    .policy-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h2,
+    .card h3 {
+      margin: 0 0 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .card p,
+    .card li {
+      color: var(--subtext);
+    }
+
+    .card ul {
+      margin: 0;
+      padding-left: 1.1em;
+    }
+
+    .inline-note {
+      margin-top: 10px;
+      font-size: 0.95rem;
+      color: var(--subtext);
+    }
+
+    .cta-card {
+      margin-top: 24px;
+      border-radius: var(--radius-xl);
+      padding: 26px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(255,248,236,0.92) 100%);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .cta-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.18rem;
+      letter-spacing: -0.02em;
+    }
+
+    .cta-card p {
+      margin: 0;
+      color: var(--subtext);
+    }
+
+    .cta-links {
+      display: inline-flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .button-primary,
+    .button-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      border-radius: 999px;
+      padding: 0 18px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+
+    .button-primary {
+      background: linear-gradient(180deg, #ffd18a 0%, var(--accent) 100%);
+      color: var(--button-text);
+      box-shadow: 0 12px 24px rgba(218, 155, 51, 0.24);
+    }
+
+    .button-secondary {
+      background: rgba(255, 255, 255, 0.8);
+      color: var(--text);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+    }
+
+    .button-primary:hover,
+    .button-secondary:hover {
+      transform: translateY(-1px);
+    }
+
+    .site-footer {
+      padding: 36px 0 52px;
+      color: var(--subtext);
+      font-size: 0.94rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(132, 96, 69, 0.12);
+      padding-top: 18px;
+    }
+
+    .footer-links {
+      display: inline-flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 960px) {
+      .hero {
+        padding-top: 32px;
+      }
+
+      .site-header-inner {
+        min-height: 68px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(calc(100% - 20px), var(--max-width));
+      }
+
+      .site-header-inner {
+        align-items: flex-start;
+        padding: 12px 0;
+      }
+
+      .header-nav {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .hero-card,
+      .card,
+      .cta-card {
+        padding: 20px;
+      }
+
+      .cta-links {
+        width: 100%;
+      }
+
+      .button-primary,
+      .button-secondary {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <a class="brand" href="../">
+        <span class="brand-icon">
+          <img src="../assets/app-icon.png" alt="ValuePop app icon">
+        </span>
+        <span class="brand-text">ValuePop</span>
+      </a>
+
+      <nav class="header-nav" aria-label="Primary">
+        <a class="nav-link" href="../">トップ</a>
+        <a class="nav-link" href="../support/">サポート</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <div class="eyebrow">ValuePop Privacy Policy</div>
+          <h1>プライバシーポリシー</h1>
+          <p class="hero-lead">
+            ValuePop は、ユーザーのプライバシーを尊重します。
+            このページでは、アプリで取り扱う情報、広告、アプリ内課金、お問い合わせについて案内します。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">基本方針</h2>
+        <p class="section-lead">
+          ValuePop は、アプリの提供、改善、サポートのために必要な範囲で情報を取り扱います。
+        </p>
+
+        <div class="policy-grid">
+          <article class="card">
+            <h3>1. 取得する情報について</h3>
+            <p>
+              ValuePop では、アプリの提供に必要な範囲で情報を取り扱う場合があります。
+            </p>
+            <ul>
+              <li>ユーザーがアプリ内で入力した情報</li>
+              <li>購入状態の確認や復元に必要な情報</li>
+              <li>広告配信や計測のために、第三者サービスが取得する情報</li>
+            </ul>
+            <p class="inline-note">
+              ※ 入力データや保存方法の詳細は、アプリの実装に合わせて必要に応じて更新してください。
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>2. 広告について</h3>
+            <p>
+              ValuePop では、広告配信のために第三者の広告サービスを利用する場合があります。
+              これらのサービスは、広告表示や効果測定のために情報を取得することがあります。
+            </p>
+            <p>
+              広告に関する情報の取り扱いは、各サービス提供事業者のポリシーもあわせてご確認ください。
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>3. アプリ内課金について</h3>
+            <p>
+              ValuePop では、広告非表示や任意のチップ購入などのアプリ内課金を提供する場合があります。
+              課金処理および購入情報の管理は、Apple の仕組みを通じて行われます。
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>4. 解析・計測について</h3>
+            <p>
+              アプリの品質向上、不具合把握、利用状況の確認のために、解析または計測ツールを利用する場合があります。
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>5. 外部サービスについて</h3>
+            <p>
+              ValuePop では、広告配信、計測、アプリ提供に関連して外部サービスを利用する場合があります。
+              外部サービスにおける情報の取り扱いについては、それぞれの提供元が定めるポリシーをご確認ください。
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>6. お問い合わせ</h3>
+            <p>
+              本ポリシーに関するお問い合わせは、サポートページ記載の連絡先までご連絡ください。
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>7. 改定について</h3>
+            <p>
+              本ポリシーは、必要に応じて内容を見直し、改定する場合があります。
+              重要な変更がある場合は、アプリまたは関連ページ上でお知らせします。
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>8. 制定日・改定日</h3>
+            <p>
+              制定日: 2026年4月17日<br>
+              最終改定日: 2026年4月17日
+            </p>
+          </article>
+        </div>
+
+        <div class="cta-card">
+          <div>
+            <h3>Support</h3>
+            <p>お問い合わせや不具合報告は、サポートページからご確認ください。</p>
+          </div>
+          <div class="cta-links">
+            <a class="button-secondary" href="../">トップへ戻る</a>
+            <a class="button-primary" href="../support/">サポートを見る</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© ValuePop</div>
+      <div class="footer-links">
+        <a href="../">Top</a>
+        <a href="../support/">Support</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
