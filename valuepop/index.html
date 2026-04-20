@@ -603,20 +603,20 @@
 
         <article class="shot-card" style="margin-top: 22px;">
           <div class="media-toggle-wrap">
-            <video id="valuepop-preview-video" playsinline preload="metadata" poster="./assets/screenshots/valuepop-01.png">
+            <video id="valuepop-preview-video" autoplay muted loop playsinline preload="metadata" poster="./assets/screenshots/valuepop-01.png">
               <source src="./assets/mov/valuepop-01-01.mp4" type="video/mp4">
               お使いのブラウザでは動画を再生できません。
             </video>
             <button class="media-toggle-surface" type="button" aria-label="動画の再生状態を切り替える" onclick="toggleValuePopVideo()"></button>
           </div>
 
-          <button id="valuepop-toggle-status" class="media-toggle-status is-paused" type="button" onclick="toggleValuePopVideo()">
+          <button id="valuepop-toggle-status" class="media-toggle-status" type="button" onclick="toggleValuePopVideo()">
             <span class="media-toggle-dot" aria-hidden="true"></span>
-            <span id="valuepop-toggle-label">繰り返し再生する</span>
+            <span id="valuepop-toggle-label">停止する</span>
           </button>
 
           <h3>どれが安いか、ひと目でわかる</h3>
-          <p>比較画面は静止でも見やすく、タップすると繰り返し再生で動きも確認できます。</p>
+          <p>比較画面は最初から自動で動き、タップすると停止、もう一度タップすると繰り返し再生に戻せます。</p>
         </article>
 
         <div class="screenshot-grid">
@@ -716,10 +716,9 @@
     const valuePopToggleLabel = document.getElementById('valuepop-toggle-label');
 
     function setValuePopVideoState(isPlaying) {
-      valuePopVideo.loop = isPlaying;
+      valuePopVideo.loop = true;
 
       if (isPlaying) {
-        valuePopVideo.currentTime = 0;
         valuePopVideo.play().catch(() => {});
         valuePopToggleStatus.classList.remove('is-paused');
         valuePopToggleLabel.textContent = '停止する';
@@ -735,7 +734,7 @@
       setValuePopVideoState(shouldPlay);
     }
 
-    setValuePopVideoState(false);
+    setValuePopVideoState(true);
   </script>
 </body>
 </html>
