@@ -600,10 +600,10 @@
               <source src="./assets/mov/valuepop-01-01.mp4" type="video/mp4">
               お使いのブラウザでは動画を再生できません。
             </video>
-            <button class="media-toggle-surface" type="button" aria-label="動画の再生状態を切り替える" onclick="toggleValuePopVideo()"></button>
+            <button class="media-toggle-surface" type="button" aria-label="動画の再生状態を切り替える"></button>
           </div>
 
-          <button id="valuepop-toggle-status" class="media-toggle-status" type="button" onclick="toggleValuePopVideo()">
+          <button id="valuepop-toggle-status" class="media-toggle-status" type="button">
             <span class="media-toggle-dot" aria-hidden="true"></span>
             <span id="valuepop-toggle-label">停止する</span>
           </button>
@@ -614,19 +614,37 @@
 
         <div class="screenshot-grid">
           <article class="shot-card">
-            <video autoplay muted loop playsinline preload="metadata" poster="./assets/screenshots/valuepop-03.png">
-              <source src="./assets/mov/valuepop-03-01.mp4" type="video/mp4">
-              お使いのブラウザでは動画を再生できません。
-            </video>
+            <div class="media-toggle-wrap">
+              <video autoplay muted loop playsinline preload="metadata" poster="./assets/screenshots/valuepop-03.png" data-toggle-video>
+                <source src="./assets/mov/valuepop-03-01.mp4" type="video/mp4">
+                お使いのブラウザでは動画を再生できません。
+              </video>
+              <button class="media-toggle-surface" type="button" aria-label="動画の再生状態を切り替える"></button>
+            </div>
+
+            <button class="media-toggle-status" type="button">
+              <span class="media-toggle-dot" aria-hidden="true"></span>
+              <span class="media-toggle-label">停止する</span>
+            </button>
+
             <h3>見やすい画面で、比較を続けやすい</h3>
             <p>文字の雰囲気や読みやすさを調整できるので、比較画面を自分に合う見た目に整えやすい。</p>
           </article>
 
           <article class="shot-card">
-            <video autoplay muted loop playsinline preload="metadata" poster="./assets/screenshots/valuepop-02.png">
-              <source src="./assets/mov/valuepop-02-01.mp4" type="video/mp4">
-              お使いのブラウザでは動画を再生できません。
-            </video>
+            <div class="media-toggle-wrap">
+              <video autoplay muted loop playsinline preload="metadata" poster="./assets/screenshots/valuepop-02.png" data-toggle-video>
+                <source src="./assets/mov/valuepop-02-01.mp4" type="video/mp4">
+                お使いのブラウザでは動画を再生できません。
+              </video>
+              <button class="media-toggle-surface" type="button" aria-label="動画の再生状態を切り替える"></button>
+            </div>
+
+            <button class="media-toggle-status" type="button">
+              <span class="media-toggle-dot" aria-hidden="true"></span>
+              <span class="media-toggle-label">停止する</span>
+            </button>
+
             <h3>自分に合う見た目に整えられる</h3>
             <p>毎日見る画面だから、色味や雰囲気も自分に合わせて調整できます。</p>
           </article>
@@ -638,10 +656,19 @@
           </article>
 
           <article class="shot-card">
-            <video autoplay muted loop playsinline preload="metadata" poster="./assets/screenshots/valuepop-05.png">
-              <source src="./assets/mov/valuepop-05-01.mp4" type="video/mp4">
-              お使いのブラウザでは動画を再生できません。
-            </video>
+            <div class="media-toggle-wrap">
+              <video autoplay muted loop playsinline preload="metadata" poster="./assets/screenshots/valuepop-05.png" data-toggle-video>
+                <source src="./assets/mov/valuepop-05-01.mp4" type="video/mp4">
+                お使いのブラウザでは動画を再生できません。
+              </video>
+              <button class="media-toggle-surface" type="button" aria-label="動画の再生状態を切り替える"></button>
+            </div>
+
+            <button class="media-toggle-status" type="button">
+              <span class="media-toggle-dot" aria-hidden="true"></span>
+              <span class="media-toggle-label">停止する</span>
+            </button>
+
             <h3>ヘルプを見ながら使える</h3>
             <p>検索や使い方を確認しながら進められるので、はじめてでも迷いにくい。</p>
           </article>
@@ -713,30 +740,59 @@
   </footer>
 
   <script>
-    const valuePopVideo = document.getElementById('valuepop-preview-video');
-    const valuePopToggleStatus = document.getElementById('valuepop-toggle-status');
-    const valuePopToggleLabel = document.getElementById('valuepop-toggle-label');
-
-    function setValuePopVideoState(isPlaying) {
-      valuePopVideo.loop = true;
+    function setManagedVideoState(video, statusButton, label, isPlaying) {
+      video.loop = true;
 
       if (isPlaying) {
-        valuePopVideo.play().catch(() => {});
-        valuePopToggleStatus.classList.remove('is-paused');
-        valuePopToggleLabel.textContent = '停止する';
+        video.play().catch(() => {});
+        statusButton.classList.remove('is-paused');
+        label.textContent = '停止する';
       } else {
-        valuePopVideo.pause();
-        valuePopToggleStatus.classList.add('is-paused');
-        valuePopToggleLabel.textContent = '繰り返し再生する';
+        video.pause();
+        statusButton.classList.add('is-paused');
+        label.textContent = '繰り返し再生する';
       }
     }
 
-    function toggleValuePopVideo() {
-      const shouldPlay = valuePopVideo.paused;
-      setValuePopVideoState(shouldPlay);
+    function bindManagedVideo(video, statusButton, surfaceButton, label) {
+      const toggle = () => {
+        const shouldPlay = video.paused;
+        setManagedVideoState(video, statusButton, label, shouldPlay);
+      };
+
+      if (surfaceButton) {
+        surfaceButton.addEventListener('click', toggle);
+      }
+
+      if (statusButton) {
+        statusButton.addEventListener('click', toggle);
+      }
+
+      setManagedVideoState(video, statusButton, label, true);
     }
 
-    setValuePopVideoState(true);
+    const valuePopVideo = document.getElementById('valuepop-preview-video');
+    const valuePopToggleStatus = document.getElementById('valuepop-toggle-status');
+    const valuePopToggleLabel = document.getElementById('valuepop-toggle-label');
+    const valuePopSurfaceButton = valuePopVideo
+      .closest('.media-toggle-wrap')
+      .querySelector('.media-toggle-surface');
+
+    bindManagedVideo(
+      valuePopVideo,
+      valuePopToggleStatus,
+      valuePopSurfaceButton,
+      valuePopToggleLabel
+    );
+
+    document.querySelectorAll('[data-toggle-video]').forEach((video) => {
+      const shotCard = video.closest('.shot-card');
+      const surfaceButton = shotCard.querySelector('.media-toggle-surface');
+      const statusButton = shotCard.querySelector('.media-toggle-status');
+      const label = shotCard.querySelector('.media-toggle-label');
+
+      bindManagedVideo(video, statusButton, surfaceButton, label);
+    });
   </script>
 </body>
 </html>
