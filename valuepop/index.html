@@ -48,7 +48,8 @@
       text-decoration: none;
     }
 
-    img {
+    img,
+    video {
       display: block;
       max-width: 100%;
       height: auto;
@@ -302,7 +303,12 @@
       box-shadow: var(--shadow);
     }
 
-    .shot-card img {
+    .shot-card--video {
+      grid-column: span 3;
+    }
+
+    .shot-card img,
+    .shot-card video {
       width: 100%;
       border-radius: 22px;
       border: 1px solid rgba(132, 96, 69, 0.10);
@@ -403,9 +409,16 @@
     @media (max-width: 960px) {
       .hero-grid,
       .feature-grid,
-      .screenshot-grid,
       .info-grid {
         grid-template-columns: 1fr;
+      }
+
+      .screenshot-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .shot-card--video {
+        grid-column: span 1;
       }
 
       .hero {
@@ -555,6 +568,15 @@
         </p>
 
         <div class="screenshot-grid">
+          <article class="shot-card shot-card--video">
+            <video autoplay muted loop playsinline controls preload="metadata" poster="./assets/screenshots/valuepop-01.png">
+              <source src="./assets/mov/valuepop-01-01.mov" type="video/quicktime">
+              お使いのブラウザでは動画を再生できません。
+            </video>
+            <h3>比較画面の動きがわかる</h3>
+            <p>一覧カードの並びや比較結果の見え方を、静止画だけでなく動画でも確認できます。</p>
+          </article>
+
           <article class="shot-card">
             <img src="./assets/screenshots/valuepop-01.png" alt="ValuePop screenshot 1">
             <h3>どこが安いか、ひと目でわかる</h3>
