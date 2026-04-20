@@ -188,6 +188,29 @@
       max-width: 40rem;
     }
 
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .hero-point {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      border-radius: 999px;
+      padding: 0 14px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+      color: var(--text);
+      font-size: 0.94rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      box-shadow: 0 10px 24px rgba(70, 44, 22, 0.08);
+    }
+
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
@@ -604,6 +627,16 @@
         justify-content: flex-start;
       }
 
+      .hero-points {
+        gap: 8px;
+      }
+
+      .hero-point {
+        min-height: 36px;
+        font-size: 0.9rem;
+        padding: 0 12px;
+      }
+
       .hero-actions {
         flex-direction: column;
         align-items: stretch;
@@ -665,6 +698,13 @@
             価格と数量を入れるだけで、単価比較、最安値、平均、中央値までまとめて確認。
             毎日の買い物で、容量違いや価格違いの商品も比較しながら、どれを選ぶと得か判断しやすくなる価格比較アプリです。
           </p>
+
+          <div class="hero-points" aria-label="ValuePop の要点">
+            <span class="hero-point">単価比較</span>
+            <span class="hero-point">最安値・平均・中央値</span>
+            <span class="hero-point">保存・読込</span>
+            <span class="hero-point">見やすさ調整</span>
+          </div>
 
           <div class="hero-actions">
             <a class="button-primary is-disabled" href="#" aria-disabled="true">公開準備中</a>
