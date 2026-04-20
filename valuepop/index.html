@@ -418,10 +418,9 @@
       box-shadow: 0 24px 60px rgba(47, 35, 25, 0.22);
     }
 
-    .image-modal-close {
+    .image-modal-close,
+    .image-modal-nav {
       position: absolute;
-      top: 14px;
-      right: 14px;
       z-index: 2;
       display: inline-flex;
       align-items: center;
@@ -436,8 +435,27 @@
       box-shadow: 0 10px 24px rgba(70, 44, 22, 0.12);
     }
 
+    .image-modal-close {
+      top: 14px;
+      right: 14px;
+    }
+
+    .image-modal-nav {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .image-modal-nav-prev {
+      left: 14px;
+    }
+
+    .image-modal-nav-next {
+      right: 14px;
+    }
+
     .image-modal-figure {
       margin: 0;
+      padding: 0 44px;
     }
 
     .image-modal-image {
@@ -449,10 +467,25 @@
       background: #fff;
     }
 
-    .image-modal-caption {
+    .image-modal-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
       margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .image-modal-caption {
       color: var(--subtext);
       font-size: 0.96rem;
+      flex: 1 1 320px;
+    }
+
+    .image-modal-count {
+      color: var(--subtext);
+      font-size: 0.9rem;
+      white-space: nowrap;
     }
 
     .info-grid {
@@ -584,6 +617,18 @@
 
       .image-modal-dialog {
         padding: 14px 14px 12px;
+      }
+
+      .image-modal-figure {
+        padding: 0 34px;
+      }
+
+      .image-modal-nav-prev {
+        left: 8px;
+      }
+
+      .image-modal-nav-next {
+        right: 8px;
       }
     }
   </style>
@@ -874,10 +919,15 @@
 
     <div class="image-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="image-modal-caption">
       <button id="image-modal-close" class="image-modal-close" type="button" aria-label="閉じる">×</button>
+      <button id="image-modal-prev" class="image-modal-nav image-modal-nav-prev" type="button" aria-label="前の画像">‹</button>
+      <button id="image-modal-next" class="image-modal-nav image-modal-nav-next" type="button" aria-label="次の画像">›</button>
 
       <figure class="image-modal-figure">
         <img id="image-modal-image" class="image-modal-image" src="" alt="">
-        <figcaption id="image-modal-caption" class="image-modal-caption"></figcaption>
+        <div class="image-modal-meta">
+          <figcaption id="image-modal-caption" class="image-modal-caption"></figcaption>
+          <div id="image-modal-count" class="image-modal-count"></div>
+        </div>
       </figure>
     </div>
   </div>
@@ -940,14 +990,27 @@
     const imageModal = document.getElementById('image-modal');
     const imageModalImage = document.getElementById('image-modal-image');
     const imageModalCaption = document.getElementById('image-modal-caption');
+    const imageModalCount = document.getElementById('image-modal-count');
     const imageModalClose = document.getElementById('image-modal-close');
     const imageModalBackdrop = document.getElementById('image-modal-backdrop');
+    const imageModalPrev = document.getElementById('image-modal-prev');
+    const imageModalNext = document.getElementById('image-modal-next');
     const imageModalTriggers = document.querySelectorAll('.image-modal-trigger');
+    const galleryImages = Array.from(document.querySelectorAll('[data-modal-image]'));
 
-    function openImageModal(imageElement) {
+    let currentGalleryIndex = 0;
+
+    function renderImageModal(index) {
+      const imageElement = galleryImages[index];
+      currentGalleryIndex = index;
       imageModalImage.src = imageElement.src;
       imageModalImage.alt = imageElement.alt || '';
       imageModalCaption.textContent = imageElement.dataset.modalCaption || '';
+      imageModalCount.textContent = `${index + 1} / ${galleryImages.length}`;
+    }
+
+    function openImageModal(index) {
+      renderImageModal(index);
       imageModal.classList.add('is-open');
       imageModal.setAttribute('aria-hidden', 'false');
       document.body.classList.add('is-modal-open');
@@ -959,23 +1022,45 @@
       imageModalImage.src = '';
       imageModalImage.alt = '';
       imageModalCaption.textContent = '';
+      imageModalCount.textContent = '';
       document.body.classList.remove('is-modal-open');
+    }
+
+    function showPreviousImage() {
+      const nextIndex = (currentGalleryIndex - 1 + galleryImages.length) % galleryImages.length;
+      renderImageModal(nextIndex);
+    }
+
+    function showNextImage() {
+      const nextIndex = (currentGalleryIndex + 1) % galleryImages.length;
+      renderImageModal(nextIndex);
     }
 
     imageModalTriggers.forEach((trigger) => {
       trigger.addEventListener('click', () => {
         const wrap = trigger.closest('.image-modal-trigger-wrap');
         const image = wrap.querySelector('[data-modal-image]');
-        openImageModal(image);
+        const index = galleryImages.indexOf(image);
+        openImageModal(index);
       });
     });
 
     imageModalClose.addEventListener('click', closeImageModal);
     imageModalBackdrop.addEventListener('click', closeImageModal);
+    imageModalPrev.addEventListener('click', showPreviousImage);
+    imageModalNext.addEventListener('click', showNextImage);
 
     document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && imageModal.classList.contains('is-open')) {
+      if (imageModal.classList.contains('is-open') === false) {
+        return;
+      }
+
+      if (event.key === 'Escape') {
         closeImageModal();
+      } else if (event.key === 'ArrowLeft') {
+        showPreviousImage();
+      } else if (event.key === 'ArrowRight') {
+        showNextImage();
       }
     });
   </script>
