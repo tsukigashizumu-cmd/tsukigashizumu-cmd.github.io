@@ -250,12 +250,14 @@
       pointer-events: none;
     }
 
-    .hero-visual-card img {
+    .hero-visual-card img,
+    .hero-visual-card video {
       position: relative;
       z-index: 1;
       width: 100%;
       border-radius: 22px;
       border: 1px solid rgba(132, 96, 69, 0.10);
+      background: #fff;
     }
 
     .section {
@@ -676,7 +678,18 @@
         </div>
 
         <div class="hero-visual-card">
-          <img src="./assets/screenshots/valuepop-01.png" alt="ValuePop screenshot">
+          <div class="media-toggle-wrap">
+            <video id="valuepop-preview-video" autoplay muted loop playsinline preload="metadata" poster="./assets/screenshots/valuepop-01.png">
+              <source src="./assets/mov/valuepop-01-01.mp4" type="video/mp4">
+              お使いのブラウザでは動画を再生できません。
+            </video>
+            <button class="media-toggle-surface" type="button" aria-label="動画の再生状態を切り替える"></button>
+          </div>
+
+          <button id="valuepop-toggle-status" class="media-toggle-status" type="button">
+            <span class="media-toggle-dot" aria-hidden="true"></span>
+            <span id="valuepop-toggle-label">停止する</span>
+          </button>
         </div>
       </div>
     </section>
@@ -724,26 +737,8 @@
       <div class="container">
         <h2 class="section-title">スクリーンショット</h2>
         <p class="section-lead">
-          比較のしやすさを主役にしつつ、見やすさ、保存・読込、ヘルプまで含めた使い心地を確認できます。
+          見やすさの調整、保存・読込、ヘルプなど、毎日の比較を支える機能や使い心地を確認できます。
         </p>
-
-        <article class="shot-card" style="margin-top: 22px;">
-          <div class="media-toggle-wrap">
-            <video id="valuepop-preview-video" autoplay muted loop playsinline preload="metadata" poster="./assets/screenshots/valuepop-01.png">
-              <source src="./assets/mov/valuepop-01-01.mp4" type="video/mp4">
-              お使いのブラウザでは動画を再生できません。
-            </video>
-            <button class="media-toggle-surface" type="button" aria-label="動画の再生状態を切り替える"></button>
-          </div>
-
-          <button id="valuepop-toggle-status" class="media-toggle-status" type="button">
-            <span class="media-toggle-dot" aria-hidden="true"></span>
-            <span id="valuepop-toggle-label">停止する</span>
-          </button>
-
-          <h3>どれが安いか、ひと目でわかる</h3>
-          <p>比較画面は最初から自動で動き、タップすると停止、もう一度タップすると繰り返し再生に戻せます。</p>
-        </article>
 
         <div class="screenshot-grid">
           <article class="shot-card">
