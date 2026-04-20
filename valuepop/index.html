@@ -288,6 +288,21 @@
       font-size: 0.98rem;
     }
 
+    .screenshots-media-mobile {
+      display: block;
+      margin-top: 22px;
+    }
+
+    .screenshots-media-desktop {
+      display: none;
+      margin-top: 22px;
+    }
+
+    .desktop-phone-frame {
+      width: min(360px, 100%);
+      margin: 0 auto;
+    }
+
     .screenshot-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -301,10 +316,6 @@
       border-radius: var(--radius-lg);
       padding: 16px;
       box-shadow: var(--shadow);
-    }
-
-    .shot-card--video {
-      grid-column: span 3;
     }
 
     .shot-card img,
@@ -406,19 +417,22 @@
       flex-wrap: wrap;
     }
 
+    @media (min-width: 961px) {
+      .screenshots-media-mobile {
+        display: none;
+      }
+
+      .screenshots-media-desktop {
+        display: block;
+      }
+    }
+
     @media (max-width: 960px) {
       .hero-grid,
       .feature-grid,
+      .screenshot-grid,
       .info-grid {
         grid-template-columns: 1fr;
-      }
-
-      .screenshot-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .shot-card--video {
-        grid-column: span 1;
       }
 
       .hero {
@@ -567,16 +581,28 @@
           比較のしやすさを主役にしつつ、見やすさ、保存・読込、ヘルプまで含めた使い心地を確認できます。
         </p>
 
-        <div class="screenshot-grid">
-          <article class="shot-card shot-card--video">
-            <video autoplay muted loop playsinline controls preload="metadata" poster="./assets/screenshots/valuepop-01.png">
+        <div class="screenshots-media-mobile">
+          <article class="shot-card">
+            <video autoplay muted loop playsinline preload="metadata" poster="./assets/screenshots/valuepop-01.png">
               <source src="./assets/mov/valuepop-01-01.mp4" type="video/mp4">
               お使いのブラウザでは動画を再生できません。
             </video>
             <h3>比較画面の動きがわかる</h3>
-            <p>一覧カードの並びや比較結果の見え方を、静止画だけでなく動画でも確認できます。</p>
+            <p>スマホでは動画で、比較画面の流れや一覧カードの見え方を確認できます。</p>
           </article>
+        </div>
 
+        <div class="screenshots-media-desktop">
+          <div class="desktop-phone-frame">
+            <article class="shot-card">
+              <img src="./assets/screenshots/valuepop-01.png" alt="ValuePop screenshot desktop preview">
+              <h3>比較画面の印象を読みやすく確認</h3>
+              <p>横画面では動画を無理に広げず、まずは静止画で比較結果の見え方を確認できます。</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="screenshot-grid">
           <article class="shot-card">
             <img src="./assets/screenshots/valuepop-01.png" alt="ValuePop screenshot 1">
             <h3>どこが安いか、ひと目でわかる</h3>
