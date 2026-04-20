@@ -329,7 +329,7 @@
 
     .screenshot-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 18px;
       margin-top: 22px;
     }
@@ -594,7 +594,6 @@
     @media (max-width: 960px) {
       .hero-grid,
       .feature-grid,
-      .screenshot-grid,
       .info-grid {
         grid-template-columns: 1fr;
       }
@@ -816,10 +815,28 @@
       <div class="container">
         <h2 class="section-title">スクリーンショット</h2>
         <p class="section-lead">
-          表示の調整、保存・読込、ヘルプや補助機能など、毎日の比較を支える機能を確認できます。
+          比較結果の見やすさ、表示の調整、保存・読込、割引対応、複数量入力まで、毎日の比較を支える機能を確認できます。
         </p>
 
         <div class="screenshot-grid">
+          <article class="shot-card">
+            <div class="media-toggle-wrap">
+              <video autoplay muted loop playsinline preload="metadata" poster="./assets/screenshots/valuepop-04.png" data-toggle-video>
+                <source src="./assets/mov/valuepop-04-01.mp4" type="video/mp4">
+                <img src="./assets/screenshots/valuepop-04.png" alt="ValuePop の比較結果を確認している画面">
+              </video>
+              <button class="media-toggle-surface" type="button" aria-label="動画の再生状態を切り替える"></button>
+            </div>
+
+            <button class="media-toggle-status" type="button">
+              <span class="media-toggle-dot" aria-hidden="true"></span>
+              <span class="media-toggle-label">停止する</span>
+            </button>
+
+            <h3>比較結果が見やすく、差をつかみやすい。</h3>
+            <p>単価比較に加えて、最安値、平均、中央値までまとめて確認できるので、その価格が本当にお得かを見ながら判断しやすくなります。</p>
+          </article>
+
           <article class="shot-card">
             <div class="media-toggle-wrap">
               <video autoplay muted loop playsinline preload="metadata" poster="./assets/screenshots/valuepop-02.png" data-toggle-video>
@@ -853,7 +870,25 @@
             </button>
 
             <h3>保存・読込で、比較環境を保ちながら使い続けやすい。</h3>
-            <p>登録内容を保存したり読み込んだりできるので、あとで見返すだけでなく、事前に残してから整理したり、使い慣れた状態を保ちながら続けたりしやすくなります。</p>
+            <p>登録内容を保存したり読み込んだりできるので、あとで見返すだけでなく、使い慣れた状態を保ちながら続けやすくなります。</p>
+          </article>
+
+          <article class="shot-card">
+            <div class="media-toggle-wrap">
+              <video autoplay muted loop playsinline preload="metadata" poster="./assets/screenshots/valuepop-06.png" data-toggle-video>
+                <source src="./assets/mov/valuepop-06-01.mp4" type="video/mp4">
+                <img src="./assets/screenshots/valuepop-06.png" alt="ValuePop の額引や％引の入力項目を確認している画面">
+              </video>
+              <button class="media-toggle-surface" type="button" aria-label="動画の再生状態を切り替える"></button>
+            </div>
+
+            <button class="media-toggle-status" type="button">
+              <span class="media-toggle-dot" aria-hidden="true"></span>
+              <span class="media-toggle-label">停止する</span>
+            </button>
+
+            <h3>額引・％引にも対応して、実際の売り場に合わせやすい。</h3>
+            <p>％引や額引を反映しながら比較できるので、表示価格だけではわかりにくい実際のお得さも判断しやすくなります。</p>
           </article>
 
           <article class="shot-card">
@@ -870,8 +905,8 @@
               <span class="media-toggle-label">停止する</span>
             </button>
 
-            <h3>ヘルプや補助機能で、迷いにくく使いやすい。</h3>
-            <p>必要な機能に触れやすく、検索や使い方を確認しながら進められるので、はじめてでも迷いにくく使えます。</p>
+            <h3>数量の掛け算にも対応し、ヘルプを見ながら入力できる。</h3>
+            <p>複数の数量を掛け合わせる形にも対応しているので、商品の条件に合わせて比較しやすくなります。必要な時はヘルプを見ながら進められるため、はじめてでも迷いにくいです。</p>
           </article>
         </div>
       </div>
