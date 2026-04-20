@@ -332,59 +332,41 @@
       position: relative;
     }
 
-    .media-toggle-button {
+    .media-toggle-surface {
       position: absolute;
       inset: 0;
       z-index: 2;
       border: none;
-      background: linear-gradient(180deg, rgba(52, 38, 28, 0.02) 0%, rgba(52, 38, 28, 0.18) 100%);
+      background: transparent;
       border-radius: 22px;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
     }
 
-    .media-toggle-button-inner {
+    .media-toggle-status {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
+      margin-top: 12px;
       border-radius: 999px;
-      padding: 12px 16px;
+      padding: 10px 14px;
       background: rgba(255, 255, 255, 0.92);
       color: var(--text);
       border: 1px solid rgba(132, 96, 69, 0.12);
       box-shadow: 0 10px 24px rgba(70, 44, 22, 0.12);
       font-weight: 700;
-    }
-
-    .play-icon {
-      width: 0;
-      height: 0;
-      border-left: 12px solid var(--text);
-      border-top: 8px solid transparent;
-      border-bottom: 8px solid transparent;
-      margin-left: 2px;
-    }
-
-    .media-panel {
-      display: none;
-    }
-
-    .media-panel.is-active {
-      display: block;
-    }
-
-    .media-back-button {
-      margin-top: 12px;
-      border: 1px solid rgba(132, 96, 69, 0.12);
-      background: rgba(255, 255, 255, 0.88);
-      color: var(--text);
-      border-radius: 999px;
-      padding: 10px 14px;
-      font-weight: 700;
       cursor: pointer;
+    }
+
+    .media-toggle-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--accent-strong);
+      flex-shrink: 0;
+    }
+
+    .media-toggle-status.is-paused .media-toggle-dot {
+      background: rgba(132, 96, 69, 0.45);
     }
 
     .info-grid {
@@ -620,28 +602,21 @@
         </p>
 
         <article class="shot-card" style="margin-top: 22px;">
-          <div class="media-panel is-active" id="valuepop-media-image-panel">
-            <div class="media-toggle-wrap">
-              <img src="./assets/screenshots/valuepop-01.png" alt="ValuePop comparison preview">
-              <button class="media-toggle-button" type="button" aria-controls="valuepop-media-video-panel" onclick="showValuePopVideo()">
-                <span class="media-toggle-button-inner">
-                  <span class="play-icon" aria-hidden="true"></span>
-                  動画で見る
-                </span>
-              </button>
-            </div>
-          </div>
-
-          <div class="media-panel" id="valuepop-media-video-panel">
+          <div class="media-toggle-wrap">
             <video id="valuepop-preview-video" playsinline preload="metadata" poster="./assets/screenshots/valuepop-01.png">
               <source src="./assets/mov/valuepop-01-01.mp4" type="video/mp4">
               お使いのブラウザでは動画を再生できません。
             </video>
-            <button class="media-back-button" type="button" onclick="showValuePopImage()">静止画に戻す</button>
+            <button class="media-toggle-surface" type="button" aria-label="動画の再生状態を切り替える" onclick="toggleValuePopVideo()"></button>
           </div>
 
-          <h3>比較画面の動きも、必要な時だけ確認できる</h3>
-          <p>最初は静止画で見やすく、気になったらタップで動画に切り替えて確認できます。</p>
+          <button id="valuepop-toggle-status" class="media-toggle-status is-paused" type="button" onclick="toggleValuePopVideo()">
+            <span class="media-toggle-dot" aria-hidden="true"></span>
+            <span id="valuepop-toggle-label">繰り返し再生する</span>
+          </button>
+
+          <h3>比較画面の動きも、必要な時だけ動かせる</h3>
+          <p>タップすると繰り返し再生し、もう一度タップすると止まります。見たい時だけ動かして確認できます。</p>
         </article>
 
         <div class="screenshot-grid">
@@ -742,27 +717,31 @@
   </footer>
 
   <script>
-    function showValuePopVideo() {
-      const imagePanel = document.getElementById('valuepop-media-image-panel');
-      const videoPanel = document.getElementById('valuepop-media-video-panel');
-      const video = document.getElementById('valuepop-preview-video');
+    const valuePopVideo = document.getElementById('valuepop-preview-video');
+    const valuePopToggleStatus = document.getElementById('valuepop-toggle-status');
+    const valuePopToggleLabel = document.getElementById('valuepop-toggle-label');
 
-      imagePanel.classList.remove('is-active');
-      videoPanel.classList.add('is-active');
+    function setValuePopVideoState(isPlaying) {
+      valuePopVideo.loop = isPlaying;
 
-      video.currentTime = 0;
-      video.play().catch(() => {});
+      if (isPlaying) {
+        valuePopVideo.currentTime = 0;
+        valuePopVideo.play().catch(() => {});
+        valuePopToggleStatus.classList.remove('is-paused');
+        valuePopToggleLabel.textContent = '停止する';
+      } else {
+        valuePopVideo.pause();
+        valuePopToggleStatus.classList.add('is-paused');
+        valuePopToggleLabel.textContent = '繰り返し再生する';
+      }
     }
 
-    function showValuePopImage() {
-      const imagePanel = document.getElementById('valuepop-media-image-panel');
-      const videoPanel = document.getElementById('valuepop-media-video-panel');
-      const video = document.getElementById('valuepop-preview-video');
-
-      video.pause();
-      imagePanel.classList.add('is-active');
-      videoPanel.classList.remove('is-active');
+    function toggleValuePopVideo() {
+      const shouldPlay = valuePopVideo.paused;
+      setValuePopVideoState(shouldPlay);
     }
+
+    setValuePopVideoState(false);
   </script>
 </body>
 </html>
