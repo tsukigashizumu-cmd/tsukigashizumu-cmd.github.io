@@ -816,19 +816,17 @@
           </article>
 
           <article class="shot-card">
-            <div class="image-modal-trigger-wrap">
-              <img
-                src="./assets/screenshots/valuepop-04.png"
-                alt="ValuePop screenshot 4"
-                data-modal-image
-                data-modal-caption="ヘルプ、広告オフ、入力や表示の調整など、毎日の比較を支える機能をまとめています。"
-              >
-              <button class="image-modal-trigger" type="button" aria-label="画像を拡大して表示する"></button>
+            <div class="media-toggle-wrap">
+              <video autoplay muted loop playsinline preload="metadata" poster="./assets/screenshots/valuepop-04.png" data-toggle-video>
+                <source src="./assets/mov/valuepop-04-01.mp4" type="video/mp4">
+                お使いのブラウザでは動画を再生できません。
+              </video>
+              <button class="media-toggle-surface" type="button" aria-label="動画の再生状態を切り替える"></button>
             </div>
 
-            <button class="image-modal-status" type="button">
-              <span class="image-modal-dot" aria-hidden="true"></span>
-              <span>タップで拡大</span>
+            <button class="media-toggle-status" type="button">
+              <span class="media-toggle-dot" aria-hidden="true"></span>
+              <span class="media-toggle-label">停止する</span>
             </button>
 
             <h3>必要な機能をまとめて使いやすく</h3>
