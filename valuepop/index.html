@@ -135,6 +135,12 @@
       box-shadow: 0 10px 24px rgba(218, 155, 51, 0.22);
     }
 
+    .is-disabled {
+      opacity: 0.72;
+      pointer-events: none;
+      cursor: default;
+    }
+
     .hero {
       padding: 52px 0 28px;
     }
@@ -509,7 +515,7 @@
         <a class="nav-link" href="#screenshots">スクリーンショット</a>
         <a class="nav-link" href="./support/">サポート</a>
         <a class="nav-link" href="./privacy/">プライバシー</a>
-        <a class="nav-button" href="APP_STORE_URL_HERE">App Store で見る</a>
+        <a class="nav-button is-disabled" href="#" aria-disabled="true">公開準備中</a>
       </nav>
     </div>
   </header>
@@ -526,7 +532,7 @@
           </p>
 
           <div class="hero-actions">
-            <a class="button-primary" href="APP_STORE_URL_HERE">App Store で見る</a>
+            <a class="button-primary is-disabled" href="#" aria-disabled="true">公開準備中</a>
             <a class="button-secondary" href="#screenshots">スクリーンショットを見る</a>
             <a class="button-secondary" href="./support/">サポートを見る</a>
           </div>
@@ -684,12 +690,12 @@
 
         <div class="cta-card">
           <div>
-            <h3>気になったら、App Store でチェック</h3>
-            <p>比較画面の使い心地や特長を確認したあと、そのまま App Store ですぐに始められます。</p>
+            <h3>気になったら、まずはチェック</h3>
+            <p>比較画面の使い心地や特長を確認しながら、公開前に機能やサポート内容を見ておけます。</p>
           </div>
           <div class="hero-actions" style="margin-top: 0;">
             <a class="button-secondary" href="./support/">サポート</a>
-            <a class="button-primary" href="APP_STORE_URL_HERE">App Store で見る</a>
+            <a class="button-primary is-disabled" href="#" aria-disabled="true">公開準備中</a>
           </div>
         </div>
       </div>
@@ -700,7 +706,6 @@
     <div class="container footer-inner">
       <div>© ValuePop</div>
       <div class="footer-links">
-        <a href="APP_STORE_URL_HERE">App Store</a>
         <a href="./support/">Support</a>
         <a href="./privacy/">Privacy Policy</a>
       </div>
