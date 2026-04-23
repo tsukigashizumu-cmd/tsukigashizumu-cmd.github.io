@@ -1,1 +1,329 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>サポート | プリンすくい</title>
+  <meta name="description" content="プリンすくいのサポートページです。お問い合わせ方法や、不具合報告時にあると助かる情報をまとめています。">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #fffaf2;
+      --card: rgba(255, 255, 255, 0.9);
+      --text: #4a3525;
+      --subtext: #7a6250;
+      --line: rgba(120, 88, 55, 0.14);
+      --shadow: 0 18px 50px rgba(110, 74, 36, 0.10);
+      --accent: #d89a3a;
+      --caramel: #8b5328;
+      --max: 860px;
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+    }
 
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic UI", "Yu Gothic", sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at top, #fff7ea 0%, #fffaf2 42%, #fff7ee 100%);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(255, 250, 242, 0.82);
+      border-bottom: 1px solid rgba(120, 88, 55, 0.08);
+    }
+
+    .site-header-inner {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-badge {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, #ffe39d 0%, #efc15c 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-badge::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 32%;
+      background: linear-gradient(180deg, #a86a34 0%, #7e491f 100%);
+    }
+
+    .header-links {
+      display: inline-flex;
+      gap: 18px;
+      color: var(--subtext);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .hero {
+      padding: 52px 0 22px;
+    }
+
+    .hero-card,
+    .content-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 30px 26px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(120, 88, 55, 0.10);
+      color: var(--caramel);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    h1 {
+      margin: 16px 0 10px;
+      font-size: clamp(34px, 6vw, 54px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .lead {
+      margin: 0;
+      color: var(--subtext);
+      font-size: 16px;
+    }
+
+    .section {
+      padding: 12px 0 22px;
+    }
+
+    .content-card {
+      padding: 24px;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .stack {
+      display: grid;
+      gap: 16px;
+    }
+
+    .block {
+      padding: 18px;
+      background: rgba(255,255,255,0.68);
+      border: 1px solid rgba(120, 88, 55, 0.10);
+      border-radius: var(--radius-lg);
+    }
+
+    .block strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 16px;
+    }
+
+    .muted {
+      color: var(--subtext);
+    }
+
+    .mail-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-weight: 800;
+      background: linear-gradient(180deg, #d29342 0%, #b7742a 100%);
+      color: white;
+      margin-top: 14px;
+      box-shadow: 0 12px 30px rgba(168, 106, 52, 0.22);
+    }
+
+    ul {
+      margin: 10px 0 0;
+      padding-left: 1.2em;
+    }
+
+    li + li {
+      margin-top: 6px;
+    }
+
+    .site-footer {
+      padding: 18px 0 44px;
+      color: var(--subtext);
+      font-size: 14px;
+    }
+
+    .site-footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 20px;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(120, 88, 55, 0.10);
+      padding-top: 18px;
+    }
+
+    .footer-links {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    @media (max-width: 720px) {
+      .site-header-inner {
+        min-height: 62px;
+      }
+
+      .header-links {
+        gap: 12px;
+        font-size: 13px;
+      }
+
+      .hero {
+        padding-top: 34px;
+      }
+
+      .hero-card,
+      .content-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <a class="brand" href="../">
+        <span class="brand-badge" aria-hidden="true"></span>
+        <span>プリンすくい</span>
+      </a>
+
+      <nav class="header-links">
+        <a href="../">トップ</a>
+        <a href="../privacy/">プライバシー</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <span class="eyebrow">Support</span>
+          <h1>サポート</h1>
+          <p class="lead">
+            プリンすくいに関するお問い合わせはこちらからお願いします。
+            不具合の報告やご意見・ご感想も歓迎しています。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="content-card stack">
+          <div class="block">
+            <h2>お問い合わせ先</h2>
+            <p class="muted">
+              メールでご連絡ください。内容を確認のうえ、必要に応じて返信します。
+            </p>
+            <a class="mail-link" href="mailto:your-email@example.com?subject=%E3%83%97%E3%83%AA%E3%83%B3%E3%81%99%E3%81%8F%E3%81%84%20%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%81%B8%E3%81%AE%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">メールで問い合わせる</a>
+          </div>
+
+          <div class="block">
+            <h2>不具合報告のときにあると助かる情報</h2>
+            <ul class="muted">
+              <li>使用している端末名</li>
+              <li>iOSのバージョン</li>
+              <li>アプリのバージョン</li>
+              <li>どんな操作のあとに起きたか</li>
+              <li>表示された内容や症状</li>
+              <li>スクリーンショットがあればその画像</li>
+            </ul>
+          </div>
+
+          <div class="block">
+            <h2>ご意見・ご感想について</h2>
+            <p class="muted">
+              「ここが気持ちよかった」「ここがわかりにくかった」など、
+              短い内容でもとても助かります。今後の改善の参考にします。
+            </p>
+          </div>
+
+          <div class="block">
+            <h2>アプリ情報</h2>
+            <p class="muted">アプリ名: プリンすくい</p>
+            <p class="muted">提供: PuddingScoop</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer-inner">
+      <div>© PuddingScoop</div>
+      <div class="footer-links">
+        <a href="../">Top</a>
+        <a href="../privacy/">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
