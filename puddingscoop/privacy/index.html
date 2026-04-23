@@ -1,1 +1,358 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>プライバシーポリシー | プリンすくい</title>
+  <meta name="description" content="プリンすくいのプライバシーポリシーです。広告配信やアクセス解析などの情報を掲載しています。">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #fffaf2;
+      --card: rgba(255, 255, 255, 0.9);
+      --text: #4a3525;
+      --subtext: #7a6250;
+      --line: rgba(120, 88, 55, 0.14);
+      --shadow: 0 18px 50px rgba(110, 74, 36, 0.10);
+      --caramel: #8b5328;
+      --max: 860px;
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+    }
 
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic UI", "Yu Gothic", sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at top, #fff7ea 0%, #fffaf2 42%, #fff7ee 100%);
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(255, 250, 242, 0.82);
+      border-bottom: 1px solid rgba(120, 88, 55, 0.08);
+    }
+
+    .site-header-inner {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-badge {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, #ffe39d 0%, #efc15c 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-badge::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 32%;
+      background: linear-gradient(180deg, #a86a34 0%, #7e491f 100%);
+    }
+
+    .header-links {
+      display: inline-flex;
+      gap: 18px;
+      color: var(--subtext);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .hero {
+      padding: 52px 0 22px;
+    }
+
+    .hero-card,
+    .content-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 30px 26px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(120, 88, 55, 0.10);
+      color: var(--caramel);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    h1 {
+      margin: 16px 0 10px;
+      font-size: clamp(34px, 6vw, 54px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .lead {
+      margin: 0;
+      color: var(--subtext);
+      font-size: 16px;
+    }
+
+    .section {
+      padding: 12px 0 22px;
+    }
+
+    .content-card {
+      padding: 24px;
+    }
+
+    .policy-stack {
+      display: grid;
+      gap: 16px;
+    }
+
+    .policy-block {
+      padding: 18px;
+      background: rgba(255,255,255,0.68);
+      border: 1px solid rgba(120, 88, 55, 0.10);
+      border-radius: var(--radius-lg);
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    p + p,
+    ul {
+      margin-top: 10px;
+    }
+
+    ul {
+      padding-left: 1.2em;
+    }
+
+    li + li {
+      margin-top: 6px;
+    }
+
+    .muted {
+      color: var(--subtext);
+    }
+
+    .site-footer {
+      padding: 18px 0 44px;
+      color: var(--subtext);
+      font-size: 14px;
+    }
+
+    .site-footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 20px;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(120, 88, 55, 0.10);
+      padding-top: 18px;
+    }
+
+    .footer-links {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    @media (max-width: 720px) {
+      .site-header-inner {
+        min-height: 62px;
+      }
+
+      .header-links {
+        gap: 12px;
+        font-size: 13px;
+      }
+
+      .hero {
+        padding-top: 34px;
+      }
+
+      .hero-card,
+      .content-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <a class="brand" href="../">
+        <span class="brand-badge" aria-hidden="true"></span>
+        <span>プリンすくい</span>
+      </a>
+
+      <nav class="header-links">
+        <a href="../">トップ</a>
+        <a href="../support/">サポート</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <span class="eyebrow">Privacy Policy</span>
+          <h1>プライバシーポリシー</h1>
+          <p class="lead">
+            本プライバシーポリシーは、プリンすくいにおける利用者情報の取扱いについて説明するものです。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="content-card">
+          <div class="policy-stack">
+            <section class="policy-block">
+              <h2>1. 取得する情報</h2>
+              <p class="muted">
+                本アプリでは、以下の情報を取得する場合があります。
+              </p>
+              <ul class="muted">
+                <li>広告配信のために必要となる情報</li>
+                <li>利用状況の解析のための情報</li>
+                <li>クラッシュやパフォーマンスの計測に関する情報</li>
+                <li>お問い合わせ時に利用者が送信した情報</li>
+              </ul>
+            </section>
+
+            <section class="policy-block">
+              <h2>2. 利用目的</h2>
+              <p class="muted">
+                取得した情報は、以下の目的で利用します。
+              </p>
+              <ul class="muted">
+                <li>広告の配信および表示のため</li>
+                <li>本アプリの利用状況の分析および改善のため</li>
+                <li>不具合の調査、修正、品質向上のため</li>
+                <li>お問い合わせへの対応のため</li>
+              </ul>
+            </section>
+
+            <section class="policy-block">
+              <h2>3. 外部サービスについて</h2>
+              <p class="muted">
+                本アプリでは、以下の外部サービスを利用する場合があります。
+              </p>
+              <ul class="muted">
+                <li>Google AdMob</li>
+                <li>Google Analytics for Firebase</li>
+                <li>Firebase Crashlytics</li>
+                <li>Firebase Performance Monitoring</li>
+              </ul>
+              <p class="muted">
+                これらのサービスでは、各提供事業者のプライバシーポリシーに基づいて情報が取り扱われます。
+              </p>
+            </section>
+
+            <section class="policy-block">
+              <h2>4. 第三者提供</h2>
+              <p class="muted">
+                法令に基づく場合を除き、利用者本人の同意なく、取得した情報を第三者に提供することはありません。
+                ただし、外部サービス提供事業者による情報の取扱いについては、この限りではありません。
+              </p>
+            </section>
+
+            <section class="policy-block">
+              <h2>5. 利用者による情報の管理</h2>
+              <p class="muted">
+                利用者は、端末の設定等により広告識別子の利用制限やトラッキング許可の変更を行うことができます。
+                詳細は、ご利用の端末設定をご確認ください。
+              </p>
+            </section>
+
+            <section class="policy-block">
+              <h2>6. お問い合わせ</h2>
+              <p class="muted">
+                本ポリシーに関するお問い合わせは、サポートページ記載の連絡先までお願いします。
+              </p>
+            </section>
+
+            <section class="policy-block">
+              <h2>7. 改定</h2>
+              <p class="muted">
+                本ポリシーは、必要に応じて改定することがあります。改定後の内容は、本ページに掲載した時点から効力を生じるものとします。
+              </p>
+            </section>
+
+            <section class="policy-block">
+              <h2>8. 事業者情報</h2>
+              <p class="muted">アプリ名: プリンすくい</p>
+              <p class="muted">提供者: PuddingScoop</p>
+              <p class="muted">制定日: 2026年4月23日</p>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer-inner">
+      <div>© PuddingScoop</div>
+      <div class="footer-links">
+        <a href="../">Top</a>
+        <a href="../support/">Support</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
