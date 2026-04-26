@@ -1,0 +1,1165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ValuePop - Compare unit prices and find the best deal</title>
+  <meta name="description" content="ValuePop helps you compare unit prices, find the lowest price, and check averages and medians. Enter price and quantity to see which option is really the better deal.">
+  <link rel="alternate" hreflang="ja" href="https://tsukigashizumu-cmd.github.io/valuepop/">
+  <link rel="alternate" hreflang="en" href="https://tsukigashizumu-cmd.github.io/valuepop/en/">
+  <link rel="alternate" hreflang="x-default" href="https://tsukigashizumu-cmd.github.io/valuepop/">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f4ef;
+      --card: rgba(255, 255, 255, 0.82);
+      --card-strong: rgba(255, 255, 255, 0.92);
+      --text: #34261c;
+      --subtext: #6c5b4f;
+      --line: rgba(132, 96, 69, 0.18);
+      --shadow: 0 18px 40px rgba(70, 44, 22, 0.10);
+      --accent: #f4b44f;
+      --accent-strong: #da9b33;
+      --button-text: #2f2319;
+      --max-width: 1080px;
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(244, 180, 79, 0.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(187, 146, 97, 0.12), transparent 24%),
+        linear-gradient(180deg, #fcfaf7 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    body.is-modal-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img,
+    video {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(247, 244, 239, 0.78);
+      border-bottom: 1px solid rgba(132, 96, 69, 0.10);
+    }
+
+    .site-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 72px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 22px rgba(70, 44, 22, 0.16);
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      font-size: 1.05rem;
+    }
+
+    .header-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-link,
+    .nav-button {
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 0.95rem;
+      color: var(--subtext);
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav-link:hover,
+    .nav-button:hover {
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .nav-button {
+      background: linear-gradient(180deg, #ffd18a 0%, var(--accent) 100%);
+      color: var(--button-text);
+      font-weight: 700;
+      box-shadow: 0 10px 24px rgba(218, 155, 51, 0.22);
+    }
+
+    .is-disabled {
+      opacity: 0.72;
+      pointer-events: none;
+      cursor: default;
+    }
+
+    .hero {
+      padding: 52px 0 28px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      padding: 12px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+      color: var(--subtext);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    h1 {
+      margin: 16px 0 14px;
+      font-size: clamp(2.2rem, 5vw, 4.25rem);
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-lead {
+      margin: 0;
+      font-size: clamp(1.06rem, 1.8vw, 1.25rem);
+      color: var(--subtext);
+      max-width: 40rem;
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .hero-point {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      border-radius: 999px;
+      padding: 0 14px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+      color: var(--text);
+      font-size: 0.94rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      box-shadow: 0 10px 24px rgba(70, 44, 22, 0.08);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button-primary,
+    .button-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      border-radius: 999px;
+      padding: 0 18px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+
+    .button-primary {
+      background: linear-gradient(180deg, #ffd18a 0%, var(--accent) 100%);
+      color: var(--button-text);
+      box-shadow: 0 12px 24px rgba(218, 155, 51, 0.24);
+    }
+
+    .button-secondary {
+      background: rgba(255, 255, 255, 0.8);
+      color: var(--text);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+    }
+
+    .button-primary:hover,
+    .button-secondary:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero-note {
+      margin-top: 16px;
+      font-size: 0.92rem;
+      color: var(--subtext);
+    }
+
+    .hero-visual-card {
+      position: relative;
+      border-radius: var(--radius-xl);
+      padding: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.78) 100%);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-visual-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top right, rgba(244, 180, 79, 0.18), transparent 32%),
+        radial-gradient(circle at bottom left, rgba(160, 127, 95, 0.10), transparent 28%);
+      pointer-events: none;
+    }
+
+    .hero-visual-card img,
+    .hero-visual-card video {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      border-radius: 22px;
+      border: 1px solid rgba(132, 96, 69, 0.10);
+      background: #fff;
+    }
+
+    .section {
+      padding: 28px 0;
+    }
+
+    .section-title {
+      margin: 0 0 10px;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    .section-lead {
+      margin: 0;
+      color: var(--subtext);
+      max-width: 58rem;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .feature-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.04rem;
+      letter-spacing: -0.02em;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: var(--subtext);
+      font-size: 0.98rem;
+    }
+
+    .screenshot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .shot-card {
+      background: var(--card-strong);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .shot-card img,
+    .shot-card video {
+      width: 100%;
+      border-radius: 22px;
+      border: 1px solid rgba(132, 96, 69, 0.10);
+      background: #fff;
+    }
+
+    .shot-card p {
+      margin: 12px 2px 0;
+      color: var(--subtext);
+      font-size: 0.95rem;
+    }
+
+    .shot-card h3 {
+      margin: 14px 2px 0;
+      font-size: 1rem;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+    }
+
+    .media-toggle-wrap,
+    .image-modal-trigger-wrap {
+      position: relative;
+    }
+
+    .media-toggle-surface,
+    .image-modal-trigger {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      border: none;
+      background: transparent;
+      border-radius: 22px;
+      cursor: pointer;
+    }
+
+    .media-toggle-status,
+    .image-modal-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+      border-radius: 999px;
+      padding: 10px 14px;
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--text);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+      box-shadow: 0 10px 24px rgba(70, 44, 22, 0.12);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .media-toggle-dot,
+    .image-modal-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--accent-strong);
+      flex-shrink: 0;
+    }
+
+    .media-toggle-status.is-paused .media-toggle-dot {
+      background: rgba(132, 96, 69, 0.45);
+    }
+
+    .image-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(47, 35, 25, 0.72);
+      backdrop-filter: blur(10px);
+    }
+
+    .image-modal.is-open {
+      display: flex;
+    }
+
+    .image-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .image-modal-dialog {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 980px);
+      border-radius: 28px;
+      padding: 18px 18px 16px;
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+      box-shadow: 0 24px 60px rgba(47, 35, 25, 0.22);
+    }
+
+    .image-modal-close,
+    .image-modal-nav {
+      position: absolute;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(132, 96, 69, 0.12);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--text);
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(70, 44, 22, 0.12);
+    }
+
+    .image-modal-close {
+      top: 14px;
+      right: 14px;
+    }
+
+    .image-modal-nav {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .image-modal-nav-prev {
+      left: 14px;
+    }
+
+    .image-modal-nav-next {
+      right: 14px;
+    }
+
+    .image-modal-figure {
+      margin: 0;
+      padding: 0 44px;
+    }
+
+    .image-modal-image {
+      width: 100%;
+      max-height: min(78vh, 920px);
+      object-fit: contain;
+      border-radius: 22px;
+      border: 1px solid rgba(132, 96, 69, 0.10);
+      background: #fff;
+    }
+
+    .image-modal-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .image-modal-caption {
+      color: var(--subtext);
+      font-size: 0.96rem;
+      flex: 1 1 320px;
+    }
+
+    .image-modal-count {
+      color: var(--subtext);
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .info-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .info-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.04rem;
+      letter-spacing: -0.02em;
+    }
+
+    .info-card p,
+    .info-card li {
+      color: var(--subtext);
+    }
+
+    .info-card ul {
+      margin: 0;
+      padding-left: 1.1em;
+    }
+
+    .cta-card {
+      margin-top: 24px;
+      border-radius: var(--radius-xl);
+      padding: 26px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(255,248,236,0.92) 100%);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .cta-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.18rem;
+      letter-spacing: -0.02em;
+    }
+
+    .cta-card p {
+      margin: 0;
+      color: var(--subtext);
+    }
+
+    .site-footer {
+      padding: 36px 0 52px;
+      color: var(--subtext);
+      font-size: 0.94rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(132, 96, 69, 0.12);
+      padding-top: 18px;
+    }
+
+    .footer-links {
+      display: inline-flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .feature-grid,
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 32px;
+      }
+
+      .site-header-inner {
+        min-height: 68px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(calc(100% - 20px), var(--max-width));
+      }
+
+      .site-header-inner {
+        align-items: center;
+        min-height: auto;
+        padding: 10px 0;
+        gap: 10px;
+      }
+
+      .brand {
+        gap: 10px;
+      }
+
+      .brand-icon {
+        width: 40px;
+        height: 40px;
+      }
+
+      .brand-text {
+        font-size: 1rem;
+      }
+
+      .header-nav {
+        width: 100%;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 8px;
+        padding-bottom: 2px;
+      }
+
+      .header-nav::-webkit-scrollbar {
+        display: none;
+      }
+
+      .nav-link,
+      .nav-button {
+        flex: 0 0 auto;
+        white-space: nowrap;
+        padding: 8px 12px;
+        font-size: 0.9rem;
+      }
+
+      .hero {
+        padding-top: 20px;
+      }
+
+      .hero-copy {
+        padding: 0;
+      }
+
+      .eyebrow {
+        font-size: 0.82rem;
+        padding: 7px 10px;
+      }
+
+      h1 {
+        margin: 14px 0 12px;
+        font-size: clamp(2rem, 9vw, 2.8rem);
+      }
+
+      .hero-lead {
+        font-size: 1rem;
+      }
+
+      .hero-points {
+        gap: 8px;
+        margin-top: 14px;
+      }
+
+      .hero-point {
+        min-height: 36px;
+        font-size: 0.9rem;
+        padding: 0 12px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        margin-top: 20px;
+      }
+
+      .hero-note {
+        margin-top: 14px;
+      }
+
+      .hero-visual-card {
+        padding: 14px;
+      }
+
+      .cta-card {
+        padding: 22px;
+      }
+
+      .image-modal {
+        padding: 14px;
+      }
+
+      .image-modal-dialog {
+        padding: 14px 14px 12px;
+      }
+
+      .image-modal-figure {
+        padding: 0 34px;
+      }
+
+      .image-modal-nav-prev {
+        left: 8px;
+      }
+
+      .image-modal-nav-next {
+        right: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <a class="brand" href="./">
+        <span class="brand-icon">
+          <img src="./assets/app-icon.png" alt="ValuePop app icon">
+        </span>
+        <span class="brand-text">ValuePop</span>
+      </a>
+
+      <nav class="header-nav" aria-label="Primary">
+        <a class="nav-link" href="#features">Features</a>
+        <a class="nav-link" href="#screenshots">Screenshots</a>
+        <a class="nav-link" href="./support/">Support</a>
+        <a class="nav-link" href="./privacy/">Privacy</a>
+        <a class="nav-link" href="../">日本語</a>
+        <a class="nav-button" href="https://apps.apple.com/app/id6762347699">View on the App Store</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Compare different sizes and prices at a glance.</div>
+          <h1>ValuePop</h1>
+          <p class="hero-lead">
+            Enter a price and quantity to compare unit prices, find the lowest price, and check the average and median.
+            ValuePop helps you choose with more confidence when similar products come in different sizes, quantities, or prices.
+          </p>
+
+          <div class="hero-points" aria-label="ValuePop highlights">
+            <span class="hero-point">Unit price comparison</span>
+            <span class="hero-point">Lowest price, average, median</span>
+            <span class="hero-point">Save your entries</span>
+            <span class="hero-point">All features are free</span>
+          </div>
+
+          <div class="hero-actions">
+            <a class="button-primary" href="https://apps.apple.com/app/id6762347699">View on the App Store</a>
+            <a class="button-secondary" href="#screenshots">View screenshots</a>
+            <a class="button-secondary" href="./support/">Support</a>
+          </div>
+
+          <p class="hero-note">
+            See the differences clearly. Along with unit prices, ValuePop shows the lowest price, average, and median so you can judge whether a price is really a good deal.
+          </p>
+        </div>
+
+        <div class="hero-visual-card">
+          <div class="media-toggle-wrap">
+            <video id="valuepop-preview-video" autoplay muted loop playsinline preload="metadata" poster="./assets/screenshots/valuepop-01.png">
+              <source src="./assets/mov/valuepop-01-01.mp4" type="video/mp4">
+              <img src="./assets/screenshots/valuepop-01.png" alt="ValuePop preview screen">
+            </video>
+            <button class="media-toggle-surface" type="button" aria-label="Toggle video playback"></button>
+          </div>
+
+          <button id="valuepop-toggle-status" class="media-toggle-status" type="button">
+            <span class="media-toggle-dot" aria-hidden="true"></span>
+            <span id="valuepop-toggle-label">Pause</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="container">
+        <h2 class="section-title">What ValuePop helps you do</h2>
+        <p class="section-lead">
+          ValuePop helps you decide which option is really worth choosing by comparing prices with clearer context instead of relying only on instinct.
+        </p>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>Compare different sizes and prices more easily</h3>
+            <p>
+              Look beyond the shelf price. By comparing unit prices with quantity included, you can choose between different sizes and capacities with more confidence.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>See more than just the lowest price</h3>
+            <p>
+              Check the lowest price, average, and median together so you can quickly understand whether a price is low, high, or close to the typical range.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>Simple input, useful comparison</h3>
+            <p>
+              Add the information you need and start comparing quickly. Saved entries and candidates can help reduce repeated input as you keep using the app.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>Adjust the look to fit you</h3>
+            <p>
+              Tune the visual style, colors, and display options so the comparison screen feels easier to read and more comfortable to use over time.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Designed to be easy to keep using</h2>
+        <p class="section-lead">
+          ValuePop is built not only for comparison, but also for everyday usability, review, and peace of mind.
+        </p>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>All features are free to use</h3>
+            <p>
+              Use the features needed for price comparison without an additional charge.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>Temporarily turn off ads with rewarded viewing</h3>
+            <p>
+              When needed, you can turn off ads for a limited time by watching a rewarded ad.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>Save entries and keep your comparison setup</h3>
+            <p>
+              Keep your registered items, load them later, and continue using a familiar comparison setup instead of starting over every time.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>Start with demo data or from scratch</h3>
+            <p>
+              Demo data helps you understand the app at first. If you do not need it, you can clear it and start fresh after saving a backup if you want.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="screenshots" class="section">
+      <div class="container">
+        <h2 class="section-title">Screenshots</h2>
+        <p class="section-lead">
+          See the features that support everyday comparison, including display customization, save and load, discounts, and multi-quantity input.
+        </p>
+
+        <div class="screenshot-grid">
+          <article class="shot-card">
+            <div class="media-toggle-wrap">
+              <video autoplay muted loop playsinline preload="metadata" poster="./assets/screenshots/valuepop-02.png" data-toggle-video>
+                <source src="./assets/mov/valuepop-02-01.mp4" type="video/mp4">
+                <img src="./assets/screenshots/valuepop-02.png" alt="ValuePop display customization screen">
+              </video>
+              <button class="media-toggle-surface" type="button" aria-label="Toggle video playback"></button>
+            </div>
+
+            <button class="media-toggle-status" type="button">
+              <span class="media-toggle-dot" aria-hidden="true"></span>
+              <span class="media-toggle-label">Pause</span>
+            </button>
+
+            <h3>Adjust the display and text style to suit you.</h3>
+            <p>Switch visual styles and display options to make the comparison screen easier to read and more comfortable to keep using.</p>
+          </article>
+
+          <article class="shot-card">
+            <div class="media-toggle-wrap">
+              <video autoplay muted loop playsinline preload="metadata" poster="./assets/screenshots/valuepop-07.png" data-toggle-video>
+                <source src="./assets/mov/valuepop-07-01.mp4" type="video/mp4">
+                <img src="./assets/screenshots/valuepop-07.png" alt="ValuePop save and load screen">
+              </video>
+              <button class="media-toggle-surface" type="button" aria-label="Toggle video playback"></button>
+            </div>
+
+            <button class="media-toggle-status" type="button">
+              <span class="media-toggle-dot" aria-hidden="true"></span>
+              <span class="media-toggle-label">Pause</span>
+            </button>
+
+            <h3>Save and load your comparison setup.</h3>
+            <p>Save registered items and load them later so you can review past entries and keep using a familiar setup.</p>
+          </article>
+
+          <article class="shot-card">
+            <div class="media-toggle-wrap">
+              <video autoplay muted loop playsinline preload="metadata" poster="./assets/screenshots/valuepop-06.png" data-toggle-video>
+                <source src="./assets/mov/valuepop-06-01.mp4" type="video/mp4">
+                <img src="./assets/screenshots/valuepop-06.png" alt="ValuePop discount input screen">
+              </video>
+              <button class="media-toggle-surface" type="button" aria-label="Toggle video playback"></button>
+            </div>
+
+            <button class="media-toggle-status" type="button">
+              <span class="media-toggle-dot" aria-hidden="true"></span>
+              <span class="media-toggle-label">Pause</span>
+            </button>
+
+            <h3>Compare with percentage and fixed-amount discounts.</h3>
+            <p>Reflect real sale conditions such as percent-off and fixed-amount discounts to understand the actual value more easily.</p>
+          </article>
+
+          <article class="shot-card">
+            <div class="media-toggle-wrap">
+              <video autoplay muted loop playsinline preload="metadata" poster="./assets/screenshots/valuepop-05.png" data-toggle-video>
+                <source src="./assets/mov/valuepop-05-01.mp4" type="video/mp4">
+                <img src="./assets/screenshots/valuepop-05.png" alt="ValuePop help and support features screen">
+              </video>
+              <button class="media-toggle-surface" type="button" aria-label="Toggle video playback"></button>
+            </div>
+
+            <button class="media-toggle-status" type="button">
+              <span class="media-toggle-dot" aria-hidden="true"></span>
+              <span class="media-toggle-label">Pause</span>
+            </button>
+
+            <h3>Handle multiplied quantities with built-in help.</h3>
+            <p>Compare products that involve multiple quantity factors, and check the help when you need guidance so it is easier to get started.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Who it is for</h2>
+        <p class="section-lead">
+          ValuePop is useful when you are choosing between products with different sizes, quantities, or prices and want to know which one is really the better deal.
+        </p>
+
+        <div class="info-grid">
+          <article class="info-card">
+            <h3>You often hesitate while shopping</h3>
+            <ul>
+              <li>It is hard to tell which option is cheaper when sizes are different</li>
+              <li>You want to check whether a sale price is actually a good deal</li>
+              <li>You want to choose based on comparison, not just the visible price</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <h3>You want comparison to stay simple</h3>
+            <ul>
+              <li>You want everyday input to be quick</li>
+              <li>You want a readable screen that reduces comparison stress</li>
+              <li>You want to keep saved entries and use them for future shopping decisions</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="cta-card">
+          <div>
+            <h3>Interested? Take a look first</h3>
+            <p>Check the comparison screen, features, save options, and organization tools to see whether ValuePop fits the way you shop.</p>
+          </div>
+          <div class="hero-actions" style="margin-top: 0;">
+            <a class="button-secondary" href="./support/">Support</a>
+            <a class="button-primary" href="https://apps.apple.com/app/id6762347699">View on the App Store</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© ValuePop</div>
+      <div class="footer-links">
+        <a href="./support/">Support</a>
+        <a href="./privacy/">Privacy Policy</a>
+        <a href="../">日本語</a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="image-modal" class="image-modal" aria-hidden="true">
+    <button id="image-modal-backdrop" class="image-modal-backdrop" type="button" aria-label="Close enlarged image"></button>
+
+    <div class="image-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="image-modal-caption">
+      <button id="image-modal-close" class="image-modal-close" type="button" aria-label="Close">×</button>
+      <button id="image-modal-prev" class="image-modal-nav image-modal-nav-prev" type="button" aria-label="Previous image">‹</button>
+      <button id="image-modal-next" class="image-modal-nav image-modal-nav-next" type="button" aria-label="Next image">›</button>
+
+      <figure class="image-modal-figure">
+        <img id="image-modal-image" class="image-modal-image" src="" alt="">
+        <div class="image-modal-meta">
+          <figcaption id="image-modal-caption" class="image-modal-caption"></figcaption>
+          <div id="image-modal-count" class="image-modal-count"></div>
+        </div>
+      </figure>
+    </div>
+  </div>
+
+  <script>
+    function setManagedVideoState(video, statusButton, label, isPlaying) {
+      video.loop = true;
+
+      if (isPlaying) {
+        video.play().catch(() => {});
+        statusButton.classList.remove('is-paused');
+        label.textContent = 'Pause';
+      } else {
+        video.pause();
+        statusButton.classList.add('is-paused');
+        label.textContent = 'Play loop';
+      }
+    }
+
+    function bindManagedVideo(video, statusButton, surfaceButton, label) {
+      const toggle = () => {
+        const shouldPlay = video.paused;
+        setManagedVideoState(video, statusButton, label, shouldPlay);
+      };
+
+      if (surfaceButton) {
+        surfaceButton.addEventListener('click', toggle);
+      }
+
+      if (statusButton) {
+        statusButton.addEventListener('click', toggle);
+      }
+
+      setManagedVideoState(video, statusButton, label, true);
+    }
+
+    const valuePopVideo = document.getElementById('valuepop-preview-video');
+    const valuePopToggleStatus = document.getElementById('valuepop-toggle-status');
+    const valuePopToggleLabel = document.getElementById('valuepop-toggle-label');
+    const valuePopSurfaceButton = valuePopVideo
+      .closest('.media-toggle-wrap')
+      .querySelector('.media-toggle-surface');
+
+    bindManagedVideo(
+      valuePopVideo,
+      valuePopToggleStatus,
+      valuePopSurfaceButton,
+      valuePopToggleLabel
+    );
+
+    document.querySelectorAll('[data-toggle-video]').forEach((video) => {
+      const shotCard = video.closest('.shot-card');
+      const surfaceButton = shotCard.querySelector('.media-toggle-surface');
+      const statusButton = shotCard.querySelector('.media-toggle-status');
+      const label = shotCard.querySelector('.media-toggle-label');
+
+      bindManagedVideo(video, statusButton, surfaceButton, label);
+    });
+
+    const imageModal = document.getElementById('image-modal');
+    const imageModalImage = document.getElementById('image-modal-image');
+    const imageModalCaption = document.getElementById('image-modal-caption');
+    const imageModalCount = document.getElementById('image-modal-count');
+    const imageModalClose = document.getElementById('image-modal-close');
+    const imageModalBackdrop = document.getElementById('image-modal-backdrop');
+    const imageModalPrev = document.getElementById('image-modal-prev');
+    const imageModalNext = document.getElementById('image-modal-next');
+    const imageModalTriggers = document.querySelectorAll('.image-modal-trigger');
+    const galleryImages = Array.from(document.querySelectorAll('[data-modal-image]'));
+
+    let currentGalleryIndex = 0;
+
+    function renderImageModal(index) {
+      const imageElement = galleryImages[index];
+      currentGalleryIndex = index;
+      imageModalImage.src = imageElement.src;
+      imageModalImage.alt = imageElement.alt || '';
+      imageModalCaption.textContent = imageElement.dataset.modalCaption || '';
+      imageModalCount.textContent = `${index + 1} / ${galleryImages.length}`;
+    }
+
+    function openImageModal(index) {
+      renderImageModal(index);
+      imageModal.classList.add('is-open');
+      imageModal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('is-modal-open');
+    }
+
+    function closeImageModal() {
+      imageModal.classList.remove('is-open');
+      imageModal.setAttribute('aria-hidden', 'true');
+      imageModalImage.src = '';
+      imageModalImage.alt = '';
+      imageModalCaption.textContent = '';
+      imageModalCount.textContent = '';
+      document.body.classList.remove('is-modal-open');
+    }
+
+    function showPreviousImage() {
+      const nextIndex = (currentGalleryIndex - 1 + galleryImages.length) % galleryImages.length;
+      renderImageModal(nextIndex);
+    }
+
+    function showNextImage() {
+      const nextIndex = (currentGalleryIndex + 1) % galleryImages.length;
+      renderImageModal(nextIndex);
+    }
+
+    imageModalTriggers.forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        const wrap = trigger.closest('.image-modal-trigger-wrap');
+        const image = wrap.querySelector('[data-modal-image]');
+        const index = galleryImages.indexOf(image);
+        openImageModal(index);
+      });
+    });
+
+    imageModalClose.addEventListener('click', closeImageModal);
+    imageModalBackdrop.addEventListener('click', closeImageModal);
+    imageModalPrev.addEventListener('click', showPreviousImage);
+    imageModalNext.addEventListener('click', showNextImage);
+
+    document.addEventListener('keydown', (event) => {
+      if (imageModal.classList.contains('is-open') === false) {
+        return;
+      }
+
+      if (event.key === 'Escape') {
+        closeImageModal();
+      } else if (event.key === 'ArrowLeft') {
+        showPreviousImage();
+      } else if (event.key === 'ArrowRight') {
+        showNextImage();
+      }
+    });
+  </script>
+</body>
+</html>
