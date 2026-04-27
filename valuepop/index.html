@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ValuePop</title>
-  <meta name="description" content="容量違い・価格違いでも、どれが本当に安いかすぐわかる。価格と数量を入れるだけで、単価比較、最安値、平均、中央値までまとめて確認できる価格比較アプリ。">
+  <meta name="description" content="安いと思ったのに、違った。価格にも容量にも振り回されないために、単価比較、最安値、平均、中央値までまとめて確認できる価格比較アプリ。">
   <link rel="alternate" hreflang="ja" href="https://tsukigashizumu-cmd.github.io/valuepop/">
   <link rel="alternate" hreflang="en" href="https://tsukigashizumu-cmd.github.io/valuepop/en/">
   <link rel="alternate" hreflang="x-default" href="https://tsukigashizumu-cmd.github.io/valuepop/">
@@ -290,6 +290,44 @@
       padding: 28px 0;
     }
 
+    .origin-card {
+      margin-top: 4px;
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(255,248,236,0.9) 100%);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+      box-shadow: var(--shadow);
+    }
+
+    .origin-label {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 7px 11px;
+      background: rgba(244, 180, 79, 0.18);
+      color: var(--button-text);
+      font-size: 0.86rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+    }
+
+    .origin-card h2 {
+      margin: 14px 0 10px;
+      font-size: clamp(1.35rem, 2.6vw, 2rem);
+      line-height: 1.18;
+      letter-spacing: -0.03em;
+    }
+
+    .origin-card p {
+      margin: 0;
+      color: var(--subtext);
+      max-width: 62rem;
+    }
+
+    .origin-card p + p {
+      margin-top: 10px;
+    }
+
     .section-title {
       margin: 0 0 10px;
       font-size: clamp(1.5rem, 3vw, 2.2rem);
@@ -308,6 +346,106 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
       margin-top: 22px;
+    }
+
+    .route-card {
+      margin-top: 22px;
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      background: var(--card-strong);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .route-illustration {
+      margin-top: 18px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(132, 96, 69, 0.12);
+      background: #fff;
+      box-shadow: 0 12px 28px rgba(70, 44, 22, 0.08);
+    }
+
+    .route-illustration img {
+      width: 100%;
+    }
+
+    .route-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .route-step {
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      background: rgba(255, 248, 236, 0.72);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+    }
+
+    .route-step-label {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: rgba(244, 180, 79, 0.18);
+      color: var(--button-text);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .route-step h3 {
+      margin: 12px 0 8px;
+      font-size: 1.02rem;
+      letter-spacing: -0.02em;
+    }
+
+    .route-step p,
+    .route-step li {
+      color: var(--subtext);
+      font-size: 0.96rem;
+    }
+
+    .route-step p {
+      margin: 0;
+    }
+
+    .route-step ul {
+      margin: 0;
+      padding-left: 1.1em;
+    }
+
+    .route-note {
+      margin: 18px 0 0;
+      color: var(--subtext);
+      font-weight: 700;
+    }
+
+    .route-disclaimer {
+      margin: 10px 0 0;
+      color: var(--subtext);
+      font-size: 0.9rem;
+    }
+
+    .trust-note {
+      margin-top: 18px;
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+    }
+
+    .trust-note h3 {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      letter-spacing: -0.02em;
+    }
+
+    .trust-note p {
+      margin: 0;
+      color: var(--subtext);
+      font-size: 0.96rem;
     }
 
     .feature-card {
@@ -597,6 +735,7 @@
     @media (max-width: 960px) {
       .hero-grid,
       .feature-grid,
+      .route-grid,
       .info-grid {
         grid-template-columns: 1fr;
       }
@@ -756,18 +895,18 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <div class="eyebrow">容量違い・価格違いでも、どれが本当に安いかすぐわかる。</div>
+          <div class="eyebrow">安いと思ったのに、違った。</div>
           <h1>ValuePop</h1>
           <p class="hero-lead">
-            価格と数量を入れるだけで、単価比較、最安値、平均、中央値までまとめて確認。
-            毎日の買い物で、容量違いや価格違いの商品も、安さだけでなく価格の位置づけまで見ながら選びやすくなる価格比較アプリです。
+            容量違いの商品を前に、値段だけで選んだら高かった。大容量を選べば安心だと思ったら、それも違った。
+            ValuePop は、価格にも容量にも振り回されず、どれが本当に安いかを見比べるための価格比較アプリです。
           </p>
 
           <div class="hero-points" aria-label="ValuePop の要点">
             <span class="hero-point">単価比較</span>
             <span class="hero-point">最安値・平均・中央値</span>
             <span class="hero-point">登録内容を保存</span>
-            <span class="hero-point">全機能無料</span>
+            <span class="hero-point">基本機能無料</span>
           </div>
 
           <div class="hero-actions">
@@ -777,7 +916,7 @@
           </div>
 
           <p class="hero-note">
-            比較結果が見やすく、差をつかみやすい。単価比較に加えて、最安値、平均、中央値までまとめて確認できるので、その価格が本当にお得かを見ながら判断しやすくなります。
+            価格と数量を入れるだけで、単価、最安値、平均、中央値までまとめて確認。見た目の安さや容量の大きさだけに頼らず、その価格が本当にお得かを判断しやすくなります。
           </p>
         </div>
 
@@ -798,18 +937,39 @@
       </div>
     </section>
 
+    <section class="section" aria-labelledby="origin-title">
+      <div class="container">
+        <div class="origin-card">
+          <div class="origin-label">ValuePop が生まれた理由</div>
+          <h2 id="origin-title">安いと思ったものが、本当に安いとは限らなかった。</h2>
+          <p>
+            容量違いの商品が3つ並んでいて、単価を計算してみたら真ん中の商品が一番高かったことがありました。信じられなくなって、今度は一番容量が大きいものを選ぶようにしました。
+          </p>
+          <p>
+            でも別の日に計算してみると、今度は真ん中の商品が一番安かった。大きな文字、奇抜な色、強い言葉。安く見せるための見た目に、思った以上に振り回されている。その違和感から、ValuePop は生まれました。
+          </p>
+          <p>
+            本当に安いものを見分けやすくなると、少しずつお金を残しやすくなります。その積み重ねが、自分のために使える時間や、知識や、経験を選ぶ余白につながるかもしれない。だから ValuePop は、比較に必要な基本機能を無料で使えるようにしています。
+          </p>
+          <p>
+            その代わり、運営のために広告が表示されます。必要なときは、報酬視聴で一定時間広告をオフにできます。
+          </p>
+        </div>
+      </div>
+    </section>
+
     <section id="features" class="section">
       <div class="container">
         <h2 class="section-title">ValuePop の特長</h2>
         <p class="section-lead">
-          ValuePop は、毎日の買い物で「どれを選ぶと得か」を、感覚ではなく比較と相場感で判断しやすくする価格比較アプリです。
+          ValuePop は、「安そう」「大容量だから得そう」という感覚だけで選ばず、単価と価格の位置づけを見ながら納得して選びやすくする価格比較アプリです。
         </p>
 
         <div class="feature-grid">
           <article class="feature-card">
-            <h3>容量違い・価格違いでも比べやすい</h3>
+            <h3>価格にも容量にも振り回されにくい</h3>
             <p>
-              見た目の価格だけでなく、数量を含めて単価で比較しやすいから、サイズ違いや容量違いの商品でも、なんとなくではなく納得して選びやすくなります。
+              安い商品を選んだつもりでも、容量が違うと単価で逆転することがあります。ValuePop なら、見た目の価格だけでなく数量を含めて比べやすくなります。
             </p>
           </article>
 
@@ -821,9 +981,9 @@
           </article>
 
           <article class="feature-card">
-            <h3>入力はシンプル、比較はしっかり</h3>
+            <h3>使うほど、登録が楽になります</h3>
             <p>
-              必要な情報をすばやく入れて比較を始められます。使うほど登録候補も活かせるので、毎日の入力の手間を抑えながら、比較はきちんと続けやすくなります。
+              初回は店舗、商品、数量、価格を入力して登録。次回からは保存済みの店舗や商品を使い回せるので、同じ買い物ほど入力の手間を減らしやすくなります。
             </p>
           </article>
 
@@ -834,6 +994,53 @@
             </p>
           </article>
         </div>
+
+        <div class="route-card" aria-labelledby="route-title">
+          <h2 id="route-title" class="section-title">使い続けるほど、入力は少なく。</h2>
+          <p class="section-lead">
+            実際の画面では細かく比較できます。ここでは、初回入力から次回以降の呼び出しまで、入力が少なくなっていく流れだけをかんたんに整理しています。
+          </p>
+
+          <div class="route-illustration">
+            <img src="./assets/illustrations/valuepop-input-route-01.png" alt="初回は店舗、商品、数量、価格を入力し、2回目以降は保存済みの店舗や商品を呼び出して入力を減らせる流れの説明図">
+          </div>
+
+          <div class="route-grid">
+            <article class="route-step">
+              <div class="route-step-label">初回</div>
+              <h3>まずは4つだけ入力</h3>
+              <p>
+                店舗、商品、数量、価格を入力して登録します。最初の入力を保存しておくことで、次回以降の候補として使いやすくなります。
+              </p>
+            </article>
+
+            <article class="route-step">
+              <div class="route-step-label">2回目以降</div>
+              <h3>同じ店舗・商品を呼び出しやすい</h3>
+              <ul>
+                <li>一覧の店舗や商品をタップして検索・再入力</li>
+                <li>一覧をタップして、登録済み内容を入力欄へ設定</li>
+                <li>入力欄をタップすると、最近入力した店舗や商品を表示</li>
+                <li>サジェストで、部分一致した候補を表示</li>
+              </ul>
+            </article>
+
+            <article class="route-step">
+              <div class="route-step-label">同じ条件</div>
+              <h3>価格だけ変えて更新しやすい</h3>
+              <p>
+                同じ店舗・同じ商品で価格が変わったときは、一覧から内容を呼び出して価格を更新できます。価格も同じなら、入力し直す必要すらありません。
+              </p>
+            </article>
+          </div>
+
+          <p class="route-note">
+            最初だけ少し入力して、あとは使うほど楽になる。毎日の比較を続けやすくするための仕組みです。
+          </p>
+          <p class="route-disclaimer">
+            ※この説明は入力の流れをわかりやすくした図解用の整理です。実際の画面表示とは一部異なる場合があります。
+          </p>
+        </div>
       </div>
     </section>
 
@@ -841,28 +1048,35 @@
       <div class="container">
         <h2 class="section-title">安心して使いやすい設計です</h2>
         <p class="section-lead">
-          毎日の比較を続けやすいように、機能だけでなく、使いやすさや確認しやすさも整えています。
+          毎日の比較を続けやすいように、機能だけでなく、使いやすさ、広告の扱い、データの扱いもできるだけ正直にわかりやすくしています。
         </p>
 
         <div class="feature-grid">
           <article class="feature-card">
-            <h3>全機能を無料で使えます</h3>
+            <h3>比較に必要な基本機能は無料</h3>
             <p>
-              比較に必要な機能を、追加料金なしで使えます。
+              単価比較、最安値、平均、中央値など、安さを見分けるための基本機能は追加料金なしで使えます。毎日の小さな節約が、時間や知識や経験を選ぶための余白につながってほしいからです。
             </p>
           </article>
 
           <article class="feature-card">
-            <h3>報酬視聴で広告を一時的にオフにできます</h3>
+            <h3>広告はありますが、一時的にオフにできます</h3>
             <p>
-              必要に応じて、一定時間広告をオフにして使えます。
+              無料で使い続けられるように広告が表示されます。必要に応じて、報酬視聴で一定時間広告をオフにできます。
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>入力データは、基本的に端末内で扱います</h3>
+            <p>
+              ValuePop は、登録した店舗名や商品名を自前のサーバーへ送る仕組みを使っていません。広告表示のための通信を除き、比較データは端末内や自分で保存したファイルで管理します。
             </p>
           </article>
 
           <article class="feature-card">
             <h3>登録内容を保存して使い続けられます</h3>
             <p>
-              登録した内容は残して使い続けられます。保存しておけばあとから読み込めるので、見返すだけでなく、自分の比較環境を保ちながら続けやすくなります。
+              登録した内容は残して使い続けられます。保存したファイルは自分で管理でき、あとから読み込めます。ただし、保存ファイルを共有・公開した場合は、その内容も相手に見えるため注意してください。
             </p>
           </article>
 
@@ -872,6 +1086,13 @@
               はじめにデモ用データが入っていて使い方をつかみやすく、不要なら全削除してゼロから始められます。不安な場合は事前に保存してから整理することもできます。
             </p>
           </article>
+        </div>
+
+        <div class="trust-note">
+          <h3>小さな注意点も、先に伝えておきます。</h3>
+          <p>
+            ValuePop は価格の比較を助けるアプリですが、購入判断そのものを保証するものではありません。店舗や商品によって条件は変わるため、最終的な判断は表示価格や内容量、割引条件を確認しながら行ってください。
+          </p>
         </div>
       </div>
     </section>
@@ -963,15 +1184,15 @@
       <div class="container">
         <h2 class="section-title">こんな人に向いています</h2>
         <p class="section-lead">
-          スーパーやドラッグストアで、容量違い・価格違いの商品を前に「どれが本当に得なのか迷いやすい人」に向いています。
+          スーパーやドラッグストアで、安いものを選んだつもりなのに不安になる人、大容量なら安心とも言い切れず迷ってしまう人に向いています。
         </p>
 
         <div class="info-grid">
           <article class="info-card">
             <h3>買い物中に、どれを選ぶか迷いやすい</h3>
             <ul>
-              <li>容量違いの商品を前に、どれが安いのかすぐ判断しにくい</li>
-              <li>特売価格が本当にお得か、感覚ではなく比較して確かめたい</li>
+              <li>安いと思って選んだものが、本当に得なのか不安になる</li>
+              <li>大容量を選べば安心なのか、毎回迷ってしまう</li>
               <li>見た目の安さではなく、比較して納得して選びたい</li>
             </ul>
           </article>
@@ -988,8 +1209,8 @@
 
         <div class="cta-card">
           <div>
-            <h3>気になったら、まずは使い方をチェック</h3>
-            <p>比較画面の使い心地や特長を確認しながら、保存や整理もしやすそうか、自分に合う使い方ができそうかを公開前に先に見ておけます。</p>
+            <h3>もう、見た目の安さだけで迷わない</h3>
+            <p>価格と数量を入れて、単価、最安値、平均、中央値をまとめて確認。広告は表示されますが、比較に必要な基本機能は無料で使えます。無理なく見比べて、浮いたお金をあなたの大切な時間、知識、経験のために使ってください。</p>
           </div>
           <div class="hero-actions" style="margin-top: 0;">
             <a class="button-secondary" href="./support/">サポート</a>

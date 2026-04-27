@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ValuePop - Compare unit prices and find the best deal</title>
-  <meta name="description" content="ValuePop helps you compare unit prices, find the lowest price, and check averages and medians. Enter price and quantity to see which option is really the better deal.">
+  <meta name="description" content="What looked cheap was not always the best deal. ValuePop helps you compare unit prices, lowest price, average, and median without being fooled by visible prices or package sizes.">
   <link rel="alternate" hreflang="ja" href="https://tsukigashizumu-cmd.github.io/valuepop/">
   <link rel="alternate" hreflang="en" href="https://tsukigashizumu-cmd.github.io/valuepop/en/">
   <link rel="alternate" hreflang="x-default" href="https://tsukigashizumu-cmd.github.io/valuepop/">
@@ -290,6 +290,44 @@
       padding: 28px 0;
     }
 
+    .origin-card {
+      margin-top: 4px;
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(255,248,236,0.9) 100%);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+      box-shadow: var(--shadow);
+    }
+
+    .origin-label {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 7px 11px;
+      background: rgba(244, 180, 79, 0.18);
+      color: var(--button-text);
+      font-size: 0.86rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+    }
+
+    .origin-card h2 {
+      margin: 14px 0 10px;
+      font-size: clamp(1.35rem, 2.6vw, 2rem);
+      line-height: 1.18;
+      letter-spacing: -0.03em;
+    }
+
+    .origin-card p {
+      margin: 0;
+      color: var(--subtext);
+      max-width: 62rem;
+    }
+
+    .origin-card p + p {
+      margin-top: 10px;
+    }
+
     .section-title {
       margin: 0 0 10px;
       font-size: clamp(1.5rem, 3vw, 2.2rem);
@@ -308,6 +346,106 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
       margin-top: 22px;
+    }
+
+    .route-card {
+      margin-top: 22px;
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      background: var(--card-strong);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .route-illustration {
+      margin-top: 18px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(132, 96, 69, 0.12);
+      background: #fff;
+      box-shadow: 0 12px 28px rgba(70, 44, 22, 0.08);
+    }
+
+    .route-illustration img {
+      width: 100%;
+    }
+
+    .route-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .route-step {
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      background: rgba(255, 248, 236, 0.72);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+    }
+
+    .route-step-label {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: rgba(244, 180, 79, 0.18);
+      color: var(--button-text);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .route-step h3 {
+      margin: 12px 0 8px;
+      font-size: 1.02rem;
+      letter-spacing: -0.02em;
+    }
+
+    .route-step p,
+    .route-step li {
+      color: var(--subtext);
+      font-size: 0.96rem;
+    }
+
+    .route-step p {
+      margin: 0;
+    }
+
+    .route-step ul {
+      margin: 0;
+      padding-left: 1.1em;
+    }
+
+    .route-note {
+      margin: 18px 0 0;
+      color: var(--subtext);
+      font-weight: 700;
+    }
+
+    .route-disclaimer {
+      margin: 10px 0 0;
+      color: var(--subtext);
+      font-size: 0.9rem;
+    }
+
+    .trust-note {
+      margin-top: 18px;
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+    }
+
+    .trust-note h3 {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      letter-spacing: -0.02em;
+    }
+
+    .trust-note p {
+      margin: 0;
+      color: var(--subtext);
+      font-size: 0.96rem;
     }
 
     .feature-card {
@@ -597,6 +735,7 @@
     @media (max-width: 960px) {
       .hero-grid,
       .feature-grid,
+      .route-grid,
       .info-grid {
         grid-template-columns: 1fr;
       }
@@ -756,18 +895,18 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <div class="eyebrow">Compare different sizes and prices at a glance.</div>
+          <div class="eyebrow">What looked cheap was not always the best deal.</div>
           <h1>ValuePop</h1>
           <p class="hero-lead">
-            Enter a price and quantity to compare unit prices, find the lowest price, and check the average and median.
-            ValuePop helps you choose with more confidence when similar products come in different sizes, quantities, or prices.
+            I once chose by price and got it wrong. Then I chose the biggest size and got it wrong again.
+            ValuePop is a price comparison app for comparing what is really cheaper without being pushed around by visible prices or package sizes.
           </p>
 
           <div class="hero-points" aria-label="ValuePop highlights">
             <span class="hero-point">Unit price comparison</span>
             <span class="hero-point">Lowest price, average, median</span>
             <span class="hero-point">Save your entries</span>
-            <span class="hero-point">All features are free</span>
+            <span class="hero-point">Core features are free</span>
           </div>
 
           <div class="hero-actions">
@@ -777,7 +916,7 @@
           </div>
 
           <p class="hero-note">
-            See the differences clearly. Along with unit prices, ValuePop shows the lowest price, average, and median so you can judge whether a price is really a good deal.
+            Enter price and quantity to check unit price, lowest price, average, and median. Instead of relying only on visible prices or bigger packages, you can judge the deal with clearer context.
           </p>
         </div>
 
@@ -798,18 +937,39 @@
       </div>
     </section>
 
+    <section class="section" aria-labelledby="origin-title">
+      <div class="container">
+        <div class="origin-card">
+          <div class="origin-label">Why ValuePop was made</div>
+          <h2 id="origin-title">What looked cheap was not always the cheapest.</h2>
+          <p>
+            I once saw three products with different sizes on the shelf. When I calculated the unit price, the middle option was actually the most expensive. After that, I started choosing the largest size because it felt safer.
+          </p>
+          <p>
+            But another day, the middle option turned out to be the cheapest. Big text, loud colors, strong sale messages, and package size can all make a price look better than it is. That frustration is why ValuePop was made.
+          </p>
+          <p>
+            When it becomes easier to spot better deals, it also becomes easier to keep a little more money over time. That extra room may help you choose more time, knowledge, or experiences for yourself. That is why the core comparison features in ValuePop are free to use.
+          </p>
+          <p>
+            To keep the app available for free, ads are shown. When needed, you can temporarily turn ads off by watching a rewarded ad.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <section id="features" class="section">
       <div class="container">
         <h2 class="section-title">What ValuePop helps you do</h2>
         <p class="section-lead">
-          ValuePop helps you decide which option is really worth choosing by comparing prices with clearer context instead of relying only on instinct.
+          ValuePop helps you avoid choosing only by what looks cheap or what looks like a better size. Compare unit prices and price context so you can choose with more confidence.
         </p>
 
         <div class="feature-grid">
           <article class="feature-card">
-            <h3>Compare different sizes and prices more easily</h3>
+            <h3>Less swayed by price and package size</h3>
             <p>
-              Look beyond the shelf price. By comparing unit prices with quantity included, you can choose between different sizes and capacities with more confidence.
+              A cheaper-looking product can become more expensive once quantity is included. ValuePop helps you compare beyond the visible price by calculating with quantity included.
             </p>
           </article>
 
@@ -821,9 +981,9 @@
           </article>
 
           <article class="feature-card">
-            <h3>Simple input, useful comparison</h3>
+            <h3>The more you use it, the easier input gets</h3>
             <p>
-              Add the information you need and start comparing quickly. Saved entries and candidates can help reduce repeated input as you keep using the app.
+              At first, enter only store, product, quantity, and price. From the next time on, saved stores and products can be reused, making repeated shopping comparisons easier.
             </p>
           </article>
 
@@ -834,6 +994,53 @@
             </p>
           </article>
         </div>
+
+        <div class="route-card" aria-labelledby="route-title">
+          <h2 id="route-title" class="section-title">The more you use it, the less you need to type.</h2>
+          <p class="section-lead">
+            The actual app screen shows detailed comparisons. Here, the flow is simplified to show how input can become easier from the first entry to later saved entries.
+          </p>
+
+          <div class="route-illustration">
+            <img src="./assets/illustrations/valuepop-input-route-01.png" alt="An illustration showing that the first entry uses store, product, quantity, and price, and later entries can reuse saved stores and products to reduce typing.">
+          </div>
+
+          <div class="route-grid">
+            <article class="route-step">
+              <div class="route-step-label">First time</div>
+              <h3>Enter only four items</h3>
+              <p>
+                Register a store, product, quantity, and price. Saving the first entry makes it easier to reuse as a candidate next time.
+              </p>
+            </article>
+
+            <article class="route-step">
+              <div class="route-step-label">From the second time</div>
+              <h3>Call up the same store or product</h3>
+              <ul>
+                <li>Tap saved stores or products from the list</li>
+                <li>Set a saved entry back into the input fields</li>
+                <li>See recently entered stores and products from the input fields</li>
+                <li>Use suggestions that match part of what you type</li>
+              </ul>
+            </article>
+
+            <article class="route-step">
+              <div class="route-step-label">Same conditions</div>
+              <h3>Update only the price when needed</h3>
+              <p>
+                If the same store and product have a different price, call up the saved entry and update the price. If the price is the same, you may not need to type anything again.
+              </p>
+            </article>
+          </div>
+
+          <p class="route-note">
+            Enter a little at first, then let repeated comparisons become easier over time.
+          </p>
+          <p class="route-disclaimer">
+            *This is a simplified explanation of the input flow. The actual app screen may differ in some details.
+          </p>
+        </div>
       </div>
     </section>
 
@@ -841,28 +1048,35 @@
       <div class="container">
         <h2 class="section-title">Designed to be easy to keep using</h2>
         <p class="section-lead">
-          ValuePop is built not only for comparison, but also for everyday usability, review, and peace of mind.
+          ValuePop is built not only for comparison, but also to explain usability, ads, and data handling as clearly and honestly as possible.
         </p>
 
         <div class="feature-grid">
           <article class="feature-card">
-            <h3>All features are free to use</h3>
+            <h3>Core comparison features are free</h3>
             <p>
-              Use the features needed for price comparison without an additional charge.
+              Unit price comparison, lowest price, average, median, and other core features for spotting better deals can be used without an additional charge.
             </p>
           </article>
 
           <article class="feature-card">
-            <h3>Temporarily turn off ads with rewarded viewing</h3>
+            <h3>There are ads, but you can turn them off temporarily</h3>
             <p>
-              When needed, you can turn off ads for a limited time by watching a rewarded ad.
+              Ads are shown so the app can keep offering its core features for free. When needed, you can turn off ads for a limited time by watching a rewarded ad.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>Your input data is mainly handled on your device</h3>
+            <p>
+              ValuePop does not use its own server to send registered store names or product names. Except for communication used to display ads, comparison data is managed on your device or in files you choose to save.
             </p>
           </article>
 
           <article class="feature-card">
             <h3>Save entries and keep your comparison setup</h3>
             <p>
-              Keep your registered items, load them later, and continue using a familiar comparison setup instead of starting over every time.
+              Keep your registered items, load them later, and continue using a familiar comparison setup. Saved files are under your control, but if you share or publish them, their contents may be visible to others.
             </p>
           </article>
 
@@ -872,6 +1086,13 @@
               Demo data helps you understand the app at first. If you do not need it, you can clear it and start fresh after saving a backup if you want.
             </p>
           </article>
+        </div>
+
+        <div class="trust-note">
+          <h3>A small note before you use it.</h3>
+          <p>
+            ValuePop helps with price comparison, but it does not guarantee the final purchasing decision. Store conditions, product details, and discount rules can vary, so please confirm displayed prices, quantities, and discount conditions before you decide.
+          </p>
         </div>
       </div>
     </section>
@@ -963,15 +1184,15 @@
       <div class="container">
         <h2 class="section-title">Who it is for</h2>
         <p class="section-lead">
-          ValuePop is useful when you are choosing between products with different sizes, quantities, or prices and want to know which one is really the better deal.
+          ValuePop is useful when a cheaper-looking item does not feel trustworthy, or when a bigger package does not always seem like the safer choice.
         </p>
 
         <div class="info-grid">
           <article class="info-card">
             <h3>You often hesitate while shopping</h3>
             <ul>
-              <li>It is hard to tell which option is cheaper when sizes are different</li>
-              <li>You want to check whether a sale price is actually a good deal</li>
+              <li>You worry whether the cheap-looking option is really a good deal</li>
+              <li>You are not sure whether choosing the biggest size is always safer</li>
               <li>You want to choose based on comparison, not just the visible price</li>
             </ul>
           </article>
@@ -988,8 +1209,8 @@
 
         <div class="cta-card">
           <div>
-            <h3>Interested? Take a look first</h3>
-            <p>Check the comparison screen, features, save options, and organization tools to see whether ValuePop fits the way you shop.</p>
+            <h3>No more choosing only by visible cheapness.</h3>
+            <p>Enter price and quantity to check unit price, lowest price, average, and median. Ads are shown, but the core comparison features are free. Compare calmly and use the money you save for your time, knowledge, and experiences.</p>
           </div>
           <div class="hero-actions" style="margin-top: 0;">
             <a class="button-secondary" href="./support/">Support</a>
