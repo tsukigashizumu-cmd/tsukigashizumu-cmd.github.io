@@ -1,0 +1,1097 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JiiyaRoll - Roll the dice for 24 hours</title>
+  <meta name="description" content="JiiyaRoll is a casual simulation game where you roll dice, earn money, hire Jiiya workers, improve your environment, and build up attempts over 24 hours.">
+  <link rel="alternate" hreflang="ja" href="https://tsukigashizumu-cmd.github.io/jiiyaroll/">
+  <link rel="alternate" hreflang="en" href="https://tsukigashizumu-cmd.github.io/jiiyaroll/en/">
+  <link rel="alternate" hreflang="x-default" href="https://tsukigashizumu-cmd.github.io/jiiyaroll/">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f4ef;
+      --card: rgba(255, 255, 255, 0.82);
+      --card-strong: rgba(255, 255, 255, 0.92);
+      --text: #34261c;
+      --subtext: #6c5b4f;
+      --line: rgba(132, 96, 69, 0.18);
+      --shadow: 0 18px 40px rgba(70, 44, 22, 0.10);
+      --accent: #f4b44f;
+      --accent-strong: #da9b33;
+      --button-text: #2f2319;
+      --max-width: 1080px;
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(244, 180, 79, 0.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(187, 146, 97, 0.12), transparent 24%),
+        linear-gradient(180deg, #fcfaf7 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    body.is-modal-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img,
+    video {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(247, 244, 239, 0.78);
+      border-bottom: 1px solid rgba(132, 96, 69, 0.10);
+    }
+
+    .site-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 72px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 22px rgba(70, 44, 22, 0.16);
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      font-size: 1.05rem;
+    }
+
+    .header-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-link,
+    .nav-button {
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 0.95rem;
+      color: var(--subtext);
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav-link:hover,
+    .nav-button:hover {
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .nav-button {
+      background: linear-gradient(180deg, #ffd18a 0%, var(--accent) 100%);
+      color: var(--button-text);
+      font-weight: 700;
+      box-shadow: 0 10px 24px rgba(218, 155, 51, 0.22);
+    }
+
+    .is-disabled {
+      opacity: 0.72;
+      pointer-events: none;
+      cursor: default;
+    }
+
+    .hero {
+      padding: 52px 0 28px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      padding: 12px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+      color: var(--subtext);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    h1 {
+      margin: 16px 0 14px;
+      font-size: clamp(2.2rem, 5vw, 4.25rem);
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-lead {
+      margin: 0;
+      font-size: clamp(1.06rem, 1.8vw, 1.25rem);
+      color: var(--subtext);
+      max-width: 40rem;
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .hero-point {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      border-radius: 999px;
+      padding: 0 14px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+      color: var(--text);
+      font-size: 0.94rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      box-shadow: 0 10px 24px rgba(70, 44, 22, 0.08);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button-primary,
+    .button-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      border-radius: 999px;
+      padding: 0 18px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+
+    .button-primary {
+      background: linear-gradient(180deg, #ffd18a 0%, var(--accent) 100%);
+      color: var(--button-text);
+      box-shadow: 0 12px 24px rgba(218, 155, 51, 0.24);
+    }
+
+    .button-secondary {
+      background: rgba(255, 255, 255, 0.8);
+      color: var(--text);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+    }
+
+    .button-primary:hover,
+    .button-secondary:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero-note {
+      margin-top: 16px;
+      font-size: 0.92rem;
+      color: var(--subtext);
+    }
+
+    .hero-visual-card {
+      position: relative;
+      border-radius: var(--radius-xl);
+      padding: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.78) 100%);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-visual-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top right, rgba(244, 180, 79, 0.18), transparent 32%),
+        radial-gradient(circle at bottom left, rgba(160, 127, 95, 0.10), transparent 28%);
+      pointer-events: none;
+    }
+
+    .hero-visual-card img,
+    .hero-visual-card video {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      border-radius: 22px;
+      border: 1px solid rgba(132, 96, 69, 0.10);
+      background: #fff;
+    }
+
+    .section {
+      padding: 28px 0;
+    }
+
+    .origin-card {
+      margin-top: 4px;
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(255,248,236,0.9) 100%);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+      box-shadow: var(--shadow);
+    }
+
+    .origin-label {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 7px 11px;
+      background: rgba(244, 180, 79, 0.18);
+      color: var(--button-text);
+      font-size: 0.86rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+    }
+
+    .origin-card h2 {
+      margin: 14px 0 10px;
+      font-size: clamp(1.35rem, 2.6vw, 2rem);
+      line-height: 1.18;
+      letter-spacing: -0.03em;
+    }
+
+    .origin-card p {
+      margin: 0;
+      color: var(--subtext);
+      max-width: 62rem;
+    }
+
+    .origin-card p + p {
+      margin-top: 10px;
+    }
+
+    .section-title {
+      margin: 0 0 10px;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    .section-lead {
+      margin: 0;
+      color: var(--subtext);
+      max-width: 58rem;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .route-card {
+      margin-top: 22px;
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      background: var(--card-strong);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .route-illustration {
+      margin-top: 18px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(132, 96, 69, 0.12);
+      background: #fff;
+      box-shadow: 0 12px 28px rgba(70, 44, 22, 0.08);
+    }
+
+    .route-illustration img {
+      width: 100%;
+    }
+
+    .route-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .route-step {
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      background: rgba(255, 248, 236, 0.72);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+    }
+
+    .route-step-label {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: rgba(244, 180, 79, 0.18);
+      color: var(--button-text);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .route-step h3 {
+      margin: 12px 0 8px;
+      font-size: 1.02rem;
+      letter-spacing: -0.02em;
+    }
+
+    .route-step p,
+    .route-step li {
+      color: var(--subtext);
+      font-size: 0.96rem;
+    }
+
+    .route-step p {
+      margin: 0;
+    }
+
+    .route-step ul {
+      margin: 0;
+      padding-left: 1.1em;
+    }
+
+    .route-note {
+      margin: 18px 0 0;
+      color: var(--subtext);
+      font-weight: 700;
+    }
+
+    .route-disclaimer {
+      margin: 10px 0 0;
+      color: var(--subtext);
+      font-size: 0.9rem;
+    }
+
+    .trust-note {
+      margin-top: 18px;
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+    }
+
+    .trust-note h3 {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      letter-spacing: -0.02em;
+    }
+
+    .trust-note p {
+      margin: 0;
+      color: var(--subtext);
+      font-size: 0.96rem;
+    }
+
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .feature-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.04rem;
+      letter-spacing: -0.02em;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: var(--subtext);
+      font-size: 0.98rem;
+    }
+
+    .screenshot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .shot-card {
+      background: var(--card-strong);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .shot-card img,
+    .shot-card video {
+      width: 100%;
+      border-radius: 22px;
+      border: 1px solid rgba(132, 96, 69, 0.10);
+      background: #fff;
+    }
+
+    .shot-card p {
+      margin: 12px 2px 0;
+      color: var(--subtext);
+      font-size: 0.95rem;
+    }
+
+    .shot-card h3 {
+      margin: 14px 2px 0;
+      font-size: 1rem;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+    }
+
+    .media-toggle-wrap,
+    .image-modal-trigger-wrap {
+      position: relative;
+    }
+
+    .media-toggle-surface,
+    .image-modal-trigger {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      border: none;
+      background: transparent;
+      border-radius: 22px;
+      cursor: pointer;
+    }
+
+    .media-toggle-status,
+    .image-modal-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+      border-radius: 999px;
+      padding: 10px 14px;
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--text);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+      box-shadow: 0 10px 24px rgba(70, 44, 22, 0.12);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .media-toggle-dot,
+    .image-modal-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--accent-strong);
+      flex-shrink: 0;
+    }
+
+    .media-toggle-status.is-paused .media-toggle-dot {
+      background: rgba(132, 96, 69, 0.45);
+    }
+
+    .image-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(47, 35, 25, 0.72);
+      backdrop-filter: blur(10px);
+    }
+
+    .image-modal.is-open {
+      display: flex;
+    }
+
+    .image-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .image-modal-dialog {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 980px);
+      border-radius: 28px;
+      padding: 18px 18px 16px;
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+      box-shadow: 0 24px 60px rgba(47, 35, 25, 0.22);
+    }
+
+    .image-modal-close,
+    .image-modal-nav {
+      position: absolute;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(132, 96, 69, 0.12);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--text);
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(70, 44, 22, 0.12);
+    }
+
+    .image-modal-close {
+      top: 14px;
+      right: 14px;
+    }
+
+    .image-modal-nav {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .image-modal-nav-prev {
+      left: 14px;
+    }
+
+    .image-modal-nav-next {
+      right: 14px;
+    }
+
+    .image-modal-figure {
+      margin: 0;
+      padding: 0 44px;
+    }
+
+    .image-modal-image {
+      width: 100%;
+      max-height: min(78vh, 920px);
+      object-fit: contain;
+      border-radius: 22px;
+      border: 1px solid rgba(132, 96, 69, 0.10);
+      background: #fff;
+    }
+
+    .image-modal-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .image-modal-caption {
+      color: var(--subtext);
+      font-size: 0.96rem;
+      flex: 1 1 320px;
+    }
+
+    .image-modal-count {
+      color: var(--subtext);
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .info-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .info-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.04rem;
+      letter-spacing: -0.02em;
+    }
+
+    .info-card p,
+    .info-card li {
+      color: var(--subtext);
+    }
+
+    .info-card ul {
+      margin: 0;
+      padding-left: 1.1em;
+    }
+
+    .cta-card {
+      margin-top: 24px;
+      border-radius: var(--radius-xl);
+      padding: 26px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(255,248,236,0.92) 100%);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .cta-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.18rem;
+      letter-spacing: -0.02em;
+    }
+
+    .cta-card p {
+      margin: 0;
+      color: var(--subtext);
+    }
+
+    .site-footer {
+      padding: 36px 0 52px;
+      color: var(--subtext);
+      font-size: 0.94rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(132, 96, 69, 0.12);
+      padding-top: 18px;
+    }
+
+    .footer-links {
+      display: inline-flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .feature-grid,
+      .route-grid,
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 32px;
+      }
+
+      .site-header-inner {
+        min-height: 68px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(calc(100% - 20px), var(--max-width));
+      }
+
+      .site-header-inner {
+        align-items: center;
+        min-height: auto;
+        padding: 10px 0;
+        gap: 10px;
+      }
+
+      .brand {
+        gap: 10px;
+      }
+
+      .brand-icon {
+        width: 40px;
+        height: 40px;
+      }
+
+      .brand-text {
+        font-size: 1rem;
+      }
+
+      .header-nav {
+        width: 100%;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 8px;
+        padding-bottom: 2px;
+      }
+
+      .header-nav::-webkit-scrollbar {
+        display: none;
+      }
+
+      .nav-link,
+      .nav-button {
+        flex: 0 0 auto;
+        white-space: nowrap;
+        padding: 8px 12px;
+        font-size: 0.9rem;
+      }
+
+      .hero {
+        padding-top: 20px;
+      }
+
+      .hero-copy {
+        padding: 0;
+      }
+
+      .eyebrow {
+        font-size: 0.82rem;
+        padding: 7px 10px;
+      }
+
+      h1 {
+        margin: 14px 0 12px;
+        font-size: clamp(2rem, 9vw, 2.8rem);
+      }
+
+      .hero-lead {
+        font-size: 1rem;
+      }
+
+      .hero-points {
+        gap: 8px;
+        margin-top: 14px;
+      }
+
+      .hero-point {
+        min-height: 36px;
+        font-size: 0.9rem;
+        padding: 0 12px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        margin-top: 20px;
+      }
+
+      .hero-note {
+        margin-top: 14px;
+      }
+
+      .hero-visual-card {
+        padding: 14px;
+      }
+
+      .cta-card {
+        padding: 22px;
+      }
+
+      .image-modal {
+        padding: 14px;
+      }
+
+      .image-modal-dialog {
+        padding: 14px 14px 12px;
+      }
+
+      .image-modal-figure {
+        padding: 0 34px;
+      }
+
+      .image-modal-nav-prev {
+        left: 8px;
+      }
+
+      .image-modal-nav-next {
+        right: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <a class="brand" href="./">
+        <span class="brand-icon">
+          <img src="../assets/app-icon.png" alt="JiiyaRoll app icon">
+        </span>
+        <span class="brand-text">JiiyaRoll</span>
+      </a>
+
+      <nav class="header-nav" aria-label="Primary">
+        <a class="nav-link" href="#features">Features</a>
+        <a class="nav-link" href="#story">Overview</a>
+        <a class="nav-link" href="./support/">Support</a>
+        <a class="nav-link" href="./privacy/">Privacy</a>
+        <a class="nav-link" href="../">日本語</a>
+        <a class="nav-button is-disabled" href="#">App Store Coming Soon</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Before you blame luck, roll again.</div>
+          <h1>JiiyaRoll</h1>
+          <p class="hero-lead">
+            Roll dice, earn money, hire Jiiya workers, improve your environment, and build up as many attempts as you can over 24 hours.
+          </p>
+
+          <div class="hero-points" aria-label="JiiyaRoll highlights">
+            <span class="hero-point">24-hour challenge</span>
+            <span class="hero-point">Dice rolling</span>
+            <span class="hero-point">Hiring and upgrades</span>
+            <span class="hero-point">Game Center planned</span>
+          </div>
+
+          <div class="hero-actions">
+            <a class="button-primary is-disabled" href="#">App Store Coming Soon</a>
+            <a class="button-secondary" href="#story">Read overview</a>
+            <a class="button-secondary" href="./support/">Support</a>
+          </div>
+
+          <p class="hero-note">
+            Six rolls may be luck. But if you have 24 hours, roll once more before blaming luck. Rest, hire, improve, and sometimes cut something away to increase your attempts.
+          </p>
+        </div>
+
+        <div class="hero-visual-card">
+          <img src="../assets/app-icon.png" alt="JiiyaRoll app icon">
+        </div>
+      </div>
+    </section>
+
+    <section id="story" class="section" aria-labelledby="story-title">
+      <div class="container">
+        <div class="origin-card">
+          <div class="origin-label">What is JiiyaRoll?</div>
+          <h2 id="story-title">Roll the dice for 24 hours.</h2>
+          <p>
+            Roll the dice six times and see whether you get a 6. If that is all you do, you can call it luck.
+          </p>
+          <p>
+            But what if you have 24 hours to keep rolling? Before you look for a reason you failed, just roll once more. If you are tired, take a break. If your environment is holding you back, improve it. And if your own hands are not enough, make someone else roll for you.
+          </p>
+          <p>
+            JiiyaRoll is a simulation game where you roll dice, earn money, and increase the number of attempts you can make. Hire Jiiya workers, improve your environment, take breaks, and find out what remains after 24 hours.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="container">
+        <h2 class="section-title">JiiyaRoll Features</h2>
+        <p class="section-lead">
+          This is a dark casual simulation game about building a system that increases attempts, instead of simply waiting for luck.
+        </p>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>Six rolls are luck. 24 hours are structure.</h3>
+            <p>
+              At first, all you can do is roll by hand. But across 24 hours, your choices for increasing attempts can change the final result.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>Earn money and hire Jiiya</h3>
+            <p>
+              Earn money by rolling dice, then hire Jiiya workers to increase your attempts. But cheap labour is cheap for a reason.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>Keep going with breaks and upgrades</h3>
+            <p>
+              Protect your wrists, reduce fatigue, and improve your environment so you can keep rolling. Attempts do not increase through grit alone.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>Game Center competition planned</h3>
+            <p>
+              Planned Game Center support includes total attempts, final money, daily and weekly leaderboards, and achievements for your 24-hour results.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">What remains after 24 hours?</h2>
+        <p class="section-lead">
+          Was it luck, effort, or a system you built so you could call it effort? JiiyaRoll is a game about that blurry boundary.
+        </p>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>You cannot choose luck</h3>
+            <p>
+              You cannot choose whether a 6 appears. But you can build the number of rolls, and the environment that makes them possible.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>Kindness, or sunk cost?</h3>
+            <p>
+              Is keeping a Jiiya who can no longer work an act of kindness? Or is it just your inability to cut your losses? The choice is yours.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>Sweet offers</h3>
+            <p>
+              Sometimes a choice appears that lightens the burden in front of you, in exchange for giving something up. Is it salvation, a deal, or a sweet whisper?
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>A game about building structure</h3>
+            <p>
+              What did you really need: willpower, a system, or the resolve to cut something away? That is what it means to keep rolling.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="screenshots" class="section">
+      <div class="container">
+        <h2 class="section-title">Screenshots</h2>
+        <p class="section-lead">
+          Screenshots are being prepared. Game screens will be added once they are ready for release.
+        </p>
+
+        <div class="screenshot-grid">
+          <article class="shot-card">
+            <img src="../assets/app-icon.png" alt="JiiyaRoll app icon">
+            <h3>Roll the dice for 24 hours.</h3>
+            <p>The app icon is currently shown as a placeholder. Gameplay screenshots will be added later.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Who it is for</h2>
+        <p class="section-lead">
+          JiiyaRoll is for players who enjoy luck-based games, clickers, idle games, incremental progression, and dark management simulations.
+        </p>
+
+        <div class="info-grid">
+          <article class="info-card">
+            <h3>You like building up attempts</h3>
+            <ul>
+              <li>You enjoy dice, probability, and unpredictable swings</li>
+              <li>You like clicking, idling, upgrades, and progression</li>
+              <li>You want to see the result of a full 24-hour run</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <h3>You like slightly dark simulations</h3>
+            <ul>
+              <li>You enjoy decisions about hiring, running away, and cutting losses</li>
+              <li>You want to look behind self-improvement-style words</li>
+              <li>You want to play with the boundary between effort and systems</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="cta-card">
+          <div>
+            <h3>Roll the dice for 24 hours.</h3>
+            <p>Before you blame luck, roll again. To do that, hire more people, improve the environment, protect your wrists, and build a system.</p>
+          </div>
+          <div class="hero-actions" style="margin-top: 0;">
+            <a class="button-secondary" href="./support/">Support</a>
+            <a class="button-primary is-disabled" href="#">App Store Coming Soon</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© JiiyaRoll</div>
+      <div class="footer-links">
+        <a href="./support/">Support</a>
+        <a href="./privacy/">Privacy Policy</a>
+        <a href="../">日本語</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // No interactive scripts are required for the initial JiiyaRoll page.
+  </script>
+</body>
+</html>
