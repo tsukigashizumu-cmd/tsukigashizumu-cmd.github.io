@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PaletteSpin - Create color palettes with a playful spin</title>
+  <meta name="description" content="PaletteSpin helps you explore color combinations, save your favorite palettes, and adjust colors in a simple, playful way.">
+  <link rel="alternate" hreflang="en" href="https://tsukigashizumu-cmd.github.io/PaletteSpin/en/">
+  <link rel="alternate" hreflang="x-default" href="https://tsukigashizumu-cmd.github.io/PaletteSpin/en/">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f4ef;
+      --card: rgba(255, 255, 255, 0.84);
+      --card-strong: rgba(255, 255, 255, 0.94);
+      --text: #2d2434;
+      --subtext: #6d6175;
+      --line: rgba(80, 56, 104, 0.14);
+      --shadow: 0 18px 44px rgba(48, 32, 68, 0.12);
+      --accent: #b78cff;
+      --accent-strong: #7f54d8;
+      --accent-warm: #ffbe6b;
+      --button-text: #241a32;
+      --max-width: 1080px;
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(183, 140, 255, 0.22), transparent 30%),
+        radial-gradient(circle at top right, rgba(255, 190, 107, 0.18), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(112, 214, 255, 0.16), transparent 32%),
+        linear-gradient(180deg, #fcfaf7 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(247, 244, 239, 0.78);
+      border-bottom: 1px solid rgba(80, 56, 104, 0.10);
+    }
+
+    .site-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 72px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 22px rgba(48, 32, 68, 0.16);
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(80, 56, 104, 0.12);
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      font-size: 1.05rem;
+    }
+
+    .header-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-link,
+    .nav-button {
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 0.95rem;
+      color: var(--subtext);
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav-link:hover,
+    .nav-button:hover {
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .nav-button {
+      background: linear-gradient(180deg, #dbc7ff 0%, var(--accent) 100%);
+      color: var(--button-text);
+      font-weight: 800;
+      box-shadow: 0 10px 24px rgba(127, 84, 216, 0.22);
+    }
+
+    .hero {
+      padding: 58px 0 34px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(80, 56, 104, 0.12);
+      color: var(--subtext);
+      font-size: 0.9rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+    }
+
+    h1 {
+      margin: 16px 0 14px;
+      font-size: clamp(2.3rem, 5vw, 4.4rem);
+      line-height: 1.04;
+      letter-spacing: -0.05em;
+    }
+
+    .hero-lead {
+      margin: 0;
+      font-size: clamp(1.06rem, 1.8vw, 1.25rem);
+      color: var(--subtext);
+      max-width: 42rem;
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .hero-point {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      border-radius: 999px;
+      padding: 0 14px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(80, 56, 104, 0.12);
+      color: var(--text);
+      font-size: 0.94rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      box-shadow: 0 10px 24px rgba(48, 32, 68, 0.08);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button-primary,
+    .button-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      border-radius: 999px;
+      padding: 0 18px;
+      font-weight: 800;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+
+    .button-primary {
+      background: linear-gradient(180deg, #dbc7ff 0%, var(--accent) 100%);
+      color: var(--button-text);
+      box-shadow: 0 12px 24px rgba(127, 84, 216, 0.24);
+    }
+
+    .button-secondary {
+      background: rgba(255, 255, 255, 0.82);
+      color: var(--text);
+      border: 1px solid rgba(80, 56, 104, 0.12);
+    }
+
+    .button-primary:hover,
+    .button-secondary:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero-note {
+      margin-top: 16px;
+      font-size: 0.92rem;
+      color: var(--subtext);
+    }
+
+    .hero-visual-card {
+      position: relative;
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      min-height: 420px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.78) 100%);
+      border: 1px solid rgba(80, 56, 104, 0.12);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+    }
+
+    .hero-visual-card::before {
+      content: "";
+      position: absolute;
+      inset: -18%;
+      background:
+        radial-gradient(circle at 22% 18%, rgba(255, 190, 107, 0.45), transparent 18%),
+        radial-gradient(circle at 76% 28%, rgba(183, 140, 255, 0.44), transparent 20%),
+        radial-gradient(circle at 56% 76%, rgba(112, 214, 255, 0.34), transparent 22%),
+        conic-gradient(from 18deg, rgba(255,255,255,0.20), rgba(183,140,255,0.18), rgba(255,190,107,0.18), rgba(112,214,255,0.16), rgba(255,255,255,0.20));
+      filter: blur(2px);
+      pointer-events: none;
+    }
+
+    .app-icon-large {
+      position: relative;
+      z-index: 1;
+      width: min(64vw, 250px);
+      border-radius: 54px;
+      box-shadow: 0 24px 58px rgba(48, 32, 68, 0.24);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .section {
+      padding: 32px 0;
+    }
+
+    .section-title {
+      margin: 0 0 10px;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    .section-lead {
+      margin: 0;
+      color: var(--subtext);
+      max-width: 58rem;
+    }
+
+    .feature-grid,
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .feature-card,
+    .info-card,
+    .trust-note,
+    .cta-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .feature-card h3,
+    .info-card h3,
+    .trust-note h3,
+    .cta-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+    }
+
+    .feature-card p,
+    .info-card p,
+    .info-card li,
+    .trust-note p,
+    .cta-card p {
+      color: var(--subtext);
+    }
+
+    .feature-card p,
+    .info-card p,
+    .trust-note p,
+    .cta-card p {
+      margin: 0;
+    }
+
+    .info-card ul {
+      margin: 0;
+      padding-left: 1.1em;
+    }
+
+    .trust-note {
+      margin-top: 22px;
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    .cta-card {
+      margin-top: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(247,241,255,0.94) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .site-footer {
+      padding: 36px 0 52px;
+      color: var(--subtext);
+      font-size: 0.94rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(80, 56, 104, 0.12);
+      padding-top: 18px;
+    }
+
+    .footer-links {
+      display: inline-flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .feature-grid,
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 34px;
+      }
+
+      .site-header-inner {
+        min-height: 68px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(calc(100% - 20px), var(--max-width));
+      }
+
+      .site-header-inner {
+        align-items: center;
+        min-height: auto;
+        padding: 10px 0;
+        gap: 10px;
+      }
+
+      .brand {
+        gap: 10px;
+      }
+
+      .brand-icon {
+        width: 40px;
+        height: 40px;
+      }
+
+      .brand-text {
+        font-size: 1rem;
+      }
+
+      .header-nav {
+        width: 100%;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 8px;
+        padding-bottom: 2px;
+      }
+
+      .header-nav::-webkit-scrollbar {
+        display: none;
+      }
+
+      .nav-link,
+      .nav-button {
+        flex: 0 0 auto;
+        white-space: nowrap;
+        padding: 8px 12px;
+        font-size: 0.9rem;
+      }
+
+      .hero {
+        padding-top: 22px;
+      }
+
+      h1 {
+        margin: 14px 0 12px;
+        font-size: clamp(2rem, 9vw, 2.9rem);
+      }
+
+      .hero-lead {
+        font-size: 1rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        margin-top: 20px;
+      }
+
+      .hero-visual-card {
+        min-height: 320px;
+        padding: 22px;
+      }
+
+      .app-icon-large {
+        width: min(70vw, 220px);
+        border-radius: 46px;
+      }
+
+      .cta-card {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <a class="brand" href="./">
+        <span class="brand-icon">
+          <img src="./assets/app-icon.png" alt="PaletteSpin app icon">
+        </span>
+        <span class="brand-text">PaletteSpin</span>
+      </a>
+
+      <nav class="header-nav" aria-label="Primary">
+        <a class="nav-link" href="#features">Features</a>
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="./support/">Support</a>
+        <a class="nav-link" href="./privacy/">Privacy</a>
+        <a class="nav-button" href="#app-store">App Store</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">A playful way to explore colors.</div>
+          <h1>PaletteSpin</h1>
+          <p class="hero-lead">
+            PaletteSpin helps you create and adjust color palettes with a simple, playful flow. Explore combinations, compare looks, save ideas, and shape a palette that fits your mood, design, or creative project.
+          </p>
+
+          <div class="hero-points" aria-label="PaletteSpin highlights">
+            <span class="hero-point">Color palette creation</span>
+            <span class="hero-point">Visual adjustment tools</span>
+            <span class="hero-point">Save favorite ideas</span>
+            <span class="hero-point">Simple creative workflow</span>
+          </div>
+
+          <div class="hero-actions" id="app-store">
+            <a class="button-primary" href="#">Coming soon on the App Store</a>
+            <a class="button-secondary" href="./support/">Support</a>
+            <a class="button-secondary" href="./privacy/">Privacy Policy</a>
+          </div>
+
+          <p class="hero-note">
+            This page is provided as the official marketing page for PaletteSpin. App availability may vary by region and review status.
+          </p>
+        </div>
+
+        <div class="hero-visual-card" aria-label="PaletteSpin app icon">
+          <img class="app-icon-large" src="./assets/app-icon.png" alt="PaletteSpin app icon">
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="container">
+        <h2 class="section-title">What PaletteSpin helps you do</h2>
+        <p class="section-lead">
+          PaletteSpin is designed for quick color exploration. It keeps the workflow light so you can try ideas without getting stuck in complicated settings.
+        </p>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>Explore color combinations</h3>
+            <p>
+              Try different color groups and discover combinations that feel useful for wallpapers, icons, layouts, mood boards, and visual experiments.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>Adjust the look</h3>
+            <p>
+              Fine-tune colors and presentation options so the palette feels closer to the image or mood you want to create.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>Save ideas for later</h3>
+            <p>
+              Keep palettes and settings you like so you can come back to them when you want to continue working on an idea.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>Use it as a creative starting point</h3>
+            <p>
+              PaletteSpin is useful when you want a small spark before creating an image, choosing a theme, or deciding the direction of a design.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title">Built for lightweight creative decisions</h2>
+        <p class="section-lead">
+          Choosing colors can become surprisingly slow when there are too many options. PaletteSpin focuses on making that first step easier: try, compare, adjust, and keep the ideas that feel right.
+        </p>
+
+        <div class="info-grid">
+          <article class="info-card">
+            <h3>Useful for</h3>
+            <ul>
+              <li>Finding a color direction for a small project</li>
+              <li>Creating palette ideas for wallpapers or visuals</li>
+              <li>Comparing different moods before committing to one</li>
+              <li>Saving color ideas for later reference</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <h3>Simple by design</h3>
+            <ul>
+              <li>No account is required for the core local workflow</li>
+              <li>The app is focused on color exploration and adjustment</li>
+              <li>Support and privacy information are available from this page</li>
+              <li>Features may change as the app improves over time</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="trust-note">
+          <h3>A small note before you use it.</h3>
+          <p>
+            PaletteSpin helps with creative color exploration, but final color appearance may vary depending on your device display, brightness, export format, and the apps or services where you use the colors.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-card">
+          <div>
+            <h3>Start with a spin. Keep the colors that feel right.</h3>
+            <p>
+              PaletteSpin gives you a lightweight way to explore palettes, adjust visuals, and save creative ideas without overcomplicating the process.
+            </p>
+          </div>
+          <div class="hero-actions" style="margin-top: 0;">
+            <a class="button-secondary" href="./support/">Support</a>
+            <a class="button-primary" href="#app-store">App Store</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© PaletteSpin</div>
+      <div class="footer-links">
+        <a href="./support/">Support</a>
+        <a href="./privacy/">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
