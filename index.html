@@ -84,6 +84,33 @@
       font-size: clamp(1.04rem, 1.8vw, 1.18rem);
     }
 
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      border-radius: 999px;
+      padding: 0 16px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(132, 96, 69, 0.12);
+      color: var(--text);
+      font-weight: 800;
+      box-shadow: 0 10px 22px rgba(70, 44, 22, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .social-link:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 28px rgba(70, 44, 22, 0.12);
+    }
+
     .section {
       padding: 28px 0 56px;
     }
@@ -123,6 +150,21 @@
       margin: 0 0 14px;
       object-fit: cover;
       box-shadow: 0 10px 22px rgba(70, 44, 22, 0.14);
+    }
+
+    .app-icon-link {
+      display: inline-block;
+      margin: 0 0 14px;
+      border-radius: 18px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .app-icon-link:hover {
+      transform: translateY(-1px) scale(1.02);
+    }
+
+    .app-icon-link .app-icon {
+      margin: 0;
     }
 
     .app-card h2 {
@@ -216,6 +258,10 @@
           <p class="hero-lead">
             公開中のアプリやサポートページへの入口をまとめています。
           </p>
+          <div class="social-links" aria-label="Social links">
+            <a class="social-link" href="https://www.youtube.com/@No_Delay" target="_blank" rel="noopener noreferrer">YouTubeチャンネル</a>
+            <a class="social-link" href="https://x.com/pendulum115326" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+          </div>
         </div>
       </div>
     </section>
@@ -229,7 +275,9 @@
 
         <div class="app-grid">
           <article class="app-card">
-            <img class="app-icon" src="./jiiyaroll/en/assets/app-icon.png" alt="Jiiya Roll icon">
+            <a class="app-icon-link" href="./jiiyaroll/en/" aria-label="Jiiya Roll の紹介ページを見る">
+              <img class="app-icon" src="./jiiyaroll/en/assets/app-icon.png" alt="Jiiya Roll icon">
+            </a>
             <h2>Jiiya Roll</h2>
             <p>
               サイコロを振って、じいやを雇い、奇妙な自動化と成長を楽しむカジュアル idle ゲーム。
@@ -243,7 +291,9 @@
           </article>
 
           <article class="app-card">
-            <img class="app-icon" src="./bacchus-karma/en/assets/app-icon.png" alt="Bacchus Karma icon">
+            <a class="app-icon-link" href="./bacchus-karma/en/" aria-label="Bacchus Karma の紹介ページを見る">
+              <img class="app-icon" src="./bacchus-karma/en/assets/app-icon.png" alt="Bacchus Karma icon">
+            </a>
             <h2>Bacchus Karma</h2>
             <p>
               札、盤、落下、因果。独自の世界観と表現を形にしたゲームプロジェクト。
@@ -257,7 +307,9 @@
           </article>
 
           <article class="app-card">
-            <img class="app-icon" src="./PaletteSpin/en/assets/app-icon.png" alt="Palette Spin icon">
+            <a class="app-icon-link" href="./PaletteSpin/en/" aria-label="Palette Spin の紹介ページを見る">
+              <img class="app-icon" src="./PaletteSpin/en/assets/app-icon.png" alt="Palette Spin icon">
+            </a>
             <h2>Palette Spin</h2>
             <p>
               パレットを回して、写真や色の組み合わせから壁紙を作るビジュアルアプリ。
@@ -271,7 +323,9 @@
           </article>
 
           <article class="app-card">
-            <img class="app-icon" src="./shopsuggest/en/assets/app-icon.png" alt="ShopSuggest icon">
+            <a class="app-icon-link" href="./shopsuggest/en/" aria-label="ShopSuggest の紹介ページを見る">
+              <img class="app-icon" src="./shopsuggest/en/assets/app-icon.png" alt="ShopSuggest icon">
+            </a>
             <h2>ShopSuggest</h2>
             <p>
               買い物リストを整理しながら、候補入力や使いやすさを重視して続けやすく整えた買い物アプリ。
@@ -285,7 +339,9 @@
           </article>
 
           <article class="app-card">
-            <img class="app-icon" src="./valuepop/en/assets/app-icon.png" alt="Unit Choice icon">
+            <a class="app-icon-link" href="./valuepop/en/" aria-label="Unit Choice の紹介ページを見る">
+              <img class="app-icon" src="./valuepop/en/assets/app-icon.png" alt="Unit Choice icon">
+            </a>
             <h2>Unit Choice</h2>
             <p>
               どっちが安い？をすばやく比べる、単価計算と価格比較に特化したシンプルなアプリ。
@@ -299,7 +355,9 @@
           </article>
 
           <article class="app-card">
-            <img class="app-icon" src="./kaidoki/en/assets/app-icon.png" alt="カイドキ帳 icon">
+            <a class="app-icon-link" href="./kaidoki/en/" aria-label="カイドキ帳 の紹介ページを見る">
+              <img class="app-icon" src="./kaidoki/en/assets/app-icon.png" alt="カイドキ帳 icon">
+            </a>
             <h2>カイドキ帳</h2>
             <p>
               商品や価格の見方を整理しながら、買いどきの判断を支える記録・比較アプリ。
@@ -313,7 +371,9 @@
           </article>
 
           <article class="app-card">
-            <img class="app-icon" src="./puddingscoop/en/assets/app-icon.png" alt="プリンすくい icon">
+            <a class="app-icon-link" href="./puddingscoop/en/" aria-label="プリンすくい の紹介ページを見る">
+              <img class="app-icon" src="./puddingscoop/en/assets/app-icon.png" alt="プリンすくい icon">
+            </a>
             <h2>プリンすくい</h2>
             <p>
               ぷるぷるのプリンをすくう、やさしい見た目と手触りのカジュアルゲーム。
