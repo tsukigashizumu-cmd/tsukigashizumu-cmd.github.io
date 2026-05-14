@@ -114,36 +114,38 @@
     .language-switch {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 4px;
+      gap: 8px;
+      min-height: 38px;
+      padding: 4px 10px;
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.62);
       border: 1px solid rgba(80, 56, 104, 0.12);
+      color: var(--subtext);
+      font-size: 0.9rem;
+      font-weight: 800;
     }
 
-    .language-button {
+    .language-label {
+      white-space: nowrap;
+    }
+
+    .language-select {
       border: 0;
       border-radius: 999px;
       min-height: 30px;
-      padding: 0 10px;
-      background: transparent;
-      color: var(--subtext);
+      padding: 0 28px 0 10px;
+      background: linear-gradient(180deg, #dbc7ff 0%, var(--accent) 100%);
+      color: var(--button-text);
       font: inherit;
       font-size: 0.86rem;
       font-weight: 800;
       cursor: pointer;
-      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
-    }
-
-    .language-button:hover {
-      transform: translateY(-1px);
-      color: var(--text);
-    }
-
-    .language-button.is-active {
-      background: linear-gradient(180deg, #dbc7ff 0%, var(--accent) 100%);
-      color: var(--button-text);
       box-shadow: 0 8px 18px rgba(127, 84, 216, 0.18);
+    }
+
+    .language-select:focus {
+      outline: 2px solid rgba(127, 84, 216, 0.34);
+      outline-offset: 2px;
     }
 
     .nav-link,
@@ -521,11 +523,14 @@
       </a>
 
       <nav class="header-nav" aria-label="Primary" data-i18n-attr="aria-label:nav.aria">
-        <div class="language-switch" aria-label="Language">
-          <button class="language-button is-active" type="button" data-lang-button="en">EN</button>
-          <button class="language-button" type="button" data-lang-button="ja">JA</button>
-          <button class="language-button" type="button" data-lang-button="fr">FR</button>
-        </div>
+        <label class="language-switch">
+          <span class="language-label">Language</span>
+          <select class="language-select" data-language-select aria-label="Language">
+            <option value="en">English</option>
+            <option value="ja">日本語</option>
+            <option value="fr">Français</option>
+          </select>
+        </label>
         <a class="nav-link" href="#features" data-i18n="nav.features">Features</a>
         <a class="nav-link" href="#about" data-i18n="nav.about">About</a>
         <a class="nav-link" href="./support/" data-i18n="nav.support">Support</a>
@@ -877,11 +882,9 @@
     });
   }
 
-  function updateLanguageButtons(language) {
-    document.querySelectorAll("[data-lang-button]").forEach((button) => {
-      const isActive = button.dataset.langButton === language;
-      button.classList.toggle("is-active", isActive);
-      button.setAttribute("aria-pressed", isActive ? "true" : "false");
+  function updateLanguageSelector(language) {
+    document.querySelectorAll("[data-language-select]").forEach((select) => {
+      select.value = language;
     });
   }
 
@@ -891,14 +894,14 @@
     updateDocumentLanguage(result.language, result.translations);
     updateTranslatedText(result.translations);
     updateTranslatedAttributes(result.translations);
-    updateLanguageButtons(result.language);
+    updateLanguageSelector(result.language);
 
     localStorage.setItem("paletteSpinLanguage", result.language);
   }
 
-  document.querySelectorAll("[data-lang-button]").forEach((button) => {
-    button.addEventListener("click", () => {
-      applyLanguage(button.dataset.langButton);
+  document.querySelectorAll("[data-language-select]").forEach((select) => {
+    select.addEventListener("change", () => {
+      applyLanguage(select.value);
     });
   });
 
