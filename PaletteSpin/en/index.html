@@ -111,6 +111,41 @@
       justify-content: flex-end;
     }
 
+    .language-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.62);
+      border: 1px solid rgba(80, 56, 104, 0.12);
+    }
+
+    .language-button {
+      border: 0;
+      border-radius: 999px;
+      min-height: 30px;
+      padding: 0 10px;
+      background: transparent;
+      color: var(--subtext);
+      font: inherit;
+      font-size: 0.86rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .language-button:hover {
+      transform: translateY(-1px);
+      color: var(--text);
+    }
+
+    .language-button.is-active {
+      background: linear-gradient(180deg, #dbc7ff 0%, var(--accent) 100%);
+      color: var(--button-text);
+      box-shadow: 0 8px 18px rgba(127, 84, 216, 0.18);
+    }
+
     .nav-link,
     .nav-button {
       border-radius: 999px;
@@ -478,19 +513,24 @@
 <body>
   <header class="site-header">
     <div class="container site-header-inner">
-      <a class="brand" href="./">
+      <a class="brand" href="./" data-i18n-attr="aria-label:brand.homeAria" aria-label="PaletteSpin home">
         <span class="brand-icon">
-          <img src="./assets/app-icon.png" alt="PaletteSpin app icon">
+          <img src="./assets/app-icon.png" alt="PaletteSpin app icon" data-i18n-attr="alt:brand.iconAlt">
         </span>
         <span class="brand-text">PaletteSpin</span>
       </a>
 
-      <nav class="header-nav" aria-label="Primary">
-        <a class="nav-link" href="#features">Features</a>
-        <a class="nav-link" href="#about">About</a>
-        <a class="nav-link" href="./support/">Support</a>
-        <a class="nav-link" href="./privacy/">Privacy</a>
-        <a class="nav-button" href="https://apps.apple.com/app/id6767983547" target="_blank" rel="noopener noreferrer">App Store</a>
+      <nav class="header-nav" aria-label="Primary" data-i18n-attr="aria-label:nav.aria">
+        <div class="language-switch" aria-label="Language">
+          <button class="language-button is-active" type="button" data-lang-button="en">EN</button>
+          <button class="language-button" type="button" data-lang-button="ja">JA</button>
+          <button class="language-button" type="button" data-lang-button="fr">FR</button>
+        </div>
+        <a class="nav-link" href="#features" data-i18n="nav.features">Features</a>
+        <a class="nav-link" href="#about" data-i18n="nav.about">About</a>
+        <a class="nav-link" href="./support/" data-i18n="nav.support">Support</a>
+        <a class="nav-link" href="./privacy/" data-i18n="nav.privacy">Privacy</a>
+        <a class="nav-button" href="https://apps.apple.com/app/id6767983547" target="_blank" rel="noopener noreferrer" data-i18n="nav.appStore">App Store</a>
       </nav>
     </div>
   </header>
@@ -499,68 +539,68 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <div class="eyebrow">A playful way to explore colors.</div>
-          <h1>PaletteSpin</h1>
-          <p class="hero-lead">
+          <div class="eyebrow" data-i18n="hero.eyebrow">A playful way to explore colors.</div>
+          <h1 data-i18n="hero.title">PaletteSpin</h1>
+          <p class="hero-lead" data-i18n="hero.lead">
             PaletteSpin helps you create and adjust color palettes with a simple, playful flow. Explore combinations, compare looks, save ideas, and shape a palette that fits your mood, design, or creative project.
           </p>
 
-          <div class="hero-points" aria-label="PaletteSpin highlights">
-            <span class="hero-point">Color palette creation</span>
-            <span class="hero-point">Visual adjustment tools</span>
-            <span class="hero-point">Save favorite ideas</span>
-            <span class="hero-point">Simple creative workflow</span>
+          <div class="hero-points" aria-label="PaletteSpin highlights" data-i18n-attr="aria-label:hero.pointsAria">
+            <span class="hero-point" data-i18n="hero.point.palette">Color palette creation</span>
+            <span class="hero-point" data-i18n="hero.point.adjustment">Visual adjustment tools</span>
+            <span class="hero-point" data-i18n="hero.point.save">Save favorite ideas</span>
+            <span class="hero-point" data-i18n="hero.point.workflow">Simple creative workflow</span>
           </div>
 
           <div class="hero-actions" id="app-store">
-            <a class="button-primary" href="https://apps.apple.com/app/id6767983547" target="_blank" rel="noopener noreferrer">Download on the App Store</a>
-            <a class="button-secondary" href="./support/">Support</a>
-            <a class="button-secondary" href="./privacy/">Privacy Policy</a>
+            <a class="button-primary" href="https://apps.apple.com/app/id6767983547" target="_blank" rel="noopener noreferrer" data-i18n="hero.download">Download on the App Store</a>
+            <a class="button-secondary" href="./support/" data-i18n="nav.support">Support</a>
+            <a class="button-secondary" href="./privacy/" data-i18n="hero.privacyPolicy">Privacy Policy</a>
           </div>
 
-          <p class="hero-note">
+          <p class="hero-note" data-i18n="hero.note">
             This page is provided as the official marketing page for PaletteSpin. App availability may vary by region and review status.
           </p>
         </div>
 
-        <div class="hero-visual-card" aria-label="PaletteSpin app icon">
-          <img class="app-icon-large" src="./assets/app-icon.png" alt="PaletteSpin app icon">
+        <div class="hero-visual-card" aria-label="PaletteSpin app icon" data-i18n-attr="aria-label:brand.iconAlt">
+          <img class="app-icon-large" src="./assets/app-icon.png" alt="PaletteSpin app icon" data-i18n-attr="alt:brand.iconAlt">
         </div>
       </div>
     </section>
 
     <section id="features" class="section">
       <div class="container">
-        <h2 class="section-title">What PaletteSpin helps you do</h2>
-        <p class="section-lead">
+        <h2 class="section-title" data-i18n="features.title">What PaletteSpin helps you do</h2>
+        <p class="section-lead" data-i18n="features.lead">
           PaletteSpin is designed for quick color exploration. It keeps the workflow light so you can try ideas without getting stuck in complicated settings.
         </p>
 
         <div class="feature-grid">
           <article class="feature-card">
-            <h3>Explore color combinations</h3>
-            <p>
+            <h3 data-i18n="features.card.explore.title">Explore color combinations</h3>
+            <p data-i18n="features.card.explore.body">
               Try different color groups and discover combinations that feel useful for wallpapers, icons, layouts, mood boards, and visual experiments.
             </p>
           </article>
 
           <article class="feature-card">
-            <h3>Adjust the look</h3>
-            <p>
+            <h3 data-i18n="features.card.adjust.title">Adjust the look</h3>
+            <p data-i18n="features.card.adjust.body">
               Fine-tune colors and presentation options so the palette feels closer to the image or mood you want to create.
             </p>
           </article>
 
           <article class="feature-card">
-            <h3>Save ideas for later</h3>
-            <p>
+            <h3 data-i18n="features.card.save.title">Save ideas for later</h3>
+            <p data-i18n="features.card.save.body">
               Keep palettes and settings you like so you can come back to them when you want to continue working on an idea.
             </p>
           </article>
 
           <article class="feature-card">
-            <h3>Use it as a creative starting point</h3>
-            <p>
+            <h3 data-i18n="features.card.start.title">Use it as a creative starting point</h3>
+            <p data-i18n="features.card.start.body">
               PaletteSpin is useful when you want a small spark before creating an image, choosing a theme, or deciding the direction of a design.
             </p>
           </article>
@@ -570,36 +610,36 @@
 
     <section id="about" class="section">
       <div class="container">
-        <h2 class="section-title">Built for lightweight creative decisions</h2>
-        <p class="section-lead">
+        <h2 class="section-title" data-i18n="about.title">Built for lightweight creative decisions</h2>
+        <p class="section-lead" data-i18n="about.lead">
           Choosing colors can become surprisingly slow when there are too many options. PaletteSpin focuses on making that first step easier: try, compare, adjust, and keep the ideas that feel right.
         </p>
 
         <div class="info-grid">
           <article class="info-card">
-            <h3>Useful for</h3>
+            <h3 data-i18n="about.useful.title">Useful for</h3>
             <ul>
-              <li>Finding a color direction for a small project</li>
-              <li>Creating palette ideas for wallpapers or visuals</li>
-              <li>Comparing different moods before committing to one</li>
-              <li>Saving color ideas for later reference</li>
+              <li data-i18n="about.useful.item.project">Finding a color direction for a small project</li>
+              <li data-i18n="about.useful.item.wallpaper">Creating palette ideas for wallpapers or visuals</li>
+              <li data-i18n="about.useful.item.compare">Comparing different moods before committing to one</li>
+              <li data-i18n="about.useful.item.save">Saving color ideas for later reference</li>
             </ul>
           </article>
 
           <article class="info-card">
-            <h3>Simple by design</h3>
+            <h3 data-i18n="about.simple.title">Simple by design</h3>
             <ul>
-              <li>No account is required for the core local workflow</li>
-              <li>The app is focused on color exploration and adjustment</li>
-              <li>Support and privacy information are available from this page</li>
-              <li>Features may change as the app improves over time</li>
+              <li data-i18n="about.simple.item.account">No account is required for the core local workflow</li>
+              <li data-i18n="about.simple.item.focus">The app is focused on color exploration and adjustment</li>
+              <li data-i18n="about.simple.item.support">Support and privacy information are available from this page</li>
+              <li data-i18n="about.simple.item.change">Features may change as the app improves over time</li>
             </ul>
           </article>
         </div>
 
         <div class="trust-note">
-          <h3>A small note before you use it.</h3>
-          <p>
+          <h3 data-i18n="about.note.title">A small note before you use it.</h3>
+          <p data-i18n="about.note.body">
             PaletteSpin helps with creative color exploration, but final color appearance may vary depending on your device display, brightness, export format, and the apps or services where you use the colors.
           </p>
         </div>
@@ -610,14 +650,14 @@
       <div class="container">
         <div class="cta-card">
           <div>
-            <h3>Start with a spin. Keep the colors that feel right.</h3>
-            <p>
+            <h3 data-i18n="cta.title">Start with a spin. Keep the colors that feel right.</h3>
+            <p data-i18n="cta.body">
               PaletteSpin gives you a lightweight way to explore palettes, adjust visuals, and save creative ideas without overcomplicating the process.
             </p>
           </div>
           <div class="hero-actions" style="margin-top: 0;">
-            <a class="button-secondary" href="./support/">Support</a>
-            <a class="button-primary" href="https://apps.apple.com/app/id6767983547" target="_blank" rel="noopener noreferrer">App Store</a>
+            <a class="button-secondary" href="./support/" data-i18n="nav.support">Support</a>
+            <a class="button-primary" href="https://apps.apple.com/app/id6767983547" target="_blank" rel="noopener noreferrer" data-i18n="nav.appStore">App Store</a>
           </div>
         </div>
       </div>
@@ -628,11 +668,241 @@
     <div class="container footer-inner">
       <div>© PaletteSpin</div>
       <div class="footer-links">
-        <a href="https://apps.apple.com/app/id6767983547" target="_blank" rel="noopener noreferrer">App Store</a>
-        <a href="./support/">Support</a>
-        <a href="./privacy/">Privacy Policy</a>
+        <a href="https://apps.apple.com/app/id6767983547" target="_blank" rel="noopener noreferrer" data-i18n="nav.appStore">App Store</a>
+        <a href="./support/" data-i18n="nav.support">Support</a>
+        <a href="./privacy/" data-i18n="hero.privacyPolicy">Privacy Policy</a>
       </div>
     </div>
   </footer>
+
+<script>
+  const paletteSpinSupportedLanguages = [
+    "en",
+    "ja",
+    "fr"
+  ];
+
+  const paletteSpinDefaultLanguage = "en";
+
+  const paletteSpinEmergencyTranslations = {
+    "page.title": "PaletteSpin - Create color palettes with a playful spin",
+    "page.description": "PaletteSpin helps you explore color combinations, save your favorite palettes, and adjust colors in a simple, playful way.",
+    "brand.homeAria": "PaletteSpin home",
+    "brand.iconAlt": "PaletteSpin app icon",
+    "nav.aria": "Primary",
+    "nav.features": "Features",
+    "nav.about": "About",
+    "nav.support": "Support",
+    "nav.privacy": "Privacy",
+    "nav.appStore": "App Store",
+    "hero.eyebrow": "A playful way to explore colors.",
+    "hero.title": "PaletteSpin",
+    "hero.lead": "PaletteSpin helps you create and adjust color palettes with a simple, playful flow.",
+    "hero.pointsAria": "PaletteSpin highlights",
+    "hero.point.palette": "Color palette creation",
+    "hero.point.adjustment": "Visual adjustment tools",
+    "hero.point.save": "Save favorite ideas",
+    "hero.point.workflow": "Simple creative workflow",
+    "hero.download": "Download on the App Store",
+    "hero.privacyPolicy": "Privacy Policy",
+    "hero.note": "This page is provided as the official marketing page for PaletteSpin.",
+    "features.title": "What PaletteSpin helps you do",
+    "features.lead": "PaletteSpin is designed for quick color exploration.",
+    "features.card.explore.title": "Explore color combinations",
+    "features.card.explore.body": "Try different color groups and discover useful combinations.",
+    "features.card.adjust.title": "Adjust the look",
+    "features.card.adjust.body": "Fine-tune colors and presentation options.",
+    "features.card.save.title": "Save ideas for later",
+    "features.card.save.body": "Keep palettes and settings you like.",
+    "features.card.start.title": "Use it as a creative starting point",
+    "features.card.start.body": "Use PaletteSpin as a small spark before creating a visual idea.",
+    "about.title": "Built for lightweight creative decisions",
+    "about.lead": "PaletteSpin makes the first step of color selection easier.",
+    "about.useful.title": "Useful for",
+    "about.useful.item.project": "Finding a color direction for a small project",
+    "about.useful.item.wallpaper": "Creating palette ideas for wallpapers or visuals",
+    "about.useful.item.compare": "Comparing different moods before committing to one",
+    "about.useful.item.save": "Saving color ideas for later reference",
+    "about.simple.title": "Simple by design",
+    "about.simple.item.account": "No account is required for the core local workflow",
+    "about.simple.item.focus": "The app is focused on color exploration and adjustment",
+    "about.simple.item.support": "Support and privacy information are available from this page",
+    "about.simple.item.change": "Features may change as the app improves over time",
+    "about.note.title": "A small note before you use it.",
+    "about.note.body": "Final color appearance may vary depending on your device display and usage environment.",
+    "cta.title": "Start with a spin. Keep the colors that feel right.",
+    "cta.body": "PaletteSpin gives you a lightweight way to explore palettes and save creative ideas."
+  };
+
+  let paletteSpinDefaultTranslations = null;
+
+  function normalizeLanguageCode(language) {
+    return (language || paletteSpinDefaultLanguage).toLowerCase().replace("_", "-");
+  }
+
+  function resolveSupportedLanguage(language) {
+    const normalizedLanguage = normalizeLanguageCode(language);
+    const baseLanguage = normalizedLanguage.split("-")[0];
+
+    if (paletteSpinSupportedLanguages.includes(normalizedLanguage)) {
+      return normalizedLanguage;
+    }
+
+    if (paletteSpinSupportedLanguages.includes(baseLanguage)) {
+      return baseLanguage;
+    }
+
+    return paletteSpinDefaultLanguage;
+  }
+
+  function getBrowserLanguage() {
+    const languages = navigator.languages && navigator.languages.length > 0
+      ? navigator.languages
+      : [navigator.language || navigator.userLanguage || paletteSpinDefaultLanguage];
+
+    for (const language of languages) {
+      const resolvedLanguage = resolveSupportedLanguage(language);
+
+      if (resolvedLanguage !== paletteSpinDefaultLanguage) {
+        return resolvedLanguage;
+      }
+    }
+
+    return paletteSpinDefaultLanguage;
+  }
+
+  function getInitialLanguage() {
+    const params = new URLSearchParams(window.location.search);
+    const queryLanguage = params.get("lang");
+
+    if (queryLanguage) {
+      return resolveSupportedLanguage(queryLanguage);
+    }
+
+    const savedLanguage = localStorage.getItem("paletteSpinLanguage");
+
+    if (savedLanguage) {
+      return resolveSupportedLanguage(savedLanguage);
+    }
+
+    return getBrowserLanguage();
+  }
+
+  async function loadLanguageFile(language) {
+    const response = await fetch(`./assets/locales/${language}.json`, { cache: "no-cache" });
+
+    if (!response.ok) {
+      throw new Error(`Locale file not found: ${language}`);
+    }
+
+    return await response.json();
+  }
+
+  async function getDefaultTranslations() {
+    if (paletteSpinDefaultTranslations) {
+      return paletteSpinDefaultTranslations;
+    }
+
+    try {
+      paletteSpinDefaultTranslations = await loadLanguageFile(paletteSpinDefaultLanguage);
+    } catch {
+      paletteSpinDefaultTranslations = paletteSpinEmergencyTranslations;
+    }
+
+    return paletteSpinDefaultTranslations;
+  }
+
+  async function getTranslations(language) {
+    const resolvedLanguage = resolveSupportedLanguage(language);
+    const defaultTranslations = await getDefaultTranslations();
+
+    if (resolvedLanguage === paletteSpinDefaultLanguage) {
+      return {
+        language: paletteSpinDefaultLanguage,
+        translations: defaultTranslations
+      };
+    }
+
+    try {
+      const translations = await loadLanguageFile(resolvedLanguage);
+      return {
+        language: resolvedLanguage,
+        translations: {
+          ...defaultTranslations,
+          ...translations
+        }
+      };
+    } catch {
+      console.warn(`PaletteSpin locale could not be loaded: ${resolvedLanguage}`);
+      return {
+        language: paletteSpinDefaultLanguage,
+        translations: defaultTranslations
+      };
+    }
+  }
+
+  function updateDocumentLanguage(language, translations) {
+    document.documentElement.lang = language;
+    document.title = translations["page.title"] || paletteSpinEmergencyTranslations["page.title"];
+
+    const description = document.querySelector('meta[name="description"]');
+    if (description) {
+      description.setAttribute("content", translations["page.description"] || paletteSpinEmergencyTranslations["page.description"]);
+    }
+  }
+
+  function updateTranslatedText(translations) {
+    document.querySelectorAll("[data-i18n]").forEach((element) => {
+      const key = element.dataset.i18n;
+      const text = translations[key] || paletteSpinEmergencyTranslations[key];
+
+      if (text) {
+        element.textContent = text;
+      }
+    });
+  }
+
+  function updateTranslatedAttributes(translations) {
+    document.querySelectorAll("[data-i18n-attr]").forEach((element) => {
+      const pairs = element.dataset.i18nAttr.split(",");
+
+      pairs.forEach((pair) => {
+        const [attributeName, key] = pair.split(":").map((value) => value.trim());
+        const text = translations[key] || paletteSpinEmergencyTranslations[key];
+
+        if (attributeName && text) {
+          element.setAttribute(attributeName, text);
+        }
+      });
+    });
+  }
+
+  function updateLanguageButtons(language) {
+    document.querySelectorAll("[data-lang-button]").forEach((button) => {
+      const isActive = button.dataset.langButton === language;
+      button.classList.toggle("is-active", isActive);
+      button.setAttribute("aria-pressed", isActive ? "true" : "false");
+    });
+  }
+
+  async function applyLanguage(language) {
+    const result = await getTranslations(language);
+
+    updateDocumentLanguage(result.language, result.translations);
+    updateTranslatedText(result.translations);
+    updateTranslatedAttributes(result.translations);
+    updateLanguageButtons(result.language);
+
+    localStorage.setItem("paletteSpinLanguage", result.language);
+  }
+
+  document.querySelectorAll("[data-lang-button]").forEach((button) => {
+    button.addEventListener("click", () => {
+      applyLanguage(button.dataset.langButton);
+    });
+  });
+
+  applyLanguage(getInitialLanguage());
+</script>
 </body>
 </html>
