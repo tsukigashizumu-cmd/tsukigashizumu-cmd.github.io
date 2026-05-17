@@ -3,22 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tsukigashizumu CMD</title>
-  <meta name="description" content="Tsukigashizumu CMD のアプリ一覧ページです。">
+  <title>Tsukigashizumu Studio</title>
+  <meta name="description" content="Tsukigashizumu Studio のアプリ一覧ページです。">
   <style>
     :root {
       color-scheme: light;
-      --bg: #f7f4ef;
-      --card: rgba(255, 255, 255, 0.82);
-      --text: #34261c;
-      --subtext: #6c5b4f;
-      --line: rgba(132, 96, 69, 0.18);
-      --shadow: 0 18px 40px rgba(70, 44, 22, 0.10);
-      --accent: #f4b44f;
-      --button-text: #2f2319;
-      --max-width: 1080px;
-      --radius-xl: 28px;
-      --radius-lg: 22px;
+      --bg: #100f13;
+      --panel: rgba(255, 255, 255, 0.08);
+      --panel-strong: rgba(255, 255, 255, 0.12);
+      --text: #fffaf1;
+      --subtext: rgba(255, 250, 241, 0.66);
+      --muted: rgba(255, 250, 241, 0.46);
+      --line: rgba(255, 255, 255, 0.12);
+      --shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
+      --accent: #ffb84d;
+      --accent-2: #ff5ea8;
+      --accent-3: #7c5cff;
+      --button-text: #171116;
+      --max-width: 1120px;
+      --radius-xl: 34px;
+      --radius-lg: 26px;
     }
 
     * {
@@ -27,13 +31,29 @@
 
     body {
       margin: 0;
+      min-height: 100vh;
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(244, 180, 79, 0.16), transparent 28%),
-        radial-gradient(circle at top right, rgba(187, 146, 97, 0.12), transparent 24%),
-        linear-gradient(180deg, #fcfaf7 0%, var(--bg) 100%);
+        radial-gradient(circle at 12% 8%, rgba(255, 184, 77, 0.28), transparent 28%),
+        radial-gradient(circle at 86% 12%, rgba(255, 94, 168, 0.22), transparent 30%),
+        radial-gradient(circle at 50% 92%, rgba(124, 92, 255, 0.20), transparent 34%),
+        linear-gradient(135deg, #171019 0%, #0d1018 46%, #15100e 100%);
       color: var(--text);
       line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(circle at 50% 12%, black 0%, transparent 68%);
+      opacity: 0.35;
     }
 
     a {
@@ -47,41 +67,200 @@
     }
 
     .hero {
-      padding: 56px 0 28px;
+      padding: 64px 0 32px;
     }
 
     .hero-card {
+      position: relative;
+      overflow: hidden;
       border-radius: var(--radius-xl);
-      padding: 32px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.78) 100%);
-      border: 1px solid rgba(132, 96, 69, 0.12);
+      padding: clamp(26px, 5vw, 56px);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.06) 54%, rgba(255,255,255,0.10) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       box-shadow: var(--shadow);
+      backdrop-filter: blur(24px);
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      right: -90px;
+      top: -120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 184, 77, 0.48), rgba(255, 94, 168, 0.18) 48%, transparent 70%);
+      filter: blur(2px);
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      right: 84px;
+      bottom: -96px;
+      border-radius: 44px;
+      background: linear-gradient(135deg, rgba(124, 92, 255, 0.52), rgba(255, 255, 255, 0.06));
+      transform: rotate(18deg);
+    }
+
+    .hero-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-soul {
+      position: absolute;
+      z-index: 0;
+      pointer-events: none;
+      width: 138px;
+      height: 176px;
+      border-radius: 54% 46% 58% 42% / 62% 62% 38% 38%;
+      background:
+        radial-gradient(circle at 50% 70%, rgba(255, 255, 255, 0.62) 0 10%, transparent 12%),
+        radial-gradient(circle at 48% 48%, rgba(255, 238, 190, 0.36), rgba(255, 94, 168, 0.22) 42%, rgba(124, 92, 255, 0.18) 72%, transparent 78%);
+      box-shadow:
+        0 0 52px rgba(255, 184, 77, 0.18),
+        0 0 90px rgba(255, 94, 168, 0.14);
+      filter: blur(0.2px);
+      opacity: 0.62;
+      transform-origin: 50% 80%;
+      animation: heroSoulDrift 9s ease-in-out infinite;
+    }
+
+    .hero-soul::before,
+    .hero-soul::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      background: rgba(255, 250, 241, 0.42);
+      filter: blur(1px);
+    }
+
+    .hero-soul::before {
+      width: 14px;
+      height: 14px;
+      left: 44px;
+      top: 72px;
+    }
+
+    .hero-soul::after {
+      width: 10px;
+      height: 10px;
+      right: 42px;
+      top: 78px;
+    }
+
+    .hero-soul-main {
+      right: 52px;
+      top: 40px;
+      transform: rotate(9deg) scale(1);
+    }
+
+    .hero-soul-sub {
+      right: 182px;
+      bottom: -58px;
+      width: 92px;
+      height: 118px;
+      opacity: 0.42;
+      background:
+        radial-gradient(circle at 50% 70%, rgba(255, 255, 255, 0.52) 0 10%, transparent 12%),
+        radial-gradient(circle at 48% 48%, rgba(220, 236, 255, 0.34), rgba(124, 92, 255, 0.24) 44%, rgba(255, 94, 168, 0.14) 72%, transparent 78%);
+      animation-name: heroSoulDriftReverse;
+      animation-duration: 11s;
+    }
+
+    @keyframes heroSoulDrift {
+      0%, 100% {
+        transform: translate3d(0, 0, 0) rotate(9deg) scale(1);
+        opacity: 0.58;
+      }
+
+      50% {
+        transform: translate3d(-10px, -12px, 0) rotate(-4deg) scale(1.05);
+        opacity: 0.72;
+      }
+    }
+
+    @keyframes heroSoulDriftReverse {
+      0%, 100% {
+        transform: translate3d(0, 0, 0) rotate(-8deg) scale(1);
+        opacity: 0.38;
+      }
+
+      50% {
+        transform: translate3d(8px, -10px, 0) rotate(6deg) scale(1.06);
+        opacity: 0.50;
+      }
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
+      gap: 8px;
       border-radius: 999px;
-      padding: 8px 12px;
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid rgba(132, 96, 69, 0.12);
-      color: var(--subtext);
-      font-size: 0.9rem;
-      font-weight: 700;
+      padding: 8px 13px 8px 10px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: rgba(255, 250, 241, 0.76);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow-spark {
+      width: 12px;
+      height: 12px;
+      border-radius: 50% 50% 48% 52%;
+      background:
+        radial-gradient(circle at 48% 58%, rgba(255, 255, 255, 0.92) 0 16%, transparent 18%),
+        radial-gradient(circle, rgba(255, 220, 165, 0.95), rgba(255, 184, 77, 0.78) 42%, rgba(255, 94, 168, 0.44) 72%);
+      box-shadow:
+        0 0 12px rgba(255, 184, 77, 0.55),
+        0 0 20px rgba(255, 94, 168, 0.25);
+      transform: rotate(12deg);
+      animation: eyebrowSpark 2.8s ease-in-out infinite;
+    }
+
+    @keyframes eyebrowSpark {
+      0%, 100% {
+        transform: translateY(0) rotate(12deg) scale(1);
+        opacity: 0.78;
+      }
+
+      50% {
+        transform: translateY(-1px) rotate(-8deg) scale(1.14);
+        opacity: 1;
+      }
     }
 
     h1 {
-      margin: 16px 0 14px;
-      font-size: clamp(2.2rem, 5vw, 4rem);
-      line-height: 1.04;
-      letter-spacing: -0.04em;
+      margin: 18px 0 16px;
+      max-width: 760px;
+      font-size: clamp(3rem, 8vw, 6.8rem);
+      line-height: 0.92;
+      letter-spacing: -0.075em;
+      text-wrap: balance;
+    }
+
+    .soul-gradient {
+      display: inline-block;
+      background: linear-gradient(115deg, #fffaf1 0%, #ffdca5 30%, #ff5ea8 62%, #a99cff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 34px rgba(255, 94, 168, 0.18);
     }
 
     .hero-lead {
       margin: 0;
       max-width: 42rem;
       color: var(--subtext);
-      font-size: clamp(1.04rem, 1.8vw, 1.18rem);
+      font-size: clamp(1.05rem, 1.9vw, 1.26rem);
+      font-weight: 650;
     }
 
     .social-links {
@@ -95,72 +274,208 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 42px;
+      min-height: 44px;
       border-radius: 999px;
-      padding: 0 16px;
-      background: rgba(255, 255, 255, 0.82);
-      border: 1px solid rgba(132, 96, 69, 0.12);
+      padding: 0 17px;
+      background: rgba(255, 255, 255, 0.11);
+      border: 1px solid rgba(255, 255, 255, 0.14);
       color: var(--text);
-      font-weight: 800;
-      box-shadow: 0 10px 22px rgba(70, 44, 22, 0.08);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      font-weight: 850;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+      backdrop-filter: blur(16px);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
 
     .social-link:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 28px rgba(70, 44, 22, 0.12);
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.16);
+      box-shadow: 0 18px 34px rgba(0, 0, 0, 0.24);
     }
 
     .section {
-      padding: 28px 0 56px;
+      padding: 34px 0 64px;
     }
 
     .section-title {
       margin: 0 0 10px;
-      font-size: clamp(1.5rem, 3vw, 2.1rem);
-      line-height: 1.15;
-      letter-spacing: -0.03em;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      line-height: 1.02;
+      letter-spacing: -0.055em;
     }
 
     .section-lead {
       margin: 0;
+      max-width: 680px;
       color: var(--subtext);
+      font-weight: 620;
     }
 
     .app-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
-      margin-top: 22px;
+      margin-top: 24px;
     }
 
     .app-card {
-      background: var(--card);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.13) 0%, rgba(255,255,255,0.07) 100%);
       border: 1px solid var(--line);
       border-radius: var(--radius-lg);
-      padding: 22px;
-      box-shadow: var(--shadow);
+      padding: 20px;
+      box-shadow: 0 20px 54px rgba(0, 0, 0, 0.22);
+      backdrop-filter: blur(18px);
+      transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+    }
+
+    .app-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 18% 0%, rgba(255, 184, 77, 0.16), transparent 38%);
+      opacity: 0;
+      transition: opacity 0.22s ease;
+    }
+
+    .app-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.22);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.17) 0%, rgba(255,255,255,0.08) 100%);
+    }
+
+    .app-card:hover::before {
+      opacity: 1;
+    }
+
+    .app-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .soul-tag {
+      display: inline-flex;
+      align-items: center;
+      align-self: flex-start;
+      gap: 7px;
+      max-width: calc(100% - 86px);
+      margin: 0 0 30px;
+      border-radius: 999px;
+      padding: 6px 10px 6px 8px;
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: rgba(255, 250, 241, 0.72);
+      font-size: 0.74rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .soul-flame {
+      width: 16px;
+      height: 20px;
+      border-radius: 52% 48% 55% 45% / 60% 60% 40% 40%;
+      background:
+        radial-gradient(circle at 48% 68%, rgba(255, 255, 255, 0.95) 0 16%, transparent 18%),
+        radial-gradient(circle at 48% 50%, rgba(255, 220, 165, 0.94), rgba(255, 94, 168, 0.75) 46%, rgba(124, 92, 255, 0.62) 76%);
+      box-shadow:
+        0 0 14px rgba(255, 184, 77, 0.42),
+        0 0 24px rgba(255, 94, 168, 0.24);
+      transform: translateY(0) rotate(7deg) scale(1);
+      transform-origin: 50% 78%;
+      animation: soulFloat 3.8s ease-in-out infinite;
+    }
+
+    .app-card:nth-child(2n) .soul-flame {
+      background:
+        radial-gradient(circle at 48% 68%, rgba(255, 255, 255, 0.95) 0 16%, transparent 18%),
+        radial-gradient(circle at 48% 50%, rgba(218, 238, 255, 0.96), rgba(124, 92, 255, 0.78) 48%, rgba(255, 94, 168, 0.56) 78%);
+      animation-name: soulFloatReverse;
+      animation-duration: 4.4s;
+    }
+
+    .app-card:nth-child(3n) .soul-flame {
+      background:
+        radial-gradient(circle at 48% 68%, rgba(255, 255, 255, 0.95) 0 16%, transparent 18%),
+        radial-gradient(circle at 48% 50%, rgba(255, 248, 188, 0.96), rgba(255, 184, 77, 0.78) 46%, rgba(255, 94, 168, 0.56) 78%);
+      animation-duration: 3.3s;
+    }
+
+    .app-card:hover .soul-flame {
+      animation-duration: 2.3s;
+      filter: saturate(1.18) brightness(1.08);
+    }
+
+    @keyframes soulFloat {
+      0%, 100% {
+        transform: translateY(0) rotate(7deg) scale(1);
+        box-shadow:
+          0 0 14px rgba(255, 184, 77, 0.42),
+          0 0 24px rgba(255, 94, 168, 0.24);
+      }
+
+      48% {
+        transform: translateY(-3px) rotate(-5deg) scale(1.07);
+        box-shadow:
+          0 0 18px rgba(255, 184, 77, 0.58),
+          0 0 30px rgba(255, 94, 168, 0.34);
+      }
+    }
+
+    @keyframes soulFloatReverse {
+      0%, 100% {
+        transform: translateY(0) rotate(-8deg) scale(1);
+        box-shadow:
+          0 0 14px rgba(124, 92, 255, 0.42),
+          0 0 24px rgba(255, 94, 168, 0.22);
+      }
+
+      52% {
+        transform: translateY(-3px) rotate(6deg) scale(1.07);
+        box-shadow:
+          0 0 18px rgba(124, 92, 255, 0.58),
+          0 0 30px rgba(255, 94, 168, 0.32);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .soul-flame,
+      .hero-soul,
+      .eyebrow-spark {
+        animation: none;
+      }
     }
 
     .app-icon {
-      width: 72px;
-      height: 72px;
-      border-radius: 18px;
+      width: 70px;
+      height: 70px;
+      border-radius: 21px;
       display: block;
-      margin: 0 0 14px;
+      margin: 0;
       object-fit: cover;
-      box-shadow: 0 10px 22px rgba(70, 44, 22, 0.14);
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.26);
     }
 
     .app-icon-link {
+      position: absolute;
+      top: 20px;
+      right: 20px;
       display: inline-block;
-      margin: 0 0 14px;
-      border-radius: 18px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      margin: 0;
+      border-radius: 21px;
+      z-index: 2;
+      transition: transform 0.2s ease, filter 0.2s ease;
     }
 
     .app-icon-link:hover {
-      transform: translateY(-1px) scale(1.02);
+      transform: translateY(-2px) scale(1.035) rotate(-1deg);
+      filter: saturate(1.12);
     }
 
     .app-icon-link .app-icon {
@@ -168,21 +483,30 @@
     }
 
     .app-card h2 {
-      margin: 0 0 10px;
-      font-size: 1.18rem;
-      letter-spacing: -0.02em;
+      margin: 0 0 9px;
+      padding-right: 10px;
+      font-size: 1.24rem;
+      line-height: 1.18;
+      letter-spacing: -0.035em;
     }
 
     .app-card p {
       margin: 0;
       color: var(--subtext);
+      font-size: 0.94rem;
+      line-height: 1.72;
     }
 
     .app-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 18px;
+      gap: 9px;
+      margin-top: auto;
+      padding-top: 22px;
+    }
+
+    .button-detail {
+      flex: 1 1 100%;
     }
 
     .button-primary,
@@ -190,42 +514,60 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 46px;
+      min-height: 40px;
       border-radius: 999px;
-      padding: 0 18px;
-      font-weight: 700;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      padding: 0 14px;
+      font-size: 0.9rem;
+      font-weight: 850;
+      white-space: nowrap;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
 
     .button-primary {
-      background: linear-gradient(180deg, #ffd18a 0%, var(--accent) 100%);
+      flex: 1 1 100%;
+      background: linear-gradient(135deg, var(--accent) 0%, #ffdca5 100%);
       color: var(--button-text);
-      box-shadow: 0 12px 24px rgba(218, 155, 51, 0.24);
+      box-shadow: 0 14px 28px rgba(255, 184, 77, 0.22);
     }
 
     .button-secondary {
-      background: rgba(255, 255, 255, 0.82);
-      color: var(--text);
-      border: 1px solid rgba(132, 96, 69, 0.12);
+      flex: 1 1 calc(50% - 9px);
+      background: rgba(255, 255, 255, 0.08);
+      color: rgba(255, 250, 241, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.11);
+    }
+
+    .button-secondary.button-detail {
+      flex: 1 1 100%;
     }
 
     .button-primary:hover,
     .button-secondary:hover {
-      transform: translateY(-1px);
+      transform: translateY(-2px);
+    }
+
+    .button-secondary:hover {
+      background: rgba(255, 255, 255, 0.13);
     }
 
     .site-footer {
       padding: 0 0 52px;
-      color: var(--subtext);
+      color: var(--muted);
       font-size: 0.94rem;
     }
 
     .footer-inner {
-      border-top: 1px solid rgba(132, 96, 69, 0.12);
+      border-top: 1px solid rgba(255, 255, 255, 0.10);
       padding-top: 18px;
     }
 
-    @media (max-width: 860px) {
+    @media (max-width: 980px) {
+      .app-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 700px) {
       .app-grid {
         grid-template-columns: 1fr;
       }
@@ -241,8 +583,38 @@
         padding: 20px;
       }
 
+      .hero {
+        padding-top: 28px;
+      }
+
+      .hero-soul-main {
+        right: -18px;
+        top: 38px;
+        opacity: 0.36;
+        transform: rotate(9deg) scale(0.78);
+      }
+
+      .hero-soul-sub {
+        display: none;
+      }
+
+      .soul-tag {
+        max-width: calc(100% - 76px);
+      }
+
+      .app-icon-link {
+        top: 18px;
+        right: 18px;
+      }
+
+      .app-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 19px;
+      }
+
       .app-actions {
-        flex-direction: column;
+        flex-direction: row;
         align-items: stretch;
       }
     }
@@ -253,10 +625,12 @@
     <section class="hero">
       <div class="container">
         <div class="hero-card">
-          <div class="eyebrow">App Portal</div>
-          <h1>Tsukigashizumu CMD</h1>
+          <div class="hero-soul hero-soul-main" aria-hidden="true"></div>
+          <div class="hero-soul hero-soul-sub" aria-hidden="true"></div>
+          <div class="eyebrow"><span class="eyebrow-spark" aria-hidden="true"></span>Independent App Studio</div>
+          <h1>Small apps with <span class="soul-gradient">weird souls.</span></h1>
           <p class="hero-lead">
-            公開中のアプリやサポートページへの入口をまとめています。
+          Tsukigashizumu Studio が作っている、少し変で、手触りがあって、soul のあるアプリたちをまとめたポータルです。
           </p>
           <div class="social-links" aria-label="Social links">
             <a class="social-link" href="https://www.youtube.com/@No_Delay" target="_blank" rel="noopener noreferrer">YouTubeチャンネル</a>
@@ -268,13 +642,14 @@
 
     <section class="section">
       <div class="container">
-        <h2 class="section-title">Apps</h2>
+        <h2 class="section-title">Apps / Experiments</h2>
         <p class="section-lead">
-          各アプリの紹介ページ、サポート、プライバシーポリシーはこちらから確認できます。
+          触って楽しいもの、変な成長をするもの、日常の判断を少しラクにするもの。小さくても、ちゃんと soul がある作品を並べています。
         </p>
 
         <div class="app-grid">
           <article class="app-card">
+            <div class="soul-tag"><span class="soul-flame" aria-hidden="true"></span>Dice soul</div>
             <a class="app-icon-link" href="./jiiyaroll/en/" aria-label="Jiiya Roll の紹介ページを見る">
               <img class="app-icon" src="./jiiyaroll/en/assets/app-icon.png" alt="Jiiya Roll icon">
             </a>
@@ -283,14 +658,15 @@
               サイコロを振って、じいやを雇い、奇妙な自動化と成長を楽しむカジュアル idle ゲーム。
             </p>
             <div class="app-actions">
-              <a class="button-primary" href="./jiiyaroll/en/">アプリを見る</a>
-              <a class="button-secondary" href="https://apps.apple.com/app/id6765972725">App Store</a>
+              <a class="button-primary" href="https://apps.apple.com/app/id6765972725">App Store</a>
+              <a class="button-secondary button-detail" href="./jiiyaroll/en/">詳細を見る</a>
               <a class="button-secondary" href="./jiiyaroll/en/support/">サポート</a>
               <a class="button-secondary" href="./jiiyaroll/en/privacy/">プライバシー</a>
             </div>
           </article>
 
           <article class="app-card">
+            <div class="soul-tag"><span class="soul-flame" aria-hidden="true"></span>Karma soul</div>
             <a class="app-icon-link" href="./bacchus-karma/en/" aria-label="Bacchus Karma の紹介ページを見る">
               <img class="app-icon" src="./bacchus-karma/en/assets/app-icon.png" alt="Bacchus Karma icon">
             </a>
@@ -299,14 +675,15 @@
               札、盤、落下、因果。独自の世界観と表現を形にしたゲームプロジェクト。
             </p>
             <div class="app-actions">
-              <a class="button-primary" href="./bacchus-karma/en/">アプリを見る</a>
-              <a class="button-secondary" href="https://apps.apple.com/app/id6761338604">App Store</a>
+              <a class="button-primary" href="https://apps.apple.com/app/id6761338604">App Store</a>
+              <a class="button-secondary button-detail" href="./bacchus-karma/en/">詳細を見る</a>
               <a class="button-secondary" href="./bacchus-karma/en/support/">サポート</a>
               <a class="button-secondary" href="./bacchus-karma/en/privacy/">プライバシー</a>
             </div>
           </article>
 
           <article class="app-card">
+            <div class="soul-tag"><span class="soul-flame" aria-hidden="true"></span>Color soul</div>
             <a class="app-icon-link" href="./PaletteSpin/en/" aria-label="Palette Spin の紹介ページを見る">
               <img class="app-icon" src="./PaletteSpin/en/assets/app-icon.png" alt="Palette Spin icon">
             </a>
@@ -315,14 +692,15 @@
               パレットを回して、写真や色の組み合わせから壁紙を作るビジュアルアプリ。
             </p>
             <div class="app-actions">
-              <a class="button-primary" href="./PaletteSpin/en/">アプリを見る</a>
-              <a class="button-secondary" href="https://apps.apple.com/app/id6767983547">App Store</a>
+              <a class="button-primary" href="https://apps.apple.com/app/id6767983547">App Store</a>
+              <a class="button-secondary button-detail" href="./PaletteSpin/en/">詳細を見る</a>
               <a class="button-secondary" href="./PaletteSpin/en/support/">サポート</a>
               <a class="button-secondary" href="./PaletteSpin/en/privacy/">プライバシー</a>
             </div>
           </article>
 
           <article class="app-card">
+            <div class="soul-tag"><span class="soul-flame" aria-hidden="true"></span>Daily soul</div>
             <a class="app-icon-link" href="./shopsuggest/en/" aria-label="ShopSuggest の紹介ページを見る">
               <img class="app-icon" src="./shopsuggest/en/assets/app-icon.png" alt="ShopSuggest icon">
             </a>
@@ -331,14 +709,15 @@
               買い物リストを整理しながら、候補入力や使いやすさを重視して続けやすく整えた買い物アプリ。
             </p>
             <div class="app-actions">
-              <a class="button-primary" href="./shopsuggest/en/">アプリを見る</a>
-              <a class="button-secondary" href="https://apps.apple.com/app/id6760823598">App Store</a>
+              <a class="button-primary" href="https://apps.apple.com/app/id6760823598">App Store</a>
+              <a class="button-secondary button-detail" href="./shopsuggest/en/">詳細を見る</a>
               <a class="button-secondary" href="./shopsuggest/en/support/">サポート</a>
               <a class="button-secondary" href="./shopsuggest/en/privacy/">プライバシー</a>
             </div>
           </article>
 
           <article class="app-card">
+            <div class="soul-tag"><span class="soul-flame" aria-hidden="true"></span>Value soul</div>
             <a class="app-icon-link" href="./valuepop/en/" aria-label="Unit Choice の紹介ページを見る">
               <img class="app-icon" src="./valuepop/en/assets/app-icon.png" alt="Unit Choice icon">
             </a>
@@ -347,14 +726,15 @@
               どっちが安い？をすばやく比べる、単価計算と価格比較に特化したシンプルなアプリ。
             </p>
             <div class="app-actions">
-              <a class="button-primary" href="./valuepop/en/">アプリを見る</a>
-              <a class="button-secondary" href="https://apps.apple.com/app/id6762347699">App Store</a>
+              <a class="button-primary" href="https://apps.apple.com/app/id6762347699">App Store</a>
+              <a class="button-secondary button-detail" href="./valuepop/en/">詳細を見る</a>
               <a class="button-secondary" href="./valuepop/en/support/">サポート</a>
               <a class="button-secondary" href="./valuepop/en/privacy/">プライバシー</a>
             </div>
           </article>
 
           <article class="app-card">
+            <div class="soul-tag"><span class="soul-flame" aria-hidden="true"></span>Timing soul</div>
             <a class="app-icon-link" href="./kaidoki/en/" aria-label="カイドキ帳 の紹介ページを見る">
               <img class="app-icon" src="./kaidoki/en/assets/app-icon.png" alt="カイドキ帳 icon">
             </a>
@@ -363,14 +743,15 @@
               商品や価格の見方を整理しながら、買いどきの判断を支える記録・比較アプリ。
             </p>
             <div class="app-actions">
-              <a class="button-primary" href="./kaidoki/en/">アプリを見る</a>
-              <a class="button-secondary" href="https://apps.apple.com/app/id6758993822">App Store</a>
+              <a class="button-primary" href="https://apps.apple.com/app/id6758993822">App Store</a>
+              <a class="button-secondary button-detail" href="./kaidoki/en/">詳細を見る</a>
               <a class="button-secondary" href="./kaidoki/en/support/">サポート</a>
               <a class="button-secondary" href="./kaidoki/en/privacy/">プライバシー</a>
             </div>
           </article>
 
           <article class="app-card">
+            <div class="soul-tag"><span class="soul-flame" aria-hidden="true"></span>Pudding soul</div>
             <a class="app-icon-link" href="./puddingscoop/en/" aria-label="プリンすくい の紹介ページを見る">
               <img class="app-icon" src="./puddingscoop/en/assets/app-icon.png" alt="プリンすくい icon">
             </a>
@@ -379,8 +760,8 @@
               ぷるぷるのプリンをすくう、やさしい見た目と手触りのカジュアルゲーム。
             </p>
             <div class="app-actions">
-              <a class="button-primary" href="./puddingscoop/en/">アプリを見る</a>
-              <a class="button-secondary" href="https://apps.apple.com/app/id6763169050">App Store</a>
+              <a class="button-primary" href="https://apps.apple.com/app/id6763169050">App Store</a>
+              <a class="button-secondary button-detail" href="./puddingscoop/en/">詳細を見る</a>
               <a class="button-secondary" href="./puddingscoop/en/support/">サポート</a>
               <a class="button-secondary" href="./puddingscoop/en/privacy/">プライバシー</a>
             </div>
@@ -392,7 +773,7 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div>© Tsukigashizumu CMD</div>
+      <div>© Tsukigashizumu Studio</div>
     </div>
   </footer>
 </body>
