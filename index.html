@@ -313,13 +313,13 @@
     .app-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      margin-top: 24px;
+      gap: 78px 18px;
+      margin-top: 84px;
     }
 
     .app-card {
       position: relative;
-      overflow: hidden;
+      overflow: visible;
       display: flex;
       flex-direction: column;
       min-height: 100%;
@@ -337,9 +337,11 @@
       content: "";
       position: absolute;
       inset: 0;
+      border-radius: inherit;
       background: radial-gradient(circle at 18% 0%, rgba(255, 184, 77, 0.16), transparent 38%);
       opacity: 0;
       transition: opacity 0.22s ease;
+      pointer-events: none;
     }
 
     .app-card:hover {
@@ -358,13 +360,28 @@
       z-index: 1;
     }
 
+    .app-card-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: start;
+      margin: 0 0 16px;
+    }
+
+    .app-card-title-stack {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
     .soul-tag {
       display: inline-flex;
       align-items: center;
       align-self: flex-start;
       gap: 7px;
-      max-width: calc(100% - 86px);
-      margin: 0 0 30px;
+      max-width: 100%;
       border-radius: 999px;
       padding: 6px 10px 6px 8px;
       background: rgba(255, 255, 255, 0.09);
@@ -447,7 +464,8 @@
     @media (prefers-reduced-motion: reduce) {
       .soul-flame,
       .hero-soul,
-      .eyebrow-spark {
+      .eyebrow-spark,
+      .app-soul-reveal::before {
         animation: none;
       }
     }
@@ -463,9 +481,6 @@
     }
 
     .app-icon-link {
-      position: absolute;
-      top: 20px;
-      right: 20px;
       display: inline-block;
       margin: 0;
       border-radius: 21px;
@@ -483,30 +498,21 @@
     }
 
     .app-card h2 {
-      margin: 0 0 9px;
-      padding-right: 10px;
+      margin: 0;
+      padding-right: 0;
       font-size: 1.24rem;
       line-height: 1.18;
       letter-spacing: -0.035em;
     }
 
-    .app-card p {
-      margin: 0;
-      color: var(--subtext);
-      font-size: 0.94rem;
-      line-height: 1.72;
-    }
-
     .app-actions {
+      position: relative;
+      z-index: 3;
       display: flex;
       flex-wrap: wrap;
       gap: 9px;
       margin-top: auto;
       padding-top: 22px;
-    }
-
-    .button-detail {
-      flex: 1 1 100%;
     }
 
     .button-primary,
@@ -521,6 +527,88 @@
       font-weight: 850;
       white-space: nowrap;
       transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .app-card p {
+      margin: 0;
+      color: var(--subtext);
+      font-size: 0.94rem;
+      line-height: 1.72;
+      transition: opacity 0.22s ease, transform 0.22s ease;
+    }
+
+    .app-soul-reveal {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: calc(100% + 12px);
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 18px 14px 58px;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(10px) scale(0.98);
+      transition: opacity 0.24s ease, transform 0.24s ease;
+      z-index: 8;
+      border-radius: 22px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.08));
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 20px 52px rgba(0, 0, 0, 0.32);
+      backdrop-filter: blur(18px);
+    }
+
+    .app-soul-reveal::before {
+      content: "";
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      width: 34px;
+      height: 44px;
+      border-radius: 54% 46% 58% 42% / 62% 62% 38% 38%;
+      background:
+        radial-gradient(circle at 50% 70%, rgba(255, 255, 255, 0.76) 0 10%, transparent 12%),
+        radial-gradient(circle at 48% 48%, rgba(255, 238, 190, 0.76), rgba(255, 94, 168, 0.50) 42%, rgba(124, 92, 255, 0.38) 72%, transparent 80%);
+      box-shadow:
+        0 0 24px rgba(255, 184, 77, 0.30),
+        0 0 42px rgba(255, 94, 168, 0.20);
+      filter: blur(0.1px);
+      opacity: 0.96;
+      transform: translateY(-50%) rotate(7deg);
+      animation: revealSoulFloat 4.2s ease-in-out infinite;
+    }
+
+    .app-soul-reveal-text {
+      position: relative;
+      z-index: 1;
+      color: rgba(255, 250, 241, 0.9);
+      font-size: 0.84rem;
+      font-weight: 760;
+      line-height: 1.55;
+      text-align: left;
+      text-shadow: 0 2px 16px rgba(0, 0, 0, 0.34);
+    }
+
+    .app-card:hover > p {
+      opacity: 0.72;
+      transform: translateY(-1px);
+    }
+
+    .app-card:hover .app-soul-reveal {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    @keyframes revealSoulFloat {
+      0%, 100% {
+        transform: translateY(-50%) rotate(7deg) scale(1);
+      }
+
+      50% {
+        transform: translateY(calc(-50% - 4px)) rotate(-4deg) scale(1.06);
+      }
     }
 
     .button-primary {
@@ -598,19 +686,46 @@
         display: none;
       }
 
-      .soul-tag {
-        max-width: calc(100% - 76px);
+      .app-card-head {
+        gap: 14px;
+        margin-bottom: 18px;
       }
 
-      .app-icon-link {
-        top: 18px;
-        right: 18px;
+      .app-card-title-stack {
+        gap: 11px;
+      }
+
+      .soul-tag {
+        max-width: 100%;
       }
 
       .app-icon {
         width: 64px;
         height: 64px;
         border-radius: 19px;
+      }
+
+      .app-grid {
+        gap: 72px 18px;
+        margin-top: 78px;
+      }
+
+      .app-soul-reveal {
+        left: 10px;
+        right: 10px;
+        bottom: calc(100% + 10px);
+        min-height: 66px;
+        padding: 12px 14px 12px 52px;
+      }
+
+      .app-soul-reveal::before {
+        left: 16px;
+        width: 30px;
+        height: 40px;
+      }
+
+      .app-soul-reveal-text {
+        font-size: 0.8rem;
       }
 
       .app-actions {
@@ -649,14 +764,21 @@
 
         <div class="app-grid">
           <article class="app-card">
-            <div class="soul-tag"><span class="soul-flame" aria-hidden="true"></span>Dice soul</div>
-            <a class="app-icon-link" href="./jiiyaroll/en/" aria-label="Jiiya Roll の紹介ページを見る">
-              <img class="app-icon" src="./jiiyaroll/en/assets/app-icon.png" alt="Jiiya Roll icon">
-            </a>
-            <h2>Jiiya Roll</h2>
+            <div class="app-card-head">
+              <div class="app-card-title-stack">
+                <div class="soul-tag"><span class="soul-flame" aria-hidden="true"></span>Dice soul</div>
+                <h2>Jiiya Roll</h2>
+              </div>
+              <a class="app-icon-link" href="./jiiyaroll/en/" aria-label="Jiiya Roll の紹介ページを見る">
+                <img class="app-icon" src="./jiiyaroll/en/assets/app-icon.png" alt="Jiiya Roll icon">
+              </a>
+            </div>
             <p>
-              サイコロを振って、じいやを雇い、奇妙な自動化と成長を楽しむカジュアル idle ゲーム。
+              24時間、運を責める前にもう一回振るゲーム。
             </p>
+            <div class="app-soul-reveal" aria-hidden="true">
+              <div class="app-soul-reveal-text">サイコロを振り、お金を稼ぎ、じいやを雇い、挑戦回数を増やしていく dark casual simulation。</div>
+            </div>
             <div class="app-actions">
               <a class="button-primary" href="https://apps.apple.com/app/id6765972725">App Store</a>
               <a class="button-secondary button-detail" href="./jiiyaroll/en/">詳細を見る</a>
@@ -666,14 +788,21 @@
           </article>
 
           <article class="app-card">
-            <div class="soul-tag"><span class="soul-flame" aria-hidden="true"></span>Karma soul</div>
-            <a class="app-icon-link" href="./bacchus-karma/en/" aria-label="Bacchus Karma の紹介ページを見る">
-              <img class="app-icon" src="./bacchus-karma/en/assets/app-icon.png" alt="Bacchus Karma icon">
-            </a>
-            <h2>Bacchus Karma</h2>
+            <div class="app-card-head">
+              <div class="app-card-title-stack">
+                <div class="soul-tag"><span class="soul-flame" aria-hidden="true"></span>Karma soul</div>
+                <h2>Bacchus Karma</h2>
+              </div>
+              <a class="app-icon-link" href="./bacchus-karma/en/" aria-label="Bacchus Karma の紹介ページを見る">
+                <img class="app-icon" src="./bacchus-karma/en/assets/app-icon.png" alt="Bacchus Karma icon">
+              </a>
+            </div>
             <p>
-              札、盤、落下、因果。独自の世界観と表現を形にしたゲームプロジェクト。
+              札、盤、落下、因果がからむゲームプロジェクト。
             </p>
+            <div class="app-soul-reveal" aria-hidden="true">
+              <div class="app-soul-reveal-text">盤面に落ちるもの、積み重なる因果、クセのある空気感を楽しむ実験的ゲーム。</div>
+            </div>
             <div class="app-actions">
               <a class="button-primary" href="https://apps.apple.com/app/id6761338604">App Store</a>
               <a class="button-secondary button-detail" href="./bacchus-karma/en/">詳細を見る</a>
@@ -683,14 +812,21 @@
           </article>
 
           <article class="app-card">
-            <div class="soul-tag"><span class="soul-flame" aria-hidden="true"></span>Color soul</div>
-            <a class="app-icon-link" href="./PaletteSpin/en/" aria-label="Palette Spin の紹介ページを見る">
-              <img class="app-icon" src="./PaletteSpin/en/assets/app-icon.png" alt="Palette Spin icon">
-            </a>
-            <h2>Palette Spin</h2>
+            <div class="app-card-head">
+              <div class="app-card-title-stack">
+                <div class="soul-tag"><span class="soul-flame" aria-hidden="true"></span>Color soul</div>
+                <h2>Palette Spin</h2>
+              </div>
+              <a class="app-icon-link" href="./PaletteSpin/en/" aria-label="Palette Spin の紹介ページを見る">
+                <img class="app-icon" src="./PaletteSpin/en/assets/app-icon.png" alt="Palette Spin icon">
+              </a>
+            </div>
             <p>
-              パレットを回して、写真や色の組み合わせから壁紙を作るビジュアルアプリ。
+              色の方向性を、軽く回して見つけるビジュアルアプリ。
             </p>
+            <div class="app-soul-reveal" aria-hidden="true">
+              <div class="app-soul-reveal-text">色の組み合わせを試し、見比べ、保存しながら、壁紙やデザインの最初の一歩を作るアプリ。</div>
+            </div>
             <div class="app-actions">
               <a class="button-primary" href="https://apps.apple.com/app/id6767983547">App Store</a>
               <a class="button-secondary button-detail" href="./PaletteSpin/en/">詳細を見る</a>
@@ -700,14 +836,21 @@
           </article>
 
           <article class="app-card">
-            <div class="soul-tag"><span class="soul-flame" aria-hidden="true"></span>Daily soul</div>
-            <a class="app-icon-link" href="./shopsuggest/en/" aria-label="ShopSuggest の紹介ページを見る">
-              <img class="app-icon" src="./shopsuggest/en/assets/app-icon.png" alt="ShopSuggest icon">
-            </a>
-            <h2>ShopSuggest</h2>
+            <div class="app-card-head">
+              <div class="app-card-title-stack">
+                <div class="soul-tag"><span class="soul-flame" aria-hidden="true"></span>Daily soul</div>
+                <h2>ShopSuggest</h2>
+              </div>
+              <a class="app-icon-link" href="./shopsuggest/en/" aria-label="ShopSuggest の紹介ページを見る">
+                <img class="app-icon" src="./shopsuggest/en/assets/app-icon.png" alt="ShopSuggest icon">
+              </a>
+            </div>
             <p>
-              買い物リストを整理しながら、候補入力や使いやすさを重視して続けやすく整えた買い物アプリ。
+              日々の買い物メモを、続けやすく整えるアプリ。
             </p>
+            <div class="app-soul-reveal" aria-hidden="true">
+              <div class="app-soul-reveal-text">候補入力や整理のしやすさを重視して、買い物前の迷いと入力ストレスを減らすためのリストアプリ。</div>
+            </div>
             <div class="app-actions">
               <a class="button-primary" href="https://apps.apple.com/app/id6760823598">App Store</a>
               <a class="button-secondary button-detail" href="./shopsuggest/en/">詳細を見る</a>
@@ -717,14 +860,21 @@
           </article>
 
           <article class="app-card">
-            <div class="soul-tag"><span class="soul-flame" aria-hidden="true"></span>Value soul</div>
-            <a class="app-icon-link" href="./valuepop/en/" aria-label="Unit Choice の紹介ページを見る">
-              <img class="app-icon" src="./valuepop/en/assets/app-icon.png" alt="Unit Choice icon">
-            </a>
-            <h2>Unit Choice</h2>
+            <div class="app-card-head">
+              <div class="app-card-title-stack">
+                <div class="soul-tag"><span class="soul-flame" aria-hidden="true"></span>Value soul</div>
+                <h2>Cheaper Choice</h2>
+              </div>
+              <a class="app-icon-link" href="./valuepop/en/" aria-label="Cheaper Choice の紹介ページを見る">
+                <img class="app-icon" src="./valuepop/en/assets/app-icon.png" alt="Cheaper Choice icon">
+              </a>
+            </div>
             <p>
-              どっちが安い？をすばやく比べる、単価計算と価格比較に特化したシンプルなアプリ。
+              見た目の安さにだまされず、単価で選ぶアプリ。
             </p>
+            <div class="app-soul-reveal" aria-hidden="true">
+              <div class="app-soul-reveal-text">価格と数量を入れて、単価・最安値・平均・中央値を確認。大容量やセール表示を落ち着いて比べられます。</div>
+            </div>
             <div class="app-actions">
               <a class="button-primary" href="https://apps.apple.com/app/id6762347699">App Store</a>
               <a class="button-secondary button-detail" href="./valuepop/en/">詳細を見る</a>
@@ -734,14 +884,21 @@
           </article>
 
           <article class="app-card">
-            <div class="soul-tag"><span class="soul-flame" aria-hidden="true"></span>Timing soul</div>
-            <a class="app-icon-link" href="./kaidoki/en/" aria-label="カイドキ帳 の紹介ページを見る">
-              <img class="app-icon" src="./kaidoki/en/assets/app-icon.png" alt="カイドキ帳 icon">
-            </a>
-            <h2>カイドキ帳</h2>
+            <div class="app-card-head">
+              <div class="app-card-title-stack">
+                <div class="soul-tag"><span class="soul-flame" aria-hidden="true"></span>Timing soul</div>
+                <h2>カイドキ帳</h2>
+              </div>
+              <a class="app-icon-link" href="./kaidoki/en/" aria-label="カイドキ帳 の紹介ページを見る">
+                <img class="app-icon" src="./kaidoki/en/assets/app-icon.png" alt="カイドキ帳 icon">
+              </a>
+            </div>
             <p>
-              商品や価格の見方を整理しながら、買いどきの判断を支える記録・比較アプリ。
+              買いどきの感覚を、記録で育てるアプリ。
             </p>
+            <div class="app-soul-reveal" aria-hidden="true">
+              <div class="app-soul-reveal-text">商品や価格の見方をためて、次に安いか高いかを判断しやすくする記録・比較アプリ。</div>
+            </div>
             <div class="app-actions">
               <a class="button-primary" href="https://apps.apple.com/app/id6758993822">App Store</a>
               <a class="button-secondary button-detail" href="./kaidoki/en/">詳細を見る</a>
@@ -751,14 +908,21 @@
           </article>
 
           <article class="app-card">
-            <div class="soul-tag"><span class="soul-flame" aria-hidden="true"></span>Pudding soul</div>
-            <a class="app-icon-link" href="./puddingscoop/en/" aria-label="プリンすくい の紹介ページを見る">
-              <img class="app-icon" src="./puddingscoop/en/assets/app-icon.png" alt="プリンすくい icon">
-            </a>
-            <h2>プリンすくい</h2>
+            <div class="app-card-head">
+              <div class="app-card-title-stack">
+                <div class="soul-tag"><span class="soul-flame" aria-hidden="true"></span>Pudding soul</div>
+                <h2>プリンすくい</h2>
+              </div>
+              <a class="app-icon-link" href="./puddingscoop/en/" aria-label="プリンすくい の紹介ページを見る">
+                <img class="app-icon" src="./puddingscoop/en/assets/app-icon.png" alt="プリンすくい icon">
+              </a>
+            </div>
             <p>
-              ぷるぷるのプリンをすくう、やさしい見た目と手触りのカジュアルゲーム。
+              ぷるぷるを、そっとすくうカジュアルゲーム。
             </p>
+            <div class="app-soul-reveal" aria-hidden="true">
+              <div class="app-soul-reveal-text">やさしい見た目と手触りを大事にした、プリンをすくう小さなゲーム。</div>
+            </div>
             <div class="app-actions">
               <a class="button-primary" href="https://apps.apple.com/app/id6763169050">App Store</a>
               <a class="button-secondary button-detail" href="./puddingscoop/en/">詳細を見る</a>
