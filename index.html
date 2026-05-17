@@ -43,17 +43,91 @@
       overflow-x: hidden;
     }
 
-    body::before {
+    body::before,
+    body::after {
       content: "";
       position: fixed;
       inset: 0;
       pointer-events: none;
+    }
+
+    body::before {
       background-image:
         linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
       background-size: 44px 44px;
       mask-image: radial-gradient(circle at 50% 12%, black 0%, transparent 68%);
       opacity: 0.35;
+    }
+
+    body::after {
+      z-index: 0;
+      background-image:
+        linear-gradient(90deg, rgba(255, 184, 77, 0.00) 0 6px, rgba(255, 184, 77, 0.18) 6px 8px, rgba(255, 184, 77, 0.00) 8px 18px),
+        linear-gradient(0deg, rgba(255, 94, 168, 0.00) 0 7px, rgba(255, 94, 168, 0.12) 7px 9px, rgba(255, 94, 168, 0.00) 9px 18px),
+        radial-gradient(circle at 50% 50%, rgba(124, 92, 255, 0.20) 0 1px, transparent 2px);
+      background-size:
+        72px 72px,
+        72px 72px,
+        18px 18px;
+      background-position:
+        0 0,
+        0 0,
+        0 0;
+      mix-blend-mode: screen;
+      mask-image: radial-gradient(circle at 52% 34%, black 0%, rgba(0, 0, 0, 0.74) 38%, transparent 76%);
+      opacity: 0.28;
+      animation: cellularDrift 18s steps(14, end) infinite;
+    }
+
+    @keyframes cellularDrift {
+      0% {
+        background-position:
+          0 0,
+          0 0,
+          0 0;
+        opacity: 0.18;
+      }
+
+      18% {
+        background-position:
+          18px 0,
+          0 18px,
+          18px 18px;
+        opacity: 0.30;
+      }
+
+      36% {
+        background-position:
+          36px 18px,
+          18px 36px,
+          36px 0;
+        opacity: 0.23;
+      }
+
+      54% {
+        background-position:
+          54px 36px,
+          36px 18px,
+          0 36px;
+        opacity: 0.34;
+      }
+
+      72% {
+        background-position:
+          18px 54px,
+          54px 54px,
+          54px 18px;
+        opacity: 0.22;
+      }
+
+      100% {
+        background-position:
+          72px 72px,
+          72px 72px,
+          72px 72px;
+        opacity: 0.18;
+      }
     }
 
     a {
@@ -68,6 +142,12 @@
 
     .hero {
       padding: 64px 0 32px;
+    }
+
+    main,
+    .site-footer {
+      position: relative;
+      z-index: 1;
     }
 
     .hero-card {
@@ -465,7 +545,8 @@
       .soul-flame,
       .hero-soul,
       .eyebrow-spark,
-      .app-soul-reveal::before {
+      .app-soul-reveal::before,
+      body::after {
         animation: none;
       }
     }
