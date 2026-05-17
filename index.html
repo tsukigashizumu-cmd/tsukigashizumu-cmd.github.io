@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tsukigashizumu Studio</title>
-  <meta name="description" content="Tsukigashizumu Studio のアプリ一覧ページです。">
+  <meta name="description" content="A portal for apps and experiments created by Tsukigashizumu Studio.">
   <style>
     :root {
       color-scheme: light;
@@ -43,15 +43,11 @@
       overflow-x: hidden;
     }
 
-    body::before,
-    body::after {
+    body::before {
       content: "";
       position: fixed;
       inset: 0;
       pointer-events: none;
-    }
-
-    body::before {
       background-image:
         linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
@@ -60,75 +56,6 @@
       opacity: 0.35;
     }
 
-    body::after {
-      z-index: 0;
-      background-image:
-        linear-gradient(90deg, rgba(255, 184, 77, 0.00) 0 6px, rgba(255, 184, 77, 0.18) 6px 8px, rgba(255, 184, 77, 0.00) 8px 18px),
-        linear-gradient(0deg, rgba(255, 94, 168, 0.00) 0 7px, rgba(255, 94, 168, 0.12) 7px 9px, rgba(255, 94, 168, 0.00) 9px 18px),
-        radial-gradient(circle at 50% 50%, rgba(124, 92, 255, 0.20) 0 1px, transparent 2px);
-      background-size:
-        72px 72px,
-        72px 72px,
-        18px 18px;
-      background-position:
-        0 0,
-        0 0,
-        0 0;
-      mix-blend-mode: screen;
-      mask-image: radial-gradient(circle at 52% 34%, black 0%, rgba(0, 0, 0, 0.74) 38%, transparent 76%);
-      opacity: 0.28;
-      animation: cellularDrift 18s steps(14, end) infinite;
-    }
-
-    @keyframes cellularDrift {
-      0% {
-        background-position:
-          0 0,
-          0 0,
-          0 0;
-        opacity: 0.18;
-      }
-
-      18% {
-        background-position:
-          18px 0,
-          0 18px,
-          18px 18px;
-        opacity: 0.30;
-      }
-
-      36% {
-        background-position:
-          36px 18px,
-          18px 36px,
-          36px 0;
-        opacity: 0.23;
-      }
-
-      54% {
-        background-position:
-          54px 36px,
-          36px 18px,
-          0 36px;
-        opacity: 0.34;
-      }
-
-      72% {
-        background-position:
-          18px 54px,
-          54px 54px,
-          54px 18px;
-        opacity: 0.22;
-      }
-
-      100% {
-        background-position:
-          72px 72px,
-          72px 72px,
-          72px 72px;
-        opacity: 0.18;
-      }
-    }
 
     a {
       color: inherit;
@@ -545,8 +472,7 @@
       .soul-flame,
       .hero-soul,
       .eyebrow-spark,
-      .app-soul-reveal::before,
-      body::after {
+      .app-soul-reveal::before {
         animation: none;
       }
     }
@@ -826,10 +752,10 @@
           <div class="eyebrow"><span class="eyebrow-spark" aria-hidden="true"></span>Independent App Studio</div>
           <h1>Small apps with <span class="soul-gradient">weird souls.</span></h1>
           <p class="hero-lead">
-          Tsukigashizumu Studio が作っている、少し変で、手触りがあって、soul のあるアプリたちをまとめたポータルです。
+            A portal for small, tactile, slightly weird apps with soul, created by Tsukigashizumu Studio.
           </p>
           <div class="social-links" aria-label="Social links">
-            <a class="social-link" href="https://www.youtube.com/@No_Delay" target="_blank" rel="noopener noreferrer">YouTubeチャンネル</a>
+            <a class="social-link" href="https://www.youtube.com/@No_Delay" target="_blank" rel="noopener noreferrer">YouTube Channel</a>
             <a class="social-link" href="https://x.com/pendulum115326" target="_blank" rel="noopener noreferrer">X / Twitter</a>
           </div>
         </div>
@@ -840,7 +766,7 @@
       <div class="container">
         <h2 class="section-title">Apps / Experiments</h2>
         <p class="section-lead">
-          触って楽しいもの、変な成長をするもの、日常の判断を少しラクにするもの。小さくても、ちゃんと soul がある作品を並べています。
+          Things that feel good to touch, grow in strange ways, or make everyday choices a little easier. Small works, each with its own soul.
         </p>
 
         <div class="app-grid">
@@ -850,21 +776,21 @@
                 <div class="soul-tag"><span class="soul-flame" aria-hidden="true"></span>Dice soul</div>
                 <h2>Jiiya Roll</h2>
               </div>
-              <a class="app-icon-link" href="./jiiyaroll/en/" aria-label="Jiiya Roll の紹介ページを見る">
+              <a class="app-icon-link" href="./jiiyaroll/en/" aria-label="View the Jiiya Roll introduction page">
                 <img class="app-icon" src="./jiiyaroll/en/assets/app-icon.png" alt="Jiiya Roll icon">
               </a>
             </div>
             <p>
-              24時間、運を責める前にもう一回振るゲーム。
+              A 24-hour dice game where you roll once more before blaming your luck.
             </p>
             <div class="app-soul-reveal" aria-hidden="true">
-              <div class="app-soul-reveal-text">サイコロを振り、お金を稼ぎ、じいやを雇い、挑戦回数を増やしていく dark casual simulation。</div>
+              <div class="app-soul-reveal-text">Roll dice, earn money, hire butlers, and increase your chances in a dark casual simulation.</div>
             </div>
             <div class="app-actions">
               <a class="button-primary" href="https://apps.apple.com/app/id6765972725">App Store</a>
-              <a class="button-secondary button-detail" href="./jiiyaroll/en/">詳細を見る</a>
-              <a class="button-secondary" href="./jiiyaroll/en/support/">サポート</a>
-              <a class="button-secondary" href="./jiiyaroll/en/privacy/">プライバシー</a>
+              <a class="button-secondary button-detail" href="./jiiyaroll/en/">Learn More</a>
+              <a class="button-secondary" href="./jiiyaroll/en/support/">Support</a>
+              <a class="button-secondary" href="./jiiyaroll/en/privacy/">Privacy</a>
             </div>
           </article>
 
@@ -874,21 +800,21 @@
                 <div class="soul-tag"><span class="soul-flame" aria-hidden="true"></span>Karma soul</div>
                 <h2>Bacchus Karma</h2>
               </div>
-              <a class="app-icon-link" href="./bacchus-karma/en/" aria-label="Bacchus Karma の紹介ページを見る">
+              <a class="app-icon-link" href="./bacchus-karma/en/" aria-label="View the Bacchus Karma introduction page">
                 <img class="app-icon" src="./bacchus-karma/en/assets/app-icon.png" alt="Bacchus Karma icon">
               </a>
             </div>
             <p>
-              札、盤、落下、因果がからむゲームプロジェクト。
+              A game project where cards, boards, falling pieces, and karma collide.
             </p>
             <div class="app-soul-reveal" aria-hidden="true">
-              <div class="app-soul-reveal-text">盤面に落ちるもの、積み重なる因果、クセのある空気感を楽しむ実験的ゲーム。</div>
+              <div class="app-soul-reveal-text">An experimental game about falling pieces, accumulating karma, and a strange little atmosphere.</div>
             </div>
             <div class="app-actions">
               <a class="button-primary" href="https://apps.apple.com/app/id6761338604">App Store</a>
-              <a class="button-secondary button-detail" href="./bacchus-karma/en/">詳細を見る</a>
-              <a class="button-secondary" href="./bacchus-karma/en/support/">サポート</a>
-              <a class="button-secondary" href="./bacchus-karma/en/privacy/">プライバシー</a>
+              <a class="button-secondary button-detail" href="./bacchus-karma/en/">Learn More</a>
+              <a class="button-secondary" href="./bacchus-karma/en/support/">Support</a>
+              <a class="button-secondary" href="./bacchus-karma/en/privacy/">Privacy</a>
             </div>
           </article>
 
@@ -898,21 +824,21 @@
                 <div class="soul-tag"><span class="soul-flame" aria-hidden="true"></span>Color soul</div>
                 <h2>Palette Spin</h2>
               </div>
-              <a class="app-icon-link" href="./PaletteSpin/en/" aria-label="Palette Spin の紹介ページを見る">
+              <a class="app-icon-link" href="./PaletteSpin/en/" aria-label="View the Palette Spin introduction page">
                 <img class="app-icon" src="./PaletteSpin/en/assets/app-icon.png" alt="Palette Spin icon">
               </a>
             </div>
             <p>
-              色の方向性を、軽く回して見つけるビジュアルアプリ。
+              A visual app for spinning through color directions and finding your mood.
             </p>
             <div class="app-soul-reveal" aria-hidden="true">
-              <div class="app-soul-reveal-text">色の組み合わせを試し、見比べ、保存しながら、壁紙やデザインの最初の一歩を作るアプリ。</div>
+              <div class="app-soul-reveal-text">Try, compare, and save color combinations to create the first step for wallpapers or visual design.</div>
             </div>
             <div class="app-actions">
               <a class="button-primary" href="https://apps.apple.com/app/id6767983547">App Store</a>
-              <a class="button-secondary button-detail" href="./PaletteSpin/en/">詳細を見る</a>
-              <a class="button-secondary" href="./PaletteSpin/en/support/">サポート</a>
-              <a class="button-secondary" href="./PaletteSpin/en/privacy/">プライバシー</a>
+              <a class="button-secondary button-detail" href="./PaletteSpin/en/">Learn More</a>
+              <a class="button-secondary" href="./PaletteSpin/en/support/">Support</a>
+              <a class="button-secondary" href="./PaletteSpin/en/privacy/">Privacy</a>
             </div>
           </article>
 
@@ -922,21 +848,21 @@
                 <div class="soul-tag"><span class="soul-flame" aria-hidden="true"></span>Daily soul</div>
                 <h2>ShopSuggest</h2>
               </div>
-              <a class="app-icon-link" href="./shopsuggest/en/" aria-label="ShopSuggest の紹介ページを見る">
+              <a class="app-icon-link" href="./shopsuggest/en/" aria-label="View the ShopSuggest introduction page">
                 <img class="app-icon" src="./shopsuggest/en/assets/app-icon.png" alt="ShopSuggest icon">
               </a>
             </div>
             <p>
-              日々の買い物メモを、続けやすく整えるアプリ。
+              A shopping memo app designed to stay easy, tidy, and low-stress.
             </p>
             <div class="app-soul-reveal" aria-hidden="true">
-              <div class="app-soul-reveal-text">候補入力や整理のしやすさを重視して、買い物前の迷いと入力ストレスを減らすためのリストアプリ。</div>
+              <div class="app-soul-reveal-text">A list app focused on easy candidate entry and organization, reducing pre-shopping friction.</div>
             </div>
             <div class="app-actions">
               <a class="button-primary" href="https://apps.apple.com/app/id6760823598">App Store</a>
-              <a class="button-secondary button-detail" href="./shopsuggest/en/">詳細を見る</a>
-              <a class="button-secondary" href="./shopsuggest/en/support/">サポート</a>
-              <a class="button-secondary" href="./shopsuggest/en/privacy/">プライバシー</a>
+              <a class="button-secondary button-detail" href="./shopsuggest/en/">Learn More</a>
+              <a class="button-secondary" href="./shopsuggest/en/support/">Support</a>
+              <a class="button-secondary" href="./shopsuggest/en/privacy/">Privacy</a>
             </div>
           </article>
 
@@ -946,21 +872,21 @@
                 <div class="soul-tag"><span class="soul-flame" aria-hidden="true"></span>Value soul</div>
                 <h2>Cheaper Choice</h2>
               </div>
-              <a class="app-icon-link" href="./valuepop/en/" aria-label="Cheaper Choice の紹介ページを見る">
+              <a class="app-icon-link" href="./valuepop/en/" aria-label="View the Cheaper Choice introduction page">
                 <img class="app-icon" src="./valuepop/en/assets/app-icon.png" alt="Cheaper Choice icon">
               </a>
             </div>
             <p>
-              見た目の安さにだまされず、単価で選ぶアプリ。
+              Choose by unit price instead of being fooled by the surface price.
             </p>
             <div class="app-soul-reveal" aria-hidden="true">
-              <div class="app-soul-reveal-text">価格と数量を入れて、単価・最安値・平均・中央値を確認。大容量やセール表示を落ち着いて比べられます。</div>
+              <div class="app-soul-reveal-text">Enter price and quantity to check unit price, cheapest option, average, and median before choosing calmly.</div>
             </div>
             <div class="app-actions">
               <a class="button-primary" href="https://apps.apple.com/app/id6762347699">App Store</a>
-              <a class="button-secondary button-detail" href="./valuepop/en/">詳細を見る</a>
-              <a class="button-secondary" href="./valuepop/en/support/">サポート</a>
-              <a class="button-secondary" href="./valuepop/en/privacy/">プライバシー</a>
+              <a class="button-secondary button-detail" href="./valuepop/en/">Learn More</a>
+              <a class="button-secondary" href="./valuepop/en/support/">Support</a>
+              <a class="button-secondary" href="./valuepop/en/privacy/">Privacy</a>
             </div>
           </article>
 
@@ -968,23 +894,23 @@
             <div class="app-card-head">
               <div class="app-card-title-stack">
                 <div class="soul-tag"><span class="soul-flame" aria-hidden="true"></span>Timing soul</div>
-                <h2>カイドキ帳</h2>
+                <h2>Kaidoki Log</h2>
               </div>
-              <a class="app-icon-link" href="./kaidoki/en/" aria-label="カイドキ帳 の紹介ページを見る">
-                <img class="app-icon" src="./kaidoki/en/assets/app-icon.png" alt="カイドキ帳 icon">
+              <a class="app-icon-link" href="./kaidoki/en/" aria-label="View the Kaidoki Log introduction page">
+                <img class="app-icon" src="./kaidoki/en/assets/app-icon.png" alt="Kaidoki Log icon">
               </a>
             </div>
             <p>
-              買いどきの感覚を、記録で育てるアプリ。
+              Build your sense of the right time to buy through simple records.
             </p>
             <div class="app-soul-reveal" aria-hidden="true">
-              <div class="app-soul-reveal-text">商品や価格の見方をためて、次に安いか高いかを判断しやすくする記録・比較アプリ。</div>
+              <div class="app-soul-reveal-text">A record and comparison app that helps you judge whether the next price is actually good.</div>
             </div>
             <div class="app-actions">
               <a class="button-primary" href="https://apps.apple.com/app/id6758993822">App Store</a>
-              <a class="button-secondary button-detail" href="./kaidoki/en/">詳細を見る</a>
-              <a class="button-secondary" href="./kaidoki/en/support/">サポート</a>
-              <a class="button-secondary" href="./kaidoki/en/privacy/">プライバシー</a>
+              <a class="button-secondary button-detail" href="./kaidoki/en/">Learn More</a>
+              <a class="button-secondary" href="./kaidoki/en/support/">Support</a>
+              <a class="button-secondary" href="./kaidoki/en/privacy/">Privacy</a>
             </div>
           </article>
 
@@ -992,23 +918,23 @@
             <div class="app-card-head">
               <div class="app-card-title-stack">
                 <div class="soul-tag"><span class="soul-flame" aria-hidden="true"></span>Pudding soul</div>
-                <h2>プリンすくい</h2>
+                <h2>Pudding Scoop</h2>
               </div>
-              <a class="app-icon-link" href="./puddingscoop/en/" aria-label="プリンすくい の紹介ページを見る">
-                <img class="app-icon" src="./puddingscoop/en/assets/app-icon.png" alt="プリンすくい icon">
+              <a class="app-icon-link" href="./puddingscoop/en/" aria-label="View the Pudding Scoop introduction page">
+                <img class="app-icon" src="./puddingscoop/en/assets/app-icon.png" alt="Pudding Scoop icon">
               </a>
             </div>
             <p>
-              ぷるぷるを、そっとすくうカジュアルゲーム。
+              A casual game about gently scooping soft, wobbly pudding.
             </p>
             <div class="app-soul-reveal" aria-hidden="true">
-              <div class="app-soul-reveal-text">やさしい見た目と手触りを大事にした、プリンをすくう小さなゲーム。</div>
+              <div class="app-soul-reveal-text">A small pudding-scooping game built around a gentle look and a soft tactile feel.</div>
             </div>
             <div class="app-actions">
               <a class="button-primary" href="https://apps.apple.com/app/id6763169050">App Store</a>
-              <a class="button-secondary button-detail" href="./puddingscoop/en/">詳細を見る</a>
-              <a class="button-secondary" href="./puddingscoop/en/support/">サポート</a>
-              <a class="button-secondary" href="./puddingscoop/en/privacy/">プライバシー</a>
+              <a class="button-secondary button-detail" href="./puddingscoop/en/">Learn More</a>
+              <a class="button-secondary" href="./puddingscoop/en/support/">Support</a>
+              <a class="button-secondary" href="./puddingscoop/en/privacy/">Privacy</a>
             </div>
           </article>
         </div>
