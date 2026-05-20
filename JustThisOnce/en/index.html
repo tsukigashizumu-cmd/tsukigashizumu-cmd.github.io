@@ -276,6 +276,57 @@
       margin-top: 22px;
     }
 
+    .screenshot-grid {
+      display: grid;
+      grid-template-columns: 0.86fr 1.14fr;
+      gap: 18px;
+      align-items: stretch;
+      margin-top: 22px;
+    }
+
+    .screenshot-card {
+      position: relative;
+      overflow: hidden;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .screenshot-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 238, 215, 0.14);
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.36);
+    }
+
+    .screenshot-card.tall img {
+      aspect-ratio: 9 / 19.5;
+    }
+
+    .screenshot-card.wide img {
+      aspect-ratio: 4 / 3;
+    }
+
+    .screenshot-caption {
+      position: absolute;
+      left: 26px;
+      right: 26px;
+      bottom: 26px;
+      padding: 12px 14px;
+      border-radius: 18px;
+      background: rgba(8, 7, 10, 0.72);
+      border: 1px solid rgba(255, 238, 215, 0.16);
+      backdrop-filter: blur(12px);
+      color: var(--text);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.34);
+    }
+
     .feature-card,
     .info-card,
     .trust-note,
@@ -354,7 +405,8 @@
     @media (max-width: 960px) {
       .hero-grid,
       .feature-grid,
-      .info-grid { grid-template-columns: 1fr; }
+      .info-grid,
+      .screenshot-grid { grid-template-columns: 1fr; }
       .hero { padding-top: 34px; }
       .site-header-inner { min-height: 68px; }
     }
@@ -486,6 +538,27 @@
             <p>
               Replay to unlock more endings and collect Game Center achievements.
             </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Each ending is treated like a character.</h2>
+        <p class="section-lead">
+          The diagnosis does not stop at a label. Each result has its own visual tone, from rule-breaking and hidden labor to kindness that quietly becomes a burden.
+        </p>
+
+        <div class="screenshot-grid">
+          <article class="screenshot-card tall">
+            <img src="./assets/screenshots/iPhone/善意の感染_en.png" alt="JustThisOnce iPhone screenshot showing the Kindness Infection ending">
+            <div class="screenshot-caption">iPhone result cards for quick sharing</div>
+          </article>
+
+          <article class="screenshot-card wide">
+            <img src="./assets/screenshots/iPad/善意株式会社 CEO_en.png" alt="JustThisOnce iPad screenshot showing the Goodwill CEO ending">
+            <div class="screenshot-caption">A darker gallery of moral outcomes</div>
           </article>
         </div>
       </div>
