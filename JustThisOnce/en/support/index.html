@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stockout Zero Support</title>
+  <meta name="description" content="Support page for Stockout Zero. Find contact information, bug report guidance, gameplay help, Game Center notes, and privacy information.">
+  <link rel="alternate" hreflang="en" href="https://tsukigashizumu-cmd.github.io/StockoutZero/en/support/">
+  <link rel="alternate" hreflang="x-default" href="https://tsukigashizumu-cmd.github.io/StockoutZero/en/support/">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #07100c;
+      --card: rgba(14, 27, 20, 0.82);
+      --text: #f2fff6;
+      --subtext: #a9c2b2;
+      --line: rgba(160, 255, 190, 0.16);
+      --shadow: 0 22px 54px rgba(0, 0, 0, 0.36);
+      --accent: #9dff7a;
+      --button-text: #07100c;
+      --max-width: 1080px;
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(157, 255, 122, 0.18), transparent 30%),
+        radial-gradient(circle at top right, rgba(255, 209, 102, 0.13), transparent 26%),
+        radial-gradient(circle at bottom right, rgba(56, 214, 107, 0.14), transparent 34%),
+        linear-gradient(180deg, #08150f 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 16, 12, 0.78);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .site-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 72px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.34);
+      border: 1px solid rgba(160, 255, 190, 0.2);
+      flex-shrink: 0;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .brand-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-text { font-size: 1.05rem; }
+
+    .header-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-link {
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 0.95rem;
+      color: var(--subtext);
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav-link:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .hero { padding: 52px 0 28px; }
+
+    .hero-card {
+      border-radius: var(--radius-xl);
+      padding: 30px;
+      background: linear-gradient(180deg, rgba(20, 39, 29, 0.94) 0%, rgba(14, 27, 20, 0.78) 100%);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--line);
+      color: var(--subtext);
+      font-size: 0.9rem;
+      font-weight: 900;
+      letter-spacing: 0.01em;
+    }
+
+    h1 {
+      margin: 16px 0 14px;
+      font-size: clamp(2rem, 4.4vw, 3.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-lead {
+      margin: 0;
+      font-size: 1.05rem;
+      color: var(--subtext);
+      max-width: 48rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .button-primary,
+    .button-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      border-radius: 999px;
+      padding: 0 18px;
+      font-weight: 900;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+
+    .button-primary {
+      background: linear-gradient(180deg, #d9ff9c 0%, var(--accent) 100%);
+      color: var(--button-text);
+      box-shadow: 0 12px 26px rgba(157, 255, 122, 0.22);
+    }
+
+    .button-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .button-primary:hover,
+    .button-secondary:hover { transform: translateY(-1px); }
+
+    .section { padding: 28px 0; }
+
+    .section-title {
+      margin: 0 0 10px;
+      font-size: clamp(1.45rem, 2.8vw, 2.05rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    .section-lead {
+      margin: 0;
+      color: var(--subtext);
+      max-width: 48rem;
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .card,
+    .cta-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h2,
+    .card h3,
+    .cta-card h3 {
+      margin: 0 0 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .card p,
+    .card li,
+    .cta-card p {
+      color: var(--subtext);
+    }
+
+    .card ul {
+      margin: 0;
+      padding-left: 1.1em;
+    }
+
+    .contact-box {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .contact-item {
+      border-radius: 16px;
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid var(--line);
+    }
+
+    .contact-label {
+      font-size: 0.84rem;
+      font-weight: 900;
+      color: var(--subtext);
+      margin-bottom: 4px;
+    }
+
+    .contact-value {
+      font-size: 1rem;
+      color: var(--text);
+      word-break: break-word;
+    }
+
+    .note {
+      margin-top: 14px;
+      font-size: 0.95rem;
+      color: var(--subtext);
+    }
+
+    .cta-card {
+      margin-top: 24px;
+      background: linear-gradient(180deg, rgba(20,39,29,0.96) 0%, rgba(13,31,20,0.96) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .cta-card p { margin: 0; }
+
+    .site-footer {
+      padding: 36px 0 52px;
+      color: var(--subtext);
+      font-size: 0.94rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+    }
+
+    .footer-links {
+      display: inline-flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 960px) {
+      .support-grid,
+      .faq-grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 32px; }
+      .site-header-inner { min-height: 68px; }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(calc(100% - 20px), var(--max-width)); }
+      .site-header-inner {
+        align-items: center;
+        min-height: auto;
+        padding: 10px 0;
+        gap: 10px;
+      }
+      .brand { gap: 10px; }
+      .brand-icon { width: 40px; height: 40px; }
+      .header-nav {
+        width: 100%;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 8px;
+        padding-bottom: 2px;
+      }
+      .header-nav::-webkit-scrollbar { display: none; }
+      .nav-link {
+        flex: 0 0 auto;
+        white-space: nowrap;
+        padding: 8px 12px;
+        font-size: 0.9rem;
+      }
+      .hero-card,
+      .card,
+      .cta-card { padding: 20px; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .button-primary,
+      .button-secondary { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <a class="brand" href="../">
+        <span class="brand-icon">
+          <img src="../assets/app-icon.png" alt="Stockout Zero app icon">
+        </span>
+        <span class="brand-text">Stockout Zero</span>
+      </a>
+
+      <nav class="header-nav" aria-label="Primary">
+        <a class="nav-link" href="../">Top</a>
+        <a class="nav-link" href="../#features">Features</a>
+        <a class="nav-link" href="../#about">About</a>
+        <a class="nav-link" href="../privacy/">Privacy</a>
+        <a class="nav-link" href="https://apps.apple.com/app/id6768219693" target="_blank" rel="noopener noreferrer">App Store</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <div class="eyebrow">Stockout Zero Support</div>
+          <h1>Support</h1>
+          <p class="hero-lead">
+            Use this page when you need help with Stockout Zero, want to report a bug, send feedback, request a feature, or check basic gameplay and Game Center information.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button-primary" href="mailto:tsukigashizumu@gmail.com">Contact by email</a>
+            <a class="button-secondary" href="../privacy/">View Privacy Policy</a>
+            <a class="button-secondary" href="https://apps.apple.com/app/id6768219693" target="_blank" rel="noopener noreferrer">App Store</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-lead">
+          Please include any details you can share so the situation is easier to understand.
+        </p>
+
+        <div class="support-grid">
+          <article class="card">
+            <h3>Contact information</h3>
+            <p>
+              For bug reports, feature requests, feedback, or other inquiries, please contact the address below.
+            </p>
+
+            <div class="contact-box">
+              <div class="contact-item">
+                <div class="contact-label">Email</div>
+                <div class="contact-value">
+                  <a href="mailto:tsukigashizumu@gmail.com">tsukigashizumu@gmail.com</a>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-label">App name</div>
+                <div class="contact-value">Stockout Zero</div>
+              </div>
+            </div>
+
+            <p class="note">
+              Messages will be reviewed and handled in order.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Helpful details to include</h3>
+            <ul>
+              <li>Device model</li>
+              <li>iOS version</li>
+              <li>App version</li>
+              <li>The screen or steps where the issue occurred</li>
+              <li>Any message that was displayed</li>
+              <li>Whether Game Center was signed in</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-lead">
+          Here are basic notes for first-time use and common questions about Stockout Zero.
+        </p>
+
+        <div class="faq-grid">
+          <article class="card">
+            <h3>What is Stockout Zero?</h3>
+            <p>
+              Stockout Zero is a simple incremental inventory game about checking stock, earning money, buying upgrades, and building automation toward zero stockouts.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Do I need an account?</h3>
+            <p>
+              No developer-operated account is required for the core game. Game Center is only used for leaderboards.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>How do leaderboards work?</h3>
+            <p>
+              Stockout Zero uses Game Center for fastest clear rankings. Daily, weekly, and all-time leaderboards may be available depending on your Game Center status and region.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Why is my score not appearing?</h3>
+            <p>
+              Please check that you are signed in to Game Center and that network access is available. Game Center rankings may also take some time to update.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Can I request a feature?</h3>
+            <p>
+              Yes. Please send feature requests by email. Clear examples of your intended use are especially helpful.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Where can I check how data is handled?</h3>
+            <p>
+              Please refer to the Privacy Policy for information about local game data, Game Center, and contact handling.
+            </p>
+          </article>
+        </div>
+
+        <div class="cta-card">
+          <div>
+            <h3>Privacy Policy</h3>
+            <p>You can check information about data handling here.</p>
+          </div>
+          <div class="hero-actions" style="margin-top: 0;">
+            <a class="button-secondary" href="../">Back to top</a>
+            <a class="button-secondary" href="../privacy/">View Privacy Policy</a>
+            <a class="button-primary" href="https://apps.apple.com/app/id6768219693" target="_blank" rel="noopener noreferrer">App Store</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© Stockout Zero</div>
+      <div class="footer-links">
+        <a href="../">Top</a>
+        <a href="../privacy/">Privacy Policy</a>
+        <a href="https://apps.apple.com/app/id6768219693" target="_blank" rel="noopener noreferrer">App Store</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

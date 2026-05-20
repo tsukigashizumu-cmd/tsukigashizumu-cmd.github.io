@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JustThisOnce - Psychological Diagnosis Game</title>
+  <meta name="description" content="JustThisOnce is a short psychological diagnosis game about small everyday exceptions, kindness, fairness, and uncomfortable consequences.">
+  <link rel="alternate" hreflang="en" href="https://tsukigashizumu-cmd.github.io/JustThisOnce/en/">
+  <link rel="alternate" hreflang="x-default" href="https://tsukigashizumu-cmd.github.io/JustThisOnce/en/">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #08070a;
+      --card: rgba(19, 17, 22, 0.84);
+      --card-strong: rgba(28, 24, 32, 0.94);
+      --text: #fff8f0;
+      --subtext: #c8bab0;
+      --line: rgba(255, 238, 215, 0.16);
+      --shadow: 0 22px 54px rgba(0, 0, 0, 0.46);
+      --accent: #f2d6a2;
+      --accent-strong: #c99b5a;
+      --accent-warm: #ff6b6b;
+      --button-text: #120d0b;
+      --max-width: 1080px;
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(242, 214, 162, 0.16), transparent 30%),
+        radial-gradient(circle at top right, rgba(255, 107, 107, 0.10), transparent 26%),
+        radial-gradient(circle at bottom right, rgba(110, 77, 55, 0.18), transparent 34%),
+        linear-gradient(180deg, #111013 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(8, 7, 10, 0.80);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .site-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 72px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.34);
+      border: 1px solid rgba(160, 255, 190, 0.2);
+      flex-shrink: 0;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .brand-text { font-size: 1.05rem; }
+
+    .header-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-link,
+    .nav-button {
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 0.95rem;
+      color: var(--subtext);
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav-link:hover,
+    .nav-button:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .nav-button {
+      background: linear-gradient(180deg, #fff0c7 0%, var(--accent) 100%);
+      color: var(--button-text);
+      font-weight: 900;
+      box-shadow: 0 12px 26px rgba(157, 255, 122, 0.2);
+    }
+
+    .hero { padding: 58px 0 34px; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--line);
+      color: var(--subtext);
+      font-size: 0.9rem;
+      font-weight: 900;
+      letter-spacing: 0.01em;
+    }
+
+    h1 {
+      margin: 16px 0 14px;
+      font-size: clamp(2.5rem, 5.8vw, 5rem);
+      line-height: 1.02;
+      letter-spacing: -0.06em;
+    }
+
+    .hero-lead {
+      margin: 0;
+      font-size: clamp(1.06rem, 1.8vw, 1.25rem);
+      color: var(--subtext);
+      max-width: 43rem;
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .hero-point {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      border-radius: 999px;
+      padding: 0 14px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-size: 0.94rem;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button-primary,
+    .button-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      border-radius: 999px;
+      padding: 0 18px;
+      font-weight: 900;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+
+    .button-primary {
+      background: linear-gradient(180deg, #fff0c7 0%, var(--accent) 100%);
+      color: var(--button-text);
+      box-shadow: 0 12px 26px rgba(157, 255, 122, 0.22);
+    }
+
+    .button-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .button-primary:hover,
+    .button-secondary:hover { transform: translateY(-1px); }
+
+    .hero-note {
+      margin-top: 16px;
+      font-size: 0.92rem;
+      color: var(--subtext);
+    }
+
+    .hero-visual-card {
+      position: relative;
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      min-height: 420px;
+      background: linear-gradient(180deg, rgba(28, 24, 32, 0.94) 0%, rgba(19, 17, 22, 0.78) 100%);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+    }
+
+    .hero-visual-card::before {
+      content: "";
+      position: absolute;
+      inset: -18%;
+      background:
+        radial-gradient(circle at 30% 18%, rgba(242, 214, 162, 0.22), transparent 18%),
+        radial-gradient(circle at 74% 30%, rgba(255, 107, 107, 0.14), transparent 20%),
+        radial-gradient(circle at 52% 78%, rgba(120, 81, 55, 0.22), transparent 24%),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.035) 0, rgba(255,255,255,0.035) 1px, transparent 1px, transparent 18px);
+      pointer-events: none;
+    }
+
+    .app-icon-large {
+      position: relative;
+      z-index: 1;
+      width: min(64vw, 250px);
+      border-radius: 54px;
+      box-shadow: 0 24px 58px rgba(0, 0, 0, 0.38);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .section { padding: 32px 0; }
+
+    .section-title {
+      margin: 0 0 10px;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    .section-lead {
+      margin: 0;
+      color: var(--subtext);
+      max-width: 58rem;
+    }
+
+    .feature-grid,
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .feature-card,
+    .info-card,
+    .trust-note,
+    .cta-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .feature-card h3,
+    .info-card h3,
+    .trust-note h3,
+    .cta-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+    }
+
+    .feature-card p,
+    .info-card p,
+    .info-card li,
+    .trust-note p,
+    .cta-card p {
+      color: var(--subtext);
+    }
+
+    .feature-card p,
+    .info-card p,
+    .trust-note p,
+    .cta-card p { margin: 0; }
+
+    .info-card ul {
+      margin: 0;
+      padding-left: 1.1em;
+    }
+
+    .trust-note {
+      margin-top: 22px;
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .cta-card {
+      margin-top: 24px;
+      background: linear-gradient(180deg, rgba(28,24,32,0.96) 0%, rgba(17,14,18,0.96) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .site-footer {
+      padding: 36px 0 52px;
+      color: var(--subtext);
+      font-size: 0.94rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+    }
+
+    .footer-links {
+      display: inline-flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .feature-grid,
+      .info-grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 34px; }
+      .site-header-inner { min-height: 68px; }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(calc(100% - 20px), var(--max-width)); }
+      .site-header-inner {
+        align-items: center;
+        min-height: auto;
+        padding: 10px 0;
+        gap: 10px;
+      }
+      .brand { gap: 10px; }
+      .brand-icon { width: 40px; height: 40px; }
+      .brand-text { font-size: 1rem; }
+      .header-nav {
+        width: 100%;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 8px;
+        padding-bottom: 2px;
+      }
+      .header-nav::-webkit-scrollbar { display: none; }
+      .nav-link,
+      .nav-button {
+        flex: 0 0 auto;
+        white-space: nowrap;
+        padding: 8px 12px;
+        font-size: 0.9rem;
+      }
+      .hero { padding-top: 22px; }
+      h1 { margin: 14px 0 12px; font-size: clamp(2.05rem, 10vw, 3rem); }
+      .hero-lead { font-size: 1rem; }
+      .hero-actions { flex-direction: column; align-items: stretch; margin-top: 20px; }
+      .hero-visual-card { min-height: 320px; padding: 22px; }
+      .app-icon-large { width: min(70vw, 220px); border-radius: 46px; }
+      .cta-card { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <a class="brand" href="./" aria-label="JustThisOnce home">
+        <span class="brand-icon">
+          <img src="./assets/app-icon.png" alt="JustThisOnce app icon">
+        </span>
+        <span class="brand-text">JustThisOnce</span>
+      </a>
+
+      <nav class="header-nav" aria-label="Primary">
+        <a class="nav-link" href="#features">Features</a>
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="./support/">Support</a>
+        <a class="nav-link" href="./privacy/">Privacy</a>
+        <a class="nav-button" href="https://apps.apple.com/app/id6769388691" target="_blank" rel="noopener noreferrer">App Store</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Just this once. What could go wrong?</div>
+          <h1>JustThisOnce</h1>
+          <p class="hero-lead">
+            JustThisOnce is a short psychological diagnosis game about small everyday exceptions, kindness, fairness, and uncomfortable consequences.
+          </p>
+
+          <div class="hero-points" aria-label="JustThisOnce highlights">
+            <span class="hero-point">Short diagnosis game</span>
+            <span class="hero-point">Multiple endings</span>
+            <span class="hero-point">Shareable result cards</span>
+            <span class="hero-point">Game Center achievements</span>
+          </div>
+
+          <div class="hero-actions" id="app-store">
+            <a class="button-primary" href="https://apps.apple.com/app/id6769388691" target="_blank" rel="noopener noreferrer">View on the App Store</a>
+            <a class="button-secondary" href="./support/">Support</a>
+            <a class="button-secondary" href="./privacy/">Privacy Policy</a>
+          </div>
+
+          <p class="hero-note">
+            A few choices. One result. Maybe a little regret.
+          </p>
+        </div>
+
+        <div class="hero-visual-card" aria-label="JustThisOnce app icon">
+          <img class="app-icon-large" src="./assets/app-icon.png" alt="JustThisOnce app icon">
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="container">
+        <h2 class="section-title">A diagnosis game about tiny exceptions.</h2>
+        <p class="section-lead">
+          Choose how to respond when kindness, fairness, rules, and hidden costs begin to collide.
+        </p>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>Quick psychological choices</h3>
+            <p>
+              Answer short, uncomfortable questions about one-time exceptions and everyday decisions.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>Multiple illustrated endings</h3>
+            <p>
+              Your choices lead to different results, from kindness traps to system-level thinking.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>Shareable result cards</h3>
+            <p>
+              Save or share your diagnosis result with a dark, dramatic result card.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3>Ending collection and achievements</h3>
+            <p>
+              Replay to unlock more endings and collect Game Center achievements.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title">One small exception can change the whole system.</h2>
+        <p class="section-lead">
+          JustThisOnce turns ordinary customer-service dilemmas into a compact dark-humor diagnosis experience.
+        </p>
+
+        <div class="info-grid">
+          <article class="info-card">
+            <h3>What you do</h3>
+            <ul>
+              <li>Answer short diagnosis questions</li>
+              <li>Choose between kindness, rules, and systems</li>
+              <li>Reach one of multiple illustrated endings</li>
+              <li>Replay to discover different results</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <h3>Good for</h3>
+            <ul>
+              <li>Quick casual play</li>
+              <li>Psychological diagnosis fans</li>
+              <li>Dark humor and moral dilemmas</li>
+              <li>Sharing results with friends</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="trust-note">
+          <h3>Privacy-friendly by design.</h3>
+          <p>
+            JustThisOnce does not require an account for the core game. Game Center is used only for achievements.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-card">
+          <div>
+            <h3>What kind of exception do you make?</h3>
+            <p>
+              Take the short diagnosis and see where your choices lead.
+            </p>
+          </div>
+          <div class="hero-actions" style="margin-top: 0;">
+            <a class="button-secondary" href="./support/">Support</a>
+            <a class="button-primary" href="https://apps.apple.com/app/id6769388691" target="_blank" rel="noopener noreferrer">App Store</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© JustThisOnce</div>
+      <div class="footer-links">
+        <a href="./support/">Support</a>
+        <a href="./privacy/">Privacy Policy</a>
+        <a href="https://apps.apple.com/app/id6769388691" target="_blank" rel="noopener noreferrer">App Store</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
