@@ -43,19 +43,6 @@
       overflow-x: hidden;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
-      background-size: 44px 44px;
-      mask-image: radial-gradient(circle at 50% 12%, black 0%, transparent 68%);
-      opacity: 0.35;
-    }
-
 
     a {
       color: inherit;
@@ -68,7 +55,7 @@
     }
 
     .hero {
-      padding: 64px 0 32px;
+      padding: 40px 0 26px;
     }
 
     main,
@@ -81,36 +68,29 @@
       position: relative;
       overflow: hidden;
       border-radius: var(--radius-xl);
-      padding: clamp(26px, 5vw, 56px);
+      min-height: min(82vh, 820px);
+      padding: clamp(18px, 3vw, 34px);
       background:
-        linear-gradient(135deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.06) 54%, rgba(255,255,255,0.10) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: var(--shadow);
+        linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.045) 52%, rgba(255,255,255,0.09) 100%),
+        radial-gradient(circle at 18% 14%, rgba(255, 184, 77, 0.30), transparent 30%),
+        radial-gradient(circle at 82% 18%, rgba(255, 94, 168, 0.26), transparent 34%),
+        radial-gradient(circle at 52% 92%, rgba(124, 92, 255, 0.30), transparent 38%);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,0.14);
       backdrop-filter: blur(24px);
     }
 
     .hero-card::before {
       content: "";
       position: absolute;
-      width: 360px;
-      height: 360px;
-      right: -90px;
-      top: -120px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255, 184, 77, 0.48), rgba(255, 94, 168, 0.18) 48%, transparent 70%);
-      filter: blur(2px);
-    }
-
-    .hero-card::after {
-      content: "";
-      position: absolute;
-      width: 220px;
-      height: 220px;
-      right: 84px;
-      bottom: -96px;
-      border-radius: 44px;
-      background: linear-gradient(135deg, rgba(124, 92, 255, 0.52), rgba(255, 255, 255, 0.06));
-      transform: rotate(18deg);
+      inset: 0;
+      background:
+        linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 46px 46px;
+      mask-image: radial-gradient(circle at 42% 40%, black 0%, transparent 72%);
+      opacity: 0.55;
+      pointer-events: none;
     }
 
     .hero-card > * {
@@ -118,90 +98,345 @@
       z-index: 1;
     }
 
-    .hero-soul {
-      position: absolute;
-      z-index: 0;
-      pointer-events: none;
-      width: 138px;
-      height: 176px;
-      border-radius: 54% 46% 58% 42% / 62% 62% 38% 38%;
-      background:
-        radial-gradient(circle at 50% 70%, rgba(255, 255, 255, 0.62) 0 10%, transparent 12%),
-        radial-gradient(circle at 48% 48%, rgba(255, 238, 190, 0.36), rgba(255, 94, 168, 0.22) 42%, rgba(124, 92, 255, 0.18) 72%, transparent 78%);
-      box-shadow:
-        0 0 52px rgba(255, 184, 77, 0.18),
-        0 0 90px rgba(255, 94, 168, 0.14);
-      filter: blur(0.2px);
-      opacity: 0.62;
-      transform-origin: 50% 80%;
-      animation: heroSoulDrift 9s ease-in-out infinite;
+    .hero-stage {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      gap: clamp(18px, 3vw, 34px);
+      align-items: stretch;
+      min-height: inherit;
     }
 
-    .hero-soul::before,
-    .hero-soul::after {
+    .hero-visual {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 100%;
+      border-radius: 30px;
+      padding: clamp(22px, 4vw, 52px);
+      background:
+        linear-gradient(135deg, rgba(0,0,0,0.38), rgba(255,255,255,0.045)),
+        radial-gradient(circle at 78% 20%, rgba(255, 94, 168, 0.32), transparent 34%),
+        radial-gradient(circle at 28% 88%, rgba(124, 92, 255, 0.40), transparent 38%);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 26px 70px rgba(0,0,0,0.30);
+      overflow: hidden;
+    }
+
+    .hero-visual::before {
       content: "";
       position: absolute;
-      border-radius: 999px;
-      background: rgba(255, 250, 241, 0.42);
-      filter: blur(1px);
+      inset: 8%;
+      border-radius: 50%;
+      background: conic-gradient(from 210deg, rgba(255,184,77,0.20), rgba(255,94,168,0.34), rgba(124,92,255,0.30), rgba(255,184,77,0.20));
+      filter: blur(20px);
+      opacity: 0.95;
     }
 
-    .hero-soul::before {
-      width: 14px;
-      height: 14px;
-      left: 44px;
-      top: 72px;
-    }
-
-    .hero-soul::after {
-      width: 10px;
-      height: 10px;
-      right: 42px;
-      top: 78px;
-    }
-
-    .hero-soul-main {
-      right: 52px;
-      top: 40px;
-      transform: rotate(9deg) scale(1);
-    }
-
-    .hero-soul-sub {
-      right: 182px;
-      bottom: -58px;
-      width: 92px;
-      height: 118px;
-      opacity: 0.42;
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      right: -18%;
+      bottom: -24%;
+      width: min(44vw, 520px);
+      height: min(44vw, 520px);
+      border-radius: 50%;
       background:
-        radial-gradient(circle at 50% 70%, rgba(255, 255, 255, 0.52) 0 10%, transparent 12%),
-        radial-gradient(circle at 48% 48%, rgba(220, 236, 255, 0.34), rgba(124, 92, 255, 0.24) 44%, rgba(255, 94, 168, 0.14) 72%, transparent 78%);
-      animation-name: heroSoulDriftReverse;
-      animation-duration: 11s;
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.18), transparent 10%),
+        repeating-conic-gradient(from 0deg, rgba(255,255,255,0.16) 0deg 4deg, transparent 4deg 11deg);
+      opacity: 0.18;
+      filter: blur(0.5px);
     }
 
-    @keyframes heroSoulDrift {
-      0%, 100% {
-        transform: translate3d(0, 0, 0) rotate(9deg) scale(1);
-        opacity: 0.58;
-      }
-
-      50% {
-        transform: translate3d(-10px, -12px, 0) rotate(-4deg) scale(1.05);
-        opacity: 0.72;
-      }
+    .hero-preview {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+      gap: 16px;
+      width: 100%;
+      height: 100%;
+      min-height: min(68vh, 700px);
     }
 
-    @keyframes heroSoulDriftReverse {
-      0%, 100% {
-        transform: translate3d(0, 0, 0) rotate(-8deg) scale(1);
-        opacity: 0.38;
-      }
-
-      50% {
-        transform: translate3d(8px, -10px, 0) rotate(6deg) scale(1.06);
-        opacity: 0.50;
-      }
+    .hero-preview-stage {
+      position: relative;
+      overflow: hidden;
+      min-height: 0;
+      border-radius: 28px;
+      background: rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.10), 0 22px 54px rgba(0,0,0,0.24);
     }
+
+    .hero-preview-panel {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: clamp(14px, 2vw, 26px);
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.985);
+      transition: opacity 0.24s ease, transform 0.24s ease;
+    }
+
+    .hero-preview-panel.is-active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1);
+    }
+
+    .hero-preview-orbit {
+      position: relative;
+      width: min(70vw, 560px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(255, 250, 241, 0.18) 0 8%, transparent 9%),
+        repeating-conic-gradient(from 0deg, rgba(255,255,255,0.15) 0deg 4deg, transparent 4deg 11deg),
+        radial-gradient(circle, rgba(255, 94, 168, 0.18), rgba(124, 92, 255, 0.10) 46%, transparent 68%);
+      box-shadow:
+        0 0 90px rgba(255, 94, 168, 0.20),
+        inset 0 0 54px rgba(255,255,255,0.08);
+      opacity: 0.95;
+    }
+
+    .hero-preview-orbit::before,
+    .hero-preview-orbit::after {
+      content: "";
+      position: absolute;
+      inset: 13%;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .hero-preview-orbit::after {
+      inset: 28%;
+      border-color: rgba(255, 184, 77, 0.18);
+      transform: rotate(22deg);
+    }
+
+    .hero-preview-center-icon {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: clamp(132px, 18vw, 220px);
+      height: clamp(132px, 18vw, 220px);
+      border-radius: 32%;
+      object-fit: cover;
+      transform: translate(-50%, -50%) rotate(-4deg);
+      box-shadow: 0 28px 70px rgba(0,0,0,0.46);
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .hero-video-pair {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(12px, 2vw, 22px);
+      width: min(100%, 760px);
+      align-items: center;
+    }
+
+    .hero-video-frame {
+      position: relative;
+      overflow: hidden;
+      border-radius: 26px;
+      background: rgba(0, 0, 0, 0.28);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 26px 66px rgba(0, 0, 0, 0.38);
+      transform: rotate(-2.5deg);
+    }
+
+    .hero-video-frame:nth-child(2) {
+      transform: rotate(2.5deg) translateY(18px);
+    }
+
+    .hero-video-frame video {
+      display: block;
+      width: 100%;
+      max-height: min(58vh, 640px);
+      object-fit: contain;
+    }
+
+    .hero-preview-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .hero-preview-tab {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 74px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.08);
+      cursor: pointer;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.20);
+      transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+    }
+
+    .hero-preview-tab:hover,
+    .hero-preview-tab.is-active {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.24);
+    }
+
+    .hero-preview-tab img {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      object-fit: cover;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.28);
+    }
+
+    /* JustThisOnce hero screenshot slider */
+    .hp-viewer {
+      width: 100%;
+      align-self: stretch;
+      display: grid;
+      grid-template-columns: 36px minmax(0, 1fr) 36px;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .hp-slider {
+      display: flex;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      align-self: stretch;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.24);
+    }
+
+    .hp-slider::-webkit-scrollbar {
+      display: none;
+    }
+
+    .hp-slide {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: clamp(280px, 52vh, 560px);
+      padding: clamp(10px, 1.5vw, 20px);
+    }
+
+    .hp-slide img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      max-height: clamp(260px, 50vh, 520px);
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.28);
+    }
+
+    .hp-nav-button {
+      width: 36px;
+      height: 64px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.10);
+      color: rgba(255, 250, 241, 0.9);
+      font-size: 1.6rem;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.20);
+      backdrop-filter: blur(14px);
+      transition: transform 0.18s ease, background 0.18s ease;
+      flex-shrink: 0;
+    }
+
+    .hp-nav-button:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .hero-feature-rail {
+      display: grid;
+      grid-template-rows: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      min-height: 100%;
+    }
+
+    .hero-feature-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: 88px minmax(0, 1fr);
+      gap: 17px;
+      align-items: center;
+      min-height: 158px;
+      border-radius: 28px;
+      padding: 18px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.13), rgba(255,255,255,0.055));
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 20px 52px rgba(0, 0, 0, 0.26), inset 0 1px 0 rgba(255,255,255,0.10);
+      overflow: hidden;
+      transition: transform 0.22s ease, background 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .hero-feature-card:hover {
+      transform: translateY(-5px) scale(1.012);
+      background: rgba(255, 255, 255, 0.16);
+      border-color: rgba(255, 255, 255, 0.24);
+      box-shadow: 0 26px 64px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(255,255,255,0.14);
+    }
+
+    .hero-feature-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -20% -55% 34%;
+      height: 120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 184, 77, 0.25), transparent 68%);
+      pointer-events: none;
+    }
+
+    .hero-feature-icon {
+      width: 88px;
+      height: 88px;
+      border-radius: 25px;
+      object-fit: cover;
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.34);
+    }
+
+    .hero-feature-copy {
+      min-width: 0;
+    }
+
+    .hero-feature-kicker {
+      margin: 0 0 7px;
+      color: rgba(255,250,241,0.56);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .hero-feature-title {
+      margin: 0;
+      font-size: clamp(1.55rem, 2.35vw, 2.1rem);
+      line-height: 1.02;
+      letter-spacing: -0.06em;
+    }
+
+    .hero-feature-note {
+      margin: 7px 0 0;
+      color: rgba(255,250,241,0.62);
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
 
     .eyebrow {
       display: inline-flex;
@@ -218,38 +453,13 @@
       text-transform: uppercase;
     }
 
-    .eyebrow-spark {
-      width: 12px;
-      height: 12px;
-      border-radius: 50% 50% 48% 52%;
-      background:
-        radial-gradient(circle at 48% 58%, rgba(255, 255, 255, 0.92) 0 16%, transparent 18%),
-        radial-gradient(circle, rgba(255, 220, 165, 0.95), rgba(255, 184, 77, 0.78) 42%, rgba(255, 94, 168, 0.44) 72%);
-      box-shadow:
-        0 0 12px rgba(255, 184, 77, 0.55),
-        0 0 20px rgba(255, 94, 168, 0.25);
-      transform: rotate(12deg);
-      animation: eyebrowSpark 2.8s ease-in-out infinite;
-    }
-
-    @keyframes eyebrowSpark {
-      0%, 100% {
-        transform: translateY(0) rotate(12deg) scale(1);
-        opacity: 0.78;
-      }
-
-      50% {
-        transform: translateY(-1px) rotate(-8deg) scale(1.14);
-        opacity: 1;
-      }
-    }
 
     h1 {
       margin: 18px 0 16px;
       max-width: 760px;
       font-size: clamp(3rem, 8vw, 6.8rem);
-      line-height: 0.92;
-      letter-spacing: -0.075em;
+      line-height: 1;
+      letter-spacing: -0.055em;
       text-wrap: balance;
     }
 
@@ -267,7 +477,7 @@
       max-width: 42rem;
       color: var(--subtext);
       font-size: clamp(1.05rem, 1.9vw, 1.26rem);
-      font-weight: 650;
+      font-weight: 600;
     }
 
     .social-links {
@@ -287,7 +497,7 @@
       background: rgba(255, 255, 255, 0.11);
       border: 1px solid rgba(255, 255, 255, 0.14);
       color: var(--text);
-      font-weight: 850;
+      font-weight: 700;
       box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
       backdrop-filter: blur(16px);
       transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
@@ -300,7 +510,7 @@
     }
 
     .section {
-      padding: 34px 0 64px;
+      padding: 28px 0 64px;
     }
 
     .section-title {
@@ -314,7 +524,7 @@
       margin: 0;
       max-width: 680px;
       color: var(--subtext);
-      font-weight: 620;
+      font-weight: 600;
     }
 
     .now-showcase {
@@ -361,7 +571,7 @@
       max-width: 340px;
       color: var(--subtext);
       font-size: 0.9rem;
-      font-weight: 650;
+      font-weight: 600;
       text-align: right;
     }
 
@@ -447,11 +657,21 @@
       background: rgba(255, 255, 255, 0.16);
     }
 
+    .archive-label {
+      margin: 54px 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
     .app-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 78px 18px;
-      margin-top: 84px;
+      gap: 22px 18px;
+      margin-top: 18px;
+      opacity: 0.82;
     }
 
     .app-card {
@@ -599,10 +819,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .soul-flame,
-      .hero-soul,
-      .eyebrow-spark,
-      .app-soul-reveal::before {
+      .soul-flame {
         animation: none;
       }
     }
@@ -661,7 +878,7 @@
       border-radius: 999px;
       padding: 0 14px;
       font-size: 0.9rem;
-      font-weight: 850;
+      font-weight: 700;
       white-space: nowrap;
       transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
@@ -671,81 +888,6 @@
       color: var(--subtext);
       font-size: 0.94rem;
       line-height: 1.72;
-      transition: opacity 0.22s ease, transform 0.22s ease;
-    }
-
-    .app-soul-reveal {
-      position: absolute;
-      left: 12px;
-      right: 12px;
-      bottom: calc(100% + 12px);
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 18px 14px 58px;
-      pointer-events: none;
-      opacity: 0;
-      transform: translateY(10px) scale(0.98);
-      transition: opacity 0.24s ease, transform 0.24s ease;
-      z-index: 8;
-      border-radius: 22px;
-      background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.08));
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      box-shadow: 0 20px 52px rgba(0, 0, 0, 0.32);
-      backdrop-filter: blur(18px);
-    }
-
-    .app-soul-reveal::before {
-      content: "";
-      position: absolute;
-      left: 18px;
-      top: 50%;
-      width: 34px;
-      height: 44px;
-      border-radius: 54% 46% 58% 42% / 62% 62% 38% 38%;
-      background:
-        radial-gradient(circle at 50% 70%, rgba(255, 255, 255, 0.76) 0 10%, transparent 12%),
-        radial-gradient(circle at 48% 48%, rgba(255, 238, 190, 0.76), rgba(255, 94, 168, 0.50) 42%, rgba(124, 92, 255, 0.38) 72%, transparent 80%);
-      box-shadow:
-        0 0 24px rgba(255, 184, 77, 0.30),
-        0 0 42px rgba(255, 94, 168, 0.20);
-      filter: blur(0.1px);
-      opacity: 0.96;
-      transform: translateY(-50%) rotate(7deg);
-      animation: revealSoulFloat 4.2s ease-in-out infinite;
-    }
-
-    .app-soul-reveal-text {
-      position: relative;
-      z-index: 1;
-      color: rgba(255, 250, 241, 0.9);
-      font-size: 0.84rem;
-      font-weight: 760;
-      line-height: 1.55;
-      text-align: left;
-      text-shadow: 0 2px 16px rgba(0, 0, 0, 0.34);
-    }
-
-    .app-card:hover > p {
-      opacity: 0.72;
-      transform: translateY(-1px);
-    }
-
-    .app-card:hover .app-soul-reveal {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-
-    @keyframes revealSoulFloat {
-      0%, 100% {
-        transform: translateY(-50%) rotate(7deg) scale(1);
-      }
-
-      50% {
-        transform: translateY(calc(-50% - 4px)) rotate(-4deg) scale(1.06);
-      }
     }
 
     .button-primary {
@@ -786,13 +928,63 @@
       padding-top: 18px;
     }
 
+    @media (min-width: 981px) {
+      .hero .container {
+        width: min(calc(100vw - 32px), 1600px);
+        max-width: none;
+      }
+
+      .now-showcase {
+        width: min(calc(100vw - 32px), 1600px);
+        margin-left: calc((100% - min(calc(100vw - 32px), 1600px)) / 2);
+      }
+
+      .now-slide {
+        min-height: clamp(340px, 48vw, 780px);
+      }
+
+      .now-slide img {
+        max-height: clamp(320px, 46vw, 740px);
+      }
+    }
+
     @media (max-width: 980px) {
+      .hero-stage {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: 420px;
+      }
+
+      .hero-feature-rail {
+        grid-template-rows: none;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .hero-feature-card {
+        grid-template-columns: 1fr;
+      }
       .app-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
     @media (max-width: 700px) {
+      .hero-feature-rail {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-feature-card {
+        grid-template-columns: 72px minmax(0, 1fr);
+        min-height: 126px;
+      }
+
+      .hero-feature-icon {
+        width: 72px;
+        height: 72px;
+        border-radius: 21px;
+      }
       .app-grid {
         grid-template-columns: 1fr;
       }
@@ -806,6 +998,46 @@
       .hero-card,
       .app-card {
         padding: 20px;
+      }
+
+      .hero-card {
+        min-height: auto;
+      }
+
+      .hero-visual {
+        min-height: 340px;
+        padding: 22px;
+      }
+
+      .hero-preview {
+        min-height: 420px;
+      }
+
+      .hero-preview-orbit {
+        width: min(76vw, 320px);
+      }
+
+      .hero-video-pair {
+        gap: 8px;
+      }
+
+      .hero-video-frame {
+        border-radius: 18px;
+      }
+
+      .hero-video-frame:nth-child(2) {
+        transform: rotate(2.5deg) translateY(10px);
+      }
+
+      .hero-preview-tab {
+        min-height: 58px;
+        border-radius: 18px;
+      }
+
+      .hero-preview-tab img {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
       }
 
       .hero {
@@ -864,17 +1096,6 @@
         margin-top: -54px;
       }
 
-      .hero-soul-main {
-        right: -18px;
-        top: 38px;
-        opacity: 0.36;
-        transform: rotate(9deg) scale(0.78);
-      }
-
-      .hero-soul-sub {
-        display: none;
-      }
-
       .app-card-head {
         gap: 14px;
         margin-bottom: 18px;
@@ -895,26 +1116,8 @@
       }
 
       .app-grid {
-        gap: 72px 18px;
-        margin-top: 78px;
-      }
-
-      .app-soul-reveal {
-        left: 10px;
-        right: 10px;
-        bottom: calc(100% + 10px);
-        min-height: 66px;
-        padding: 12px 14px 12px 52px;
-      }
-
-      .app-soul-reveal::before {
-        left: 16px;
-        width: 30px;
-        height: 40px;
-      }
-
-      .app-soul-reveal-text {
-        font-size: 0.8rem;
+        gap: 18px;
+        margin-top: 16px;
       }
 
       .app-actions {
@@ -929,16 +1132,87 @@
     <section class="hero">
       <div class="container">
         <div class="hero-card">
-          <div class="hero-soul hero-soul-main" aria-hidden="true"></div>
-          <div class="hero-soul hero-soul-sub" aria-hidden="true"></div>
-          <div class="eyebrow"><span class="eyebrow-spark" aria-hidden="true"></span>Independent App Studio</div>
-          <h1>Small apps with <span class="soul-gradient">weird souls.</span></h1>
-          <p class="hero-lead">
-            A portal for small, tactile, slightly weird apps with soul, created by Tsukigashizumu Studio.
-          </p>
-          <div class="social-links" aria-label="Social links">
-            <a class="social-link" href="https://www.youtube.com/@No_Delay" target="_blank" rel="noopener noreferrer">YouTube Channel</a>
-            <a class="social-link" href="https://x.com/pendulum115326" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+          <div class="hero-stage">
+            <div class="hero-visual" aria-label="Tsukigashizumu Studio visual introduction">
+              <div class="hero-preview">
+                <div class="hero-preview-stage">
+                  <div class="hero-preview-panel" data-hero-panel="justthisonce">
+                    <div class="hp-viewer">
+                      <button class="hp-nav-button" type="button" aria-label="Previous JustThisOnce screenshot" data-jtso-direction="-1">‹</button>
+                      <div class="hp-slider" id="jtso-slider" aria-label="JustThisOnce screenshots">
+                        <figure class="hp-slide"><img src="./assets/screenshots/JustThisOnce/善意の感染源_en.png" alt="JustThisOnce: 善意の感染源" loading="lazy"></figure>
+                        <figure class="hp-slide"><img src="./assets/screenshots/JustThisOnce/1day_en.png" alt="JustThisOnce: 1day" loading="lazy"></figure>
+                        <figure class="hp-slide"><img src="./assets/screenshots/JustThisOnce/クレーム避雷針_en.png" alt="JustThisOnce: クレーム避雷針" loading="lazy"></figure>
+                        <figure class="hp-slide"><img src="./assets/screenshots/JustThisOnce/ルールの番人_en.png" alt="JustThisOnce: ルールの番人" loading="lazy"></figure>
+                        <figure class="hp-slide"><img src="./assets/screenshots/JustThisOnce/境界線ゆるゆる店員_en.png" alt="JustThisOnce: 境界線ゆるゆる店員" loading="lazy"></figure>
+                        <figure class="hp-slide"><img src="./assets/screenshots/JustThisOnce/公平性クラッシャー_en.png" alt="JustThisOnce: 公平性クラッシャー" loading="lazy"></figure>
+                        <figure class="hp-slide"><img src="./assets/screenshots/JustThisOnce/親切債務製造機_en.png" alt="JustThisOnce: 親切債務製造機" loading="lazy"></figure>
+                        <figure class="hp-slide"><img src="./assets/screenshots/JustThisOnce/人情レジ担当_en.png" alt="JustThisOnce: 人情レジ担当" loading="lazy"></figure>
+                        <figure class="hp-slide"><img src="./assets/screenshots/JustThisOnce/正論で刺す人_en.png" alt="JustThisOnce: 正論で刺す人" loading="lazy"></figure>
+                        <figure class="hp-slide"><img src="./assets/screenshots/JustThisOnce/責任所在ロストマン_en.png" alt="JustThisOnce: 責任所在ロストマン" loading="lazy"></figure>
+                        <figure class="hp-slide"><img src="./assets/screenshots/JustThisOnce/店の治安ブレイカー_en.png" alt="JustThisOnce: 店の治安ブレイカー" loading="lazy"></figure>
+                        <figure class="hp-slide"><img src="./assets/screenshots/JustThisOnce/返却棚スキッパー_en.png" alt="JustThisOnce: 返却棚スキッパー" loading="lazy"></figure>
+                        <figure class="hp-slide"><img src="./assets/screenshots/JustThisOnce/優しいスタッフ依存症_en.png" alt="JustThisOnce: 優しいスタッフ依存症" loading="lazy"></figure>
+                        <figure class="hp-slide"><img src="./assets/screenshots/JustThisOnce/例外の魔術師_en.png" alt="JustThisOnce: 例外の魔術師" loading="lazy"></figure>
+                      </div>
+                      <button class="hp-nav-button" type="button" aria-label="Next JustThisOnce screenshot" data-jtso-direction="1">›</button>
+                    </div>
+                  </div>
+                  <div class="hero-preview-panel" data-hero-panel="stockoutzero">
+                    <div class="hero-preview-orbit">
+                      <img class="hero-preview-center-icon" src="./StockoutZero/en/assets/app-icon.png" alt="Stockout Zero icon preview">
+                    </div>
+                  </div>
+                  <div class="hero-preview-panel is-active" data-hero-panel="palettespin">
+                    <div class="hero-video-pair">
+                      <div class="hero-video-frame">
+                        <video src="./assets/mov/PaletteSpin-01-02-01.mov" autoplay muted loop playsinline></video>
+                      </div>
+                      <div class="hero-video-frame">
+                        <video src="./assets/mov/PaletteSpin-01-01-01.mov" autoplay muted loop playsinline></video>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="hero-preview-tabs" aria-label="Featured preview switcher">
+                  <button class="hero-preview-tab" type="button" data-hero-target="justthisonce" aria-label="Show JustThisOnce preview">
+                    <img src="./JustThisOnce/en/assets/app-icon.png" alt="">
+                  </button>
+                  <button class="hero-preview-tab" type="button" data-hero-target="stockoutzero" aria-label="Show Stockout Zero preview">
+                    <img src="./StockoutZero/en/assets/app-icon.png" alt="">
+                  </button>
+                  <button class="hero-preview-tab is-active" type="button" data-hero-target="palettespin" aria-label="Show Palette Spin preview">
+                    <img src="./PaletteSpin/en/assets/app-icon.png" alt="">
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="hero-feature-rail" aria-label="Featured apps">
+              <a class="hero-feature-card" href="./JustThisOnce/en/" aria-label="View JustThisOnce details">
+                <img class="hero-feature-icon" src="./JustThisOnce/en/assets/app-icon.png" alt="JustThisOnce icon">
+                <div class="hero-feature-copy">
+                  <p class="hero-feature-kicker">Short diagnosis game</p>
+                  <h2 class="hero-feature-title">JustThisOnce</h2>
+                  <p class="hero-feature-note">A tiny exception becomes an uncomfortable result.</p>
+                </div>
+              </a>
+              <a class="hero-feature-card" href="./StockoutZero/en/" aria-label="View Stockout Zero details">
+                <img class="hero-feature-icon" src="./StockoutZero/en/assets/app-icon.png" alt="Stockout Zero icon">
+                <div class="hero-feature-copy">
+                  <p class="hero-feature-kicker">Inventory game</p>
+                  <h2 class="hero-feature-title">Stockout Zero</h2>
+                  <p class="hero-feature-note">Tap, upgrade, automate. Anything but a stockout.</p>
+                </div>
+              </a>
+              <a class="hero-feature-card" href="./PaletteSpin/en/" aria-label="View Palette Spin details">
+                <img class="hero-feature-icon" src="./PaletteSpin/en/assets/app-icon.png" alt="Palette Spin icon">
+                <div class="hero-feature-copy">
+                  <p class="hero-feature-kicker">Color tool</p>
+                  <h2 class="hero-feature-title">Palette Spin</h2>
+                  <p class="hero-feature-note">Spin through color directions and find a mood.</p>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -946,11 +1220,6 @@
 
     <section class="section">
       <div class="container">
-        <h2 class="section-title">Apps / Experiments</h2>
-        <p class="section-lead">
-          Things that feel good to touch, grow in strange ways, or make everyday choices a little easier. Small works, each with its own soul.
-        </p>
-
         <section class="now-showcase" aria-labelledby="now-building-title">
           <div class="now-showcase-head">
             <div class="now-showcase-title-stack">
@@ -988,6 +1257,8 @@
           </div>
         </section>
 
+        <p class="archive-label">Other works / archive</p>
+
         <div class="app-grid">
           <article class="app-card">
             <div class="app-card-head">
@@ -1002,9 +1273,6 @@
             <p>
               A 24-hour dice game where you roll once more before blaming your luck.
             </p>
-            <div class="app-soul-reveal" aria-hidden="true">
-              <div class="app-soul-reveal-text">Roll dice, earn money, hire butlers, and increase your chances in a dark casual simulation.</div>
-            </div>
             <div class="app-actions">
               <a class="button-primary" href="https://apps.apple.com/app/id6765972725">App Store</a>
               <a class="button-secondary button-detail" href="./jiiyaroll/en/">Learn More</a>
@@ -1026,9 +1294,6 @@
             <p>
               A game project where cards, boards, falling pieces, and karma collide.
             </p>
-            <div class="app-soul-reveal" aria-hidden="true">
-              <div class="app-soul-reveal-text">An experimental game about falling pieces, accumulating karma, and a strange little atmosphere.</div>
-            </div>
             <div class="app-actions">
               <a class="button-primary" href="https://apps.apple.com/app/id6761338604">App Store</a>
               <a class="button-secondary button-detail" href="./bacchus-karma/en/">Learn More</a>
@@ -1050,9 +1315,6 @@
             <p>
               A visual app for spinning through color directions and finding your mood.
             </p>
-            <div class="app-soul-reveal" aria-hidden="true">
-              <div class="app-soul-reveal-text">Try, compare, and save color combinations to create the first step for wallpapers or visual design.</div>
-            </div>
             <div class="app-actions">
               <a class="button-primary" href="https://apps.apple.com/app/id6767983547">App Store</a>
               <a class="button-secondary button-detail" href="./PaletteSpin/en/">Learn More</a>
@@ -1074,9 +1336,6 @@
             <p>
               A short psychological diagnosis game about tiny exceptions and uncomfortable consequences.
             </p>
-            <div class="app-soul-reveal" aria-hidden="true">
-              <div class="app-soul-reveal-text">Answer morally awkward choices, reach illustrated endings, and see what your kindness quietly turns into.</div>
-            </div>
             <div class="app-actions">
               <a class="button-primary" href="https://apps.apple.com/app/id6769388691">App Store</a>
               <a class="button-secondary button-detail" href="./JustThisOnce/en/">Learn More</a>
@@ -1098,9 +1357,6 @@
             <p>
               A simple incremental inventory game about tiny stock checks and unstoppable automation.
             </p>
-            <div class="app-soul-reveal" aria-hidden="true">
-              <div class="app-soul-reveal-text">Tap, upgrade, automate, and compete for the fastest clear through Game Center leaderboards.</div>
-            </div>
             <div class="app-actions">
               <a class="button-primary" href="https://apps.apple.com/app/id6768219693">App Store</a>
               <a class="button-secondary button-detail" href="./StockoutZero/en/">Learn More</a>
@@ -1122,9 +1378,6 @@
             <p>
               A quiet breathing counter for soft focus, gentle loops, and calm timing.
             </p>
-            <div class="app-soul-reveal" aria-hidden="true">
-              <div class="app-soul-reveal-text">Follow a smooth visual count, adjust the rhythm, and settle into a simple breathing loop.</div>
-            </div>
             <div class="app-actions">
               <a class="button-primary" href="https://apps.apple.com/app/id6768180849">App Store</a>
               <a class="button-secondary button-detail" href="./SoftCount/en/">Learn More</a>
@@ -1146,9 +1399,6 @@
             <p>
               A shopping memo app designed to stay easy, tidy, and low-stress.
             </p>
-            <div class="app-soul-reveal" aria-hidden="true">
-              <div class="app-soul-reveal-text">A list app focused on easy candidate entry and organization, reducing pre-shopping friction.</div>
-            </div>
             <div class="app-actions">
               <a class="button-primary" href="https://apps.apple.com/app/id6760823598">App Store</a>
               <a class="button-secondary button-detail" href="./shopsuggest/en/">Learn More</a>
@@ -1170,9 +1420,6 @@
             <p>
               Choose by unit price instead of being fooled by the surface price.
             </p>
-            <div class="app-soul-reveal" aria-hidden="true">
-              <div class="app-soul-reveal-text">Enter price and quantity to check unit price, cheapest option, average, and median before choosing calmly.</div>
-            </div>
             <div class="app-actions">
               <a class="button-primary" href="https://apps.apple.com/app/id6762347699">App Store</a>
               <a class="button-secondary button-detail" href="./valuepop/en/">Learn More</a>
@@ -1194,9 +1441,6 @@
             <p>
               Build your sense of the right time to buy through simple records.
             </p>
-            <div class="app-soul-reveal" aria-hidden="true">
-              <div class="app-soul-reveal-text">A record and comparison app that helps you judge whether the next price is actually good.</div>
-            </div>
             <div class="app-actions">
               <a class="button-primary" href="https://apps.apple.com/app/id6758993822">App Store</a>
               <a class="button-secondary button-detail" href="./kaidoki/en/">Learn More</a>
@@ -1218,9 +1462,6 @@
             <p>
               A casual game about gently scooping soft, wobbly pudding.
             </p>
-            <div class="app-soul-reveal" aria-hidden="true">
-              <div class="app-soul-reveal-text">A small pudding-scooping game built around a gentle look and a soft tactile feel.</div>
-            </div>
             <div class="app-actions">
               <a class="button-primary" href="https://apps.apple.com/app/id6763169050">App Store</a>
               <a class="button-secondary button-detail" href="./puddingscoop/en/">Learn More</a>
@@ -1239,6 +1480,47 @@
     </div>
   </footer>
   <script>
+    const heroPreviewTabs = document.querySelectorAll("[data-hero-target]");
+    const heroPreviewPanels = document.querySelectorAll("[data-hero-panel]");
+
+    heroPreviewTabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const target = tab.dataset.heroTarget;
+
+        heroPreviewTabs.forEach((item) => {
+          item.classList.toggle("is-active", item === tab);
+        });
+
+        heroPreviewPanels.forEach((panel) => {
+          panel.classList.toggle("is-active", panel.dataset.heroPanel === target);
+        });
+
+        // JustThisOnce スライダーを先頭にリセット
+        if (target !== "justthisonce" && jtsoSlider) {
+          jtsoSlider.scrollLeft = 0;
+          jtsoCurrentSlide = 0;
+        }
+      });
+    });
+
+    // JustThisOnce hero screenshot slider
+    const jtsoSlider = document.getElementById("jtso-slider");
+    const jtsoButtons = document.querySelectorAll("[data-jtso-direction]");
+    const jtsoTotal = jtsoSlider ? jtsoSlider.querySelectorAll(".hp-slide").length : 0;
+    let jtsoCurrentSlide = 0;
+
+    jtsoButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        if (!jtsoSlider) return;
+        const direction = Number(button.dataset.jtsoDirection || 1);
+        jtsoCurrentSlide = Math.max(0, Math.min(jtsoTotal - 1, jtsoCurrentSlide + direction));
+        jtsoSlider.scrollBy({
+          left: jtsoSlider.clientWidth * direction,
+          behavior: "smooth"
+        });
+      });
+    });
+
     const nowSlider = document.getElementById("now-slider");
     const nowButtons = document.querySelectorAll("[data-now-direction]");
     const nowCounter = document.getElementById("now-counter");
