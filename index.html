@@ -317,6 +317,119 @@
       font-weight: 620;
     }
 
+    .now-showcase {
+      margin-top: 34px;
+      padding: 18px;
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.07) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 20px 54px rgba(0, 0, 0, 0.20);
+      backdrop-filter: blur(18px);
+    }
+
+    .now-showcase-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 14px;
+    }
+
+    .now-showcase-title-stack {
+      min-width: 0;
+    }
+
+    .now-showcase-kicker {
+      margin: 0 0 4px;
+      color: rgba(255, 250, 241, 0.56);
+      font-size: 0.74rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .now-showcase-title {
+      margin: 0;
+      font-size: clamp(1.45rem, 3vw, 2.2rem);
+      line-height: 1.04;
+      letter-spacing: -0.055em;
+    }
+
+    .now-showcase-note {
+      margin: 0;
+      max-width: 340px;
+      color: var(--subtext);
+      font-size: 0.9rem;
+      font-weight: 650;
+      text-align: right;
+    }
+
+    .now-viewer {
+      position: relative;
+      display: grid;
+      grid-template-columns: 44px minmax(0, 1fr) 44px;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .now-slider {
+      display: flex;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.24);
+    }
+
+    .now-slider::-webkit-scrollbar {
+      display: none;
+    }
+
+    .now-slide {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: clamp(280px, 56vw, 680px);
+      padding: clamp(12px, 2vw, 24px);
+    }
+
+    .now-slide img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: clamp(260px, 54vw, 640px);
+      object-fit: contain;
+      border-radius: 14px;
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.28);
+    }
+
+    .now-nav-button {
+      width: 44px;
+      height: 74px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.10);
+      color: rgba(255, 250, 241, 0.9);
+      font-size: 1.8rem;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.20);
+      backdrop-filter: blur(14px);
+      transition: transform 0.18s ease, background 0.18s ease;
+    }
+
+    .now-nav-button:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.16);
+    }
+
     .app-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -682,6 +795,54 @@
         padding-top: 28px;
       }
 
+      .now-showcase {
+        margin-top: 26px;
+        padding: 14px;
+      }
+
+      .now-showcase-head {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .now-showcase-note {
+        max-width: none;
+        text-align: left;
+      }
+
+      .now-viewer {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .now-slider {
+        order: 1;
+      }
+
+      .now-slide {
+        min-height: clamp(220px, 62vw, 420px);
+      }
+
+      .now-slide img {
+        max-height: clamp(200px, 58vw, 400px);
+      }
+
+      .now-nav-button {
+        order: 2;
+        width: calc(50% - 6px);
+        height: 44px;
+      }
+
+      .now-nav-button.prev {
+        justify-self: start;
+      }
+
+      .now-nav-button.next {
+        justify-self: end;
+        margin-top: -54px;
+      }
+
       .hero-soul-main {
         right: -18px;
         top: 38px;
@@ -768,6 +929,40 @@
         <p class="section-lead">
           Things that feel good to touch, grow in strange ways, or make everyday choices a little easier. Small works, each with its own soul.
         </p>
+
+        <section class="now-showcase" aria-labelledby="now-building-title">
+          <div class="now-showcase-head">
+            <div class="now-showcase-title-stack">
+              <p class="now-showcase-kicker">Now Building</p>
+              <h3 class="now-showcase-title" id="now-building-title">DotForge / SinForge</h3>
+            </div>
+            <p class="now-showcase-note">Current experiments in pixel-style visuals, dark fantasy objects, and small app worlds.</p>
+          </div>
+          <div class="now-viewer">
+            <button class="now-nav-button prev" type="button" aria-label="Previous current work screenshot" data-now-direction="-1">‹</button>
+            <div class="now-slider" id="now-slider" aria-label="Current work screenshots">
+              <figure class="now-slide">
+                <img src="./assets/screenshots/DotForge-01-01-01.png" alt="DotForge current work screenshot">
+              </figure>
+              <figure class="now-slide">
+                <img src="./assets/screenshots/SinForge-01-01-01.png" alt="SinForge current work screenshot 1">
+              </figure>
+              <figure class="now-slide">
+                <img src="./assets/screenshots/SinForge-01-02-01.png" alt="SinForge current work screenshot 2">
+              </figure>
+              <figure class="now-slide">
+                <img src="./assets/screenshots/SinForge-01-03-01.png" alt="SinForge current work screenshot 3">
+              </figure>
+              <figure class="now-slide">
+                <img src="./assets/screenshots/SinForge-01-04-01.png" alt="SinForge current work screenshot 4">
+              </figure>
+              <figure class="now-slide">
+                <img src="./assets/screenshots/SinForge-01-05-01.png" alt="SinForge current work screenshot 5">
+              </figure>
+            </div>
+            <button class="now-nav-button next" type="button" aria-label="Next current work screenshot" data-now-direction="1">›</button>
+          </div>
+        </section>
 
         <div class="app-grid">
           <article class="app-card">
@@ -1019,5 +1214,21 @@
       <div>© Tsukigashizumu Studio</div>
     </div>
   </footer>
+  <script>
+    const nowSlider = document.getElementById("now-slider");
+    const nowButtons = document.querySelectorAll("[data-now-direction]");
+
+    nowButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        if (!nowSlider) return;
+
+        const direction = Number(button.dataset.nowDirection || 1);
+        nowSlider.scrollBy({
+          left: nowSlider.clientWidth * direction,
+          behavior: "smooth"
+        });
+      });
+    });
+  </script>
 </body>
 </html>
