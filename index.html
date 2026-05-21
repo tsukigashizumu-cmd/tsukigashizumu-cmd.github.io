@@ -365,6 +365,23 @@
       text-align: right;
     }
 
+    .now-showcase-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .now-counter {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      font-variant-numeric: tabular-nums;
+    }
+
     .now-viewer {
       position: relative;
       display: grid;
@@ -811,6 +828,10 @@
         text-align: left;
       }
 
+      .now-showcase-right {
+        align-items: flex-start;
+      }
+
       .now-viewer {
         grid-template-columns: 1fr;
         gap: 10px;
@@ -936,28 +957,31 @@
               <p class="now-showcase-kicker">Now Building</p>
               <h3 class="now-showcase-title" id="now-building-title">DotForge / SinForge</h3>
             </div>
-            <p class="now-showcase-note">Current experiments in pixel-style visuals, dark fantasy objects, and small app worlds.</p>
+            <div class="now-showcase-right">
+              <p class="now-showcase-note">Current experiments in pixel-style visuals, dark fantasy objects, and small app worlds.</p>
+              <p class="now-counter" id="now-counter" aria-live="polite">1 / 6</p>
+            </div>
           </div>
           <div class="now-viewer">
             <button class="now-nav-button prev" type="button" aria-label="Previous current work screenshot" data-now-direction="-1">‹</button>
             <div class="now-slider" id="now-slider" aria-label="Current work screenshots">
               <figure class="now-slide">
-                <img src="./assets/screenshots/DotForge-01-01-01.png" alt="DotForge current work screenshot">
+                <img src="./assets/screenshots/DotForge-01-01-01.png" alt="DotForge current work screenshot" loading="lazy">
               </figure>
               <figure class="now-slide">
-                <img src="./assets/screenshots/SinForge-01-01-01.png" alt="SinForge current work screenshot 1">
+                <img src="./assets/screenshots/SinForge-01-01-01.png" alt="SinForge current work screenshot 1" loading="lazy">
               </figure>
               <figure class="now-slide">
-                <img src="./assets/screenshots/SinForge-01-02-01.png" alt="SinForge current work screenshot 2">
+                <img src="./assets/screenshots/SinForge-01-02-01.png" alt="SinForge current work screenshot 2" loading="lazy">
               </figure>
               <figure class="now-slide">
-                <img src="./assets/screenshots/SinForge-01-03-01.png" alt="SinForge current work screenshot 3">
+                <img src="./assets/screenshots/SinForge-01-03-01.png" alt="SinForge current work screenshot 3" loading="lazy">
               </figure>
               <figure class="now-slide">
-                <img src="./assets/screenshots/SinForge-01-04-01.png" alt="SinForge current work screenshot 4">
+                <img src="./assets/screenshots/SinForge-01-04-01.png" alt="SinForge current work screenshot 4" loading="lazy">
               </figure>
               <figure class="now-slide">
-                <img src="./assets/screenshots/SinForge-01-05-01.png" alt="SinForge current work screenshot 5">
+                <img src="./assets/screenshots/SinForge-01-05-01.png" alt="SinForge current work screenshot 5" loading="lazy">
               </figure>
             </div>
             <button class="now-nav-button next" type="button" aria-label="Next current work screenshot" data-now-direction="1">›</button>
@@ -1217,16 +1241,25 @@
   <script>
     const nowSlider = document.getElementById("now-slider");
     const nowButtons = document.querySelectorAll("[data-now-direction]");
+    const nowCounter = document.getElementById("now-counter");
+    const totalSlides = document.querySelectorAll(".now-slide").length;
+    let currentSlide = 0;
+
+    function updateNowCounter() {
+      if (nowCounter) nowCounter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+    }
 
     nowButtons.forEach((button) => {
       button.addEventListener("click", () => {
         if (!nowSlider) return;
 
         const direction = Number(button.dataset.nowDirection || 1);
+        currentSlide = Math.max(0, Math.min(totalSlides - 1, currentSlide + direction));
         nowSlider.scrollBy({
           left: nowSlider.clientWidth * direction,
           behavior: "smooth"
         });
+        updateNowCounter();
       });
     });
   </script>
