@@ -99,8 +99,12 @@
       flex-shrink: 0;
       display: grid;
       place-items: center;
-      font-size: 24px;
-      line-height: 1;
+    }
+
+    .brand-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .brand-text {
@@ -277,10 +281,13 @@
       box-shadow: 0 24px 58px rgba(48, 32, 68, 0.24);
       border: 1px solid rgba(255, 255, 255, 0.72);
       background: rgba(255, 255, 255, 0.9);
-      display: grid;
-      place-items: center;
-      font-size: 80px;
-      line-height: 1;
+      overflow: hidden;
+    }
+
+    .hero-app-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .section {
@@ -311,12 +318,34 @@
     .feature-card,
     .info-card,
     .trust-note,
+    .template-pack-card,
     .cta-card {
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: var(--radius-lg);
       padding: 22px;
       box-shadow: var(--shadow);
+    }
+
+    .template-pack-card {
+      margin-top: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.94) 0%, rgba(247,241,255,0.96) 100%);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .template-pack-card p {
+      margin: 0;
+      color: var(--subtext);
+    }
+
+    .template-pack-actions {
+      display: inline-flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     .feature-card h3,
@@ -480,8 +509,22 @@
         border-radius: 36px;
       }
 
+      .template-pack-card,
       .cta-card {
         padding: 22px;
+      }
+
+      .template-pack-card {
+        grid-template-columns: 1fr;
+      }
+
+      .template-pack-actions {
+        justify-content: stretch;
+      }
+
+      .template-pack-actions .button-primary,
+      .template-pack-actions .button-secondary {
+        width: 100%;
       }
     }
   </style>
@@ -490,7 +533,7 @@
   <header class="site-header">
     <div class="container site-header-inner">
       <a class="brand" href="./" aria-label="PromptDock AI home">
-        <span class="brand-icon" aria-hidden="true">⚡</span>
+        <span class="brand-icon" aria-hidden="true"><img src="./assets/app-icon.png" alt=""></span>
         <span class="brand-text">PromptDock AI</span>
       </a>
 
@@ -523,6 +566,7 @@
 
           <div class="hero-actions" id="app-store">
             <a class="button-primary" href="https://apps.apple.com/app/id6772130038" target="_blank" rel="noopener noreferrer">Download on the App Store</a>
+            <a class="button-secondary" href="./assets/templates/promptdock-ai-free-template-pack.json" download>Free Template Pack</a>
             <a class="button-secondary" href="./support/">Support</a>
             <a class="button-secondary" href="./privacy/">Privacy Policy</a>
           </div>
@@ -533,7 +577,7 @@
         </div>
 
         <div class="hero-visual-card" aria-label="PromptDock AI app icon">
-          <div class="hero-app-icon" aria-hidden="true">⚡</div>
+          <div class="hero-app-icon" aria-hidden="true"><img src="./assets/app-icon.png" alt=""></div>
         </div>
       </div>
     </section>
@@ -588,6 +632,19 @@
             </p>
           </article>
         </div>
+
+        <div class="template-pack-card">
+          <div>
+            <h3>Free template pack for indie makers</h3>
+            <p>
+              Download a starter JSON pack with 10 reusable templates for app launches, App Store copy, release notes, SwiftUI debugging, localization, screenshot captions, image prompts, and more. Import it directly into PromptDock AI.
+            </p>
+          </div>
+          <div class="template-pack-actions">
+            <a class="button-primary" href="./assets/templates/promptdock-ai-free-template-pack.json" download>Download Free Pack</a>
+            <a class="button-secondary" href="./support/">How to import</a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -639,6 +696,7 @@
             </p>
           </div>
           <div class="hero-actions" style="margin-top: 0;">
+            <a class="button-secondary" href="./assets/templates/promptdock-ai-free-template-pack.json" download>Free Template Pack</a>
             <a class="button-secondary" href="./support/">Support</a>
             <a class="button-primary" href="https://apps.apple.com/app/id6772130038" target="_blank" rel="noopener noreferrer">App Store</a>
           </div>
@@ -649,7 +707,7 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div>© 2025 PromptDock AI</div>
+      <div>© 2026 PromptDock AI</div>
       <div class="footer-links">
         <a href="https://apps.apple.com/app/id6772130038" target="_blank" rel="noopener noreferrer">App Store</a>
         <a href="./support/">Support</a>

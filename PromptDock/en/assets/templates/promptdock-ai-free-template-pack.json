@@ -1,0 +1,252 @@
+[
+  {
+    "id": "0115967A-604D-42C9-ADB4-C98E911EA031",
+    "name": "App Launch Post",
+    "icon": "megaphone.fill",
+    "description": "Write a concise launch post for a new app.",
+    "systemInstruction": "You are a sharp launch copywriter for indie app makers. Write a clear, natural social post that explains what the app does, why it exists, and why people should try it. Keep it specific, human, and not hype-heavy.",
+    "fields": [
+      {
+        "id": "1640DA2D-2089-42E6-A30C-4E298B0B6659",
+        "label": "App Name",
+        "placeholder": "PromptDock AI"
+      },
+      {
+        "id": "6401A8F8-AB61-4BD2-A29F-80C6E7C5DA23",
+        "label": "What It Does",
+        "placeholder": "Builds reusable AI prompt templates"
+      },
+      {
+        "id": "949AE3F2-83D5-40E9-B0A6-81700E119E9B",
+        "label": "Tone / Platform",
+        "placeholder": "X post, casual but polished"
+      }
+    ],
+    "createdAt": 801139970.167912
+  },
+  {
+    "id": "173584DC-F991-4D08-9295-8FC9CF8AA4FC",
+    "name": "App Store Description Pro",
+    "icon": "doc.text.fill",
+    "description": "Create a stronger App Store description.",
+    "systemInstruction": "You are an App Store copywriter. Write a polished App Store description with a clear opening, feature list, target users, and privacy-friendly closing. Avoid exaggerated claims. Make it readable and conversion-focused.",
+    "fields": [
+      {
+        "id": "8A34D7E4-5949-4B92-9FC5-20679EA09E4A",
+        "label": "App Name",
+        "placeholder": "Your app name"
+      },
+      {
+        "id": "4DBDFA80-C0ED-4D1F-A5B2-94C82159A9F2",
+        "label": "Core Benefit",
+        "placeholder": "What the app helps users do"
+      },
+      {
+        "id": "1EDFD9E8-7541-40F3-B7B2-1BD1546ED815",
+        "label": "Main Features",
+        "placeholder": "Feature 1, feature 2, feature 3"
+      }
+    ],
+    "createdAt": 801139970.167912
+  },
+  {
+    "id": "E5174722-6671-4075-9D83-4286BCB317E5",
+    "name": "Release Notes",
+    "icon": "sparkles",
+    "description": "Turn update details into clean release notes.",
+    "systemInstruction": "You are writing concise App Store release notes. Convert rough update notes into friendly, clear release notes. Keep them short, specific, and easy to scan.",
+    "fields": [
+      {
+        "id": "F7A45CA8-E827-45F6-AD3F-5DB16E383AAF",
+        "label": "Version",
+        "placeholder": "1.1"
+      },
+      {
+        "id": "26A41653-38C2-47DD-95CA-F35AF5D21280",
+        "label": "What Changed",
+        "placeholder": "New features, fixes, UI improvements"
+      },
+      {
+        "id": "496D5F84-C319-4C41-903D-75EF6A6E8D72",
+        "label": "Tone",
+        "placeholder": "Friendly and concise"
+      }
+    ],
+    "createdAt": 801139970.167912
+  },
+  {
+    "id": "F4FDBDCE-9EEA-4BC5-BD01-726B7D0BE36E",
+    "name": "SwiftUI Bug Report",
+    "icon": "ladybug.fill",
+    "description": "Format a SwiftUI issue for AI debugging.",
+    "systemInstruction": "You are a senior SwiftUI engineer. Help analyze the issue. Summarize the likely cause, suggest a minimal safe fix, and provide copy-paste-ready Swift code when possible. Ask for missing context only if necessary.",
+    "fields": [
+      {
+        "id": "FD9CD7CC-6390-44C4-BF02-76007DBBF32F",
+        "label": "Error Message",
+        "placeholder": "Paste the Xcode error or warning"
+      },
+      {
+        "id": "91858BC8-030E-402A-AC5B-2F2FA38F33BB",
+        "label": "Relevant Code",
+        "placeholder": "Paste the SwiftUI code block"
+      },
+      {
+        "id": "794CA1E4-29D2-4726-B1D3-26B1C5F62981",
+        "label": "Expected Behavior",
+        "placeholder": "What should happen?"
+      }
+    ],
+    "createdAt": 801139970.167912
+  },
+  {
+    "id": "BA1CA373-42D8-4551-A637-AA4B4F885588",
+    "name": "Localization Pair",
+    "icon": "globe",
+    "description": "Create English and Japanese localization text.",
+    "systemInstruction": "You are a localization editor. Produce natural English and Japanese text for app UI. Keep labels short, clear, and suitable for mobile interfaces. Return both languages in a clean format.",
+    "fields": [
+      {
+        "id": "C8A050AF-619A-4383-A44B-5FD95057BE67",
+        "label": "Original Text",
+        "placeholder": "Text to localize"
+      },
+      {
+        "id": "0B5B3209-2825-4866-AD3B-282B393DB080",
+        "label": "Context",
+        "placeholder": "Button, title, setting label, App Store text, etc."
+      },
+      {
+        "id": "4DA9287B-4C6E-4384-AF0C-F80BFDB4DBEB",
+        "label": "Length Limit",
+        "placeholder": "Short / medium / max characters"
+      }
+    ],
+    "createdAt": 801139970.167912
+  },
+  {
+    "id": "14575471-99ED-4B33-9263-6575B67D711B",
+    "name": "Screenshot Caption",
+    "icon": "rectangle.on.rectangle",
+    "description": "Write App Store screenshot captions.",
+    "systemInstruction": "You are creating short App Store screenshot captions. Write clear, benefit-focused captions that can fit on mobile screenshots. Avoid long sentences.",
+    "fields": [
+      {
+        "id": "3BE1C5BA-8C32-4A20-86E6-44EBB7FF4D24",
+        "label": "Feature Shown",
+        "placeholder": "Custom templates / prompt history / export import"
+      },
+      {
+        "id": "F0D13AFB-4DC7-4004-9F0E-7E1BA0048F94",
+        "label": "User Benefit",
+        "placeholder": "Save time, reuse prompts, organize workflow"
+      },
+      {
+        "id": "AF7DDFCA-8E6A-4F70-84EA-093603BBA9A3",
+        "label": "Style",
+        "placeholder": "Minimal, punchy, premium"
+      }
+    ],
+    "createdAt": 801139970.167912
+  },
+  {
+    "id": "63167543-A767-4AE5-AC6A-77280CF0768C",
+    "name": "Indie Game Pitch",
+    "icon": "gamecontroller.fill",
+    "description": "Pitch an indie game idea in a clear hook.",
+    "systemInstruction": "You are an indie game marketing editor. Turn a rough game concept into a strong short pitch with a hook, premise, player fantasy, and why it is interesting. Keep it vivid but understandable.",
+    "fields": [
+      {
+        "id": "41D5DECB-8118-4AA1-B798-D6BEA2013AF4",
+        "label": "Game Concept",
+        "placeholder": "A management game about..."
+      },
+      {
+        "id": "3C65BB4C-348B-4273-8F1F-B5A65D10F8D8",
+        "label": "Core Mechanic",
+        "placeholder": "Cards, choices, idle, puzzle, etc."
+      },
+      {
+        "id": "10D3B6A9-7050-44BB-8585-01509CD3525C",
+        "label": "Mood",
+        "placeholder": "Dark comedy, cozy, horror, absurd, etc."
+      }
+    ],
+    "createdAt": 801139970.167912
+  },
+  {
+    "id": "5557DE27-F214-43E5-9A66-8E86320AE8AC",
+    "name": "YouTube Shorts Hook",
+    "icon": "play.rectangle.fill",
+    "description": "Generate a short video title and hook.",
+    "systemInstruction": "You are a YouTube Shorts title and hook writer. Create short, curiosity-driven titles and opening lines. Keep them natural, not clickbait-spammy.",
+    "fields": [
+      {
+        "id": "D96C6031-82FD-4D6C-B37A-28231129081F",
+        "label": "Video Topic",
+        "placeholder": "What the short shows"
+      },
+      {
+        "id": "4984E340-1419-413D-A182-BCC1D83FF5C4",
+        "label": "Audience",
+        "placeholder": "Indie devs, SwiftUI devs, creators"
+      },
+      {
+        "id": "5364BEEE-B8E8-4552-A5A7-3D50FB11D663",
+        "label": "Desired Vibe",
+        "placeholder": "Cool, funny, dramatic, useful"
+      }
+    ],
+    "createdAt": 801139970.167912
+  },
+  {
+    "id": "B964C632-ECC5-411F-A908-446EC8FE7925",
+    "name": "AI Image Prompt Builder",
+    "icon": "photo.fill",
+    "description": "Build a detailed image generation prompt.",
+    "systemInstruction": "You are an image prompt designer. Convert the user's idea into a clear, detailed image prompt. Include subject, composition, style, lighting, mood, and constraints. Avoid adding text in the image unless requested.",
+    "fields": [
+      {
+        "id": "A9D429E5-3F4C-41D9-A150-35068867314A",
+        "label": "Subject",
+        "placeholder": "Character, object, icon, wallpaper, etc."
+      },
+      {
+        "id": "BD4FD495-3B4D-42B1-ABE0-D5C0D2421074",
+        "label": "Style / Mood",
+        "placeholder": "Dark fantasy, premium app icon, soft pastel, etc."
+      },
+      {
+        "id": "5D91D51B-2C7E-4873-864E-2A60BB3CCF6F",
+        "label": "Constraints",
+        "placeholder": "No text, vertical 9:19.5, 1024x1024, etc."
+      }
+    ],
+    "createdAt": 801139970.167912
+  },
+  {
+    "id": "B5BBA44E-C2C6-4F13-8C7F-8A2E6CC5FEE8",
+    "name": "Product Hunt Style Pitch",
+    "icon": "rocket.fill",
+    "description": "Create a short product launch pitch.",
+    "systemInstruction": "You are writing a concise product launch pitch. Explain what the product is, who it is for, the problem it solves, and the strongest reason to try it. Keep it direct and founder-friendly.",
+    "fields": [
+      {
+        "id": "EABE2576-AAE0-4F17-91FA-93075629B939",
+        "label": "Product Name",
+        "placeholder": "PromptDock AI"
+      },
+      {
+        "id": "E224E705-3ADB-4D82-88BC-0F614107C4F1",
+        "label": "Target User",
+        "placeholder": "Indie developers and creators"
+      },
+      {
+        "id": "867694BA-6AC4-4EFC-BE44-0287C6703D5B",
+        "label": "Problem Solved",
+        "placeholder": "Rewriting the same AI prompts repeatedly"
+      }
+    ],
+    "createdAt": 801139970.167912
+  }
+]
