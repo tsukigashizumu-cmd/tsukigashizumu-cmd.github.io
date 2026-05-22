@@ -521,6 +521,62 @@
       transform: rotate(-3deg) translateY(10px) rotateX(2deg);
     }
 
+    .hp-slide:nth-child(odd) .hp-card-sleeve:first-child {
+      animation: sleeveFloatOddFirst 5.8s ease-in-out infinite;
+    }
+
+    .hp-slide:nth-child(odd) .hp-card-sleeve:last-child {
+      animation: sleeveFloatOddLast 6.4s ease-in-out infinite;
+    }
+
+    .hp-slide:nth-child(even) .hp-card-sleeve:first-child {
+      animation: sleeveFloatEvenFirst 6.1s ease-in-out infinite;
+    }
+
+    .hp-slide:nth-child(even) .hp-card-sleeve:last-child {
+      animation: sleeveFloatEvenLast 5.6s ease-in-out infinite;
+    }
+
+    @keyframes sleeveFloatOddFirst {
+      0%, 100% {
+        transform: rotate(-3deg) translateY(10px) rotateX(2deg);
+      }
+
+      50% {
+        transform: rotate(-2.4deg) translateY(5px) rotateX(1.4deg);
+      }
+    }
+
+    @keyframes sleeveFloatOddLast {
+      0%, 100% {
+        transform: rotate(2.5deg) translateY(-10px) rotateX(-1.5deg);
+      }
+
+      50% {
+        transform: rotate(1.8deg) translateY(-15px) rotateX(-1deg);
+      }
+    }
+
+    @keyframes sleeveFloatEvenFirst {
+      0%, 100% {
+        transform: rotate(2deg) translateY(-8px) rotateX(-1.5deg);
+      }
+
+      50% {
+        transform: rotate(2.7deg) translateY(-13px) rotateX(-0.8deg);
+      }
+    }
+
+    @keyframes sleeveFloatEvenLast {
+      0%, 100% {
+        transform: rotate(-3deg) translateY(10px) rotateX(2deg);
+      }
+
+      50% {
+        transform: rotate(-2.2deg) translateY(5px) rotateX(1.2deg);
+      }
+    }
+
     /* ::before 反射バリエーション（nth-child per card） */
     .hp-slide:nth-child(odd) .hp-card-sleeve:last-child::before {
       background:
@@ -1034,7 +1090,8 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .soul-flame {
+      .soul-flame,
+      .hp-card-sleeve {
         animation: none;
       }
     }
