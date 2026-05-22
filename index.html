@@ -404,6 +404,105 @@
       max-height: clamp(220px, 44vh, 480px);
       object-fit: cover;
       filter: contrast(0.98) saturate(0.96) brightness(0.96);
+      cursor: zoom-in;
+    }
+
+    .hp-card-sleeve.is-opening .hp-card-inner {
+      animation: cardUnsleeveDown 0.42s cubic-bezier(.2,.8,.2,1) forwards;
+    }
+
+    .hp-card-sleeve.is-opening::before,
+    .hp-card-sleeve.is-opening::after {
+      animation: sleeveGlintFade 0.42s ease forwards;
+    }
+
+    @keyframes cardUnsleeveDown {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+
+      52% {
+        transform: translateY(-22px) scale(0.985);
+        opacity: 0.72;
+      }
+
+      100% {
+        transform: translateY(-54px) scale(0.94);
+        opacity: 0;
+      }
+    }
+
+    @keyframes sleeveGlintFade {
+      0% {
+        opacity: 0.58;
+      }
+
+      100% {
+        opacity: 0.18;
+      }
+    }
+
+    .card-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: grid;
+      place-items: center;
+      padding: clamp(16px, 4vw, 42px);
+      background:
+        radial-gradient(circle at 50% 45%, rgba(255, 184, 77, 0.12), transparent 34%),
+        rgba(5, 5, 8, 0.78);
+      backdrop-filter: blur(20px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.22s ease;
+    }
+
+    .card-lightbox.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .card-lightbox-shell {
+      position: relative;
+      width: min(92vw, 520px);
+      max-height: 92vh;
+      transform: translateY(-28px) scale(0.92);
+      opacity: 0;
+      transition: transform 0.32s cubic-bezier(.2,.8,.2,1), opacity 0.22s ease;
+    }
+
+    .card-lightbox.is-open .card-lightbox-shell {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+
+    .card-lightbox-image {
+      display: block;
+      width: 100%;
+      max-height: 88vh;
+      object-fit: contain;
+      border-radius: 18px;
+      box-shadow: 0 34px 110px rgba(0,0,0,0.62);
+      background: rgba(0,0,0,0.28);
+    }
+
+    .card-lightbox-close {
+      position: absolute;
+      right: -10px;
+      top: -10px;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255,255,255,0.20);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.14);
+      color: rgba(255,250,241,0.94);
+      font-size: 1.35rem;
+      font-weight: 900;
+      cursor: pointer;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.34);
     }
 
     .hp-slide:nth-child(odd) .hp-card-sleeve:first-child {
@@ -1691,6 +1790,13 @@
     </section>
   </main>
 
+  <div class="card-lightbox" id="card-lightbox" aria-hidden="true">
+    <div class="card-lightbox-shell" role="dialog" aria-modal="true" aria-label="Expanded card preview">
+      <button class="card-lightbox-close" type="button" id="card-lightbox-close" aria-label="Close expanded card preview">×</button>
+      <img class="card-lightbox-image" id="card-lightbox-image" src="" alt="">
+    </div>
+  </div>
+
   <footer class="site-footer">
     <div class="container footer-inner">
       <div>© Tsukigashizumu Studio</div>
@@ -1724,6 +1830,9 @@
     const jtsoSlider = document.getElementById("jtso-slider");
     const jtsoButtons = document.querySelectorAll("[data-jtso-direction]");
     const jtsoTotal = jtsoSlider ? jtsoSlider.querySelectorAll(".hp-slide").length : 0;
+    const cardLightbox = document.getElementById("card-lightbox");
+    const cardLightboxImage = document.getElementById("card-lightbox-image");
+    const cardLightboxClose = document.getElementById("card-lightbox-close");
     let jtsoCurrentSlide = 0;
 
     jtsoButtons.forEach((button) => {
@@ -1736,6 +1845,57 @@
           behavior: "smooth"
         });
       });
+    });
+
+    function openCardLightbox(src, alt) {
+      if (!cardLightbox || !cardLightboxImage) return;
+      cardLightboxImage.src = src;
+      cardLightboxImage.alt = alt || "Expanded card preview";
+      cardLightbox.classList.add("is-open");
+      cardLightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeCardLightbox() {
+      if (!cardLightbox || !cardLightboxImage) return;
+      cardLightbox.classList.remove("is-open");
+      cardLightbox.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      window.setTimeout(() => {
+        if (!cardLightbox.classList.contains("is-open")) {
+          cardLightboxImage.src = "";
+        }
+      }, 220);
+    }
+
+    document.querySelectorAll(".hp-card-sleeve").forEach((sleeve) => {
+      sleeve.addEventListener("click", () => {
+        const image = sleeve.querySelector("img");
+        if (!image) return;
+
+        sleeve.classList.remove("is-opening");
+        void sleeve.offsetWidth;
+        sleeve.classList.add("is-opening");
+
+        window.setTimeout(() => {
+          openCardLightbox(image.currentSrc || image.src, image.alt);
+          sleeve.classList.remove("is-opening");
+        }, 240);
+      });
+    });
+
+    if (cardLightboxClose) {
+      cardLightboxClose.addEventListener("click", closeCardLightbox);
+    }
+
+    if (cardLightbox) {
+      cardLightbox.addEventListener("click", (event) => {
+        if (event.target === cardLightbox) closeCardLightbox();
+      });
+    }
+
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeCardLightbox();
     });
 
     const nowSlider = document.getElementById("now-slider");
