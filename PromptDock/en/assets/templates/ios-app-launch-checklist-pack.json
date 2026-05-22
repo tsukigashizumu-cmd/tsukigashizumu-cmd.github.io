@@ -1,0 +1,127 @@
+[
+  {
+    "id": "9CF641D9-19BC-482F-8007-F855C27C2B99",
+    "name": "iOS Launch Checklist",
+    "icon": "checklist",
+    "description": "Turn your app status into a clear launch checklist.",
+    "systemInstruction": "You are an App Store launch assistant. Create a practical checklist for submitting an iOS app. Group tasks by App Store Connect, metadata, screenshots, privacy, build, review notes, and launch promotion. Keep it actionable and concise.",
+    "fields": [
+      {
+        "id": "30D761E4-99BA-4EC1-9B97-98A2489AF897",
+        "label": "App Name",
+        "placeholder": "Your app name"
+      },
+      {
+        "id": "47A37808-0FD0-459D-BE64-A6C6BF9AD24B",
+        "label": "Current Status",
+        "placeholder": "What is already done?"
+      },
+      {
+        "id": "2B094FBE-BC6C-4265-B28E-84FBD2F061AE",
+        "label": "Target Launch",
+        "placeholder": "TestFlight / App Review / public launch"
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "68117B12-96D1-4028-966E-B9E4FA55A4BB",
+    "name": "App Store Metadata Draft",
+    "icon": "text.badge.checkmark",
+    "description": "Draft subtitle, keywords, promo text, and description.",
+    "systemInstruction": "You are an App Store metadata editor. Create App Store Connect metadata for an iOS app. Keep the subtitle under 30 characters and keywords under 100 characters. Write clear, non-hype copy focused on user benefit.",
+    "fields": [
+      {
+        "id": "60EE97F6-E21C-472C-B738-7F0D4D28465E",
+        "label": "App Name",
+        "placeholder": "Your app name"
+      },
+      {
+        "id": "F5D9FB92-49CD-4BB7-B585-0C23170709C4",
+        "label": "What It Does",
+        "placeholder": "Core function and benefit"
+      },
+      {
+        "id": "4822FFE6-0566-450B-8CAE-32F7E19BC29B",
+        "label": "Target Users",
+        "placeholder": "Who should use it?"
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "2436FB88-9495-452B-A227-DF7A2476D3D9",
+    "name": "Review Notes Writer",
+    "icon": "doc.text.magnifyingglass",
+    "description": "Write safe notes for App Review.",
+    "systemInstruction": "You are writing App Review notes for Apple reviewers. Explain how to test the app, whether sign-in is required, what data is stored, and any external links. Be clear and factual.",
+    "fields": [
+      {
+        "id": "C7E2159C-4CAA-4B27-8B1A-609B794B7AA2",
+        "label": "App Summary",
+        "placeholder": "What the app does"
+      },
+      {
+        "id": "92873EA4-DD3F-4B17-A5A3-7B7B54A4719F",
+        "label": "How to Test",
+        "placeholder": "Step-by-step test flow"
+      },
+      {
+        "id": "397DF382-91AA-4BEA-94AB-03C7529763C9",
+        "label": "Privacy Notes",
+        "placeholder": "No account, local data, etc."
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "47758E6A-C5D7-49B2-9A93-A1F8418B489A",
+    "name": "Privacy Policy Summary",
+    "icon": "lock.shield.fill",
+    "description": "Create a plain privacy explanation for your app.",
+    "systemInstruction": "You are a privacy policy copy editor. Write a plain-language summary explaining what data the app collects, where data is stored, whether accounts are required, and whether third-party services are used. Do not make legal claims beyond the provided facts.",
+    "fields": [
+      {
+        "id": "7E2F25F6-5B38-4576-ACA9-5EC5BD09BB2F",
+        "label": "Data Stored",
+        "placeholder": "Local settings, history, saved items, etc."
+      },
+      {
+        "id": "92D41FFB-D799-425B-BDD7-8E03672C2CA7",
+        "label": "Data Collected",
+        "placeholder": "None / analytics / account data"
+      },
+      {
+        "id": "30613AA4-64EF-4811-8D48-10494F0DE777",
+        "label": "Third-Party Services",
+        "placeholder": "ChatGPT link, analytics, ads, none, etc."
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "831A62B6-E223-4683-A9B1-E600316067BB",
+    "name": "Launch Post",
+    "icon": "megaphone.fill",
+    "description": "Write a launch post for X or other social platforms.",
+    "systemInstruction": "You are a launch copywriter for indie app makers. Write a natural social post that explains the problem, the product, and the reason to try it. Avoid sounding corporate.",
+    "fields": [
+      {
+        "id": "817F7E9F-03F9-4E3E-9B91-E134C50CCC14",
+        "label": "App Name",
+        "placeholder": "Your app name"
+      },
+      {
+        "id": "EB62BF6D-A402-489F-AE4B-02FF1422933C",
+        "label": "Problem",
+        "placeholder": "What repeated pain does it solve?"
+      },
+      {
+        "id": "517DC97F-F95D-4C22-9170-3B30921A3D7C",
+        "label": "Status",
+        "placeholder": "Submitted / available now / coming soon"
+      }
+    ],
+    "createdAt": 801144593.172291
+  }
+]

@@ -1,0 +1,502 @@
+[
+  {
+    "id": "9CF641D9-19BC-482F-8007-F855C27C2B99",
+    "name": "iOS Launch Checklist",
+    "icon": "checklist",
+    "description": "Turn your app status into a clear launch checklist.",
+    "systemInstruction": "You are an App Store launch assistant. Create a practical checklist for submitting an iOS app. Group tasks by App Store Connect, metadata, screenshots, privacy, build, review notes, and launch promotion. Keep it actionable and concise.",
+    "fields": [
+      {
+        "id": "30D761E4-99BA-4EC1-9B97-98A2489AF897",
+        "label": "App Name",
+        "placeholder": "Your app name"
+      },
+      {
+        "id": "47A37808-0FD0-459D-BE64-A6C6BF9AD24B",
+        "label": "Current Status",
+        "placeholder": "What is already done?"
+      },
+      {
+        "id": "2B094FBE-BC6C-4265-B28E-84FBD2F061AE",
+        "label": "Target Launch",
+        "placeholder": "TestFlight / App Review / public launch"
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "68117B12-96D1-4028-966E-B9E4FA55A4BB",
+    "name": "App Store Metadata Draft",
+    "icon": "text.badge.checkmark",
+    "description": "Draft subtitle, keywords, promo text, and description.",
+    "systemInstruction": "You are an App Store metadata editor. Create App Store Connect metadata for an iOS app. Keep the subtitle under 30 characters and keywords under 100 characters. Write clear, non-hype copy focused on user benefit.",
+    "fields": [
+      {
+        "id": "60EE97F6-E21C-472C-B738-7F0D4D28465E",
+        "label": "App Name",
+        "placeholder": "Your app name"
+      },
+      {
+        "id": "F5D9FB92-49CD-4BB7-B585-0C23170709C4",
+        "label": "What It Does",
+        "placeholder": "Core function and benefit"
+      },
+      {
+        "id": "4822FFE6-0566-450B-8CAE-32F7E19BC29B",
+        "label": "Target Users",
+        "placeholder": "Who should use it?"
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "2436FB88-9495-452B-A227-DF7A2476D3D9",
+    "name": "Review Notes Writer",
+    "icon": "doc.text.magnifyingglass",
+    "description": "Write safe notes for App Review.",
+    "systemInstruction": "You are writing App Review notes for Apple reviewers. Explain how to test the app, whether sign-in is required, what data is stored, and any external links. Be clear and factual.",
+    "fields": [
+      {
+        "id": "C7E2159C-4CAA-4B27-8B1A-609B794B7AA2",
+        "label": "App Summary",
+        "placeholder": "What the app does"
+      },
+      {
+        "id": "92873EA4-DD3F-4B17-A5A3-7B7B54A4719F",
+        "label": "How to Test",
+        "placeholder": "Step-by-step test flow"
+      },
+      {
+        "id": "397DF382-91AA-4BEA-94AB-03C7529763C9",
+        "label": "Privacy Notes",
+        "placeholder": "No account, local data, etc."
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "47758E6A-C5D7-49B2-9A93-A1F8418B489A",
+    "name": "Privacy Policy Summary",
+    "icon": "lock.shield.fill",
+    "description": "Create a plain privacy explanation for your app.",
+    "systemInstruction": "You are a privacy policy copy editor. Write a plain-language summary explaining what data the app collects, where data is stored, whether accounts are required, and whether third-party services are used. Do not make legal claims beyond the provided facts.",
+    "fields": [
+      {
+        "id": "7E2F25F6-5B38-4576-ACA9-5EC5BD09BB2F",
+        "label": "Data Stored",
+        "placeholder": "Local settings, history, saved items, etc."
+      },
+      {
+        "id": "92D41FFB-D799-425B-BDD7-8E03672C2CA7",
+        "label": "Data Collected",
+        "placeholder": "None / analytics / account data"
+      },
+      {
+        "id": "30613AA4-64EF-4811-8D48-10494F0DE777",
+        "label": "Third-Party Services",
+        "placeholder": "ChatGPT link, analytics, ads, none, etc."
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "831A62B6-E223-4683-A9B1-E600316067BB",
+    "name": "Launch Post",
+    "icon": "megaphone.fill",
+    "description": "Write a launch post for X or other social platforms.",
+    "systemInstruction": "You are a launch copywriter for indie app makers. Write a natural social post that explains the problem, the product, and the reason to try it. Avoid sounding corporate.",
+    "fields": [
+      {
+        "id": "817F7E9F-03F9-4E3E-9B91-E134C50CCC14",
+        "label": "App Name",
+        "placeholder": "Your app name"
+      },
+      {
+        "id": "EB62BF6D-A402-489F-AE4B-02FF1422933C",
+        "label": "Problem",
+        "placeholder": "What repeated pain does it solve?"
+      },
+      {
+        "id": "517DC97F-F95D-4C22-9170-3B30921A3D7C",
+        "label": "Status",
+        "placeholder": "Submitted / available now / coming soon"
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "73069C84-5323-41BC-8D89-7059F202CF8C",
+    "name": "Messy Idea to MVP",
+    "icon": "wand.and.stars",
+    "description": "Turn rough notes into a tiny app MVP.",
+    "systemInstruction": "You are a pragmatic product builder. Convert messy notes into a small MVP plan. Identify the core user problem, first screen, minimum feature set, data model, and what to avoid building in v1.",
+    "fields": [
+      {
+        "id": "7AE4825F-B93E-4C4E-B206-9E3A7B13DF1D",
+        "label": "Rough Idea",
+        "placeholder": "Paste your messy idea"
+      },
+      {
+        "id": "BDFE7F53-297F-492E-9D71-194CCEFF711C",
+        "label": "Target User",
+        "placeholder": "Who is this for?"
+      },
+      {
+        "id": "497ABA34-E616-40CA-8F46-B437410A986A",
+        "label": "Platform",
+        "placeholder": "iOS / macOS / web / other"
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "DB2D4FF1-E324-40AB-A0AA-D0C44EEDAC5A",
+    "name": "SwiftUI Screen Spec",
+    "icon": "rectangle.3.group.fill",
+    "description": "Create a clear SwiftUI screen spec.",
+    "systemInstruction": "You are a SwiftUI product designer. Turn the user's idea into a screen specification with layout sections, state variables, interactions, empty states, and implementation notes.",
+    "fields": [
+      {
+        "id": "ABF03FE8-6C3F-4132-9C4F-871D767116C1",
+        "label": "Screen Goal",
+        "placeholder": "What should this screen do?"
+      },
+      {
+        "id": "3DBC6714-15FB-4938-8541-C788C3A8C780",
+        "label": "Main Elements",
+        "placeholder": "Buttons, cards, inputs, lists, etc."
+      },
+      {
+        "id": "97FB85E9-5A09-49E3-BA6C-678E0C6B19A4",
+        "label": "Visual Style",
+        "placeholder": "Minimal, dark, playful, premium, etc."
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "355A25AC-9DC2-464F-A4F8-1ADD138DD115",
+    "name": "Claude ChatGPT Coding Request",
+    "icon": "terminal.fill",
+    "description": "Write a strong coding request for an AI assistant.",
+    "systemInstruction": "You are an expert at writing coding requests for AI assistants. Create a precise implementation request with context, constraints, tasks, non-goals, and verification steps. Keep it copy-paste ready.",
+    "fields": [
+      {
+        "id": "0EE91B60-851A-4908-A88F-BDA09DA3A1CA",
+        "label": "Project Context",
+        "placeholder": "What file/project is being edited?"
+      },
+      {
+        "id": "A5F62E37-8C4F-44B0-9B21-39C7C10FB438",
+        "label": "Task",
+        "placeholder": "What should be implemented?"
+      },
+      {
+        "id": "55C014C4-02CE-46A0-9EB7-AEAF58F74AED",
+        "label": "Constraints",
+        "placeholder": "One file only, no new dependencies, etc."
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "ADA3BD5F-9211-43E8-A54F-B436749902AC",
+    "name": "Feature Scope Cutter",
+    "icon": "scissors",
+    "description": "Cut a feature down to a safe v1.",
+    "systemInstruction": "You are a ruthless MVP scope editor. Reduce the requested feature to the smallest safe version that can be built without breaking existing functionality. List what to build now and what to defer.",
+    "fields": [
+      {
+        "id": "E46E9114-E34F-452D-B18C-2A0146E4FB13",
+        "label": "Feature Idea",
+        "placeholder": "What do you want to build?"
+      },
+      {
+        "id": "A2C0CF5B-CC7A-42D4-9316-11A7A29FFA15",
+        "label": "Current App State",
+        "placeholder": "What already exists?"
+      },
+      {
+        "id": "20D6D995-5D56-4868-B306-4D58F3EDDC44",
+        "label": "Risk",
+        "placeholder": "What might break or become too large?"
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "139EC6D3-6587-4761-98E4-65E95437683B",
+    "name": "UI Polish Request",
+    "icon": "sparkles",
+    "description": "Turn vague UI feedback into concrete changes.",
+    "systemInstruction": "You are a UI polish assistant. Convert rough visual feedback into specific layout, spacing, typography, hierarchy, and interaction changes. Keep it practical for implementation.",
+    "fields": [
+      {
+        "id": "90FE51F1-5ABE-4742-AC8A-638DF7DE4590",
+        "label": "Current Problem",
+        "placeholder": "What looks bad or unclear?"
+      },
+      {
+        "id": "E6999739-54B6-4A08-9851-CA4A6C0A386B",
+        "label": "Desired Feeling",
+        "placeholder": "Cleaner, premium, playful, calmer, etc."
+      },
+      {
+        "id": "05257D99-E2D9-4E53-A218-2B44C90A4DF4",
+        "label": "Constraints",
+        "placeholder": "Do not change layout too much, keep existing style, etc."
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "8A004C93-EE6D-437A-B898-87E093B38BB9",
+    "name": "Xcode Error Fix",
+    "icon": "exclamationmark.triangle.fill",
+    "description": "Analyze and fix an Xcode error.",
+    "systemInstruction": "You are a senior SwiftUI engineer. Explain the likely cause of the Xcode error and provide the smallest safe fix. Prefer copy-paste-ready code blocks. Do not rewrite unrelated code.",
+    "fields": [
+      {
+        "id": "F91C0418-F55D-4018-9130-6D6F5DCC914F",
+        "label": "Error Message",
+        "placeholder": "Paste the exact Xcode error"
+      },
+      {
+        "id": "01771B03-EFD1-44EA-8BF0-2823F753ABFB",
+        "label": "Relevant Code",
+        "placeholder": "Paste the surrounding code"
+      },
+      {
+        "id": "B4866F71-1320-4885-B9A0-64DD640436ED",
+        "label": "Recent Change",
+        "placeholder": "What did you change right before it broke?"
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "ADBE4E50-5BE6-483B-943B-BF27D64F67A7",
+    "name": "SwiftUI Layout Debug",
+    "icon": "square.split.2x2.fill",
+    "description": "Debug a SwiftUI layout issue.",
+    "systemInstruction": "You are a SwiftUI layout debugger. Explain why the layout is behaving unexpectedly and suggest minimal fixes involving frames, padding, alignment, GeometryReader, ScrollView, ZStack, sheets, or overlays as needed.",
+    "fields": [
+      {
+        "id": "0C5D04AB-DE13-4D5F-8833-D4BFBADC4F34",
+        "label": "Layout Problem",
+        "placeholder": "What looks wrong?"
+      },
+      {
+        "id": "153F53AC-CA9B-460B-BBC3-043404ADF734",
+        "label": "Relevant View Code",
+        "placeholder": "Paste the SwiftUI view"
+      },
+      {
+        "id": "535BDEAF-DB82-41DE-BB37-2AC6DBA5FF8A",
+        "label": "Screenshot Description",
+        "placeholder": "Describe what you see"
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "842A607A-3120-43E3-A890-EC18580AE3D1",
+    "name": "Crash Log Summary",
+    "icon": "waveform.path.ecg",
+    "description": "Summarize a crash log into next steps.",
+    "systemInstruction": "You are an iOS crash triage assistant. Read the crash log or stack trace, identify likely causes, and suggest concrete next debugging steps. Keep the explanation practical.",
+    "fields": [
+      {
+        "id": "38D46EA1-D4F6-4AE8-88F2-463FAE6D4580",
+        "label": "Crash Log",
+        "placeholder": "Paste the crash stack trace"
+      },
+      {
+        "id": "AA7B3ADF-05C6-4F40-B23F-578E8332CEE7",
+        "label": "When It Happens",
+        "placeholder": "Launch, tap button, save image, etc."
+      },
+      {
+        "id": "59628BD3-940B-4D09-90DF-04A9812549D6",
+        "label": "Recent Code Area",
+        "placeholder": "Which feature was changed?"
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "475B5B2E-0664-4EA4-8E1A-015A6A51157E",
+    "name": "One-File Patch Request",
+    "icon": "doc.on.doc.fill",
+    "description": "Create a strict one-file patch request.",
+    "systemInstruction": "You are preparing a careful coding request. Write an instruction that asks for a one-file SwiftUI fix, preserves existing behavior, avoids broad refactors, and includes verification steps.",
+    "fields": [
+      {
+        "id": "0ACA0618-3731-4920-9926-1B40C21A6DA8",
+        "label": "File Path",
+        "placeholder": "ContentView.swift"
+      },
+      {
+        "id": "F1739186-8F13-431B-8B82-CE2C2DD5E955",
+        "label": "Bug / Feature",
+        "placeholder": "What needs fixing?"
+      },
+      {
+        "id": "27EA0DB5-BBD5-4D83-91A9-6A8F39F79106",
+        "label": "Must Not Break",
+        "placeholder": "List existing features to preserve"
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "F325C31E-DECC-47C0-92FA-11925EB192AB",
+    "name": "Compiler Error Explainer",
+    "icon": "questionmark.circle.fill",
+    "description": "Explain a Swift compiler error in plain language.",
+    "systemInstruction": "You are a Swift teacher. Explain the compiler error in simple terms, why it happens, and what kind of code usually fixes it. Include a small example if helpful.",
+    "fields": [
+      {
+        "id": "FEF40803-9D2C-4D8D-B9E3-5C49D6B63043",
+        "label": "Compiler Error",
+        "placeholder": "Paste the error"
+      },
+      {
+        "id": "780E157E-B9A6-4E25-8A26-F6F6D00B8DE7",
+        "label": "Code Snippet",
+        "placeholder": "Paste the relevant code"
+      },
+      {
+        "id": "990616D1-DF33-4337-9143-151E9D964BE9",
+        "label": "Experience Level",
+        "placeholder": "Beginner / intermediate / advanced"
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "1717005B-B073-4F6A-BAF5-724CF7CD6FC0",
+    "name": "Premium iOS App Icon",
+    "icon": "app.fill",
+    "description": "Generate a premium iOS app icon prompt.",
+    "systemInstruction": "You are an app icon prompt designer. Create a detailed image generation prompt for a premium iOS app icon. Emphasize simple silhouette, strong contrast, no text, no letters, no transparency, and 1024x1024 output.",
+    "fields": [
+      {
+        "id": "75A30216-55A8-461C-AC25-7379B3A3A3D1",
+        "label": "App Type",
+        "placeholder": "Productivity, game, utility, AI tool, etc."
+      },
+      {
+        "id": "4E80B28C-6386-45BE-A02D-1B678F10FB1C",
+        "label": "Core Symbol",
+        "placeholder": "Lightning bolt, cards, cube, orb, etc."
+      },
+      {
+        "id": "0115857F-BB00-4245-9220-651383EF6422",
+        "label": "Color Mood",
+        "placeholder": "Dark purple, warm gold, glass, monochrome, etc."
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "8389C0B2-2A6C-4377-802F-2A8475AA1FBA",
+    "name": "Minimal Utility Icon",
+    "icon": "square.grid.2x2.fill",
+    "description": "Create a minimal utility app icon prompt.",
+    "systemInstruction": "You are designing a clean utility app icon. Write a prompt that creates a simple, readable, App Store-friendly icon with one strong central shape and no text.",
+    "fields": [
+      {
+        "id": "0CA43D1C-B9BE-44AC-AFF9-85397246F4BD",
+        "label": "Utility Function",
+        "placeholder": "What does the app do?"
+      },
+      {
+        "id": "088F0386-9E5A-4A4E-B891-11EA2D17FEBE",
+        "label": "Symbol Idea",
+        "placeholder": "Tool, dock, checklist, folder, slider, etc."
+      },
+      {
+        "id": "0F0FD6CA-2CC2-42C5-AC38-D3A73ABE5AA4",
+        "label": "Mood",
+        "placeholder": "Clean, calm, technical, premium"
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "87C07059-55F4-4F21-B2ED-2672D65C3560",
+    "name": "Dark Fantasy App Icon",
+    "icon": "moon.stars.fill",
+    "description": "Create a dark fantasy app icon prompt.",
+    "systemInstruction": "You are designing a dark fantasy iOS app icon. Create a vivid but readable prompt with a central object, atmospheric lighting, strong silhouette, and no text.",
+    "fields": [
+      {
+        "id": "1AF7F806-B980-477F-B4E6-D241B03D5EC4",
+        "label": "Object / Symbol",
+        "placeholder": "Crown, blade, mask, orb, card, etc."
+      },
+      {
+        "id": "B209BC76-1880-487D-89EA-F7D6FA07F463",
+        "label": "Theme",
+        "placeholder": "Sin, magic, judgment, rescue, silence, etc."
+      },
+      {
+        "id": "C9FEF6AC-D91B-4E4F-81C8-C37EB06B05EA",
+        "label": "Color Palette",
+        "placeholder": "Black, crimson, violet, gold, etc."
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "9FC30931-FF91-4981-9F75-1C7FC995E7C3",
+    "name": "Game App Icon",
+    "icon": "gamecontroller.fill",
+    "description": "Create a game app icon prompt.",
+    "systemInstruction": "You are designing a mobile game app icon. Create a prompt with a clear central character/object, strong expression or action, readable silhouette, high contrast, and no text.",
+    "fields": [
+      {
+        "id": "944DC5DD-7F32-4110-B554-1B009CF771C9",
+        "label": "Game Concept",
+        "placeholder": "What is the game about?"
+      },
+      {
+        "id": "012D6B72-3E57-42A0-AAA8-68E2DD2176FF",
+        "label": "Main Subject",
+        "placeholder": "Character, object, monster, dice, card, etc."
+      },
+      {
+        "id": "3AF5147D-08B6-4C26-BFB2-BB2E4CF65D6D",
+        "label": "Feeling",
+        "placeholder": "Funny, dramatic, chaotic, cozy, scary"
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "CB950087-B25D-45B1-8450-1D482B0BD5D3",
+    "name": "Icon Critique",
+    "icon": "eye.fill",
+    "description": "Critique an app icon and suggest improvements.",
+    "systemInstruction": "You are an app icon art director. Critique the icon for small-size readability, silhouette, contrast, originality, App Store fit, and emotional impact. Give concrete improvement directions.",
+    "fields": [
+      {
+        "id": "2827A37C-53E2-41AA-AF8D-1A83196A4830",
+        "label": "Icon Description",
+        "placeholder": "Describe or paste notes about the icon"
+      },
+      {
+        "id": "B1EFFDC3-5570-4D0C-A9E2-CC154B0C80F2",
+        "label": "App Purpose",
+        "placeholder": "What the app does"
+      },
+      {
+        "id": "F1C684B3-EDFC-4985-8CA9-33B7928C1361",
+        "label": "Concern",
+        "placeholder": "Too generic, unreadable, boring, too busy, etc."
+      }
+    ],
+    "createdAt": 801144593.172291
+  }
+]

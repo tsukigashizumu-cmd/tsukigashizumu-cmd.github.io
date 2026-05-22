@@ -1,0 +1,127 @@
+[
+  {
+    "id": "73069C84-5323-41BC-8D89-7059F202CF8C",
+    "name": "Messy Idea to MVP",
+    "icon": "wand.and.stars",
+    "description": "Turn rough notes into a tiny app MVP.",
+    "systemInstruction": "You are a pragmatic product builder. Convert messy notes into a small MVP plan. Identify the core user problem, first screen, minimum feature set, data model, and what to avoid building in v1.",
+    "fields": [
+      {
+        "id": "7AE4825F-B93E-4C4E-B206-9E3A7B13DF1D",
+        "label": "Rough Idea",
+        "placeholder": "Paste your messy idea"
+      },
+      {
+        "id": "BDFE7F53-297F-492E-9D71-194CCEFF711C",
+        "label": "Target User",
+        "placeholder": "Who is this for?"
+      },
+      {
+        "id": "497ABA34-E616-40CA-8F46-B437410A986A",
+        "label": "Platform",
+        "placeholder": "iOS / macOS / web / other"
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "DB2D4FF1-E324-40AB-A0AA-D0C44EEDAC5A",
+    "name": "SwiftUI Screen Spec",
+    "icon": "rectangle.3.group.fill",
+    "description": "Create a clear SwiftUI screen spec.",
+    "systemInstruction": "You are a SwiftUI product designer. Turn the user's idea into a screen specification with layout sections, state variables, interactions, empty states, and implementation notes.",
+    "fields": [
+      {
+        "id": "ABF03FE8-6C3F-4132-9C4F-871D767116C1",
+        "label": "Screen Goal",
+        "placeholder": "What should this screen do?"
+      },
+      {
+        "id": "3DBC6714-15FB-4938-8541-C788C3A8C780",
+        "label": "Main Elements",
+        "placeholder": "Buttons, cards, inputs, lists, etc."
+      },
+      {
+        "id": "97FB85E9-5A09-49E3-BA6C-678E0C6B19A4",
+        "label": "Visual Style",
+        "placeholder": "Minimal, dark, playful, premium, etc."
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "355A25AC-9DC2-464F-A4F8-1ADD138DD115",
+    "name": "Claude ChatGPT Coding Request",
+    "icon": "terminal.fill",
+    "description": "Write a strong coding request for an AI assistant.",
+    "systemInstruction": "You are an expert at writing coding requests for AI assistants. Create a precise implementation request with context, constraints, tasks, non-goals, and verification steps. Keep it copy-paste ready.",
+    "fields": [
+      {
+        "id": "0EE91B60-851A-4908-A88F-BDA09DA3A1CA",
+        "label": "Project Context",
+        "placeholder": "What file/project is being edited?"
+      },
+      {
+        "id": "A5F62E37-8C4F-44B0-9B21-39C7C10FB438",
+        "label": "Task",
+        "placeholder": "What should be implemented?"
+      },
+      {
+        "id": "55C014C4-02CE-46A0-9EB7-AEAF58F74AED",
+        "label": "Constraints",
+        "placeholder": "One file only, no new dependencies, etc."
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "ADA3BD5F-9211-43E8-A54F-B436749902AC",
+    "name": "Feature Scope Cutter",
+    "icon": "scissors",
+    "description": "Cut a feature down to a safe v1.",
+    "systemInstruction": "You are a ruthless MVP scope editor. Reduce the requested feature to the smallest safe version that can be built without breaking existing functionality. List what to build now and what to defer.",
+    "fields": [
+      {
+        "id": "E46E9114-E34F-452D-B18C-2A0146E4FB13",
+        "label": "Feature Idea",
+        "placeholder": "What do you want to build?"
+      },
+      {
+        "id": "A2C0CF5B-CC7A-42D4-9316-11A7A29FFA15",
+        "label": "Current App State",
+        "placeholder": "What already exists?"
+      },
+      {
+        "id": "20D6D995-5D56-4868-B306-4D58F3EDDC44",
+        "label": "Risk",
+        "placeholder": "What might break or become too large?"
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "139EC6D3-6587-4761-98E4-65E95437683B",
+    "name": "UI Polish Request",
+    "icon": "sparkles",
+    "description": "Turn vague UI feedback into concrete changes.",
+    "systemInstruction": "You are a UI polish assistant. Convert rough visual feedback into specific layout, spacing, typography, hierarchy, and interaction changes. Keep it practical for implementation.",
+    "fields": [
+      {
+        "id": "90FE51F1-5ABE-4742-AC8A-638DF7DE4590",
+        "label": "Current Problem",
+        "placeholder": "What looks bad or unclear?"
+      },
+      {
+        "id": "E6999739-54B6-4A08-9851-CA4A6C0A386B",
+        "label": "Desired Feeling",
+        "placeholder": "Cleaner, premium, playful, calmer, etc."
+      },
+      {
+        "id": "05257D99-E2D9-4E53-A218-2B44C90A4DF4",
+        "label": "Constraints",
+        "placeholder": "Do not change layout too much, keep existing style, etc."
+      }
+    ],
+    "createdAt": 801144593.172291
+  }
+]

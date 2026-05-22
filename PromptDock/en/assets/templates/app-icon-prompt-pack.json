@@ -1,0 +1,127 @@
+[
+  {
+    "id": "1717005B-B073-4F6A-BAF5-724CF7CD6FC0",
+    "name": "Premium iOS App Icon",
+    "icon": "app.fill",
+    "description": "Generate a premium iOS app icon prompt.",
+    "systemInstruction": "You are an app icon prompt designer. Create a detailed image generation prompt for a premium iOS app icon. Emphasize simple silhouette, strong contrast, no text, no letters, no transparency, and 1024x1024 output.",
+    "fields": [
+      {
+        "id": "75A30216-55A8-461C-AC25-7379B3A3A3D1",
+        "label": "App Type",
+        "placeholder": "Productivity, game, utility, AI tool, etc."
+      },
+      {
+        "id": "4E80B28C-6386-45BE-A02D-1B678F10FB1C",
+        "label": "Core Symbol",
+        "placeholder": "Lightning bolt, cards, cube, orb, etc."
+      },
+      {
+        "id": "0115857F-BB00-4245-9220-651383EF6422",
+        "label": "Color Mood",
+        "placeholder": "Dark purple, warm gold, glass, monochrome, etc."
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "8389C0B2-2A6C-4377-802F-2A8475AA1FBA",
+    "name": "Minimal Utility Icon",
+    "icon": "square.grid.2x2.fill",
+    "description": "Create a minimal utility app icon prompt.",
+    "systemInstruction": "You are designing a clean utility app icon. Write a prompt that creates a simple, readable, App Store-friendly icon with one strong central shape and no text.",
+    "fields": [
+      {
+        "id": "0CA43D1C-B9BE-44AC-AFF9-85397246F4BD",
+        "label": "Utility Function",
+        "placeholder": "What does the app do?"
+      },
+      {
+        "id": "088F0386-9E5A-4A4E-B891-11EA2D17FEBE",
+        "label": "Symbol Idea",
+        "placeholder": "Tool, dock, checklist, folder, slider, etc."
+      },
+      {
+        "id": "0F0FD6CA-2CC2-42C5-AC38-D3A73ABE5AA4",
+        "label": "Mood",
+        "placeholder": "Clean, calm, technical, premium"
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "87C07059-55F4-4F21-B2ED-2672D65C3560",
+    "name": "Dark Fantasy App Icon",
+    "icon": "moon.stars.fill",
+    "description": "Create a dark fantasy app icon prompt.",
+    "systemInstruction": "You are designing a dark fantasy iOS app icon. Create a vivid but readable prompt with a central object, atmospheric lighting, strong silhouette, and no text.",
+    "fields": [
+      {
+        "id": "1AF7F806-B980-477F-B4E6-D241B03D5EC4",
+        "label": "Object / Symbol",
+        "placeholder": "Crown, blade, mask, orb, card, etc."
+      },
+      {
+        "id": "B209BC76-1880-487D-89EA-F7D6FA07F463",
+        "label": "Theme",
+        "placeholder": "Sin, magic, judgment, rescue, silence, etc."
+      },
+      {
+        "id": "C9FEF6AC-D91B-4E4F-81C8-C37EB06B05EA",
+        "label": "Color Palette",
+        "placeholder": "Black, crimson, violet, gold, etc."
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "9FC30931-FF91-4981-9F75-1C7FC995E7C3",
+    "name": "Game App Icon",
+    "icon": "gamecontroller.fill",
+    "description": "Create a game app icon prompt.",
+    "systemInstruction": "You are designing a mobile game app icon. Create a prompt with a clear central character/object, strong expression or action, readable silhouette, high contrast, and no text.",
+    "fields": [
+      {
+        "id": "944DC5DD-7F32-4110-B554-1B009CF771C9",
+        "label": "Game Concept",
+        "placeholder": "What is the game about?"
+      },
+      {
+        "id": "012D6B72-3E57-42A0-AAA8-68E2DD2176FF",
+        "label": "Main Subject",
+        "placeholder": "Character, object, monster, dice, card, etc."
+      },
+      {
+        "id": "3AF5147D-08B6-4C26-BFB2-BB2E4CF65D6D",
+        "label": "Feeling",
+        "placeholder": "Funny, dramatic, chaotic, cozy, scary"
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "CB950087-B25D-45B1-8450-1D482B0BD5D3",
+    "name": "Icon Critique",
+    "icon": "eye.fill",
+    "description": "Critique an app icon and suggest improvements.",
+    "systemInstruction": "You are an app icon art director. Critique the icon for small-size readability, silhouette, contrast, originality, App Store fit, and emotional impact. Give concrete improvement directions.",
+    "fields": [
+      {
+        "id": "2827A37C-53E2-41AA-AF8D-1A83196A4830",
+        "label": "Icon Description",
+        "placeholder": "Describe or paste notes about the icon"
+      },
+      {
+        "id": "B1EFFDC3-5570-4D0C-A9E2-CC154B0C80F2",
+        "label": "App Purpose",
+        "placeholder": "What the app does"
+      },
+      {
+        "id": "F1C684B3-EDFC-4985-8CA9-33B7928C1361",
+        "label": "Concern",
+        "placeholder": "Too generic, unreadable, boring, too busy, etc."
+      }
+    ],
+    "createdAt": 801144593.172291
+  }
+]

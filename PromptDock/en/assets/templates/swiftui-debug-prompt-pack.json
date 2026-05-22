@@ -1,0 +1,127 @@
+[
+  {
+    "id": "8A004C93-EE6D-437A-B898-87E093B38BB9",
+    "name": "Xcode Error Fix",
+    "icon": "exclamationmark.triangle.fill",
+    "description": "Analyze and fix an Xcode error.",
+    "systemInstruction": "You are a senior SwiftUI engineer. Explain the likely cause of the Xcode error and provide the smallest safe fix. Prefer copy-paste-ready code blocks. Do not rewrite unrelated code.",
+    "fields": [
+      {
+        "id": "F91C0418-F55D-4018-9130-6D6F5DCC914F",
+        "label": "Error Message",
+        "placeholder": "Paste the exact Xcode error"
+      },
+      {
+        "id": "01771B03-EFD1-44EA-8BF0-2823F753ABFB",
+        "label": "Relevant Code",
+        "placeholder": "Paste the surrounding code"
+      },
+      {
+        "id": "B4866F71-1320-4885-B9A0-64DD640436ED",
+        "label": "Recent Change",
+        "placeholder": "What did you change right before it broke?"
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "ADBE4E50-5BE6-483B-943B-BF27D64F67A7",
+    "name": "SwiftUI Layout Debug",
+    "icon": "square.split.2x2.fill",
+    "description": "Debug a SwiftUI layout issue.",
+    "systemInstruction": "You are a SwiftUI layout debugger. Explain why the layout is behaving unexpectedly and suggest minimal fixes involving frames, padding, alignment, GeometryReader, ScrollView, ZStack, sheets, or overlays as needed.",
+    "fields": [
+      {
+        "id": "0C5D04AB-DE13-4D5F-8833-D4BFBADC4F34",
+        "label": "Layout Problem",
+        "placeholder": "What looks wrong?"
+      },
+      {
+        "id": "153F53AC-CA9B-460B-BBC3-043404ADF734",
+        "label": "Relevant View Code",
+        "placeholder": "Paste the SwiftUI view"
+      },
+      {
+        "id": "535BDEAF-DB82-41DE-BB37-2AC6DBA5FF8A",
+        "label": "Screenshot Description",
+        "placeholder": "Describe what you see"
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "842A607A-3120-43E3-A890-EC18580AE3D1",
+    "name": "Crash Log Summary",
+    "icon": "waveform.path.ecg",
+    "description": "Summarize a crash log into next steps.",
+    "systemInstruction": "You are an iOS crash triage assistant. Read the crash log or stack trace, identify likely causes, and suggest concrete next debugging steps. Keep the explanation practical.",
+    "fields": [
+      {
+        "id": "38D46EA1-D4F6-4AE8-88F2-463FAE6D4580",
+        "label": "Crash Log",
+        "placeholder": "Paste the crash stack trace"
+      },
+      {
+        "id": "AA7B3ADF-05C6-4F40-B23F-578E8332CEE7",
+        "label": "When It Happens",
+        "placeholder": "Launch, tap button, save image, etc."
+      },
+      {
+        "id": "59628BD3-940B-4D09-90DF-04A9812549D6",
+        "label": "Recent Code Area",
+        "placeholder": "Which feature was changed?"
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "475B5B2E-0664-4EA4-8E1A-015A6A51157E",
+    "name": "One-File Patch Request",
+    "icon": "doc.on.doc.fill",
+    "description": "Create a strict one-file patch request.",
+    "systemInstruction": "You are preparing a careful coding request. Write an instruction that asks for a one-file SwiftUI fix, preserves existing behavior, avoids broad refactors, and includes verification steps.",
+    "fields": [
+      {
+        "id": "0ACA0618-3731-4920-9926-1B40C21A6DA8",
+        "label": "File Path",
+        "placeholder": "ContentView.swift"
+      },
+      {
+        "id": "F1739186-8F13-431B-8B82-CE2C2DD5E955",
+        "label": "Bug / Feature",
+        "placeholder": "What needs fixing?"
+      },
+      {
+        "id": "27EA0DB5-BBD5-4D83-91A9-6A8F39F79106",
+        "label": "Must Not Break",
+        "placeholder": "List existing features to preserve"
+      }
+    ],
+    "createdAt": 801144593.172291
+  },
+  {
+    "id": "F325C31E-DECC-47C0-92FA-11925EB192AB",
+    "name": "Compiler Error Explainer",
+    "icon": "questionmark.circle.fill",
+    "description": "Explain a Swift compiler error in plain language.",
+    "systemInstruction": "You are a Swift teacher. Explain the compiler error in simple terms, why it happens, and what kind of code usually fixes it. Include a small example if helpful.",
+    "fields": [
+      {
+        "id": "FEF40803-9D2C-4D8D-B9E3-5C49D6B63043",
+        "label": "Compiler Error",
+        "placeholder": "Paste the error"
+      },
+      {
+        "id": "780E157E-B9A6-4E25-8A26-F6F6D00B8DE7",
+        "label": "Code Snippet",
+        "placeholder": "Paste the relevant code"
+      },
+      {
+        "id": "990616D1-DF33-4337-9143-151E9D964BE9",
+        "label": "Experience Level",
+        "placeholder": "Beginner / intermediate / advanced"
+      }
+    ],
+    "createdAt": 801144593.172291
+  }
+]

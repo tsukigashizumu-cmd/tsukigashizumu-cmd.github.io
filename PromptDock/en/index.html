@@ -471,10 +471,6 @@
     .template-pack-card {
       margin-top: 22px;
       background: linear-gradient(180deg, rgba(255,255,255,0.94) 0%, rgba(247,241,255,0.96) 100%);
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 18px;
-      align-items: center;
     }
 
     .template-pack-card p {
@@ -482,11 +478,53 @@
       color: var(--subtext);
     }
 
+    .template-pack-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .template-pack-item {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 100%;
+      border-radius: var(--radius-md);
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.68);
+      border: 1px solid rgba(80, 56, 104, 0.12);
+    }
+
+    .template-pack-item.is-featured {
+      background: linear-gradient(180deg, rgba(255, 246, 230, 0.92), rgba(247, 241, 255, 0.96));
+      border-color: rgba(127, 84, 216, 0.24);
+      box-shadow: 0 14px 32px rgba(127, 84, 216, 0.12);
+    }
+
+    .template-pack-item h4 {
+      margin: 0;
+      font-size: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .template-pack-item p {
+      font-size: 0.94rem;
+      line-height: 1.55;
+    }
+
     .template-pack-actions {
-      display: inline-flex;
-      gap: 12px;
+      display: flex;
+      gap: 10px;
       flex-wrap: wrap;
-      justify-content: flex-end;
+      margin-top: auto;
+    }
+
+    .template-pack-actions .button-primary,
+    .template-pack-actions .button-secondary {
+      min-height: 40px;
+      padding: 0 14px;
+      font-size: 0.9rem;
     }
 
     .feature-card h3,
@@ -676,7 +714,7 @@
         padding: 22px;
       }
 
-      .template-pack-card {
+      .template-pack-grid {
         grid-template-columns: 1fr;
       }
 
@@ -746,7 +784,7 @@
 
           <div class="hero-actions" id="app-store">
             <a class="button-primary" href="#app-store-status">Coming Soon on the App Store</a>
-            <a class="button-secondary" href="./assets/templates/promptdock-ai-free-template-pack.json" download>Free Template Pack</a>
+            <a class="button-secondary" href="./assets/templates/indie-maker-prompt-packs-bundle.json" download>Free Prompt Bundle</a>
             <a class="button-secondary" href="./support/">Support</a>
             <a class="button-secondary" href="./privacy/">Privacy Policy</a>
           </div>
@@ -814,15 +852,60 @@
         </div>
 
         <div class="template-pack-card">
-          <div>
-            <h3>Free template pack for indie makers</h3>
-            <p>
-              Download a starter JSON pack with 10 reusable templates for app launches, App Store copy, release notes, SwiftUI debugging, localization, screenshot captions, image prompts, and more. Import it directly into PromptDock AI.
-            </p>
-          </div>
-          <div class="template-pack-actions">
-            <a class="button-primary" href="./assets/templates/promptdock-ai-free-template-pack.json" download>Download Free Pack</a>
-            <a class="button-secondary" href="./support/">How to import</a>
+          <h3>Free prompt packs for indie makers</h3>
+          <p>
+            Download reusable JSON packs for app launches, vibe coding, SwiftUI debugging, app icon prompts, and PromptDock AI starter workflows. Import them directly into PromptDock AI.
+          </p>
+
+          <div class="template-pack-grid">
+            <article class="template-pack-item">
+              <h4>Starter Template Pack</h4>
+              <p>10 reusable templates for app launches, App Store copy, release notes, SwiftUI debugging, localization, screenshot captions, image prompts, and more.</p>
+              <div class="template-pack-actions">
+                <a class="button-primary" href="./assets/templates/promptdock-ai-free-template-pack.json" download>Download</a>
+              </div>
+            </article>
+
+            <article class="template-pack-item">
+              <h4>iOS App Launch Checklist Pack</h4>
+              <p>Prompts for launch checklists, App Store metadata, review notes, privacy summaries, and launch posts.</p>
+              <div class="template-pack-actions">
+                <a class="button-primary" href="./assets/templates/ios-app-launch-checklist-pack.json" download>Download</a>
+              </div>
+            </article>
+
+            <article class="template-pack-item">
+              <h4>Vibe Coding Prompt Pack</h4>
+              <p>Prompts for turning messy ideas into MVPs, SwiftUI screen specs, coding requests, scope cuts, and UI polish tasks.</p>
+              <div class="template-pack-actions">
+                <a class="button-primary" href="./assets/templates/vibe-coding-prompt-pack.json" download>Download</a>
+              </div>
+            </article>
+
+            <article class="template-pack-item">
+              <h4>SwiftUI Debug Prompt Pack</h4>
+              <p>Prompts for Xcode errors, SwiftUI layout bugs, crash logs, one-file patch requests, and compiler error explanations.</p>
+              <div class="template-pack-actions">
+                <a class="button-primary" href="./assets/templates/swiftui-debug-prompt-pack.json" download>Download</a>
+              </div>
+            </article>
+
+            <article class="template-pack-item">
+              <h4>App Icon Prompt Pack</h4>
+              <p>Prompts for premium iOS icons, minimal utility icons, dark fantasy icons, game icons, and icon critique.</p>
+              <div class="template-pack-actions">
+                <a class="button-primary" href="./assets/templates/app-icon-prompt-pack.json" download>Download</a>
+              </div>
+            </article>
+
+            <article class="template-pack-item is-featured">
+              <h4>All-in-One Bundle</h4>
+              <p>Download all indie maker prompt packs in one JSON file for a larger PromptDock AI starter library.</p>
+              <div class="template-pack-actions">
+                <a class="button-primary" href="./assets/templates/indie-maker-prompt-packs-bundle.json" download>Download Bundle</a>
+                <a class="button-secondary" href="./support/">How to import</a>
+              </div>
+            </article>
           </div>
         </div>
       </div>
@@ -908,7 +991,7 @@
             </p>
           </div>
           <div class="hero-actions" style="margin-top: 0;">
-            <a class="button-secondary" href="./assets/templates/promptdock-ai-free-template-pack.json" download>Free Template Pack</a>
+            <a class="button-secondary" href="./assets/templates/indie-maker-prompt-packs-bundle.json" download>Free Prompt Bundle</a>
             <a class="button-secondary" href="./support/">Support</a>
             <a class="button-primary" href="#app-store-status">Coming Soon</a>
           </div>
