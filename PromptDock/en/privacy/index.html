@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PromptDock Privacy Policy</title>
+  <meta name="description" content="Privacy Policy for PromptDock. PromptDock does not collect, transmit, or share any personal data. Everything you enter stays on your device.">
+  <link rel="alternate" hreflang="en" href="https://tsukigashizumu-cmd.github.io/PromptDock/en/privacy/">
+  <link rel="alternate" hreflang="x-default" href="https://tsukigashizumu-cmd.github.io/PromptDock/en/privacy/">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f4ef;
+      --card: rgba(255, 255, 255, 0.84);
+      --card-strong: rgba(255, 255, 255, 0.94);
+      --text: #2d2434;
+      --subtext: #6d6175;
+      --line: rgba(80, 56, 104, 0.14);
+      --shadow: 0 18px 44px rgba(48, 32, 68, 0.12);
+      --accent: #b78cff;
+      --accent-strong: #7f54d8;
+      --accent-warm: #ffbe6b;
+      --button-text: #241a32;
+      --max-width: 1080px;
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(183, 140, 255, 0.22), transparent 30%),
+        radial-gradient(circle at top right, rgba(255, 190, 107, 0.18), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(112, 214, 255, 0.16), transparent 32%),
+        linear-gradient(180deg, #fcfaf7 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(247, 244, 239, 0.78);
+      border-bottom: 1px solid rgba(80, 56, 104, 0.10);
+    }
+
+    .site-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 72px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 22px rgba(48, 32, 68, 0.16);
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(80, 56, 104, 0.12);
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .brand-text {
+      font-size: 1.05rem;
+    }
+
+    .header-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-link {
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 0.95rem;
+      color: var(--subtext);
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav-link:hover {
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      padding: 52px 0 28px;
+    }
+
+    .hero-card {
+      border-radius: var(--radius-xl);
+      padding: 30px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.78) 100%);
+      border: 1px solid rgba(80, 56, 104, 0.12);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(80, 56, 104, 0.12);
+      color: var(--subtext);
+      font-size: 0.9rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+    }
+
+    h1 {
+      margin: 16px 0 14px;
+      font-size: clamp(2rem, 4.4vw, 3.4rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-lead {
+      margin: 0;
+      font-size: 1.05rem;
+      color: var(--subtext);
+      max-width: 44rem;
+    }
+
+    .section {
+      padding: 28px 0;
+    }
+
+    .section-title {
+      margin: 0 0 10px;
+      font-size: clamp(1.45rem, 2.8vw, 2.05rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    .section-lead {
+      margin: 0;
+      color: var(--subtext);
+      max-width: 44rem;
+    }
+
+    .policy-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h2,
+    .card h3 {
+      margin: 0 0 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .card p,
+    .card li {
+      color: var(--subtext);
+    }
+
+    .card p {
+      margin: 0 0 10px;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .card ul {
+      margin: 0;
+      padding-left: 1.1em;
+    }
+
+    .inline-note {
+      margin-top: 10px;
+      font-size: 0.95rem;
+      color: var(--subtext);
+    }
+
+    .cta-card {
+      margin-top: 24px;
+      border-radius: var(--radius-xl);
+      padding: 26px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(247,241,255,0.94) 100%);
+      border: 1px solid rgba(80, 56, 104, 0.12);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .cta-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.18rem;
+      letter-spacing: -0.02em;
+    }
+
+    .cta-card p {
+      margin: 0;
+      color: var(--subtext);
+    }
+
+    .cta-links {
+      display: inline-flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .button-primary,
+    .button-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      border-radius: 999px;
+      padding: 0 18px;
+      font-weight: 800;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+
+    .button-primary {
+      background: linear-gradient(180deg, #dbc7ff 0%, var(--accent) 100%);
+      color: var(--button-text);
+      box-shadow: 0 12px 24px rgba(127, 84, 216, 0.24);
+    }
+
+    .button-secondary {
+      background: rgba(255, 255, 255, 0.82);
+      color: var(--text);
+      border: 1px solid rgba(80, 56, 104, 0.12);
+    }
+
+    .button-primary:hover,
+    .button-secondary:hover {
+      transform: translateY(-1px);
+    }
+
+    .site-footer {
+      padding: 36px 0 52px;
+      color: var(--subtext);
+      font-size: 0.94rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(80, 56, 104, 0.12);
+      padding-top: 18px;
+    }
+
+    .footer-links {
+      display: inline-flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 960px) {
+      .hero {
+        padding-top: 32px;
+      }
+
+      .site-header-inner {
+        min-height: 68px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(calc(100% - 20px), var(--max-width));
+      }
+
+      .site-header-inner {
+        align-items: center;
+        min-height: auto;
+        padding: 10px 0;
+        gap: 10px;
+      }
+
+      .brand {
+        gap: 10px;
+      }
+
+      .brand-icon {
+        width: 40px;
+        height: 40px;
+      }
+
+      .header-nav {
+        width: 100%;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 8px;
+        padding-bottom: 2px;
+      }
+
+      .header-nav::-webkit-scrollbar {
+        display: none;
+      }
+
+      .nav-link {
+        flex: 0 0 auto;
+        white-space: nowrap;
+        padding: 8px 12px;
+        font-size: 0.9rem;
+      }
+
+      .hero-card,
+      .card,
+      .cta-card {
+        padding: 20px;
+      }
+
+      .cta-links {
+        width: 100%;
+      }
+
+      .button-primary,
+      .button-secondary {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <a class="brand" href="../" aria-label="PromptDock home">
+        <span class="brand-icon" aria-hidden="true">⚡</span>
+        <span class="brand-text">PromptDock</span>
+      </a>
+
+      <nav class="header-nav" aria-label="Primary">
+        <a class="nav-link" href="../">Top</a>
+        <a class="nav-link" href="../support/">Support</a>
+        <a class="nav-link" href="https://apps.apple.com/app/id6744498580" target="_blank" rel="noopener noreferrer">App Store</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <div class="eyebrow">PromptDock Privacy Policy</div>
+          <h1>Privacy Policy</h1>
+          <p class="hero-lead">
+            PromptDock is designed to be used with confidence. This page explains how data is handled. The short version: PromptDock does not collect, transmit, or share any personal data. Everything you enter stays on your device.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Policy Details</h2>
+        <p class="section-lead">
+          Effective date: May 22, 2025 &nbsp;·&nbsp; Developer: Tsukigashizumu
+        </p>
+
+        <div class="policy-grid">
+          <article class="card">
+            <h3>1. Information We Collect</h3>
+            <p>
+              PromptDock does not collect any personal information. The app does not require account registration, login, or any form of identity verification.
+            </p>
+            <p>
+              All data created within the app — including templates, prompt history, saved input sets, field suggestions, and settings — is stored exclusively in your device's local storage (iOS UserDefaults / AppStorage) and never leaves your device.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>2. Data Storage</h3>
+            <p>The following data is stored locally on your device:</p>
+            <ul>
+              <li>Built-in and custom prompt templates</li>
+              <li>Generated prompt history</li>
+              <li>Saved input sets</li>
+              <li>Field suggestion history</li>
+              <li>Favorite template preferences</li>
+              <li>Tutorial completion status</li>
+            </ul>
+            <p class="inline-note">
+              None of this data is uploaded to any server, cloud service, or third party.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>3. Third-Party Services</h3>
+            <p>
+              PromptDock does not integrate with any third-party analytics, advertising, tracking, or data collection services.
+            </p>
+            <p>
+              The app includes a button to open ChatGPT (openai.com) in your browser or the ChatGPT app. When you use this feature, your device opens an external URL. Any data you submit to ChatGPT is governed by OpenAI's own privacy policy, which is separate from this policy.
+            </p>
+            <p>
+              Links to external web pages (this marketing page, Support, Privacy Policy) open in your default browser. No data is passed to these pages.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>4. Export &amp; Import</h3>
+            <p>
+              PromptDock allows you to export your custom templates as a <code style="background:rgba(80,56,104,0.08);border-radius:5px;padding:1px 6px;font-size:0.88em;font-family:monospace;">.json</code> file using the iOS share sheet. This export is entirely under your control. The developer has no access to exported files.
+            </p>
+            <p>
+              Importing a <code style="background:rgba(80,56,104,0.08);border-radius:5px;padding:1px 6px;font-size:0.88em;font-family:monospace;">.json</code> file reads the file locally on your device. No data is transmitted externally during import.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>5. Children's Privacy</h3>
+            <p>
+              PromptDock does not knowingly collect any information from children under the age of 13. The app does not collect any personal data from any user, regardless of age.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>6. Changes to This Policy</h3>
+            <p>
+              If this privacy policy changes in a material way, the updated version will be published at this URL with a revised effective date. Continued use of the app after any changes constitutes acceptance of the updated policy.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>7. Contact</h3>
+            <p>
+              If you have questions or concerns about this privacy policy, please reach out via email or through the support page.
+            </p>
+            <p>
+              <a href="mailto:tsukigashizumu@gmail.com" style="color: var(--accent-strong); font-weight: 700;">tsukigashizumu@gmail.com</a>
+            </p>
+          </article>
+        </div>
+
+        <div class="cta-card">
+          <div>
+            <h3>Support page</h3>
+            <p>You can find contact information and frequently asked questions on the support page.</p>
+          </div>
+          <div class="cta-links">
+            <a class="button-secondary" href="../">Back to top</a>
+            <a class="button-secondary" href="../support/">View support</a>
+            <a class="button-primary" href="https://apps.apple.com/app/id6744498580" target="_blank" rel="noopener noreferrer">App Store</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© 2025 PromptDock</div>
+      <div class="footer-links">
+        <a href="../">Top</a>
+        <a href="../support/">Support</a>
+        <a href="https://apps.apple.com/app/id6744498580" target="_blank" rel="noopener noreferrer">App Store</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
