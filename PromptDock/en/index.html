@@ -272,22 +272,57 @@
       pointer-events: none;
     }
 
-    .hero-app-icon {
+    .hero-app-preview {
       position: relative;
       z-index: 1;
-      width: min(64vw, 200px);
-      height: min(64vw, 200px);
-      border-radius: 44px;
-      box-shadow: 0 24px 58px rgba(48, 32, 68, 0.24);
-      border: 1px solid rgba(255, 255, 255, 0.72);
-      background: rgba(255, 255, 255, 0.9);
+      width: min(58vw, 260px);
+      border-radius: 34px;
+      padding: 10px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.62)),
+        rgba(255, 255, 255, 0.42);
+      border: 1px solid rgba(255, 255, 255, 0.74);
+      box-shadow:
+        0 28px 70px rgba(48, 32, 68, 0.22),
+        0 10px 24px rgba(48, 32, 68, 0.12),
+        inset 0 1px 0 rgba(255,255,255,0.72);
       overflow: hidden;
+      transform: rotate(-1.6deg) translateY(4px);
+      animation: heroPreviewFloat 7.4s ease-in-out infinite;
     }
 
-    .hero-app-icon img {
+    .hero-app-preview::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      border-radius: inherit;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.34) 0 2px, rgba(255,255,255,0.10) 3px, transparent 16px),
+        linear-gradient(120deg, transparent 0 30%, rgba(255,255,255,0.18) 38%, rgba(255,255,255,0.05) 44%, transparent 56%);
+      mix-blend-mode: screen;
+      opacity: 0.32;
+    }
+
+    .hero-app-preview img {
+      position: relative;
+      z-index: 1;
       width: 100%;
-      height: 100%;
+      border-radius: 26px;
       object-fit: cover;
+      box-shadow: 0 16px 34px rgba(48, 32, 68, 0.18);
+      filter: contrast(1.02) saturate(1.01) brightness(0.995);
+    }
+
+    @keyframes heroPreviewFloat {
+      0%, 100% {
+        transform: rotate(-1.6deg) translateY(4px) scale(1);
+      }
+
+      50% {
+        transform: rotate(-1deg) translateY(-5px) scale(1.006);
+      }
     }
 
     .section {
@@ -313,6 +348,112 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
       margin-top: 22px;
+    }
+
+    .screenshot-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+      align-items: start;
+      perspective: 1200px;
+    }
+
+    .screenshot-card {
+      position: relative;
+      overflow: visible;
+      margin: 0;
+      border-radius: 28px;
+      padding: 9px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.86), rgba(255,255,255,0.66)),
+        rgba(255, 255, 255, 0.42);
+      border: 1px solid rgba(80, 56, 104, 0.16);
+      box-shadow:
+        0 24px 56px rgba(48, 32, 68, 0.14),
+        0 8px 18px rgba(48, 32, 68, 0.10),
+        inset 0 1px 0 rgba(255,255,255,0.66);
+      transform-style: preserve-3d;
+      animation: screenshotSleeveFloatA 7.2s ease-in-out infinite;
+    }
+
+    .screenshot-card:nth-child(2) {
+      animation-name: screenshotSleeveFloatB;
+      animation-duration: 7.8s;
+    }
+
+    .screenshot-card:nth-child(3) {
+      animation-name: screenshotSleeveFloatC;
+      animation-duration: 7.4s;
+    }
+
+    .screenshot-card:nth-child(4) {
+      animation-name: screenshotSleeveFloatD;
+      animation-duration: 8s;
+    }
+
+    .screenshot-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      border-radius: inherit;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.38) 0 2px, rgba(255,255,255,0.10) 3px, transparent 16px),
+        linear-gradient(120deg, transparent 0 28%, rgba(255,255,255,0.20) 36%, rgba(255,255,255,0.06) 42%, transparent 54%);
+      mix-blend-mode: screen;
+      opacity: 0.36;
+    }
+
+    .screenshot-card::after {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      z-index: 3;
+      pointer-events: none;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.30);
+      opacity: 0.40;
+    }
+
+    .screenshot-card img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      border-radius: 21px;
+      filter: contrast(1.02) saturate(1.01) brightness(0.995);
+      box-shadow: 0 14px 30px rgba(48, 32, 68, 0.16);
+    }
+
+    .screenshot-caption {
+      position: relative;
+      z-index: 4;
+      margin: 11px 5px 3px;
+      color: var(--subtext);
+      font-size: 0.9rem;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    @keyframes screenshotSleeveFloatA {
+      0%, 100% { transform: rotate(-1.4deg) translateY(5px) rotateX(1deg) scale(1); }
+      50% { transform: rotate(-0.9deg) translateY(0) rotateX(0.5deg) scale(1.006); }
+    }
+
+    @keyframes screenshotSleeveFloatB {
+      0%, 100% { transform: rotate(1deg) translateY(-3px) rotateX(-0.7deg) scale(1); }
+      50% { transform: rotate(1.4deg) translateY(-8px) rotateX(-0.3deg) scale(1.006); }
+    }
+
+    @keyframes screenshotSleeveFloatC {
+      0%, 100% { transform: rotate(-0.9deg) translateY(-1px) rotateX(0.6deg) scale(1); }
+      50% { transform: rotate(-1.4deg) translateY(-6px) rotateX(1deg) scale(1.006); }
+    }
+
+    @keyframes screenshotSleeveFloatD {
+      0%, 100% { transform: rotate(1.2deg) translateY(4px) rotateX(-0.6deg) scale(1); }
+      50% { transform: rotate(0.8deg) translateY(0) rotateX(-1deg) scale(1.006); }
     }
 
     .feature-card,
@@ -421,6 +562,10 @@
         grid-template-columns: 1fr;
       }
 
+      .screenshot-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .hero {
         padding-top: 34px;
       }
@@ -502,11 +647,28 @@
         padding: 22px;
       }
 
-      .hero-app-icon {
-        width: min(50vw, 160px);
-        height: min(50vw, 160px);
-        font-size: 60px;
-        border-radius: 36px;
+      .screenshot-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .screenshot-card,
+      .screenshot-card:nth-child(2),
+      .screenshot-card:nth-child(3),
+      .screenshot-card:nth-child(4) {
+        animation: none;
+        transform: none;
+      }
+
+      .hero-app-preview {
+        width: min(72vw, 220px);
+        border-radius: 30px;
+        transform: none;
+        animation: none;
+      }
+
+      .hero-app-preview img {
+        border-radius: 23px;
       }
 
       .template-pack-card,
@@ -527,6 +689,23 @@
         width: 100%;
       }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-app-preview,
+      .screenshot-card,
+      .screenshot-card:nth-child(2),
+      .screenshot-card:nth-child(3),
+      .screenshot-card:nth-child(4) {
+        animation: none;
+      }
+
+      .screenshot-card,
+      .screenshot-card:nth-child(2),
+      .screenshot-card:nth-child(3),
+      .screenshot-card:nth-child(4) {
+        transform: none;
+      }
+    }
   </style>
 </head>
 <body>
@@ -539,6 +718,7 @@
 
       <nav class="header-nav" aria-label="Primary">
         <a class="nav-link" href="#features">Features</a>
+        <a class="nav-link" href="#screenshots">Screenshots</a>
         <a class="nav-link" href="#about">About</a>
         <a class="nav-link" href="./support/">Support</a>
         <a class="nav-link" href="./privacy/">Privacy</a>
@@ -565,19 +745,19 @@
           </div>
 
           <div class="hero-actions" id="app-store">
-            <a class="button-primary" href="https://apps.apple.com/app/id6772130038" target="_blank" rel="noopener noreferrer">Download on the App Store</a>
+            <a class="button-primary" href="#app-store-status">Coming Soon on the App Store</a>
             <a class="button-secondary" href="./assets/templates/promptdock-ai-free-template-pack.json" download>Free Template Pack</a>
             <a class="button-secondary" href="./support/">Support</a>
             <a class="button-secondary" href="./privacy/">Privacy Policy</a>
           </div>
 
-          <p class="hero-note">
-            This page is provided as the official marketing page for PromptDock AI. App availability may vary by region and review status.
+          <p class="hero-note" id="app-store-status">
+            PromptDock AI has been submitted for App Store review. The App Store link will become available after approval.
           </p>
         </div>
 
-        <div class="hero-visual-card" aria-label="PromptDock AI app icon">
-          <div class="hero-app-icon" aria-hidden="true"><img src="./assets/app-icon.png" alt=""></div>
+        <div class="hero-visual-card" aria-label="PromptDock AI app preview">
+          <div class="hero-app-preview" aria-hidden="true"><img src="./assets/screenshots/01-02-01.png" alt=""></div>
         </div>
       </div>
     </section>
@@ -648,6 +828,33 @@
       </div>
     </section>
 
+    <section id="screenshots" class="section">
+      <div class="container">
+        <h2 class="section-title">A faster way to reuse prompts</h2>
+        <p class="section-lead">
+          PromptDock AI keeps your templates, input fields, generated prompts, history, and support links in one focused workflow.
+        </p>
+
+        <div class="screenshot-grid">
+          <figure class="screenshot-card">
+            <img src="./assets/screenshots/01-02-01.png" alt="PromptDock AI template picker screen showing reusable prompt templates.">
+            <figcaption class="screenshot-caption">Choose a reusable template or create your own custom form.</figcaption>
+          </figure>
+
+          <figure class="screenshot-card">
+            <img src="./assets/screenshots/01-03-01.png" alt="PromptDock AI generated prompt screen with copy and ChatGPT buttons.">
+            <figcaption class="screenshot-caption">Generate structured prompts, copy them, and reopen past prompt history.</figcaption>
+          </figure>
+
+          <figure class="screenshot-card">
+            <img src="./assets/screenshots/01-01-01.png" alt="PromptDock AI about screen with support and privacy links.">
+            <figcaption class="screenshot-caption">Support, privacy, and product links are available inside the app.</figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
     <section id="about" class="section">
       <div class="container">
         <h2 class="section-title">Built for a template-first prompt workflow</h2>
@@ -698,7 +905,7 @@
           <div class="hero-actions" style="margin-top: 0;">
             <a class="button-secondary" href="./assets/templates/promptdock-ai-free-template-pack.json" download>Free Template Pack</a>
             <a class="button-secondary" href="./support/">Support</a>
-            <a class="button-primary" href="https://apps.apple.com/app/id6772130038" target="_blank" rel="noopener noreferrer">App Store</a>
+            <a class="button-primary" href="#app-store-status">Coming Soon</a>
           </div>
         </div>
       </div>
@@ -709,7 +916,7 @@
     <div class="container footer-inner">
       <div>© 2026 PromptDock AI</div>
       <div class="footer-links">
-        <a href="https://apps.apple.com/app/id6772130038" target="_blank" rel="noopener noreferrer">App Store</a>
+        <a href="#app-store-status">App Store Coming Soon</a>
         <a href="./support/">Support</a>
         <a href="./privacy/">Privacy Policy</a>
       </div>
