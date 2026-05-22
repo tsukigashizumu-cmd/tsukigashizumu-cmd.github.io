@@ -227,7 +227,7 @@
   {
     "id": "B5BBA44E-C2C6-4F13-8C7F-8A2E6CC5FEE8",
     "name": "Product Hunt Style Pitch",
-    "icon": "rocket.fill",
+    "icon": "paperplane.fill",
     "description": "Create a short product launch pitch.",
     "systemInstruction": "You are writing a concise product launch pitch. Explain what the product is, who it is for, the problem it solves, and the strongest reason to try it. Keep it direct and founder-friendly.",
     "fields": [
