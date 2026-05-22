@@ -258,28 +258,37 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 64px;
-      border: 1px solid rgba(255, 255, 255, 0.09);
-      border-radius: 20px;
-      background: rgba(0, 0, 0, 0.34);
+      min-height: 58px;
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      border-radius: 16px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.040), rgba(255,255,255,0.012)),
+        rgba(0, 0, 0, 0.64);
       cursor: pointer;
-      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.30);
-      transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+      box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.42),
+        inset 0 1px 0 rgba(255,255,255,0.045);
+      transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
     }
 
     .hero-preview-tab:hover,
     .hero-preview-tab.is-active {
       transform: translateY(-2px);
-      background: rgba(255, 255, 255, 0.105);
-      border-color: rgba(255, 255, 255, 0.22);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.020)),
+        rgba(0, 0, 0, 0.76);
+      border-color: rgba(255, 255, 255, 0.24);
+      box-shadow:
+        0 22px 48px rgba(0, 0, 0, 0.52),
+        inset 0 1px 0 rgba(255,255,255,0.080);
     }
 
     .hero-preview-tab img {
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
       object-fit: cover;
-      box-shadow: 0 12px 24px rgba(0,0,0,0.28);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.34);
     }
 
     /* JustThisOnce hero screenshot slider */
@@ -595,24 +604,31 @@
     }
 
     .hp-nav-button {
-      width: 36px;
-      height: 64px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.10);
-      color: rgba(255, 250, 241, 0.9);
-      font-size: 1.6rem;
-      font-weight: 900;
+      width: 34px;
+      height: 86px;
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      border-radius: 14px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.050), rgba(255,255,255,0.014)),
+        rgba(0, 0, 0, 0.66);
+      color: rgba(244, 244, 241, 0.76);
+      font-size: 1.45rem;
+      font-weight: 700;
       cursor: pointer;
-      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.20);
-      backdrop-filter: blur(14px);
-      transition: transform 0.18s ease, background 0.18s ease;
+      box-shadow:
+        0 18px 42px rgba(0, 0, 0, 0.46),
+        inset 0 1px 0 rgba(255,255,255,0.055);
+      transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
       flex-shrink: 0;
     }
 
     .hp-nav-button:hover {
       transform: translateY(-2px);
-      background: rgba(255, 255, 255, 0.16);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.085), rgba(255,255,255,0.022)),
+        rgba(0, 0, 0, 0.78);
+      border-color: rgba(255, 255, 255, 0.22);
+      color: rgba(244, 244, 241, 0.96);
     }
 
     .hero-feature-rail {
@@ -883,23 +899,30 @@
     }
 
     .now-nav-button {
-      width: 44px;
-      height: 74px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.10);
-      color: rgba(255, 250, 241, 0.9);
-      font-size: 1.8rem;
-      font-weight: 900;
+      width: 42px;
+      height: 88px;
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      border-radius: 14px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.050), rgba(255,255,255,0.014)),
+        rgba(0, 0, 0, 0.66);
+      color: rgba(244, 244, 241, 0.76);
+      font-size: 1.65rem;
+      font-weight: 700;
       cursor: pointer;
-      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.20);
-      backdrop-filter: blur(14px);
-      transition: transform 0.18s ease, background 0.18s ease;
+      box-shadow:
+        0 18px 42px rgba(0, 0, 0, 0.46),
+        inset 0 1px 0 rgba(255,255,255,0.055);
+      transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
     }
 
     .now-nav-button:hover {
       transform: translateY(-2px);
-      background: rgba(255, 255, 255, 0.16);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.085), rgba(255,255,255,0.022)),
+        rgba(0, 0, 0, 0.78);
+      border-color: rgba(255, 255, 255, 0.22);
+      color: rgba(244, 244, 241, 0.96);
     }
 
     .archive-label {
@@ -1120,13 +1143,14 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 40px;
-      border-radius: 999px;
+      min-height: 38px;
+      border-radius: 12px;
       padding: 0 14px;
-      font-size: 0.9rem;
-      font-weight: 700;
+      font-size: 0.84rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
       white-space: nowrap;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
     }
 
     .app-card p {
@@ -1138,16 +1162,19 @@
 
     .button-primary {
       flex: 1 1 100%;
-      background: linear-gradient(135deg, #f4f4f1 0%, #a9a9a9 100%);
-      color: var(--button-text);
-      box-shadow: 0 14px 28px rgba(255, 255, 255, 0.12);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.92), rgba(180,180,180,0.92));
+      color: #050506;
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.34);
     }
 
     .button-secondary {
       flex: 1 1 calc(50% - 9px);
-      background: rgba(255, 255, 255, 0.08);
-      color: rgba(255, 250, 241, 0.82);
-      border: 1px solid rgba(255, 255, 255, 0.11);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.050), rgba(255,255,255,0.012)),
+        rgba(0, 0, 0, 0.48);
+      color: rgba(244, 244, 241, 0.76);
+      border: 1px solid rgba(255, 255, 255, 0.10);
     }
 
     .button-secondary.button-detail {
@@ -1160,7 +1187,11 @@
     }
 
     .button-secondary:hover {
-      background: rgba(255, 255, 255, 0.13);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.085), rgba(255,255,255,0.020)),
+        rgba(0, 0, 0, 0.60);
+      border-color: rgba(255, 255, 255, 0.20);
+      color: rgba(244, 244, 241, 0.94);
     }
 
     .site-footer {
@@ -1313,8 +1344,8 @@
       }
 
       .hero-preview-tab {
-        min-height: 58px;
-        border-radius: 18px;
+        min-height: 54px;
+        border-radius: 14px;
       }
 
       .hero-preview-tab img {
