@@ -305,10 +305,10 @@
       scroll-snap-type: x mandatory;
       scrollbar-width: none;
       align-self: stretch;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.24);
+      border-radius: 0;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
     }
 
     .hp-slider::-webkit-scrollbar {
@@ -321,7 +321,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: clamp(28px, 4vw, 56px) clamp(12px, 2vw, 24px) clamp(36px, 5vw, 68px);
+      padding: clamp(22px, 3vw, 42px) clamp(12px, 2vw, 24px) clamp(22px, 3vw, 42px);
     }
 
     .hp-shot-pair {
@@ -331,6 +331,7 @@
       width: 100%;
       align-items: center;
       perspective: 1200px;
+      transform: translateY(-12px);
     }
 
     .hp-card-sleeve {
@@ -379,8 +380,8 @@
 
     .hp-card-inner {
       position: relative;
-      overflow: hidden;
-      border-radius: 1px;
+      overflow: visible;
+      border-radius: 0;
       border: 0;
       box-shadow: none;
     }
@@ -390,6 +391,8 @@
       width: 100%;
       height: auto;
       object-fit: cover;
+      border-radius: 14px;
+      clip-path: inset(0 round 14px);
       filter: contrast(1.08) saturate(1.02) brightness(0.98);
       cursor: zoom-in;
     }
@@ -1285,6 +1288,7 @@
 
       .hp-shot-pair {
         gap: clamp(6px, 2.4vw, 14px);
+        transform: translateY(-8px);
       }
 
       .hp-card-sleeve {
@@ -1293,7 +1297,12 @@
       }
 
       .hp-card-inner {
-        border-radius: 1px;
+        border-radius: 0;
+      }
+
+      .hp-card-inner img {
+        border-radius: 10px;
+        clip-path: inset(0 round 10px);
       }
 
       .hero-video-pair {
