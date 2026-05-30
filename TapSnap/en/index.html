@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CuePic - Send “tap here” as an image</title>
-  <meta name="description" content="CuePic helps you add red circles, rectangles, pointers, and arrows to images so you can show where to tap, where to look, or what steps to follow.">
+  <meta name="description" content="More helpful than a thick manual: a simple “right here” from someone you know. CuePic lets you mark images with red circles, rectangles, pointers, and arrows so you can show where to tap or where to look.">
   <link rel="alternate" hreflang="en" href="https://tsukigashizumu-cmd.github.io/TapSnap/en/">
   <link rel="alternate" hreflang="ja" href="https://tsukigashizumu-cmd.github.io/TapSnap/en/?lang=ja">
   <link rel="alternate" hreflang="x-default" href="https://tsukigashizumu-cmd.github.io/TapSnap/en/">
@@ -532,7 +532,7 @@
           <div class="eyebrow" data-i18n="hero.eyebrow">Send “tap here” as an image.</div>
           <h1 data-i18n="hero.title">CuePic</h1>
           <p class="hero-lead" data-i18n="hero.lead">
-            Before writing a long explanation, show them “right here.” Add a red circle or rectangle to an image and share a clear visual cue that is easy to understand.
+            More helpful than a thick manual: a simple “right here” from someone you know. Mark an image with a red circle or rectangle and gently show where to tap or where to look.
           </p>
 
           <div class="hero-points" aria-label="CuePic highlights" data-i18n-attr="aria-label:hero.pointsAria">
@@ -561,9 +561,9 @@
 
     <section id="features" class="section">
       <div class="container">
-        <h2 class="section-title" data-i18n="features.title">Show “right here” without a long explanation</h2>
+        <h2 class="section-title" data-i18n="features.title">When words are not enough, send “right here” as an image</h2>
         <p class="section-lead" data-i18n="features.lead">
-          CuePic is made for moments when words alone are not enough. Mark the place to tap, the place to look, or the order to follow, then share the image right away.
+          CuePic is made for moments when “the button in the top right” or “the item below that” is hard to explain with words alone. Add a clear mark and send a visual “right here.”
         </p>
 
         <div class="feature-grid">
@@ -584,7 +584,7 @@
           <article class="feature-card">
             <h3 data-i18n="features.card.share.title">Share right away</h3>
             <p data-i18n="features.card.share.body">
-              Create an image that says “tap here” or “look here,” then send it to family, friends, or people at work.
+              Add a “right here” to your words, then send it to family, friends, or people at work.
             </p>
           </article>
 
@@ -600,9 +600,9 @@
 
     <section id="about" class="section">
       <div class="container">
-        <h2 class="section-title" data-i18n="about.title">Built for phone help, quick checks, and small guides</h2>
+        <h2 class="section-title" data-i18n="about.title">Built for the small moments when you want to say “right here”</h2>
         <p class="section-lead" data-i18n="about.lead">
-          CuePic is a small image explanation app for helping someone understand a specific place or step. It is useful when you want to explain a phone screen, point out a part of an image, or turn several screens into a simple guide.
+          CuePic is a small image explanation app for reducing little misunderstandings. Use it when you want to explain a phone screen, point out a part of an image, or turn several screens into a simple guide.
         </p>
 
         <div class="info-grid">
@@ -642,7 +642,7 @@
           <div>
             <h3 data-i18n="cta.title">When explaining gets easier, the conversation can feel kinder.</h3>
             <p data-i18n="cta.body">
-              Add a simple “right here” to an image and share it with someone who needs a clearer cue.
+              Send a small “right here” that is easier for the other person to understand.
             </p>
           </div>
           <div class="hero-actions" style="margin-top: 0;">
@@ -673,9 +673,29 @@
 
   const cuePicDefaultLanguage = "en";
 
+  const cuePicRepresentativeLocales = {
+    "en": ["en"],
+    "en-us": ["en-US", "en"],
+    "en-gb": ["en-GB", "en"],
+    "en-au": ["en-AU", "en"],
+    "en-ca": ["en-CA", "en"],
+    "fr": ["fr", "fr-FR"],
+    "fr-fr": ["fr-FR", "fr"],
+    "fr-ca": ["fr-CA", "fr", "fr-FR"],
+    "es": ["es", "es-ES"],
+    "es-es": ["es-ES", "es"],
+    "es-mx": ["es-MX", "es", "es-ES"],
+    "pt": ["pt", "pt-BR", "pt-PT"],
+    "pt-br": ["pt-BR", "pt"],
+    "pt-pt": ["pt-PT", "pt"],
+    "zh": ["zh", "zh-Hans", "zh-Hant"],
+    "zh-hans": ["zh-Hans", "zh"],
+    "zh-hant": ["zh-Hant", "zh"]
+  };
+
   const cuePicEmergencyTranslations = {
     "page.title": "CuePic - Send “tap here” as an image",
-    "page.description": "CuePic helps you add red circles, rectangles, pointers, and arrows to images so you can show where to tap, where to look, or what steps to follow.",
+    "page.description": "More helpful than a thick manual: a simple “right here” from someone you know. CuePic lets you mark images with red circles, rectangles, pointers, and arrows so you can show where to tap or where to look.",
     "brand.homeAria": "CuePic home",
     "brand.iconAlt": "CuePic app icon",
     "language.label": "Language",
@@ -687,7 +707,7 @@
     "nav.appStore": "App Store",
     "hero.eyebrow": "Send “tap here” as an image.",
     "hero.title": "CuePic",
-    "hero.lead": "Before writing a long explanation, show them “right here.” Add a red circle or rectangle to an image and share a clear visual cue that is easy to understand.",
+    "hero.lead": "More helpful than a thick manual: a simple “right here” from someone you know. Mark an image with a red circle or rectangle and gently show where to tap or where to look.",
     "hero.pointsAria": "CuePic highlights",
     "hero.point.circle": "Red circles and rectangles",
     "hero.point.pointer": "Pointers and arrows",
@@ -696,18 +716,18 @@
     "hero.download": "Download on the App Store",
     "hero.privacyPolicy": "Privacy Policy",
     "hero.note": "This page is provided as the official marketing page for CuePic. App availability may vary by region and review status.",
-    "features.title": "Show “right here” without a long explanation",
-    "features.lead": "CuePic is made for moments when words alone are not enough. Mark the place to tap, the place to look, or the order to follow, then share the image right away.",
+    "features.title": "When words are not enough, send “right here” as an image",
+    "features.lead": "CuePic is made for moments when “the button in the top right” or “the item below that” is hard to explain with words alone. Add a clear mark and send a visual “right here.”",
     "features.card.mark.title": "Mark the important spot",
     "features.card.mark.body": "Add a red circle or rectangle to make the important part of an image stand out clearly.",
     "features.card.pro.title": "Make it even clearer with Pro",
     "features.card.pro.body": "Use pointers, arrows, and multi-image step guides when one marked image is not enough.",
     "features.card.share.title": "Share right away",
-    "features.card.share.body": "Create an image that says “tap here” or “look here,” then send it to family, friends, or people at work.",
+    "features.card.share.body": "Add a “right here” to your words, then send it to family, friends, or people at work.",
     "features.card.reduce.title": "Reduce small misunderstandings",
     "features.card.reduce.body": "Replace long explanations like “the button in the top right” with a simple visual mark.",
-    "about.title": "Built for phone help, quick checks, and small guides",
-    "about.lead": "CuePic is a small image explanation app for helping someone understand a specific place or step. It is useful when you want to explain a phone screen, point out a part of an image, or turn several screens into a simple guide.",
+    "about.title": "Built for the small moments when you want to say “right here”",
+    "about.lead": "CuePic is a small image explanation app for reducing little misunderstandings. Use it when you want to explain a phone screen, point out a part of an image, or turn several screens into a simple guide.",
     "about.useful.title": "Useful when",
     "about.useful.item.tap": "You want to show someone where to tap on their phone",
     "about.useful.item.look": "You want to point out where to look in an image",
@@ -721,44 +741,60 @@
     "about.note.title": "A small note before you use it.",
     "about.note.body": "CuePic helps you create clearer explanation images. Please make sure you have the right to use and share the images you choose.",
     "cta.title": "When explaining gets easier, the conversation can feel kinder.",
-    "cta.body": "Add a simple “right here” to an image and share it with someone who needs a clearer cue."
+    "cta.body": "Send a small “right here” that is easier for the other person to understand."
   };
 
   let cuePicDefaultTranslations = null;
 
   function normalizeLanguageCode(language) {
-    return (language || cuePicDefaultLanguage).toLowerCase().replace("_", "-");
+    const normalized = (language || "").trim().replace("_", "-");
+
+    if (!normalized) {
+      return "";
+    }
+
+    const parts = normalized.split("-");
+    const languagePart = parts[0].toLowerCase();
+
+    if (parts.length === 1) {
+      return languagePart;
+    }
+
+    const regionPart = parts[1].toLowerCase();
+
+    if (regionPart === "hans" || regionPart === "hant") {
+      return `${languagePart}-${regionPart.charAt(0).toUpperCase()}${regionPart.slice(1)}`;
+    }
+
+    return `${languagePart}-${regionPart.toUpperCase()}`;
   }
 
-  function resolveSupportedLanguage(language) {
+  function uniqueLanguages(languages) {
+    return [...new Set(languages.filter(Boolean))];
+  }
+
+  function buildLocaleFallbacks(language) {
     const normalizedLanguage = normalizeLanguageCode(language);
+
+    if (!normalizedLanguage) {
+      return [];
+    }
+
+    const lowerKey = normalizedLanguage.toLowerCase();
     const baseLanguage = normalizedLanguage.split("-")[0];
+    const representativeFallbacks = cuePicRepresentativeLocales[lowerKey] || cuePicRepresentativeLocales[baseLanguage] || [];
 
-    if (cuePicSupportedLanguages.includes(normalizedLanguage)) {
-      return normalizedLanguage;
-    }
-
-    if (cuePicSupportedLanguages.includes(baseLanguage)) {
-      return baseLanguage;
-    }
-
-    return cuePicDefaultLanguage;
+    return uniqueLanguages([
+      normalizedLanguage,
+      baseLanguage,
+      ...representativeFallbacks
+    ]);
   }
 
-  function getBrowserLanguage() {
-    const languages = navigator.languages && navigator.languages.length > 0
+  function getBrowserLanguages() {
+    return navigator.languages && navigator.languages.length > 0
       ? navigator.languages
       : [navigator.language || navigator.userLanguage || cuePicDefaultLanguage];
-
-    for (const language of languages) {
-      const resolvedLanguage = resolveSupportedLanguage(language);
-
-      if (resolvedLanguage !== cuePicDefaultLanguage) {
-        return resolvedLanguage;
-      }
-    }
-
-    return cuePicDefaultLanguage;
   }
 
   function getInitialLanguage() {
@@ -766,16 +802,16 @@
     const queryLanguage = params.get("lang");
 
     if (queryLanguage) {
-      return resolveSupportedLanguage(queryLanguage);
+      return normalizeLanguageCode(queryLanguage);
     }
 
     const savedLanguage = localStorage.getItem("cuePicLanguage");
 
     if (savedLanguage) {
-      return resolveSupportedLanguage(savedLanguage);
+      return normalizeLanguageCode(savedLanguage);
     }
 
-    return getBrowserLanguage();
+    return "";
   }
 
   async function loadLanguageFile(language) {
@@ -802,33 +838,52 @@
     return cuePicDefaultTranslations;
   }
 
+  function buildLanguageCandidates(requestedLanguage) {
+    const candidates = [];
+
+    if (requestedLanguage) {
+      candidates.push(...buildLocaleFallbacks(requestedLanguage));
+    }
+
+    getBrowserLanguages().forEach((language) => {
+      candidates.push(...buildLocaleFallbacks(language));
+    });
+
+    candidates.push(cuePicDefaultLanguage);
+
+    return uniqueLanguages(candidates);
+  }
+
   async function getTranslations(language) {
-    const resolvedLanguage = resolveSupportedLanguage(language);
     const defaultTranslations = await getDefaultTranslations();
+    const candidates = buildLanguageCandidates(language);
 
-    if (resolvedLanguage === cuePicDefaultLanguage) {
-      return {
-        language: cuePicDefaultLanguage,
-        translations: defaultTranslations
-      };
+    for (const candidate of candidates) {
+      if (candidate === cuePicDefaultLanguage) {
+        return {
+          language: cuePicDefaultLanguage,
+          translations: defaultTranslations
+        };
+      }
+
+      try {
+        const translations = await loadLanguageFile(candidate);
+        return {
+          language: candidate,
+          translations: {
+            ...defaultTranslations,
+            ...translations
+          }
+        };
+      } catch {
+        console.warn(`CuePic locale could not be loaded: ${candidate}`);
+      }
     }
 
-    try {
-      const translations = await loadLanguageFile(resolvedLanguage);
-      return {
-        language: resolvedLanguage,
-        translations: {
-          ...defaultTranslations,
-          ...translations
-        }
-      };
-    } catch {
-      console.warn(`CuePic locale could not be loaded: ${resolvedLanguage}`);
-      return {
-        language: cuePicDefaultLanguage,
-        translations: defaultTranslations
-      };
-    }
+    return {
+      language: cuePicDefaultLanguage,
+      translations: defaultTranslations
+    };
   }
 
   function updateDocumentLanguage(language, translations) {
