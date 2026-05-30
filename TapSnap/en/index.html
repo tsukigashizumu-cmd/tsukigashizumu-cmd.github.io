@@ -1,0 +1,942 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CuePic - Send “tap here” as an image</title>
+  <meta name="description" content="CuePic helps you add red circles, rectangles, pointers, and arrows to images so you can show where to tap, where to look, or what steps to follow.">
+  <link rel="alternate" hreflang="en" href="https://tsukigashizumu-cmd.github.io/TapSnap/en/">
+  <link rel="alternate" hreflang="ja" href="https://tsukigashizumu-cmd.github.io/TapSnap/en/?lang=ja">
+  <link rel="alternate" hreflang="x-default" href="https://tsukigashizumu-cmd.github.io/TapSnap/en/">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #fff7f2;
+      --card: rgba(255, 255, 255, 0.86);
+      --card-strong: rgba(255, 255, 255, 0.94);
+      --text: #2f2320;
+      --subtext: #75635d;
+      --line: rgba(124, 66, 44, 0.14);
+      --shadow: 0 18px 44px rgba(85, 38, 26, 0.12);
+      --accent: #ff5b4d;
+      --accent-strong: #d83a30;
+      --accent-warm: #ffb36d;
+      --button-text: #2c1714;
+      --max-width: 1080px;
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255, 91, 77, 0.18), transparent 30%),
+        radial-gradient(circle at top right, rgba(255, 179, 109, 0.20), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(255, 213, 180, 0.30), transparent 32%),
+        linear-gradient(180deg, #fffdf9 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(255, 247, 242, 0.78);
+      border-bottom: 1px solid rgba(124, 66, 44, 0.10);
+    }
+
+    .site-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 72px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 22px rgba(85, 38, 26, 0.16);
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(124, 66, 44, 0.12);
+      flex-shrink: 0;
+    }
+
+    .brand-text { font-size: 1.05rem; }
+
+    .header-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .language-switch {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 40px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid rgba(124, 66, 44, 0.14);
+      color: var(--subtext);
+      font-size: 0.9rem;
+      font-weight: 900;
+      box-shadow: 0 10px 22px rgba(85, 38, 26, 0.08);
+    }
+
+    .language-label { white-space: nowrap; }
+
+    .language-dropdown { position: relative; }
+
+    .language-trigger {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      min-width: 106px;
+      min-height: 32px;
+      border: 0;
+      border-radius: 999px;
+      padding: 0 12px;
+      background: linear-gradient(180deg, #ffb5a8 0%, var(--accent) 100%);
+      color: #fff;
+      font: inherit;
+      font-size: 0.86rem;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.48),
+        0 8px 18px rgba(216, 58, 48, 0.18);
+    }
+
+    .language-trigger:focus-visible {
+      outline: 2px solid rgba(216, 58, 48, 0.34);
+      outline-offset: 2px;
+    }
+
+    .language-trigger-icon {
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid #fff;
+      opacity: 0.88;
+      transform: translateY(1px);
+    }
+
+    .language-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      z-index: 50;
+      min-width: 160px;
+      padding: 6px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(124, 66, 44, 0.14);
+      box-shadow: 0 18px 40px rgba(85, 38, 26, 0.18);
+      backdrop-filter: blur(18px);
+    }
+
+    .language-menu[hidden] { display: none; }
+
+    .language-option {
+      width: 100%;
+      min-height: 34px;
+      border: 0;
+      border-radius: 12px;
+      padding: 0 12px;
+      background: transparent;
+      color: var(--text);
+      font: inherit;
+      font-size: 0.9rem;
+      font-weight: 900;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .language-option:hover,
+    .language-option.is-active {
+      background: rgba(255, 91, 77, 0.18);
+      color: var(--accent-strong);
+    }
+
+    .nav-link,
+    .nav-button {
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 0.95rem;
+      color: var(--subtext);
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav-link:hover,
+    .nav-button:hover {
+      background: rgba(255, 255, 255, 0.76);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .nav-button {
+      background: linear-gradient(180deg, #ffb5a8 0%, var(--accent) 100%);
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0 10px 24px rgba(216, 58, 48, 0.22);
+    }
+
+    .hero { padding: 58px 0 34px; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.74);
+      border: 1px solid rgba(124, 66, 44, 0.12);
+      color: var(--subtext);
+      font-size: 0.9rem;
+      font-weight: 900;
+    }
+
+    h1 {
+      margin: 16px 0 14px;
+      font-size: clamp(2.4rem, 5vw, 4.6rem);
+      line-height: 1.04;
+      letter-spacing: -0.055em;
+    }
+
+    .hero-lead {
+      margin: 0;
+      font-size: clamp(1.06rem, 1.8vw, 1.25rem);
+      color: var(--subtext);
+      max-width: 43rem;
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .hero-point {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      border-radius: 999px;
+      padding: 0 14px;
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid rgba(124, 66, 44, 0.12);
+      color: var(--text);
+      font-size: 0.94rem;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      box-shadow: 0 10px 24px rgba(85, 38, 26, 0.08);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button-primary,
+    .button-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      border-radius: 999px;
+      padding: 0 18px;
+      font-weight: 900;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+
+    .button-primary {
+      background: linear-gradient(180deg, #ffb5a8 0%, var(--accent) 100%);
+      color: #fff;
+      box-shadow: 0 12px 24px rgba(216, 58, 48, 0.24);
+    }
+
+    .button-secondary {
+      background: rgba(255, 255, 255, 0.84);
+      color: var(--text);
+      border: 1px solid rgba(124, 66, 44, 0.12);
+    }
+
+    .button-primary:hover,
+    .button-secondary:hover { transform: translateY(-1px); }
+
+    .hero-note {
+      margin-top: 16px;
+      font-size: 0.92rem;
+      color: var(--subtext);
+    }
+
+    .hero-visual-card {
+      position: relative;
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      min-height: 420px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.78) 100%);
+      border: 1px solid rgba(124, 66, 44, 0.12);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+    }
+
+    .hero-visual-card::before {
+      content: "";
+      position: absolute;
+      inset: -18%;
+      background:
+        radial-gradient(circle at 22% 18%, rgba(255, 179, 109, 0.45), transparent 18%),
+        radial-gradient(circle at 76% 28%, rgba(255, 91, 77, 0.30), transparent 20%),
+        radial-gradient(circle at 56% 76%, rgba(255, 220, 185, 0.58), transparent 22%);
+      filter: blur(2px);
+      pointer-events: none;
+    }
+
+    .app-icon-large {
+      position: relative;
+      z-index: 1;
+      width: min(64vw, 250px);
+      border-radius: 54px;
+      box-shadow: 0 24px 58px rgba(85, 38, 26, 0.24);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .section { padding: 32px 0; }
+
+    .section-title {
+      margin: 0 0 10px;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    .section-lead {
+      margin: 0;
+      color: var(--subtext);
+      max-width: 58rem;
+    }
+
+    .feature-grid,
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .feature-card,
+    .info-card,
+    .trust-note,
+    .cta-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .feature-card h3,
+    .info-card h3,
+    .trust-note h3,
+    .cta-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+    }
+
+    .feature-card p,
+    .info-card p,
+    .info-card li,
+    .trust-note p,
+    .cta-card p { color: var(--subtext); }
+
+    .feature-card p,
+    .info-card p,
+    .trust-note p,
+    .cta-card p { margin: 0; }
+
+    .info-card ul { margin: 0; padding-left: 1.1em; }
+
+    .trust-note {
+      margin-top: 22px;
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    .cta-card {
+      margin-top: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,245,240,0.96) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .site-footer {
+      padding: 36px 0 52px;
+      color: var(--subtext);
+      font-size: 0.94rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(124, 66, 44, 0.12);
+      padding-top: 18px;
+    }
+
+    .footer-links {
+      display: inline-flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .feature-grid,
+      .info-grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 34px; }
+      .site-header-inner { min-height: 68px; }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(calc(100% - 20px), var(--max-width)); }
+      .site-header-inner {
+        align-items: center;
+        min-height: auto;
+        padding: 10px 0;
+        gap: 10px;
+      }
+      .brand { gap: 10px; }
+      .brand-icon { width: 40px; height: 40px; }
+      .brand-text { font-size: 1rem; }
+      .header-nav {
+        width: 100%;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 8px;
+        padding-bottom: 2px;
+      }
+      .header-nav::-webkit-scrollbar { display: none; }
+      .language-switch {
+        flex: 0 0 auto;
+        white-space: nowrap;
+      }
+      .nav-link,
+      .nav-button {
+        flex: 0 0 auto;
+        white-space: nowrap;
+        padding: 8px 12px;
+        font-size: 0.9rem;
+      }
+      .hero { padding-top: 22px; }
+      h1 { margin: 14px 0 12px; font-size: clamp(2rem, 9vw, 2.9rem); }
+      .hero-lead { font-size: 1rem; }
+      .hero-actions { flex-direction: column; align-items: stretch; margin-top: 20px; }
+      .hero-visual-card { min-height: 320px; padding: 22px; }
+      .app-icon-large { width: min(70vw, 220px); border-radius: 46px; }
+      .cta-card { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <a class="brand" href="./" data-i18n-attr="aria-label:brand.homeAria" aria-label="CuePic home">
+        <span class="brand-icon">
+          <img src="./assets/app-icon.png" alt="CuePic app icon" data-i18n-attr="alt:brand.iconAlt">
+        </span>
+        <span class="brand-text">CuePic</span>
+      </a>
+
+      <nav class="header-nav" aria-label="Primary" data-i18n-attr="aria-label:nav.aria">
+        <div class="language-switch" data-language-dropdown>
+          <span class="language-label" data-i18n="language.label">Language</span>
+          <div class="language-dropdown">
+            <button class="language-trigger" type="button" data-language-trigger aria-haspopup="listbox" aria-expanded="false" aria-label="Language" data-i18n-attr="aria-label:language.label">
+              <span data-language-current>English</span>
+              <span class="language-trigger-icon" aria-hidden="true"></span>
+            </button>
+            <div class="language-menu" data-language-menu role="listbox" aria-label="Language" data-i18n-attr="aria-label:language.label" hidden>
+              <button class="language-option is-active" type="button" data-language-option="en" role="option" aria-selected="true">English</button>
+              <button class="language-option" type="button" data-language-option="ja" role="option" aria-selected="false">日本語</button>
+            </div>
+          </div>
+        </div>
+        <a class="nav-link" href="#features" data-i18n="nav.features">Features</a>
+        <a class="nav-link" href="#about" data-i18n="nav.about">About</a>
+        <a class="nav-link" href="./support/" data-i18n="nav.support">Support</a>
+        <a class="nav-link" href="./privacy/" data-i18n="nav.privacy">Privacy</a>
+        <a class="nav-button" href="#app-store" data-i18n="nav.appStore">App Store</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow" data-i18n="hero.eyebrow">Send “tap here” as an image.</div>
+          <h1 data-i18n="hero.title">CuePic</h1>
+          <p class="hero-lead" data-i18n="hero.lead">
+            Before writing a long explanation, show them “right here.” Add a red circle or rectangle to an image and share a clear visual cue that is easy to understand.
+          </p>
+
+          <div class="hero-points" aria-label="CuePic highlights" data-i18n-attr="aria-label:hero.pointsAria">
+            <span class="hero-point" data-i18n="hero.point.circle">Red circles and rectangles</span>
+            <span class="hero-point" data-i18n="hero.point.pointer">Pointers and arrows</span>
+            <span class="hero-point" data-i18n="hero.point.steps">Step-by-step image guides</span>
+            <span class="hero-point" data-i18n="hero.point.share">Quick sharing</span>
+          </div>
+
+          <div class="hero-actions" id="app-store">
+            <a class="button-primary" href="https://apps.apple.com/app/id6772130038" target="_blank" rel="noopener noreferrer" data-i18n="hero.download">Download on the App Store</a>
+            <a class="button-secondary" href="./support/" data-i18n="nav.support">Support</a>
+            <a class="button-secondary" href="./privacy/" data-i18n="hero.privacyPolicy">Privacy Policy</a>
+          </div>
+
+          <p class="hero-note" data-i18n="hero.note">
+            This page is provided as the official marketing page for CuePic. App availability may vary by region and review status.
+          </p>
+        </div>
+
+        <div class="hero-visual-card" aria-label="CuePic app icon" data-i18n-attr="aria-label:brand.iconAlt">
+          <img class="app-icon-large" src="./assets/app-icon.png" alt="CuePic app icon" data-i18n-attr="alt:brand.iconAlt">
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="container">
+        <h2 class="section-title" data-i18n="features.title">Show “right here” without a long explanation</h2>
+        <p class="section-lead" data-i18n="features.lead">
+          CuePic is made for moments when words alone are not enough. Mark the place to tap, the place to look, or the order to follow, then share the image right away.
+        </p>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3 data-i18n="features.card.mark.title">Mark the important spot</h3>
+            <p data-i18n="features.card.mark.body">
+              Add a red circle or rectangle to make the important part of an image stand out clearly.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3 data-i18n="features.card.pro.title">Make it even clearer with Pro</h3>
+            <p data-i18n="features.card.pro.body">
+              Use pointers, arrows, and multi-image step guides when one marked image is not enough.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3 data-i18n="features.card.share.title">Share right away</h3>
+            <p data-i18n="features.card.share.body">
+              Create an image that says “tap here” or “look here,” then send it to family, friends, or people at work.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <h3 data-i18n="features.card.reduce.title">Reduce small misunderstandings</h3>
+            <p data-i18n="features.card.reduce.body">
+              Replace long explanations like “the button in the top right” with a simple visual mark.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title" data-i18n="about.title">Built for phone help, quick checks, and small guides</h2>
+        <p class="section-lead" data-i18n="about.lead">
+          CuePic is a small image explanation app for helping someone understand a specific place or step. It is useful when you want to explain a phone screen, point out a part of an image, or turn several screens into a simple guide.
+        </p>
+
+        <div class="info-grid">
+          <article class="info-card">
+            <h3 data-i18n="about.useful.title">Useful when</h3>
+            <ul>
+              <li data-i18n="about.useful.item.tap">You want to show someone where to tap on their phone</li>
+              <li data-i18n="about.useful.item.look">You want to point out where to look in an image</li>
+              <li data-i18n="about.useful.item.words">Words alone are hard to explain</li>
+              <li data-i18n="about.useful.item.steps">You want to show multiple screens as steps</li>
+            </ul>
+          </article>
+
+          <article class="info-card">
+            <h3 data-i18n="about.simple.title">Simple by design</h3>
+            <ul>
+              <li data-i18n="about.simple.item.start">Start with one image and a clear mark</li>
+              <li data-i18n="about.simple.item.pro">Use pointers, arrows, and step guides with CuePic Pro</li>
+              <li data-i18n="about.simple.item.account">No account is required for the core local workflow</li>
+              <li data-i18n="about.simple.item.support">Support and privacy information are available from this page</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="trust-note">
+          <h3 data-i18n="about.note.title">A small note before you use it.</h3>
+          <p data-i18n="about.note.body">
+            CuePic helps you create clearer explanation images. Please make sure you have the right to use and share the images you choose.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-card">
+          <div>
+            <h3 data-i18n="cta.title">When explaining gets easier, the conversation can feel kinder.</h3>
+            <p data-i18n="cta.body">
+              Add a simple “right here” to an image and share it with someone who needs a clearer cue.
+            </p>
+          </div>
+          <div class="hero-actions" style="margin-top: 0;">
+            <a class="button-secondary" href="./support/" data-i18n="nav.support">Support</a>
+            <a class="button-primary" href="https://apps.apple.com/app/id6772130038" target="_blank" rel="noopener noreferrer" data-i18n="nav.appStore">App Store</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© CuePic</div>
+      <div class="footer-links">
+        <a href="https://apps.apple.com/app/id6772130038" target="_blank" rel="noopener noreferrer" data-i18n="nav.appStore">App Store</a>
+        <a href="./support/" data-i18n="nav.support">Support</a>
+        <a href="./privacy/" data-i18n="hero.privacyPolicy">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  const cuePicSupportedLanguages = [
+    "en",
+    "ja"
+  ];
+
+  const cuePicDefaultLanguage = "en";
+
+  const cuePicEmergencyTranslations = {
+    "page.title": "CuePic - Send “tap here” as an image",
+    "page.description": "CuePic helps you add red circles, rectangles, pointers, and arrows to images so you can show where to tap, where to look, or what steps to follow.",
+    "brand.homeAria": "CuePic home",
+    "brand.iconAlt": "CuePic app icon",
+    "language.label": "Language",
+    "nav.aria": "Primary",
+    "nav.features": "Features",
+    "nav.about": "About",
+    "nav.support": "Support",
+    "nav.privacy": "Privacy",
+    "nav.appStore": "App Store",
+    "hero.eyebrow": "Send “tap here” as an image.",
+    "hero.title": "CuePic",
+    "hero.lead": "Before writing a long explanation, show them “right here.” Add a red circle or rectangle to an image and share a clear visual cue that is easy to understand.",
+    "hero.pointsAria": "CuePic highlights",
+    "hero.point.circle": "Red circles and rectangles",
+    "hero.point.pointer": "Pointers and arrows",
+    "hero.point.steps": "Step-by-step image guides",
+    "hero.point.share": "Quick sharing",
+    "hero.download": "Download on the App Store",
+    "hero.privacyPolicy": "Privacy Policy",
+    "hero.note": "This page is provided as the official marketing page for CuePic. App availability may vary by region and review status.",
+    "features.title": "Show “right here” without a long explanation",
+    "features.lead": "CuePic is made for moments when words alone are not enough. Mark the place to tap, the place to look, or the order to follow, then share the image right away.",
+    "features.card.mark.title": "Mark the important spot",
+    "features.card.mark.body": "Add a red circle or rectangle to make the important part of an image stand out clearly.",
+    "features.card.pro.title": "Make it even clearer with Pro",
+    "features.card.pro.body": "Use pointers, arrows, and multi-image step guides when one marked image is not enough.",
+    "features.card.share.title": "Share right away",
+    "features.card.share.body": "Create an image that says “tap here” or “look here,” then send it to family, friends, or people at work.",
+    "features.card.reduce.title": "Reduce small misunderstandings",
+    "features.card.reduce.body": "Replace long explanations like “the button in the top right” with a simple visual mark.",
+    "about.title": "Built for phone help, quick checks, and small guides",
+    "about.lead": "CuePic is a small image explanation app for helping someone understand a specific place or step. It is useful when you want to explain a phone screen, point out a part of an image, or turn several screens into a simple guide.",
+    "about.useful.title": "Useful when",
+    "about.useful.item.tap": "You want to show someone where to tap on their phone",
+    "about.useful.item.look": "You want to point out where to look in an image",
+    "about.useful.item.words": "Words alone are hard to explain",
+    "about.useful.item.steps": "You want to show multiple screens as steps",
+    "about.simple.title": "Simple by design",
+    "about.simple.item.start": "Start with one image and a clear mark",
+    "about.simple.item.pro": "Use pointers, arrows, and step guides with CuePic Pro",
+    "about.simple.item.account": "No account is required for the core local workflow",
+    "about.simple.item.support": "Support and privacy information are available from this page",
+    "about.note.title": "A small note before you use it.",
+    "about.note.body": "CuePic helps you create clearer explanation images. Please make sure you have the right to use and share the images you choose.",
+    "cta.title": "When explaining gets easier, the conversation can feel kinder.",
+    "cta.body": "Add a simple “right here” to an image and share it with someone who needs a clearer cue."
+  };
+
+  let cuePicDefaultTranslations = null;
+
+  function normalizeLanguageCode(language) {
+    return (language || cuePicDefaultLanguage).toLowerCase().replace("_", "-");
+  }
+
+  function resolveSupportedLanguage(language) {
+    const normalizedLanguage = normalizeLanguageCode(language);
+    const baseLanguage = normalizedLanguage.split("-")[0];
+
+    if (cuePicSupportedLanguages.includes(normalizedLanguage)) {
+      return normalizedLanguage;
+    }
+
+    if (cuePicSupportedLanguages.includes(baseLanguage)) {
+      return baseLanguage;
+    }
+
+    return cuePicDefaultLanguage;
+  }
+
+  function getBrowserLanguage() {
+    const languages = navigator.languages && navigator.languages.length > 0
+      ? navigator.languages
+      : [navigator.language || navigator.userLanguage || cuePicDefaultLanguage];
+
+    for (const language of languages) {
+      const resolvedLanguage = resolveSupportedLanguage(language);
+
+      if (resolvedLanguage !== cuePicDefaultLanguage) {
+        return resolvedLanguage;
+      }
+    }
+
+    return cuePicDefaultLanguage;
+  }
+
+  function getInitialLanguage() {
+    const params = new URLSearchParams(window.location.search);
+    const queryLanguage = params.get("lang");
+
+    if (queryLanguage) {
+      return resolveSupportedLanguage(queryLanguage);
+    }
+
+    const savedLanguage = localStorage.getItem("cuePicLanguage");
+
+    if (savedLanguage) {
+      return resolveSupportedLanguage(savedLanguage);
+    }
+
+    return getBrowserLanguage();
+  }
+
+  async function loadLanguageFile(language) {
+    const response = await fetch(`./assets/locales/${language}.json`, { cache: "no-cache" });
+
+    if (!response.ok) {
+      throw new Error(`Locale file not found: ${language}`);
+    }
+
+    return await response.json();
+  }
+
+  async function getDefaultTranslations() {
+    if (cuePicDefaultTranslations) {
+      return cuePicDefaultTranslations;
+    }
+
+    try {
+      cuePicDefaultTranslations = await loadLanguageFile(cuePicDefaultLanguage);
+    } catch {
+      cuePicDefaultTranslations = cuePicEmergencyTranslations;
+    }
+
+    return cuePicDefaultTranslations;
+  }
+
+  async function getTranslations(language) {
+    const resolvedLanguage = resolveSupportedLanguage(language);
+    const defaultTranslations = await getDefaultTranslations();
+
+    if (resolvedLanguage === cuePicDefaultLanguage) {
+      return {
+        language: cuePicDefaultLanguage,
+        translations: defaultTranslations
+      };
+    }
+
+    try {
+      const translations = await loadLanguageFile(resolvedLanguage);
+      return {
+        language: resolvedLanguage,
+        translations: {
+          ...defaultTranslations,
+          ...translations
+        }
+      };
+    } catch {
+      console.warn(`CuePic locale could not be loaded: ${resolvedLanguage}`);
+      return {
+        language: cuePicDefaultLanguage,
+        translations: defaultTranslations
+      };
+    }
+  }
+
+  function updateDocumentLanguage(language, translations) {
+    document.documentElement.lang = language;
+    document.title = translations["page.title"] || cuePicEmergencyTranslations["page.title"];
+
+    const description = document.querySelector('meta[name="description"]');
+    if (description) {
+      description.setAttribute("content", translations["page.description"] || cuePicEmergencyTranslations["page.description"]);
+    }
+  }
+
+  function updateTranslatedText(translations) {
+    document.querySelectorAll("[data-i18n]").forEach((element) => {
+      const key = element.dataset.i18n;
+      const text = translations[key] || cuePicEmergencyTranslations[key];
+
+      if (text) {
+        element.textContent = text;
+      }
+    });
+  }
+
+  function updateTranslatedAttributes(translations) {
+    document.querySelectorAll("[data-i18n-attr]").forEach((element) => {
+      const pairs = element.dataset.i18nAttr.split(",");
+
+      pairs.forEach((pair) => {
+        const [attributeName, key] = pair.split(":").map((value) => value.trim());
+        const text = translations[key] || cuePicEmergencyTranslations[key];
+
+        if (attributeName && text) {
+          element.setAttribute(attributeName, text);
+        }
+      });
+    });
+  }
+
+  function getLanguageDisplayName(language) {
+    const option = document.querySelector(`[data-language-option="${language}"]`);
+    return option ? option.textContent : language.toUpperCase();
+  }
+
+  function closeLanguageMenus() {
+    document.querySelectorAll("[data-language-menu]").forEach((menu) => {
+      menu.hidden = true;
+    });
+
+    document.querySelectorAll("[data-language-trigger]").forEach((trigger) => {
+      trigger.setAttribute("aria-expanded", "false");
+    });
+  }
+
+  function updateLanguageSelector(language) {
+    document.querySelectorAll("[data-language-current]").forEach((label) => {
+      label.textContent = getLanguageDisplayName(language);
+    });
+
+    document.querySelectorAll("[data-language-option]").forEach((option) => {
+      const isActive = option.dataset.languageOption === language;
+      option.classList.toggle("is-active", isActive);
+      option.setAttribute("aria-selected", isActive ? "true" : "false");
+    });
+  }
+
+  async function applyLanguage(language) {
+    const result = await getTranslations(language);
+
+    updateDocumentLanguage(result.language, result.translations);
+    updateTranslatedText(result.translations);
+    updateTranslatedAttributes(result.translations);
+    updateLanguageSelector(result.language);
+
+    localStorage.setItem("cuePicLanguage", result.language);
+  }
+
+  document.querySelectorAll("[data-language-trigger]").forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      const menu = trigger.closest("[data-language-dropdown]").querySelector("[data-language-menu]");
+      const shouldOpen = menu.hidden;
+
+      closeLanguageMenus();
+
+      menu.hidden = !shouldOpen;
+      trigger.setAttribute("aria-expanded", shouldOpen ? "true" : "false");
+    });
+  });
+
+  document.querySelectorAll("[data-language-option]").forEach((option) => {
+    option.addEventListener("click", () => {
+      closeLanguageMenus();
+      applyLanguage(option.dataset.languageOption);
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest("[data-language-dropdown]")) {
+      closeLanguageMenus();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeLanguageMenus();
+    }
+  });
+
+  applyLanguage(getInitialLanguage());
+</script>
+</body>
+</html>
