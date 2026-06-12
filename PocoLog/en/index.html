@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quiet Reserve - A gentle savings companion</title>
+  <meta name="description" content="Quiet Reserve is a simple, calm savings companion for keeping track of small reserves without pressure, noise, or complicated setup.">
+  <link rel="alternate" hreflang="en" href="https://tsukigashizumu-cmd.github.io/PocoLog/en/">
+  <link rel="alternate" hreflang="x-default" href="https://tsukigashizumu-cmd.github.io/PocoLog/en/">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f6f3ee;
+      --card: rgba(255, 255, 255, 0.86);
+      --card-strong: rgba(255, 255, 255, 0.96);
+      --text: #27231f;
+      --subtext: #6f665c;
+      --line: rgba(84, 70, 54, 0.14);
+      --shadow: 0 18px 44px rgba(64, 52, 38, 0.12);
+      --accent: #8c735a;
+      --accent-strong: #5f4a37;
+      --accent-soft: #d8c7b4;
+      --max-width: 1080px;
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(216, 199, 180, 0.55), transparent 30%),
+        radial-gradient(circle at top right, rgba(140, 115, 90, 0.18), transparent 26%),
+        linear-gradient(180deg, #fffdf9 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(246, 243, 238, 0.78);
+      border-bottom: 1px solid rgba(84, 70, 54, 0.10);
+    }
+
+    .site-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 72px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 22px rgba(64, 52, 38, 0.16);
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(84, 70, 54, 0.12);
+      flex-shrink: 0;
+    }
+
+    .brand-text { font-size: 1.05rem; }
+
+    .header-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-link,
+    .nav-button {
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 0.95rem;
+      color: var(--subtext);
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav-link:hover,
+    .nav-button:hover {
+      background: rgba(255, 255, 255, 0.76);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .nav-button {
+      background: linear-gradient(180deg, #b9a48d 0%, var(--accent) 100%);
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0 10px 24px rgba(95, 74, 55, 0.22);
+    }
+
+    .hero { padding: 58px 0 34px; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.74);
+      border: 1px solid rgba(84, 70, 54, 0.12);
+      color: var(--subtext);
+      font-size: 0.9rem;
+      font-weight: 900;
+    }
+
+    h1 {
+      margin: 16px 0 14px;
+      font-size: clamp(2.4rem, 5vw, 4.6rem);
+      line-height: 1.04;
+      letter-spacing: -0.055em;
+    }
+
+    .hero-lead {
+      margin: 0;
+      font-size: clamp(1.06rem, 1.8vw, 1.25rem);
+      color: var(--subtext);
+      max-width: 43rem;
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .hero-point {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      border-radius: 999px;
+      padding: 0 14px;
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid rgba(84, 70, 54, 0.12);
+      color: var(--text);
+      font-size: 0.94rem;
+      font-weight: 900;
+      box-shadow: 0 10px 24px rgba(64, 52, 38, 0.08);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button-primary,
+    .button-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      border-radius: 999px;
+      padding: 0 18px;
+      font-weight: 900;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .button-primary {
+      background: linear-gradient(180deg, #b9a48d 0%, var(--accent) 100%);
+      color: #fff;
+      box-shadow: 0 12px 24px rgba(95, 74, 55, 0.24);
+    }
+
+    .button-secondary {
+      background: rgba(255, 255, 255, 0.84);
+      color: var(--text);
+      border: 1px solid rgba(84, 70, 54, 0.12);
+    }
+
+    .button-primary:hover,
+    .button-secondary:hover { transform: translateY(-1px); }
+
+    .hero-note {
+      margin-top: 16px;
+      font-size: 0.92rem;
+      color: var(--subtext);
+    }
+
+    .hero-visual-card {
+      position: relative;
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      min-height: 420px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.78) 100%);
+      border: 1px solid rgba(84, 70, 54, 0.12);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+    }
+
+    .hero-visual-card::before {
+      content: "";
+      position: absolute;
+      inset: -18%;
+      background:
+        radial-gradient(circle at 24% 22%, rgba(216, 199, 180, 0.55), transparent 22%),
+        radial-gradient(circle at 76% 28%, rgba(140, 115, 90, 0.20), transparent 20%),
+        radial-gradient(circle at 52% 78%, rgba(235, 226, 214, 0.70), transparent 24%);
+      pointer-events: none;
+    }
+
+    .app-icon-large {
+      position: relative;
+      z-index: 1;
+      width: min(64vw, 250px);
+      border-radius: 54px;
+      box-shadow: 0 24px 58px rgba(64, 52, 38, 0.24);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .section { padding: 32px 0; }
+
+    .section-title {
+      margin: 0 0 10px;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    .section-lead {
+      margin: 0;
+      color: var(--subtext);
+      max-width: 58rem;
+    }
+
+    .feature-grid,
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .feature-card,
+    .info-card,
+    .trust-note,
+    .cta-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .feature-card h3,
+    .info-card h3,
+    .trust-note h3,
+    .cta-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+    }
+
+    .feature-card p,
+    .info-card p,
+    .info-card li,
+    .trust-note p,
+    .cta-card p { color: var(--subtext); }
+
+    .feature-card p,
+    .info-card p,
+    .trust-note p,
+    .cta-card p { margin: 0; }
+
+    .info-card ul { margin: 0; padding-left: 1.1em; }
+
+    .trust-note { margin-top: 22px; }
+
+    .cta-card {
+      margin-top: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(246,243,238,0.96) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .site-footer {
+      padding: 36px 0 52px;
+      color: var(--subtext);
+      font-size: 0.94rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(84, 70, 54, 0.12);
+      padding-top: 18px;
+    }
+
+    .footer-links {
+      display: inline-flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .feature-grid,
+      .info-grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 34px; }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(calc(100% - 20px), var(--max-width)); }
+      .site-header-inner { align-items: center; min-height: auto; padding: 10px 0; gap: 10px; }
+      .brand-icon { width: 40px; height: 40px; }
+      .header-nav {
+        width: 100%;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 8px;
+        padding-bottom: 2px;
+      }
+      .header-nav::-webkit-scrollbar { display: none; }
+      .nav-link,
+      .nav-button { flex: 0 0 auto; white-space: nowrap; padding: 8px 12px; font-size: 0.9rem; }
+      .hero { padding-top: 22px; }
+      h1 { margin: 14px 0 12px; font-size: clamp(2rem, 9vw, 2.9rem); }
+      .hero-lead { font-size: 1rem; }
+      .hero-actions { flex-direction: column; align-items: stretch; margin-top: 20px; }
+      .hero-visual-card { min-height: 320px; padding: 22px; }
+      .app-icon-large { width: min(70vw, 220px); border-radius: 46px; }
+      .cta-card { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <a class="brand" href="./" aria-label="Quiet Reserve home">
+        <span class="brand-icon"><img src="./assets/app-icon.png" alt="Quiet Reserve app icon"></span>
+        <span class="brand-text">Quiet Reserve</span>
+      </a>
+      <nav class="header-nav" aria-label="Primary">
+        <a class="nav-link" href="#features">Features</a>
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="./support/">Support</a>
+        <a class="nav-link" href="./privacy/">Privacy</a>
+        <a class="nav-button" href="#app-store">App Store</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">A quiet place for small reserves.</div>
+          <h1>Quiet Reserve</h1>
+          <p class="hero-lead">A calm savings companion for keeping track of small reserves without pressure, noise, or complicated setup. Record what you set aside, see your progress, and keep going at your own pace.</p>
+
+          <div class="hero-points" aria-label="Quiet Reserve highlights">
+            <span class="hero-point">Simple reserve tracking</span>
+            <span class="hero-point">Calm progress view</span>
+            <span class="hero-point">No account required</span>
+            <span class="hero-point">Private local workflow</span>
+          </div>
+
+          <div class="hero-actions" id="app-store">
+            <a class="button-primary" href="https://apps.apple.com/app/id6775229100" target="_blank" rel="noopener noreferrer">Download on the App Store</a>
+            <a class="button-secondary" href="./support/">Support</a>
+            <a class="button-secondary" href="./privacy/">Privacy Policy</a>
+          </div>
+
+          <p class="hero-note">This page is provided as the official marketing page for Quiet Reserve. App availability may vary by region and review status.</p>
+        </div>
+
+        <div class="hero-visual-card" aria-label="Quiet Reserve app icon">
+          <img class="app-icon-large" src="./assets/app-icon.png" alt="Quiet Reserve app icon">
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="container">
+        <h2 class="section-title">Keep a small reserve without making it feel heavy</h2>
+        <p class="section-lead">Quiet Reserve is designed for people who want a simple place to notice and protect small amounts they set aside.</p>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>Record reserves simply</h3>
+            <p>Add the amount you want to keep aside and update it when your situation changes.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Stay calm</h3>
+            <p>The app avoids noisy pressure and keeps the experience gentle, readable, and easy to return to.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Check progress at a glance</h3>
+            <p>See your reserve status quickly so you can understand where you are without digging through notes.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Use it privately</h3>
+            <p>The core workflow is local and does not require creating an account.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title">Built for quiet financial habits</h2>
+        <p class="section-lead">Quiet Reserve is not a loud budgeting system. It is a small utility for keeping a reserve visible, steady, and easy to continue.</p>
+
+        <div class="info-grid">
+          <article class="info-card">
+            <h3>Useful when</h3>
+            <ul>
+              <li>You want to keep emergency money separate in your mind</li>
+              <li>You want a gentle reminder of what you have set aside</li>
+              <li>You prefer simple tools over complicated finance apps</li>
+              <li>You want to reduce small money-related uncertainty</li>
+            </ul>
+          </article>
+          <article class="info-card">
+            <h3>Simple by design</h3>
+            <ul>
+              <li>No account is required for the core local workflow</li>
+              <li>Designed for quick updates and quick checks</li>
+              <li>Made to feel calm rather than demanding</li>
+              <li>Support and privacy information are available from this page</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="trust-note">
+          <h3>A small note before you use it.</h3>
+          <p>Quiet Reserve helps you keep track of your own reserve notes. It does not provide financial, investment, tax, or legal advice.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-card">
+          <div>
+            <h3>Make your reserve visible without making it stressful.</h3>
+            <p>Start small, check calmly, and keep your reserve in sight.</p>
+          </div>
+          <div class="hero-actions" style="margin-top: 0;">
+            <a class="button-secondary" href="./support/">Support</a>
+            <a class="button-primary" href="https://apps.apple.com/app/id6775229100" target="_blank" rel="noopener noreferrer">App Store</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© Quiet Reserve</div>
+      <div class="footer-links">
+        <a href="https://apps.apple.com/app/id6775229100" target="_blank" rel="noopener noreferrer">App Store</a>
+        <a href="./support/">Support</a>
+        <a href="./privacy/">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
