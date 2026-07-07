@@ -143,6 +143,15 @@
       img.setAttribute("src", localized);
     });
 
+
+    document.querySelectorAll('video[poster*="StoreDockScreenshots/"]').forEach((video) => {
+      if (!video.dataset.defaultPoster) video.dataset.defaultPoster = video.getAttribute("poster") || "";
+      const fallback = video.dataset.defaultPoster || "";
+      const localized = localizedScreenshotPath(fallback, locale);
+      if (!localized || localized === video.getAttribute("poster")) return;
+      video.setAttribute("poster", localized);
+    });
+
     document.querySelectorAll('video source[src*="StoreDockAppPreviews/"], video[src*="StoreDockAppPreviews/"]').forEach((node) => {
       if (!node.dataset.defaultSrc) node.dataset.defaultSrc = node.getAttribute("src") || "";
       const fallback = node.dataset.defaultSrc || "";

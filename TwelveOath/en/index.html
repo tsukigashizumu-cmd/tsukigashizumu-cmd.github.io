@@ -259,6 +259,28 @@
     .feature span { color: var(--muted); line-height: 1.56; }
     .screens { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; align-items: start; }
     .screens img { width: 100%; border-radius: 24px; border: 1px solid var(--line); box-shadow: 0 20px 70px rgba(0,0,0,.30); background: #090706; }
+
+    .previewSection { background: rgba(255, 248, 235, .022); }
+    .previewGrid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 34px; align-items: center; }
+    .appPreviewFrame {
+      width: min(100%, 420px);
+      justify-self: center;
+      border-radius: 34px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,248,235,.10), rgba(255,248,235,.035));
+      box-shadow: 0 28px 90px rgba(0,0,0,.36);
+    }
+    .appPreviewVideo {
+      display: block;
+      width: 100%;
+      aspect-ratio: 886 / 1920;
+      object-fit: cover;
+      border-radius: 26px;
+      background: #090706;
+    }
+    .appPreviewCaption { margin-top: 12px; color: var(--soft); font-size: 13px; text-align: center; }
+    html[dir="rtl"] .appPreviewCaption { text-align: center; }
     .quote { font-size: clamp(28px, 4.4vw, 58px); line-height: 1.04; letter-spacing: -.05em; margin: 0; }
     .metadataStory { background: rgba(255, 248, 235, .028); }
     .metadataPanel { max-width: 900px; border: 1px solid var(--line); border-radius: 24px; padding: 22px; background: rgba(255,255,255,.035); box-shadow: 0 18px 54px rgba(0,0,0,.18); }
@@ -369,7 +391,7 @@
           <a href="#why">Why</a>
           <a href="#features">Features</a>
           <a href="support/" data-url-field="supportURL">Support</a>
-          <span class="siteVersion" data-site-version="1.0.5" aria-label="Page version">v1.0.5</span><details class="localeMenu" data-locale-menu>
+          <span class="siteVersion" data-site-version="1.0.6" aria-label="Page version">v1.0.6</span><details class="localeMenu" data-locale-menu>
             <summary class="localeMenuSummary" aria-label="Language"><span data-locale-menu-current>Language</span></summary>
             <div class="localeMenuList" data-locale-menu-list role="menu" aria-label="Language options"></div>
           </details>
@@ -426,6 +448,23 @@
           <div class="feature"><strong>Private / Public / Campaign</strong><span>Separate special one-to-one invitations from ordinary openings and broader notices.</span></div>
           <div class="feature"><strong>Local-first design</strong><span>Designed to work without a server, a large operations team, or a complicated platform setup.</span></div>
           <div class="feature"><strong>Ritual-like experience</strong><span>Sealed envelopes, wax-stamp interactions, and twelve reserved seats give a practical tool a memorable identity.</span></div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="preview" class="previewSection">
+      <div class="wrap previewGrid">
+        <div>
+          <div class="eyebrow">Localized App Preview</div>
+          <h2>Preview the app in this language.</h2>
+          <p class="bodyText">The video below is loaded from <code>assets/StoreDockAppPreviews/{locale}/IPHONE_67/01.mp4</code>. When you change the language, TwelveOath tries to show the matching App Preview video and falls back to the default content if needed.</p>
+        </div>
+        <div class="appPreviewFrame">
+          <video class="appPreviewVideo" controls playsinline muted loop preload="metadata" poster="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/01.png">
+            <source src="assets/StoreDockAppPreviews/en-US/IPHONE_67/01.mp4" type="video/mp4">
+          </video>
+          <div class="appPreviewCaption">App Preview MP4 · locale aware</div>
         </div>
       </div>
     </section>
