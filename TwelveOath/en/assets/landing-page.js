@@ -1,1 +1,93 @@
-(() => {\n  const currentScript = document.currentScript;\n  const localeDir = currentScript?.dataset?.localeDir || "assets/landing-locales/";\n  const defaultLocale = currentScript?.dataset?.defaultLocale || "en-US";\n  const loadedScripts = new Set();\n\n  function getParams() { return new URLSearchParams(window.location.search); }\n\n  function requestedLocale() {\n    const metadata = window.TwelveOathAppStoreMetadata;\n    if (metadata && metadata.locale) return metadata.locale;\n    const params = getParams();\n    const explicit = params.get("locale") || params.get("lang");\n    if (explicit) return explicit;\n    try {\n      const saved = window.localStorage?.getItem("TwelveOath.locale");\n      if (saved) return saved;\n    } catch (_) {}\n    return navigator.language || defaultLocale;\n  }\n\n  function localeCandidates(locale) {\n    const normalized = String(locale || defaultLocale).replace("_", "-");\n    const base = normalized.split("-")[0];\n    return [...new Set([normalized, base, defaultLocale, "en-US"])].filter(Boolean);\n  }\n\n  function loadLocaleScript(locale) {\n    if (!locale || locale === "en-US") return Promise.resolve(false);\n    const registry = window.TwelveOathLandingLocales || {};\n    if (registry[locale]) return Promise.resolve(true);\n    if (loadedScripts.has(locale)) return Promise.resolve(Boolean(registry[locale]));\n    loadedScripts.add(locale);\n    return new Promise((resolve) => {\n      const script = document.createElement("script");\n      script.src = `${localeDir}${encodeURIComponent(locale)}.js`;\n      script.async = true;\n      script.onload = () => resolve(Boolean((window.TwelveOathLandingLocales || {})[locale]));\n      script.onerror = () => resolve(false);\n      document.head.appendChild(script);\n    });\n  }\n\n  function normalizeText(value) {\n    return String(value ?? "").replace(/\\\\n/g, "\\n").trim();\n  }\n\n  function setText(key, value) {\n    if (value === undefined || value === null) return;\n    document.querySelectorAll(`[data-landing-key="${CSS.escape(key)}"]`).forEach((node) => {\n      node.textContent = normalizeText(value);\n    });\n  }\n\n  function setHTMLLang(locale) {\n    document.documentElement.dataset.landingLocale = locale;\n  }\n\n  function updateDebug(locale, state) {\n    const badge = document.querySelector("[data-metadata-debug-badge]");\n    if (!badge) return;\n    const current = badge.textContent || "";\n    const prefix = current.includes(" / Landing:") ? current.split(" / Landing:")[0] : current;\n    badge.textContent = `${prefix} / Landing: ${locale || "-"} ${state}`;\n  }\n\n  function applyLanding(locale, data) {\n    if (!data || typeof data !== "object") return;\n    setHTMLLang(locale);\n    Object.entries(data).forEach(([key, value]) => setText(key, value));\n    if (data.pageTitle) {\n      document.title = data.pageTitle;\n      const og = document.querySelector(\'meta[property="og:title"]\');\n      if (og) og.setAttribute("content", data.pageTitle);\n    }\n    if (data.pageDescription) {\n      const meta = document.querySelector(\'meta[name="description"]\');\n      const ogd = document.querySelector(\'meta[property="og:description"]\');\n      if (meta) meta.setAttribute("content", data.pageDescription);\n      if (ogd) ogd.setAttribute("content", data.pageDescription);\n    }\n    updateDebug(locale, "loaded");\n  }\n\n  async function applyForLocale(locale) {\n    updateDebug(locale, "loading");\n    for (const candidate of localeCandidates(locale)) {\n      if (candidate === "en-US") break;\n      const ok = await loadLocaleScript(candidate);\n      const registry = window.TwelveOathLandingLocales || {};\n      if (ok && registry[candidate]) {\n        applyLanding(candidate, registry[candidate]);\n        return;\n      }\n    }\n    document.documentElement.dataset.landingLocale = "en-US";\n    updateDebug("en-US", "fallback");\n  }\n\n  function run() { applyForLocale(requestedLocale()); }\n\n  document.addEventListener("twelveoathmetadataready", (event) => {\n    const locale = event?.detail?.locale || requestedLocale();\n    applyForLocale(locale);\n  });\n\n  if (window.TwelveOathAppStoreMetadata?.locale) {\n    run();\n  } else {\n    window.addEventListener("DOMContentLoaded", run, { once: true });\n  }\n})();\n
+(() => {
+  const currentScript = document.currentScript;
+  const localeDir = currentScript?.dataset?.localeDir || "assets/landing-locales/";
+  const defaultLocale = currentScript?.dataset?.defaultLocale || "en-US";
+  const loaded = new Set();
+
+  function params() { return new URLSearchParams(window.location.search); }
+  function requestedLocale() {
+    if (window.TwelveOathAppStoreMetadata?.locale) return window.TwelveOathAppStoreMetadata.locale;
+    const explicit = params().get("locale") || params().get("lang");
+    if (explicit) return explicit;
+    try {
+      const saved = window.localStorage?.getItem("TwelveOath.locale");
+      if (saved) return saved;
+    } catch (_) {}
+    return navigator.language || defaultLocale;
+  }
+  function candidates(locale) {
+    const normalized = String(locale || defaultLocale).replace("_", "-");
+    const base = normalized.split("-")[0];
+    return [...new Set([normalized, base, defaultLocale, "en-US"])].filter(Boolean);
+  }
+  function normalizeText(value) {
+    return String(value ?? "").replace(/\\n/g, "\n").trim();
+  }
+  function loadLocale(locale) {
+    if (!locale || locale === "en-US") return Promise.resolve(false);
+    if (window.TwelveOathLandingLocales?.[locale]) return Promise.resolve(true);
+    if (loaded.has(locale)) return Promise.resolve(Boolean(window.TwelveOathLandingLocales?.[locale]));
+    loaded.add(locale);
+    return new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = `${localeDir}${encodeURIComponent(locale)}.js`;
+      script.async = true;
+      script.onload = () => resolve(Boolean(window.TwelveOathLandingLocales?.[locale]));
+      script.onerror = () => resolve(false);
+      document.head.appendChild(script);
+    });
+  }
+  function setText(key, value) {
+    if (value === undefined || value === null) return;
+    document.querySelectorAll(`[data-landing-key="${CSS.escape(key)}"]`).forEach((node) => {
+      node.textContent = normalizeText(value);
+    });
+  }
+  function debug(locale, state) {
+    const badge = document.querySelector("[data-metadata-debug-badge]");
+    if (!badge) return;
+    const current = badge.textContent || "";
+    const prefix = current.includes(" / Landing:") ? current.split(" / Landing:")[0] : current;
+    badge.textContent = `${prefix} / Landing: ${locale || "-"} ${state}`;
+  }
+  function apply(locale, data) {
+    if (!data || typeof data !== "object") return;
+    document.documentElement.dataset.landingLocale = locale;
+    Object.entries(data).forEach(([key, value]) => setText(key, value));
+    if (data.pageTitle) {
+      document.title = data.pageTitle;
+      const og = document.querySelector('meta[property="og:title"]');
+      if (og) og.setAttribute("content", data.pageTitle);
+    }
+    if (data.pageDescription) {
+      const meta = document.querySelector('meta[name="description"]');
+      const ogd = document.querySelector('meta[property="og:description"]');
+      if (meta) meta.setAttribute("content", data.pageDescription);
+      if (ogd) ogd.setAttribute("content", data.pageDescription);
+    }
+    debug(locale, "loaded");
+  }
+  async function applyForLocale(locale) {
+    debug(locale, "loading");
+    for (const candidate of candidates(locale)) {
+      if (candidate === "en-US") break;
+      const ok = await loadLocale(candidate);
+      const data = window.TwelveOathLandingLocales?.[candidate];
+      if (ok && data) {
+        apply(candidate, data);
+        return;
+      }
+    }
+    document.documentElement.dataset.landingLocale = "en-US";
+    debug("en-US", "fallback");
+  }
+  function run() { applyForLocale(requestedLocale()); }
+  document.addEventListener("twelveoathmetadataready", (event) => {
+    applyForLocale(event?.detail?.locale || requestedLocale());
+  });
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", run, { once: true });
+  } else {
+    run();
+  }
+})();
