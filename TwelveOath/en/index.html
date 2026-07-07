@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TwelveOath - Cancellation Recovery Ritual</title>
+  <meta name="description" content="TwelveOath is a focused cancellation recovery app for small appointment-based businesses. Prepare a trusted first circle and turn an empty hour back into an opportunity.">
+  <link rel="canonical" href="https://tsukigashizumu-cmd.github.io/TwelveOath/en/">
+  <meta property="og:title" content="TwelveOath - Cancellation Recovery Ritual">
+  <meta property="og:description" content="Not a general booking system. A focused app for the painful moment after a cancellation.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tsukigashizumu-cmd.github.io/TwelveOath/en/">
+  <meta property="og:image" content="https://tsukigashizumu-cmd.github.io/TwelveOath/en/assets/app-icon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#120d0a">
+  <style>
+    :root {
+      --bg: #120d0a;
+      --bg2: #1d1410;
+      --card: rgba(255, 248, 235, 0.07);
+      --card2: rgba(255, 248, 235, 0.12);
+      --text: #fff6e7;
+      --muted: #d9c8ad;
+      --soft: #aa9270;
+      --accent: #c94b37;
+      --accent2: #e2aa62;
+      --line: rgba(255, 238, 210, 0.16);
+      --shadow: 0 24px 90px rgba(0, 0, 0, 0.38);
+      color-scheme: dark;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 22% 0%, rgba(201, 75, 55, .30), transparent 34%),
+        radial-gradient(circle at 80% 10%, rgba(226, 170, 98, .16), transparent 30%),
+        linear-gradient(145deg, #0b0807 0%, var(--bg) 38%, #24140f 100%);
+      min-height: 100vh;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(18, 13, 10, .74);
+      border-bottom: 1px solid var(--line);
+    }
+    nav { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 14px 0; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 800; letter-spacing: -.02em; }
+    .brand img { width: 34px; height: 34px; border-radius: 9px; box-shadow: 0 8px 28px rgba(0,0,0,.32); }
+    .navlinks { display: flex; align-items: center; gap: 18px; color: var(--muted); font-size: 14px; }
+    .navlinks a { text-decoration: none; }
+    .navlinks a:hover { color: var(--text); }
+    .appstore {
+      display: inline-flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(255, 248, 235, .22);
+      background: rgba(255, 248, 235, .10);
+      padding: 10px 14px; border-radius: 999px; text-decoration: none;
+      font-weight: 700; color: var(--text);
+    }
+    .appstore:hover { background: rgba(255, 248, 235, .16); }
+    .hero { padding: 82px 0 66px; position: relative; overflow: hidden; }
+    .heroGrid { display: grid; grid-template-columns: 1.04fr .96fr; gap: 46px; align-items: center; }
+    .eyebrow { color: var(--accent2); font-size: 13px; text-transform: uppercase; letter-spacing: .18em; font-weight: 800; }
+    h1 { font-size: clamp(48px, 7vw, 88px); line-height: .92; margin: 18px 0 22px; letter-spacing: -.07em; max-width: 850px; }
+    .lead { color: var(--muted); font-size: clamp(18px, 2.2vw, 24px); line-height: 1.48; max-width: 690px; margin: 0 0 30px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .primary, .secondary {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 48px; padding: 0 18px; border-radius: 999px; text-decoration: none; font-weight: 800;
+    }
+    .primary { background: linear-gradient(135deg, var(--accent), #9a2d22); color: #fff; box-shadow: 0 18px 54px rgba(201, 75, 55, .32); }
+    .secondary { border: 1px solid var(--line); color: var(--text); background: rgba(255,255,255,.04); }
+    .note { margin-top: 18px; color: var(--soft); font-size: 14px; }
+    .deviceStack { position: relative; min-height: 620px; }
+    .phone {
+      position: absolute; border-radius: 34px; overflow: hidden; background: #090706; border: 1px solid rgba(255, 248, 235, .18);
+      box-shadow: var(--shadow); width: min(45vw, 308px); aspect-ratio: 1290/2796;
+    }
+    .phone img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .phone.one { right: 26%; top: 0; transform: rotate(-4deg); }
+    .phone.two { right: 0; top: 74px; transform: rotate(5deg); opacity: .96; }
+    .seal {
+      position: absolute; left: 5%; bottom: 62px; width: 168px; height: 168px; border-radius: 50%;
+      background: radial-gradient(circle at 32% 30%, #e7705b, #8d211b 62%, #4f1110 100%);
+      border: 1px solid rgba(255, 231, 210, .24); display:flex; align-items:center; justify-content:center;
+      box-shadow: 0 26px 70px rgba(0,0,0,.45), inset 0 7px 22px rgba(255,255,255,.12);
+      color: rgba(255, 238, 220, .92); font-weight: 900; font-size: 42px; letter-spacing: -.08em;
+    }
+    section { padding: 66px 0; border-top: 1px solid var(--line); }
+    .sectionHead { max-width: 760px; margin-bottom: 28px; }
+    h2 { font-size: clamp(34px, 4vw, 54px); line-height: 1; letter-spacing: -.05em; margin: 0 0 16px; }
+    .sectionHead p, .bodyText { color: var(--muted); font-size: 18px; line-height: 1.7; margin: 0; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card { background: linear-gradient(180deg, var(--card2), var(--card)); border: 1px solid var(--line); border-radius: 24px; padding: 24px; box-shadow: 0 14px 44px rgba(0,0,0,.18); }
+    .card b { display: block; margin-bottom: 10px; font-size: 20px; letter-spacing: -.02em; }
+    .card p { color: var(--muted); line-height: 1.62; margin: 0; }
+    .split { display:grid; grid-template-columns: .9fr 1.1fr; gap: 28px; align-items:center; }
+    .featureList { display:grid; gap: 12px; }
+    .feature { border: 1px solid var(--line); border-radius: 18px; padding: 18px; background: rgba(255,255,255,.045); }
+    .feature strong { display:block; margin-bottom: 6px; }
+    .feature span { color: var(--muted); line-height: 1.56; }
+    .screens { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; align-items: start; }
+    .screens img { width: 100%; border-radius: 24px; border: 1px solid var(--line); box-shadow: 0 20px 70px rgba(0,0,0,.30); background: #090706; }
+    .quote { font-size: clamp(28px, 4.4vw, 58px); line-height: 1.04; letter-spacing: -.05em; margin: 0; }
+    footer { border-top: 1px solid var(--line); padding: 34px 0 48px; color: var(--soft); }
+    .foot { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; font-size: 14px; }
+    .foot a { color: var(--muted); text-decoration: none; margin-left: 14px; }
+    .foot a:hover { color: var(--text); }
+    @media (max-width: 860px) {
+      .heroGrid, .split { grid-template-columns: 1fr; }
+      .deviceStack { min-height: 520px; }
+      .phone { width: min(58vw, 260px); }
+      .phone.one { left: 2%; right: auto; }
+      .phone.two { right: 2%; }
+      .seal { width: 128px; height: 128px; font-size: 32px; bottom: 28px; left: 34%; }
+      .cards { grid-template-columns: 1fr; }
+      .screens { grid-template-columns: 1fr; }
+      .navlinks a:not(.appstore) { display: none; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "TwelveOath",
+    "operatingSystem": "iOS, iPadOS",
+    "applicationCategory": "BusinessApplication",
+    "description": "A focused cancellation recovery app for small appointment-based businesses.",
+    "url": "https://tsukigashizumu-cmd.github.io/TwelveOath/en/",
+    "downloadUrl": "https://apps.apple.com/us/app/twelveoath/id6786129971"
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav aria-label="Main navigation">
+        <a class="brand" href="./" aria-label="TwelveOath home"><img src="assets/app-icon.png" alt="TwelveOath app icon">TwelveOath</a>
+        <div class="navlinks">
+          <a href="#why">Why</a>
+          <a href="#features">Features</a>
+          <a href="support/">Support</a>
+          <a class="appstore" href="https://apps.apple.com/us/app/twelveoath/id6786129971">View on App Store</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap heroGrid">
+        <div>
+          <div class="eyebrow">Cancellation Recovery Ritual</div>
+          <h1>An empty hour should not stay empty.</h1>
+          <p class="lead">TwelveOath is not a general booking system. It is a focused app for the painful moment after a cancellation, helping small appointment-based businesses prepare who to contact next before the panic begins.</p>
+          <div class="actions">
+            <a class="primary" href="https://apps.apple.com/us/app/twelveoath/id6786129971">Download on the App Store</a>
+            <a class="secondary" href="#features">See how it works</a>
+          </div>
+          <p class="note">Built for small salons, private studios, and personal services.</p>
+        </div>
+        <div class="deviceStack" aria-hidden="true">
+          <div class="phone one"><img src="assets/screenshots/en-US/APP_IPHONE_67/01.png" alt=""></div>
+          <div class="phone two"><img src="assets/screenshots/en-US/APP_IPHONE_67/05.png" alt=""></div>
+          <div class="seal">XII</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2>Built for one painful moment.</h2>
+          <p>A last-minute cancellation is not only an empty slot. For an independent owner, it can mean lost revenue, wasted preparation, and a difficult decision about who to contact next while time is already disappearing.</p>
+        </div>
+        <div class="cards">
+          <div class="card"><b>Prepare before it happens</b><p>Create a trusted first circle of up to twelve customers before a cancellation forces a rushed decision.</p></div>
+          <div class="card"><b>Match the opening</b><p>Use time, day, service length, and customer preferences to choose who fits the empty hour.</p></div>
+          <div class="card"><b>Recover with intention</b><p>Choose a private invitation, a public opening, or a campaign-style notice without sounding desperate.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="wrap split">
+        <div>
+          <div class="eyebrow">Focused, not bloated</div>
+          <h2>Not another full booking platform.</h2>
+          <p class="bodyText">TwelveOath is designed around the recovery flow after a cancellation. It does not try to manage every reservation workflow. It gives independent owners a calm way to turn an empty hour back into an opportunity.</p>
+        </div>
+        <div class="featureList">
+          <div class="feature"><strong>First Circle</strong><span>Keep up to twelve trusted customers ready for priority contact when the right opening appears.</span></div>
+          <div class="feature"><strong>Private / Public / Campaign</strong><span>Separate special one-to-one invitations from ordinary openings and broader notices.</span></div>
+          <div class="feature"><strong>Local-first design</strong><span>Designed to work without a server, a large operations team, or a complicated platform setup.</span></div>
+          <div class="feature"><strong>Ritual-like experience</strong><span>Sealed envelopes, wax-stamp interactions, and twelve reserved seats give a practical tool a memorable identity.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2>A calm, deliberate act of recovery.</h2>
+          <p>Cancellation recovery becomes more than an administrative task. It becomes a deliberate action to recover time, revenue, and confidence.</p>
+        </div>
+        <div class="screens">
+          <img loading="lazy" src="assets/screenshots/en-US/APP_IPHONE_67/02.png" alt="TwelveOath screenshot showing cancellation recovery flow">
+          <img loading="lazy" src="assets/screenshots/en-US/APP_IPHONE_67/06.png" alt="TwelveOath screenshot showing first circle and matching">
+          <img loading="lazy" src="assets/screenshots/en-US/APP_IPHONE_67/10.png" alt="TwelveOath screenshot showing final recovery interaction">
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <p class="quote">A cancellation should not become the end of an hour. It can become the beginning of the next invitation.</p>
+        <div class="actions" style="margin-top: 28px;">
+          <a class="primary" href="https://apps.apple.com/us/app/twelveoath/id6786129971">View TwelveOath on the App Store</a>
+          <a class="secondary" href="privacy/">Privacy Policy</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div>© 2026 TwelveOath</div>
+      <div>
+        <a href="privacy/">Privacy</a>
+        <a href="support/">Support</a>
+        <a href="https://apps.apple.com/us/app/twelveoath/id6786129971">App Store</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
