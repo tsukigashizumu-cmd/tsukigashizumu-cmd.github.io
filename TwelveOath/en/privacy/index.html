@@ -13,10 +13,17 @@
   
 .siteVersion { display:inline-flex; align-items:center; justify-content:center; min-height:26px; padding:0 9px; border:1px solid rgba(255,248,235,.20); border-radius:999px; color:#aa9270; background:rgba(255,248,235,.065); font-size:12px; font-weight:800; letter-spacing:.02em; font-variant-numeric:tabular-nums; white-space:nowrap; }
 
+
+.localeSelectWrap { display:inline-flex; align-items:center; min-height:26px; padding:0 9px; border:1px solid rgba(255,248,235,.20); border-radius:999px; background:rgba(255,248,235,.07); }
+.localeSelect { appearance:none; border:0; outline:0; background:transparent; color:#fff6e7; font:inherit; font-size:12px; font-weight:800; max-width:128px; cursor:pointer; }
+.localeSelect option { color:#120d0a; background:#fff6e7; }
+.srOnly { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+@media (max-width: 760px) { .localeSelect { max-width:92px; font-size:11px; } }
+
 </style>
 </head>
 <body>
-  <header><div class="wrap"><nav><a class="brand" href="../"><img src="../assets/app-icon.png" alt="TwelveOath app icon"><span data-meta-field="name">TwelveOath</span></a><div class="links"><span class="siteVersion" data-site-version="1.0.1" aria-label="Page version">v1.0.1</span><a href="../support/" data-url-field="supportURL">Support</a><a href="https://apps.apple.com/us/app/twelveoath/id6786129971">App Store</a></div></nav></div></header>
+  <header><div class="wrap"><nav><a class="brand" href="../"><img src="../assets/app-icon.png" alt="TwelveOath app icon"><span data-meta-field="name">TwelveOath</span></a><div class="links"><span class="siteVersion" data-site-version="1.0.2" aria-label="Page version">v1.0.2</span><label class="localeSelectWrap"><span class="srOnly">Language</span><select class="localeSelect" data-locale-select aria-label="Language"><option value="">Language</option></select></label><a href="../support/" data-url-field="supportURL">Support</a><a href="https://apps.apple.com/us/app/twelveoath/id6786129971">App Store</a></div></nav></div></header>
   <main><div class="wrap">
     <h1>Privacy Policy</h1>
     <p class="small">Last updated: July 6, 2026</p>

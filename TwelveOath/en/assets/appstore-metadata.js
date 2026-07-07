@@ -18,7 +18,13 @@
 
   function currentRequestedLocale() {
     const params = getParams();
-    return params.get("locale") || params.get("lang") || navigator.language || defaultLocale;
+    const explicit = params.get("locale") || params.get("lang");
+    if (explicit) return explicit;
+    try {
+      const saved = window.localStorage?.getItem("TwelveOath.locale");
+      if (saved) return saved;
+    } catch (_) {}
+    return navigator.language || defaultLocale;
   }
 
   function localeCandidates(all) {
@@ -145,6 +151,54 @@
     });
   }
 
+  function localeDisplayName(locale, entry) {
+    const name = entry && typeof entry === "object" ? entry.name : "";
+    return name && name !== locale ? `${locale} · ${name}` : locale;
+  }
+
+  function sortedLocales(all) {
+    const keys = Object.keys(all || {});
+    const priority = ["en-US", "ja"];
+    const rest = keys.filter((key) => !priority.includes(key)).sort((a, b) => a.localeCompare(b));
+    return priority.filter((key) => keys.includes(key)).concat(rest);
+  }
+
+  function setURLLocale(locale) {
+    try {
+      const url = new URL(window.location.href);
+      url.searchParams.set("locale", locale);
+      window.history.replaceState({}, "", url);
+    } catch (_) {}
+  }
+
+  function setupLocaleSelectors(all, activeLocale) {
+    document.querySelectorAll("[data-locale-select]").forEach((select) => {
+      if (!select.dataset.localePopulated) {
+        const fragment = document.createDocumentFragment();
+        sortedLocales(all).forEach((locale) => {
+          const option = document.createElement("option");
+          option.value = locale;
+          option.textContent = localeDisplayName(locale, all[locale]);
+          fragment.appendChild(option);
+        });
+        select.replaceChildren(fragment);
+        select.dataset.localePopulated = "true";
+        select.addEventListener("change", () => {
+          const locale = select.value;
+          if (!locale || !all[locale]) return;
+          try { window.localStorage?.setItem("TwelveOath.locale", locale); } catch (_) {}
+          setURLLocale(locale);
+          window.TwelveOathAppStoreMetadata = { locale, entry: all[locale], all };
+          applyEntry(locale, all[locale]);
+          setupLocaleSelectors(all, locale);
+          document.dispatchEvent(new CustomEvent("twelveoathmetadataready", { detail: { locale, entry: all[locale], all } }));
+        });
+      }
+      select.value = activeLocale;
+      select.setAttribute("aria-label", `Language: ${activeLocale}`);
+    });
+  }
+
   function setDebug(locale, state) {
     const params = getParams();
     const enabled = params.get("metaDebug") === "1" || params.get("debug") === "metadata";
@@ -199,6 +253,7 @@
       if (!entry || typeof entry !== "object") { setDebug(locale, "invalid entry"); return; }
       window.TwelveOathAppStoreMetadata = { locale, entry, all };
       applyEntry(locale, entry);
+      setupLocaleSelectors(all, locale);
       document.dispatchEvent(new CustomEvent("twelveoathmetadataready", { detail: { locale, entry, all } }));
     })
     .catch((error) => {
