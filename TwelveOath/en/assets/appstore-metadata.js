@@ -20,6 +20,7 @@
     const params = getParams();
     const explicit = params.get("locale") || params.get("lang");
     if (explicit) return explicit;
+    if (window.TwelveOathForceLocale) return window.TwelveOathForceLocale;
     try {
       const saved = window.localStorage?.getItem("TwelveOath.locale");
       if (saved) return saved;
