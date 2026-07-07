@@ -114,6 +114,47 @@
     .metadataBody ul { margin: 0 0 18px 1.2em; padding: 0; color: var(--muted); }
     .metadataBody li { margin: 4px 0; }
     .metadataHint code { color: var(--text); background: rgba(255,255,255,.08); border: 1px solid var(--line); border-radius: 8px; padding: 2px 6px; }
+    html[data-metadata-loaded="true"] h1[data-meta-field="subtitle"] { max-width: 760px; }
+    html[data-metadata-loaded="true"]:not([data-locale^="en"]) h1[data-meta-field="subtitle"] {
+      font-size: clamp(38px, 5.15vw, 64px);
+      line-height: 1.08;
+      letter-spacing: -.045em;
+    }
+    html[data-metadata-loaded="true"]:not([data-locale^="en"]) .lead[data-meta-field="promotionalText"] {
+      white-space: pre-line;
+      font-size: clamp(17px, 1.9vw, 21px);
+      line-height: 1.62;
+      max-width: 650px;
+    }
+    html[data-locale^="ja"] h1[data-meta-field="subtitle"],
+    html[data-locale^="zh"] h1[data-meta-field="subtitle"],
+    html[data-locale^="ko"] h1[data-meta-field="subtitle"] {
+      word-break: keep-all;
+      overflow-wrap: normal;
+      letter-spacing: -.04em;
+    }
+    html[data-locale^="ar"] h1[data-meta-field="subtitle"],
+    html[data-locale^="he"] h1[data-meta-field="subtitle"],
+    html[data-locale^="ur"] h1[data-meta-field="subtitle"] {
+      letter-spacing: 0;
+      line-height: 1.15;
+    }
+    .metadataDebug {
+      position: fixed;
+      right: 12px;
+      bottom: 12px;
+      z-index: 40;
+      display: none;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(18, 13, 10, .82);
+      color: var(--muted);
+      font-size: 12px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 10px 34px rgba(0,0,0,.30);
+    }
+    html[data-metadata-debug="true"] .metadataDebug { display: block; }
     html[dir="rtl"] body { direction: rtl; }
     html[dir="rtl"] .deviceStack, html[dir="rtl"] .phone { direction: ltr; }
     html[dir="rtl"] .foot, html[dir="rtl"] nav { direction: rtl; }
@@ -261,6 +302,7 @@
       </div>
     </div>
   </footer>
+  <div class="metadataDebug" data-metadata-debug-badge>Metadata: loading</div>
   <script src="assets/appstore-metadata.js" data-metadata-path="assets/locales/appstore-metadata.json" data-default-locale="en-US" defer></script>
 </body>
 </html>

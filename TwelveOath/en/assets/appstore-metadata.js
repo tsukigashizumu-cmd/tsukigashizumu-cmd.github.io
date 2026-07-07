@@ -1,3 +1,4 @@
+
 (() => {
   const currentScript = document.currentScript;
   const metadataPath = currentScript?.dataset?.metadataPath || "assets/locales/appstore-metadata.json";
@@ -13,8 +14,10 @@
       .replace("/TwelveOath/support/", "/TwelveOath/en/support/");
   }
 
+  function getParams() { return new URLSearchParams(window.location.search); }
+
   function currentRequestedLocale() {
-    const params = new URLSearchParams(window.location.search);
+    const params = getParams();
     return params.get("locale") || params.get("lang") || navigator.language || defaultLocale;
   }
 
@@ -34,13 +37,15 @@
 
   function shortDescription(entry) {
     const source = entry.promotionalText || entry.subtitle || entry.description || "";
-    const collapsed = String(source).replace(/\s+/g, " ").trim();
+    const collapsed = String(source).replace(/\\n/g, "\n").replace(/\s+/g, " ").trim();
     return collapsed.length > 170 ? collapsed.slice(0, 167).trimEnd() + "..." : collapsed;
   }
 
-  function clearNode(node) {
-    while (node.firstChild) node.removeChild(node.firstChild);
+  function normalizeText(value) {
+    return String(value || "").replace(/\\n/g, "\n").trim();
   }
+
+  function clearNode(node) { while (node.firstChild) node.removeChild(node.firstChild); }
 
   function appendParagraph(parent, text) {
     const p = document.createElement("p");
@@ -60,7 +65,7 @@
 
   function renderStructuredText(node, value) {
     clearNode(node);
-    const text = String(value || "").replace(/\r\n/g, "\n").trim();
+    const text = normalizeText(value).replace(/\r\n/g, "\n");
     if (!text) return;
     const blocks = text.split(/\n\s*\n/g).map((block) => block.trim()).filter(Boolean);
     blocks.forEach((block) => {
@@ -103,8 +108,49 @@
     if (render === "structured" || render === "paragraphs") {
       renderStructuredText(node, value);
     } else {
-      node.textContent = value;
+      node.textContent = normalizeText(value);
     }
+  }
+
+  function localizedScreenshotPath(src, locale) {
+    if (!src || typeof src !== "string") return src;
+    return src.replace(/StoreDockScreenshots\/[^/]+\/APP_IPHONE_67\//, `StoreDockScreenshots/${locale}/APP_IPHONE_67/`);
+  }
+
+  function localizedPreviewPath(src, locale) {
+    if (!src || typeof src !== "string") return src;
+    return src.replace(/StoreDockAppPreviews\/[^/]+\/IPHONE_67\//, `StoreDockAppPreviews/${locale}/IPHONE_67/`);
+  }
+
+  function applyLocalizedMedia(locale) {
+    document.querySelectorAll('img[src*="StoreDockScreenshots/"]').forEach((img) => {
+      if (!img.dataset.defaultSrc) img.dataset.defaultSrc = img.getAttribute("src") || "";
+      const fallback = img.dataset.defaultSrc || "";
+      const localized = localizedScreenshotPath(fallback, locale);
+      if (!localized || localized === img.getAttribute("src")) return;
+      img.onerror = () => {
+        if (img.getAttribute("src") !== fallback) img.setAttribute("src", fallback);
+      };
+      img.setAttribute("src", localized);
+    });
+
+    document.querySelectorAll('video source[src*="StoreDockAppPreviews/"], video[src*="StoreDockAppPreviews/"]').forEach((node) => {
+      if (!node.dataset.defaultSrc) node.dataset.defaultSrc = node.getAttribute("src") || "";
+      const fallback = node.dataset.defaultSrc || "";
+      const localized = localizedPreviewPath(fallback, locale);
+      if (!localized || localized === node.getAttribute("src")) return;
+      node.setAttribute("src", localized);
+      const video = node.tagName.toLowerCase() === "video" ? node : node.closest("video");
+      if (video && typeof video.load === "function") video.load();
+    });
+  }
+
+  function setDebug(locale, state) {
+    const params = getParams();
+    const enabled = params.get("metaDebug") === "1" || params.get("debug") === "metadata";
+    document.documentElement.dataset.metadataDebug = enabled ? "true" : "false";
+    const badge = document.querySelector("[data-metadata-debug-badge]");
+    if (badge) badge.textContent = `Locale: ${locale || "-"} / Metadata: ${state}`;
   }
 
   function applyEntry(locale, entry) {
@@ -112,6 +158,7 @@
     document.documentElement.lang = locale;
     document.documentElement.dir = rtlBases.has(base) ? "rtl" : "ltr";
     document.documentElement.dataset.locale = locale;
+    document.documentElement.dataset.metadataLoaded = "true";
 
     const titleParts = [entry.name, entry.subtitle].filter(Boolean);
     if (titleParts.length) {
@@ -125,16 +172,19 @@
 
     document.querySelectorAll("[data-meta-field]").forEach((node) => {
       const field = node.getAttribute("data-meta-field");
-      if (field && Object.prototype.hasOwnProperty.call(entry, field)) {
-        applyTextNode(node, entry[field]);
-      }
+      if (field && Object.prototype.hasOwnProperty.call(entry, field)) applyTextNode(node, entry[field]);
     });
 
     document.querySelectorAll("[data-url-field]").forEach((node) => {
       const field = node.getAttribute("data-url-field");
       if (field && entry[field]) node.setAttribute("href", normalizeInternalURL(entry[field]));
     });
+
+    applyLocalizedMedia(locale);
+    setDebug(locale, "loaded");
   }
+
+  setDebug("-", "loading");
 
   fetch(metadataPath, { cache: "no-store" })
     .then((response) => {
@@ -143,15 +193,17 @@
     })
     .then((all) => {
       const candidates = localeCandidates(all);
-      if (!candidates.length) return;
+      if (!candidates.length) { setDebug("-", "missing locale"); return; }
       const locale = candidates[0];
       const entry = all[locale];
-      if (!entry || typeof entry !== "object") return;
+      if (!entry || typeof entry !== "object") { setDebug(locale, "invalid entry"); return; }
       window.TwelveOathAppStoreMetadata = { locale, entry, all };
       applyEntry(locale, entry);
       document.dispatchEvent(new CustomEvent("twelveoathmetadataready", { detail: { locale, entry, all } }));
     })
     .catch((error) => {
+      document.documentElement.dataset.metadataLoaded = "false";
+      setDebug("-", "failed");
       console.warn("TwelveOath metadata source was not applied.", error);
     });
 })();
