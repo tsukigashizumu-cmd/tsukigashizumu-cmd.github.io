@@ -273,92 +273,84 @@
     .deviceStack {
       position: relative;
       min-height: 620px;
-      perspective: 1200px;
-      filter: drop-shadow(0 34px 74px rgba(0, 0, 0, .40));
+      perspective: 1400px;
+      filter: drop-shadow(0 38px 82px rgba(0, 0, 0, .38));
     }
     .phone {
       position: absolute;
       width: min(45vw, 316px);
-      aspect-ratio: 1290/2796;
+      aspect-ratio: 1290 / 2796;
       z-index: 2;
       overflow: visible;
-      padding: 8px;
-      border-radius: 48px;
+      padding: 7px;
+      border-radius: 52px;
       background:
-        linear-gradient(145deg, rgba(255,255,255,.26) 0%, rgba(68,62,54,.90) 5%, rgba(16,15,14,.98) 20%, rgba(4,4,4,1) 54%, rgba(57,52,45,.95) 82%, rgba(255,248,235,.18) 100%);
-      border: 1px solid rgba(255, 248, 235, .24);
+        linear-gradient(145deg, rgba(255, 255, 255, .24) 0%, rgba(255, 255, 255, .05) 7%, rgba(0, 0, 0, 0) 18%),
+        linear-gradient(155deg, #34302a 0%, #151311 16%, #040404 48%, #0b0a09 72%, #3a332c 100%);
+      border: 1px solid rgba(255, 248, 235, .20);
       box-shadow:
-        0 42px 88px rgba(0, 0, 0, .50),
-        0 16px 34px rgba(0, 0, 0, .32),
-        inset 0 1px 0 rgba(255, 255, 255, .34),
-        inset 1px 0 0 rgba(255, 255, 255, .12),
-        inset -1px 0 0 rgba(255, 255, 255, .08),
-        inset 0 -18px 30px rgba(0, 0, 0, .72);
+        0 44px 94px rgba(0, 0, 0, .48),
+        0 15px 34px rgba(0, 0, 0, .34),
+        inset 0 1px 0 rgba(255, 255, 255, .30),
+        inset 1px 0 0 rgba(255, 255, 255, .10),
+        inset -1px 0 0 rgba(0, 0, 0, .55),
+        inset 0 -1px 0 rgba(0, 0, 0, .78);
     }
-    .phone::before,
+    .phone::before {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      inset: 3px;
+      z-index: 2;
+      border-radius: 47px;
+      border: 1px solid rgba(255, 255, 255, .065);
+      box-shadow:
+        inset 0 0 0 2px rgba(0, 0, 0, .82),
+        inset 0 0 0 3px rgba(255, 255, 255, .035);
+    }
     .phone::after {
       content: "";
       position: absolute;
       pointer-events: none;
-    }
-    .phone::before {
-      inset: 3px;
-      border-radius: 43px;
-      z-index: 2;
-      border: 1px solid rgba(255, 255, 255, .08);
-      box-shadow:
-        inset 0 0 0 2px rgba(0, 0, 0, .78),
-        inset 0 0 0 3px rgba(255, 255, 255, .045),
-        inset 12px 0 20px rgba(255, 255, 255, .035),
-        inset -16px 0 22px rgba(0, 0, 0, .38);
-    }
-    .phone::after {
-      left: -3px;
-      top: 22%;
-      width: 3px;
-      height: 86px;
+      left: -2px;
+      top: 23%;
+      width: 2px;
+      height: 74px;
       border-radius: 999px 0 0 999px;
-      background: linear-gradient(180deg, rgba(255,248,235,.24), rgba(14,13,12,.92));
+      background: linear-gradient(180deg, rgba(255, 248, 235, .18), rgba(10, 9, 8, .92));
       box-shadow:
-        0 114px 0 rgba(14,13,12,.82),
-        calc(min(45vw, 316px) + 18px) 44px 0 rgba(14,13,12,.78);
-      opacity: .82;
+        0 104px 0 rgba(11, 10, 9, .82),
+        calc(min(45vw, 316px) + 15px) 44px 0 rgba(9, 8, 7, .78);
+      opacity: .58;
     }
     .phone img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-      border-radius: 39px;
+      border-radius: 43px;
       background: #050505;
-      border: 1px solid rgba(255, 255, 255, .075);
+      border: 1px solid rgba(255, 255, 255, .07);
       box-shadow:
-        0 0 0 1px rgba(0, 0, 0, .88),
-        inset 0 0 0 1px rgba(255, 255, 255, .05);
+        0 0 0 1px rgba(0, 0, 0, .86),
+        inset 0 0 0 1px rgba(255, 255, 255, .04);
       position: relative;
       z-index: 1;
     }
     .phone.one {
-      right: 29%;
+      right: 30%;
       top: 8px;
-      transform: rotate(-7.5deg) translateZ(-24px) scale(.955);
-      opacity: .78;
+      transform: rotate(-7deg) translateZ(-28px) scale(.955);
+      opacity: .74;
       z-index: 1;
-      filter: saturate(.86) brightness(.78);
+      filter: saturate(.88) brightness(.76);
     }
     .phone.two {
       right: 0;
-      top: 70px;
-      transform: rotate(4deg) translateZ(36px);
+      top: 66px;
+      transform: rotate(4deg) translateZ(34px);
       opacity: 1;
       z-index: 3;
-    }
-      content: "";
-      position: absolute;
-      inset: 22px;
-      border-radius: inherit;
-      border: 1px solid rgba(82, 11, 9, .26);
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.05);
     }
     section { padding: 66px 0; border-top: 1px solid var(--line); }
     .sectionHead { max-width: 760px; margin-bottom: 28px; }
@@ -373,27 +365,84 @@
     .feature { border: 1px solid var(--line); border-radius: 18px; padding: 18px; background: rgba(255,255,255,.045); }
     .feature strong { display:block; margin-bottom: 6px; }
     .feature span { color: var(--muted); line-height: 1.56; }
-    .screens { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; align-items: start; }
-    .screens img { width: 100%; border-radius: 24px; border: 1px solid var(--line); box-shadow: 0 20px 70px rgba(0,0,0,.30); background: #090706; }
+    .screens { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; align-items: start; }
+    .deviceShot {
+      position: relative;
+      margin: 0;
+      padding: 7px;
+      border-radius: 44px;
+      aspect-ratio: 1290 / 2796;
+      overflow: visible;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, .22) 0%, rgba(255, 255, 255, .04) 8%, rgba(0, 0, 0, 0) 18%),
+        linear-gradient(155deg, #302b26 0%, #12100f 18%, #030303 50%, #0a0908 72%, #352e28 100%);
+      border: 1px solid rgba(255, 248, 235, .18);
+      box-shadow:
+        0 28px 76px rgba(0, 0, 0, .38),
+        0 10px 28px rgba(0, 0, 0, .26),
+        inset 0 1px 0 rgba(255, 255, 255, .24),
+        inset 1px 0 0 rgba(255, 255, 255, .08),
+        inset -1px 0 0 rgba(0, 0, 0, .55);
+    }
+    .deviceShot::before,
+    .appPreviewFrame::before {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      inset: 3px;
+      z-index: 2;
+      border: 1px solid rgba(255, 255, 255, .06);
+      box-shadow:
+        inset 0 0 0 2px rgba(0, 0, 0, .82),
+        inset 0 0 0 3px rgba(255, 255, 255, .035);
+    }
+    .deviceShot::before { border-radius: 39px; }
+    .deviceShot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 35px;
+      border: 1px solid rgba(255, 255, 255, .07);
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, .86);
+      background: #050505;
+      position: relative;
+      z-index: 1;
+    }
 
     .previewSection { background: rgba(255, 248, 235, .022); }
     .previewGrid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 34px; align-items: center; }
+    .appPreviewShell { width: min(100%, 420px); justify-self: center; }
     .appPreviewFrame {
-      width: min(100%, 420px);
-      justify-self: center;
-      border-radius: 34px;
-      padding: 10px;
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,248,235,.10), rgba(255,248,235,.035));
-      box-shadow: 0 28px 90px rgba(0,0,0,.36);
+      position: relative;
+      width: 100%;
+      aspect-ratio: 886 / 1920;
+      padding: 7px;
+      border-radius: 46px;
+      overflow: visible;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, .22) 0%, rgba(255, 255, 255, .04) 8%, rgba(0, 0, 0, 0) 18%),
+        linear-gradient(155deg, #302b26 0%, #12100f 18%, #030303 50%, #0a0908 72%, #352e28 100%);
+      border: 1px solid rgba(255, 248, 235, .18);
+      box-shadow:
+        0 30px 84px rgba(0, 0, 0, .40),
+        0 12px 30px rgba(0, 0, 0, .28),
+        inset 0 1px 0 rgba(255, 255, 255, .24),
+        inset 1px 0 0 rgba(255, 255, 255, .08),
+        inset -1px 0 0 rgba(0, 0, 0, .55);
     }
+    .appPreviewFrame::before { border-radius: 41px; }
     .appPreviewVideo {
       display: block;
       width: 100%;
-      aspect-ratio: 886 / 1920;
+      height: 100%;
       object-fit: cover;
-      border-radius: 26px;
-      background: #090706;
+      border-radius: 37px;
+      background: #050505;
+      border: 1px solid rgba(255, 255, 255, .07);
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, .86);
+      position: relative;
+      z-index: 1;
     }
     .appPreviewCaption { margin-top: 12px; color: var(--soft); font-size: 13px; text-align: center; }
     html[dir="rtl"] .appPreviewCaption { text-align: center; }
@@ -603,7 +652,7 @@
           <a href="#why" data-landing-key="navWhy">Why</a>
           <a href="#features" data-landing-key="navFeatures">Features</a>
           <a href="support/" data-url-field="supportURL" data-landing-key="navSupport">Support</a>
-          <span class="siteVersion" data-site-version="1.0.19" aria-label="Page version">v1.0.19</span><details class="localeMenu" data-locale-menu>
+          <span class="siteVersion" data-site-version="1.0.21" aria-label="Page version">v1.0.21</span><details class="localeMenu" data-locale-menu>
             <summary class="localeMenuSummary" aria-label="Language"><span data-locale-menu-current data-landing-key="languageLabel">Language</span></summary>
             <div class="localeMenuList" data-locale-menu-list role="menu" aria-label="Language options"></div>
           </details><a class="jaPreviewLink" href="index.html" data-ja-preview-link>通常ページ</a>
@@ -671,12 +720,15 @@
           <h2 data-landing-key="previewTitle">Preview the app in this language.</h2>
           <p class="bodyText" data-landing-key="previewBody">The video below is loaded from <code>assets/StoreDockAppPreviews/{locale}/IPHONE_67/01.mp4</code>. When you change the language, TwelveOath tries to show the matching App Preview video and falls back to the default content if needed.</p>
         </div>
-        <div class="appPreviewFrame">
-          <video class="appPreviewVideo" controls playsinline muted loop preload="metadata" poster="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/01.png">
-            <source src="assets/StoreDockAppPreviews/en-US/IPHONE_67/01.mp4" type="video/mp4">
-          </video>
+        <div class="appPreviewShell">
+          <div class="appPreviewFrame">
+            <video class="appPreviewVideo" controls playsinline muted loop preload="metadata" poster="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/02.png">
+              <source src="assets/StoreDockAppPreviews/en-US/IPHONE_67/01.mp4" type="video/mp4">
+            </video>
+          </div>
           <div class="appPreviewCaption" data-landing-key="previewCaption">App Preview MP4 · locale aware</div>
         </div>
+</div>
       </div>
     </section>
 
@@ -687,9 +739,13 @@
           <p data-landing-key="galleryBody">Cancellation recovery becomes more than an administrative task. It becomes a deliberate action to recover time, revenue, and confidence.</p>
         </div>
         <div class="screens">
-          <img loading="lazy" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/02.png" alt="TwelveOath screenshot showing cancellation recovery flow">
-          <img loading="lazy" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/06.png" alt="TwelveOath screenshot showing first circle and matching">
-          <img loading="lazy" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/10.png" alt="TwelveOath screenshot showing final recovery interaction">
+          <figure class="deviceShot"><img loading="lazy" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/02.png" alt="TwelveOath screenshot showing private offer and wax seal invitation"></figure>
+          <figure class="deviceShot"><img loading="lazy" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/05.png" alt="TwelveOath screenshot showing schedule and recovered open slot"></figure>
+          <figure class="deviceShot"><img loading="lazy" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/03.png" alt="TwelveOath screenshot showing First Circle clients"></figure>
+          <figure class="deviceShot"><img loading="lazy" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/08.png" alt="TwelveOath screenshot showing the reason for choosing a client"></figure>
+          <figure class="deviceShot"><img loading="lazy" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/09.png" alt="TwelveOath screenshot showing awaiting reply status"></figure>
+          <figure class="deviceShot"><img loading="lazy" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/04.png" alt="TwelveOath screenshot showing recovered booking record"></figure>
+          <figure class="deviceShot"><img loading="lazy" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/01.png" alt="TwelveOath screenshot showing monthly booking value dashboard"></figure>
         </div>
       </div>
     </section>
