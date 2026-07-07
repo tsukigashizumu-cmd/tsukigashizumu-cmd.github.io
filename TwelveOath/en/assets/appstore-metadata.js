@@ -113,6 +113,9 @@
     const render = node.getAttribute("data-meta-render") || "text";
     if (render === "structured" || render === "paragraphs") {
       renderStructuredText(node, value);
+    } else if (render === "preline" || render === "raw-description") {
+      clearNode(node);
+      node.textContent = normalizeText(value);
     } else {
       node.textContent = normalizeText(value);
     }

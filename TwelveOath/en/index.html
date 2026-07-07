@@ -261,19 +261,30 @@
     .screens img { width: 100%; border-radius: 24px; border: 1px solid var(--line); box-shadow: 0 20px 70px rgba(0,0,0,.30); background: #090706; }
     .quote { font-size: clamp(28px, 4.4vw, 58px); line-height: 1.04; letter-spacing: -.05em; margin: 0; }
     .metadataStory { background: rgba(255, 248, 235, .028); }
-    .metadataPanel { max-width: 860px; border: 1px solid var(--line); border-radius: 24px; padding: 20px; background: rgba(255,255,255,.035); box-shadow: 0 18px 54px rgba(0,0,0,.18); }
-    .metadataRows { display: grid; gap: 8px; margin: 0 0 16px; }
+    .metadataPanel { max-width: 900px; border: 1px solid var(--line); border-radius: 24px; padding: 22px; background: rgba(255,255,255,.035); box-shadow: 0 18px 54px rgba(0,0,0,.18); }
+    .metadataRows { display: grid; gap: 8px; margin: 0 0 18px; }
     .metadataRow { display: flex; justify-content: space-between; gap: 18px; color: var(--muted); font-size: 14px; border-bottom: 1px solid rgba(255,255,255,.07); padding-bottom: 8px; }
     .metadataRow strong { color: var(--text); text-align: right; }
-    .metadataDetails { margin-top: 10px; }
-    .metadataDetails summary { cursor: pointer; color: var(--text); font-weight: 850; list-style: none; }
-    .metadataDetails summary::-webkit-details-marker { display: none; }
-    .metadataDetails summary::after { content: "↓"; display: inline-block; margin-left: 8px; color: var(--soft); }
-    .metadataDetails[open] summary::after { content: "↑"; }
-    .metadataBody { margin-top: 16px; max-height: 420px; overflow: auto; color: var(--muted); font-size: 16px; line-height: 1.82; padding: 16px; border: 1px solid rgba(255,255,255,.08); border-radius: 18px; background: rgba(0,0,0,.18); }
-    .metadataBody p { margin: 0 0 1.05em; color: var(--muted); }
-    .metadataBody ul { margin: 0 0 1.05em 1.2em; padding: 0; color: var(--muted); }
-    .metadataBody li { margin: .28em 0; }
+    .metadataDescriptionTitle { margin: 18px 0 10px; color: var(--text); font-size: 15px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .metadataBody {
+      margin-top: 10px;
+      max-width: 820px;
+      color: var(--muted);
+      font-size: clamp(15px, 1.45vw, 17px);
+      line-height: 1.92;
+      white-space: pre-line;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 18px;
+      background: rgba(0,0,0,.18);
+      overflow-wrap: anywhere;
+    }
+    html[data-locale^="ja"] .metadataBody,
+    html[data-locale^="zh"] .metadataBody,
+    html[data-locale^="ko"] .metadataBody { word-break: auto-phrase; overflow-wrap: normal; line-break: strict; }
+    html[data-locale^="ar"] .metadataBody,
+    html[data-locale^="he"] .metadataBody,
+    html[data-locale^="ur"] .metadataBody { text-align: start; line-height: 2.02; }
     .metadataHint { max-width: 760px; }
     .metadataHint code { color: var(--text); background: rgba(255,255,255,.08); border: 1px solid var(--line); border-radius: 8px; padding: 2px 6px; }
     html[data-metadata-loaded="true"] h1[data-meta-field="subtitle"] { max-width: 760px; }
@@ -358,7 +369,7 @@
           <a href="#why">Why</a>
           <a href="#features">Features</a>
           <a href="support/" data-url-field="supportURL">Support</a>
-          <span class="siteVersion" data-site-version="1.0.4" aria-label="Page version">v1.0.4</span><details class="localeMenu" data-locale-menu>
+          <span class="siteVersion" data-site-version="1.0.5" aria-label="Page version">v1.0.5</span><details class="localeMenu" data-locale-menu>
             <summary class="localeMenuSummary" aria-label="Language"><span data-locale-menu-current>Language</span></summary>
             <div class="localeMenuList" data-locale-menu-list role="menu" aria-label="Language options"></div>
           </details>
@@ -437,9 +448,9 @@
     <section id="metadata-story" class="metadataStory">
       <div class="wrap">
         <div class="sectionHead">
-          <div class="eyebrow">Metadata Source</div>
-          <h2>App Store metadata is connected.</h2>
-          <p class="metadataHint">This page reads <code>assets/locales/appstore-metadata.json</code>. The long App Store description is kept as source text below, not used as the main landing page layout.</p>
+          <div class="eyebrow">App Store Description</div>
+          <h2 data-meta-field="name">TwelveOath</h2>
+          <p class="metadataHint">This section renders the selected locale's <code>description</code> from <code>assets/locales/appstore-metadata.json</code> as-is.</p>
         </div>
         <div class="metadataPanel">
           <div class="metadataRows">
@@ -447,12 +458,8 @@
             <div class="metadataRow"><span>App name</span><strong data-meta-field="name">TwelveOath</strong></div>
             <div class="metadataRow"><span>Subtitle</span><strong data-meta-field="subtitle">An empty hour should not stay empty.</strong></div>
           </div>
-          <details class="metadataDetails">
-            <summary>Show App Store description source</summary>
-            <div class="metadataBody" data-meta-field="description" data-meta-render="structured">
-              <p>TwelveOath is a focused cancellation recovery app for small appointment-based businesses. Prepare who to contact next before the panic begins.</p>
-            </div>
-          </details>
+          <div class="metadataDescriptionTitle">Description</div>
+          <div class="metadataBody" data-meta-field="description" data-meta-render="preline">TwelveOath is a focused cancellation recovery app for small appointment-based businesses. Prepare who to contact next before the panic begins.</div>
         </div>
       </div>
     </section>
