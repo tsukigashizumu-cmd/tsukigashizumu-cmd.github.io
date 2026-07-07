@@ -57,7 +57,8 @@ window.TwelveOathLandingLocales["ja"] = {
   overviewEyebrow: "概要",
   overviewTitle: "TwelveOathが必要な理由。",
 
-  finalQuote: "キャンセルは、その時間の終わりではありません。次の案内を始める合図にもできます。",
+  finalQuote: "キャンセルは、終わりではありません。
+次の案内を始める合図です。",
   finalPrimary: "App StoreでTwelveOathを見る",
   finalSecondary: "プライバシーポリシー",
 

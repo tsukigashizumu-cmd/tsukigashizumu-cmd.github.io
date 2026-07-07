@@ -409,7 +409,26 @@
     html[data-locale^="ur"] .overviewBody {
       text-align: start;
     }
-    .quote { font-size: clamp(28px, 4.4vw, 58px); line-height: 1.04; letter-spacing: -.05em; margin: 0; }
+    .quote {
+      max-width: 980px;
+      font-size: clamp(30px, 4vw, 54px);
+      line-height: 1.08;
+      letter-spacing: -.04em;
+      margin: 0;
+      text-wrap: balance;
+    }
+    html[data-locale^="ja"] .quote,
+    html[data-locale^="zh"] .quote,
+    html[data-locale^="ko"] .quote {
+      max-width: 760px;
+      font-size: clamp(28px, 3.25vw, 46px);
+      line-height: 1.18;
+      letter-spacing: -.025em;
+      white-space: pre-line;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+      line-break: strict;
+    }
     .metadataStory {
       background:
         radial-gradient(circle at 18% 0%, rgba(201, 75, 55, .13), transparent 28%),
@@ -587,7 +606,7 @@
           <a href="#why" data-landing-key="navWhy">Why</a>
           <a href="#features" data-landing-key="navFeatures">Features</a>
           <a href="support/" data-url-field="supportURL" data-landing-key="navSupport">Support</a>
-          <span class="siteVersion" data-site-version="1.0.15" aria-label="Page version">v1.0.15</span><details class="localeMenu" data-locale-menu>
+          <span class="siteVersion" data-site-version="1.0.15" aria-label="Page version">v1.0.16</span><details class="localeMenu" data-locale-menu>
             <summary class="localeMenuSummary" aria-label="Language"><span data-locale-menu-current data-landing-key="languageLabel">Language</span></summary>
             <div class="localeMenuList" data-locale-menu-list role="menu" aria-label="Language options"></div>
           </details><a class="jaPreviewLink" href="ja-preview.html" data-ja-preview-link>日本語確認</a>
