@@ -108,6 +108,15 @@
     .screens { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; align-items: start; }
     .screens img { width: 100%; border-radius: 24px; border: 1px solid var(--line); box-shadow: 0 20px 70px rgba(0,0,0,.30); background: #090706; }
     .quote { font-size: clamp(28px, 4.4vw, 58px); line-height: 1.04; letter-spacing: -.05em; margin: 0; }
+    .metadataStory { background: rgba(255, 248, 235, .035); }
+    .metadataBody { max-width: 860px; color: var(--muted); font-size: 17px; line-height: 1.78; }
+    .metadataBody p { margin: 0 0 18px; color: var(--muted); }
+    .metadataBody ul { margin: 0 0 18px 1.2em; padding: 0; color: var(--muted); }
+    .metadataBody li { margin: 4px 0; }
+    .metadataHint code { color: var(--text); background: rgba(255,255,255,.08); border: 1px solid var(--line); border-radius: 8px; padding: 2px 6px; }
+    html[dir="rtl"] body { direction: rtl; }
+    html[dir="rtl"] .deviceStack, html[dir="rtl"] .phone { direction: ltr; }
+    html[dir="rtl"] .foot, html[dir="rtl"] nav { direction: rtl; }
     footer { border-top: 1px solid var(--line); padding: 34px 0 48px; color: var(--soft); }
     .foot { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; font-size: 14px; }
     .foot a { color: var(--muted); text-decoration: none; margin-left: 14px; }
@@ -157,8 +166,8 @@
       <div class="wrap heroGrid">
         <div>
           <div class="eyebrow">Cancellation Recovery Ritual</div>
-          <h1>An empty hour should not stay empty.</h1>
-          <p class="lead">TwelveOath is not a general booking system. It is a focused app for the painful moment after a cancellation, helping small appointment-based businesses prepare who to contact next before the panic begins.</p>
+          <h1 data-meta-field="subtitle">An empty hour should not stay empty.</h1>
+          <p class="lead" data-meta-field="promotionalText">TwelveOath is not a general booking system. It is a focused app for the painful moment after a cancellation, helping small appointment-based businesses prepare who to contact next before the panic begins.</p>
           <div class="actions">
             <a class="primary" href="https://apps.apple.com/us/app/twelveoath/id6786129971">Download on the App Store</a>
             <a class="secondary" href="#features">See how it works</a>
@@ -213,6 +222,20 @@
           <img loading="lazy" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/02.png" alt="TwelveOath screenshot showing cancellation recovery flow">
           <img loading="lazy" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/06.png" alt="TwelveOath screenshot showing first circle and matching">
           <img loading="lazy" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/10.png" alt="TwelveOath screenshot showing final recovery interaction">
+        </div>
+      </div>
+    </section>
+
+
+    <section id="metadata-story" class="metadataStory">
+      <div class="wrap">
+        <div class="sectionHead">
+          <div class="eyebrow">App Store Metadata Source</div>
+          <h2><span data-meta-field="name">TwelveOath</span> in this language.</h2>
+          <p class="metadataHint">This section is rendered from <code>assets/locales/appstore-metadata.json</code>. Add <code>?locale=ja</code> or <code>?locale=de-DE</code> to preview another App Store locale.</p>
+        </div>
+        <div class="metadataBody" data-meta-field="description" data-meta-render="structured">
+          <p>TwelveOath is a focused cancellation recovery app for small appointment-based businesses. Prepare who to contact next before the panic begins.</p>
         </div>
       </div>
     </section>

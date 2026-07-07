@@ -2,6 +2,7 @@
   const currentScript = document.currentScript;
   const metadataPath = currentScript?.dataset?.metadataPath || "assets/locales/appstore-metadata.json";
   const defaultLocale = currentScript?.dataset?.defaultLocale || "en-US";
+  const rtlBases = new Set(["ar", "he", "ur"]);
 
   function normalizeInternalURL(value) {
     if (!value || typeof value !== "string") return value;
@@ -12,10 +13,14 @@
       .replace("/TwelveOath/support/", "/TwelveOath/en/support/");
   }
 
-  function localeCandidates(all) {
+  function currentRequestedLocale() {
     const params = new URLSearchParams(window.location.search);
-    const requested = params.get("locale") || params.get("lang") || navigator.language || defaultLocale;
-    const normalized = requested.replace("_", "-");
+    return params.get("locale") || params.get("lang") || navigator.language || defaultLocale;
+  }
+
+  function localeCandidates(all) {
+    const requested = currentRequestedLocale();
+    const normalized = String(requested).replace("_", "-");
     const base = normalized.split("-")[0];
     const candidates = [normalized, base, defaultLocale, "en-US", "ja"];
     return [...new Set(candidates)].filter(Boolean).filter((key) => Object.prototype.hasOwnProperty.call(all, key));
@@ -33,8 +38,80 @@
     return collapsed.length > 170 ? collapsed.slice(0, 167).trimEnd() + "..." : collapsed;
   }
 
+  function clearNode(node) {
+    while (node.firstChild) node.removeChild(node.firstChild);
+  }
+
+  function appendParagraph(parent, text) {
+    const p = document.createElement("p");
+    p.textContent = text.trim();
+    parent.appendChild(p);
+  }
+
+  function appendList(parent, items) {
+    const ul = document.createElement("ul");
+    items.forEach((item) => {
+      const li = document.createElement("li");
+      li.textContent = item.replace(/^[•・\-*]\s*/, "").trim();
+      ul.appendChild(li);
+    });
+    parent.appendChild(ul);
+  }
+
+  function renderStructuredText(node, value) {
+    clearNode(node);
+    const text = String(value || "").replace(/\r\n/g, "\n").trim();
+    if (!text) return;
+    const blocks = text.split(/\n\s*\n/g).map((block) => block.trim()).filter(Boolean);
+    blocks.forEach((block) => {
+      const lines = block.split("\n").map((line) => line.trim()).filter(Boolean);
+      if (lines.length && lines.every((line) => /^[•・\-*]\s+/.test(line))) {
+        appendList(node, lines);
+        return;
+      }
+      let paragraphLines = [];
+      let bulletLines = [];
+      const flushParagraph = () => {
+        if (paragraphLines.length) {
+          appendParagraph(node, paragraphLines.join("\n"));
+          paragraphLines = [];
+        }
+      };
+      const flushBullets = () => {
+        if (bulletLines.length) {
+          appendList(node, bulletLines);
+          bulletLines = [];
+        }
+      };
+      lines.forEach((line) => {
+        if (/^[•・\-*]\s+/.test(line)) {
+          flushParagraph();
+          bulletLines.push(line);
+        } else {
+          flushBullets();
+          paragraphLines.push(line);
+        }
+      });
+      flushParagraph();
+      flushBullets();
+    });
+  }
+
+  function applyTextNode(node, value) {
+    if (value === undefined || value === null || value === "") return;
+    const render = node.getAttribute("data-meta-render") || "text";
+    if (render === "structured" || render === "paragraphs") {
+      renderStructuredText(node, value);
+    } else {
+      node.textContent = value;
+    }
+  }
+
   function applyEntry(locale, entry) {
+    const base = locale.split("-")[0];
     document.documentElement.lang = locale;
+    document.documentElement.dir = rtlBases.has(base) ? "rtl" : "ltr";
+    document.documentElement.dataset.locale = locale;
 
     const titleParts = [entry.name, entry.subtitle].filter(Boolean);
     if (titleParts.length) {
@@ -48,7 +125,9 @@
 
     document.querySelectorAll("[data-meta-field]").forEach((node) => {
       const field = node.getAttribute("data-meta-field");
-      if (field && entry[field]) node.textContent = entry[field];
+      if (field && Object.prototype.hasOwnProperty.call(entry, field)) {
+        applyTextNode(node, entry[field]);
+      }
     });
 
     document.querySelectorAll("[data-url-field]").forEach((node) => {
