@@ -84,7 +84,7 @@
       let bulletLines = [];
       const flushParagraph = () => {
         if (paragraphLines.length) {
-          appendParagraph(node, paragraphLines.join("\n"));
+          appendParagraph(node, paragraphLines.join(" "));
           paragraphLines = [];
         }
       };
@@ -256,6 +256,8 @@
     const description = shortDescription(entry);
     setMeta('meta[name="description"]', description);
     setMeta('meta[property="og:description"]', description);
+
+    document.querySelectorAll("[data-meta-current-locale]").forEach((node) => { node.textContent = locale; });
 
     document.querySelectorAll("[data-meta-field]").forEach((node) => {
       const field = node.getAttribute("data-meta-field");
