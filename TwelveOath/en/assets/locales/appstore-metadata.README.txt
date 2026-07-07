@@ -1,0 +1,30 @@
+TwelveOath App Store metadata source
+
+Place the full App Store metadata JSON here:
+
+  en/assets/locales/appstore-metadata.json
+
+Expected shape:
+
+{
+  "en-US": {
+    "name": "TwelveOath",
+    "subtitle": "Canceled? Know who to contact",
+    "promotionalText": "...",
+    "description": "...",
+    "marketingURL": "https://tsukigashizumu-cmd.github.io/TwelveOath/en/",
+    "privacyPolicyURL": "https://tsukigashizumu-cmd.github.io/TwelveOath/en/privacy/",
+    "supportURL": "https://tsukigashizumu-cmd.github.io/TwelveOath/en/support/"
+  },
+  "ja": { ... }
+}
+
+The web page reads this file with JavaScript.
+Locale selection order:
+  1. ?locale=ja or ?lang=ja in the URL
+  2. browser language
+  3. en-US
+
+Compatibility note:
+If metadata contains old URLs like /TwelveOath/privacy/ or /TwelveOath/support/,
+the page normalizes them to /TwelveOath/en/privacy/ and /TwelveOath/en/support/.
