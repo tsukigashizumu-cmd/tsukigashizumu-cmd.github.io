@@ -172,6 +172,16 @@
   }
 
   function setupLocaleSelectors(all, activeLocale) {
+    const applyLocale = (locale) => {
+      if (!locale || !all[locale]) return;
+      try { window.localStorage?.setItem("TwelveOath.locale", locale); } catch (_) {}
+      setURLLocale(locale);
+      window.TwelveOathAppStoreMetadata = { locale, entry: all[locale], all };
+      applyEntry(locale, all[locale]);
+      setupLocaleSelectors(all, locale);
+      document.dispatchEvent(new CustomEvent("twelveoathmetadataready", { detail: { locale, entry: all[locale], all } }));
+    };
+
     document.querySelectorAll("[data-locale-select]").forEach((select) => {
       if (!select.dataset.localePopulated) {
         const fragment = document.createDocumentFragment();
@@ -183,19 +193,42 @@
         });
         select.replaceChildren(fragment);
         select.dataset.localePopulated = "true";
-        select.addEventListener("change", () => {
-          const locale = select.value;
-          if (!locale || !all[locale]) return;
-          try { window.localStorage?.setItem("TwelveOath.locale", locale); } catch (_) {}
-          setURLLocale(locale);
-          window.TwelveOathAppStoreMetadata = { locale, entry: all[locale], all };
-          applyEntry(locale, all[locale]);
-          setupLocaleSelectors(all, locale);
-          document.dispatchEvent(new CustomEvent("twelveoathmetadataready", { detail: { locale, entry: all[locale], all } }));
-        });
+        select.addEventListener("change", () => applyLocale(select.value));
       }
       select.value = activeLocale;
       select.setAttribute("aria-label", `Language: ${activeLocale}`);
+    });
+
+    document.querySelectorAll("[data-locale-menu]").forEach((menu) => {
+      const current = menu.querySelector("[data-locale-menu-current]");
+      const list = menu.querySelector("[data-locale-menu-list]");
+      const activeEntry = all[activeLocale] || {};
+      if (current) current.textContent = localeDisplayName(activeLocale, activeEntry);
+      if (!list) return;
+      list.replaceChildren();
+      sortedLocales(all).forEach((locale) => {
+        const entry = all[locale] || {};
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "localeMenuButton";
+        button.setAttribute("role", "menuitem");
+        if (locale === activeLocale) button.setAttribute("aria-current", "true");
+
+        const name = document.createElement("span");
+        name.className = "localeMenuName";
+        name.textContent = entry.name || locale;
+
+        const code = document.createElement("span");
+        code.className = "localeMenuCode";
+        code.textContent = locale;
+
+        button.append(name, code);
+        button.addEventListener("click", () => {
+          menu.removeAttribute("open");
+          applyLocale(locale);
+        });
+        list.appendChild(button);
+      });
     });
   }
 

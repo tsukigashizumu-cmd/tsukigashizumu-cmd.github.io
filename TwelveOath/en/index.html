@@ -107,6 +107,100 @@
       cursor: pointer;
     }
     .localeSelect option { color: #120d0a; background: #fff6e7; }
+
+
+    .localeMenu {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+    .localeMenuSummary {
+      list-style: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 30px;
+      border: 1px solid rgba(255, 248, 235, .22);
+      border-radius: 999px;
+      background: rgba(255, 248, 235, .08);
+      color: var(--text);
+      padding: 0 11px;
+      font-size: 12px;
+      font-weight: 900;
+      cursor: pointer;
+      white-space: nowrap;
+      user-select: none;
+    }
+    .localeMenuSummary::-webkit-details-marker { display: none; }
+    .localeMenuSummary::after {
+      content: "▾";
+      opacity: .72;
+      font-size: 10px;
+      transform: translateY(-1px);
+    }
+    .localeMenu[open] .localeMenuSummary {
+      background: rgba(255, 248, 235, .14);
+      border-color: rgba(255, 248, 235, .34);
+    }
+    .localeMenuList {
+      position: absolute;
+      z-index: 50;
+      top: calc(100% + 10px);
+      right: 0;
+      width: min(360px, calc(100vw - 24px));
+      max-height: min(520px, calc(100vh - 140px));
+      overflow: auto;
+      padding: 8px;
+      border: 1px solid rgba(255, 248, 235, .18);
+      border-radius: 18px;
+      background: rgba(24, 14, 11, .97);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, .45);
+      backdrop-filter: blur(18px);
+    }
+    .localeMenuButton {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border: 0;
+      border-radius: 12px;
+      background: transparent;
+      color: var(--muted);
+      padding: 10px 11px;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 800;
+      text-align: left;
+      cursor: pointer;
+    }
+    .localeMenuButton:hover,
+    .localeMenuButton:focus-visible {
+      outline: none;
+      background: rgba(255, 248, 235, .08);
+      color: var(--text);
+    }
+    .localeMenuButton[aria-current="true"] {
+      background: rgba(210, 62, 47, .20);
+      color: var(--text);
+    }
+    .localeMenuCode {
+      font-variant-numeric: tabular-nums;
+      opacity: .74;
+      font-size: 12px;
+      flex: 0 0 auto;
+    }
+    .localeMenuName {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      min-width: 0;
+    }
+    @media (max-width: 760px) {
+      .localeMenuSummary { min-height: 26px; padding: 0 9px; font-size: 11px; }
+      .localeMenuList { right: -72px; }
+    }
+
     .srOnly {
       position: absolute;
       width: 1px;
@@ -254,7 +348,10 @@
           <a href="#why">Why</a>
           <a href="#features">Features</a>
           <a href="support/" data-url-field="supportURL">Support</a>
-          <span class="siteVersion" data-site-version="1.0.2" aria-label="Page version">v1.0.2</span><label class="localeSelectWrap"><span class="srOnly">Language</span><select class="localeSelect" data-locale-select aria-label="Language"><option value="">Language</option></select></label>
+          <span class="siteVersion" data-site-version="1.0.3" aria-label="Page version">v1.0.3</span><details class="localeMenu" data-locale-menu>
+            <summary class="localeMenuSummary" aria-label="Language"><span data-locale-menu-current>Language</span></summary>
+            <div class="localeMenuList" data-locale-menu-list role="menu" aria-label="Language options"></div>
+          </details>
           <a class="appstore" href="https://apps.apple.com/us/app/twelveoath/id6786129971">View on App Store</a>
         </div>
       </nav>
