@@ -64,6 +64,26 @@
       font-weight: 700; color: var(--text);
     }
     .appstore:hover { background: rgba(255, 248, 235, .16); }
+
+    .siteVersion {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 28px;
+      padding: 0 10px;
+      border: 1px solid rgba(255, 248, 235, .20);
+      border-radius: 999px;
+      color: var(--soft);
+      background: rgba(255, 248, 235, .065);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .02em;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+    @media (max-width: 760px) {
+      .siteVersion { font-size: 11px; padding: 0 8px; min-height: 26px; }
+    }
     .hero { padding: 82px 0 66px; position: relative; overflow: hidden; }
     .heroGrid { display: grid; grid-template-columns: 1.04fr .96fr; gap: 46px; align-items: center; }
     .eyebrow { color: var(--accent2); font-size: 13px; text-transform: uppercase; letter-spacing: .18em; font-weight: 800; }
@@ -196,6 +216,7 @@
           <a href="#why">Why</a>
           <a href="#features">Features</a>
           <a href="support/" data-url-field="supportURL">Support</a>
+          <span class="siteVersion" data-site-version="1.0.1" aria-label="Page version">v1.0.1</span>
           <a class="appstore" href="https://apps.apple.com/us/app/twelveoath/id6786129971">View on App Store</a>
         </div>
       </nav>
