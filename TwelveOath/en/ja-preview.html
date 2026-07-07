@@ -270,14 +270,89 @@
     .primary { background: linear-gradient(135deg, var(--accent), #9a2d22); color: #fff; box-shadow: 0 18px 54px rgba(201, 75, 55, .32); }
     .secondary { border: 1px solid var(--line); color: var(--text); background: rgba(255,255,255,.04); }
     .note { margin-top: 18px; color: var(--soft); font-size: 14px; }
-    .deviceStack { position: relative; min-height: 620px; }
-    .phone {
-      position: absolute; border-radius: 34px; overflow: hidden; background: #090706; border: 1px solid rgba(255, 248, 235, .18);
-      box-shadow: var(--shadow); width: min(45vw, 308px); aspect-ratio: 1290/2796; z-index: 2;
+    .deviceStack {
+      position: relative;
+      min-height: 620px;
+      perspective: 1200px;
+      filter: drop-shadow(0 34px 74px rgba(0, 0, 0, .40));
     }
-    .phone img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .phone.one { right: 26%; top: 0; transform: rotate(-4deg); }
-    .phone.two { right: 0; top: 74px; transform: rotate(5deg); opacity: .96; }
+    .phone {
+      position: absolute;
+      width: min(45vw, 316px);
+      aspect-ratio: 1290/2796;
+      z-index: 2;
+      overflow: visible;
+      padding: 8px;
+      border-radius: 48px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.26) 0%, rgba(68,62,54,.90) 5%, rgba(16,15,14,.98) 20%, rgba(4,4,4,1) 54%, rgba(57,52,45,.95) 82%, rgba(255,248,235,.18) 100%);
+      border: 1px solid rgba(255, 248, 235, .24);
+      box-shadow:
+        0 42px 88px rgba(0, 0, 0, .50),
+        0 16px 34px rgba(0, 0, 0, .32),
+        inset 0 1px 0 rgba(255, 255, 255, .34),
+        inset 1px 0 0 rgba(255, 255, 255, .12),
+        inset -1px 0 0 rgba(255, 255, 255, .08),
+        inset 0 -18px 30px rgba(0, 0, 0, .72);
+    }
+    .phone::before,
+    .phone::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+    }
+    .phone::before {
+      inset: 3px;
+      border-radius: 43px;
+      z-index: 2;
+      border: 1px solid rgba(255, 255, 255, .08);
+      box-shadow:
+        inset 0 0 0 2px rgba(0, 0, 0, .78),
+        inset 0 0 0 3px rgba(255, 255, 255, .045),
+        inset 12px 0 20px rgba(255, 255, 255, .035),
+        inset -16px 0 22px rgba(0, 0, 0, .38);
+    }
+    .phone::after {
+      left: -3px;
+      top: 22%;
+      width: 3px;
+      height: 86px;
+      border-radius: 999px 0 0 999px;
+      background: linear-gradient(180deg, rgba(255,248,235,.24), rgba(14,13,12,.92));
+      box-shadow:
+        0 114px 0 rgba(14,13,12,.82),
+        calc(min(45vw, 316px) + 18px) 44px 0 rgba(14,13,12,.78);
+      opacity: .82;
+    }
+    .phone img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 39px;
+      background: #050505;
+      border: 1px solid rgba(255, 255, 255, .075);
+      box-shadow:
+        0 0 0 1px rgba(0, 0, 0, .88),
+        inset 0 0 0 1px rgba(255, 255, 255, .05);
+      position: relative;
+      z-index: 1;
+    }
+    .phone.one {
+      right: 29%;
+      top: 8px;
+      transform: rotate(-7.5deg) translateZ(-24px) scale(.955);
+      opacity: .78;
+      z-index: 1;
+      filter: saturate(.86) brightness(.78);
+    }
+    .phone.two {
+      right: 0;
+      top: 70px;
+      transform: rotate(4deg) translateZ(36px);
+      opacity: 1;
+      z-index: 3;
+    }
     .seal {
       position: absolute;
       right: 238px;
@@ -535,10 +610,11 @@
     @media (max-width: 860px) {
       .heroGrid, .split { grid-template-columns: 1fr; }
       .deviceStack { min-height: 520px; }
-      .phone { width: min(58vw, 260px); }
-      .phone.one { left: 2%; right: auto; }
-      .phone.two { right: 2%; }
-      .seal { width: 82px; height: 82px; font-size: 22px; right: 44%; top: 342px; }
+      .phone { width: min(58vw, 268px); padding: 7px; border-radius: 42px; }
+      .phone::before { border-radius: 38px; }
+      .phone img { border-radius: 34px; }
+      .phone.one { right: 36%; }
+      .seal { right: 43%; top: 312px; }
       .cards { grid-template-columns: 1fr; }
       .screens { grid-template-columns: 1fr; }
       .navlinks a:not(.appstore) { display: none; }
@@ -569,7 +645,7 @@
           <a href="#why" data-landing-key="navWhy">Why</a>
           <a href="#features" data-landing-key="navFeatures">Features</a>
           <a href="support/" data-url-field="supportURL" data-landing-key="navSupport">Support</a>
-          <span class="siteVersion" data-site-version="1.0.13" aria-label="Page version">v1.0.17</span><details class="localeMenu" data-locale-menu>
+          <span class="siteVersion" data-site-version="1.0.18" aria-label="Page version">v1.0.18</span><details class="localeMenu" data-locale-menu>
             <summary class="localeMenuSummary" aria-label="Language"><span data-locale-menu-current data-landing-key="languageLabel">Language</span></summary>
             <div class="localeMenuList" data-locale-menu-list role="menu" aria-label="Language options"></div>
           </details><a class="jaPreviewLink" href="index.html" data-ja-preview-link>通常ページ</a>
@@ -593,8 +669,8 @@
           <p class="note" data-landing-key="heroNote">Built for small salons, private studios, and personal services.</p>
         </div>
         <div class="deviceStack" aria-hidden="true">
-          <div class="phone one"><img src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/01.png" alt=""></div>
-          <div class="phone two"><img src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/05.png" alt=""></div>
+          <div class="phone one"><img src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/05.png" alt=""></div>
+          <div class="phone two"><img src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/02.png" alt=""></div>
           <div class="seal">XII</div>
         </div>
       </div>
