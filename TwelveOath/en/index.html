@@ -282,33 +282,98 @@
     .appPreviewCaption { margin-top: 12px; color: var(--soft); font-size: 13px; text-align: center; }
     html[dir="rtl"] .appPreviewCaption { text-align: center; }
     .quote { font-size: clamp(28px, 4.4vw, 58px); line-height: 1.04; letter-spacing: -.05em; margin: 0; }
-    .metadataStory { background: rgba(255, 248, 235, .028); }
-    .metadataPanel { max-width: 900px; border: 1px solid var(--line); border-radius: 24px; padding: 22px; background: rgba(255,255,255,.035); box-shadow: 0 18px 54px rgba(0,0,0,.18); }
-    .metadataRows { display: grid; gap: 8px; margin: 0 0 18px; }
-    .metadataRow { display: flex; justify-content: space-between; gap: 18px; color: var(--muted); font-size: 14px; border-bottom: 1px solid rgba(255,255,255,.07); padding-bottom: 8px; }
-    .metadataRow strong { color: var(--text); text-align: right; }
-    .metadataDescriptionTitle { margin: 18px 0 10px; color: var(--text); font-size: 15px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .metadataStory {
+      background:
+        radial-gradient(circle at 18% 0%, rgba(201, 75, 55, .13), transparent 28%),
+        rgba(255, 248, 235, .012);
+    }
+    .metadataStory .sectionHead { margin-bottom: 34px; }
+    .metadataPanel {
+      max-width: 880px;
+      padding: 0;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+    }
+    .metadataRows {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 0 28px;
+    }
+    .metadataRow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 34px;
+      padding: 0 12px;
+      border: 1px solid rgba(255, 248, 235, .16);
+      border-radius: 999px;
+      background: rgba(255, 248, 235, .045);
+      color: var(--soft);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+    .metadataRow span { opacity: .78; }
+    .metadataRow strong {
+      color: var(--text);
+      text-align: start;
+      max-width: 360px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .metadataDescriptionTitle {
+      margin: 0 0 18px;
+      color: var(--accent2);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
     .metadataBody {
-      margin-top: 10px;
-      max-width: 820px;
-      color: var(--muted);
-      font-size: clamp(15px, 1.45vw, 17px);
-      line-height: 1.92;
+      max-width: 780px;
+      color: rgba(255, 246, 231, .84);
+      font-size: clamp(17px, 1.62vw, 20px);
+      line-height: 2.0;
+      letter-spacing: .005em;
       white-space: pre-line;
-      padding: 20px;
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 18px;
-      background: rgba(0,0,0,.18);
-      overflow-wrap: anywhere;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      overflow-wrap: break-word;
+      text-wrap: pretty;
     }
     html[data-locale^="ja"] .metadataBody,
     html[data-locale^="zh"] .metadataBody,
-    html[data-locale^="ko"] .metadataBody { word-break: auto-phrase; overflow-wrap: normal; line-break: strict; }
+    html[data-locale^="ko"] .metadataBody {
+      line-height: 2.08;
+      word-break: auto-phrase;
+      overflow-wrap: normal;
+      line-break: strict;
+    }
     html[data-locale^="ar"] .metadataBody,
     html[data-locale^="he"] .metadataBody,
-    html[data-locale^="ur"] .metadataBody { text-align: start; line-height: 2.02; }
-    .metadataHint { max-width: 760px; }
-    .metadataHint code { color: var(--text); background: rgba(255,255,255,.08); border: 1px solid var(--line); border-radius: 8px; padding: 2px 6px; }
+    html[data-locale^="ur"] .metadataBody {
+      text-align: start;
+      line-height: 2.08;
+    }
+    .metadataHint {
+      max-width: 760px;
+      color: var(--soft);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+    .metadataHint code {
+      color: var(--text);
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 8px;
+      padding: 2px 6px;
+    }
     html[data-metadata-loaded="true"] h1[data-meta-field="subtitle"] { max-width: 760px; }
     html[data-metadata-loaded="true"]:not([data-locale^="en"]) h1[data-meta-field="subtitle"] {
       font-size: clamp(38px, 5.15vw, 64px);
@@ -391,7 +456,7 @@
           <a href="#why">Why</a>
           <a href="#features">Features</a>
           <a href="support/" data-url-field="supportURL">Support</a>
-          <span class="siteVersion" data-site-version="1.0.6" aria-label="Page version">v1.0.6</span><details class="localeMenu" data-locale-menu>
+          <span class="siteVersion" data-site-version="1.0.6" aria-label="Page version">v1.0.7</span><details class="localeMenu" data-locale-menu>
             <summary class="localeMenuSummary" aria-label="Language"><span data-locale-menu-current>Language</span></summary>
             <div class="localeMenuList" data-locale-menu-list role="menu" aria-label="Language options"></div>
           </details>
@@ -492,9 +557,9 @@
           <p class="metadataHint">This section renders the selected locale's <code>description</code> from <code>assets/locales/appstore-metadata.json</code> as-is.</p>
         </div>
         <div class="metadataPanel">
-          <div class="metadataRows">
+          <div class="metadataRows" aria-label="Selected App Store metadata">
             <div class="metadataRow"><span>Locale</span><strong data-meta-current-locale>en-US</strong></div>
-            <div class="metadataRow"><span>App name</span><strong data-meta-field="name">TwelveOath</strong></div>
+            <div class="metadataRow"><span>App</span><strong data-meta-field="name">TwelveOath</strong></div>
             <div class="metadataRow"><span>Subtitle</span><strong data-meta-field="subtitle">An empty hour should not stay empty.</strong></div>
           </div>
           <div class="metadataDescriptionTitle">Description</div>
