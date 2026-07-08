@@ -4,6 +4,7 @@
   const metadataPath = currentScript?.dataset?.metadataPath || "assets/locales/appstore-metadata.json";
   const defaultLocale = currentScript?.dataset?.defaultLocale || "en-US";
   const rtlBases = new Set(["ar", "he", "ur"]);
+  const wideTextBases = new Set(["de", "fr", "nl", "ru", "uk", "el", "hu", "fi", "pl", "cs", "sk", "sl", "hr", "ro", "tr", "pt", "es"]);
 
   function normalizeInternalURL(value) {
     if (!value || typeof value !== "string") return value;
@@ -216,7 +217,12 @@
       const current = menu.querySelector("[data-locale-menu-current]");
       const list = menu.querySelector("[data-locale-menu-list]");
       const activeEntry = all[activeLocale] || {};
-      if (current) current.textContent = localeDisplayName(activeLocale, activeEntry);
+      if (current) {
+        const fullName = localeDisplayName(activeLocale, activeEntry);
+        current.textContent = fullName;
+        current.dataset.localeCode = activeLocale;
+        current.dataset.localeFull = fullName;
+      }
       if (!list) return;
       list.replaceChildren();
       sortedLocales(all).forEach((locale) => {
@@ -258,6 +264,11 @@
     document.documentElement.lang = locale;
     document.documentElement.dir = rtlBases.has(base) ? "rtl" : "ltr";
     document.documentElement.dataset.locale = locale;
+    const displayName = localeDisplayName(locale, entry);
+    const baseForChrome = locale.split("-")[0];
+    const chromeLength = Math.max(String(displayName || "").length, String(entry.subtitle || "").length);
+    document.documentElement.dataset.localeLength = chromeLength > 34 ? "very-long" : chromeLength > 22 ? "long" : "normal";
+    document.documentElement.dataset.textDensity = wideTextBases.has(baseForChrome) ? "wide" : "normal";
     document.documentElement.dataset.metadataLoaded = "true";
 
     const titleParts = [entry.name, entry.subtitle].filter(Boolean);

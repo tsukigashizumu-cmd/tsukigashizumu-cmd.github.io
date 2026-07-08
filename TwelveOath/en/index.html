@@ -790,9 +790,9 @@
       .navlinks a:not(.appstore) { display: none; }
     }
 
-    /* TwelveOath CTA and gallery polish v1.0.48 begin */
+    /* TwelveOath CTA and gallery polish v1.0.49 begin */
     /*
-      v1.0.48: CTA + preview + gallery polish.
+      v1.0.49: CTA + preview + gallery polish.
       Goal: 91 -> 93.
       - Make the closing App Store action feel like a designed decision block.
       - Reduce screenshot gallery heaviness by changing 3-column 7-shot layout to 4+3.
@@ -1327,12 +1327,12 @@
         margin-inline: auto;
       }
     }
-    /* TwelveOath CTA and gallery polish v1.0.48 end */
+    /* TwelveOath CTA and gallery polish v1.0.49 end */
 
   
-    /* TwelveOath Japanese CTA locale fix v1.0.48 begin */
+    /* TwelveOath Japanese CTA locale fix v1.0.49 begin */
     /*
-      v1.0.48: Japanese CTA localization fix.
+      v1.0.49: Japanese CTA localization fix.
       - ja.js must contain escaped \n, not physical newlines inside a JS string.
       - Preserve intentional Japanese final-copy line breaks.
     */
@@ -1345,17 +1345,17 @@
       line-height: 1.42;
       text-wrap: pretty;
     }
-    /* TwelveOath Japanese CTA locale fix v1.0.48 end */
+    /* TwelveOath Japanese CTA locale fix v1.0.49 end */
 
   
-    /* TwelveOath locale hardening v1.0.48 begin */
+    /* TwelveOath locale hardening v1.0.49 begin */
     .quote[data-landing-key="finalQuote"] { white-space: pre-line; }
     html[data-landing-locale^="ja"] .finalCtaSection .actions,
     html[data-preview-locale^="ja"] .finalCtaSection .actions,
     html[lang^="ja"] .finalCtaSection .actions { gap: 14px; }
-    /* TwelveOath locale hardening v1.0.48 end */
+    /* TwelveOath locale hardening v1.0.49 end */
   
-/* TwelveOath responsive chrome v1.0.48 begin */
+/* TwelveOath responsive chrome v1.0.49 begin */
 /*
   Responsive chrome policy:
   - Desktop / iPad landscape: full navigation can stay.
@@ -1453,7 +1453,82 @@ html[dir="rtl"] .foot a { margin-left: 0; margin-right: 14px; }
 @media (max-width: 640px) {
   html[dir="rtl"] .foot { align-items: flex-start; }
 }
-/* TwelveOath responsive chrome v1.0.48 end */
+/* TwelveOath responsive chrome v1.0.49 end */
+  
+/* TwelveOath all-locale responsive chrome v1.0.49 begin */
+/*
+  All-locale policy:
+  - Metadata drives every locale.
+  - Header/footer must survive long app names and long App Store button labels.
+  - Mobile shows the locale code instead of the full localized app name.
+  - Long-word locales get slightly smaller chrome and safer wrapping.
+*/
+.localeMenuSummary [data-locale-menu-current] {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.localeMenuSummary { max-width: 190px; }
+.localeMenuList { overscroll-behavior: contain; }
+html[data-locale-length="long"] .localeMenuSummary,
+html[data-locale-length="very-long"] .localeMenuSummary { max-width: 150px; }
+html[data-locale-length="very-long"] .appstore { max-width: 178px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+html[data-text-density="wide"] .navlinks { gap: 14px; }
+html[data-text-density="wide"] .appstore { padding-left: 12px; padding-right: 12px; }
+
+@media (max-width: 860px) {
+  .localeMenuSummary [data-locale-menu-current] {
+    font-size: 0;
+    max-width: 72px;
+  }
+  .localeMenuSummary [data-locale-menu-current]::after {
+    content: attr(data-locale-code);
+    font-size: 11px;
+    font-weight: 900;
+  }
+  html[data-locale-length="long"] .brand span,
+  html[data-locale-length="very-long"] .brand span {
+    max-width: 118px;
+  }
+}
+
+@media (max-width: 640px) and (orientation: portrait) {
+  .localeMenuSummary { max-width: 62px; }
+  .localeMenuSummary [data-locale-menu-current] { max-width: 46px; }
+  html[data-locale-length="long"] .appstore,
+  html[data-locale-length="very-long"] .appstore,
+  html[data-text-density="wide"] .appstore {
+    max-width: 86px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  html[data-text-density="wide"] .appstore { font-size: 11px; }
+  html[data-text-density="wide"] .brand span { display: none; }
+}
+
+@media (max-width: 390px) and (orientation: portrait) {
+  .localeMenuSummary { max-width: 54px; }
+  .appstore { max-width: 82px; }
+}
+
+@media (max-height: 520px) and (orientation: landscape) {
+  .localeMenuSummary [data-locale-menu-current] {
+    font-size: 0;
+  }
+  .localeMenuSummary [data-locale-menu-current]::after {
+    content: attr(data-locale-code);
+    font-size: 11px;
+    font-weight: 900;
+  }
+  html[data-text-density="wide"] .brand span { max-width: 96px; }
+  html[data-text-density="wide"] .appstore { max-width: 92px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+}
+
+html[dir="rtl"] .localeMenuList { right: auto; left: 0; }
+html[dir="rtl"] .localeMenuButton { text-align: right; }
+html[dir="rtl"] .localeMenuSummary::after { transform: translateY(-1px); }
+/* TwelveOath all-locale responsive chrome v1.0.49 end */
   </style>
   <script type="application/ld+json">
   {
@@ -1477,7 +1552,7 @@ html[dir="rtl"] .foot a { margin-left: 0; margin-right: 14px; }
           <a href="#why" data-landing-key="navWhy">Why</a>
           <a href="#features" data-landing-key="navFeatures">Features</a>
           <a href="support/" data-url-field="supportURL" data-landing-key="navSupport">Support</a>
-          <span class="siteVersion" data-site-version="1.0.48" aria-label="Page version">v1.0.48</span><details class="localeMenu" data-locale-menu>
+          <span class="siteVersion" data-site-version="1.0.49" aria-label="Page version">v1.0.49</span><details class="localeMenu" data-locale-menu>
             <summary class="localeMenuSummary" aria-label="Language"><span data-locale-menu-current data-landing-key="languageLabel">Language</span></summary>
             <div class="localeMenuList" data-locale-menu-list role="menu" aria-label="Language options"></div>
           </details><a class="jaPreviewLink" href="ja-preview.html" data-ja-preview-link>日本語確認</a>

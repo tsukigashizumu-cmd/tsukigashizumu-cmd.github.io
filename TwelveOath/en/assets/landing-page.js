@@ -6,7 +6,7 @@
 
   function params() { return new URLSearchParams(window.location.search); }
   function requestedLocale() {
-    // v1.0.47: locale selection must not be overridden by stale metadata/localStorage.
+    // v1.0.49: locale selection must not be overridden by stale metadata/localStorage.
     // Priority: forced preview -> URL -> metadata event state -> saved locale -> html lang -> browser/default.
     if (window.TwelveOathForceLocale) return window.TwelveOathForceLocale;
     const explicit = params().get("locale") || params().get("lang");
