@@ -1,7 +1,7 @@
 window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
 window.TwelveOathLandingLocales["ja"] = {
   pageTitle: "TwelveOath - 次のキャンセルで、誰に送るか迷わない",
-  pageDescription: "キャンセルが来てから考え始めると、時間も売上も先に消えていきます。先に声をかける相手、選ぶ理由、待つ期限を整えるためのアプリです。",
+  pageDescription: "キャンセルが来てから考え始めると、時間も売上も先に消えていきます。声をかける相手、選ぶ理由、待つ期限を先に整えるためのアプリです。",
 
   navWhy: "なぜ必要か",
   navFeatures: "できること",
@@ -13,12 +13,12 @@ window.TwelveOathLandingLocales["ja"] = {
 
   heroEyebrow: "キャンセル回収の儀式",
   heroHeadline: "次のキャンセルで、誰に送るか迷わない。",
-  heroBody: "キャンセルが来てから考え始めると、時間も売上も先に消えていきます。先に声をかける相手、選ぶ理由、待つ期限を整えておけば、次の空き枠に落ち着いて動けます。",
+  heroBody: "キャンセルが来てから考え始めると、時間も売上も先に消えていきます。声をかける相手、選ぶ理由、待つ期限を先に整えておけば、次の空き枠に落ち着いて案内できます。",
   heroPrimary: "App Storeで見る",
   heroSecondary: "仕組みを見る",
   heroNote: "一人サロン、個人スタジオ、予約制サービスのために。",
 
-  whyTitle: "空いた時間は、すぐに消え始める。",
+  whyTitle: "空いた時間は、静かに消えていく。",
   whyBody: "直前キャンセルは、ただの空白ではありません。準備した時間、材料費、その時間に入るはずだった売上。そして、誰に声をかけるかを急いで決める負担が残ります。",
   whyCard1Title: "キャンセル前に決めておく",
   whyCard1Body: "失ってから探すのではなく、優先して声をかけるお客様を最大12人まで先に整えておけます。",
@@ -45,7 +45,7 @@ window.TwelveOathLandingLocales["ja"] = {
   previewCaption: "App Preview・言語別対応",
 
   galleryTitle: "次の空き時間には、もう計画がある。",
-  galleryBody: "声をかける人、選ぶ理由、送る形を先に整えておく。キャンセルが来ても、慌てずに時間を取り戻せます。",
+  galleryBody: "声をかける人、選ぶ理由、送る形を先に整える。キャンセルが来ても、慌てずに時間を取り戻せます。",
 
   metadataEyebrow: "App Store説明文",
   metadataHint: "選択中の言語の description を assets/locales/appstore-metadata.json からそのまま表示しています。",

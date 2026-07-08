@@ -790,23 +790,35 @@
       .navlinks a:not(.appstore) { display: none; }
     }
 
-    /* TwelveOath text-frame audit v1.0.43 begin */
+    /* TwelveOath visual rhythm polish v1.0.44 begin */
     /*
-      v1.0.43: copy-frame audit pass.
-      Goal: make Japanese landing copy look intentionally broken by meaning, not by accidental max-width.
-      - Keep wide desktop frames for headings/body.
-      - Stop final quote from behaving like an auto-balanced headline.
-      - Let the final quote use deliberate line breaks.
-      - Apply CJK break rules to hero lead, cards, features, overview, metadata, and quote.
+      v1.0.44: visual rhythm polish.
+      Goal: move from "fixed line breaks" to "designed landing page".
+      - Keep large Japanese headings intentional, not oversized.
+      - Give cards/features a cleaner, quieter rhythm.
+      - Make final CTA feel like a closing block, not a leftover paragraph.
+      - Keep App Store metadata description visible and rendered from JSON.
     */
 
     .wrap {
       width: min(1240px, calc(100% - 48px));
     }
 
+    section {
+      padding: 74px 0;
+    }
+    .hero {
+      padding: 92px 0 74px;
+    }
+    .overviewStory,
+    .metadataStory {
+      padding: 82px 0;
+    }
+
     .sectionHead {
       width: min(100%, 1120px);
       max-width: min(100%, 1120px);
+      margin-bottom: 34px;
     }
     .sectionHead h2 {
       max-width: 100%;
@@ -823,11 +835,62 @@
     }
     .sectionHead p,
     .bodyText {
-      max-width: min(100%, 1040px);
-    }
-    .lead {
       max-width: min(100%, 980px);
     }
+    .lead {
+      max-width: min(100%, 940px);
+    }
+
+    .heroGrid {
+      gap: clamp(42px, 5vw, 72px);
+    }
+    .actions {
+      gap: 14px;
+    }
+    .primary,
+    .secondary {
+      min-height: 50px;
+      padding: 0 20px;
+    }
+    .note {
+      margin-top: 20px;
+      line-height: 1.7;
+    }
+
+    .cards {
+      gap: 18px;
+    }
+    .card {
+      border-radius: 26px;
+      padding: 26px;
+      background:
+        linear-gradient(180deg, rgba(255, 248, 235, .125), rgba(255, 248, 235, .055));
+    }
+    .card b {
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+    .card p {
+      line-height: 1.72;
+    }
+
+    .featureList {
+      gap: 14px;
+    }
+    .feature {
+      border-radius: 21px;
+      padding: 20px 21px;
+      background: rgba(255,255,255,.052);
+    }
+    .feature strong {
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+    .feature span {
+      display: block;
+      line-height: 1.68;
+    }
+
     .overviewStory .sectionHead,
     .metadataStory .sectionHead {
       width: min(100%, 1160px);
@@ -839,15 +902,25 @@
     }
     .overviewBody,
     .metadataBody {
-      max-width: min(100%, 1040px);
-      line-height: 1.78;
+      max-width: min(100%, 960px);
+      line-height: 1.84;
     }
+
     .quote {
       width: min(100%, 1160px);
       max-width: min(100%, 1160px);
       line-height: 1.24;
       overflow-wrap: normal;
       text-wrap: pretty;
+    }
+    .quote[data-landing-key="finalQuote"] {
+      margin-inline: 0;
+      white-space: pre-line;
+      text-wrap: wrap;
+    }
+    .quote[data-landing-key="finalQuote"] + .actions {
+      margin-top: 32px !important;
+      align-items: center;
     }
 
     html[data-locale^="ja"] h1[data-meta-field="subtitle"],
@@ -859,9 +932,9 @@
     html[data-preview-locale^="ja"] h1[data-meta-field="subtitle"],
     html[lang^="ja"] h1[data-meta-field="subtitle"] {
       max-width: min(100%, 1080px);
-      font-size: clamp(44px, 5.6vw, 82px);
-      line-height: 1.00;
-      letter-spacing: -.055em;
+      font-size: clamp(43px, 5.35vw, 80px);
+      line-height: 1.01;
+      letter-spacing: -.052em;
       text-wrap: balance;
       word-break: auto-phrase;
       overflow-wrap: normal;
@@ -876,9 +949,9 @@
     html[data-landing-locale^="ko"] .lead,
     html[data-preview-locale^="ja"] .lead,
     html[lang^="ja"] .lead {
-      max-width: min(100%, 1000px);
-      font-size: clamp(17px, 1.65vw, 22px);
-      line-height: 1.64;
+      max-width: min(100%, 940px);
+      font-size: clamp(17px, 1.58vw, 21px);
+      line-height: 1.68;
       letter-spacing: .002em;
       text-wrap: pretty;
       word-break: auto-phrase;
@@ -894,9 +967,9 @@
     html[data-landing-locale^="ko"] .sectionHead h2,
     html[data-preview-locale^="ja"] .sectionHead h2,
     html[lang^="ja"] .sectionHead h2 {
-      font-size: clamp(31px, 3.25vw, 46px);
-      line-height: 1.14;
-      letter-spacing: -.038em;
+      font-size: clamp(31px, 3.15vw, 45px);
+      line-height: 1.16;
+      letter-spacing: -.036em;
       text-wrap: balance;
       word-break: auto-phrase;
       overflow-wrap: normal;
@@ -919,8 +992,8 @@
     html[data-preview-locale^="ja"] .bodyText,
     html[lang^="ja"] .sectionHead p,
     html[lang^="ja"] .bodyText {
-      max-width: min(100%, 1080px);
-      line-height: 1.76;
+      max-width: min(100%, 980px);
+      line-height: 1.78;
       letter-spacing: .004em;
       word-break: auto-phrase;
       overflow-wrap: normal;
@@ -944,8 +1017,8 @@
     html[data-preview-locale^="ja"] .metadataBody,
     html[lang^="ja"] .overviewBody,
     html[lang^="ja"] .metadataBody {
-      max-width: min(100%, 1040px);
-      line-height: 1.76;
+      max-width: min(100%, 960px);
+      line-height: 1.82;
       letter-spacing: .008em;
       word-break: auto-phrase;
       overflow-wrap: normal;
@@ -991,30 +1064,25 @@
     html[data-landing-locale^="ko"] .quote,
     html[data-preview-locale^="ja"] .quote,
     html[lang^="ja"] .quote {
-      width: min(100%, 1160px);
-      max-width: min(100%, 1160px);
-      font-size: clamp(21px, 2.05vw, 30px);
-      line-height: 1.36;
-      letter-spacing: -.028em;
+      width: min(100%, 1080px);
+      max-width: min(100%, 1080px);
+      font-size: clamp(21px, 2.0vw, 29px);
+      line-height: 1.38;
+      letter-spacing: -.026em;
       text-wrap: pretty;
       word-break: auto-phrase;
       overflow-wrap: normal;
       line-break: strict;
     }
 
-    .quote[data-landing-key="finalQuote"] {
-      margin-inline: 0;
-      white-space: pre-line;
-      text-wrap: wrap;
-    }
     html[data-locale^="ja"] .quote[data-landing-key="finalQuote"],
     html[data-landing-locale^="ja"] .quote[data-landing-key="finalQuote"],
     html[data-preview-locale^="ja"] .quote[data-landing-key="finalQuote"],
     html[lang^="ja"] .quote[data-landing-key="finalQuote"] {
-      max-width: min(100%, 980px);
-      font-size: clamp(22px, 2.05vw, 30px);
-      line-height: 1.38;
-      letter-spacing: -.026em;
+      max-width: min(100%, 940px);
+      font-size: clamp(22px, 1.95vw, 29px);
+      line-height: 1.42;
+      letter-spacing: -.024em;
       white-space: pre-line;
       text-wrap: wrap;
     }
@@ -1029,7 +1097,7 @@
       html[data-preview-locale^="ja"] .split,
       html[lang^="ja"] .split {
         grid-template-columns: minmax(0, 1fr);
-        gap: 24px;
+        gap: 26px;
         align-items: start;
       }
 
@@ -1066,13 +1134,15 @@
     html[data-landing-locale^="ar"] .metadataBody,
     html[data-landing-locale^="he"] .metadataBody,
     html[data-landing-locale^="ur"] .metadataBody {
-      max-width: min(100%, 1000px);
+      max-width: min(100%, 960px);
       line-height: 1.88;
       text-align: start;
     }
 
     @media (max-width: 860px) {
       .wrap { width: min(100% - 32px, 1240px); }
+      section { padding: 58px 0; }
+      .hero { padding: 58px 0 54px; }
       .sectionHead,
       .overviewStory .sectionHead,
       .metadataStory .sectionHead,
@@ -1082,6 +1152,9 @@
         width: 100%;
         max-width: 100%;
       }
+      .sectionHead { margin-bottom: 26px; }
+      .card { padding: 22px; }
+      .feature { padding: 18px; }
       html[data-locale^="ja"] h1[data-meta-field="subtitle"],
       html[data-locale^="zh"] h1[data-meta-field="subtitle"],
       html[data-locale^="ko"] h1[data-meta-field="subtitle"],
@@ -1090,8 +1163,8 @@
       html[data-landing-locale^="ko"] h1[data-meta-field="subtitle"],
       html[data-preview-locale^="ja"] h1[data-meta-field="subtitle"],
       html[lang^="ja"] h1[data-meta-field="subtitle"] {
-        font-size: clamp(39px, 10.5vw, 58px);
-        line-height: 1.02;
+        font-size: clamp(38px, 10.2vw, 56px);
+        line-height: 1.04;
       }
       html[data-locale^="ja"] .sectionHead h2,
       html[data-locale^="zh"] .sectionHead h2,
@@ -1101,8 +1174,8 @@
       html[data-landing-locale^="ko"] .sectionHead h2,
       html[data-preview-locale^="ja"] .sectionHead h2,
       html[lang^="ja"] .sectionHead h2 {
-        font-size: clamp(29px, 8.4vw, 41px);
-        line-height: 1.15;
+        font-size: clamp(28px, 8.1vw, 40px);
+        line-height: 1.16;
       }
       html[data-locale^="ja"] .quote,
       html[data-locale^="zh"] .quote,
@@ -1113,17 +1186,17 @@
       html[data-preview-locale^="ja"] .quote,
       html[lang^="ja"] .quote {
         font-size: clamp(21px, 5.0vw, 28px);
-        line-height: 1.36;
+        line-height: 1.38;
       }
       html[data-locale^="ja"] .quote[data-landing-key="finalQuote"],
       html[data-landing-locale^="ja"] .quote[data-landing-key="finalQuote"],
       html[data-preview-locale^="ja"] .quote[data-landing-key="finalQuote"],
       html[lang^="ja"] .quote[data-landing-key="finalQuote"] {
         font-size: clamp(21px, 4.9vw, 27px);
-        line-height: 1.38;
+        line-height: 1.42;
       }
     }
-    /* TwelveOath text-frame audit v1.0.43 end */
+    /* TwelveOath visual rhythm polish v1.0.44 end */
 
   </style>
   <script type="application/ld+json">
@@ -1148,7 +1221,7 @@
           <a href="#why" data-landing-key="navWhy">Why</a>
           <a href="#features" data-landing-key="navFeatures">Features</a>
           <a href="support/" data-url-field="supportURL" data-landing-key="navSupport">Support</a>
-          <span class="siteVersion" data-site-version="1.0.43" aria-label="Page version">v1.0.43</span><details class="localeMenu" data-locale-menu>
+          <span class="siteVersion" data-site-version="1.0.44" aria-label="Page version">v1.0.44</span><details class="localeMenu" data-locale-menu>
             <summary class="localeMenuSummary" aria-label="Language"><span data-locale-menu-current data-landing-key="languageLabel">Language</span></summary>
             <div class="localeMenuList" data-locale-menu-list role="menu" aria-label="Language options"></div>
           </details><a class="jaPreviewLink" href="ja-preview.html" data-ja-preview-link>日本語確認</a>
