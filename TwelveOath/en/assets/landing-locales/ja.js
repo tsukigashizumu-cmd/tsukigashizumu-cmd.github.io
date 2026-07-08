@@ -56,7 +56,6 @@ window.TwelveOathLandingLocales["ja"] = {
 
   overviewEyebrow: "概要",
   overviewTitle: "次のキャンセル前に、用意しておく理由。",
-  overviewBody: "難しいのは、空き枠に気づくことではありません。時間と売上が消えていく中で、誰に声をかけるかを決めることです。TwelveOathは、その判断を先に整えておくためのアプリです。",
 
   finalQuote: "次のキャンセルは、焦りの始まりではなく、準備しておいた一人へ案内を始める合図にできます。",
   finalPrimary: "App StoreでTwelveOathを見る",
