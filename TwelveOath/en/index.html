@@ -789,6 +789,100 @@
       .screens { grid-template-columns: 1fr; }
       .navlinks a:not(.appstore) { display: none; }
     }
+    /* v1.0.32 overview readability */
+    .overviewStory .wrap {
+      width: min(1180px, calc(100% - 40px));
+    }
+    .overviewStory .sectionHead {
+      max-width: min(1060px, 100%);
+      margin-bottom: 34px;
+    }
+    .overviewStory .sectionHead h2 {
+      max-width: 100%;
+      text-wrap: balance;
+    }
+    html[data-locale^="ja"] .overviewStory .sectionHead h2,
+    html[data-locale^="zh"] .overviewStory .sectionHead h2,
+    html[data-locale^="ko"] .overviewStory .sectionHead h2 {
+      word-break: keep-all;
+      overflow-wrap: normal;
+      line-break: strict;
+      text-wrap: balance;
+    }
+    .overviewBody {
+      max-width: none;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      white-space: normal;
+      line-height: 1.68;
+      color: rgba(255, 246, 231, .86);
+    }
+    .overviewBody p,
+    .overviewBody ul {
+      margin: 0;
+      padding: 18px 20px;
+      border: 1px solid rgba(255, 248, 235, .105);
+      border-radius: 22px;
+      background:
+        linear-gradient(180deg, rgba(255, 248, 235, .062), rgba(255, 248, 235, .026));
+      box-shadow:
+        0 16px 42px rgba(0, 0, 0, .13),
+        inset 0 1px 0 rgba(255, 255, 255, .045);
+      min-width: 0;
+    }
+    .overviewBody p:first-child {
+      grid-column: 1 / -1;
+      font-size: clamp(19px, 1.9vw, 24px);
+      line-height: 1.55;
+      color: rgba(255, 248, 235, .95);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(221, 124, 92, .15), transparent 34%),
+        linear-gradient(180deg, rgba(255, 248, 235, .088), rgba(255, 248, 235, .034));
+      border-color: rgba(255, 248, 235, .15);
+    }
+    .overviewBody ul {
+      padding-inline-start: 38px;
+    }
+    .overviewBody li {
+      margin: 0 0 8px;
+    }
+    .overviewBody li:last-child {
+      margin-bottom: 0;
+    }
+    html[data-locale^="ja"] .overviewBody,
+    html[data-locale^="zh"] .overviewBody,
+    html[data-locale^="ko"] .overviewBody {
+      line-height: 1.64;
+      word-break: auto-phrase;
+      overflow-wrap: anywhere;
+      line-break: strict;
+    }
+    html[data-locale^="ja"] .overviewBody p,
+    html[data-locale^="zh"] .overviewBody p,
+    html[data-locale^="ko"] .overviewBody p {
+      overflow-wrap: anywhere;
+      text-wrap: pretty;
+    }
+    @media (max-width: 860px) {
+      .overviewBody {
+        grid-template-columns: 1fr;
+      }
+      .overviewBody p:first-child {
+        grid-column: auto;
+      }
+    }
+    @media (max-width: 640px) {
+      .overviewStory .wrap {
+        width: min(100% - 28px, 1180px);
+      }
+      .overviewBody p,
+      .overviewBody ul {
+        padding: 16px 16px;
+        border-radius: 18px;
+      }
+    }
+
   </style>
   <script type="application/ld+json">
   {
@@ -920,7 +1014,7 @@
           <div class="eyebrow" data-landing-key="overviewEyebrow">Overview</div>
           <h2 data-landing-key="overviewTitle">Why you may want this before the next cancellation.</h2>
         </div>
-        <div class="overviewBody" data-meta-field="description" data-meta-render="preline">Has a client ever canceled and the minutes kept passing while you still did not know who to contact first? TwelveOath helps you prepare who to contact, what to send, and how long to wait before the next cancellation happens.</div>
+        <div class="overviewBody" data-meta-field="description" data-meta-render="structured">Has a client ever canceled and the minutes kept passing while you still did not know who to contact first? TwelveOath helps you prepare who to contact, what to send, and how long to wait before the next cancellation happens.</div>
       </div>
     </section>
 
