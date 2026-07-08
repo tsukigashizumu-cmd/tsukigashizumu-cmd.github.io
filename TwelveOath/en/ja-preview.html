@@ -775,14 +775,14 @@
       .navlinks a:not(.appstore) { display: none; }
     }
 
-    /* TwelveOath visual rhythm polish v1.0.44 begin */
+    /* TwelveOath CTA and gallery polish v1.0.45 begin */
     /*
-      v1.0.44: visual rhythm polish.
-      Goal: move from "fixed line breaks" to "designed landing page".
-      - Keep large Japanese headings intentional, not oversized.
-      - Give cards/features a cleaner, quieter rhythm.
-      - Make final CTA feel like a closing block, not a leftover paragraph.
-      - Keep App Store metadata description visible and rendered from JSON.
+      v1.0.45: CTA + preview + gallery polish.
+      Goal: 91 -> 93.
+      - Make the closing App Store action feel like a designed decision block.
+      - Reduce screenshot gallery heaviness by changing 3-column 7-shot layout to 4+3.
+      - Keep App Preview visible without letting the phone dominate the section.
+      - Strengthen mobile rhythm after the text-frame fixes.
     */
 
     .wrap {
@@ -790,10 +790,10 @@
     }
 
     section {
-      padding: 74px 0;
+      padding: 72px 0;
     }
     .hero {
-      padding: 92px 0 74px;
+      padding: 90px 0 72px;
     }
     .overviewStory,
     .metadataStory {
@@ -876,6 +876,50 @@
       line-height: 1.68;
     }
 
+    .previewSection {
+      background:
+        radial-gradient(circle at 82% 16%, rgba(201, 75, 55, .105), transparent 31%),
+        rgba(255, 248, 235, .018);
+    }
+    .previewGrid {
+      grid-template-columns: minmax(0, .92fr) minmax(300px, .78fr);
+      gap: clamp(34px, 5vw, 62px);
+      align-items: center;
+    }
+    .previewGrid .sectionHead,
+    .previewGrid .bodyText {
+      max-width: min(100%, 760px);
+    }
+    .appPreviewShell {
+      width: min(100%, 360px);
+      justify-self: center;
+    }
+    .appPreviewCaption {
+      margin-top: 14px;
+      letter-spacing: .04em;
+      opacity: .78;
+    }
+
+    .screens {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      align-items: start;
+    }
+    .deviceShot {
+      border-radius: 44px;
+      filter: saturate(.98) contrast(1.01);
+    }
+    .deviceShot .iphoneBody {
+      padding: 6px 5px 8px;
+      box-shadow:
+        0 16px 30px rgba(0, 0, 0, .28),
+        0 34px 68px rgba(0, 0, 0, .24),
+        inset 0 1px 0 rgba(255, 255, 255, .30),
+        inset 1px 0 0 rgba(255, 255, 255, .15),
+        inset -1px 0 0 rgba(0, 0, 0, .76),
+        inset 0 -8px 14px rgba(0, 0, 0, .44);
+    }
+
     .overviewStory .sectionHead,
     .metadataStory .sectionHead {
       width: min(100%, 1160px);
@@ -903,9 +947,49 @@
       white-space: pre-line;
       text-wrap: wrap;
     }
-    .quote[data-landing-key="finalQuote"] + .actions {
-      margin-top: 32px !important;
+
+    .finalCtaSection {
+      padding: 88px 0 92px;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(201, 75, 55, .16), transparent 34%),
+        radial-gradient(circle at 88% 86%, rgba(255, 197, 107, .08), transparent 31%),
+        rgba(255, 248, 235, .014);
+    }
+    .finalCtaSection .wrap {
+      position: relative;
+      padding: clamp(30px, 4.5vw, 52px);
+      border: 1px solid rgba(255, 248, 235, .135);
+      border-radius: 34px;
+      background:
+        linear-gradient(180deg, rgba(255, 248, 235, .082), rgba(255, 248, 235, .032));
+      box-shadow:
+        0 28px 90px rgba(0,0,0,.22),
+        inset 0 1px 0 rgba(255,255,255,.08);
+      overflow: hidden;
+    }
+    .finalCtaSection .wrap::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.07), transparent 34%),
+        radial-gradient(circle at 86% 16%, rgba(201,75,55,.11), transparent 32%);
+      opacity: .7;
+    }
+    .finalCtaSection .quote,
+    .finalCtaSection .actions {
+      position: relative;
+      z-index: 1;
+    }
+    .finalCtaSection .actions {
+      margin-top: 34px !important;
       align-items: center;
+    }
+    .finalCtaSection .primary {
+      box-shadow:
+        0 12px 34px rgba(201,75,55,.22),
+        inset 0 1px 0 rgba(255,255,255,.20);
     }
 
     html[data-locale^="ja"] h1[data-meta-field="subtitle"],
@@ -917,7 +1001,7 @@
     html[data-preview-locale^="ja"] h1[data-meta-field="subtitle"],
     html[lang^="ja"] h1[data-meta-field="subtitle"] {
       max-width: min(100%, 1080px);
-      font-size: clamp(43px, 5.35vw, 80px);
+      font-size: clamp(43px, 5.25vw, 78px);
       line-height: 1.01;
       letter-spacing: -.052em;
       text-wrap: balance;
@@ -952,7 +1036,7 @@
     html[data-landing-locale^="ko"] .sectionHead h2,
     html[data-preview-locale^="ja"] .sectionHead h2,
     html[lang^="ja"] .sectionHead h2 {
-      font-size: clamp(31px, 3.15vw, 45px);
+      font-size: clamp(31px, 3.08vw, 44px);
       line-height: 1.16;
       letter-spacing: -.036em;
       text-wrap: balance;
@@ -1051,7 +1135,7 @@
     html[lang^="ja"] .quote {
       width: min(100%, 1080px);
       max-width: min(100%, 1080px);
-      font-size: clamp(21px, 2.0vw, 29px);
+      font-size: clamp(21px, 1.95vw, 28px);
       line-height: 1.38;
       letter-spacing: -.026em;
       text-wrap: pretty;
@@ -1064,9 +1148,9 @@
     html[data-landing-locale^="ja"] .quote[data-landing-key="finalQuote"],
     html[data-preview-locale^="ja"] .quote[data-landing-key="finalQuote"],
     html[lang^="ja"] .quote[data-landing-key="finalQuote"] {
-      max-width: min(100%, 940px);
-      font-size: clamp(22px, 1.95vw, 29px);
-      line-height: 1.42;
+      max-width: min(100%, 880px);
+      font-size: clamp(23px, 1.92vw, 29px);
+      line-height: 1.44;
       letter-spacing: -.024em;
       white-space: pre-line;
       text-wrap: wrap;
@@ -1095,6 +1179,15 @@
       html[data-preview-locale^="ja"] .split .featureList,
       html[lang^="ja"] .split .featureList {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 1120px) {
+      .screens {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .previewGrid {
+        grid-template-columns: minmax(0, .96fr) minmax(280px, .74fr);
       }
     }
 
@@ -1140,6 +1233,36 @@
       .sectionHead { margin-bottom: 26px; }
       .card { padding: 22px; }
       .feature { padding: 18px; }
+      .previewGrid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .appPreviewShell {
+        width: min(100%, 330px);
+      }
+      .screens {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+      .deviceShot {
+        --device-r: 38px;
+        --bezel-r: 32px;
+        --screen-r: 28px;
+      }
+      .finalCtaSection {
+        padding: 66px 0 70px;
+      }
+      .finalCtaSection .wrap {
+        padding: 28px 22px;
+        border-radius: 28px;
+      }
+      .finalCtaSection .actions {
+        align-items: stretch;
+      }
+      .finalCtaSection .actions a {
+        width: 100%;
+        justify-content: center;
+      }
       html[data-locale^="ja"] h1[data-meta-field="subtitle"],
       html[data-locale^="zh"] h1[data-meta-field="subtitle"],
       html[data-locale^="ko"] h1[data-meta-field="subtitle"],
@@ -1159,7 +1282,7 @@
       html[data-landing-locale^="ko"] .sectionHead h2,
       html[data-preview-locale^="ja"] .sectionHead h2,
       html[lang^="ja"] .sectionHead h2 {
-        font-size: clamp(28px, 8.1vw, 40px);
+        font-size: clamp(28px, 8.0vw, 40px);
         line-height: 1.16;
       }
       html[data-locale^="ja"] .quote,
@@ -1177,11 +1300,19 @@
       html[data-landing-locale^="ja"] .quote[data-landing-key="finalQuote"],
       html[data-preview-locale^="ja"] .quote[data-landing-key="finalQuote"],
       html[lang^="ja"] .quote[data-landing-key="finalQuote"] {
-        font-size: clamp(21px, 4.9vw, 27px);
+        font-size: clamp(22px, 5.15vw, 28px);
         line-height: 1.42;
       }
     }
-    /* TwelveOath visual rhythm polish v1.0.44 end */
+
+    @media (max-width: 560px) {
+      .screens {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+        margin-inline: auto;
+      }
+    }
+    /* TwelveOath CTA and gallery polish v1.0.45 end */
 
   </style>
   <script type="application/ld+json">
@@ -1206,7 +1337,7 @@
           <a href="#why" data-landing-key="navWhy">Why</a>
           <a href="#features" data-landing-key="navFeatures">Features</a>
           <a href="support/" data-url-field="supportURL" data-landing-key="navSupport">Support</a>
-          <span class="siteVersion" data-site-version="1.0.44" aria-label="Page version">v1.0.44</span><details class="localeMenu" data-locale-menu>
+          <span class="siteVersion" data-site-version="1.0.45" aria-label="Page version">v1.0.45</span><details class="localeMenu" data-locale-menu>
             <summary class="localeMenuSummary" aria-label="Language"><span data-locale-menu-current data-landing-key="languageLabel">Language</span></summary>
             <div class="localeMenuList" data-locale-menu-list role="menu" aria-label="Language options"></div>
           </details><a class="jaPreviewLink" href="index.html" data-ja-preview-link>通常ページ</a>
@@ -1318,7 +1449,7 @@
       </div>
     </section>
 
-    <section>
+    <section class="finalCtaSection">
       <div class="wrap">
         <p class="quote" data-landing-key="finalQuote">The next cancellation does not have to start with panic. It can start with the person you already prepared.</p>
         <div class="actions" style="margin-top: 28px;">

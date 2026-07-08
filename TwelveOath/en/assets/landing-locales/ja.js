@@ -41,11 +41,11 @@ window.TwelveOathLandingLocales["ja"] = {
 
   previewEyebrow: "流れを見る",
   previewTitle: "次の案内が始まる瞬間を見る。",
-  previewBody: "対応する言語のApp Preview動画がある場合は、その動画を表示します。ダウンロード前に、空き枠を回収する流れを確認できます。",
+  previewBody: "対応する言語のApp Preview動画がある場合は、その動画を表示します。空き枠を回収する流れを、ダウンロード前に確認できます。",
   previewCaption: "App Preview・言語別対応",
 
   galleryTitle: "次の空き時間には、もう計画がある。",
-  galleryBody: "声をかける人、選ぶ理由、送る形を先に整える。キャンセルが来ても、慌てずに時間を取り戻せます。",
+  galleryBody: "声をかける人、選ぶ理由、送る形を先に整える。キャンセルが来ても、慌てずに空き枠を取り戻せます。",
 
   metadataEyebrow: "App Store説明文",
   metadataHint: "選択中の言語の description を assets/locales/appstore-metadata.json からそのまま表示しています。",
@@ -57,9 +57,12 @@ window.TwelveOathLandingLocales["ja"] = {
   overviewEyebrow: "概要",
   overviewTitle: "次のキャンセル前に、用意しておく理由。",
 
-  finalQuote: "次のキャンセルは、\n焦る時間ではなく、\n準備しておいた一人へ\n案内を始める合図です。",
-  finalPrimary: "App StoreでTwelveOathを見る",
-  finalSecondary: "プライバシーポリシー",
+  finalQuote: "次のキャンセルは、
+焦る時間ではなく、
+準備しておいた一人へ
+案内を始める合図です。",
+  finalPrimary: "App Storeで見る",
+  finalSecondary: "プライバシーを見る",
 
   footerPrivacy: "プライバシー",
   footerSupport: "サポート",
