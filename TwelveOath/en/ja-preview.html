@@ -774,6 +774,116 @@
       .screens { grid-template-columns: 1fr; }
       .navlinks a:not(.appstore) { display: none; }
     }
+  
+    /* TwelveOath text-frame audit v1.0.40 begin */
+    /*
+      Wide-language text frame pass.
+      Goal: use the available horizontal space before wrapping,
+      avoid one-character Japanese line drops, and make long reading
+      blocks feel intentional instead of cramped or randomly broken.
+    */
+    .sectionHead {
+      width: min(100%, 980px);
+      max-width: min(100%, 980px);
+    }
+    .sectionHead h2 {
+      max-width: 100%;
+      line-height: 1.08;
+      text-wrap: balance;
+      overflow-wrap: normal;
+    }
+    .sectionHead p {
+      max-width: 780px;
+      text-wrap: pretty;
+    }
+    .overviewStory .sectionHead,
+    .metadataStory .sectionHead {
+      max-width: min(100%, 1040px);
+      width: min(100%, 1040px);
+    }
+    .overviewStory .sectionHead h2,
+    .metadataStory .sectionHead h2 {
+      max-width: min(100%, 1040px);
+    }
+    .overviewBody,
+    .metadataBody {
+      max-width: 840px;
+      line-height: 1.82;
+    }
+    html[data-locale^="ja"] h1[data-meta-field="subtitle"],
+    html[data-locale^="zh"] h1[data-meta-field="subtitle"],
+    html[data-locale^="ko"] h1[data-meta-field="subtitle"] {
+      max-width: min(100%, 980px);
+      line-height: 1.03;
+      letter-spacing: -.045em;
+      text-wrap: balance;
+      word-break: auto-phrase;
+      overflow-wrap: normal;
+      line-break: strict;
+    }
+    html[data-locale^="ja"] .sectionHead h2,
+    html[data-locale^="zh"] .sectionHead h2,
+    html[data-locale^="ko"] .sectionHead h2 {
+      font-size: clamp(32px, 3.7vw, 50px);
+      line-height: 1.10;
+      letter-spacing: -.045em;
+      text-wrap: balance;
+      word-break: auto-phrase;
+      overflow-wrap: normal;
+      line-break: strict;
+    }
+    html[data-locale^="ja"] .overviewBody,
+    html[data-locale^="zh"] .overviewBody,
+    html[data-locale^="ko"] .overviewBody,
+    html[data-locale^="ja"] .metadataBody,
+    html[data-locale^="zh"] .metadataBody,
+    html[data-locale^="ko"] .metadataBody {
+      max-width: 860px;
+      line-height: 1.66;
+      letter-spacing: .01em;
+      word-break: auto-phrase;
+      overflow-wrap: normal;
+      line-break: strict;
+    }
+    html[data-locale^="ar"] .sectionHead h2,
+    html[data-locale^="he"] .sectionHead h2,
+    html[data-locale^="ur"] .sectionHead h2 {
+      letter-spacing: 0;
+      line-height: 1.16;
+      text-wrap: balance;
+    }
+    html[data-locale^="ar"] .overviewBody,
+    html[data-locale^="he"] .overviewBody,
+    html[data-locale^="ur"] .overviewBody,
+    html[data-locale^="ar"] .metadataBody,
+    html[data-locale^="he"] .metadataBody,
+    html[data-locale^="ur"] .metadataBody {
+      max-width: 860px;
+      line-height: 1.86;
+    }
+    @media (min-width: 861px) {
+      .wrap { width: min(1180px, calc(100% - 48px)); }
+      .overviewStory .sectionHead h2 { max-width: 1080px; }
+    }
+    @media (max-width: 860px) {
+      .sectionHead,
+      .overviewStory .sectionHead,
+      .metadataStory .sectionHead {
+        width: 100%;
+        max-width: 100%;
+      }
+      html[data-locale^="ja"] .sectionHead h2,
+      html[data-locale^="zh"] .sectionHead h2,
+      html[data-locale^="ko"] .sectionHead h2 {
+        font-size: clamp(31px, 8.8vw, 42px);
+        line-height: 1.10;
+      }
+      .overviewBody,
+      .metadataBody {
+        max-width: 100%;
+      }
+    }
+    /* TwelveOath text-frame audit v1.0.40 end */
   </style>
   <script type="application/ld+json">
   {
@@ -797,7 +907,7 @@
           <a href="#why" data-landing-key="navWhy">Why</a>
           <a href="#features" data-landing-key="navFeatures">Features</a>
           <a href="support/" data-url-field="supportURL" data-landing-key="navSupport">Support</a>
-          <span class="siteVersion" data-site-version="1.0.31" aria-label="Page version">v1.0.31</span><details class="localeMenu" data-locale-menu>
+          <span class="siteVersion" data-site-version="1.0.40" aria-label="Page version">v1.0.40</span><details class="localeMenu" data-locale-menu>
             <summary class="localeMenuSummary" aria-label="Language"><span data-locale-menu-current data-landing-key="languageLabel">Language</span></summary>
             <div class="localeMenuList" data-locale-menu-list role="menu" aria-label="Language options"></div>
           </details><a class="jaPreviewLink" href="index.html" data-ja-preview-link>通常ページ</a>
