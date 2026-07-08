@@ -292,8 +292,87 @@
       isolation: isolate;
       box-sizing: border-box;
     }
+
+    .iphoneButton {
+      position: absolute;
+      display: block;
+      pointer-events: none;
+      z-index: 5;
+      width: clamp(1.25px, .34vw, 2px);
+      border-radius: 999px;
+      opacity: .86;
+      background:
+        linear-gradient(90deg,
+          rgba(255,255,255,.24) 0%,
+          rgba(255,255,255,.10) 22%,
+          rgba(7,7,8,.92) 52%,
+          rgba(0,0,0,.82) 100%),
+        linear-gradient(180deg,
+          rgba(255,255,255,.20) 0%,
+          rgba(96,88,77,.32) 14%,
+          rgba(7,7,8,.98) 50%,
+          rgba(78,70,60,.24) 86%,
+          rgba(255,255,255,.12) 100%);
+      box-shadow:
+        inset 1px 0 0 rgba(255,255,255,.18),
+        inset -1px 0 0 rgba(0,0,0,.72),
+        0 .5px 1px rgba(0,0,0,.42);
+      transform: translateZ(0);
+    }
+    .iphoneButton--mute {
+      left: 3px;
+      top: 17.8%;
+      height: 4.3%;
+      opacity: .68;
+    }
+    .iphoneButton--volumeUp {
+      left: 3px;
+      top: 24.1%;
+      height: 7.3%;
+    }
+    .iphoneButton--volumeDown {
+      left: 3px;
+      top: 33.0%;
+      height: 7.3%;
+    }
+    .iphoneButton--side {
+      right: 3px;
+      top: 25.6%;
+      height: 10.4%;
+      opacity: .82;
+      background:
+        linear-gradient(90deg,
+          rgba(0,0,0,.86) 0%,
+          rgba(5,5,6,.98) 44%,
+          rgba(255,255,255,.13) 82%,
+          rgba(255,255,255,.22) 100%),
+        linear-gradient(180deg,
+          rgba(255,255,255,.16) 0%,
+          rgba(82,76,68,.26) 15%,
+          rgba(6,6,7,.98) 50%,
+          rgba(78,70,60,.22) 86%,
+          rgba(255,255,255,.10) 100%);
+      box-shadow:
+        inset -1px 0 0 rgba(255,255,255,.15),
+        inset 1px 0 0 rgba(0,0,0,.75),
+        0 .5px 1px rgba(0,0,0,.42);
+    }
+    .phone .iphoneButton--mute,
+    .phone .iphoneButton--volumeUp,
+    .phone .iphoneButton--volumeDown { left: 3px; }
+    .phone .iphoneButton--side { right: 3px; }
+    .deviceShot .iphoneButton--mute,
+    .deviceShot .iphoneButton--volumeUp,
+    .deviceShot .iphoneButton--volumeDown,
+    .appPreviewFrame .iphoneButton--mute,
+    .appPreviewFrame .iphoneButton--volumeUp,
+    .appPreviewFrame .iphoneButton--volumeDown { left: 2px; }
+    .deviceShot .iphoneButton--side,
+    .appPreviewFrame .iphoneButton--side { right: 2px; }
+
     .iphoneBody {
       position: absolute;
+      z-index: 2;
       inset: 0;
       padding: var(--device-pad-y) var(--device-pad-x) var(--device-pad-bottom);
       border-radius: var(--device-r);
@@ -689,7 +768,7 @@
           <a href="#why" data-landing-key="navWhy">Why</a>
           <a href="#features" data-landing-key="navFeatures">Features</a>
           <a href="support/" data-url-field="supportURL" data-landing-key="navSupport">Support</a>
-          <span class="siteVersion" data-site-version="1.0.24" aria-label="Page version">v1.0.24</span><details class="localeMenu" data-locale-menu>
+          <span class="siteVersion" data-site-version="1.0.25" aria-label="Page version">v1.0.25</span><details class="localeMenu" data-locale-menu>
             <summary class="localeMenuSummary" aria-label="Language"><span data-locale-menu-current data-landing-key="languageLabel">Language</span></summary>
             <div class="localeMenuList" data-locale-menu-list role="menu" aria-label="Language options"></div>
           </details><a class="jaPreviewLink" href="index.html" data-ja-preview-link>通常ページ</a>
@@ -713,8 +792,8 @@
           <p class="note" data-landing-key="heroNote">Built for small salons, private studios, and personal services.</p>
         </div>
         <div class="deviceStack" aria-hidden="true">
-          <div class="iphoneDevice phone one"><div class="iphoneBody"><div class="iphoneScreen"><img class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/05.png" alt=""></div></div></div>
-          <div class="iphoneDevice phone two"><div class="iphoneBody"><div class="iphoneScreen"><img class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/02.png" alt=""></div></div></div>
+          <div class="iphoneDevice phone one"><span class="iphoneButton iphoneButton--mute" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeUp" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeDown" aria-hidden="true"></span><span class="iphoneButton iphoneButton--side" aria-hidden="true"></span><div class="iphoneBody"><div class="iphoneScreen"><img class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/05.png" alt=""></div></div></div>
+          <div class="iphoneDevice phone two"><span class="iphoneButton iphoneButton--mute" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeUp" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeDown" aria-hidden="true"></span><span class="iphoneButton iphoneButton--side" aria-hidden="true"></span><div class="iphoneBody"><div class="iphoneScreen"><img class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/02.png" alt=""></div></div></div>
         </div>
       </div>
     </section>
@@ -758,7 +837,7 @@
           <p class="bodyText" data-landing-key="previewBody">The video below is loaded from <code>assets/StoreDockAppPreviews/{locale}/IPHONE_67/01.mp4</code>. When you change the language, TwelveOath tries to show the matching App Preview video and falls back to the default content if needed.</p>
         </div>
         <div class="appPreviewShell">
-          <div class="iphoneDevice appPreviewFrame">
+          <div class="iphoneDevice appPreviewFrame"><span class="iphoneButton iphoneButton--mute" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeUp" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeDown" aria-hidden="true"></span><span class="iphoneButton iphoneButton--side" aria-hidden="true"></span>
             <div class="iphoneBody">
               <div class="iphoneScreen">
                 <video class="appPreviewVideo iphoneMedia" controls playsinline muted loop preload="metadata"poster="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/02.png">
@@ -779,13 +858,13 @@
           <p data-landing-key="galleryBody">Cancellation recovery becomes more than an administrative task. It becomes a deliberate action to recover time, revenue, and confidence.</p>
         </div>
         <div class="screens">
-          <figure class="iphoneDevice deviceShot"><div class="iphoneBody"><div class="iphoneScreen"><img loading="lazy" class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/02.png" alt="TwelveOath screenshot showing private offer and wax seal invitation"></div></div></figure>
-          <figure class="iphoneDevice deviceShot"><div class="iphoneBody"><div class="iphoneScreen"><img loading="lazy" class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/05.png" alt="TwelveOath screenshot showing schedule and recovered open slot"></div></div></figure>
-          <figure class="iphoneDevice deviceShot"><div class="iphoneBody"><div class="iphoneScreen"><img loading="lazy" class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/03.png" alt="TwelveOath screenshot showing First Circle clients"></div></div></figure>
-          <figure class="iphoneDevice deviceShot"><div class="iphoneBody"><div class="iphoneScreen"><img loading="lazy" class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/08.png" alt="TwelveOath screenshot showing the reason for choosing a client"></div></div></figure>
-          <figure class="iphoneDevice deviceShot"><div class="iphoneBody"><div class="iphoneScreen"><img loading="lazy" class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/09.png" alt="TwelveOath screenshot showing awaiting reply status"></div></div></figure>
-          <figure class="iphoneDevice deviceShot"><div class="iphoneBody"><div class="iphoneScreen"><img loading="lazy" class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/04.png" alt="TwelveOath screenshot showing recovered booking record"></div></div></figure>
-          <figure class="iphoneDevice deviceShot"><div class="iphoneBody"><div class="iphoneScreen"><img loading="lazy" class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/01.png" alt="TwelveOath screenshot showing monthly booking value dashboard"></div></div></figure>
+          <figure class="iphoneDevice deviceShot"><span class="iphoneButton iphoneButton--mute" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeUp" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeDown" aria-hidden="true"></span><span class="iphoneButton iphoneButton--side" aria-hidden="true"></span><div class="iphoneBody"><div class="iphoneScreen"><img loading="lazy" class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/02.png" alt="TwelveOath screenshot showing private offer and wax seal invitation"></div></div></figure>
+          <figure class="iphoneDevice deviceShot"><span class="iphoneButton iphoneButton--mute" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeUp" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeDown" aria-hidden="true"></span><span class="iphoneButton iphoneButton--side" aria-hidden="true"></span><div class="iphoneBody"><div class="iphoneScreen"><img loading="lazy" class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/05.png" alt="TwelveOath screenshot showing schedule and recovered open slot"></div></div></figure>
+          <figure class="iphoneDevice deviceShot"><span class="iphoneButton iphoneButton--mute" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeUp" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeDown" aria-hidden="true"></span><span class="iphoneButton iphoneButton--side" aria-hidden="true"></span><div class="iphoneBody"><div class="iphoneScreen"><img loading="lazy" class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/03.png" alt="TwelveOath screenshot showing First Circle clients"></div></div></figure>
+          <figure class="iphoneDevice deviceShot"><span class="iphoneButton iphoneButton--mute" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeUp" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeDown" aria-hidden="true"></span><span class="iphoneButton iphoneButton--side" aria-hidden="true"></span><div class="iphoneBody"><div class="iphoneScreen"><img loading="lazy" class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/08.png" alt="TwelveOath screenshot showing the reason for choosing a client"></div></div></figure>
+          <figure class="iphoneDevice deviceShot"><span class="iphoneButton iphoneButton--mute" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeUp" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeDown" aria-hidden="true"></span><span class="iphoneButton iphoneButton--side" aria-hidden="true"></span><div class="iphoneBody"><div class="iphoneScreen"><img loading="lazy" class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/09.png" alt="TwelveOath screenshot showing awaiting reply status"></div></div></figure>
+          <figure class="iphoneDevice deviceShot"><span class="iphoneButton iphoneButton--mute" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeUp" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeDown" aria-hidden="true"></span><span class="iphoneButton iphoneButton--side" aria-hidden="true"></span><div class="iphoneBody"><div class="iphoneScreen"><img loading="lazy" class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/04.png" alt="TwelveOath screenshot showing recovered booking record"></div></div></figure>
+          <figure class="iphoneDevice deviceShot"><span class="iphoneButton iphoneButton--mute" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeUp" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeDown" aria-hidden="true"></span><span class="iphoneButton iphoneButton--side" aria-hidden="true"></span><div class="iphoneBody"><div class="iphoneScreen"><img loading="lazy" class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/01.png" alt="TwelveOath screenshot showing monthly booking value dashboard"></div></div></figure>
         </div>
       </div>
     </section>
