@@ -774,51 +774,65 @@
       .screens { grid-template-columns: 1fr; }
       .navlinks a:not(.appstore) { display: none; }
     }
-  
-    /* TwelveOath text-frame audit v1.0.42 begin */
+
+    /* TwelveOath text-frame audit v1.0.43 begin */
     /*
-      Final text-frame pass.
-      v1.0.42 widened the frame, but the final quote still behaved like a headline:
-      text-wrap: balance and the medium-screen font size made Japanese break inside a phrase.
-      This pass separates normal headings from the final quote and protects phrase flow.
+      v1.0.43: copy-frame audit pass.
+      Goal: make Japanese landing copy look intentionally broken by meaning, not by accidental max-width.
+      - Keep wide desktop frames for headings/body.
+      - Stop final quote from behaving like an auto-balanced headline.
+      - Let the final quote use deliberate line breaks.
+      - Apply CJK break rules to hero lead, cards, features, overview, metadata, and quote.
     */
 
+    .wrap {
+      width: min(1240px, calc(100% - 48px));
+    }
+
     .sectionHead {
-      width: min(100%, 1060px);
-      max-width: min(100%, 1060px);
+      width: min(100%, 1120px);
+      max-width: min(100%, 1120px);
     }
     .sectionHead h2 {
       max-width: 100%;
       line-height: 1.08;
-      text-wrap: balance;
       overflow-wrap: normal;
     }
     .sectionHead p,
-    .bodyText {
-      max-width: min(100%, 980px);
-      text-wrap: pretty;
+    .bodyText,
+    .lead,
+    .card p,
+    .feature span {
       overflow-wrap: normal;
+      text-wrap: pretty;
+    }
+    .sectionHead p,
+    .bodyText {
+      max-width: min(100%, 1040px);
+    }
+    .lead {
+      max-width: min(100%, 980px);
     }
     .overviewStory .sectionHead,
     .metadataStory .sectionHead {
-      width: min(100%, 1100px);
-      max-width: min(100%, 1100px);
+      width: min(100%, 1160px);
+      max-width: min(100%, 1160px);
     }
     .overviewStory .sectionHead h2,
     .metadataStory .sectionHead h2 {
-      max-width: min(100%, 1100px);
+      max-width: min(100%, 1160px);
     }
     .overviewBody,
     .metadataBody {
-      max-width: min(100%, 980px);
+      max-width: min(100%, 1040px);
       line-height: 1.78;
     }
     .quote {
       width: min(100%, 1160px);
       max-width: min(100%, 1160px);
-      line-height: 1.22;
-      text-wrap: pretty;
+      line-height: 1.24;
       overflow-wrap: normal;
+      text-wrap: pretty;
     }
 
     html[data-locale^="ja"] h1[data-meta-field="subtitle"],
@@ -829,10 +843,29 @@
     html[data-landing-locale^="ko"] h1[data-meta-field="subtitle"],
     html[data-preview-locale^="ja"] h1[data-meta-field="subtitle"],
     html[lang^="ja"] h1[data-meta-field="subtitle"] {
-      max-width: min(100%, 1040px);
-      line-height: 1.04;
-      letter-spacing: -.043em;
+      max-width: min(100%, 1080px);
+      font-size: clamp(44px, 5.6vw, 82px);
+      line-height: 1.00;
+      letter-spacing: -.055em;
       text-wrap: balance;
+      word-break: auto-phrase;
+      overflow-wrap: normal;
+      line-break: strict;
+    }
+
+    html[data-locale^="ja"] .lead,
+    html[data-locale^="zh"] .lead,
+    html[data-locale^="ko"] .lead,
+    html[data-landing-locale^="ja"] .lead,
+    html[data-landing-locale^="zh"] .lead,
+    html[data-landing-locale^="ko"] .lead,
+    html[data-preview-locale^="ja"] .lead,
+    html[lang^="ja"] .lead {
+      max-width: min(100%, 1000px);
+      font-size: clamp(17px, 1.65vw, 22px);
+      line-height: 1.64;
+      letter-spacing: .002em;
+      text-wrap: pretty;
       word-break: auto-phrase;
       overflow-wrap: normal;
       line-break: strict;
@@ -846,9 +879,9 @@
     html[data-landing-locale^="ko"] .sectionHead h2,
     html[data-preview-locale^="ja"] .sectionHead h2,
     html[lang^="ja"] .sectionHead h2 {
-      font-size: clamp(31px, 3.45vw, 48px);
-      line-height: 1.11;
-      letter-spacing: -.043em;
+      font-size: clamp(31px, 3.25vw, 46px);
+      line-height: 1.14;
+      letter-spacing: -.038em;
       text-wrap: balance;
       word-break: auto-phrase;
       overflow-wrap: normal;
@@ -871,9 +904,9 @@
     html[data-preview-locale^="ja"] .bodyText,
     html[lang^="ja"] .sectionHead p,
     html[lang^="ja"] .bodyText {
-      max-width: min(100%, 1060px);
-      line-height: 1.72;
-      letter-spacing: .005em;
+      max-width: min(100%, 1080px);
+      line-height: 1.76;
+      letter-spacing: .004em;
       word-break: auto-phrase;
       overflow-wrap: normal;
       line-break: strict;
@@ -896,9 +929,39 @@
     html[data-preview-locale^="ja"] .metadataBody,
     html[lang^="ja"] .overviewBody,
     html[lang^="ja"] .metadataBody {
-      max-width: min(100%, 1000px);
-      line-height: 1.72;
-      letter-spacing: .01em;
+      max-width: min(100%, 1040px);
+      line-height: 1.76;
+      letter-spacing: .008em;
+      word-break: auto-phrase;
+      overflow-wrap: normal;
+      line-break: strict;
+      text-wrap: pretty;
+    }
+
+    html[data-locale^="ja"] .card b,
+    html[data-locale^="zh"] .card b,
+    html[data-locale^="ko"] .card b,
+    html[data-locale^="ja"] .card p,
+    html[data-locale^="zh"] .card p,
+    html[data-locale^="ko"] .card p,
+    html[data-locale^="ja"] .feature strong,
+    html[data-locale^="zh"] .feature strong,
+    html[data-locale^="ko"] .feature strong,
+    html[data-locale^="ja"] .feature span,
+    html[data-locale^="zh"] .feature span,
+    html[data-locale^="ko"] .feature span,
+    html[data-landing-locale^="ja"] .card b,
+    html[data-landing-locale^="ja"] .card p,
+    html[data-landing-locale^="ja"] .feature strong,
+    html[data-landing-locale^="ja"] .feature span,
+    html[data-preview-locale^="ja"] .card b,
+    html[data-preview-locale^="ja"] .card p,
+    html[data-preview-locale^="ja"] .feature strong,
+    html[data-preview-locale^="ja"] .feature span,
+    html[lang^="ja"] .card b,
+    html[lang^="ja"] .card p,
+    html[lang^="ja"] .feature strong,
+    html[lang^="ja"] .feature span {
       word-break: auto-phrase;
       overflow-wrap: normal;
       line-break: strict;
@@ -915,33 +978,33 @@
     html[lang^="ja"] .quote {
       width: min(100%, 1160px);
       max-width: min(100%, 1160px);
-      font-size: clamp(21px, 2.25vw, 32px);
-      line-height: 1.32;
-      letter-spacing: -.032em;
+      font-size: clamp(21px, 2.05vw, 30px);
+      line-height: 1.36;
+      letter-spacing: -.028em;
       text-wrap: pretty;
       word-break: auto-phrase;
       overflow-wrap: normal;
       line-break: strict;
     }
 
-    /* Final quote only: treat it as prose, not as a balanced headline. */
     .quote[data-landing-key="finalQuote"] {
       margin-inline: 0;
-      text-wrap: pretty;
+      white-space: pre-line;
+      text-wrap: wrap;
     }
     html[data-locale^="ja"] .quote[data-landing-key="finalQuote"],
     html[data-landing-locale^="ja"] .quote[data-landing-key="finalQuote"],
     html[data-preview-locale^="ja"] .quote[data-landing-key="finalQuote"],
     html[lang^="ja"] .quote[data-landing-key="finalQuote"] {
-      font-size: clamp(21px, 2.15vw, 30px);
-      line-height: 1.34;
-      letter-spacing: -.03em;
-      text-wrap: pretty;
+      max-width: min(100%, 980px);
+      font-size: clamp(22px, 2.05vw, 30px);
+      line-height: 1.38;
+      letter-spacing: -.026em;
+      white-space: pre-line;
+      text-wrap: wrap;
     }
 
     @media (min-width: 861px) {
-      .wrap { width: min(1240px, calc(100% - 48px)); }
-
       html[data-locale^="ja"] .split,
       html[data-locale^="zh"] .split,
       html[data-locale^="ko"] .split,
@@ -950,7 +1013,7 @@
       html[data-landing-locale^="ko"] .split,
       html[data-preview-locale^="ja"] .split,
       html[lang^="ja"] .split {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 24px;
         align-items: start;
       }
@@ -988,12 +1051,13 @@
     html[data-landing-locale^="ar"] .metadataBody,
     html[data-landing-locale^="he"] .metadataBody,
     html[data-landing-locale^="ur"] .metadataBody {
-      max-width: min(100%, 980px);
+      max-width: min(100%, 1000px);
       line-height: 1.88;
       text-align: start;
     }
 
     @media (max-width: 860px) {
+      .wrap { width: min(100% - 32px, 1240px); }
       .sectionHead,
       .overviewStory .sectionHead,
       .metadataStory .sectionHead,
@@ -1003,6 +1067,17 @@
         width: 100%;
         max-width: 100%;
       }
+      html[data-locale^="ja"] h1[data-meta-field="subtitle"],
+      html[data-locale^="zh"] h1[data-meta-field="subtitle"],
+      html[data-locale^="ko"] h1[data-meta-field="subtitle"],
+      html[data-landing-locale^="ja"] h1[data-meta-field="subtitle"],
+      html[data-landing-locale^="zh"] h1[data-meta-field="subtitle"],
+      html[data-landing-locale^="ko"] h1[data-meta-field="subtitle"],
+      html[data-preview-locale^="ja"] h1[data-meta-field="subtitle"],
+      html[lang^="ja"] h1[data-meta-field="subtitle"] {
+        font-size: clamp(39px, 10.5vw, 58px);
+        line-height: 1.02;
+      }
       html[data-locale^="ja"] .sectionHead h2,
       html[data-locale^="zh"] .sectionHead h2,
       html[data-locale^="ko"] .sectionHead h2,
@@ -1011,8 +1086,8 @@
       html[data-landing-locale^="ko"] .sectionHead h2,
       html[data-preview-locale^="ja"] .sectionHead h2,
       html[lang^="ja"] .sectionHead h2 {
-        font-size: clamp(30px, 8.6vw, 42px);
-        line-height: 1.12;
+        font-size: clamp(29px, 8.4vw, 41px);
+        line-height: 1.15;
       }
       html[data-locale^="ja"] .quote,
       html[data-locale^="zh"] .quote,
@@ -1022,19 +1097,18 @@
       html[data-landing-locale^="ko"] .quote,
       html[data-preview-locale^="ja"] .quote,
       html[lang^="ja"] .quote {
-        font-size: clamp(21px, 5.2vw, 28px);
-        line-height: 1.32;
-        text-wrap: pretty;
+        font-size: clamp(21px, 5.0vw, 28px);
+        line-height: 1.36;
       }
       html[data-locale^="ja"] .quote[data-landing-key="finalQuote"],
       html[data-landing-locale^="ja"] .quote[data-landing-key="finalQuote"],
       html[data-preview-locale^="ja"] .quote[data-landing-key="finalQuote"],
       html[lang^="ja"] .quote[data-landing-key="finalQuote"] {
-        font-size: clamp(21px, 4.8vw, 27px);
-        line-height: 1.34;
+        font-size: clamp(21px, 4.9vw, 27px);
+        line-height: 1.38;
       }
     }
-    /* TwelveOath text-frame audit v1.0.42 end */
+    /* TwelveOath text-frame audit v1.0.43 end */
 
   </style>
   <script type="application/ld+json">
@@ -1059,7 +1133,7 @@
           <a href="#why" data-landing-key="navWhy">Why</a>
           <a href="#features" data-landing-key="navFeatures">Features</a>
           <a href="support/" data-url-field="supportURL" data-landing-key="navSupport">Support</a>
-          <span class="siteVersion" data-site-version="1.0.41" aria-label="Page version">v1.0.42</span><details class="localeMenu" data-locale-menu>
+          <span class="siteVersion" data-site-version="1.0.43" aria-label="Page version">v1.0.43</span><details class="localeMenu" data-locale-menu>
             <summary class="localeMenuSummary" aria-label="Language"><span data-locale-menu-current data-landing-key="languageLabel">Language</span></summary>
             <div class="localeMenuList" data-locale-menu-list role="menu" aria-label="Language options"></div>
           </details><a class="jaPreviewLink" href="index.html" data-ja-preview-link>通常ページ</a>
