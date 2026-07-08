@@ -274,85 +274,151 @@
       position: relative;
       min-height: 640px;
       perspective: 1500px;
-      filter: drop-shadow(0 42px 88px rgba(0, 0, 0, .42));
+      filter: drop-shadow(0 44px 90px rgba(0, 0, 0, .42));
     }
-    .phone {
+
+    .iphoneDevice {
       --device-w: min(45vw, 318px);
-      --outer-r: 58px;
-      --screen-r: 45px;
-      position: absolute;
+      --device-pad-x: 8px;
+      --device-pad-y: 8px;
+      --device-pad-bottom: 10px;
+      --device-r: 58px;
+      --bezel-r: 49px;
+      --screen-r: 43px;
+      position: relative;
       width: var(--device-w);
       aspect-ratio: 1290 / 2796;
-      z-index: 2;
       overflow: visible;
-      padding: 10px 9px 12px;
-      border-radius: var(--outer-r);
+      isolation: isolate;
+      box-sizing: border-box;
+    }
+    .iphoneBody {
+      position: absolute;
+      inset: 0;
+      padding: var(--device-pad-y) var(--device-pad-x) var(--device-pad-bottom);
+      border-radius: var(--device-r);
       background:
-        radial-gradient(90% 22% at 50% 100%, rgba(255, 255, 255, .18) 0%, rgba(255, 255, 255, .04) 38%, rgba(0, 0, 0, 0) 72%),
-        linear-gradient(90deg, rgba(255, 255, 255, .30) 0%, rgba(255, 255, 255, .08) 2.8%, rgba(0, 0, 0, .70) 5.8%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0) 90%, rgba(255, 255, 255, .09) 94%, rgba(0, 0, 0, .84) 97.5%, rgba(255, 255, 255, .22) 100%),
-        linear-gradient(180deg, rgba(255, 255, 255, .28) 0%, rgba(35, 32, 29, .98) 3.5%, #090908 13%, #030303 52%, #0b0a09 84%, rgba(54, 48, 41, .98) 96%, rgba(255, 255, 255, .17) 100%);
-      border: 1px solid rgba(255, 250, 238, .23);
+        radial-gradient(120% 18% at 50% 0%, rgba(255,255,255,.28), rgba(255,255,255,.07) 34%, rgba(0,0,0,0) 70%),
+        radial-gradient(115% 18% at 50% 100%, rgba(255,255,255,.18), rgba(255,255,255,.035) 42%, rgba(0,0,0,0) 78%),
+        linear-gradient(90deg,
+          rgba(255,255,255,.34) 0%,
+          rgba(148,137,119,.32) 1.4%,
+          rgba(16,15,14,.96) 4.2%,
+          rgba(3,3,3,.99) 7.2%,
+          rgba(0,0,0,1) 11%,
+          rgba(4,4,4,1) 89%,
+          rgba(38,35,31,.98) 93.2%,
+          rgba(112,103,89,.28) 97.6%,
+          rgba(255,255,255,.24) 100%),
+        linear-gradient(180deg,
+          rgba(93,83,70,.96) 0%,
+          rgba(25,23,21,.99) 5.8%,
+          #050505 17%,
+          #010101 50%,
+          #050504 83%,
+          rgba(35,31,27,.99) 95%,
+          rgba(128,116,99,.42) 100%);
+      border: 1px solid rgba(255, 250, 238, .22);
       box-shadow:
-        0 46px 92px rgba(0, 0, 0, .50),
-        0 16px 34px rgba(0, 0, 0, .34),
-        inset 0 1px 0 rgba(255, 255, 255, .36),
-        inset 1px 0 0 rgba(255, 255, 255, .20),
-        inset -1px 0 0 rgba(0, 0, 0, .78),
-        inset 0 -1px 0 rgba(255, 255, 255, .12),
-        inset 0 -9px 18px rgba(0, 0, 0, .52);
+        0 46px 94px rgba(0, 0, 0, .52),
+        0 16px 34px rgba(0, 0, 0, .36),
+        inset 0 1px 0 rgba(255, 255, 255, .34),
+        inset 1px 0 0 rgba(255, 255, 255, .22),
+        inset -1px 0 0 rgba(0, 0, 0, .86),
+        inset 0 -1px 0 rgba(255, 255, 255, .10),
+        inset 0 -10px 22px rgba(0, 0, 0, .56);
+      box-sizing: border-box;
     }
-    .phone::before {
+    .iphoneBody::before {
       content: "";
       position: absolute;
       pointer-events: none;
-      inset: 5px 5px 7px;
+      inset: 3px 4px 5px;
+      border-radius: calc(var(--device-r) - 5px);
+      background:
+        linear-gradient(90deg,
+          rgba(255,255,255,.11) 0%,
+          rgba(0,0,0,.72) 2.7%,
+          rgba(0,0,0,0) 8%,
+          rgba(0,0,0,0) 92%,
+          rgba(255,255,255,.045) 96%,
+          rgba(0,0,0,.86) 100%),
+        linear-gradient(180deg,
+          rgba(255,255,255,.08) 0%,
+          rgba(0,0,0,0) 9%,
+          rgba(0,0,0,0) 89%,
+          rgba(255,255,255,.045) 100%);
+      box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.045),
+        inset 0 0 0 4px rgba(0,0,0,.82),
+        inset 0 16px 18px rgba(255,255,255,.028),
+        inset 0 -18px 22px rgba(0,0,0,.52);
       z-index: 2;
-      border-radius: calc(var(--outer-r) - 7px);
-      border: 1px solid rgba(255, 255, 255, .07);
-      box-shadow:
-        inset 0 0 0 2px rgba(0, 0, 0, .92),
-        inset 0 0 0 5px rgba(0, 0, 0, .86),
-        inset 0 0 0 6px rgba(255, 255, 255, .035),
-        inset 0 14px 16px rgba(255, 255, 255, .035),
-        inset 0 -16px 20px rgba(0, 0, 0, .46);
     }
-    .phone::after {
+    .iphoneBody::after {
       content: "";
       position: absolute;
       pointer-events: none;
-      left: -3px;
-      top: 22%;
-      width: 3px;
-      height: 34px;
-      border-radius: 999px 0 0 999px;
-      background: linear-gradient(180deg, rgba(255, 255, 255, .22), rgba(15, 14, 13, .96));
-      box-shadow:
-        0 56px 0 rgba(10, 9, 8, .96),
-        0 100px 0 rgba(12, 11, 10, .90),
-        calc(var(--device-w) + 18px) 44px 0 rgba(10, 9, 8, .96),
-        calc(var(--device-w) + 17px) 45px 0 1px rgba(255, 255, 255, .08),
-        7px calc(100% + 8px) 18px -10px rgba(255, 255, 255, .20);
-      opacity: .82;
+      inset: 0;
+      border-radius: var(--device-r);
+      background:
+        linear-gradient(90deg,
+          transparent 0%, transparent 2.2%, rgba(255,255,255,.13) 2.55%, transparent 3.1%,
+          transparent 96.7%, rgba(255,255,255,.08) 97.1%, transparent 97.8%, transparent 100%),
+        linear-gradient(180deg,
+          transparent 0%, transparent 2.3%, rgba(255,255,255,.12) 2.75%, transparent 3.6%,
+          transparent 96.4%, rgba(255,255,255,.08) 97.1%, transparent 98.1%, transparent 100%);
+      mix-blend-mode: screen;
+      opacity: .46;
+      z-index: 4;
     }
-    .phone img {
+    .iphoneScreen {
+      position: relative;
+      z-index: 3;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      overflow: hidden;
+      border-radius: var(--bezel-r);
+      background: #000;
+      box-shadow:
+        0 0 0 2px rgba(0, 0, 0, .96),
+        0 0 0 3px rgba(255, 255, 255, .035),
+        inset 0 0 0 1px rgba(255, 255, 255, .035),
+        inset 0 10px 14px rgba(255,255,255,.025),
+        inset 0 -12px 18px rgba(0,0,0,.58);
+    }
+    .iphoneScreen::before {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      inset: 0;
+      border-radius: inherit;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.035), transparent 12%, transparent 88%, rgba(255,255,255,.018)),
+        linear-gradient(180deg, rgba(255,255,255,.045), transparent 10%, transparent 88%, rgba(0,0,0,.28));
+      z-index: 2;
+    }
+    .iphoneMedia,
+    .iphoneScreen img,
+    .iphoneScreen video {
+      width: 100%;
+      height: 100%;
       display: block;
+      object-fit: cover;
       border-radius: var(--screen-r);
       background: #050505;
-      border: 1px solid rgba(255, 255, 255, .08);
-      box-shadow:
-        0 0 0 1px rgba(0, 0, 0, .94),
-        0 1px 0 rgba(255, 255, 255, .05);
       position: relative;
       z-index: 1;
+    }
+    .phone {
+      position: absolute;
+      z-index: 2;
     }
     .phone.one {
       right: 31%;
       top: 8px;
       transform: rotate(-7deg) translateZ(-34px) scale(.955);
-      opacity: .74;
+      opacity: .76;
       z-index: 1;
       filter: saturate(.88) brightness(.74);
     }
@@ -378,116 +444,43 @@
     .feature span { color: var(--muted); line-height: 1.56; }
     .screens { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; align-items: start; }
     .deviceShot {
-      --outer-r: 50px;
-      --screen-r: 38px;
-      position: relative;
+      --device-w: 100%;
+      --device-r: 50px;
+      --bezel-r: 42px;
+      --screen-r: 37px;
       margin: 0;
-      padding: 9px 8px 11px;
-      border-radius: var(--outer-r);
       aspect-ratio: 1290 / 2796;
-      overflow: visible;
-      background:
-        radial-gradient(88% 18% at 50% 100%, rgba(255, 255, 255, .16) 0%, rgba(255, 255, 255, .035) 40%, rgba(0, 0, 0, 0) 74%),
-        linear-gradient(90deg, rgba(255, 255, 255, .26) 0%, rgba(255, 255, 255, .07) 3%, rgba(0, 0, 0, .75) 6%, rgba(0, 0, 0, 0) 11%, rgba(0, 0, 0, 0) 89%, rgba(255, 255, 255, .08) 94%, rgba(0, 0, 0, .84) 97.5%, rgba(255, 255, 255, .20) 100%),
-        linear-gradient(180deg, rgba(255, 255, 255, .24) 0%, rgba(31, 29, 26, .98) 4%, #080807 14%, #030303 54%, #0a0908 84%, rgba(48, 43, 38, .98) 96%, rgba(255, 255, 255, .14) 100%);
-      border: 1px solid rgba(255, 250, 238, .19);
+    }
+    .deviceShot .iphoneBody {
+      padding: 7px 6px 9px;
       box-shadow:
         0 34px 76px rgba(0, 0, 0, .40),
         0 12px 24px rgba(0, 0, 0, .28),
-        inset 0 1px 0 rgba(255, 255, 255, .31),
+        inset 0 1px 0 rgba(255, 255, 255, .30),
         inset 1px 0 0 rgba(255, 255, 255, .16),
-        inset -1px 0 0 rgba(0, 0, 0, .76),
+        inset -1px 0 0 rgba(0, 0, 0, .78),
         inset 0 -8px 16px rgba(0, 0, 0, .50);
-    }
-    .deviceShot::before,
-    .appPreviewFrame::before {
-      content: "";
-      position: absolute;
-      pointer-events: none;
-      inset: 5px 5px 7px;
-      z-index: 2;
-      border: 1px solid rgba(255, 255, 255, .06);
-      box-shadow:
-        inset 0 0 0 2px rgba(0, 0, 0, .92),
-        inset 0 0 0 5px rgba(0, 0, 0, .86),
-        inset 0 0 0 6px rgba(255, 255, 255, .03),
-        inset 0 12px 14px rgba(255, 255, 255, .035),
-        inset 0 -15px 18px rgba(0, 0, 0, .46);
-    }
-    .deviceShot::before { border-radius: calc(var(--outer-r) - 7px); }
-    .deviceShot::after,
-    .appPreviewFrame::after {
-      content: "";
-      position: absolute;
-      pointer-events: none;
-      left: -3px;
-      top: 22%;
-      width: 3px;
-      height: 28px;
-      border-radius: 999px 0 0 999px;
-      background: linear-gradient(180deg, rgba(255, 255, 255, .20), rgba(12, 11, 10, .96));
-      box-shadow:
-        0 48px 0 rgba(10, 9, 8, .94),
-        0 86px 0 rgba(12, 11, 10, .88),
-        calc(100% + 15px) 38px 0 rgba(10, 9, 8, .94),
-        6px calc(100% + 7px) 16px -10px rgba(255, 255, 255, .18);
-      opacity: .78;
-      z-index: 3;
-    }
-    .deviceShot img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      border-radius: var(--screen-r);
-      border: 1px solid rgba(255, 255, 255, .075);
-      box-shadow:
-        0 0 0 1px rgba(0, 0, 0, .94),
-        0 1px 0 rgba(255, 255, 255, .045);
-      background: #050505;
-      position: relative;
-      z-index: 1;
     }
 
     .previewSection { background: rgba(255, 248, 235, .022); }
     .previewGrid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 34px; align-items: center; }
     .appPreviewShell { width: min(100%, 420px); justify-self: center; }
     .appPreviewFrame {
-      --outer-r: 52px;
-      --screen-r: 40px;
-      position: relative;
-      width: 100%;
+      --device-w: 100%;
+      --device-r: 52px;
+      --bezel-r: 44px;
+      --screen-r: 39px;
       aspect-ratio: 886 / 1920;
-      padding: 9px 8px 11px;
-      border-radius: var(--outer-r);
-      overflow: visible;
-      background:
-        radial-gradient(88% 18% at 50% 100%, rgba(255, 255, 255, .16) 0%, rgba(255, 255, 255, .035) 40%, rgba(0, 0, 0, 0) 74%),
-        linear-gradient(90deg, rgba(255, 255, 255, .26) 0%, rgba(255, 255, 255, .07) 3%, rgba(0, 0, 0, .75) 6%, rgba(0, 0, 0, 0) 11%, rgba(0, 0, 0, 0) 89%, rgba(255, 255, 255, .08) 94%, rgba(0, 0, 0, .84) 97.5%, rgba(255, 255, 255, .20) 100%),
-        linear-gradient(180deg, rgba(255, 255, 255, .24) 0%, rgba(31, 29, 26, .98) 4%, #080807 14%, #030303 54%, #0a0908 84%, rgba(48, 43, 38, .98) 96%, rgba(255, 255, 255, .14) 100%);
-      border: 1px solid rgba(255, 250, 238, .19);
+    }
+    .appPreviewFrame .iphoneBody {
+      padding: 7px 6px 9px;
       box-shadow:
         0 36px 84px rgba(0, 0, 0, .42),
         0 13px 28px rgba(0, 0, 0, .30),
-        inset 0 1px 0 rgba(255, 255, 255, .31),
+        inset 0 1px 0 rgba(255, 255, 255, .30),
         inset 1px 0 0 rgba(255, 255, 255, .16),
-        inset -1px 0 0 rgba(0, 0, 0, .76),
+        inset -1px 0 0 rgba(0, 0, 0, .78),
         inset 0 -8px 16px rgba(0, 0, 0, .50);
-    }
-    .appPreviewFrame::before { border-radius: calc(var(--outer-r) - 7px); }
-    .appPreviewVideo {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: var(--screen-r);
-      background: #050505;
-      border: 1px solid rgba(255, 255, 255, .075);
-      box-shadow:
-        0 0 0 1px rgba(0, 0, 0, .94),
-        0 1px 0 rgba(255, 255, 255, .045);
-      position: relative;
-      z-index: 1;
     }
     .appPreviewCaption { margin-top: 12px; color: var(--soft); font-size: 13px; text-align: center; }
     html[dir="rtl"] .appPreviewCaption { text-align: center; }
@@ -672,7 +665,7 @@
     }
     html[data-metadata-debug="true"] .metadataDebug { display: block; }
     html[dir="rtl"] body { direction: rtl; }
-    html[dir="rtl"] .deviceStack, html[dir="rtl"] .phone { direction: ltr; }
+    html[dir="rtl"] .deviceStack, html[dir="rtl"] .iphoneDevice { direction: ltr; }
     html[dir="rtl"] .foot, html[dir="rtl"] nav { direction: rtl; }
     footer { border-top: 1px solid var(--line); padding: 34px 0 48px; color: var(--soft); }
     .foot { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; font-size: 14px; }
@@ -681,9 +674,8 @@
     @media (max-width: 860px) {
       .heroGrid, .split { grid-template-columns: 1fr; }
       .deviceStack { min-height: 520px; }
-      .phone { --device-w: min(58vw, 268px); width: var(--device-w); padding: 8px 7px 10px; --outer-r: 48px; --screen-r: 37px; }
-      .phone::before { border-radius: calc(var(--outer-r) - 7px); }
-      .phone img { border-radius: var(--screen-r); }
+      .phone { --device-w: min(58vw, 268px); --device-r: 49px; --bezel-r: 42px; --screen-r: 37px; }
+      .phone .iphoneBody { padding: 7px 6px 9px; }
       .phone.one { right: 36%; }
       .cards { grid-template-columns: 1fr; }
       .screens { grid-template-columns: 1fr; }
@@ -712,7 +704,7 @@
           <a href="#why" data-landing-key="navWhy">Why</a>
           <a href="#features" data-landing-key="navFeatures">Features</a>
           <a href="support/" data-url-field="supportURL" data-landing-key="navSupport">Support</a>
-          <span class="siteVersion" data-site-version="1.0.22" aria-label="Page version">v1.0.22</span><details class="localeMenu" data-locale-menu>
+          <span class="siteVersion" data-site-version="1.0.24" aria-label="Page version">v1.0.24</span><details class="localeMenu" data-locale-menu>
             <summary class="localeMenuSummary" aria-label="Language"><span data-locale-menu-current data-landing-key="languageLabel">Language</span></summary>
             <div class="localeMenuList" data-locale-menu-list role="menu" aria-label="Language options"></div>
           </details><a class="jaPreviewLink" href="ja-preview.html" data-ja-preview-link>日本語確認</a>
@@ -736,8 +728,8 @@
           <p class="note" data-landing-key="heroNote">Built for small salons, private studios, and personal services.</p>
         </div>
         <div class="deviceStack" aria-hidden="true">
-          <div class="phone one"><img src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/05.png" alt=""></div>
-          <div class="phone two"><img src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/02.png" alt=""></div>
+          <div class="iphoneDevice phone one"><div class="iphoneBody"><div class="iphoneScreen"><img class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/05.png" alt=""></div></div></div>
+          <div class="iphoneDevice phone two"><div class="iphoneBody"><div class="iphoneScreen"><img class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/02.png" alt=""></div></div></div>
         </div>
       </div>
     </section>
@@ -781,17 +773,17 @@
           <p class="bodyText" data-landing-key="previewBody">The video below is loaded from <code>assets/StoreDockAppPreviews/{locale}/IPHONE_67/01.mp4</code>. When you change the language, TwelveOath tries to show the matching App Preview video and falls back to the default content if needed.</p>
         </div>
         <div class="appPreviewShell">
-          <div class="appPreviewShell">
-          <div class="appPreviewFrame">
-            <video class="appPreviewVideo" controls playsinline muted loop preload="metadata" poster="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/02.png">
-              <source src="assets/StoreDockAppPreviews/en-US/IPHONE_67/01.mp4" type="video/mp4">
-            </video>
+          <div class="iphoneDevice appPreviewFrame">
+            <div class="iphoneBody">
+              <div class="iphoneScreen">
+                <video class="appPreviewVideo iphoneMedia" controls playsinline muted loop preload="metadata"poster="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/02.png">
+                  <source src="assets/StoreDockAppPreviews/en-US/IPHONE_67/01.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
           </div>
           <div class="appPreviewCaption" data-landing-key="previewCaption">App Preview MP4 · locale aware</div>
         </div>
-<div class="appPreviewCaption" data-landing-key="previewCaption">App Preview MP4 · locale aware</div>
-        </div>
-</div>
       </div>
     </section>
 
@@ -802,13 +794,13 @@
           <p data-landing-key="galleryBody">Cancellation recovery becomes more than an administrative task. It becomes a deliberate action to recover time, revenue, and confidence.</p>
         </div>
         <div class="screens">
-          <figure class="deviceShot"><img loading="lazy" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/02.png" alt="TwelveOath screenshot showing private offer and wax seal invitation"></figure>
-          <figure class="deviceShot"><img loading="lazy" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/05.png" alt="TwelveOath screenshot showing schedule and recovered open slot"></figure>
-          <figure class="deviceShot"><img loading="lazy" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/03.png" alt="TwelveOath screenshot showing First Circle clients"></figure>
-          <figure class="deviceShot"><img loading="lazy" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/08.png" alt="TwelveOath screenshot showing the reason for choosing a client"></figure>
-          <figure class="deviceShot"><img loading="lazy" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/09.png" alt="TwelveOath screenshot showing awaiting reply status"></figure>
-          <figure class="deviceShot"><img loading="lazy" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/04.png" alt="TwelveOath screenshot showing recovered booking record"></figure>
-          <figure class="deviceShot"><img loading="lazy" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/01.png" alt="TwelveOath screenshot showing monthly booking value dashboard"></figure>
+          <figure class="iphoneDevice deviceShot"><div class="iphoneBody"><div class="iphoneScreen"><img loading="lazy" class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/02.png" alt="TwelveOath screenshot showing private offer and wax seal invitation"></div></div></figure>
+          <figure class="iphoneDevice deviceShot"><div class="iphoneBody"><div class="iphoneScreen"><img loading="lazy" class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/05.png" alt="TwelveOath screenshot showing schedule and recovered open slot"></div></div></figure>
+          <figure class="iphoneDevice deviceShot"><div class="iphoneBody"><div class="iphoneScreen"><img loading="lazy" class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/03.png" alt="TwelveOath screenshot showing First Circle clients"></div></div></figure>
+          <figure class="iphoneDevice deviceShot"><div class="iphoneBody"><div class="iphoneScreen"><img loading="lazy" class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/08.png" alt="TwelveOath screenshot showing the reason for choosing a client"></div></div></figure>
+          <figure class="iphoneDevice deviceShot"><div class="iphoneBody"><div class="iphoneScreen"><img loading="lazy" class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/09.png" alt="TwelveOath screenshot showing awaiting reply status"></div></div></figure>
+          <figure class="iphoneDevice deviceShot"><div class="iphoneBody"><div class="iphoneScreen"><img loading="lazy" class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/04.png" alt="TwelveOath screenshot showing recovered booking record"></div></div></figure>
+          <figure class="iphoneDevice deviceShot"><div class="iphoneBody"><div class="iphoneScreen"><img loading="lazy" class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/01.png" alt="TwelveOath screenshot showing monthly booking value dashboard"></div></div></figure>
         </div>
       </div>
     </section>
