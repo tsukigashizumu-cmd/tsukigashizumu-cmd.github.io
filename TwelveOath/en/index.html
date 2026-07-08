@@ -790,15 +790,14 @@
       .navlinks a:not(.appstore) { display: none; }
     }
   
-    /* TwelveOath text-frame audit v1.0.41 begin */
+    /* TwelveOath text-frame audit v1.0.42 begin */
     /*
-      Whole-page text frame pass.
-      The previous pass widened only the obvious section headers.
-      This pass also covers: section lead paragraphs, split-section copy,
-      the final quote, overview body, and Japanese preview HTML.
+      Final text-frame pass.
+      v1.0.42 widened the frame, but the final quote still behaved like a headline:
+      text-wrap: balance and the medium-screen font size made Japanese break inside a phrase.
+      This pass separates normal headings from the final quote and protects phrase flow.
     */
 
-    /* Base: do not let old 760/780px text frames cause premature wrapping. */
     .sectionHead {
       width: min(100%, 1060px);
       max-width: min(100%, 1060px);
@@ -826,17 +825,17 @@
     }
     .overviewBody,
     .metadataBody {
-      max-width: min(100%, 940px);
-      line-height: 1.82;
+      max-width: min(100%, 980px);
+      line-height: 1.78;
     }
     .quote {
-      max-width: min(100%, 1120px);
-      line-height: 1.18;
-      text-wrap: balance;
+      width: min(100%, 1160px);
+      max-width: min(100%, 1160px);
+      line-height: 1.22;
+      text-wrap: pretty;
       overflow-wrap: normal;
     }
 
-    /* CJK typography: use phrases and available width before falling to a new line. */
     html[data-locale^="ja"] h1[data-meta-field="subtitle"],
     html[data-locale^="zh"] h1[data-meta-field="subtitle"],
     html[data-locale^="ko"] h1[data-meta-field="subtitle"],
@@ -912,7 +911,7 @@
     html[data-preview-locale^="ja"] .metadataBody,
     html[lang^="ja"] .overviewBody,
     html[lang^="ja"] .metadataBody {
-      max-width: min(100%, 980px);
+      max-width: min(100%, 1000px);
       line-height: 1.72;
       letter-spacing: .01em;
       word-break: auto-phrase;
@@ -929,19 +928,34 @@
     html[data-landing-locale^="ko"] .quote,
     html[data-preview-locale^="ja"] .quote,
     html[lang^="ja"] .quote {
-      max-width: min(100%, 1120px);
-      font-size: clamp(22px, 2.55vw, 36px);
-      line-height: 1.25;
-      letter-spacing: -.035em;
-      text-wrap: balance;
+      width: min(100%, 1160px);
+      max-width: min(100%, 1160px);
+      font-size: clamp(21px, 2.25vw, 32px);
+      line-height: 1.32;
+      letter-spacing: -.032em;
+      text-wrap: pretty;
       word-break: auto-phrase;
       overflow-wrap: normal;
       line-break: strict;
     }
 
-    /* The split section was another hidden frame: its left column was narrow even on a wide screen. */
+    /* Final quote only: treat it as prose, not as a balanced headline. */
+    .quote[data-landing-key="finalQuote"] {
+      margin-inline: 0;
+      text-wrap: pretty;
+    }
+    html[data-locale^="ja"] .quote[data-landing-key="finalQuote"],
+    html[data-landing-locale^="ja"] .quote[data-landing-key="finalQuote"],
+    html[data-preview-locale^="ja"] .quote[data-landing-key="finalQuote"],
+    html[lang^="ja"] .quote[data-landing-key="finalQuote"] {
+      font-size: clamp(21px, 2.15vw, 30px);
+      line-height: 1.34;
+      letter-spacing: -.03em;
+      text-wrap: pretty;
+    }
+
     @media (min-width: 861px) {
-      .wrap { width: min(1200px, calc(100% - 48px)); }
+      .wrap { width: min(1240px, calc(100% - 48px)); }
 
       html[data-locale^="ja"] .split,
       html[data-locale^="zh"] .split,
@@ -968,7 +982,6 @@
       }
     }
 
-    /* RTL: do not apply Latin letter tightening to right-to-left headlines. */
     html[data-locale^="ar"] .sectionHead h2,
     html[data-locale^="he"] .sectionHead h2,
     html[data-locale^="ur"] .sectionHead h2,
@@ -977,7 +990,6 @@
     html[data-landing-locale^="ur"] .sectionHead h2 {
       letter-spacing: 0;
       line-height: 1.16;
-      text-wrap: balance;
     }
     html[data-locale^="ar"] .overviewBody,
     html[data-locale^="he"] .overviewBody,
@@ -1025,11 +1037,20 @@
       html[data-landing-locale^="ko"] .quote,
       html[data-preview-locale^="ja"] .quote,
       html[lang^="ja"] .quote {
-        font-size: clamp(23px, 7vw, 32px);
-        line-height: 1.24;
+        font-size: clamp(21px, 5.2vw, 28px);
+        line-height: 1.32;
+        text-wrap: pretty;
+      }
+      html[data-locale^="ja"] .quote[data-landing-key="finalQuote"],
+      html[data-landing-locale^="ja"] .quote[data-landing-key="finalQuote"],
+      html[data-preview-locale^="ja"] .quote[data-landing-key="finalQuote"],
+      html[lang^="ja"] .quote[data-landing-key="finalQuote"] {
+        font-size: clamp(21px, 4.8vw, 27px);
+        line-height: 1.34;
       }
     }
-    /* TwelveOath text-frame audit v1.0.41 end */
+    /* TwelveOath text-frame audit v1.0.42 end */
+
   </style>
   <script type="application/ld+json">
   {
@@ -1053,7 +1074,7 @@
           <a href="#why" data-landing-key="navWhy">Why</a>
           <a href="#features" data-landing-key="navFeatures">Features</a>
           <a href="support/" data-url-field="supportURL" data-landing-key="navSupport">Support</a>
-          <span class="siteVersion" data-site-version="1.0.41" aria-label="Page version">v1.0.41</span><details class="localeMenu" data-locale-menu>
+          <span class="siteVersion" data-site-version="1.0.41" aria-label="Page version">v1.0.42</span><details class="localeMenu" data-locale-menu>
             <summary class="localeMenuSummary" aria-label="Language"><span data-locale-menu-current data-landing-key="languageLabel">Language</span></summary>
             <div class="localeMenuList" data-locale-menu-list role="menu" aria-label="Language options"></div>
           </details><a class="jaPreviewLink" href="ja-preview.html" data-ja-preview-link>日本語確認</a>
