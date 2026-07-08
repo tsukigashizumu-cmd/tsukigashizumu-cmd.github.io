@@ -790,9 +790,9 @@
       .navlinks a:not(.appstore) { display: none; }
     }
 
-    /* TwelveOath CTA and gallery polish v1.0.47 begin */
+    /* TwelveOath CTA and gallery polish v1.0.48 begin */
     /*
-      v1.0.47: CTA + preview + gallery polish.
+      v1.0.48: CTA + preview + gallery polish.
       Goal: 91 -> 93.
       - Make the closing App Store action feel like a designed decision block.
       - Reduce screenshot gallery heaviness by changing 3-column 7-shot layout to 4+3.
@@ -1327,12 +1327,12 @@
         margin-inline: auto;
       }
     }
-    /* TwelveOath CTA and gallery polish v1.0.47 end */
+    /* TwelveOath CTA and gallery polish v1.0.48 end */
 
   
-    /* TwelveOath Japanese CTA locale fix v1.0.47 begin */
+    /* TwelveOath Japanese CTA locale fix v1.0.48 begin */
     /*
-      v1.0.47: Japanese CTA localization fix.
+      v1.0.48: Japanese CTA localization fix.
       - ja.js must contain escaped \n, not physical newlines inside a JS string.
       - Preserve intentional Japanese final-copy line breaks.
     */
@@ -1345,15 +1345,115 @@
       line-height: 1.42;
       text-wrap: pretty;
     }
-    /* TwelveOath Japanese CTA locale fix v1.0.47 end */
+    /* TwelveOath Japanese CTA locale fix v1.0.48 end */
 
   
-    /* TwelveOath locale hardening v1.0.47 begin */
+    /* TwelveOath locale hardening v1.0.48 begin */
     .quote[data-landing-key="finalQuote"] { white-space: pre-line; }
     html[data-landing-locale^="ja"] .finalCtaSection .actions,
     html[data-preview-locale^="ja"] .finalCtaSection .actions,
     html[lang^="ja"] .finalCtaSection .actions { gap: 14px; }
-    /* TwelveOath locale hardening v1.0.47 end */
+    /* TwelveOath locale hardening v1.0.48 end */
+  
+/* TwelveOath responsive chrome v1.0.48 begin */
+/*
+  Responsive chrome policy:
+  - Desktop / iPad landscape: full navigation can stay.
+  - iPad portrait / narrow desktop: keep brand + language + App Store, remove secondary links.
+  - iPhone portrait: one compact row; no version / Japanese check / secondary nav.
+  - iPhone landscape: header must not steal vertical space; make it compact and non-sticky.
+  - Footer is useful but must not become a second navigation wall on small screens.
+*/
+
+header { min-height: 0; }
+nav { min-width: 0; }
+.brand, .navlinks, .localeMenu, .appstore { min-width: 0; }
+.brand span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.navlinks { flex-wrap: nowrap; }
+
+@media (min-width: 1181px) {
+  header .wrap { width: min(1240px, calc(100% - 48px)); }
+  .navlinks { gap: 18px; }
+}
+
+/* iPad landscape / desktop portrait-ish: reduce debug chrome first, keep real navigation. */
+@media (min-width: 861px) and (max-width: 1180px) {
+  nav { gap: 14px; padding: 12px 0; }
+  .brand img { width: 32px; height: 32px; border-radius: 8px; }
+  .navlinks { gap: 12px; font-size: 13px; }
+  .siteVersion { display: none; }
+  .jaPreviewLink { display: none; }
+  .localeMenuSummary { max-width: 138px; }
+  .appstore { padding: 9px 13px; }
+}
+
+/* iPad portrait and narrow desktop: brand + language + App Store only. */
+@media (min-width: 641px) and (max-width: 860px) {
+  header .wrap { width: min(100% - 32px, 820px); }
+  nav { gap: 12px; padding: 10px 0; }
+  .brand { gap: 10px; max-width: 42%; }
+  .brand img { width: 31px; height: 31px; border-radius: 8px; }
+  .brand span { font-size: 15px; }
+  .navlinks { margin-left: auto; gap: 10px; font-size: 13px; }
+  .navlinks > a:not(.appstore), .siteVersion, .jaPreviewLink { display: none !important; }
+  .localeMenuSummary { min-height: 32px; padding: 0 11px; max-width: 132px; }
+  .appstore { min-height: 34px; padding: 0 13px; }
+  footer { padding: 26px 0 34px; }
+  .foot { align-items: center; font-size: 13px; }
+}
+
+/* iPhone portrait: do not spend the first view on navigation. */
+@media (max-width: 640px) and (orientation: portrait) {
+  header .wrap { width: calc(100% - 24px); }
+  nav { gap: 8px; padding: 8px 0; }
+  .brand { gap: 8px; flex: 1 1 auto; max-width: calc(100% - 184px); }
+  .brand img { width: 28px; height: 28px; border-radius: 7px; }
+  .brand span { font-size: 14px; letter-spacing: -.03em; }
+  .navlinks { flex: 0 0 auto; gap: 7px; font-size: 12px; }
+  .navlinks > a:not(.appstore), .siteVersion, .jaPreviewLink { display: none !important; }
+  .localeMenuSummary { min-height: 30px; padding: 0 9px; max-width: 76px; font-size: 11px; }
+  .appstore { min-height: 31px; padding: 0 10px; font-size: 12px; }
+  .appstore[data-landing-key="appStoreButton"] { max-width: 94px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  footer { padding: 22px 0 28px; }
+  .foot { flex-direction: column; align-items: flex-start; gap: 12px; font-size: 12px; }
+  .foot a { margin-left: 0; margin-right: 14px; }
+}
+
+/* Very narrow phones: icon carries the brand; keep action visible. */
+@media (max-width: 390px) and (orientation: portrait) {
+  .brand { max-width: calc(100% - 158px); }
+  .brand span { display: none; }
+  .localeMenuSummary { max-width: 58px; padding: 0 8px; }
+  .appstore { max-width: 86px; padding: 0 9px; }
+}
+
+/* iPhone landscape: vertical space is the scarce resource. Make the chrome non-sticky and smaller. */
+@media (max-height: 520px) and (orientation: landscape) {
+  header { position: relative; backdrop-filter: blur(12px); background: rgba(18, 13, 10, .86); }
+  header .wrap { width: calc(100% - 28px); }
+  nav { padding: 6px 0; gap: 10px; }
+  .brand { gap: 8px; max-width: 34%; }
+  .brand img { width: 26px; height: 26px; border-radius: 7px; }
+  .brand span { font-size: 13px; }
+  .navlinks { margin-left: auto; gap: 8px; font-size: 12px; }
+  .navlinks > a:not(.appstore), .siteVersion, .jaPreviewLink { display: none !important; }
+  .localeMenuSummary { min-height: 28px; max-width: 92px; padding: 0 9px; font-size: 11px; }
+  .appstore { min-height: 29px; padding: 0 10px; font-size: 12px; }
+  .hero { padding-top: 38px; }
+  footer { padding: 18px 0 22px; }
+  .foot { font-size: 12px; gap: 10px; }
+}
+
+/* Large iPad / tablet landscape can afford a full footer, but not a heavy one. */
+@media (min-width: 861px) and (max-width: 1180px) and (orientation: landscape) {
+  footer { padding: 28px 0 38px; }
+}
+
+html[dir="rtl"] .foot a { margin-left: 0; margin-right: 14px; }
+@media (max-width: 640px) {
+  html[dir="rtl"] .foot { align-items: flex-start; }
+}
+/* TwelveOath responsive chrome v1.0.48 end */
   </style>
   <script type="application/ld+json">
   {
@@ -1377,7 +1477,7 @@
           <a href="#why" data-landing-key="navWhy">Why</a>
           <a href="#features" data-landing-key="navFeatures">Features</a>
           <a href="support/" data-url-field="supportURL" data-landing-key="navSupport">Support</a>
-          <span class="siteVersion" data-site-version="1.0.47" aria-label="Page version">v1.0.47</span><details class="localeMenu" data-locale-menu>
+          <span class="siteVersion" data-site-version="1.0.48" aria-label="Page version">v1.0.48</span><details class="localeMenu" data-locale-menu>
             <summary class="localeMenuSummary" aria-label="Language"><span data-locale-menu-current data-landing-key="languageLabel">Language</span></summary>
             <div class="localeMenuList" data-locale-menu-list role="menu" aria-label="Language options"></div>
           </details><a class="jaPreviewLink" href="ja-preview.html" data-ja-preview-link>日本語確認</a>
