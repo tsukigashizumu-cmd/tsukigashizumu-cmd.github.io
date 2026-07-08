@@ -775,9 +775,9 @@
       .navlinks a:not(.appstore) { display: none; }
     }
 
-    /* TwelveOath CTA and gallery polish v1.0.46 begin */
+    /* TwelveOath CTA and gallery polish v1.0.47 begin */
     /*
-      v1.0.46: CTA + preview + gallery polish.
+      v1.0.47: CTA + preview + gallery polish.
       Goal: 91 -> 93.
       - Make the closing App Store action feel like a designed decision block.
       - Reduce screenshot gallery heaviness by changing 3-column 7-shot layout to 4+3.
@@ -1312,12 +1312,12 @@
         margin-inline: auto;
       }
     }
-    /* TwelveOath CTA and gallery polish v1.0.46 end */
+    /* TwelveOath CTA and gallery polish v1.0.47 end */
 
   
-    /* TwelveOath Japanese CTA locale fix v1.0.46 begin */
+    /* TwelveOath Japanese CTA locale fix v1.0.47 begin */
     /*
-      v1.0.46: Japanese CTA localization fix.
+      v1.0.47: Japanese CTA localization fix.
       - ja.js must contain escaped \n, not physical newlines inside a JS string.
       - Preserve intentional Japanese final-copy line breaks.
     */
@@ -1330,8 +1330,15 @@
       line-height: 1.42;
       text-wrap: pretty;
     }
-    /* TwelveOath Japanese CTA locale fix v1.0.46 end */
+    /* TwelveOath Japanese CTA locale fix v1.0.47 end */
 
+  
+    /* TwelveOath locale hardening v1.0.47 begin */
+    .quote[data-landing-key="finalQuote"] { white-space: pre-line; }
+    html[data-landing-locale^="ja"] .finalCtaSection .actions,
+    html[data-preview-locale^="ja"] .finalCtaSection .actions,
+    html[lang^="ja"] .finalCtaSection .actions { gap: 14px; }
+    /* TwelveOath locale hardening v1.0.47 end */
   </style>
   <script type="application/ld+json">
   {
@@ -1352,14 +1359,14 @@
       <nav aria-label="Main navigation">
         <a class="brand" href="./" aria-label="TwelveOath home"><img src="assets/app-icon.png" alt="TwelveOath app icon"><span data-meta-field="name">TwelveOath</span></a>
         <div class="navlinks">
-          <a href="#why" data-landing-key="navWhy">Why</a>
-          <a href="#features" data-landing-key="navFeatures">Features</a>
-          <a href="support/" data-url-field="supportURL" data-landing-key="navSupport">Support</a>
-          <span class="siteVersion" data-site-version="1.0.45" aria-label="Page version">v1.0.46</span><details class="localeMenu" data-locale-menu>
-            <summary class="localeMenuSummary" aria-label="Language"><span data-locale-menu-current data-landing-key="languageLabel">Language</span></summary>
+          <a href="#why" data-landing-key="navWhy">なぜ必要か</a>
+          <a href="#features" data-landing-key="navFeatures">できること</a>
+          <a href="support/" data-url-field="supportURL" data-landing-key="navSupport">サポート</a>
+          <span class="siteVersion" data-site-version="1.0.47" aria-label="Page version">v1.0.47</span><details class="localeMenu" data-locale-menu>
+            <summary class="localeMenuSummary" aria-label="Language"><span data-locale-menu-current data-landing-key="languageLabel">言語</span></summary>
             <div class="localeMenuList" data-locale-menu-list role="menu" aria-label="Language options"></div>
           </details><a class="jaPreviewLink" href="index.html" data-ja-preview-link>通常ページ</a>
-          <a class="appstore" href="https://apps.apple.com/us/app/twelveoath/id6786129971" data-landing-key="appStoreButton">View on App Store</a>
+          <a class="appstore" href="https://apps.apple.com/us/app/twelveoath/id6786129971" data-landing-key="appStoreButton">App Storeで見る</a>
         </div>
       </nav>
     </div>
@@ -1369,14 +1376,14 @@
     <section class="hero">
       <div class="wrap heroGrid">
         <div>
-          <div class="eyebrow" data-landing-key="heroEyebrow">Cancellation Recovery Ritual</div>
-          <h1 data-meta-field="subtitle" data-landing-key="heroHeadline">Know who you’ll invite before the hour disappears.</h1>
-          <p class="lead" data-meta-field="promotionalText" data-landing-key="heroBody">When a cancellation hits, you should not be deciding from scratch. Keep your first circle ready, choose the customer who fits the open time, and send a calm invitation before the hour slips away.</p>
+          <div class="eyebrow" data-landing-key="heroEyebrow">キャンセル回収の儀式</div>
+          <h1 data-meta-field="subtitle" data-landing-key="heroHeadline">次のキャンセルで、誰に送るか迷わない。</h1>
+          <p class="lead" data-meta-field="promotionalText" data-landing-key="heroBody">キャンセルが来てから考え始めると、時間も売上も先に消えていきます。声をかける相手、選ぶ理由、待つ期限を先に整えておけば、次の空き枠に落ち着いて案内できます。</p>
           <div class="actions">
-            <a class="primary" href="https://apps.apple.com/us/app/twelveoath/id6786129971" data-landing-key="heroPrimary">Download on the App Store</a>
-            <a class="secondary" href="#features" data-landing-key="heroSecondary">See how it works</a>
+            <a class="primary" href="https://apps.apple.com/us/app/twelveoath/id6786129971" data-landing-key="heroPrimary">App Storeで見る</a>
+            <a class="secondary" href="#features" data-landing-key="heroSecondary">仕組みを見る</a>
           </div>
-          <p class="note" data-landing-key="heroNote">For small salons, private studios, and appointment-based services.</p>
+          <p class="note" data-landing-key="heroNote">一人サロン、個人スタジオ、予約制サービスのために。</p>
         </div>
         <div class="deviceStack" aria-hidden="true">
           <div class="iphoneDevice phone one"><span class="iphoneButton iphoneButton--mute" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeUp" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeDown" aria-hidden="true"></span><span class="iphoneButton iphoneButton--side" aria-hidden="true"></span><div class="iphoneBody"><div class="iphoneScreen"><img class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/05.png" alt=""></div></div></div>
@@ -1388,13 +1395,13 @@
     <section id="why">
       <div class="wrap">
         <div class="sectionHead">
-          <h2 data-landing-key="whyTitle">Your empty hour starts disappearing immediately.</h2>
-          <p data-landing-key="whyBody">A last-minute cancellation does not only leave a blank space. It leaves you with lost revenue, wasted preparation, and a decision you have to make while the clock is already moving.</p>
+          <h2 data-landing-key="whyTitle">空いた時間は、静かに消えていく。</h2>
+          <p data-landing-key="whyBody">直前キャンセルは、ただの空白ではありません。準備した時間、材料費、その時間に入るはずだった売上。そして、誰に声をかけるかを急いで決める負担が残ります。</p>
         </div>
         <div class="cards">
-          <div class="card"><b data-landing-key="whyCard1Title">Decide before the cancellation</b><p data-landing-key="whyCard1Body">Keep up to twelve trusted customers ready, so you are not searching for someone after the loss has already started.</p></div>
-          <div class="card"><b data-landing-key="whyCard2Title">Choose the person who fits</b><p data-landing-key="whyCard2Body">Match the open time with day, service length, and customer preferences before you send.</p></div>
-          <div class="card"><b data-landing-key="whyCard3Title">Send without sounding desperate</b><p data-landing-key="whyCard3Body">Use a private invitation, public opening, or campaign notice so your recovery feels intentional.</p></div>
+          <div class="card"><b data-landing-key="whyCard1Title">キャンセル前に決めておく</b><p data-landing-key="whyCard1Body">失ってから探すのではなく、優先して声をかけるお客様を最大12人まで先に整えておけます。</p></div>
+          <div class="card"><b data-landing-key="whyCard2Title">空き時間に合う人だけを選ぶ</b><p data-landing-key="whyCard2Body">曜日、時間、メニューの長さ、希望条件を見ながら、その枠に合う一人をすぐ選べます。</p></div>
+          <div class="card"><b data-landing-key="whyCard3Title">焦った案内に見せない</b><p data-landing-key="whyCard3Body">個別案内、通常募集、キャンペーン型の案内を使い分け、落ち着いた回収として送れます。</p></div>
         </div>
       </div>
     </section>
@@ -1402,15 +1409,15 @@
     <section id="features">
       <div class="wrap split">
         <div>
-          <div class="eyebrow" data-landing-key="featuresEyebrow">What you actually need</div>
-          <h2 data-landing-key="featuresTitle">You do not need a bigger booking platform.</h2>
-          <p class="bodyText" data-landing-key="featuresBody">You need a calm next move after a cancellation. TwelveOath stays narrow: prepare who to contact, why they fit, and how long to wait, then turn the empty hour into an invitation.</p>
+          <div class="eyebrow" data-landing-key="featuresEyebrow">あなたに本当に必要なもの</div>
+          <h2 data-landing-key="featuresTitle">大きな予約管理は、いらない。</h2>
+          <p class="bodyText" data-landing-key="featuresBody">必要なのは、キャンセル後に迷わず出せる次の一手です。TwelveOathは範囲を広げず、誰に送るか、なぜその人か、いつまで待つかだけを静かに整えます。</p>
         </div>
         <div class="featureList">
-          <div class="feature"><strong data-landing-key="feature1Title">Your First Circle</strong><span data-landing-key="feature1Body">Keep up to twelve customers ready for priority contact when the right opening appears.</span></div>
-          <div class="feature"><strong data-landing-key="feature2Title">Private / Public / Campaign</strong><span data-landing-key="feature2Body">Choose the tone of the invitation instead of sending every opening the same way.</span></div>
-          <div class="feature"><strong data-landing-key="feature3Title">Local-first, lightweight</strong><span data-landing-key="feature3Body">Work without a large platform, server setup, or operations team.</span></div>
-          <div class="feature"><strong data-landing-key="feature4Title">A ritual you remember</strong><span data-landing-key="feature4Body">The envelope, wax seal, and twelve seats make the recovery step feel deliberate, not frantic.</span></div>
+          <div class="feature"><strong data-landing-key="feature1Title">あなたのFirst Circle</strong><span data-landing-key="feature1Body">急な案内を受け取ってもよいお客様を最大12人まで保持し、条件が合う時に優先して確認できます。</span></div>
+          <div class="feature"><strong data-landing-key="feature2Title">個別 / 公開 / キャンペーン</strong><span data-landing-key="feature2Body">空き枠の内容に合わせて、特別案内・通常募集・広めの案内を使い分けられます。</span></div>
+          <div class="feature"><strong data-landing-key="feature3Title">軽く、ローカル優先</strong><span data-landing-key="feature3Body">大きな予約基盤や運用チームを前提にせず、個人店がすぐ扱える形を目指しています。</span></div>
+          <div class="feature"><strong data-landing-key="feature4Title">記憶に残る回収操作</strong><span data-landing-key="feature4Body">封筒、蝋封、12席の円卓で、焦る作業を落ち着いた手順に変えます。</span></div>
         </div>
       </div>
     </section>
@@ -1419,9 +1426,9 @@
     <section id="preview" class="previewSection">
       <div class="wrap previewGrid">
         <div>
-          <div class="eyebrow" data-landing-key="previewEyebrow">See the flow</div>
-          <h2 data-landing-key="previewTitle">Watch how your next invitation starts.</h2>
-          <p class="bodyText" data-landing-key="previewBody">The App Preview changes with the selected language when a matching video is available. Use it to see how the recovery flow feels before you download.</p>
+          <div class="eyebrow" data-landing-key="previewEyebrow">流れを見る</div>
+          <h2 data-landing-key="previewTitle">次の案内が始まる瞬間を見る。</h2>
+          <p class="bodyText" data-landing-key="previewBody">対応する言語のApp Preview動画がある場合は、その動画を表示します。空き枠を回収する流れを、ダウンロード前に確認できます。</p>
         </div>
         <div class="appPreviewShell">
           <div class="iphoneDevice appPreviewFrame"><span class="iphoneButton iphoneButton--mute" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeUp" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeDown" aria-hidden="true"></span><span class="iphoneButton iphoneButton--side" aria-hidden="true"></span>
@@ -1433,7 +1440,7 @@
               </div>
             </div>
           </div>
-          <div class="appPreviewCaption" data-landing-key="previewCaption">App Preview · language aware</div>
+          <div class="appPreviewCaption" data-landing-key="previewCaption">App Preview・言語別対応</div>
         </div>
       </div>
     </section>
@@ -1441,8 +1448,8 @@
     <section>
       <div class="wrap">
         <div class="sectionHead">
-          <h2 data-landing-key="galleryTitle">Your next empty hour can already have a plan.</h2>
-          <p data-landing-key="galleryBody">Prepare the people, the reason, and the invitation before the cancellation arrives. Then recover the hour without rushing.</p>
+          <h2 data-landing-key="galleryTitle">次の空き時間には、もう計画がある。</h2>
+          <p data-landing-key="galleryBody">声をかける人、選ぶ理由、送る形を先に整える。キャンセルが来ても、慌てずに空き枠を取り戻せます。</p>
         </div>
         <div class="screens">
           <figure class="iphoneDevice deviceShot"><span class="iphoneButton iphoneButton--mute" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeUp" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeDown" aria-hidden="true"></span><span class="iphoneButton iphoneButton--side" aria-hidden="true"></span><div class="iphoneBody"><div class="iphoneScreen"><img loading="lazy" class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/02.png" alt="TwelveOath screenshot showing private offer and wax seal invitation"></div></div></figure>
@@ -1460,8 +1467,8 @@
     <section id="overview" class="overviewStory">
       <div class="wrap">
         <div class="sectionHead">
-          <div class="eyebrow" data-landing-key="overviewEyebrow">Overview</div>
-          <h2 data-landing-key="overviewTitle">Why you may want this before the next cancellation.</h2>
+          <div class="eyebrow" data-landing-key="overviewEyebrow">概要</div>
+          <h2 data-landing-key="overviewTitle">次のキャンセル前に、用意しておく理由。</h2>
         </div>
         <div class="overviewBody" data-meta-field="description" data-meta-render="preline">Has a client ever canceled and the minutes kept passing while you still did not know who to contact first? TwelveOath helps you prepare who to contact, what to send, and how long to wait before the next cancellation happens.</div>
       </div>
@@ -1472,7 +1479,7 @@
         <p class="quote" data-landing-key="finalQuote">次のキャンセルは、<br>焦る時間ではなく、<br>準備しておいた一人へ<br>案内を始める合図です。</p>
         <div class="actions" style="margin-top: 28px;">
           <a class="primary" href="https://apps.apple.com/us/app/twelveoath/id6786129971" data-landing-key="finalPrimary">App Storeで見る</a>
-          <a class="secondary" href="privacy/" data-url-field="privacyPolicyURL" data-landing-key="finalSecondary">Privacy Policy</a>
+          <a class="secondary" href="privacy/" data-url-field="privacyPolicyURL" data-landing-key="finalSecondary">プライバシーを見る</a>
         </div>
       </div>
     </section>
@@ -1482,8 +1489,8 @@
     <div class="wrap foot">
       <div>© 2026 TwelveOath</div>
       <div>
-        <a href="privacy/" data-url-field="privacyPolicyURL" data-landing-key="footerPrivacy">Privacy</a>
-        <a href="support/" data-url-field="supportURL" data-landing-key="footerSupport">Support</a>
+        <a href="privacy/" data-url-field="privacyPolicyURL" data-landing-key="footerPrivacy">プライバシー</a>
+        <a href="support/" data-url-field="supportURL" data-landing-key="footerSupport">サポート</a>
         <a href="https://apps.apple.com/us/app/twelveoath/id6786129971" data-landing-key="footerAppStore">App Store</a>
       </div>
     </div>

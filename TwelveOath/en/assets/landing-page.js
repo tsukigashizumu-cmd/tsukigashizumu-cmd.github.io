@@ -6,13 +6,18 @@
 
   function params() { return new URLSearchParams(window.location.search); }
   function requestedLocale() {
-    if (window.TwelveOathAppStoreMetadata?.locale) return window.TwelveOathAppStoreMetadata.locale;
+    // v1.0.47: locale selection must not be overridden by stale metadata/localStorage.
+    // Priority: forced preview -> URL -> metadata event state -> saved locale -> html lang -> browser/default.
+    if (window.TwelveOathForceLocale) return window.TwelveOathForceLocale;
     const explicit = params().get("locale") || params().get("lang");
     if (explicit) return explicit;
+    if (window.TwelveOathAppStoreMetadata?.locale) return window.TwelveOathAppStoreMetadata.locale;
     try {
       const saved = window.localStorage?.getItem("TwelveOath.locale");
       if (saved) return saved;
     } catch (_) {}
+    const htmlLang = document.documentElement.getAttribute("lang");
+    if (htmlLang) return htmlLang;
     return navigator.language || defaultLocale;
   }
   function candidates(locale) {
@@ -39,7 +44,8 @@
   }
   function setText(key, value) {
     if (value === undefined || value === null) return;
-    document.querySelectorAll(`[data-landing-key="${CSS.escape(key)}"]`).forEach((node) => {
+    const escaped = window.CSS && typeof CSS.escape === "function" ? CSS.escape(key) : String(key).replace(/"/g, '\"');
+    document.querySelectorAll(`[data-landing-key="${escaped}"]`).forEach((node) => {
       node.textContent = normalizeText(value);
     });
   }
