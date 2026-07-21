@@ -424,7 +424,8 @@
           metadata = await response.json();
           populateLocales();
 
-          const query = new URLSearchParams(location.search).get("locale");
+          const params = new URLSearchParams(location.search);
+          const query = params.get("locale") || params.get("language");
           let saved = "";
           try { saved = localStorage.getItem("MinPick.locale") || ""; } catch (_) {}
           applyLocale(query || saved || navigator.language || DEFAULT_LOCALE);
