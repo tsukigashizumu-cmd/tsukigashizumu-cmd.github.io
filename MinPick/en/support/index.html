@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MinPick Support</title>
+  <meta name="description" content="Support information for MinPick.">
+  <link rel="canonical" href="https://tsukigashizumu-cmd.github.io/MinPick/en/support/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MinPick Support">
+  <meta property="og:description" content="Support information for MinPick.">
+  <meta property="og:url" content="https://tsukigashizumu-cmd.github.io/MinPick/en/support/">
+  <meta property="og:image" content="https://tsukigashizumu-cmd.github.io/MinPick/en/assets/app-icon.png">
+  <meta name="theme-color" content="#f4f2ed">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f4f2ed;
+      --card: rgba(255,255,255,.76);
+      --ink: #171717;
+      --muted: #6f6b65;
+      --line: rgba(23,23,23,.10);
+      --shadow: 0 24px 70px rgba(26,22,17,.10);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 0%, rgba(255,255,255,.96), transparent 30%),
+        linear-gradient(145deg, #f8f6f1, var(--paper));
+      min-height: 100vh;
+      line-height: 1.78;
+    }
+    a { color: inherit; }
+    .wrap { width: min(920px, calc(100% - 36px)); margin: 0 auto; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(244,242,237,.80);
+      border-bottom: 1px solid var(--line);
+    }
+    nav {
+      min-height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      text-decoration: none;
+      font-weight: 820;
+      letter-spacing: -.025em;
+    }
+    .brand img {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.12);
+    }
+    .navLinks {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 720;
+    }
+    .navLinks a { text-decoration: none; }
+    main { padding: 72px 0 86px; }
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 7vw, 68px);
+      line-height: 1;
+      letter-spacing: -.055em;
+    }
+    .lead {
+      margin: 18px 0 0;
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 40px;
+    }
+    .card {
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+    .card h2 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      letter-spacing: -.025em;
+    }
+    .card p {
+      margin: 0;
+      color: #45423d;
+    }
+    .card p + p { margin-top: 12px; }
+    .wide { grid-column: 1 / -1; }
+    .buttonRow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 999px;
+      background: #171717;
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 780;
+    }
+    .button.secondary {
+      background: rgba(23,23,23,.06);
+      color: var(--ink);
+      border: 1px solid var(--line);
+    }
+    footer {
+      padding: 28px 0 42px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .footerLinks { display: flex; flex-wrap: wrap; gap: 14px; }
+    @media (max-width: 720px) {
+      main { padding-top: 46px; }
+      .grid { grid-template-columns: 1fr; }
+      .wide { grid-column: auto; }
+      .navLinks { gap: 10px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav>
+        <a class="brand" href="../">
+          <img src="../assets/app-icon.png" alt="">
+          <span>MinPick</span>
+        </a>
+        <div class="navLinks">
+          <a href="../privacy/">Privacy</a>
+          <a href="https://apps.apple.com/app/id6781131521">App Store</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>Support</h1>
+    <p class="lead">MinPick helps you choose one small action that fits the time you have now.</p>
+
+    <section class="grid">
+      <article class="card">
+        <h2>How to use MinPick</h2>
+        <p>Choose how much time you have, then pick one of the suggestions shown for that amount of time.</p>
+      </article>
+
+      <article class="card">
+        <h2>Widgets</h2>
+        <p>Add a MinPick widget from the Home Screen widget gallery. If the widget does not update immediately, open MinPick once and try again.</p>
+      </article>
+
+      <article class="card">
+        <h2>Data and settings</h2>
+        <p>Check MinPick and your device settings if suggestions or widget content do not appear as expected.</p>
+      </article>
+
+      <article class="card">
+        <h2>Problems after an update</h2>
+        <p>Close and reopen MinPick. If needed, restart the device and make sure the latest version is installed.</p>
+      </article>
+
+      <article class="card wide">
+        <h2>Need more help?</h2>
+        <p>When reporting a problem, include your device model, OS version, MinPick version, the screen where the problem occurred, and what you expected to happen.</p>
+        <div class="buttonRow">
+          <a class="button" href="https://apps.apple.com/app/id6781131521">Open App Store</a>
+          <a class="button secondary" href="../privacy/">Privacy Policy</a>
+          <a class="button secondary" href="../">Back to MinPick</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footerLinks">
+      <span>© 2026 MinPick</span>
+      <a href="../">Home</a>
+      <a href="../privacy/">Privacy</a>
+      <a href="https://apps.apple.com/app/id6781131521">App Store</a>
+    </div>
+  </footer>
+</body>
+</html>

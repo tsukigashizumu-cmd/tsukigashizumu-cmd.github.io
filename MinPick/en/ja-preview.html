@@ -1,0 +1,1825 @@
+<!doctype html>
+<html lang="ja" data-preview-locale="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>TwelveOath - Know who to invite next</title>
+  <meta name="description" content="When a cancellation hits, know who you will invite next before the hour disappears. Prepare the customer, the reason, and the reply deadline in advance.">
+  <meta property="og:title" content="TwelveOath - Know who to invite next">
+  <meta property="og:description" content="When a cancellation hits, know who you will invite next before the hour disappears. Prepare the customer, the reason, and the reply deadline in advance.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tsukigashizumu-cmd.github.io/TwelveOath/en/">
+  <meta property="og:image" content="https://tsukigashizumu-cmd.github.io/TwelveOath/en/assets/app-icon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#120d0a">
+  <style>
+    :root {
+      --bg: #120d0a;
+      --bg2: #1d1410;
+      --card: rgba(255, 248, 235, 0.07);
+      --card2: rgba(255, 248, 235, 0.12);
+      --text: #fff6e7;
+      --muted: #d9c8ad;
+      --soft: #aa9270;
+      --accent: #c94b37;
+      --accent2: #e2aa62;
+      --line: rgba(255, 238, 210, 0.16);
+      --shadow: 0 24px 90px rgba(0, 0, 0, 0.38);
+      color-scheme: dark;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 22% 0%, rgba(201, 75, 55, .30), transparent 34%),
+        radial-gradient(circle at 80% 10%, rgba(226, 170, 98, .16), transparent 30%),
+        linear-gradient(145deg, #0b0807 0%, var(--bg) 38%, #24140f 100%);
+      min-height: 100vh;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(18, 13, 10, .74);
+      border-bottom: 1px solid var(--line);
+    }
+    nav { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 14px 0; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 800; letter-spacing: -.02em; }
+    .brand img { width: 34px; height: 34px; border-radius: 9px; box-shadow: 0 8px 28px rgba(0,0,0,.32); }
+    .navlinks { display: flex; align-items: center; gap: 18px; color: var(--muted); font-size: 14px; }
+    .navlinks a { text-decoration: none; }
+    .navlinks a:hover { color: var(--text); }
+    .appstore {
+      display: inline-flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(255, 248, 235, .22);
+      background: rgba(255, 248, 235, .10);
+      padding: 10px 14px; border-radius: 999px; text-decoration: none;
+      font-weight: 700; color: var(--text);
+    }
+    .appstore:hover { background: rgba(255, 248, 235, .16); }
+
+    .jaPreviewLink {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 30px;
+      padding: 0 11px;
+      border: 1px solid rgba(255, 248, 235, .20);
+      border-radius: 999px;
+      background: rgba(226, 170, 98, .12);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 850;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .jaPreviewLink:hover { background: rgba(226, 170, 98, .20); }
+    .jaPreviewRibbon {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 80;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border: 1px solid rgba(255, 248, 235, .20);
+      border-radius: 999px;
+      background: rgba(18, 13, 10, .78);
+      color: var(--text);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 12px 38px rgba(0,0,0,.30);
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: .02em;
+    }
+    .jaPreviewRibbon strong { color: var(--accent2); }
+    @media (max-width: 760px) {
+      .jaPreviewLink { min-height: 28px; padding: 0 9px; font-size: 11px; }
+      .jaPreviewRibbon { left: 12px; right: 12px; bottom: 12px; justify-content: center; }
+    }
+
+    .siteVersion {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 28px;
+      padding: 0 10px;
+      border: 1px solid rgba(255, 248, 235, .20);
+      border-radius: 999px;
+      color: var(--soft);
+      background: rgba(255, 248, 235, .065);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .02em;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+    @media (max-width: 760px) {
+      .siteVersion { font-size: 11px; padding: 0 8px; min-height: 26px; }
+    }
+
+    .localeSelectWrap {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      border: 1px solid rgba(255, 248, 235, .20);
+      border-radius: 999px;
+      background: rgba(255, 248, 235, .07);
+      padding: 0 9px;
+    }
+    .localeSelect {
+      appearance: none;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: var(--text);
+      font: inherit;
+      font-size: 12px;
+      font-weight: 800;
+      max-width: 128px;
+      cursor: pointer;
+    }
+    .localeSelect option { color: #120d0a; background: #fff6e7; }
+
+
+    .localeMenu {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+    .localeMenuSummary {
+      list-style: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 30px;
+      border: 1px solid rgba(255, 248, 235, .22);
+      border-radius: 999px;
+      background: rgba(255, 248, 235, .08);
+      color: var(--text);
+      padding: 0 11px;
+      font-size: 12px;
+      font-weight: 900;
+      cursor: pointer;
+      white-space: nowrap;
+      user-select: none;
+    }
+    .localeMenuSummary::-webkit-details-marker { display: none; }
+    .localeMenuSummary::after {
+      content: "▾";
+      opacity: .72;
+      font-size: 10px;
+      transform: translateY(-1px);
+    }
+    .localeMenu[open] .localeMenuSummary {
+      background: rgba(255, 248, 235, .14);
+      border-color: rgba(255, 248, 235, .34);
+    }
+    .localeMenuList {
+      position: absolute;
+      z-index: 50;
+      top: calc(100% + 10px);
+      right: 0;
+      width: min(360px, calc(100vw - 24px));
+      max-height: min(520px, calc(100vh - 140px));
+      overflow: auto;
+      padding: 8px;
+      border: 1px solid rgba(255, 248, 235, .18);
+      border-radius: 18px;
+      background: rgba(24, 14, 11, .97);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, .45);
+      backdrop-filter: blur(18px);
+    }
+    .localeMenuButton {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border: 0;
+      border-radius: 12px;
+      background: transparent;
+      color: var(--muted);
+      padding: 10px 11px;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 800;
+      text-align: left;
+      cursor: pointer;
+    }
+    .localeMenuButton:hover,
+    .localeMenuButton:focus-visible {
+      outline: none;
+      background: rgba(255, 248, 235, .08);
+      color: var(--text);
+    }
+    .localeMenuButton[aria-current="true"] {
+      background: rgba(210, 62, 47, .20);
+      color: var(--text);
+    }
+    .localeMenuCode {
+      font-variant-numeric: tabular-nums;
+      opacity: .74;
+      font-size: 12px;
+      flex: 0 0 auto;
+    }
+    .localeMenuName {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      min-width: 0;
+    }
+    @media (max-width: 760px) {
+      .localeMenuSummary { min-height: 26px; padding: 0 9px; font-size: 11px; }
+      .localeMenuList { right: -72px; }
+    }
+
+    .srOnly {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    @media (max-width: 760px) {
+      .localeSelectWrap { min-height: 26px; padding: 0 8px; }
+      .localeSelect { max-width: 92px; font-size: 11px; }
+    }
+    .hero { padding: 82px 0 66px; position: relative; overflow: hidden; }
+    .heroGrid { display: grid; grid-template-columns: 1.04fr .96fr; gap: 46px; align-items: center; }
+    .eyebrow { color: var(--accent2); font-size: 13px; text-transform: uppercase; letter-spacing: .18em; font-weight: 800; }
+    h1 { font-size: clamp(48px, 7vw, 88px); line-height: .92; margin: 18px 0 22px; letter-spacing: -.07em; max-width: 850px; }
+    .lead { color: var(--muted); font-size: clamp(18px, 2.2vw, 24px); line-height: 1.48; max-width: 690px; margin: 0 0 30px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .primary, .secondary {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 48px; padding: 0 18px; border-radius: 999px; text-decoration: none; font-weight: 800;
+    }
+    .primary { background: linear-gradient(135deg, var(--accent), #9a2d22); color: #fff; box-shadow: 0 18px 54px rgba(201, 75, 55, .32); }
+    .secondary { border: 1px solid var(--line); color: var(--text); background: rgba(255,255,255,.04); }
+    .note { margin-top: 18px; color: var(--soft); font-size: 14px; }
+    .deviceStack {
+      position: relative;
+      min-height: 640px;
+      perspective: 1500px;
+      filter: drop-shadow(0 30px 56px rgba(0, 0, 0, .34));
+      transform-style: preserve-3d;
+    }
+
+    .iphoneDevice {
+      --device-w: min(45vw, 318px);
+      --device-pad-x: 7px;
+      --device-pad-y: 7px;
+      --device-pad-bottom: 9px;
+      --device-r: 58px;
+      --bezel-r: 50px;
+      --screen-r: 44px;
+      position: relative;
+      width: var(--device-w);
+      aspect-ratio: 1290 / 2796;
+      overflow: visible;
+      isolation: isolate;
+      box-sizing: border-box;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .iphoneButton {
+      position: absolute;
+      display: block;
+      pointer-events: none;
+      z-index: 5;
+      width: clamp(1px, .20vw, 1.6px);
+      border-radius: 999px;
+      opacity: .42;
+      background:
+        linear-gradient(90deg,
+          rgba(255,255,255,.18) 0%,
+          rgba(78,72,64,.18) 32%,
+          rgba(3,3,4,.82) 58%,
+          rgba(255,255,255,.08) 100%),
+        linear-gradient(180deg,
+          rgba(255,255,255,.12) 0%,
+          rgba(0,0,0,.90) 44%,
+          rgba(255,255,255,.075) 100%);
+      box-shadow:
+        inset 1px 0 0 rgba(255,255,255,.10),
+        inset -1px 0 0 rgba(0,0,0,.58);
+      transform: translate3d(0,0,0);
+    }
+    .iphoneButton--mute {
+      left: 5px;
+      top: 18.0%;
+      height: 3.5%;
+      opacity: .34;
+    }
+    .iphoneButton--volumeUp {
+      left: 5px;
+      top: 24.4%;
+      height: 6.5%;
+    }
+    .iphoneButton--volumeDown {
+      left: 5px;
+      top: 33.1%;
+      height: 6.5%;
+    }
+    .iphoneButton--side {
+      right: 5px;
+      top: 26.1%;
+      height: 9.1%;
+      opacity: .40;
+      background:
+        linear-gradient(90deg,
+          rgba(255,255,255,.06) 0%,
+          rgba(0,0,0,.86) 42%,
+          rgba(96,88,76,.16) 76%,
+          rgba(255,255,255,.14) 100%),
+        linear-gradient(180deg,
+          rgba(255,255,255,.10) 0%,
+          rgba(0,0,0,.94) 46%,
+          rgba(255,255,255,.06) 100%);
+      box-shadow:
+        inset -1px 0 0 rgba(255,255,255,.10),
+        inset 1px 0 0 rgba(0,0,0,.58);
+    }
+    .phone .iphoneButton--mute,
+    .phone .iphoneButton--volumeUp,
+    .phone .iphoneButton--volumeDown { left: 5px; }
+    .phone .iphoneButton--side { right: 5px; }
+    .deviceShot .iphoneButton--mute,
+    .deviceShot .iphoneButton--volumeUp,
+    .deviceShot .iphoneButton--volumeDown,
+    .appPreviewFrame .iphoneButton--mute,
+    .appPreviewFrame .iphoneButton--volumeUp,
+    .appPreviewFrame .iphoneButton--volumeDown { left: 4px; }
+    .deviceShot .iphoneButton--side,
+    .appPreviewFrame .iphoneButton--side { right: 4px; }
+
+    .iphoneBody {
+      position: absolute;
+      z-index: 2;
+      inset: 0;
+      padding: var(--device-pad-y) var(--device-pad-x) var(--device-pad-bottom);
+      border-radius: var(--device-r);
+      background:
+        linear-gradient(90deg,
+          rgba(250,242,224,.38) 0%,
+          rgba(98,88,74,.34) 1.8%,
+          rgba(13,12,11,.98) 5.0%,
+          #030303 10.4%,
+          #000 50%,
+          #030303 89.6%,
+          rgba(46,41,34,.98) 95.2%,
+          rgba(181,165,137,.30) 98.4%,
+          rgba(255,248,232,.26) 100%),
+        linear-gradient(180deg,
+          rgba(154,137,110,.72) 0%,
+          rgba(30,27,23,.98) 4.8%,
+          #050505 16%,
+          #010101 52%,
+          #050505 84%,
+          rgba(40,34,28,.98) 96%,
+          rgba(173,151,118,.34) 100%);
+      border: 1px solid rgba(255, 248, 230, .24);
+      box-shadow:
+        0 24px 42px rgba(0, 0, 0, .34),
+        0 58px 118px rgba(0, 0, 0, .34),
+        inset 0 1px 0 rgba(255, 255, 255, .42),
+        inset 1px 0 0 rgba(255, 255, 255, .26),
+        inset -1px 0 0 rgba(0, 0, 0, .88),
+        inset 0 -1px 0 rgba(255, 255, 255, .13),
+        inset 0 -10px 18px rgba(0, 0, 0, .50);
+      box-sizing: border-box;
+      transform: translate3d(0,0,0);
+      backface-visibility: hidden;
+    }
+    .iphoneBody::before {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      inset: 3px 4px 5px;
+      border-radius: calc(var(--device-r) - 5px);
+      background:
+        linear-gradient(90deg,
+          rgba(255,255,255,.10) 0%,
+          rgba(0,0,0,.70) 2.6%,
+          rgba(0,0,0,0) 8.5%,
+          rgba(0,0,0,0) 91.5%,
+          rgba(255,255,255,.05) 96.2%,
+          rgba(0,0,0,.82) 100%),
+        linear-gradient(180deg,
+          rgba(255,255,255,.075) 0%,
+          rgba(0,0,0,0) 9%,
+          rgba(0,0,0,0) 90%,
+          rgba(255,255,255,.04) 100%);
+      box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.05),
+        inset 0 0 0 4px rgba(0,0,0,.86),
+        inset 0 12px 16px rgba(255,255,255,.025),
+        inset 0 -16px 20px rgba(0,0,0,.48);
+      z-index: 2;
+    }
+    .iphoneBody::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      inset: 0;
+      border-radius: var(--device-r);
+      background:
+        linear-gradient(90deg,
+          transparent 0%, transparent 2.1%, rgba(255,255,255,.14) 2.55%, transparent 3.15%,
+          transparent 96.65%, rgba(255,255,255,.085) 97.1%, transparent 97.85%, transparent 100%),
+        linear-gradient(180deg,
+          transparent 0%, transparent 2.4%, rgba(255,255,255,.13) 2.8%, transparent 3.5%,
+          transparent 96.5%, rgba(255,255,255,.08) 97.1%, transparent 98.0%, transparent 100%);
+      mix-blend-mode: screen;
+      opacity: .38;
+      z-index: 4;
+    }
+    .iphoneScreen {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: var(--bezel-r);
+      background: #000;
+      box-shadow:
+        0 0 0 2px rgba(0, 0, 0, .98),
+        0 0 0 3px rgba(255, 255, 255, .035),
+        inset 0 0 0 1px rgba(255, 255, 255, .04),
+        inset 0 8px 10px rgba(255,255,255,.018),
+        inset 0 -10px 14px rgba(0,0,0,.52);
+      transform: translate3d(0,0,0);
+      backface-visibility: hidden;
+    }
+    .iphoneScreen::before {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      inset: 0;
+      border-radius: inherit;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.028), transparent 10%, transparent 90%, rgba(255,255,255,.012)),
+        linear-gradient(180deg, rgba(255,255,255,.028), transparent 8%, transparent 90%, rgba(0,0,0,.22));
+      z-index: 2;
+    }
+
+    .iphoneScreen::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      left: 50%;
+      top: 1.46%;
+      width: 26.8%;
+      height: 3.15%;
+      min-height: 12px;
+      max-height: 27px;
+      transform: translate3d(-50%,0,0);
+      border-radius: 999px;
+      background:
+        radial-gradient(70% 160% at 50% -35%, rgba(255,255,255,.07), rgba(255,255,255,0) 43%),
+        linear-gradient(180deg, #030303 0%, #000 62%, #030303 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.045),
+        inset 0 -1px 0 rgba(255,255,255,.025),
+        0 .5px 1px rgba(255,255,255,.025),
+        0 1px 2px rgba(0,0,0,.70);
+      z-index: 5;
+      backface-visibility: hidden;
+    }
+    .iphoneMedia,
+    .iphoneScreen img,
+    .iphoneScreen video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      border-radius: var(--screen-r);
+      background: #050505;
+      position: relative;
+      z-index: 1;
+      transform: translate3d(0,0,0);
+      backface-visibility: hidden;
+      image-rendering: auto;
+    }
+
+    .phone {
+      position: absolute;
+      z-index: 2;
+    }
+    .phone.one {
+      right: 31%;
+      top: 10px;
+      transform: rotate(-4.6deg) translate3d(0,0,-26px) scale(.965);
+      opacity: .90;
+      z-index: 1;
+      filter: saturate(.96) brightness(.90);
+    }
+    .phone.two {
+      right: 0;
+      top: 64px;
+      transform: rotate(2.8deg) translate3d(0,0,34px);
+      opacity: 1;
+      z-index: 3;
+      filter: saturate(1.02) contrast(1.015);
+    }
+    section { padding: 66px 0; border-top: 1px solid var(--line); }
+    .sectionHead { max-width: 760px; margin-bottom: 28px; }
+    h2 { font-size: clamp(34px, 4vw, 54px); line-height: 1; letter-spacing: -.05em; margin: 0 0 16px; }
+    .sectionHead p, .bodyText { color: var(--muted); font-size: 18px; line-height: 1.7; margin: 0; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card { background: linear-gradient(180deg, var(--card2), var(--card)); border: 1px solid var(--line); border-radius: 24px; padding: 24px; box-shadow: 0 14px 44px rgba(0,0,0,.18); }
+    .card b { display: block; margin-bottom: 10px; font-size: 20px; letter-spacing: -.02em; }
+    .card p { color: var(--muted); line-height: 1.62; margin: 0; }
+    .split { display:grid; grid-template-columns: .9fr 1.1fr; gap: 28px; align-items:center; }
+    .featureList { display:grid; gap: 12px; }
+    .feature { border: 1px solid var(--line); border-radius: 18px; padding: 18px; background: rgba(255,255,255,.045); }
+    .feature strong { display:block; margin-bottom: 6px; }
+    .feature span { color: var(--muted); line-height: 1.56; }
+    .screens { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; align-items: start; }
+    .deviceShot {
+      --device-w: 100%;
+      --device-r: 50px;
+      --bezel-r: 42px;
+      --screen-r: 37px;
+      margin: 0;
+      aspect-ratio: 1290 / 2796;
+    }
+    .deviceShot .iphoneBody {
+      padding: 7px 6px 9px;
+      box-shadow:
+        0 18px 34px rgba(0, 0, 0, .30),
+        0 42px 82px rgba(0, 0, 0, .28),
+        inset 0 1px 0 rgba(255, 255, 255, .34),
+        inset 1px 0 0 rgba(255, 255, 255, .18),
+        inset -1px 0 0 rgba(0, 0, 0, .78),
+        inset 0 -8px 14px rgba(0, 0, 0, .46);
+    }
+
+    .previewSection { background: rgba(255, 248, 235, .022); }
+    .previewGrid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 34px; align-items: center; }
+    .appPreviewShell { width: min(100%, 420px); justify-self: center; }
+    .appPreviewFrame {
+      --device-w: 100%;
+      --device-r: 52px;
+      --bezel-r: 44px;
+      --screen-r: 39px;
+      aspect-ratio: 886 / 1920;
+    }
+    .appPreviewFrame .iphoneBody {
+      padding: 7px 6px 9px;
+      box-shadow:
+        0 20px 38px rgba(0, 0, 0, .30),
+        0 48px 92px rgba(0, 0, 0, .30),
+        inset 0 1px 0 rgba(255, 255, 255, .34),
+        inset 1px 0 0 rgba(255, 255, 255, .18),
+        inset -1px 0 0 rgba(0, 0, 0, .78),
+        inset 0 -8px 14px rgba(0, 0, 0, .46);
+    }
+    .appPreviewCaption { margin-top: 12px; color: var(--soft); font-size: 13px; text-align: center; }
+    html[dir="rtl"] .appPreviewCaption { text-align: center; }
+
+
+    .overviewStory {
+      background:
+        radial-gradient(circle at 18% 0%, rgba(201, 75, 55, .11), transparent 30%),
+        rgba(255, 248, 235, .012);
+    }
+    .overviewStory .sectionHead { margin-bottom: 30px; }
+    .overviewBody {
+      max-width: 780px;
+      color: rgba(255, 246, 231, .86);
+      font-size: clamp(17px, 1.62vw, 20px);
+      line-height: 2.0;
+      letter-spacing: .005em;
+      white-space: pre-line;
+      overflow-wrap: break-word;
+      text-wrap: pretty;
+    }
+    html[data-locale^="ja"] .overviewBody,
+    html[data-locale^="zh"] .overviewBody,
+    html[data-locale^="ko"] .overviewBody {
+      line-height: 1.72;
+      word-break: auto-phrase;
+      overflow-wrap: normal;
+      line-break: strict;
+    }
+    html[data-locale^="ar"] .overviewBody,
+    html[data-locale^="he"] .overviewBody,
+    html[data-locale^="ur"] .overviewBody {
+      text-align: start;
+    }
+    .quote { font-size: clamp(28px, 4.4vw, 58px); line-height: 1.04; letter-spacing: -.05em; margin: 0; }
+    .metadataStory {
+      background:
+        radial-gradient(circle at 18% 0%, rgba(201, 75, 55, .13), transparent 28%),
+        rgba(255, 248, 235, .012);
+    }
+    .metadataStory .sectionHead { margin-bottom: 34px; }
+    .metadataPanel {
+      max-width: 880px;
+      padding: 0;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+    }
+    .metadataRows {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 0 28px;
+    }
+    .metadataRow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 34px;
+      padding: 0 12px;
+      border: 1px solid rgba(255, 248, 235, .16);
+      border-radius: 999px;
+      background: rgba(255, 248, 235, .045);
+      color: var(--soft);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+    .metadataRow span { opacity: .78; }
+    .metadataRow strong {
+      color: var(--text);
+      text-align: start;
+      max-width: 360px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .metadataDescriptionTitle {
+      margin: 0 0 18px;
+      color: var(--accent2);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .metadataBody {
+      max-width: 780px;
+      color: rgba(255, 246, 231, .84);
+      font-size: clamp(17px, 1.62vw, 20px);
+      line-height: 2.0;
+      letter-spacing: .005em;
+      white-space: pre-line;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      overflow-wrap: break-word;
+      text-wrap: pretty;
+    }
+    html[data-locale^="ja"] .metadataBody,
+    html[data-locale^="zh"] .metadataBody,
+    html[data-locale^="ko"] .metadataBody {
+      line-height: 2.08;
+      word-break: auto-phrase;
+      overflow-wrap: normal;
+      line-break: strict;
+    }
+    html[data-locale^="ar"] .metadataBody,
+    html[data-locale^="he"] .metadataBody,
+    html[data-locale^="ur"] .metadataBody {
+      text-align: start;
+      line-height: 2.08;
+    }
+    .metadataHint {
+      max-width: 760px;
+      color: var(--soft);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+    .metadataHint code {
+      color: var(--text);
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 8px;
+      padding: 2px 6px;
+    }
+    html[data-metadata-loaded="true"] h1[data-meta-field="subtitle"] { max-width: 760px; }
+    html[data-metadata-loaded="true"]:not([data-locale^="en"]) h1[data-meta-field="subtitle"] {
+      font-size: clamp(38px, 5.15vw, 64px);
+      line-height: 1.08;
+      letter-spacing: -.045em;
+    }
+    html[data-metadata-loaded="true"]:not([data-locale^="en"]) .lead[data-meta-field="promotionalText"] {
+      white-space: pre-line;
+      font-size: clamp(17px, 1.9vw, 21px);
+      line-height: 1.62;
+      max-width: 650px;
+    }
+    html[data-locale^="ja"] h1[data-meta-field="subtitle"],
+    html[data-locale^="zh"] h1[data-meta-field="subtitle"],
+    html[data-locale^="ko"] h1[data-meta-field="subtitle"] {
+      word-break: keep-all;
+      overflow-wrap: normal;
+      letter-spacing: -.04em;
+    }
+    html[data-locale^="ar"] h1[data-meta-field="subtitle"],
+    html[data-locale^="he"] h1[data-meta-field="subtitle"],
+    html[data-locale^="ur"] h1[data-meta-field="subtitle"] {
+      letter-spacing: 0;
+      line-height: 1.15;
+    }
+    .metadataDebug {
+      position: fixed;
+      right: 12px;
+      bottom: 12px;
+      z-index: 40;
+      display: none;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(18, 13, 10, .82);
+      color: var(--muted);
+      font-size: 12px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 10px 34px rgba(0,0,0,.30);
+    }
+    html[data-metadata-debug="true"] .metadataDebug { display: block; }
+    html[dir="rtl"] body { direction: rtl; }
+    html[dir="rtl"] .deviceStack, html[dir="rtl"] .iphoneDevice { direction: ltr; }
+    html[dir="rtl"] .foot, html[dir="rtl"] nav { direction: rtl; }
+    footer { border-top: 1px solid var(--line); padding: 34px 0 48px; color: var(--soft); }
+    .foot { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; font-size: 14px; }
+    .foot a { color: var(--muted); text-decoration: none; margin-left: 14px; }
+    .foot a:hover { color: var(--text); }
+    @media (max-width: 860px) {
+      .heroGrid, .split { grid-template-columns: 1fr; }
+      .deviceStack { min-height: 520px; }
+      .phone { --device-w: min(58vw, 268px); --device-r: 49px; --bezel-r: 42px; --screen-r: 37px; }
+      .phone .iphoneBody { padding: 7px 6px 9px; }
+      .phone.one { right: 36%; }
+      .cards { grid-template-columns: 1fr; }
+      .screens { grid-template-columns: 1fr; }
+      .navlinks a:not(.appstore) { display: none; }
+    }
+
+    /* TwelveOath CTA and gallery polish v1.0.49 begin */
+    /*
+      v1.0.49: CTA + preview + gallery polish.
+      Goal: 91 -> 93.
+      - Make the closing App Store action feel like a designed decision block.
+      - Reduce screenshot gallery heaviness by changing 3-column 7-shot layout to 4+3.
+      - Keep App Preview visible without letting the phone dominate the section.
+      - Strengthen mobile rhythm after the text-frame fixes.
+    */
+
+    .wrap {
+      width: min(1240px, calc(100% - 48px));
+    }
+
+    section {
+      padding: 72px 0;
+    }
+    .hero {
+      padding: 90px 0 72px;
+    }
+    .overviewStory,
+    .metadataStory {
+      padding: 82px 0;
+    }
+
+    .sectionHead {
+      width: min(100%, 1120px);
+      max-width: min(100%, 1120px);
+      margin-bottom: 34px;
+    }
+    .sectionHead h2 {
+      max-width: 100%;
+      line-height: 1.08;
+      overflow-wrap: normal;
+    }
+    .sectionHead p,
+    .bodyText,
+    .lead,
+    .card p,
+    .feature span {
+      overflow-wrap: normal;
+      text-wrap: pretty;
+    }
+    .sectionHead p,
+    .bodyText {
+      max-width: min(100%, 980px);
+    }
+    .lead {
+      max-width: min(100%, 940px);
+    }
+
+    .heroGrid {
+      gap: clamp(42px, 5vw, 72px);
+    }
+    .actions {
+      gap: 14px;
+    }
+    .primary,
+    .secondary {
+      min-height: 50px;
+      padding: 0 20px;
+    }
+    .note {
+      margin-top: 20px;
+      line-height: 1.7;
+    }
+
+    .cards {
+      gap: 18px;
+    }
+    .card {
+      border-radius: 26px;
+      padding: 26px;
+      background:
+        linear-gradient(180deg, rgba(255, 248, 235, .125), rgba(255, 248, 235, .055));
+    }
+    .card b {
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+    .card p {
+      line-height: 1.72;
+    }
+
+    .featureList {
+      gap: 14px;
+    }
+    .feature {
+      border-radius: 21px;
+      padding: 20px 21px;
+      background: rgba(255,255,255,.052);
+    }
+    .feature strong {
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+    .feature span {
+      display: block;
+      line-height: 1.68;
+    }
+
+    .previewSection {
+      background:
+        radial-gradient(circle at 82% 16%, rgba(201, 75, 55, .105), transparent 31%),
+        rgba(255, 248, 235, .018);
+    }
+    .previewGrid {
+      grid-template-columns: minmax(0, .92fr) minmax(300px, .78fr);
+      gap: clamp(34px, 5vw, 62px);
+      align-items: center;
+    }
+    .previewGrid .sectionHead,
+    .previewGrid .bodyText {
+      max-width: min(100%, 760px);
+    }
+    .appPreviewShell {
+      width: min(100%, 360px);
+      justify-self: center;
+    }
+    .appPreviewCaption {
+      margin-top: 14px;
+      letter-spacing: .04em;
+      opacity: .78;
+    }
+
+    .screens {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      align-items: start;
+    }
+    .deviceShot {
+      border-radius: 44px;
+      filter: saturate(.98) contrast(1.01);
+    }
+    .deviceShot .iphoneBody {
+      padding: 6px 5px 8px;
+      box-shadow:
+        0 16px 30px rgba(0, 0, 0, .28),
+        0 34px 68px rgba(0, 0, 0, .24),
+        inset 0 1px 0 rgba(255, 255, 255, .30),
+        inset 1px 0 0 rgba(255, 255, 255, .15),
+        inset -1px 0 0 rgba(0, 0, 0, .76),
+        inset 0 -8px 14px rgba(0, 0, 0, .44);
+    }
+
+    .overviewStory .sectionHead,
+    .metadataStory .sectionHead {
+      width: min(100%, 1160px);
+      max-width: min(100%, 1160px);
+    }
+    .overviewStory .sectionHead h2,
+    .metadataStory .sectionHead h2 {
+      max-width: min(100%, 1160px);
+    }
+    .overviewBody,
+    .metadataBody {
+      max-width: min(100%, 960px);
+      line-height: 1.84;
+    }
+
+    .quote {
+      width: min(100%, 1160px);
+      max-width: min(100%, 1160px);
+      line-height: 1.24;
+      overflow-wrap: normal;
+      text-wrap: pretty;
+    }
+    .quote[data-landing-key="finalQuote"] {
+      margin-inline: 0;
+      white-space: pre-line;
+      text-wrap: wrap;
+    }
+
+    .finalCtaSection {
+      padding: 88px 0 92px;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(201, 75, 55, .16), transparent 34%),
+        radial-gradient(circle at 88% 86%, rgba(255, 197, 107, .08), transparent 31%),
+        rgba(255, 248, 235, .014);
+    }
+    .finalCtaSection .wrap {
+      position: relative;
+      padding: clamp(30px, 4.5vw, 52px);
+      border: 1px solid rgba(255, 248, 235, .135);
+      border-radius: 34px;
+      background:
+        linear-gradient(180deg, rgba(255, 248, 235, .082), rgba(255, 248, 235, .032));
+      box-shadow:
+        0 28px 90px rgba(0,0,0,.22),
+        inset 0 1px 0 rgba(255,255,255,.08);
+      overflow: hidden;
+    }
+    .finalCtaSection .wrap::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.07), transparent 34%),
+        radial-gradient(circle at 86% 16%, rgba(201,75,55,.11), transparent 32%);
+      opacity: .7;
+    }
+    .finalCtaSection .quote,
+    .finalCtaSection .actions {
+      position: relative;
+      z-index: 1;
+    }
+    .finalCtaSection .actions {
+      margin-top: 34px !important;
+      align-items: center;
+    }
+    .finalCtaSection .primary {
+      box-shadow:
+        0 12px 34px rgba(201,75,55,.22),
+        inset 0 1px 0 rgba(255,255,255,.20);
+    }
+
+    html[data-locale^="ja"] h1[data-meta-field="subtitle"],
+    html[data-locale^="zh"] h1[data-meta-field="subtitle"],
+    html[data-locale^="ko"] h1[data-meta-field="subtitle"],
+    html[data-landing-locale^="ja"] h1[data-meta-field="subtitle"],
+    html[data-landing-locale^="zh"] h1[data-meta-field="subtitle"],
+    html[data-landing-locale^="ko"] h1[data-meta-field="subtitle"],
+    html[data-preview-locale^="ja"] h1[data-meta-field="subtitle"],
+    html[lang^="ja"] h1[data-meta-field="subtitle"] {
+      max-width: min(100%, 1080px);
+      font-size: clamp(43px, 5.25vw, 78px);
+      line-height: 1.01;
+      letter-spacing: -.052em;
+      text-wrap: balance;
+      word-break: auto-phrase;
+      overflow-wrap: normal;
+      line-break: strict;
+    }
+
+    html[data-locale^="ja"] .lead,
+    html[data-locale^="zh"] .lead,
+    html[data-locale^="ko"] .lead,
+    html[data-landing-locale^="ja"] .lead,
+    html[data-landing-locale^="zh"] .lead,
+    html[data-landing-locale^="ko"] .lead,
+    html[data-preview-locale^="ja"] .lead,
+    html[lang^="ja"] .lead {
+      max-width: min(100%, 940px);
+      font-size: clamp(17px, 1.58vw, 21px);
+      line-height: 1.68;
+      letter-spacing: .002em;
+      text-wrap: pretty;
+      word-break: auto-phrase;
+      overflow-wrap: normal;
+      line-break: strict;
+    }
+
+    html[data-locale^="ja"] .sectionHead h2,
+    html[data-locale^="zh"] .sectionHead h2,
+    html[data-locale^="ko"] .sectionHead h2,
+    html[data-landing-locale^="ja"] .sectionHead h2,
+    html[data-landing-locale^="zh"] .sectionHead h2,
+    html[data-landing-locale^="ko"] .sectionHead h2,
+    html[data-preview-locale^="ja"] .sectionHead h2,
+    html[lang^="ja"] .sectionHead h2 {
+      font-size: clamp(31px, 3.08vw, 44px);
+      line-height: 1.16;
+      letter-spacing: -.036em;
+      text-wrap: balance;
+      word-break: auto-phrase;
+      overflow-wrap: normal;
+      line-break: strict;
+    }
+
+    html[data-locale^="ja"] .sectionHead p,
+    html[data-locale^="zh"] .sectionHead p,
+    html[data-locale^="ko"] .sectionHead p,
+    html[data-locale^="ja"] .bodyText,
+    html[data-locale^="zh"] .bodyText,
+    html[data-locale^="ko"] .bodyText,
+    html[data-landing-locale^="ja"] .sectionHead p,
+    html[data-landing-locale^="zh"] .sectionHead p,
+    html[data-landing-locale^="ko"] .sectionHead p,
+    html[data-landing-locale^="ja"] .bodyText,
+    html[data-landing-locale^="zh"] .bodyText,
+    html[data-landing-locale^="ko"] .bodyText,
+    html[data-preview-locale^="ja"] .sectionHead p,
+    html[data-preview-locale^="ja"] .bodyText,
+    html[lang^="ja"] .sectionHead p,
+    html[lang^="ja"] .bodyText {
+      max-width: min(100%, 980px);
+      line-height: 1.78;
+      letter-spacing: .004em;
+      word-break: auto-phrase;
+      overflow-wrap: normal;
+      line-break: strict;
+      text-wrap: pretty;
+    }
+
+    html[data-locale^="ja"] .overviewBody,
+    html[data-locale^="zh"] .overviewBody,
+    html[data-locale^="ko"] .overviewBody,
+    html[data-locale^="ja"] .metadataBody,
+    html[data-locale^="zh"] .metadataBody,
+    html[data-locale^="ko"] .metadataBody,
+    html[data-landing-locale^="ja"] .overviewBody,
+    html[data-landing-locale^="zh"] .overviewBody,
+    html[data-landing-locale^="ko"] .overviewBody,
+    html[data-landing-locale^="ja"] .metadataBody,
+    html[data-landing-locale^="zh"] .metadataBody,
+    html[data-landing-locale^="ko"] .metadataBody,
+    html[data-preview-locale^="ja"] .overviewBody,
+    html[data-preview-locale^="ja"] .metadataBody,
+    html[lang^="ja"] .overviewBody,
+    html[lang^="ja"] .metadataBody {
+      max-width: min(100%, 960px);
+      line-height: 1.82;
+      letter-spacing: .008em;
+      word-break: auto-phrase;
+      overflow-wrap: normal;
+      line-break: strict;
+      text-wrap: pretty;
+    }
+
+    html[data-locale^="ja"] .card b,
+    html[data-locale^="zh"] .card b,
+    html[data-locale^="ko"] .card b,
+    html[data-locale^="ja"] .card p,
+    html[data-locale^="zh"] .card p,
+    html[data-locale^="ko"] .card p,
+    html[data-locale^="ja"] .feature strong,
+    html[data-locale^="zh"] .feature strong,
+    html[data-locale^="ko"] .feature strong,
+    html[data-locale^="ja"] .feature span,
+    html[data-locale^="zh"] .feature span,
+    html[data-locale^="ko"] .feature span,
+    html[data-landing-locale^="ja"] .card b,
+    html[data-landing-locale^="ja"] .card p,
+    html[data-landing-locale^="ja"] .feature strong,
+    html[data-landing-locale^="ja"] .feature span,
+    html[data-preview-locale^="ja"] .card b,
+    html[data-preview-locale^="ja"] .card p,
+    html[data-preview-locale^="ja"] .feature strong,
+    html[data-preview-locale^="ja"] .feature span,
+    html[lang^="ja"] .card b,
+    html[lang^="ja"] .card p,
+    html[lang^="ja"] .feature strong,
+    html[lang^="ja"] .feature span {
+      word-break: auto-phrase;
+      overflow-wrap: normal;
+      line-break: strict;
+      text-wrap: pretty;
+    }
+
+    html[data-locale^="ja"] .quote,
+    html[data-locale^="zh"] .quote,
+    html[data-locale^="ko"] .quote,
+    html[data-landing-locale^="ja"] .quote,
+    html[data-landing-locale^="zh"] .quote,
+    html[data-landing-locale^="ko"] .quote,
+    html[data-preview-locale^="ja"] .quote,
+    html[lang^="ja"] .quote {
+      width: min(100%, 1080px);
+      max-width: min(100%, 1080px);
+      font-size: clamp(21px, 1.95vw, 28px);
+      line-height: 1.38;
+      letter-spacing: -.026em;
+      text-wrap: pretty;
+      word-break: auto-phrase;
+      overflow-wrap: normal;
+      line-break: strict;
+    }
+
+    html[data-locale^="ja"] .quote[data-landing-key="finalQuote"],
+    html[data-landing-locale^="ja"] .quote[data-landing-key="finalQuote"],
+    html[data-preview-locale^="ja"] .quote[data-landing-key="finalQuote"],
+    html[lang^="ja"] .quote[data-landing-key="finalQuote"] {
+      max-width: min(100%, 880px);
+      font-size: clamp(23px, 1.92vw, 29px);
+      line-height: 1.44;
+      letter-spacing: -.024em;
+      white-space: pre-line;
+      text-wrap: wrap;
+    }
+
+    @media (min-width: 861px) {
+      html[data-locale^="ja"] .split,
+      html[data-locale^="zh"] .split,
+      html[data-locale^="ko"] .split,
+      html[data-landing-locale^="ja"] .split,
+      html[data-landing-locale^="zh"] .split,
+      html[data-landing-locale^="ko"] .split,
+      html[data-preview-locale^="ja"] .split,
+      html[lang^="ja"] .split {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 26px;
+        align-items: start;
+      }
+
+      html[data-locale^="ja"] .split .featureList,
+      html[data-locale^="zh"] .split .featureList,
+      html[data-locale^="ko"] .split .featureList,
+      html[data-landing-locale^="ja"] .split .featureList,
+      html[data-landing-locale^="zh"] .split .featureList,
+      html[data-landing-locale^="ko"] .split .featureList,
+      html[data-preview-locale^="ja"] .split .featureList,
+      html[lang^="ja"] .split .featureList {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 1120px) {
+      .screens {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .previewGrid {
+        grid-template-columns: minmax(0, .96fr) minmax(280px, .74fr);
+      }
+    }
+
+    html[data-locale^="ar"] .sectionHead h2,
+    html[data-locale^="he"] .sectionHead h2,
+    html[data-locale^="ur"] .sectionHead h2,
+    html[data-landing-locale^="ar"] .sectionHead h2,
+    html[data-landing-locale^="he"] .sectionHead h2,
+    html[data-landing-locale^="ur"] .sectionHead h2 {
+      letter-spacing: 0;
+      line-height: 1.16;
+    }
+    html[data-locale^="ar"] .overviewBody,
+    html[data-locale^="he"] .overviewBody,
+    html[data-locale^="ur"] .overviewBody,
+    html[data-locale^="ar"] .metadataBody,
+    html[data-locale^="he"] .metadataBody,
+    html[data-locale^="ur"] .metadataBody,
+    html[data-landing-locale^="ar"] .overviewBody,
+    html[data-landing-locale^="he"] .overviewBody,
+    html[data-landing-locale^="ur"] .overviewBody,
+    html[data-landing-locale^="ar"] .metadataBody,
+    html[data-landing-locale^="he"] .metadataBody,
+    html[data-landing-locale^="ur"] .metadataBody {
+      max-width: min(100%, 960px);
+      line-height: 1.88;
+      text-align: start;
+    }
+
+    @media (max-width: 860px) {
+      .wrap { width: min(100% - 32px, 1240px); }
+      section { padding: 58px 0; }
+      .hero { padding: 58px 0 54px; }
+      .sectionHead,
+      .overviewStory .sectionHead,
+      .metadataStory .sectionHead,
+      .overviewBody,
+      .metadataBody,
+      .quote {
+        width: 100%;
+        max-width: 100%;
+      }
+      .sectionHead { margin-bottom: 26px; }
+      .card { padding: 22px; }
+      .feature { padding: 18px; }
+      .previewGrid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .appPreviewShell {
+        width: min(100%, 330px);
+      }
+      .screens {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+      .deviceShot {
+        --device-r: 38px;
+        --bezel-r: 32px;
+        --screen-r: 28px;
+      }
+      .finalCtaSection {
+        padding: 66px 0 70px;
+      }
+      .finalCtaSection .wrap {
+        padding: 28px 22px;
+        border-radius: 28px;
+      }
+      .finalCtaSection .actions {
+        align-items: stretch;
+      }
+      .finalCtaSection .actions a {
+        width: 100%;
+        justify-content: center;
+      }
+      html[data-locale^="ja"] h1[data-meta-field="subtitle"],
+      html[data-locale^="zh"] h1[data-meta-field="subtitle"],
+      html[data-locale^="ko"] h1[data-meta-field="subtitle"],
+      html[data-landing-locale^="ja"] h1[data-meta-field="subtitle"],
+      html[data-landing-locale^="zh"] h1[data-meta-field="subtitle"],
+      html[data-landing-locale^="ko"] h1[data-meta-field="subtitle"],
+      html[data-preview-locale^="ja"] h1[data-meta-field="subtitle"],
+      html[lang^="ja"] h1[data-meta-field="subtitle"] {
+        font-size: clamp(38px, 10.2vw, 56px);
+        line-height: 1.04;
+      }
+      html[data-locale^="ja"] .sectionHead h2,
+      html[data-locale^="zh"] .sectionHead h2,
+      html[data-locale^="ko"] .sectionHead h2,
+      html[data-landing-locale^="ja"] .sectionHead h2,
+      html[data-landing-locale^="zh"] .sectionHead h2,
+      html[data-landing-locale^="ko"] .sectionHead h2,
+      html[data-preview-locale^="ja"] .sectionHead h2,
+      html[lang^="ja"] .sectionHead h2 {
+        font-size: clamp(28px, 8.0vw, 40px);
+        line-height: 1.16;
+      }
+      html[data-locale^="ja"] .quote,
+      html[data-locale^="zh"] .quote,
+      html[data-locale^="ko"] .quote,
+      html[data-landing-locale^="ja"] .quote,
+      html[data-landing-locale^="zh"] .quote,
+      html[data-landing-locale^="ko"] .quote,
+      html[data-preview-locale^="ja"] .quote,
+      html[lang^="ja"] .quote {
+        font-size: clamp(21px, 5.0vw, 28px);
+        line-height: 1.38;
+      }
+      html[data-locale^="ja"] .quote[data-landing-key="finalQuote"],
+      html[data-landing-locale^="ja"] .quote[data-landing-key="finalQuote"],
+      html[data-preview-locale^="ja"] .quote[data-landing-key="finalQuote"],
+      html[lang^="ja"] .quote[data-landing-key="finalQuote"] {
+        font-size: clamp(22px, 5.15vw, 28px);
+        line-height: 1.42;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .screens {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+        margin-inline: auto;
+      }
+    }
+    /* TwelveOath CTA and gallery polish v1.0.49 end */
+
+  
+    /* TwelveOath Japanese CTA locale fix v1.0.49 begin */
+    /*
+      v1.0.49: Japanese CTA localization fix.
+      - ja.js must contain escaped \n, not physical newlines inside a JS string.
+      - Preserve intentional Japanese final-copy line breaks.
+    */
+    .finalCtaSection .quote {
+      white-space: pre-line;
+    }
+    html[data-landing-locale^="ja"] .finalCtaSection .quote,
+    html[data-locale^="ja"] .finalCtaSection .quote {
+      max-width: 940px;
+      line-height: 1.42;
+      text-wrap: pretty;
+    }
+    /* TwelveOath Japanese CTA locale fix v1.0.49 end */
+
+  
+    /* TwelveOath locale hardening v1.0.49 begin */
+    .quote[data-landing-key="finalQuote"] { white-space: pre-line; }
+    html[data-landing-locale^="ja"] .finalCtaSection .actions,
+    html[data-preview-locale^="ja"] .finalCtaSection .actions,
+    html[lang^="ja"] .finalCtaSection .actions { gap: 14px; }
+    /* TwelveOath locale hardening v1.0.49 end */
+  
+/* TwelveOath responsive chrome v1.0.49 begin */
+/*
+  Responsive chrome policy:
+  - Desktop / iPad landscape: full navigation can stay.
+  - iPad portrait / narrow desktop: keep brand + language + App Store, remove secondary links.
+  - iPhone portrait: one compact row; no version / Japanese check / secondary nav.
+  - iPhone landscape: header must not steal vertical space; make it compact and non-sticky.
+  - Footer is useful but must not become a second navigation wall on small screens.
+*/
+
+header { min-height: 0; }
+nav { min-width: 0; }
+.brand, .navlinks, .localeMenu, .appstore { min-width: 0; }
+.brand span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.navlinks { flex-wrap: nowrap; }
+
+@media (min-width: 1181px) {
+  header .wrap { width: min(1240px, calc(100% - 48px)); }
+  .navlinks { gap: 18px; }
+}
+
+/* iPad landscape / desktop portrait-ish: reduce debug chrome first, keep real navigation. */
+@media (min-width: 861px) and (max-width: 1180px) {
+  nav { gap: 14px; padding: 12px 0; }
+  .brand img { width: 32px; height: 32px; border-radius: 8px; }
+  .navlinks { gap: 12px; font-size: 13px; }
+  .siteVersion { display: none; }
+  .jaPreviewLink { display: none; }
+  .localeMenuSummary { max-width: 138px; }
+  .appstore { padding: 9px 13px; }
+}
+
+/* iPad portrait and narrow desktop: brand + language + App Store only. */
+@media (min-width: 641px) and (max-width: 860px) {
+  header .wrap { width: min(100% - 32px, 820px); }
+  nav { gap: 12px; padding: 10px 0; }
+  .brand { gap: 10px; max-width: 42%; }
+  .brand img { width: 31px; height: 31px; border-radius: 8px; }
+  .brand span { font-size: 15px; }
+  .navlinks { margin-left: auto; gap: 10px; font-size: 13px; }
+  .navlinks > a:not(.appstore), .siteVersion, .jaPreviewLink { display: none !important; }
+  .localeMenuSummary { min-height: 32px; padding: 0 11px; max-width: 132px; }
+  .appstore { min-height: 34px; padding: 0 13px; }
+  footer { padding: 26px 0 34px; }
+  .foot { align-items: center; font-size: 13px; }
+}
+
+/* iPhone portrait: do not spend the first view on navigation. */
+@media (max-width: 640px) and (orientation: portrait) {
+  header .wrap { width: calc(100% - 24px); }
+  nav { gap: 8px; padding: 8px 0; }
+  .brand { gap: 8px; flex: 1 1 auto; max-width: calc(100% - 184px); }
+  .brand img { width: 28px; height: 28px; border-radius: 7px; }
+  .brand span { font-size: 14px; letter-spacing: -.03em; }
+  .navlinks { flex: 0 0 auto; gap: 7px; font-size: 12px; }
+  .navlinks > a:not(.appstore), .siteVersion, .jaPreviewLink { display: none !important; }
+  .localeMenuSummary { min-height: 30px; padding: 0 9px; max-width: 76px; font-size: 11px; }
+  .appstore { min-height: 31px; padding: 0 10px; font-size: 12px; }
+  .appstore[data-landing-key="appStoreButton"] { max-width: 94px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  footer { padding: 22px 0 28px; }
+  .foot { flex-direction: column; align-items: flex-start; gap: 12px; font-size: 12px; }
+  .foot a { margin-left: 0; margin-right: 14px; }
+}
+
+/* Very narrow phones: icon carries the brand; keep action visible. */
+@media (max-width: 390px) and (orientation: portrait) {
+  .brand { max-width: calc(100% - 158px); }
+  .brand span { display: none; }
+  .localeMenuSummary { max-width: 58px; padding: 0 8px; }
+  .appstore { max-width: 86px; padding: 0 9px; }
+}
+
+/* iPhone landscape: vertical space is the scarce resource. Make the chrome non-sticky and smaller. */
+@media (max-height: 520px) and (orientation: landscape) {
+  header { position: relative; backdrop-filter: blur(12px); background: rgba(18, 13, 10, .86); }
+  header .wrap { width: calc(100% - 28px); }
+  nav { padding: 6px 0; gap: 10px; }
+  .brand { gap: 8px; max-width: 34%; }
+  .brand img { width: 26px; height: 26px; border-radius: 7px; }
+  .brand span { font-size: 13px; }
+  .navlinks { margin-left: auto; gap: 8px; font-size: 12px; }
+  .navlinks > a:not(.appstore), .siteVersion, .jaPreviewLink { display: none !important; }
+  .localeMenuSummary { min-height: 28px; max-width: 92px; padding: 0 9px; font-size: 11px; }
+  .appstore { min-height: 29px; padding: 0 10px; font-size: 12px; }
+  .hero { padding-top: 38px; }
+  footer { padding: 18px 0 22px; }
+  .foot { font-size: 12px; gap: 10px; }
+}
+
+/* Large iPad / tablet landscape can afford a full footer, but not a heavy one. */
+@media (min-width: 861px) and (max-width: 1180px) and (orientation: landscape) {
+  footer { padding: 28px 0 38px; }
+}
+
+html[dir="rtl"] .foot a { margin-left: 0; margin-right: 14px; }
+@media (max-width: 640px) {
+  html[dir="rtl"] .foot { align-items: flex-start; }
+}
+/* TwelveOath responsive chrome v1.0.49 end */
+  
+/* TwelveOath all-locale responsive chrome v1.0.49 begin */
+/*
+  All-locale policy:
+  - Metadata drives every locale.
+  - Header/footer must survive long app names and long App Store button labels.
+  - Mobile shows the locale code instead of the full localized app name.
+  - Long-word locales get slightly smaller chrome and safer wrapping.
+*/
+.localeMenuSummary [data-locale-menu-current] {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.localeMenuSummary { max-width: 190px; }
+.localeMenuList { overscroll-behavior: contain; }
+html[data-locale-length="long"] .localeMenuSummary,
+html[data-locale-length="very-long"] .localeMenuSummary { max-width: 150px; }
+html[data-locale-length="very-long"] .appstore { max-width: 178px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+html[data-text-density="wide"] .navlinks { gap: 14px; }
+html[data-text-density="wide"] .appstore { padding-left: 12px; padding-right: 12px; }
+
+@media (max-width: 860px) {
+  .localeMenuSummary [data-locale-menu-current] {
+    font-size: 0;
+    max-width: 72px;
+  }
+  .localeMenuSummary [data-locale-menu-current]::after {
+    content: attr(data-locale-code);
+    font-size: 11px;
+    font-weight: 900;
+  }
+  html[data-locale-length="long"] .brand span,
+  html[data-locale-length="very-long"] .brand span {
+    max-width: 118px;
+  }
+}
+
+@media (max-width: 640px) and (orientation: portrait) {
+  .localeMenuSummary { max-width: 62px; }
+  .localeMenuSummary [data-locale-menu-current] { max-width: 46px; }
+  html[data-locale-length="long"] .appstore,
+  html[data-locale-length="very-long"] .appstore,
+  html[data-text-density="wide"] .appstore {
+    max-width: 86px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  html[data-text-density="wide"] .appstore { font-size: 11px; }
+  html[data-text-density="wide"] .brand span { display: none; }
+}
+
+@media (max-width: 390px) and (orientation: portrait) {
+  .localeMenuSummary { max-width: 54px; }
+  .appstore { max-width: 82px; }
+}
+
+@media (max-height: 520px) and (orientation: landscape) {
+  .localeMenuSummary [data-locale-menu-current] {
+    font-size: 0;
+  }
+  .localeMenuSummary [data-locale-menu-current]::after {
+    content: attr(data-locale-code);
+    font-size: 11px;
+    font-weight: 900;
+  }
+  html[data-text-density="wide"] .brand span { max-width: 96px; }
+  html[data-text-density="wide"] .appstore { max-width: 92px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+}
+
+html[dir="rtl"] .localeMenuList { right: auto; left: 0; }
+html[dir="rtl"] .localeMenuButton { text-align: right; }
+html[dir="rtl"] .localeMenuSummary::after { transform: translateY(-1px); }
+/* TwelveOath all-locale responsive chrome v1.0.49 end */
+  
+/* TwelveOath Japanese mobile hero correction v1.0.51 begin */
+/*
+  iPhone portrait only:
+  The polished all-locale rules made Japanese inherit a large CJK hero headline.
+  On narrow phones the phrase 「誰に送るか迷わない。」 can become too wide or too visually heavy,
+  and the two-phone stack then appears too late / too large.
+  Keep the desktop/tablet Japanese look, but give iPhone portrait a dedicated compact hero.
+*/
+@media (max-width: 640px) and (orientation: portrait) {
+  html[data-locale^="ja"] .hero,
+  html[data-landing-locale^="ja"] .hero,
+  html[data-preview-locale^="ja"] .hero,
+  html[lang^="ja"] .hero {
+    padding-top: 44px;
+    padding-bottom: 44px;
+  }
+
+  html[data-locale^="ja"] .heroGrid,
+  html[data-landing-locale^="ja"] .heroGrid,
+  html[data-preview-locale^="ja"] .heroGrid,
+  html[lang^="ja"] .heroGrid {
+    gap: 30px;
+  }
+
+  html[data-locale^="ja"] .hero .eyebrow,
+  html[data-landing-locale^="ja"] .hero .eyebrow,
+  html[data-preview-locale^="ja"] .hero .eyebrow,
+  html[lang^="ja"] .hero .eyebrow {
+    font-size: 12px;
+    letter-spacing: .14em;
+  }
+
+  html[data-locale^="ja"] h1[data-meta-field="subtitle"],
+  html[data-landing-locale^="ja"] h1[data-meta-field="subtitle"],
+  html[data-preview-locale^="ja"] h1[data-meta-field="subtitle"],
+  html[lang^="ja"] h1[data-meta-field="subtitle"] {
+    max-width: 8.7em;
+    font-size: clamp(32px, 8.65vw, 36px) !important;
+    line-height: 1.12;
+    letter-spacing: -.038em;
+    margin-top: 14px;
+    margin-bottom: 18px;
+    text-wrap: balance;
+    word-break: normal;
+    overflow-wrap: normal;
+    line-break: strict;
+  }
+
+  html[data-locale^="ja"] .hero .lead,
+  html[data-landing-locale^="ja"] .hero .lead,
+  html[data-preview-locale^="ja"] .hero .lead,
+  html[lang^="ja"] .hero .lead {
+    max-width: 100%;
+    font-size: clamp(15.5px, 4.05vw, 17px);
+    line-height: 1.72;
+    margin-bottom: 24px;
+    text-wrap: pretty;
+  }
+
+  html[data-locale^="ja"] .hero .actions,
+  html[data-landing-locale^="ja"] .hero .actions,
+  html[data-preview-locale^="ja"] .hero .actions,
+  html[lang^="ja"] .hero .actions {
+    gap: 10px;
+  }
+
+  html[data-locale^="ja"] .hero .note,
+  html[data-landing-locale^="ja"] .hero .note,
+  html[data-preview-locale^="ja"] .hero .note,
+  html[lang^="ja"] .hero .note {
+    margin-top: 16px;
+    font-size: 12.5px;
+    line-height: 1.55;
+  }
+
+  html[data-locale^="ja"] .hero .deviceStack,
+  html[data-landing-locale^="ja"] .hero .deviceStack,
+  html[data-preview-locale^="ja"] .hero .deviceStack,
+  html[lang^="ja"] .hero .deviceStack {
+    min-height: clamp(360px, 100vw, 430px);
+    width: min(100%, 390px);
+    margin-inline: auto;
+    transform: translateY(-2px);
+  }
+
+  html[data-locale^="ja"] .hero .phone,
+  html[data-landing-locale^="ja"] .hero .phone,
+  html[data-preview-locale^="ja"] .hero .phone,
+  html[lang^="ja"] .hero .phone {
+    --device-w: min(50vw, 198px);
+    --device-r: 43px;
+    --bezel-r: 37px;
+    --screen-r: 32px;
+  }
+
+  html[data-locale^="ja"] .hero .phone.one,
+  html[data-landing-locale^="ja"] .hero .phone.one,
+  html[data-preview-locale^="ja"] .hero .phone.one,
+  html[lang^="ja"] .hero .phone.one {
+    left: 4%;
+    right: auto;
+    top: 0;
+  }
+
+  html[data-locale^="ja"] .hero .phone.two,
+  html[data-landing-locale^="ja"] .hero .phone.two,
+  html[data-preview-locale^="ja"] .hero .phone.two,
+  html[lang^="ja"] .hero .phone.two {
+    right: 3%;
+    top: 34px;
+  }
+}
+
+@media (max-width: 390px) and (orientation: portrait) {
+  html[data-locale^="ja"] h1[data-meta-field="subtitle"],
+  html[data-landing-locale^="ja"] h1[data-meta-field="subtitle"],
+  html[data-preview-locale^="ja"] h1[data-meta-field="subtitle"],
+  html[lang^="ja"] h1[data-meta-field="subtitle"] {
+    max-width: 8.55em;
+    font-size: clamp(31px, 8.45vw, 34px) !important;
+  }
+
+  html[data-locale^="ja"] .hero .phone,
+  html[data-landing-locale^="ja"] .hero .phone,
+  html[data-preview-locale^="ja"] .hero .phone,
+  html[lang^="ja"] .hero .phone {
+    --device-w: min(49vw, 184px);
+  }
+}
+/* TwelveOath Japanese mobile hero correction v1.0.51 end */
+
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "TwelveOath",
+    "operatingSystem": "iOS, iPadOS",
+    "applicationCategory": "BusinessApplication",
+    "description": "A focused cancellation recovery app for small appointment-based businesses.",
+    "url": "https://tsukigashizumu-cmd.github.io/TwelveOath/en/",
+    "downloadUrl": "https://apps.apple.com/us/app/twelveoath/id6786129971"
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav aria-label="Main navigation">
+        <a class="brand" href="./" aria-label="TwelveOath home"><img src="assets/app-icon.png" alt="TwelveOath app icon"><span data-meta-field="name">TwelveOath</span></a>
+        <div class="navlinks">
+          <a href="#why" data-landing-key="navWhy">なぜ必要か</a>
+          <a href="#features" data-landing-key="navFeatures">できること</a>
+          <a href="support/" data-url-field="supportURL" data-landing-key="navSupport">サポート</a>
+          <span class="siteVersion" data-site-version="1.0.51" aria-label="Page version">v1.0.51</span><details class="localeMenu" data-locale-menu>
+            <summary class="localeMenuSummary" aria-label="Language"><span data-locale-menu-current data-landing-key="languageLabel">言語</span></summary>
+            <div class="localeMenuList" data-locale-menu-list role="menu" aria-label="Language options"></div>
+          </details><a class="jaPreviewLink" href="index.html" data-ja-preview-link>通常ページ</a>
+          <a class="appstore" href="https://apps.apple.com/us/app/twelveoath/id6786129971" data-landing-key="appStoreButton">App Storeで見る</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap heroGrid">
+        <div>
+          <div class="eyebrow" data-landing-key="heroEyebrow">キャンセル回収の儀式</div>
+          <h1 data-meta-field="subtitle" data-landing-key="heroHeadline">次のキャンセルで、誰に送るか迷わない。</h1>
+          <p class="lead" data-meta-field="promotionalText" data-landing-key="heroBody">キャンセルが来てから考え始めると、時間も売上も先に消えていきます。声をかける相手、選ぶ理由、待つ期限を先に整えておけば、次の空き枠に落ち着いて案内できます。</p>
+          <div class="actions">
+            <a class="primary" href="https://apps.apple.com/us/app/twelveoath/id6786129971" data-landing-key="heroPrimary">App Storeで見る</a>
+            <a class="secondary" href="#features" data-landing-key="heroSecondary">仕組みを見る</a>
+          </div>
+          <p class="note" data-landing-key="heroNote">一人サロン、個人スタジオ、予約制サービスのために。</p>
+        </div>
+        <div class="deviceStack" aria-hidden="true">
+          <div class="iphoneDevice phone one"><span class="iphoneButton iphoneButton--mute" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeUp" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeDown" aria-hidden="true"></span><span class="iphoneButton iphoneButton--side" aria-hidden="true"></span><div class="iphoneBody"><div class="iphoneScreen"><img class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/05.png" alt=""></div></div></div>
+          <div class="iphoneDevice phone two"><span class="iphoneButton iphoneButton--mute" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeUp" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeDown" aria-hidden="true"></span><span class="iphoneButton iphoneButton--side" aria-hidden="true"></span><div class="iphoneBody"><div class="iphoneScreen"><img class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/02.png" alt=""></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2 data-landing-key="whyTitle">空いた時間は、静かに消えていく。</h2>
+          <p data-landing-key="whyBody">直前キャンセルは、ただの空白ではありません。準備した時間、材料費、その時間に入るはずだった売上。そして、誰に声をかけるかを急いで決める負担が残ります。</p>
+        </div>
+        <div class="cards">
+          <div class="card"><b data-landing-key="whyCard1Title">キャンセル前に決めておく</b><p data-landing-key="whyCard1Body">失ってから探すのではなく、優先して声をかけるお客様を最大12人まで先に整えておけます。</p></div>
+          <div class="card"><b data-landing-key="whyCard2Title">空き時間に合う人だけを選ぶ</b><p data-landing-key="whyCard2Body">曜日、時間、メニューの長さ、希望条件を見ながら、その枠に合う一人をすぐ選べます。</p></div>
+          <div class="card"><b data-landing-key="whyCard3Title">焦った案内に見せない</b><p data-landing-key="whyCard3Body">個別案内、通常募集、キャンペーン型の案内を使い分け、落ち着いた回収として送れます。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="wrap split">
+        <div>
+          <div class="eyebrow" data-landing-key="featuresEyebrow">あなたに本当に必要なもの</div>
+          <h2 data-landing-key="featuresTitle">大きな予約管理は、いらない。</h2>
+          <p class="bodyText" data-landing-key="featuresBody">必要なのは、キャンセル後に迷わず出せる次の一手です。TwelveOathは範囲を広げず、誰に送るか、なぜその人か、いつまで待つかだけを静かに整えます。</p>
+        </div>
+        <div class="featureList">
+          <div class="feature"><strong data-landing-key="feature1Title">あなたのFirst Circle</strong><span data-landing-key="feature1Body">急な案内を受け取ってもよいお客様を最大12人まで保持し、条件が合う時に優先して確認できます。</span></div>
+          <div class="feature"><strong data-landing-key="feature2Title">個別 / 公開 / キャンペーン</strong><span data-landing-key="feature2Body">空き枠の内容に合わせて、特別案内・通常募集・広めの案内を使い分けられます。</span></div>
+          <div class="feature"><strong data-landing-key="feature3Title">軽く、ローカル優先</strong><span data-landing-key="feature3Body">大きな予約基盤や運用チームを前提にせず、個人店がすぐ扱える形を目指しています。</span></div>
+          <div class="feature"><strong data-landing-key="feature4Title">記憶に残る回収操作</strong><span data-landing-key="feature4Body">封筒、蝋封、12席の円卓で、焦る作業を落ち着いた手順に変えます。</span></div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="preview" class="previewSection">
+      <div class="wrap previewGrid">
+        <div>
+          <div class="eyebrow" data-landing-key="previewEyebrow">流れを見る</div>
+          <h2 data-landing-key="previewTitle">次の案内が始まる瞬間を見る。</h2>
+          <p class="bodyText" data-landing-key="previewBody">対応する言語のApp Preview動画がある場合は、その動画を表示します。空き枠を回収する流れを、ダウンロード前に確認できます。</p>
+        </div>
+        <div class="appPreviewShell">
+          <div class="iphoneDevice appPreviewFrame"><span class="iphoneButton iphoneButton--mute" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeUp" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeDown" aria-hidden="true"></span><span class="iphoneButton iphoneButton--side" aria-hidden="true"></span>
+            <div class="iphoneBody">
+              <div class="iphoneScreen">
+                <video class="appPreviewVideo iphoneMedia" controls playsinline muted loop preload="metadata"poster="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/02.png">
+                  <source src="assets/StoreDockAppPreviews/en-US/IPHONE_67/01.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+          <div class="appPreviewCaption" data-landing-key="previewCaption">App Preview・言語別対応</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2 data-landing-key="galleryTitle">次の空き時間には、もう計画がある。</h2>
+          <p data-landing-key="galleryBody">声をかける人、選ぶ理由、送る形を先に整える。キャンセルが来ても、慌てずに空き枠を取り戻せます。</p>
+        </div>
+        <div class="screens">
+          <figure class="iphoneDevice deviceShot"><span class="iphoneButton iphoneButton--mute" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeUp" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeDown" aria-hidden="true"></span><span class="iphoneButton iphoneButton--side" aria-hidden="true"></span><div class="iphoneBody"><div class="iphoneScreen"><img loading="lazy" class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/02.png" alt="TwelveOath screenshot showing private offer and wax seal invitation"></div></div></figure>
+          <figure class="iphoneDevice deviceShot"><span class="iphoneButton iphoneButton--mute" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeUp" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeDown" aria-hidden="true"></span><span class="iphoneButton iphoneButton--side" aria-hidden="true"></span><div class="iphoneBody"><div class="iphoneScreen"><img loading="lazy" class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/05.png" alt="TwelveOath screenshot showing schedule and recovered open slot"></div></div></figure>
+          <figure class="iphoneDevice deviceShot"><span class="iphoneButton iphoneButton--mute" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeUp" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeDown" aria-hidden="true"></span><span class="iphoneButton iphoneButton--side" aria-hidden="true"></span><div class="iphoneBody"><div class="iphoneScreen"><img loading="lazy" class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/03.png" alt="TwelveOath screenshot showing First Circle clients"></div></div></figure>
+          <figure class="iphoneDevice deviceShot"><span class="iphoneButton iphoneButton--mute" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeUp" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeDown" aria-hidden="true"></span><span class="iphoneButton iphoneButton--side" aria-hidden="true"></span><div class="iphoneBody"><div class="iphoneScreen"><img loading="lazy" class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/08.png" alt="TwelveOath screenshot showing the reason for choosing a client"></div></div></figure>
+          <figure class="iphoneDevice deviceShot"><span class="iphoneButton iphoneButton--mute" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeUp" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeDown" aria-hidden="true"></span><span class="iphoneButton iphoneButton--side" aria-hidden="true"></span><div class="iphoneBody"><div class="iphoneScreen"><img loading="lazy" class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/09.png" alt="TwelveOath screenshot showing awaiting reply status"></div></div></figure>
+          <figure class="iphoneDevice deviceShot"><span class="iphoneButton iphoneButton--mute" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeUp" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeDown" aria-hidden="true"></span><span class="iphoneButton iphoneButton--side" aria-hidden="true"></span><div class="iphoneBody"><div class="iphoneScreen"><img loading="lazy" class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/04.png" alt="TwelveOath screenshot showing recovered booking record"></div></div></figure>
+          <figure class="iphoneDevice deviceShot"><span class="iphoneButton iphoneButton--mute" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeUp" aria-hidden="true"></span><span class="iphoneButton iphoneButton--volumeDown" aria-hidden="true"></span><span class="iphoneButton iphoneButton--side" aria-hidden="true"></span><div class="iphoneBody"><div class="iphoneScreen"><img loading="lazy" class="iphoneMedia" src="assets/StoreDockScreenshots/en-US/APP_IPHONE_67/01.png" alt="TwelveOath screenshot showing monthly booking value dashboard"></div></div></figure>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="overview" class="overviewStory">
+      <div class="wrap">
+        <div class="sectionHead">
+          <div class="eyebrow" data-landing-key="overviewEyebrow">概要</div>
+          <h2 data-landing-key="overviewTitle">次のキャンセル前に、用意しておく理由。</h2>
+        </div>
+        <div class="overviewBody" data-meta-field="description" data-meta-render="preline">Has a client ever canceled and the minutes kept passing while you still did not know who to contact first? TwelveOath helps you prepare who to contact, what to send, and how long to wait before the next cancellation happens.</div>
+      </div>
+    </section>
+
+    <section class="finalCtaSection">
+      <div class="wrap">
+        <p class="quote" data-landing-key="finalQuote">次のキャンセルは、<br>焦る時間ではなく、<br>準備しておいた一人へ<br>案内を始める合図です。</p>
+        <div class="actions" style="margin-top: 28px;">
+          <a class="primary" href="https://apps.apple.com/us/app/twelveoath/id6786129971" data-landing-key="finalPrimary">App Storeで見る</a>
+          <a class="secondary" href="privacy/" data-url-field="privacyPolicyURL" data-landing-key="finalSecondary">プライバシーを見る</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div>© 2026 TwelveOath</div>
+      <div>
+        <a href="privacy/" data-url-field="privacyPolicyURL" data-landing-key="footerPrivacy">プライバシー</a>
+        <a href="support/" data-url-field="supportURL" data-landing-key="footerSupport">サポート</a>
+        <a href="https://apps.apple.com/us/app/twelveoath/id6786129971" data-landing-key="footerAppStore">App Store</a>
+      </div>
+    </div>
+  </footer>
+  <div class="metadataDebug" data-metadata-debug-badge>Metadata: loading</div>
+
+  <script>
+    (() => {
+      window.TwelveOathForceLocale = "ja";
+      document.documentElement.lang = "ja";
+      document.documentElement.dataset.previewLocale = "ja";
+      const params = new URLSearchParams(window.location.search);
+      let changed = false;
+      if (params.get("locale") !== "ja") { params.set("locale", "ja"); changed = true; }
+      if (params.get("metaDebug") !== "1") { params.set("metaDebug", "1"); changed = true; }
+      if (changed) {
+        const next = `${window.location.pathname}?${params.toString()}${window.location.hash || ""}`;
+        window.history.replaceState(null, "", next);
+      }
+    })();
+  </script>
+  <script src="assets/appstore-metadata.js" data-metadata-path="assets/locales/appstore-metadata.json" data-default-locale="en-US" defer></script>
+  <script src="assets/landing-page.js" data-locale-dir="assets/landing-locales/" data-default-locale="en-US" defer></script>
+</body>
+</html>
