@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tsukigashizumu-cmd.github.io/MinPick/en/sitemap.xml
