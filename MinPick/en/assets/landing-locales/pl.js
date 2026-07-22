@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["pl"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["pl"] = {
   "pageTitle": "Dwanaście przysiąg - Po odwołaniu wiesz, do kogo",
   "pageDescription": "Po odwołaniu tracisz czas, bo nie wiesz, do kogo napisać? To nie twoja wina.",
   "navWhy": "Dlaczego",

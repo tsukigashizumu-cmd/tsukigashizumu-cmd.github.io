@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["mr"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["mr"] = {
   "pageTitle": "बारा शपथा - रद्दीनंतर कोणाला लिहायचे ठरवा",
   "pageDescription": "रद्द झाल्यानंतर कोणाला लिहायचे हे ठरवताना वेळ गेला? ही तुमची चूक नाही.",
   "navWhy": "का",

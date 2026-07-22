@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["ru"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["ru"] = {
   "pageTitle": "Двенадцать клятв - После отмены ясно, кому писать",
   "pageDescription": "После отмены вы теряете время, не зная, кому написать? Это не ваша вина.",
   "navWhy": "Зачем",

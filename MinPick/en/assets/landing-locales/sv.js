@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["sv"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["sv"] = {
   "pageTitle": "Tolv eder - Vid nästa avbokning vet du vem",
   "pageDescription": "Har du tappat tid efter en avbokning för att du inte visste vem du skulle kontakta? Det är inte ditt fel.",
   "navWhy": "Varför",

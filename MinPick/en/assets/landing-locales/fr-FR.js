@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["fr-FR"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["fr-FR"] = {
   "pageTitle": "Douze serments - Après annulation, sachez qui",
   "pageDescription": "Après une annulation, vous perdez du temps sans savoir à qui écrire ? Ce n’est pas votre faute.",
   "navWhy": "Pourquoi",

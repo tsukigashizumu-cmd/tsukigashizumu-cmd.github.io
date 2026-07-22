@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["kn"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["kn"] = {
   "pageTitle": "ಹನ್ನೆರಡು ಪ್ರತಿಜ್ಞೆಗಳು - ಮುಂದಿನ ರದ್ದತಿಯಲ್ಲಿ ಗೊಂದಲ ಬೇಡ",
   "pageDescription": "ರದ್ದತಿ ಬಂದ ಬಳಿಕ ಯಾರನ್ನು ಸಂಪರ್ಕಿಸಬೇಕು ಎಂದು ತಿಳಿಯದೆ ಸಮಯ ಕಳೆದುಕೊಂಡಿದ್ದೀರಾ? ಅದು ನಿಮ್ಮ ತಪ್ಪಲ್ಲ.",
   "navWhy": "ಏಕೆ",

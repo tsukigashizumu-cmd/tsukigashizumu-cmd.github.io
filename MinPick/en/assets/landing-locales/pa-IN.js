@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["pa-IN"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["pa-IN"] = {
   "pageTitle": "ਬਾਰਾਂ ਸਹੁੰ - ਰੱਦ ਹੋਵੇ ਤਾਂ ਜਾਣੋ ਕਿਸਨੂੰ ਲਿਖਣਾ",
   "pageDescription": "ਰੱਦ ਹੋਣ ਤੋਂ ਬਾਅਦ ਕਿਸਨੂੰ ਲਿਖਣਾ ਹੈ ਇਹ ਸੋਚਦਿਆਂ ਸਮਾਂ ਗੁਆਇਆ? ਇਹ ਤੁਹਾਡੀ ਗਲਤੀ ਨਹੀਂ।",
   "navWhy": "ਕਿਉਂ",

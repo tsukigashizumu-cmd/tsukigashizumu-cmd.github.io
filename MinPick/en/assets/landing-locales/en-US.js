@@ -1,6 +1,6 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["en-US"] = {
-  "pageTitle": "TwelveOath - Know who to invite next",
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["en-US"] = {
+  "pageTitle": "MinPick - Know who to invite next",
   "pageDescription": "When a cancellation hits, you should not be deciding from scratch.",
   "navWhy": "Why",
   "navFeatures": "Features",

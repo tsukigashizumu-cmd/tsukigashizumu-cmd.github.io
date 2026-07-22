@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["ro"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["ro"] = {
   "pageTitle": "Douăsprezece jurăminte - După anulare, știi cui scrii",
   "pageDescription": "Ai pierdut timp după o anulare fiindcă nu știai cui să scrii? Nu e vina ta.",
   "navWhy": "De ce",

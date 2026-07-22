@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["ta-IN"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["ta-IN"] = {
   "pageTitle": "பன்னிரண்டு உறுதிமொழிகள் - அடுத்த ரத்தில் குழப்பமில்லை",
   "pageDescription": "ரத்து வந்தபின் யாரைத் தொடர்புகொள்வது தெரியாமல் நேரம் போயிற்றா? அது உங்கள் தவறு அல்ல.",
   "navWhy": "ஏன்",

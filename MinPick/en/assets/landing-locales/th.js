@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["th"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["th"] = {
   "pageTitle": "สิบสองคำสัตย์ - ยกเลิกครั้งหน้า รู้ว่าจะบอกใคร",
   "pageDescription": "เคยเสียเวลาหลังมีการยกเลิก เพราะไม่รู้ว่าจะติดต่อใครไหม?",
   "navWhy": "ทำไม",

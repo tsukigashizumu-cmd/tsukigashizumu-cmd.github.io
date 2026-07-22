@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["ml"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["ml"] = {
   "pageTitle": "പന്ത്രണ്ട് പ്രതിജ്ഞകൾ - റദ്ദായാൽ ആരെ വിളിക്കാം?",
   "pageDescription": "റദ്ദായതിന് ശേഷം ആരെ ബന്ധപ്പെടണമെന്ന് അറിയാതെ സമയം പോയോ? അത് നിങ്ങളുടെ തെറ്റല്ല.",
   "navWhy": "എന്തിന്",

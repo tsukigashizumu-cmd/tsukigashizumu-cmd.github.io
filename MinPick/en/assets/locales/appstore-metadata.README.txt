@@ -1,4 +1,4 @@
-TwelveOath App Store metadata source
+MinPick App Store metadata source
 
 Place the full App Store metadata JSON here:
 
@@ -8,13 +8,13 @@ Expected shape:
 
 {
   "en-US": {
-    "name": "TwelveOath",
+    "name": "MinPick",
     "subtitle": "Canceled? Know who to contact",
     "promotionalText": "...",
     "description": "...",
-    "marketingURL": "https://tsukigashizumu-cmd.github.io/TwelveOath/en/",
-    "privacyPolicyURL": "https://tsukigashizumu-cmd.github.io/TwelveOath/en/privacy/",
-    "supportURL": "https://tsukigashizumu-cmd.github.io/TwelveOath/en/support/"
+    "marketingURL": "https://tsukigashizumu-cmd.github.io/MinPick/en/",
+    "privacyPolicyURL": "https://tsukigashizumu-cmd.github.io/MinPick/en/privacy/",
+    "supportURL": "https://tsukigashizumu-cmd.github.io/MinPick/en/support/"
   },
   "ja": { ... }
 }
@@ -26,5 +26,5 @@ Locale selection order:
   3. en-US
 
 Compatibility note:
-If metadata contains old URLs like /TwelveOath/privacy/ or /TwelveOath/support/,
-the page normalizes them to /TwelveOath/en/privacy/ and /TwelveOath/en/support/.
+If metadata contains old URLs like /MinPick/privacy/ or /MinPick/support/,
+the page normalizes them to /MinPick/en/privacy/ and /MinPick/en/support/.

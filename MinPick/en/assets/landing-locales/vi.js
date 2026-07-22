@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["vi"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["vi"] = {
   "pageTitle": "Mười Hai Lời Thề - Hủy lịch? Biết nên nhắn ai",
   "pageDescription": "Mất thời gian sau khi khách hủy vì không biết nên nhắn ai? Đó không phải lỗi của bạn.",
   "navWhy": "Vì sao",

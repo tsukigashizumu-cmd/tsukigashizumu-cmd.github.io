@@ -9,10 +9,10 @@
   function normalizeInternalURL(value) {
     if (!value || typeof value !== "string") return value;
     return value
-      .replace("https://tsukigashizumu-cmd.github.io/TwelveOath/privacy/", "https://tsukigashizumu-cmd.github.io/TwelveOath/en/privacy/")
-      .replace("https://tsukigashizumu-cmd.github.io/TwelveOath/support/", "https://tsukigashizumu-cmd.github.io/TwelveOath/en/support/")
-      .replace("/TwelveOath/privacy/", "/TwelveOath/en/privacy/")
-      .replace("/TwelveOath/support/", "/TwelveOath/en/support/");
+      .replace("https://tsukigashizumu-cmd.github.io/MinPick/privacy/", "https://tsukigashizumu-cmd.github.io/MinPick/en/privacy/")
+      .replace("https://tsukigashizumu-cmd.github.io/MinPick/support/", "https://tsukigashizumu-cmd.github.io/MinPick/en/support/")
+      .replace("/MinPick/privacy/", "/MinPick/en/privacy/")
+      .replace("/MinPick/support/", "/MinPick/en/support/");
   }
 
   function getParams() { return new URLSearchParams(window.location.search); }
@@ -21,9 +21,9 @@
     const params = getParams();
     const explicit = params.get("locale") || params.get("lang");
     if (explicit) return explicit;
-    if (window.TwelveOathForceLocale) return window.TwelveOathForceLocale;
+    if (window.MinPickForceLocale) return window.MinPickForceLocale;
     try {
-      const saved = window.localStorage?.getItem("TwelveOath.locale");
+      const saved = window.localStorage?.getItem("MinPick.locale");
       if (saved) return saved;
     } catch (_) {}
     return navigator.language || defaultLocale;
@@ -188,9 +188,9 @@
   function setupLocaleSelectors(all, activeLocale) {
     const applyLocale = (locale) => {
       if (!locale || !all[locale]) return;
-      try { window.localStorage?.setItem("TwelveOath.locale", locale); } catch (_) {}
+      try { window.localStorage?.setItem("MinPick.locale", locale); } catch (_) {}
       setURLLocale(locale);
-      window.TwelveOathAppStoreMetadata = { locale, entry: all[locale], all };
+      window.MinPickAppStoreMetadata = { locale, entry: all[locale], all };
       applyEntry(locale, all[locale]);
       setupLocaleSelectors(all, locale);
       document.dispatchEvent(new CustomEvent("twelveoathmetadataready", { detail: { locale, entry: all[locale], all } }));
@@ -310,7 +310,7 @@
       const locale = candidates[0];
       const entry = all[locale];
       if (!entry || typeof entry !== "object") { setDebug(locale, "invalid entry"); return; }
-      window.TwelveOathAppStoreMetadata = { locale, entry, all };
+      window.MinPickAppStoreMetadata = { locale, entry, all };
       applyEntry(locale, entry);
       setupLocaleSelectors(all, locale);
       document.dispatchEvent(new CustomEvent("twelveoathmetadataready", { detail: { locale, entry, all } }));
@@ -318,6 +318,6 @@
     .catch((error) => {
       document.documentElement.dataset.metadataLoaded = "false";
       setDebug("-", "failed");
-      console.warn("TwelveOath metadata source was not applied.", error);
+      console.warn("MinPick metadata source was not applied.", error);
     });
 })();

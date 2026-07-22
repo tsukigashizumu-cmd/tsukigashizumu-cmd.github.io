@@ -1,6 +1,6 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["ja"] = {
-  pageTitle: "TwelveOath - 次のキャンセルで、誰に送るか迷わない",
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["ja"] = {
+  pageTitle: "MinPick - 次のキャンセルで、誰に送るか迷わない",
   pageDescription: "キャンセルが来てから考え始めると、時間も売上も先に消えていきます。声をかける相手、選ぶ理由、待つ期限を先に整えるためのアプリです。",
 
   navWhy: "なぜ必要か",
@@ -29,7 +29,7 @@ window.TwelveOathLandingLocales["ja"] = {
 
   featuresEyebrow: "あなたに本当に必要なもの",
   featuresTitle: "大きな予約管理は、いらない。",
-  featuresBody: "必要なのは、キャンセル後に迷わず出せる次の一手です。TwelveOathは範囲を広げず、誰に送るか、なぜその人か、いつまで待つかだけを静かに整えます。",
+  featuresBody: "必要なのは、キャンセル後に迷わず出せる次の一手です。MinPickは範囲を広げず、誰に送るか、なぜその人か、いつまで待つかだけを静かに整えます。",
   feature1Title: "あなたのFirst Circle",
   feature1Body: "急な案内を受け取ってもよいお客様を最大12人まで保持し、条件が合う時に優先して確認できます。",
   feature2Title: "個別 / 公開 / キャンペーン",
@@ -67,26 +67,26 @@ window.TwelveOathLandingLocales["ja"] = {
 
   privacyTitle: "プライバシーポリシー",
   privacyUpdated: "最終更新日：2026年7月6日",
-  privacyIntro: "TwelveOathは、予約制の小規模事業者向けに作られた、ローカル優先のツールです。キャンセル回収に必要な情報を、あなたの端末上で準備・管理することを目的としています。",
+  privacyIntro: "MinPickは、予約制の小規模事業者向けに作られた、ローカル優先のツールです。キャンセル回収に必要な情報を、あなたの端末上で準備・管理することを目的としています。",
   privacyCollectTitle: "収集する情報",
-  privacyCollectBody: "TwelveOathはアカウントを必須とせず、アプリデータを保存するためのサーバーを運用しません。お客様、メニュー、予定、メモ、候補者など、アプリに入力した情報は端末内に保存される想定です。",
+  privacyCollectBody: "MinPickはアカウントを必須とせず、アプリデータを保存するためのサーバーを運用しません。お客様、メニュー、予定、メモ、候補者など、アプリに入力した情報は端末内に保存される想定です。",
   privacyTrackingTitle: "トラッキングと解析",
-  privacyTrackingBody: "TwelveOathは第三者広告トラッカーを使用しません。他社のアプリやWebサイトを横断してあなたを追跡する設計ではありません。",
+  privacyTrackingBody: "MinPickは第三者広告トラッカーを使用しません。他社のアプリやWebサイトを横断してあなたを追跡する設計ではありません。",
   privacyPurchasesTitle: "購入",
-  privacyPurchasesBody: "App Storeで購入する場合、購入に関する情報はAppleのプライバシーポリシーおよびApp Storeの規約に基づいて処理されます。TwelveOathがクレジットカード情報全体を受け取ることはありません。",
+  privacyPurchasesBody: "App Storeで購入する場合、購入に関する情報はAppleのプライバシーポリシーおよびApp Storeの規約に基づいて処理されます。MinPickがクレジットカード情報全体を受け取ることはありません。",
   privacyMessagesTitle: "メッセージと連絡",
-  privacyMessagesBody: "TwelveOathで作成した文章をメッセージ、メール、SNSなど別のアプリで利用する場合、その送信や共有は選択したアプリまたはサービスによって処理されます。",
+  privacyMessagesBody: "MinPickで作成した文章をメッセージ、メール、SNSなど別のアプリで利用する場合、その送信や共有は選択したアプリまたはサービスによって処理されます。",
   privacyBackupsTitle: "バックアップと端末設定",
   privacyBackupsBody: "端末のバックアップ設定によっては、アプリ内データがiCloudや端末バックアップに含まれる場合があります。バックアップの扱いは利用中の端末設定に従います。",
   privacyContactTitle: "お問い合わせ",
   privacyContactBody: "プライバシーに関する質問は、サポートページまたはApp Store掲載情報に記載された連絡方法からお問い合わせください。",
 
   supportTitle: "サポート",
-  supportIntro: "TwelveOathは、キャンセル後の空き枠を回収するために、次の一手を事前に準備するアプリです。このページでは基本的な使い方と問い合わせ先をまとめています。",
-  supportCard1Title: "TwelveOathは何のためのアプリですか？",
+  supportIntro: "MinPickは、キャンセル後の空き枠を回収するために、次の一手を事前に準備するアプリです。このページでは基本的な使い方と問い合わせ先をまとめています。",
+  supportCard1Title: "MinPickは何のためのアプリですか？",
   supportCard1Body: "キャンセルで空いた予約時間を回収するためのアプリです。First Circleを用意し、空き枠に合う人を選び、案内方法を決めるために使います。",
   supportCard2Title: "予約管理システムですか？",
-  supportCard2Body: "いいえ。TwelveOathはすべての予約業務を管理するものではなく、キャンセル回収に集中したアプリです。",
+  supportCard2Body: "いいえ。MinPickはすべての予約業務を管理するものではなく、キャンセル回収に集中したアプリです。",
   supportCard3Title: "データはどこに保存されますか？",
   supportCard3Body: "ローカル優先のツールとして設計されています。入力したデータは、別アプリで共有したり端末のバックアップ設定でコピーされたりしない限り、端末内に保存される想定です。",
   supportCard4Title: "サーバーなしで使えますか？",
@@ -94,6 +94,6 @@ window.TwelveOathLandingLocales["ja"] = {
   supportContactTitle: "お問い合わせ",
   supportContactBody: "サポート依頼、質問、不具合報告は、App Storeのサポートリンクまたはアプリ掲載情報に記載された連絡方法からお問い合わせください。",
   supportAppStoreTitle: "App Store",
-  supportAppStoreLink: "App StoreでTwelveOathを見る"
+  supportAppStoreLink: "App StoreでMinPickを見る"
 };
 

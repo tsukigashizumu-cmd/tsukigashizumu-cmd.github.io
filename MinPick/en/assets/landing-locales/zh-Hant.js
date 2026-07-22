@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["zh-Hant"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["zh-Hant"] = {
   "pageTitle": "十二誓言 - 取消後，知道該聯絡誰",
   "pageDescription": "客戶取消後，因為不知道該聯絡誰而浪費了時間？這不是你的錯。",
   "navWhy": "为什么需要",

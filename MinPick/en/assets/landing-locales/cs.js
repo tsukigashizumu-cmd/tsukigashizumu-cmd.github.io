@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["cs"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["cs"] = {
   "pageTitle": "Dvanáct přísah - Po zrušení už víš, komu psát",
   "pageDescription": "Ztratila jsi po zrušení čas, protože jsi nevěděla, komu napsat? Není to tvoje vina.",
   "navWhy": "Proč",

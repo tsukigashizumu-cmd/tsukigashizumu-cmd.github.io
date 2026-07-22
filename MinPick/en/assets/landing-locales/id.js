@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["id"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["id"] = {
   "pageTitle": "Dua Belas Ikrar - Saat batal, tak perlu bingung",
   "pageDescription": "Pernah kehilangan waktu setelah pembatalan karena tak tahu harus menghubungi siapa? Bukan salahmu.",
   "navWhy": "Mengapa",

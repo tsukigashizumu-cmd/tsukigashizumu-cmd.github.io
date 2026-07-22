@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["gu"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["gu"] = {
   "pageTitle": "બાર પ્રતિજ્ઞાઓ - આગામી રદમાં હવે ગૂંચવણ નહીં",
   "pageDescription": "રદ થયા પછી કોને સંપર્ક કરવો તે નક્કી ન થઈ સમય ગયો છે? દોષ તમારો નથી.",
   "navWhy": "શા માટે",

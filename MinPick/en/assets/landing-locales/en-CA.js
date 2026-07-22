@@ -1,6 +1,6 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["en-CA"] = {
-  "pageTitle": "TwelveOath - Cancelled? Know who to contact",
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["en-CA"] = {
+  "pageTitle": "MinPick - Cancelled? Know who to contact",
   "pageDescription": "Lost time after a cancellation because you did not know who to message? It is not your fault.",
   "navWhy": "Why",
   "navFeatures": "Features",

@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["tr"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["tr"] = {
   "pageTitle": "On İki Yemin - İptalde kimi arayacağını bil",
   "pageDescription": "İptalden sonra kime yazacağını bilemeden zaman mı kaybettin? Bu senin hatan değil.",
   "navWhy": "Neden",

@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["de"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["de"] = {
   "pageTitle": "Zwölf Eide - Nach der Absage weißt du, wen",
   "pageDescription": "Nach einer Absage Zeit verloren, weil du nicht wusstest, wen du kontaktieren sollst? Es ist nicht deine Schuld.",
   "navWhy": "Warum",

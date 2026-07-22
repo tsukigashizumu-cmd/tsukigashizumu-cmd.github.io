@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["fi"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["fi"] = {
   "pageTitle": "Kaksitoista valaa - Peruutus tuli – tiedät kenet",
   "pageDescription": "Menikö peruutuksen jälkeen aikaa siihen, ettet tiennyt kenelle kirjoittaa? Se ei ole sinun syysi.",
   "navWhy": "Miksi",

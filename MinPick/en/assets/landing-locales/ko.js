@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["ko"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["ko"] = {
   "pageTitle": "열두 맹세 - 취소되면 누구에게 연락할지",
   "pageDescription": "취소 뒤 누구에게 연락할지 몰라 시간을 잃었나요? 당신의 잘못이 아닙니다.",
   "navWhy": "필요한 이유",

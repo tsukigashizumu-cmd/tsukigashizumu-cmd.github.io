@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["uk"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["uk"] = {
   "pageTitle": "Дванадцять клятв - Кому писати після скасування",
   "pageDescription": "Після скасування ви втрачали час, не знаючи, кому написати? Це не ваша провина.",
   "navWhy": "Навіщо",

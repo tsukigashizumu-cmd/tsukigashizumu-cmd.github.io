@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["sl-SI"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["sl-SI"] = {
   "pageTitle": "Dvanajst priseg - Ob preklicu veš, komu pisati",
   "pageDescription": "Si po preklicu izgubila čas, ker nisi vedela, komu pisati? Nisi ti kriva.",
   "navWhy": "Zakaj",

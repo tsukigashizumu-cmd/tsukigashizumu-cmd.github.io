@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["el"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["el"] = {
   "pageTitle": "Δώδεκα Όρκοι - Στην ακύρωση, ξέρεις ποια",
   "pageDescription": "Μετά από ακύρωση, έχασες χρόνο χωρίς να ξέρεις ποια να ειδοποιήσεις; Δεν φταις εσύ.",
   "navWhy": "Γιατί",

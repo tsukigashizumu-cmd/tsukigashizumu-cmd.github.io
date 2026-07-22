@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["hu"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["hu"] = {
   "pageTitle": "Tizenkét eskü - Lemondáskor tudod, kit hívj",
   "pageDescription": "Lemondás után időt vesztettél, mert nem tudtad, kit keress? Nem a te hibád.",
   "navWhy": "Miért",

@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["pt"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["pt"] = {
   "pageTitle": "Doze Juramentos - Cancelou? Saiba quem chamar",
   "pageDescription": "Perdeu tempo após um cancelamento sem saber para quem escrever? A culpa não é sua.",
   "navWhy": "Por quê",

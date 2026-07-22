@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["bn-BD"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["bn-BD"] = {
   "pageTitle": "বারো শপথ - বাতিল হলে জানুন কাকে লিখবেন",
   "pageDescription": "বাতিলের পর কাকে লিখবেন বুঝতে না পেরে সময় হারিয়েছেন? এটা আপনার দোষ নয়।",
   "navWhy": "কেন",

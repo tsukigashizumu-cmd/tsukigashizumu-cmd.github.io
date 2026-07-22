@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["nl"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["nl"] = {
   "pageTitle": "Twaalf eden - Bij annulering weet je wie",
   "pageDescription": "Na een annulering ooit tijd verloren omdat je niet wist wie je moest benaderen? Het ligt niet aan jou.",
   "navWhy": "Waarom",

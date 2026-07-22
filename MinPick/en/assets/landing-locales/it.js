@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["it"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["it"] = {
   "pageTitle": "Dodici giuramenti - Alla disdetta, sai già chi",
   "pageDescription": "Dopo una disdetta, hai mai perso tempo senza sapere chi contattare? Non è colpa tua.",
   "navWhy": "Perché",

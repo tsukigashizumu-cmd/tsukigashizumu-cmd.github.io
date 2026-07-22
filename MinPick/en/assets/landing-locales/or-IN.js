@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["or-IN"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["or-IN"] = {
   "pageTitle": "ବାର ପ୍ରତିଜ୍ଞା - ବାତିଲ ପରେ ଆଉ ଦ୍ୱିଧା ନାହିଁ",
   "pageDescription": "ବାତିଲ ପରେ କାହାକୁ ଯୋଗାଯୋଗ କରିବେ ଭାବି ସମୟ କଟିଗଲା କି? ଏହା ଆପଣଙ୍କ ଦୋଷ ନୁହେଁ।",
   "navWhy": "କାହିଁକି",

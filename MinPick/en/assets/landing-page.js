@@ -8,12 +8,12 @@
   function requestedLocale() {
     // v1.0.49: locale selection must not be overridden by stale metadata/localStorage.
     // Priority: forced preview -> URL -> metadata event state -> saved locale -> html lang -> browser/default.
-    if (window.TwelveOathForceLocale) return window.TwelveOathForceLocale;
+    if (window.MinPickForceLocale) return window.MinPickForceLocale;
     const explicit = params().get("locale") || params().get("lang");
     if (explicit) return explicit;
-    if (window.TwelveOathAppStoreMetadata?.locale) return window.TwelveOathAppStoreMetadata.locale;
+    if (window.MinPickAppStoreMetadata?.locale) return window.MinPickAppStoreMetadata.locale;
     try {
-      const saved = window.localStorage?.getItem("TwelveOath.locale");
+      const saved = window.localStorage?.getItem("MinPick.locale");
       if (saved) return saved;
     } catch (_) {}
     const htmlLang = document.documentElement.getAttribute("lang");
@@ -30,14 +30,14 @@
   }
   function loadLocale(locale) {
     if (!locale || locale === "en-US") return Promise.resolve(false);
-    if (window.TwelveOathLandingLocales?.[locale]) return Promise.resolve(true);
-    if (loaded.has(locale)) return Promise.resolve(Boolean(window.TwelveOathLandingLocales?.[locale]));
+    if (window.MinPickLandingLocales?.[locale]) return Promise.resolve(true);
+    if (loaded.has(locale)) return Promise.resolve(Boolean(window.MinPickLandingLocales?.[locale]));
     loaded.add(locale);
     return new Promise((resolve) => {
       const script = document.createElement("script");
       script.src = `${localeDir}${encodeURIComponent(locale)}.js`;
       script.async = true;
-      script.onload = () => resolve(Boolean(window.TwelveOathLandingLocales?.[locale]));
+      script.onload = () => resolve(Boolean(window.MinPickLandingLocales?.[locale]));
       script.onerror = () => resolve(false);
       document.head.appendChild(script);
     });
@@ -78,7 +78,7 @@
     for (const candidate of candidates(locale)) {
       if (candidate === "en-US") break;
       const ok = await loadLocale(candidate);
-      const data = window.TwelveOathLandingLocales?.[candidate];
+      const data = window.MinPickLandingLocales?.[candidate];
       if (ok && data) {
         apply(candidate, data);
         return;

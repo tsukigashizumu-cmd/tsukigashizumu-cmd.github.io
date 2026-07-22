@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["es-MX"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["es-MX"] = {
   "pageTitle": "Doce Juramentos - Cuando cancelen, ya sabrás",
   "pageDescription": "¿Tras una cancelación perdiste tiempo sin saber a quién escribir? No es tu culpa.",
   "navWhy": "Por qué",

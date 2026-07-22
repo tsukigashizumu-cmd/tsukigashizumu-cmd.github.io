@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["hi"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["hi"] = {
   "pageTitle": "बारह प्रतिज्ञाएँ - अगली रद्दी पर जानें किसे लिखना",
   "pageDescription": "रद्दी के बाद किसे लिखें, यह सोचते हुए समय खोया? यह आपकी गलती नहीं।",
   "navWhy": "क्यों",

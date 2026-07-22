@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["te"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["te"] = {
   "pageTitle": "పన్నెండు ప్రమాణాలు - రద్దైతే ఎవరికి చెప్పాలో తెలుసు",
   "pageDescription": "రద్దు తర్వాత ఎవరిని సంప్రదించాలో తెలియక సమయం కోల్పోయారా? అది మీ తప్పు కాదు.",
   "navWhy": "ఎందుకు",

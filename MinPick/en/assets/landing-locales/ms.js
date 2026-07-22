@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["ms"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["ms"] = {
   "pageTitle": "Dua Belas Ikrar - Batal temu janji? Tahu siapa",
   "pageDescription": "Masa terbuang selepas pembatalan kerana tidak tahu siapa perlu dihubungi? Itu bukan salah anda.",
   "navWhy": "Mengapa",

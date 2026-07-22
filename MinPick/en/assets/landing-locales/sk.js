@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["sk"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["sk"] = {
   "pageTitle": "Dvanásť prísah - Po zrušení už vieš, komu písať",
   "pageDescription": "Stratila si po zrušení čas, lebo si nevedela, komu napísať? Nie je to tvoja vina.",
   "navWhy": "Prečo",

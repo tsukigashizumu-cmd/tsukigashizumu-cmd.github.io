@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["hr"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["hr"] = {
   "pageTitle": "Dvanaest zakletvi - Kod otkaza već znaš kome",
   "pageDescription": "Nakon otkaza gubiš vrijeme jer ne znaš kome se javiti? Nisi ti kriva.",
   "navWhy": "Zašto",

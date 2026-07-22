@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["da"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["da"] = {
   "pageTitle": "Tolv eder - Ved næste afbud ved du hvem",
   "pageDescription": "Har du mistet tid efter et afbud, fordi du ikke vidste, hvem du skulle kontakte? Det er ikke din skyld.",
   "navWhy": "Hvorfor",

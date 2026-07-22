@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["ar"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["ar"] = {
   "pageTitle": "العهود الاثنا عشر - في الإلغاء التالي، لن تحتاري",
   "pageDescription": "وصل إشعار الإلغاء، ومرّ الوقت قبل أن تعرفي بمن تتصلين؟ المشكلة ليست فيك.",
   "navWhy": "لماذا",

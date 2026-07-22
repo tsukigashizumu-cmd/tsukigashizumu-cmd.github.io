@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["he"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["he"] = {
   "pageTitle": "שנים עשר נדרים - אחרי ביטול, דעי למי לפנות",
   "pageDescription": "אחרי ביטול את מאבדת זמן כי אינך יודעת למי לכתוב? זו לא אשמתך.",
   "navWhy": "למה",

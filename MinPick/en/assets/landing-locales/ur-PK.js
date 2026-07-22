@@ -1,5 +1,5 @@
-window.TwelveOathLandingLocales = window.TwelveOathLandingLocales || {};
-window.TwelveOathLandingLocales["ur-PK"] = {
+window.MinPickLandingLocales = window.MinPickLandingLocales || {};
+window.MinPickLandingLocales["ur-PK"] = {
   "pageTitle": "بارہ عہد - اگلی منسوخی پر الجھن نہیں",
   "pageDescription": "کیا منسوخی کے بعد یہ سوچتے وقت گزر گیا کہ کس سے رابطہ کریں؟",
   "navWhy": "کیوں",
