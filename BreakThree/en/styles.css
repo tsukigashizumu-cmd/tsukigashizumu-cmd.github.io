@@ -17,6 +17,20 @@ main {
   margin: 0 auto;
   padding: 72px 0 56px;
 }
+
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.app-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 12px 30px rgba(0,0,0,.34);
+}
+
 .brand {
   letter-spacing: .08em;
   font-size: 14px;
@@ -60,4 +74,37 @@ footer {
   margin-top: 44px;
   font-size: 13px;
   opacity: .62;
+}
+
+h2 {
+  margin: 28px 0 10px;
+  font-size: 22px;
+  line-height: 1.25;
+}
+.card h2:first-child,
+.card article:first-child h2 {
+  margin-top: 0;
+}
+.card p {
+  line-height: 1.75;
+  color: #e9ded3;
+}
+.card p + p {
+  margin-top: 12px;
+}
+.support-grid article + article,
+.policy h2:not(:first-child) {
+  border-top: 1px solid rgba(255,255,255,.10);
+  padding-top: 24px;
+  margin-top: 24px;
+}
+.contact-link {
+  display: inline-block;
+  overflow-wrap: anywhere;
+  font-weight: 700;
+}
+.updated {
+  margin-top: 30px !important;
+  font-size: 13px;
+  opacity: .68;
 }
