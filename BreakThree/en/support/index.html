@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Support information and contact details for BreakThree.">
   <link rel="canonical" href="https://tsukigashizumu-cmd.github.io/BreakThree/en/support/">
+  <script data-breakthree-normalize-support-url>
+    (() => {
+      const url = new URL(window.location.href);
+      if (url.searchParams.has("language")) {
+        url.searchParams.delete("language");
+        const query = url.searchParams.toString();
+        const normalized = url.pathname + (query ? `?${query}` : "") + url.hash;
+        window.history.replaceState(null, "", normalized);
+      }
+    })();
+  </script>
   <meta property="og:type" content="website">
   <meta property="og:title" content="BreakThree Support">
   <meta property="og:description" content="Support information and contact details for BreakThree.">
