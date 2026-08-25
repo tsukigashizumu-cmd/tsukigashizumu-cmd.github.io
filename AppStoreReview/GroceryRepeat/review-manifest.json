@@ -1,0 +1,73 @@
+{
+  "product": "GroceryRepeat",
+  "version": "1.0",
+  "state": "FRESH_CAPTURE_COMPLETE_UNREVIEWED",
+  "localeCount": 50,
+  "sceneCount": 5,
+  "pngCount": 250,
+  "freshScreenshotSetAuthoritySHA256": "8b67eacefc18ad2e66e24ba0b36cf73497c4b71d7a7e2ffa7c7c05ce74fb91b6",
+  "manifestAuthoritySHA256": "82e5e45f93db328309f678652f59112d0a205d0bed35132d20f393808114be04",
+  "humanReviewState": "NOT_STARTED",
+  "blocks": {
+    "1": [
+      "ar-SA",
+      "bn-BD",
+      "ca",
+      "cs",
+      "da",
+      "de-DE",
+      "el",
+      "en-AU",
+      "en-CA",
+      "en-GB"
+    ],
+    "2": [
+      "en-US",
+      "es-ES",
+      "es-MX",
+      "fi",
+      "fr-CA",
+      "fr-FR",
+      "gu-IN",
+      "he",
+      "hi",
+      "hr"
+    ],
+    "3": [
+      "hu",
+      "id",
+      "it",
+      "ja",
+      "kn-IN",
+      "ko",
+      "ml-IN",
+      "mr-IN",
+      "ms",
+      "nl-NL"
+    ],
+    "4": [
+      "no",
+      "or-IN",
+      "pa-IN",
+      "pl",
+      "pt-BR",
+      "pt-PT",
+      "ro",
+      "ru",
+      "sk",
+      "sl-SI"
+    ],
+    "5": [
+      "sv",
+      "ta-IN",
+      "te-IN",
+      "th",
+      "tr",
+      "uk",
+      "ur-PK",
+      "vi",
+      "zh-Hans",
+      "zh-Hant"
+    ]
+  }
+}
