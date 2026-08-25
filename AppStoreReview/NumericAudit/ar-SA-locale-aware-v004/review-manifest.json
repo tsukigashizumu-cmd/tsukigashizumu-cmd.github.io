@@ -1,0 +1,93 @@
+{
+  "title": "ar-SA numeric presentation BEFORE / AFTER",
+  "locale": "ar-SA",
+  "state": "TARGETED_RECAPTURE_REVIEW_PENDING",
+  "products": [
+    {
+      "product": "DiscountStack",
+      "scenes": [
+        "01_hero.png",
+        "02_stacked_discounts.png",
+        "03_tax.png",
+        "04_high_savings.png",
+        "05_precision.png"
+      ]
+    },
+    {
+      "product": "CartBudget",
+      "scenes": [
+        "01_hero.png",
+        "02_near_limit.png",
+        "03_over_budget.png",
+        "04_full_cart.png",
+        "05_precision.png"
+      ]
+    },
+    {
+      "product": "PackPlanner",
+      "scenes": [
+        "01_mass.png",
+        "02_volume.png",
+        "03_length.png",
+        "04_count.png",
+        "05_large_need.png"
+      ]
+    },
+    {
+      "product": "PriceDropNote",
+      "scenes": [
+        "01_target_discount.png",
+        "02_tax_excluded.png",
+        "03_discount_reaches_target.png",
+        "04_discount_not_enough.png",
+        "05_precision.png"
+      ]
+    },
+    {
+      "product": "ReturnTimer",
+      "scenes": [
+        "01_30_days.png",
+        "02_tomorrow.png",
+        "03_due_today.png",
+        "04_overdue.png",
+        "05_eight_weeks.png"
+      ]
+    },
+    {
+      "product": "WarrantyPocket",
+      "scenes": [
+        "01_covered.png",
+        "02_expiring_soon.png",
+        "03_expired.png",
+        "04_saved_records.png",
+        "05_long_coverage.png"
+      ]
+    },
+    {
+      "product": "BuyOrWait",
+      "scenes": [
+        "01_wait_value.png",
+        "02_target_reached.png",
+        "03_short_wait.png",
+        "04_long_wait.png",
+        "05_precision.png"
+      ]
+    },
+    {
+      "product": "UnitPrice",
+      "scenes": [
+        "01_hero.png",
+        "02_adjustments.png",
+        "03_weight.png",
+        "04_unit_picker.png",
+        "05_precision.png"
+      ]
+    }
+  ],
+  "pngCount": 80,
+  "notes": [
+    "BEFORE images are copies of the current GitHub review screenshots.",
+    "AFTER images are fresh targeted captures after locale-aware numeric presentation patch.",
+    "This review package does not mutate App Store Connect."
+  ]
+}
