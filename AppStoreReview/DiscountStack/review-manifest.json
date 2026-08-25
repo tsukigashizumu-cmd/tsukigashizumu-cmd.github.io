@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "product": "DiscountStack",
+  "captureState": "COMPLETE",
+  "reviewState": "PENDING",
+  "localeCount": 50,
+  "pngCount": 250,
+  "blockCount": 5,
+  "freshScreenshotSetAuthoritySHA256": "aa11d188f7dcdd5b5d3c6cd8d940a8700e4062c346db8c2501266e6e33019ac7",
+  "finalManifestAuthoritySHA256": "206bcc9ff3b3d974be4632d07c4cd248d6be3da1892ebd858dc9af912bcc997a",
+  "blocks": {
+    "1": [
+      "ar-SA",
+      "bn-BD",
+      "ca",
+      "cs",
+      "da",
+      "de-DE",
+      "el",
+      "en-AU",
+      "en-CA",
+      "en-GB"
+    ],
+    "2": [
+      "en-US",
+      "es-ES",
+      "es-MX",
+      "fi",
+      "fr-CA",
+      "fr-FR",
+      "gu-IN",
+      "he",
+      "hi",
+      "hr"
+    ],
+    "3": [
+      "hu",
+      "id",
+      "it",
+      "ja",
+      "kn-IN",
+      "ko",
+      "ml-IN",
+      "mr-IN",
+      "ms",
+      "nl-NL"
+    ],
+    "4": [
+      "no",
+      "or-IN",
+      "pa-IN",
+      "pl",
+      "pt-BR",
+      "pt-PT",
+      "ro",
+      "ru",
+      "sk",
+      "sl-SI"
+    ],
+    "5": [
+      "sv",
+      "ta-IN",
+      "te-IN",
+      "th",
+      "tr",
+      "uk",
+      "ur-PK",
+      "vi",
+      "zh-Hans",
+      "zh-Hant"
+    ]
+  }
+}
