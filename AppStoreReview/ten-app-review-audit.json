@@ -1,0 +1,11 @@
+{
+  "state": "TEN_APP_CAPTURE_COMPLETE_REVIEW_PENDING",
+  "productCount": 10,
+  "totalLocaleSets": 500,
+  "totalPNGCount": 2500,
+  "layouts": {
+    "legacyBlockAssets": ["DiscountStack", "PackCompare", "PriceDropNote"],
+    "currentImagesLocale": ["CartBudget", "PackPlanner", "GroceryRepeat", "ReturnTimer", "WarrantyPocket", "BuyOrWait", "UnitPrice"]
+  },
+  "humanReview": "PENDING"
+}
