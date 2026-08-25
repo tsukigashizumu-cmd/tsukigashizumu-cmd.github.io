@@ -1,0 +1,73 @@
+{
+  "product": "CartBudget",
+  "version": "1.0",
+  "state": "FRESH_CAPTURE_COMPLETE_UNREVIEWED",
+  "localeCount": 50,
+  "sceneCount": 5,
+  "pngCount": 250,
+  "freshScreenshotSetAuthoritySHA256": "ceb01cdac198dc42655f3d52bb98ca7bf371b401afc74c214df76aacf7d20de7",
+  "manifestAuthoritySHA256": "acd7e6fb073828c609a91b734baf9243470e6b8e4fe40cbae664f1169552a1a9",
+  "humanReviewState": "NOT_STARTED",
+  "blocks": {
+    "1": [
+      "ar-SA",
+      "bn-BD",
+      "ca",
+      "cs",
+      "da",
+      "de-DE",
+      "el",
+      "en-AU",
+      "en-CA",
+      "en-GB"
+    ],
+    "2": [
+      "en-US",
+      "es-ES",
+      "es-MX",
+      "fi",
+      "fr-CA",
+      "fr-FR",
+      "gu-IN",
+      "he",
+      "hi",
+      "hr"
+    ],
+    "3": [
+      "hu",
+      "id",
+      "it",
+      "ja",
+      "kn-IN",
+      "ko",
+      "ml-IN",
+      "mr-IN",
+      "ms",
+      "nl-NL"
+    ],
+    "4": [
+      "no",
+      "or-IN",
+      "pa-IN",
+      "pl",
+      "pt-BR",
+      "pt-PT",
+      "ro",
+      "ru",
+      "sk",
+      "sl-SI"
+    ],
+    "5": [
+      "sv",
+      "ta-IN",
+      "te-IN",
+      "th",
+      "tr",
+      "uk",
+      "ur-PK",
+      "vi",
+      "zh-Hans",
+      "zh-Hant"
+    ]
+  }
+}
