@@ -1,0 +1,73 @@
+{
+  "product": "PackPlanner",
+  "version": "1.0",
+  "state": "FRESH_CAPTURE_COMPLETE_UNREVIEWED",
+  "localeCount": 50,
+  "sceneCount": 5,
+  "pngCount": 250,
+  "freshScreenshotSetAuthoritySHA256": "6681612598d33f437e4a2d13760de4528caec7153e517b31e7e797dd857bab91",
+  "manifestAuthoritySHA256": "8aba8a21f48b0ef1da52ce37de5bc29423be2004d1375f2e7dfcb867e163941b",
+  "humanReviewState": "NOT_STARTED",
+  "blocks": {
+    "1": [
+      "ar-SA",
+      "bn-BD",
+      "ca",
+      "cs",
+      "da",
+      "de-DE",
+      "el",
+      "en-AU",
+      "en-CA",
+      "en-GB"
+    ],
+    "2": [
+      "en-US",
+      "es-ES",
+      "es-MX",
+      "fi",
+      "fr-CA",
+      "fr-FR",
+      "gu-IN",
+      "he",
+      "hi",
+      "hr"
+    ],
+    "3": [
+      "hu",
+      "id",
+      "it",
+      "ja",
+      "kn-IN",
+      "ko",
+      "ml-IN",
+      "mr-IN",
+      "ms",
+      "nl-NL"
+    ],
+    "4": [
+      "no",
+      "or-IN",
+      "pa-IN",
+      "pl",
+      "pt-BR",
+      "pt-PT",
+      "ro",
+      "ru",
+      "sk",
+      "sl-SI"
+    ],
+    "5": [
+      "sv",
+      "ta-IN",
+      "te-IN",
+      "th",
+      "tr",
+      "uk",
+      "ur-PK",
+      "vi",
+      "zh-Hans",
+      "zh-Hant"
+    ]
+  }
+}
