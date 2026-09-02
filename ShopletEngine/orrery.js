@@ -15,8 +15,24 @@ const locale=()=>{const v=localeSelect?.value;return v&&data?.locales?.some(x=>x
 const appName=(app,loc=locale())=>metadata?.apps?.[app.key]?.locales?.[loc]?.name||metadata?.apps?.[app.key]?.locales?.['en-US']?.name||app.name||app.key;
 const setStatus=v=>{if(status)status.textContent=v};
 
-function scrollToApp(index){
- const target=document.querySelectorAll('#apps .app')[index];
+function focusApp(index){
+ const appsRoot=document.querySelector('#apps');
+ if(!appsRoot)return;
+ const sections=[...appsRoot.querySelectorAll('.app')];
+ if(!sections.length){
+  requestAnimationFrame(()=>focusApp(index));
+  return;
+ }
+ sections.forEach((section,i)=>{
+  const active=i===index;
+  section.hidden=!active;
+  section.setAttribute('aria-hidden',active?'false':'true');
+  section.classList.toggle('orrery-focus-active',active);
+ });
+ appsRoot.dataset.orrerySelection=String(index);
+ appsRoot.hidden=false;
+ appsRoot.setAttribute('aria-hidden','false');
+ const target=sections[index];
  if(!target)return;
  target.scrollIntoView({behavior:reduceMotion.matches?'auto':'smooth',block:'start'});
  target.classList.remove('orrery-target-pulse');void target.offsetWidth;target.classList.add('orrery-target-pulse');
@@ -29,10 +45,28 @@ function buildFallback(){
   const h=hash32(`${app.key}:${app.id||''}`),angle=(i/data.apps.length)*Math.PI*2+unit(h,8)*.28,ring=i%2?37:29;
   const b=document.createElement('button');b.type='button';b.className='shoplet-orrery__planet';
   b.style.setProperty('--x',`${50+Math.cos(angle)*ring}%`);b.style.setProperty('--y',`${50+Math.sin(angle)*(ring*.72)}%`);b.style.setProperty('--s',String(.86+unit(h,16)*.2));
-  b.setAttribute('aria-label',appName(app));b.innerHTML=`<img src="assets/${app.key}/icon.webp" alt="">`;b.addEventListener('click',()=>scrollToApp(i));fallback.appendChild(b);
+  b.setAttribute('aria-label',appName(app));b.innerHTML=`<img src="assets/${app.key}/icon.webp" alt="">`;b.addEventListener('click',()=>focusApp(i));fallback.appendChild(b);
  });
 }
 function refreshFallbackLabels(){[...fallback.querySelectorAll('button')].forEach((b,i)=>{if(data?.apps?.[i])b.setAttribute('aria-label',appName(data.apps[i]))})}
+function armSingleFocus(){
+ const appsRoot=document.querySelector('#apps');
+ if(!appsRoot)return;
+ appsRoot.hidden=true;
+ appsRoot.setAttribute('aria-hidden','true');
+ const apply=()=>{
+  const sections=[...appsRoot.querySelectorAll('.app')];
+  if(!sections.length)return;
+  sections.forEach(section=>{
+   section.hidden=true;
+   section.setAttribute('aria-hidden','true');
+  });
+ };
+ apply();
+ const mo=new MutationObserver(apply);
+ mo.observe(appsRoot,{childList:true});
+ setTimeout(()=>mo.disconnect(),8000);
+}
 function canUseGPU(){if('gpu'in navigator)return true;try{return !!document.createElement('canvas').getContext('webgl2')}catch{return false}}
 
 async function start3D(){
@@ -97,7 +131,7 @@ async function start3D(){
  let px=0,py=0,dragX=0,dragY=0,vx=0,vy=0,dragging=false,downX=0,downY=0,lastX=0,lastY=0;
  ROOT.addEventListener('pointermove',e=>{const r=ROOT.getBoundingClientRect();px=MathUtils.clamp((e.clientX-r.left)/r.width*2-1,-1,1);py=MathUtils.clamp((e.clientY-r.top)/r.height*2-1,-1,1);if(!dragging)return;const dx=e.clientX-lastX,dy=e.clientY-lastY;dragY+=dx*.0046;dragX+=dy*.0035;vy=dx*.0009;vx=dy*.0007;lastX=e.clientX;lastY=e.clientY});
  ROOT.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'&&e.button!==0)return;dragging=true;downX=lastX=e.clientX;downY=lastY=e.clientY;ROOT.setPointerCapture?.(e.pointerId)});
- ROOT.addEventListener('pointerup',e=>{if(!dragging)return;dragging=false;ROOT.releasePointerCapture?.(e.pointerId);if(Math.hypot(e.clientX-downX,e.clientY-downY)>8)return;const r=canvas.getBoundingClientRect();ndc.x=(e.clientX-r.left)/r.width*2-1;ndc.y=-((e.clientY-r.top)/r.height*2-1);raycaster.setFromCamera(ndc,camera);const hit=raycaster.intersectObjects(planets.map(p=>p.front),false)[0];if(hit&&Number.isInteger(hit.object.userData.appIndex))scrollToApp(hit.object.userData.appIndex)});
+ ROOT.addEventListener('pointerup',e=>{if(!dragging)return;dragging=false;ROOT.releasePointerCapture?.(e.pointerId);if(Math.hypot(e.clientX-downX,e.clientY-downY)>8)return;const r=canvas.getBoundingClientRect();ndc.x=(e.clientX-r.left)/r.width*2-1;ndc.y=-((e.clientY-r.top)/r.height*2-1);raycaster.setFromCamera(ndc,camera);const hit=raycaster.intersectObjects(planets.map(p=>p.front),false)[0];if(hit&&Number.isInteger(hit.object.userData.appIndex))focusApp(hit.object.userData.appIndex)});
  ROOT.addEventListener('pointercancel',()=>{dragging=false});
  let visible=!document.hidden;document.addEventListener('visibilitychange',()=>{visible=!document.hidden});
  const start=performance.now();let last=start;
@@ -105,6 +139,7 @@ async function start3D(){
  runtime={renderer,ro};ROOT.dataset.ready='true';setStatus(('gpu'in navigator)?'WebGPU orbital system':'WebGL2 orbital system');
 }
 function stop3D(){if(!runtime)return;runtime.renderer.setAnimationLoop(null);runtime.ro.disconnect();runtime.renderer.dispose();runtime=null;ROOT.dataset.ready='false';booted=false;setStatus('Reduced motion · static constellation')}
+armSingleFocus();
 Promise.all([fetch('data.json').then(r=>{if(!r.ok)throw new Error(`data ${r.status}`);return r.json()}),fetch('metadata.json').then(r=>{if(!r.ok)throw new Error(`metadata ${r.status}`);return r.json()})]).then(([d,m])=>{data=d;metadata=m;buildFallback();if(reduceMotion.matches){setStatus('Reduced motion · static constellation');return}if(!canUseGPU()){setStatus('Static constellation');return}const observer=new IntersectionObserver(entries=>{if(entries.some(x=>x.isIntersecting)){observer.disconnect();start3D()}},{rootMargin:'180px'});observer.observe(ROOT)}).catch(e=>{console.warn('[Orrery] authority load failed',e);setStatus('Orbital system unavailable')});
 localeSelect?.addEventListener('change',refreshFallbackLabels);
 reduceMotion.addEventListener?.('change',e=>{if(e.matches)stop3D();else if(data&&canUseGPU())start3D()});

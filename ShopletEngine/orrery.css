@@ -17,3 +17,19 @@
 @media(hover:hover) and (pointer:fine){.shoplet-orrery__planet:hover{transform:translate(-50%,-50%) scale(calc(var(--s)*1.08))}}
 @media(max-width:640px){.shoplet-orrery{min-height:470px;margin-top:18px;border-radius:24px}.shoplet-orrery__core{width:104px;height:104px}.shoplet-orrery__planet{width:clamp(44px,14vw,62px)}}
 @media(prefers-reduced-motion:reduce){.shoplet-orrery__canvas{display:none!important}.shoplet-orrery__fallback{opacity:1!important;pointer-events:auto!important}.shoplet-orrery__planet{transition:none}#apps .app.orrery-target-pulse{animation:none}}
+
+
+/* SHOPLET_ORRERY_SINGLE_FOCUS_V002 */
+#apps[hidden] { display: none !important; }
+#apps[data-orrery-selection] { display: block; }
+#apps .app[hidden] { display: none !important; }
+#apps .app.orrery-focus-active {
+  animation: orrery-focus-enter .46s cubic-bezier(.2,.8,.2,1);
+}
+@keyframes orrery-focus-enter {
+  from { opacity: 0; transform: translateY(18px) scale(.985); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  #apps .app.orrery-focus-active { animation: none; }
+}
