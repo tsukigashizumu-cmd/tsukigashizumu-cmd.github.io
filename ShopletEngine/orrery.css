@@ -6,7 +6,7 @@
 .shoplet-orrery__core{position:absolute;left:50%;top:50%;z-index:3;width:130px;height:130px;transform:translate(-50%,-50%);display:grid;place-items:center;pointer-events:none;text-align:center}
 .shoplet-orrery__core::before{content:"";position:absolute;inset:13%;border-radius:50%;border:1px solid rgba(255,255,255,.18);box-shadow:0 0 46px rgba(255,255,255,.12),inset 0 0 28px rgba(255,255,255,.06)}
 .shoplet-orrery__core-mark{position:relative;display:grid;gap:2px;font-size:10px;font-weight:800;letter-spacing:.28em;line-height:1.25;text-transform:uppercase;color:rgba(255,255,255,.72)}
-.shoplet-orrery__status{position:absolute;z-index:5;left:18px;bottom:16px;margin:0;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.42);pointer-events:none}
+.shoplet-orrery__status{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 .shoplet-orrery__fallback{position:absolute;inset:0;z-index:2}
 .shoplet-orrery[data-ready="true"] .shoplet-orrery__fallback{opacity:0;pointer-events:none}
 .shoplet-orrery__planet{--x:50%;--y:50%;--s:1;position:absolute;left:var(--x);top:var(--y);width:clamp(48px,7vw,76px);aspect-ratio:1;padding:0;border:0;border-radius:22%;transform:translate(-50%,-50%) scale(var(--s));background:transparent;cursor:pointer;transition:transform .22s ease}

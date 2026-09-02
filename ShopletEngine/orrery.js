@@ -80,7 +80,7 @@ async function start3D(){
  }
  const sideGeometry=new ExtrudeGeometry(squircleShape,{depth:.055,bevelEnabled:true,bevelSegments:3,steps:1,bevelSize:.018,bevelThickness:.016,curveSegments:12});
  sideGeometry.center();
- const makeParams=(app,index)=>{const h=hash32(`${app.key}:${app.id||''}`);return{a:2.15+index*.34+unit(h)*.11,e:.035+unit(h,8)*.13,speed:.115+unit(h,16)*.105,phase:unit(h,24)*Math.PI*2,tiltX:MathUtils.degToRad(-38+unit(h,4)*76),tiltZ:MathUtils.degToRad(-22+unit(h,12)*44),bodyTilt:MathUtils.degToRad(-7+unit(h,20)*14),pulse:.8+unit(h,6)*1.2}};
+ const makeParams=(app,index)=>{const h=hash32(`${app.key}:${app.id||''}`);const golden=Math.PI*(3-Math.sqrt(5));return{a:2.00+index*.255+unit(h)*.085,e:.025+unit(h,8)*.095,speed:.105+unit(h,16)*.090,phase:index*golden+(unit(h,24)-.5)*.34,tiltX:MathUtils.degToRad(-30+unit(h,4)*60),tiltZ:MathUtils.degToRad(-17+unit(h,12)*34),bodyTilt:MathUtils.degToRad(-6+unit(h,20)*12),pulse:.72+unit(h,6)*.95}};
  const loadTexture=url=>new Promise((resolve,reject)=>loader.load(url,t=>{t.colorSpace=SRGBColorSpace;resolve(t)},undefined,reject));
  for(let i=0;i<data.apps.length;i++){
   const app=data.apps[i],p=makeParams(app,i),orbitGroup=new Group();orbitGroup.rotation.x=p.tiltX;orbitGroup.rotation.z=p.tiltZ;world.add(orbitGroup);
@@ -93,7 +93,7 @@ async function start3D(){
   const back=front.clone();back.position.z=-.046;back.rotation.y=Math.PI;back.userData=body.userData;body.add(back);body.rotation.z=p.bodyTilt;orbitGroup.add(body);
   planets.push({params:p,body,front,b,shift});
  }
- const resize=()=>{const r=ROOT.getBoundingClientRect(),w=Math.max(1,r.width),h=Math.max(1,r.height),mobile=w<640;renderer.setPixelRatio(Math.min(devicePixelRatio||1,mobile?1.5:2));renderer.setSize(w,h,false);camera.aspect=w/h;camera.fov=mobile?48:39;camera.position.set(0,mobile?.35:.15,mobile?11.8:10.6);camera.updateProjectionMatrix()};resize();const ro=new ResizeObserver(resize);ro.observe(ROOT);
+ const resize=()=>{const r=ROOT.getBoundingClientRect(),w=Math.max(1,r.width),h=Math.max(1,r.height),mobile=w<640;renderer.setPixelRatio(Math.min(devicePixelRatio||1,mobile?1.5:2));renderer.setSize(w,h,false);camera.aspect=w/h;camera.fov=mobile?50:40;camera.position.set(0,mobile?.30:.10,mobile?12.7:11.45);world.scale.setScalar(mobile?.79:.86);camera.updateProjectionMatrix()};resize();const ro=new ResizeObserver(resize);ro.observe(ROOT);
  let px=0,py=0,dragX=0,dragY=0,vx=0,vy=0,dragging=false,downX=0,downY=0,lastX=0,lastY=0;
  ROOT.addEventListener('pointermove',e=>{const r=ROOT.getBoundingClientRect();px=MathUtils.clamp((e.clientX-r.left)/r.width*2-1,-1,1);py=MathUtils.clamp((e.clientY-r.top)/r.height*2-1,-1,1);if(!dragging)return;const dx=e.clientX-lastX,dy=e.clientY-lastY;dragY+=dx*.0046;dragX+=dy*.0035;vy=dx*.0009;vx=dy*.0007;lastX=e.clientX;lastY=e.clientY});
  ROOT.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'&&e.button!==0)return;dragging=true;downX=lastX=e.clientX;downY=lastY=e.clientY;ROOT.setPointerCapture?.(e.pointerId)});
@@ -101,7 +101,7 @@ async function start3D(){
  ROOT.addEventListener('pointercancel',()=>{dragging=false});
  let visible=!document.hidden;document.addEventListener('visibilitychange',()=>{visible=!document.hidden});
  const start=performance.now();let last=start;
- renderer.setAnimationLoop(now=>{if(!visible||reduceMotion.matches)return;const elapsed=(now-start)/1000,dt=Math.min(.05,Math.max(0,(now-last)/1000));last=now;if(!dragging){dragX+=vx*dt*60;dragY+=vy*dt*60;vx*=Math.pow(.91,dt*60);vy*=Math.pow(.91,dt*60);dragX*=Math.pow(.997,dt*60);dragY*=Math.pow(.997,dt*60)}interaction.rotation.x+=((py*-.075+dragX)-interaction.rotation.x)*Math.min(1,dt*3.4);interaction.rotation.y+=((px*.105+dragY)-interaction.rotation.y)*Math.min(1,dt*3.4);planets.forEach(x=>{const p=x.params,t=p.phase+elapsed*p.speed;x.body.position.set(x.shift+Math.cos(t)*p.a,Math.sin(t*1.7+p.phase)*.035*p.pulse,Math.sin(t)*x.b);x.body.rotation.y=Math.sin(t*.73+p.phase)*.16;x.body.rotation.x=Math.cos(t*.61+p.phase)*.08;x.body.scale.setScalar(MathUtils.clamp(.90+x.body.position.z/12,.78,1.08))});renderer.render(scene,camera)});
+ renderer.setAnimationLoop(now=>{if(!visible||reduceMotion.matches)return;const elapsed=(now-start)/1000,dt=Math.min(.05,Math.max(0,(now-last)/1000));last=now;if(!dragging){dragX+=vx*dt*60;dragY+=vy*dt*60;vx*=Math.pow(.91,dt*60);vy*=Math.pow(.91,dt*60);dragX*=Math.pow(.997,dt*60);dragY*=Math.pow(.997,dt*60)}interaction.rotation.x+=((py*-.075+dragX)-interaction.rotation.x)*Math.min(1,dt*3.4);interaction.rotation.y+=((px*.105+dragY)-interaction.rotation.y)*Math.min(1,dt*3.4);planets.forEach(x=>{const p=x.params,t=p.phase+elapsed*p.speed;x.body.position.set(x.shift+Math.cos(t)*p.a,Math.sin(t*1.7+p.phase)*.035*p.pulse,Math.sin(t)*x.b);x.body.rotation.y=Math.sin(t*.73+p.phase)*.16;x.body.rotation.x=Math.cos(t*.61+p.phase)*.08;x.body.scale.setScalar(MathUtils.clamp(.91+x.body.position.z/16,.82,1.045))});renderer.render(scene,camera)});
  runtime={renderer,ro};ROOT.dataset.ready='true';setStatus(('gpu'in navigator)?'WebGPU orbital system':'WebGL2 orbital system');
 }
 function stop3D(){if(!runtime)return;runtime.renderer.setAnimationLoop(null);runtime.ro.disconnect();runtime.renderer.dispose();runtime=null;ROOT.dataset.ready='false';booted=false;setStatus('Reduced motion · static constellation')}
