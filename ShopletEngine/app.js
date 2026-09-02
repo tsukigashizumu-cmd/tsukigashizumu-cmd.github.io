@@ -14,8 +14,10 @@ function render(loc){
  const root=$('#apps');root.innerHTML='';
  for(const app of DATA.apps){
    const shots=(DATA.screenshots[app.key]&&DATA.screenshots[app.key][loc])||DATA.screenshots[app.key]['en-US']||[];
+   const videoSet=DATA.videos[app.key]||{};
+   const videoSrc=(typeof videoSet==='string')?videoSet:(videoSet[loc]||videoSet['en-US']||Object.values(videoSet)[0]||'');
    const el=document.createElement('section');el.className='app';
-   el.innerHTML=`<div class="head"><img src="assets/${app.key}/icon.webp" alt=""><div><h2>${esc(app.name)}</h2><p>${esc(app.tag)}</p></div><div class="actions"><a class="btn" href="https://apps.apple.com/app/id${app.id}" target="_blank" rel="noopener">App Store ↗</a></div></div><div class="media"><video controls playsinline preload="metadata" src="${DATA.videos[app.key]}"></video><div class="shots">${shots.map((s,i)=>`<img loading="lazy" src="${s}" alt="${esc(app.name)} screenshot ${i+1}">`).join('')}</div></div>`;
+   el.innerHTML=`<div class="head"><img src="assets/${app.key}/icon.webp" alt=""><div><h2>${esc(app.name)}</h2><p>${esc(app.tag)}</p></div><div class="actions"><a class="btn" href="https://apps.apple.com/app/id${app.id}" target="_blank" rel="noopener">App Store ↗</a></div></div><div class="media"><video controls playsinline preload="metadata" src="${videoSrc}"></video><div class="shots">${shots.map((s,i)=>`<img loading="lazy" src="${s}" alt="${esc(app.name)} screenshot ${i+1}">`).join('')}</div></div>`;
    root.appendChild(el);
  }
 }
