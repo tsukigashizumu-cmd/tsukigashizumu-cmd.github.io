@@ -1,0 +1,19 @@
+/* SHOPLET_ORRERY_P1_V001 */
+.shoplet-orrery{position:relative;width:min(100%,1120px);margin:28px auto 34px;min-height:clamp(420px,58vw,690px);overflow:hidden;isolation:isolate;border-radius:32px;background:radial-gradient(circle at 50% 48%,rgba(255,255,255,.075),transparent 16%),radial-gradient(circle at 50% 50%,rgba(120,150,255,.045),transparent 42%);touch-action:pan-y}
+.shoplet-orrery::before{content:"";position:absolute;inset:12%;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.09),rgba(255,255,255,.015) 22%,transparent 58%);filter:blur(18px);pointer-events:none}
+.shoplet-orrery__canvas{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity .8s ease}
+.shoplet-orrery[data-ready="true"] .shoplet-orrery__canvas{opacity:1}
+.shoplet-orrery__core{position:absolute;left:50%;top:50%;z-index:3;width:130px;height:130px;transform:translate(-50%,-50%);display:grid;place-items:center;pointer-events:none;text-align:center}
+.shoplet-orrery__core::before{content:"";position:absolute;inset:13%;border-radius:50%;border:1px solid rgba(255,255,255,.18);box-shadow:0 0 46px rgba(255,255,255,.12),inset 0 0 28px rgba(255,255,255,.06)}
+.shoplet-orrery__core-mark{position:relative;display:grid;gap:2px;font-size:10px;font-weight:800;letter-spacing:.28em;line-height:1.25;text-transform:uppercase;color:rgba(255,255,255,.72)}
+.shoplet-orrery__status{position:absolute;z-index:5;left:18px;bottom:16px;margin:0;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.42);pointer-events:none}
+.shoplet-orrery__fallback{position:absolute;inset:0;z-index:2}
+.shoplet-orrery[data-ready="true"] .shoplet-orrery__fallback{opacity:0;pointer-events:none}
+.shoplet-orrery__planet{--x:50%;--y:50%;--s:1;position:absolute;left:var(--x);top:var(--y);width:clamp(48px,7vw,76px);aspect-ratio:1;padding:0;border:0;border-radius:22%;transform:translate(-50%,-50%) scale(var(--s));background:transparent;cursor:pointer;transition:transform .22s ease}
+.shoplet-orrery__planet img{width:100%;height:100%;display:block;border-radius:22%;box-shadow:0 12px 35px rgba(0,0,0,.34)}
+.shoplet-orrery__planet:focus-visible{outline:3px solid currentColor;outline-offset:5px}
+#apps .app.orrery-target-pulse{animation:orrery-target-pulse 1.05s ease-out}
+@keyframes orrery-target-pulse{0%{outline:1px solid rgba(255,255,255,.55);outline-offset:2px}100%{outline:1px solid transparent;outline-offset:18px}}
+@media(hover:hover) and (pointer:fine){.shoplet-orrery__planet:hover{transform:translate(-50%,-50%) scale(calc(var(--s)*1.08))}}
+@media(max-width:640px){.shoplet-orrery{min-height:470px;margin-top:18px;border-radius:24px}.shoplet-orrery__core{width:104px;height:104px}.shoplet-orrery__planet{width:clamp(44px,14vw,62px)}}
+@media(prefers-reduced-motion:reduce){.shoplet-orrery__canvas{display:none!important}.shoplet-orrery__fallback{opacity:1!important;pointer-events:auto!important}.shoplet-orrery__planet{transition:none}#apps .app.orrery-target-pulse{animation:none}}
