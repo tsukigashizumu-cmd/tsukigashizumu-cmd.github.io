@@ -33,3 +33,158 @@
 @media (prefers-reduced-motion: reduce) {
   #apps .app.orrery-focus-active { animation: none; }
 }
+/* SHOPLET_ORRERY_P14_WIDE_VIEWPORT_V002 */
+@media (min-width: 980px) and (min-aspect-ratio: 4/3) {
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  header {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    margin: 0;
+    padding: clamp(24px, 3vw, 54px);
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  header .wrap {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: minmax(330px, 36vw) minmax(0, 1fr);
+    grid-template-rows: 1fr;
+    column-gap: clamp(24px, 3vw, 56px);
+    align-items: center;
+  }
+
+  header .hero {
+    grid-column: 1;
+    align-self: center;
+    min-width: 0;
+    max-width: 650px;
+    z-index: 4;
+  }
+
+  header .hero h1 {
+    font-size: clamp(56px, 6.1vw, 112px);
+    line-height: .86;
+    letter-spacing: -.07em;
+    margin-bottom: clamp(16px, 2vh, 26px);
+  }
+
+  header .hero p {
+    max-width: 580px;
+    font-size: clamp(16px, 1.25vw, 22px);
+    line-height: 1.38;
+  }
+
+  header .controls {
+    grid-column: 1;
+    align-self: end;
+    z-index: 5;
+    margin: 0 0 clamp(6px, 1vh, 14px);
+  }
+
+  header .shoplet-orrery {
+    position: absolute;
+    left: calc(36vw + clamp(24px, 3vw, 56px));
+    right: clamp(18px, 2.4vw, 42px);
+    top: clamp(18px, 2.4vw, 42px);
+    bottom: clamp(18px, 2.4vw, 42px);
+    width: auto;
+    min-height: 0;
+    margin: 0;
+    border-radius: clamp(24px, 2.2vw, 38px);
+  }
+
+  main {
+    position: absolute;
+    left: clamp(24px, 3vw, 54px);
+    bottom: clamp(72px, 9vh, 120px);
+    width: min(34vw, 620px);
+    max-height: 42dvh;
+    margin: 0;
+    padding: 0;
+    z-index: 10;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  #apps {
+    margin: 0;
+    pointer-events: auto;
+  }
+
+  #apps[hidden] {
+    display: none !important;
+  }
+
+  #apps .app[hidden] {
+    display: none !important;
+  }
+
+  #apps .app.orrery-focus-active {
+    max-height: 40dvh;
+    margin: 0 !important;
+    overflow: auto;
+    overscroll-behavior: contain;
+    animation: orrery-wide-detail-in .36s cubic-bezier(.2,.8,.2,1);
+  }
+
+  @keyframes orrery-wide-detail-in {
+    from { opacity: 0; transform: translateY(12px) scale(.99); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+}
+
+@media (min-width: 1500px) and (min-aspect-ratio: 16/10) {
+  header .wrap {
+    grid-template-columns: minmax(390px, 32vw) minmax(0, 1fr);
+  }
+
+  header .shoplet-orrery {
+    left: calc(32vw + clamp(24px, 3vw, 56px));
+  }
+
+  main {
+    width: min(30vw, 640px);
+  }
+}
+
+@media (max-width: 979px), (max-aspect-ratio: 4/3) {
+  html, body {
+    height: auto;
+    overflow: auto;
+  }
+
+  header {
+    height: auto;
+  }
+
+  main {
+    position: static;
+    width: auto;
+    max-height: none;
+    overflow: visible;
+    pointer-events: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #apps .app.orrery-focus-active {
+    animation: none !important;
+  }
+}

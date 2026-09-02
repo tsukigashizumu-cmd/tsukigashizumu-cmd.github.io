@@ -34,7 +34,9 @@ function focusApp(index){
  appsRoot.setAttribute('aria-hidden','false');
  const target=sections[index];
  if(!target)return;
- target.scrollIntoView({behavior:reduceMotion.matches?'auto':'smooth',block:'start'});
+ if(!matchMedia('(min-width: 980px) and (min-aspect-ratio: 4/3)').matches){
+  target.scrollIntoView({behavior:reduceMotion.matches?'auto':'smooth',block:'start'});
+ }
  target.classList.remove('orrery-target-pulse');void target.offsetWidth;target.classList.add('orrery-target-pulse');
  setTimeout(()=>target.classList.remove('orrery-target-pulse'),1100);
 }
