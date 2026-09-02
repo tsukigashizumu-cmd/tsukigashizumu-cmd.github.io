@@ -188,3 +188,181 @@
     animation: none !important;
   }
 }
+
+
+/* SHOPLET_ORRERY_P15_FULL_VIEWPORT_V002 */
+@media (min-width: 980px) and (min-aspect-ratio: 4/3) {
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden !important;
+  }
+
+  body {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  header {
+    position: relative !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  header .wrap {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+  }
+
+  header .shoplet-orrery {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    z-index: 1;
+  }
+
+  header .hero {
+    position: absolute !important;
+    top: clamp(26px, 4vh, 58px);
+    left: clamp(28px, 4vw, 74px);
+    width: min(34vw, 650px);
+    max-width: none !important;
+    margin: 0 !important;
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  header .hero h1 {
+    font-size: clamp(58px, 6.7vw, 126px) !important;
+    line-height: .84 !important;
+    letter-spacing: -.075em !important;
+    margin: 0 0 clamp(14px, 1.8vh, 24px) !important;
+  }
+
+  header .hero p {
+    width: min(32vw, 590px);
+    max-width: none !important;
+    font-size: clamp(15px, 1.15vw, 21px) !important;
+    line-height: 1.38 !important;
+    margin: 0 !important;
+  }
+
+  header .controls {
+    position: absolute !important;
+    top: clamp(24px, 3.8vh, 54px);
+    right: clamp(28px, 4vw, 74px);
+    width: auto !important;
+    margin: 0 !important;
+    z-index: 7;
+  }
+
+  main {
+    position: absolute !important;
+    left: clamp(28px, 4vw, 74px);
+    bottom: clamp(26px, 4vh, 58px);
+    width: min(38vw, 680px) !important;
+    max-height: min(42dvh, 460px);
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    z-index: 8;
+    pointer-events: none;
+  }
+
+  #apps {
+    margin: 0 !important;
+    pointer-events: auto;
+  }
+
+  #apps[hidden],
+  #apps .app[hidden] {
+    display: none !important;
+  }
+
+  #apps .app.orrery-focus-active {
+    max-height: min(40dvh, 440px);
+    margin: 0 !important;
+    overflow: auto !important;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    animation: orrery-p15-detail-in .42s cubic-bezier(.2,.8,.2,1);
+  }
+
+  @keyframes orrery-p15-detail-in {
+    from { opacity: 0; transform: translateY(14px) scale(.988); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+}
+
+@media (min-width: 1600px) and (min-aspect-ratio: 16/10) {
+  header .hero { width: min(30vw, 650px); }
+  header .hero p { width: min(28vw, 590px); }
+  main { width: min(31vw, 680px) !important; }
+}
+
+@media (min-width: 2100px) and (min-aspect-ratio: 2/1) {
+  header .hero { width: min(27vw, 700px); }
+  header .hero p { width: min(25vw, 620px); }
+  main { width: min(28vw, 720px) !important; }
+}
+
+@media (max-width: 979px), (max-aspect-ratio: 4/3) {
+  html,
+  body {
+    height: auto !important;
+    overflow: auto !important;
+  }
+
+  header {
+    position: relative !important;
+    width: auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+  }
+
+  header .wrap {
+    position: relative !important;
+    width: auto !important;
+    height: auto !important;
+    display: block !important;
+  }
+
+  header .hero,
+  header .controls,
+  header .shoplet-orrery,
+  main {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    max-height: none !important;
+    inset: auto !important;
+    overflow: visible !important;
+    pointer-events: auto !important;
+  }
+
+  header .shoplet-orrery {
+    min-height: 460px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #apps .app.orrery-focus-active {
+    animation: none !important;
+  }
+}
