@@ -18,3 +18,16 @@ select{background:#141820;color:var(--ink);border:1px solid var(--line);border-r
 .shots img{width:100%;border-radius:20px;scroll-snap-align:start}
 footer{padding:0 0 70px;color:var(--muted);text-align:center}
 @media(max-width:760px){.media{grid-template-columns:1fr}.head{align-items:flex-start;flex-wrap:wrap}.actions{width:100%;margin-left:92px}.orbit{height:250px}.orbit img{width:58px;height:58px}}
+
+
+/* LP_METADATA_V002 */
+.copy{min-width:0}
+.subtitle{margin:.25rem 0 0}
+.promo{margin:.55rem 0 0;line-height:1.55;opacity:.9}
+.meta-links{margin-top:1rem;border-top:1px solid rgba(255,255,255,.12);padding-top:.85rem}
+.meta-links details{margin:0 0 .8rem}
+.meta-links summary{cursor:pointer;font-weight:700}
+.description{white-space:pre-line;line-height:1.7;margin:.75rem 0 0;opacity:.9}
+.secondary-links{display:flex;gap:1rem;flex-wrap:wrap}
+.secondary-links a{text-decoration:none;font-weight:700}
+[dir="rtl"] .secondary-links{flex-direction:row-reverse;justify-content:flex-end}
