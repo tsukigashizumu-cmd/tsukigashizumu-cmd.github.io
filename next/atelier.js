@@ -20,20 +20,9 @@
   const nocturne = enabled && (artPhase === '2' || royale);
   const paintMode = salonFinish ? 'LUNAR SALON · POLISHED' : lunarGallery ? 'LUNAR SALON · P18 MOON LOCKED' : naturalLimb ? 'NATURAL LUNAR EDGE · NASA' : trueLimb ? 'TRUE LUNAR LIMB · NASA' : softLimb ? 'SOFT LIMB · LUNAR CHROMA' : chroma ? 'LUNAR CHROMA' : serene ? 'SERENE MOONLIGHT' : lunar ? 'LUNAR ATELIER' : royale ? 'ROYALE CONTINUUM' : nocturne ? 'NOCTURNE ATELIER' : enabled ? 'PAINTED MATTER' : 'ORIGINAL';
   if (!local && !enabled) return;
-  if (enabled || local) root.dataset.showArtSwitch='1';
-  const makeLink=(label, phase)=>{
-    const url=new URL(location.href);
-    if(phase)url.searchParams.set('atelier',phase);
-    else url.searchParams.delete('atelier');
-    const a=document.createElement('a');a.href=url.pathname+url.search+url.hash;
-    a.textContent=label;a.setAttribute('aria-current',((phase==='11'&&salonFinish)||(phase==='10'&&artPhase==='10')||(phase==='9'&&artPhase==='9')||(phase==='8'&&trueLimb)||(phase==='7'&&softLimb)||(phase==='6'&&chroma&&!softLimb&&!trueLimb&&!naturalLimb)||(phase==='5'&&serene&&!chroma)||(phase==='4'&&lunar&&!serene)||(phase==='3'&&royale&&!lunar)||(phase==='2'&&nocturne&&!royale)||(phase==='1'&&enabled&&!nocturne)||(!phase&&!enabled))?'page':'false');
-    return a;
-  };
+  // P1X: P20 SALON POLISH is final. No public design-comparison toolbar.
+  // Keep ?atelier overrides for existing test links; never render variant controls.
   document.addEventListener('DOMContentLoaded',()=>{
-    const switcher=document.createElement('nav');switcher.className='art-mode-preview';
-    switcher.setAttribute('aria-label','Local art direction comparison');
-    switcher.append(makeLink('ORIGINAL',null),makeLink('PAINTED', '1'),makeLink('NOCTURNE', '2'),makeLink('ROYALE','3'),makeLink('LUNAR','4'),makeLink('SERENE','5'),makeLink('CHROMA','6'),makeLink('SOFT LIMB','7'),makeLink('TRUE LIMB','8'),makeLink('NATURAL EDGE','9'),makeLink('LUNAR SALON','10'),makeLink('SALON POLISH','11'));
-    document.body.append(switcher);
     if(lunar){
       const foot=document.querySelector('footer');
       if(foot){
