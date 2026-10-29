@@ -7,7 +7,7 @@
   const root = document.documentElement;
   const enabled = root.dataset.artDirection === 'painted-matter';
   const local = ['127.0.0.1','localhost','::1'].includes(location.hostname);
-  const artPhase = new URLSearchParams(location.search).get('atelier');
+  const artPhase = new URLSearchParams(location.search).get('atelier') ?? '11';
   const softLimb = enabled && artPhase === '7';
   const trueLimb = enabled && artPhase === '8';
   const naturalLimb = enabled && (artPhase === '9' || artPhase === '10' || artPhase === '11');
