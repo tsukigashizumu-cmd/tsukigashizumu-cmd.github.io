@@ -1,0 +1,405 @@
+{
+  "schemaVersion": 1,
+  "locales": {
+    "ar-SA": [
+      "تحليلات الموقع",
+      "بموافقتك، نستخدم Google Analytics لفهم زيارات الموقع والنقرات على روابط App Store. يمكنك الرفض والاستمرار في استخدام الموقع.",
+      "السماح بالتحليلات",
+      "رفض",
+      "إعدادات التحليلات",
+      "خصوصية الموقع"
+    ],
+    "bn-BD": [
+      "ওয়েবসাইট বিশ্লেষণ",
+      "আপনার অনুমতি থাকলে, আমরা ওয়েবসাইটের ভিজিট ও App Store লিঙ্কে ক্লিক বোঝার জন্য Google Analytics ব্যবহার করি। অস্বীকার করলেও সাইট ব্যবহার করা যাবে।",
+      "অনুমতি দিন",
+      "প্রত্যাখ্যান করুন",
+      "বিশ্লেষণ সেটিংস",
+      "গোপনীয়তা"
+    ],
+    "ca": [
+      "Analítica web",
+      "Amb el teu permís, fem servir Google Analytics per entendre les visites i els clics a l’App Store. Pots rebutjar-ho i continuar utilitzant el web.",
+      "Permetre",
+      "Rebutjar",
+      "Preferències d’analítica",
+      "Privadesa del web"
+    ],
+    "cs": [
+      "Analýza webu",
+      "S vaším souhlasem používáme Google Analytics k měření návštěv a kliknutí na odkazy do App Storu. Web lze používat i bez souhlasu.",
+      "Povolit",
+      "Odmítnout",
+      "Nastavení analytiky",
+      "Ochrana soukromí"
+    ],
+    "da": [
+      "Webstedsanalyse",
+      "Med din tilladelse bruger vi Google Analytics til at forstå besøg og klik til App Store. Du kan afvise og stadig bruge siden.",
+      "Tillad",
+      "Afvis",
+      "Analyseindstillinger",
+      "Privatliv"
+    ],
+    "de-DE": [
+      "Website-Analyse",
+      "Mit Ihrer Zustimmung nutzen wir Google Analytics, um Besuche und Klicks zum App Store zu verstehen. Sie können ablehnen und die Website weiter nutzen.",
+      "Zulassen",
+      "Ablehnen",
+      "Analyse-Einstellungen",
+      "Datenschutz"
+    ],
+    "el": [
+      "Ανάλυση ιστοτόπου",
+      "Με τη συγκατάθεσή σας χρησιμοποιούμε το Google Analytics για επισκέψεις και κλικ προς το App Store. Μπορείτε να αρνηθείτε και να συνεχίσετε να χρησιμοποιείτε τον ιστότοπο.",
+      "Αποδοχή",
+      "Απόρριψη",
+      "Ρυθμίσεις ανάλυσης",
+      "Απόρρητο"
+    ],
+    "en-AU": [
+      "Website analytics",
+      "With your permission, we use Google Analytics to understand visits and App Store link clicks. You can decline and still use this site.",
+      "Allow analytics",
+      "Decline",
+      "Analytics choices",
+      "Website privacy"
+    ],
+    "en-CA": [
+      "Website analytics",
+      "With your permission, we use Google Analytics to understand visits and App Store link clicks. You can decline and still use this site.",
+      "Allow analytics",
+      "Decline",
+      "Analytics choices",
+      "Website privacy"
+    ],
+    "en-GB": [
+      "Website analytics",
+      "With your permission, we use Google Analytics to understand visits and App Store link clicks. You can decline and still use this site.",
+      "Allow analytics",
+      "Decline",
+      "Analytics choices",
+      "Website privacy"
+    ],
+    "en-US": [
+      "Website analytics",
+      "With your permission, we use Google Analytics to understand visits and App Store link clicks. You can decline and still use this site.",
+      "Allow analytics",
+      "Decline",
+      "Analytics choices",
+      "Website privacy"
+    ],
+    "es-ES": [
+      "Analítica del sitio",
+      "Con tu permiso, utilizamos Google Analytics para conocer las visitas y los clics hacia App Store. Puedes rechazarlo y seguir usando el sitio.",
+      "Permitir",
+      "Rechazar",
+      "Opciones de analítica",
+      "Privacidad del sitio"
+    ],
+    "es-MX": [
+      "Análisis del sitio",
+      "Con tu permiso, usamos Google Analytics para conocer las visitas y los clics hacia App Store. Puedes rechazarlo y seguir usando el sitio.",
+      "Permitir",
+      "Rechazar",
+      "Opciones de análisis",
+      "Privacidad del sitio"
+    ],
+    "fi": [
+      "Sivuston analytiikka",
+      "Käytämme suostumuksellasi Google Analyticsia käyntien ja App Store -linkkien napsautusten mittaamiseen. Voit kieltäytyä ja käyttää sivustoa silti.",
+      "Salli",
+      "Hylkää",
+      "Analytiikan asetukset",
+      "Tietosuoja"
+    ],
+    "fr-CA": [
+      "Analyse du site",
+      "Avec votre accord, nous utilisons Google Analytics pour comprendre les visites et les clics vers l’App Store. Vous pouvez refuser et utiliser le site quand même.",
+      "Autoriser",
+      "Refuser",
+      "Choix d’analyse",
+      "Confidentialité"
+    ],
+    "fr-FR": [
+      "Mesure d’audience",
+      "Avec votre accord, nous utilisons Google Analytics pour mesurer les visites et les clics vers l’App Store. Vous pouvez refuser sans perdre l’accès au site.",
+      "Autoriser",
+      "Refuser",
+      "Choix de mesure",
+      "Confidentialité"
+    ],
+    "gu-IN": [
+      "વેબસાઇટ વિશ્લેષણ",
+      "તમારી મંજૂરીથી અમે મુલાકાતો અને App Store લિંક પરની ક્લિક્સ સમજવા Google Analytics વાપરીએ છીએ. તમે ઇનકાર કરો તો પણ સાઇટ વાપરી શકો છો.",
+      "મંજૂરી આપો",
+      "નકારો",
+      "વિશ્લેષણ સેટિંગ્સ",
+      "ગોપનીયતા"
+    ],
+    "he": [
+      "ניתוח השימוש באתר",
+      "באישורך אנו משתמשים ב-Google Analytics למדידת ביקורים ולחיצות על קישורים ל-App Store. אפשר לסרב ולהמשיך להשתמש באתר.",
+      "אישור",
+      "דחייה",
+      "הגדרות מדידה",
+      "פרטיות האתר"
+    ],
+    "hi": [
+      "वेबसाइट विश्लेषण",
+      "आपकी अनुमति से हम विज़िट और App Store लिंक पर क्लिक समझने के लिए Google Analytics का उपयोग करते हैं। मना करने पर भी साइट का उपयोग कर सकते हैं।",
+      "अनुमति दें",
+      "अस्वीकार करें",
+      "विश्लेषण सेटिंग",
+      "गोपनीयता"
+    ],
+    "hr": [
+      "Analitika web-mjesta",
+      "Uz vaš pristanak koristimo Google Analytics za mjerenje posjeta i klikova na App Store. Možete odbiti i nastaviti koristiti web-mjesto.",
+      "Dopusti",
+      "Odbij",
+      "Postavke analitike",
+      "Privatnost"
+    ],
+    "hu": [
+      "Webhelyelemzés",
+      "Hozzájárulásával a Google Analytics segítségével mérjük a látogatásokat és az App Store-ra mutató kattintásokat. Elutasítás esetén is használhatja a webhelyet.",
+      "Engedélyezés",
+      "Elutasítás",
+      "Elemzési beállítások",
+      "Adatvédelem"
+    ],
+    "id": [
+      "Analitik situs web",
+      "Dengan izin Anda, kami menggunakan Google Analytics untuk memahami kunjungan dan klik tautan App Store. Anda tetap dapat memakai situs jika menolak.",
+      "Izinkan",
+      "Tolak",
+      "Pengaturan analitik",
+      "Privasi situs"
+    ],
+    "it": [
+      "Analisi del sito",
+      "Con il tuo consenso usiamo Google Analytics per misurare visite e clic sui link dell’App Store. Puoi rifiutare e continuare a usare il sito.",
+      "Consenti",
+      "Rifiuta",
+      "Preferenze analitiche",
+      "Privacy del sito"
+    ],
+    "ja": [
+      "ウェブサイトのアクセス解析",
+      "同意いただいた場合に限り、Google Analyticsでサイトの訪問とApp Storeリンクのクリックを計測します。拒否してもサイトは利用できます。",
+      "解析を許可",
+      "拒否する",
+      "解析の設定",
+      "ウェブのプライバシー"
+    ],
+    "kn-IN": [
+      "ವೆಬ್‌ಸೈಟ್ ವಿಶ್ಲೇಷಣೆ",
+      "ನಿಮ್ಮ ಒಪ್ಪಿಗೆಯೊಂದಿಗೆ ಭೇಟಿಗಳು ಮತ್ತು App Store ಲಿಂಕ್ ಕ್ಲಿಕ್‌ಗಳನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು Google Analytics ಬಳಸುತ್ತೇವೆ. ನಿರಾಕರಿಸಿದರೂ ಸೈಟ್ ಬಳಸಬಹುದು.",
+      "ಅನುಮತಿಸಿ",
+      "ನಿರಾಕರಿಸಿ",
+      "ವಿಶ್ಲೇಷಣೆ ಆಯ್ಕೆಗಳು",
+      "ಗೌಪ್ಯತೆ"
+    ],
+    "ko": [
+      "웹사이트 분석",
+      "동의하시면 Google Analytics로 방문 및 App Store 링크 클릭을 분석합니다. 거부해도 사이트를 계속 이용할 수 있습니다.",
+      "분석 허용",
+      "거부",
+      "분석 설정",
+      "웹사이트 개인정보"
+    ],
+    "ml-IN": [
+      "വെബ്‌സൈറ്റ് വിശകലനം",
+      "നിങ്ങളുടെ സമ്മതത്തോടെ സന്ദർശനങ്ങളും App Store ലിങ്ക് ക്ലിക്കുകളും മനസ്സിലാക്കാൻ Google Analytics ഉപയോഗിക്കുന്നു. നിരസിച്ചാലും സൈറ്റ് ഉപയോഗിക്കാം.",
+      "അനുവദിക്കുക",
+      "നിരസിക്കുക",
+      "വിശകലന ക്രമീകരണം",
+      "സ്വകാര്യത"
+    ],
+    "mr-IN": [
+      "वेबसाइट विश्लेषण",
+      "तुमच्या संमतीने भेटी आणि App Store लिंकवरील क्लिक समजण्यासाठी Google Analytics वापरतो. नकार दिला तरी साइट वापरता येईल.",
+      "परवानगी द्या",
+      "नकार द्या",
+      "विश्लेषण सेटिंग्ज",
+      "गोपनीयता"
+    ],
+    "ms": [
+      "Analitik laman web",
+      "Dengan izin anda, kami menggunakan Google Analytics untuk memahami lawatan dan klik pautan App Store. Anda boleh menolak dan masih menggunakan laman ini.",
+      "Benarkan",
+      "Tolak",
+      "Tetapan analitik",
+      "Privasi laman"
+    ],
+    "nl-NL": [
+      "Websiteanalyse",
+      "Met uw toestemming gebruiken we Google Analytics om bezoeken en klikken naar de App Store te meten. U kunt weigeren en de site blijven gebruiken.",
+      "Toestaan",
+      "Weigeren",
+      "Analyse-instellingen",
+      "Privacy"
+    ],
+    "no": [
+      "Nettstedsanalyse",
+      "Med ditt samtykke bruker vi Google Analytics til å måle besøk og klikk til App Store. Du kan avslå og fortsatt bruke nettstedet.",
+      "Tillat",
+      "Avslå",
+      "Analysevalg",
+      "Personvern"
+    ],
+    "or-IN": [
+      "ୱେବସାଇଟ୍ ବିଶ୍ଳେଷଣ",
+      "ଆପଣଙ୍କ ସମ୍ମତିରେ, ସାଇଟ୍ ଭ୍ରମଣ ଓ App Store ଲିଙ୍କ୍ କ୍ଲିକ୍ ବୁଝିବାକୁ Google Analytics ବ୍ୟବହାର କରୁଛୁ। ମନା କଲେ ମଧ୍ୟ ସାଇଟ୍ ବ୍ୟବହାର କରିପାରିବେ।",
+      "ଅନୁମତି ଦିଅନ୍ତୁ",
+      "ମନା କରନ୍ତୁ",
+      "ବିଶ୍ଳେଷଣ ସେଟିଂ",
+      "ଗୋପନୀୟତା"
+    ],
+    "pa-IN": [
+      "ਵੈੱਬਸਾਈਟ ਵਿਸ਼ਲੇਸ਼ਣ",
+      "ਤੁਹਾਡੀ ਸਹਿਮਤੀ ਨਾਲ ਅਸੀਂ ਮੁਲਾਕਾਤਾਂ ਅਤੇ App Store ਲਿੰਕ ਕਲਿੱਕ ਸਮਝਣ ਲਈ Google Analytics ਵਰਤਦੇ ਹਾਂ। ਇਨਕਾਰ ਕਰਨ ’ਤੇ ਵੀ ਸਾਈਟ ਵਰਤ ਸਕਦੇ ਹੋ।",
+      "ਇਜਾਜ਼ਤ ਦਿਓ",
+      "ਇਨਕਾਰ ਕਰੋ",
+      "ਵਿਸ਼ਲੇਸ਼ਣ ਸੈਟਿੰਗਾਂ",
+      "ਪਰਦੇਦਾਰੀ"
+    ],
+    "pl": [
+      "Analityka witryny",
+      "Za Twoją zgodą używamy Google Analytics do pomiaru odwiedzin i kliknięć do App Store. Możesz odmówić i nadal korzystać z witryny.",
+      "Zezwól",
+      "Odmów",
+      "Ustawienia analityki",
+      "Prywatność"
+    ],
+    "pt-BR": [
+      "Análise do site",
+      "Com sua permissão, usamos o Google Analytics para medir visitas e cliques para a App Store. Você pode recusar e continuar usando o site.",
+      "Permitir",
+      "Recusar",
+      "Opções de análise",
+      "Privacidade do site"
+    ],
+    "pt-PT": [
+      "Análise do site",
+      "Com a sua autorização, usamos o Google Analytics para medir visitas e cliques para a App Store. Pode recusar e continuar a utilizar o site.",
+      "Permitir",
+      "Recusar",
+      "Preferências de análise",
+      "Privacidade do site"
+    ],
+    "ro": [
+      "Analiza site-ului",
+      "Cu acordul dvs. folosim Google Analytics pentru a măsura vizitele și clicurile către App Store. Puteți refuza și folosi în continuare site-ul.",
+      "Permite",
+      "Refuză",
+      "Setări de analiză",
+      "Confidențialitate"
+    ],
+    "ru": [
+      "Аналитика сайта",
+      "С вашего согласия мы используем Google Analytics для подсчёта посещений и переходов в App Store. Вы можете отказаться и продолжать пользоваться сайтом.",
+      "Разрешить",
+      "Отказаться",
+      "Настройки аналитики",
+      "Конфиденциальность"
+    ],
+    "sk": [
+      "Analytika webu",
+      "S vaším súhlasom používame Google Analytics na meranie návštev a kliknutí do App Storu. Môžete odmietnuť a ďalej používať web.",
+      "Povoliť",
+      "Odmietnuť",
+      "Nastavenia analytiky",
+      "Súkromie"
+    ],
+    "sl-SI": [
+      "Analitika spletnega mesta",
+      "Z vašim soglasjem uporabljamo Google Analytics za merjenje obiskov in klikov na App Store. Lahko zavrnete in spletno mesto še naprej uporabljate.",
+      "Dovoli",
+      "Zavrni",
+      "Nastavitve analitike",
+      "Zasebnost"
+    ],
+    "sv": [
+      "Webbanalys",
+      "Med ditt samtycke använder vi Google Analytics för att mäta besök och klick till App Store. Du kan neka och ändå använda webbplatsen.",
+      "Tillåt",
+      "Neka",
+      "Analysinställningar",
+      "Integritet"
+    ],
+    "ta-IN": [
+      "இணையதளப் பகுப்பாய்வு",
+      "உங்கள் ஒப்புதலுடன், வருகைகளையும் App Store இணைப்புக் கிளிக்குகளையும் அறிய Google Analytics பயன்படுத்துகிறோம். மறுத்தாலும் தளத்தைப் பயன்படுத்தலாம்.",
+      "அனுமதி",
+      "மறுப்பு",
+      "பகுப்பாய்வு அமைப்புகள்",
+      "தனியுரிமை"
+    ],
+    "te-IN": [
+      "వెబ్‌సైట్ విశ్లేషణ",
+      "మీ సమ్మతితో సందర్శనలు మరియు App Store లింక్ క్లిక్‌లను అర్థం చేసుకోవడానికి Google Analytics ఉపయోగిస్తాము. నిరాకరించినా సైట్‌ను ఉపయోగించవచ్చు.",
+      "అనుమతించు",
+      "తిరస్కరించు",
+      "విశ్లేషణ సెట్టింగ్‌లు",
+      "గోప్యత"
+    ],
+    "th": [
+      "การวิเคราะห์เว็บไซต์",
+      "เมื่อคุณยินยอม เราใช้ Google Analytics เพื่อวัดการเข้าชมและการคลิกลิงก์ App Store คุณปฏิเสธได้โดยยังใช้เว็บไซต์ได้ตามปกติ",
+      "อนุญาต",
+      "ปฏิเสธ",
+      "การตั้งค่าการวิเคราะห์",
+      "ความเป็นส่วนตัว"
+    ],
+    "tr": [
+      "Web sitesi analizi",
+      "İzninizle ziyaretleri ve App Store bağlantı tıklamalarını anlamak için Google Analytics kullanıyoruz. Reddetseniz de siteyi kullanabilirsiniz.",
+      "İzin ver",
+      "Reddet",
+      "Analiz ayarları",
+      "Gizlilik"
+    ],
+    "uk": [
+      "Аналітика сайту",
+      "За вашої згоди ми використовуємо Google Analytics для вимірювання відвідувань і переходів до App Store. Ви можете відмовитися й далі користуватися сайтом.",
+      "Дозволити",
+      "Відхилити",
+      "Налаштування аналітики",
+      "Конфіденційність"
+    ],
+    "ur-PK": [
+      "ویب سائٹ کا تجزیہ",
+      "آپ کی رضامندی سے ہم ویب سائٹ کی آمد اور App Store لنک کلکس سمجھنے کے لیے Google Analytics استعمال کرتے ہیں۔ انکار کے باوجود آپ سائٹ استعمال کر سکتے ہیں۔",
+      "اجازت دیں",
+      "انکار",
+      "تجزیاتی ترتیبات",
+      "رازداری"
+    ],
+    "vi": [
+      "Phân tích trang web",
+      "Nếu bạn đồng ý, chúng tôi dùng Google Analytics để đo lượt truy cập và nhấp vào liên kết App Store. Bạn có thể từ chối mà vẫn dùng trang web.",
+      "Cho phép",
+      "Từ chối",
+      "Cài đặt phân tích",
+      "Quyền riêng tư"
+    ],
+    "zh-Hans": [
+      "网站访问分析",
+      "经您同意后，我们使用 Google Analytics 统计访问及 App Store 链接点击。您可以拒绝，仍可正常使用网站。",
+      "允许分析",
+      "拒绝",
+      "分析设置",
+      "网站隐私"
+    ],
+    "zh-Hant": [
+      "網站流量分析",
+      "經您同意後，我們使用 Google Analytics 統計造訪及 App Store 連結點擊。您可以拒絕，仍可正常使用網站。",
+      "允許分析",
+      "拒絕",
+      "分析設定",
+      "網站隱私"
+    ]
+  }
+}

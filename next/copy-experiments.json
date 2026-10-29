@@ -1,0 +1,1215 @@
+{
+  "schemaVersion": 1,
+  "experiment": "lp-copy-color-p8-v1",
+  "variants": [
+    "A",
+    "B",
+    "C"
+  ],
+  "colors": [
+    "lime",
+    "sky"
+  ],
+  "locales": {
+    "ja": {
+      "headlines": [
+        [
+          "ひとつの用事に",
+          "ひとつのアプリ。"
+        ],
+        [
+          "今日の小さな面倒を",
+          "ちょっと軽く。"
+        ],
+        [
+          "「こんなの欲しかった」に",
+          "出会えるかも。"
+        ]
+      ],
+      "intro": "買い物の計算、日々の記録、ちょっとした遊び。使い道のはっきりした、小さなアプリを揃えました。",
+      "purpose": "必要なものから探す。",
+      "purposeCaption": "用途や価格で絞り込む。合わなければ、0本でもいい。",
+      "chance": "偶然の一本に出会う。",
+      "chanceCaption": "探していなかった便利さが、見つかるかもしれません。",
+      "browse": "候補を絞る",
+      "free": "無料のアプリを見る",
+      "again": "別の一本を見る"
+    },
+    "en-US": {
+      "headlines": [
+        [
+          "One task.",
+          "One good app."
+        ],
+        [
+          "A small task.",
+          "A simpler day."
+        ],
+        [
+          "Find the app",
+          "you didn't know you needed."
+        ]
+      ],
+      "intro": "Tools for shopping, everyday records and a little play. Small apps, each with a clear purpose.",
+      "purpose": "Find what you need.",
+      "purposeCaption": "Narrow by purpose and price. Zero results is a valid answer.",
+      "chance": "Meet a surprise pick.",
+      "chanceCaption": "You might discover a useful tool you weren't looking for.",
+      "browse": "Narrow the choices",
+      "free": "See free apps",
+      "again": "Try another app"
+    },
+    "en-GB": {
+      "headlines": [
+        [
+          "One task.",
+          "One useful app."
+        ],
+        [
+          "Little jobs.",
+          "A lighter day."
+        ],
+        [
+          "Find an app",
+          "you didn't know you needed."
+        ]
+      ],
+      "intro": "For shopping, everyday records and a little fun. Small apps, each with a clear purpose.",
+      "purpose": "Find what you need.",
+      "purposeCaption": "Narrow by purpose and price. No matches? That's useful to know.",
+      "chance": "A little surprise.",
+      "chanceCaption": "Discover a useful app you weren't looking for.",
+      "browse": "Narrow the choices",
+      "free": "See free apps",
+      "again": "Try another app"
+    },
+    "en-AU": {
+      "headlines": [
+        [
+          "One task.",
+          "One handy app."
+        ],
+        [
+          "Small jobs.",
+          "An easier day."
+        ],
+        [
+          "Find the app",
+          "you didn't know you needed."
+        ]
+      ],
+      "intro": "For shopping, daily records and a bit of fun. Small apps built for specific jobs.",
+      "purpose": "Find what you need.",
+      "purposeCaption": "Filter by purpose and price. No matches is an honest answer.",
+      "chance": "Give chance a go.",
+      "chanceCaption": "You might find something handy along the way.",
+      "browse": "Narrow the choices",
+      "free": "See free apps",
+      "again": "Try another app"
+    },
+    "en-CA": {
+      "headlines": [
+        [
+          "One task.",
+          "One useful app."
+        ],
+        [
+          "Small jobs.",
+          "An easier day."
+        ],
+        [
+          "Find an app",
+          "you didn't know you needed."
+        ]
+      ],
+      "intro": "For shopping, daily records and a little fun. Small apps that do one job well.",
+      "purpose": "Find what you need.",
+      "purposeCaption": "Filter by purpose and price. Zero matches is fine.",
+      "chance": "Discover by chance.",
+      "chanceCaption": "An unexpected app might be just right.",
+      "browse": "Narrow the choices",
+      "free": "See free apps",
+      "again": "Try another app"
+    },
+    "ar-SA": {
+      "headlines": [
+        [
+          "مهمة واحدة",
+          "وتطبيق مناسب."
+        ],
+        [
+          "مهام صغيرة",
+          "ويوم أسهل."
+        ],
+        [
+          "ربما تجد تطبيقًا",
+          "لم تعرف أنك تحتاجه."
+        ]
+      ],
+      "intro": "للتسوق وتسجيل تفاصيل الحياة وبعض الترفيه. تطبيقات صغيرة لكل منها هدف واضح.",
+      "purpose": "ابحث عما تحتاجه.",
+      "purposeCaption": "صفِّ النتائج حسب الاستخدام والسعر. وقد تكون النتيجة صفرًا.",
+      "chance": "اكتشف تطبيقًا بالمصادفة.",
+      "chanceCaption": "ربما تجد أداة مفيدة لم تبحث عنها من قبل.",
+      "browse": "ضيّق الخيارات",
+      "free": "شاهد التطبيقات المجانية",
+      "again": "جرّب تطبيقًا آخر"
+    },
+    "bn-BD": {
+      "headlines": [
+        [
+          "একটি কাজের জন্য",
+          "একটি অ্যাপ।"
+        ],
+        [
+          "ছোট কাজগুলো",
+          "হোক একটু সহজ।"
+        ],
+        [
+          "হয়তো খুঁজে পাবেন",
+          "অপ্রত্যাশিত দরকারি অ্যাপ।"
+        ]
+      ],
+      "intro": "কেনাকাটা, দৈনন্দিন হিসাব আর একটু বিনোদন। প্রতিটি অ্যাপের কাজ স্পষ্ট।",
+      "purpose": "প্রয়োজনমতো খুঁজুন।",
+      "purposeCaption": "কাজ ও দাম অনুযায়ী বাছুন। কিছু না মিললেও সেটিই ফল।",
+      "chance": "হঠাৎ একটি অ্যাপ খুঁজে নিন।",
+      "chanceCaption": "যা খুঁজছিলেন না, সেটিই কাজে লাগতে পারে।",
+      "browse": "বাছাই করুন",
+      "free": "বিনামূল্যের অ্যাপ দেখুন",
+      "again": "আরেকটি দেখুন"
+    },
+    "ca": {
+      "headlines": [
+        [
+          "Una feina.",
+          "Una app útil."
+        ],
+        [
+          "Petites tasques.",
+          "Dies més fàcils."
+        ],
+        [
+          "Troba l'app",
+          "que no sabies que volies."
+        ]
+      ],
+      "intro": "Per comprar, organitzar el dia i divertir-te una mica. Apps petites amb una finalitat clara.",
+      "purpose": "Troba el que necessites.",
+      "purposeCaption": "Filtra per utilitat i preu. Cap resultat també és una resposta.",
+      "chance": "Descobreix-ne una a l'atzar.",
+      "chanceCaption": "Potser et sorprendrà una app que no buscaves.",
+      "browse": "Redueix les opcions",
+      "free": "Veure apps gratuïtes",
+      "again": "Prova'n una altra"
+    },
+    "cs": {
+      "headlines": [
+        [
+          "Jeden úkol.",
+          "Jedna užitečná aplikace."
+        ],
+        [
+          "Malé starosti.",
+          "Snazší den."
+        ],
+        [
+          "Objev aplikaci,",
+          "o které jsi nevěděl."
+        ]
+      ],
+      "intro": "Na nákupy, záznamy i trochu zábavy. Malé aplikace s jasným účelem.",
+      "purpose": "Najdi, co potřebuješ.",
+      "purposeCaption": "Filtruj podle účelu a ceny. I nula výsledků je odpověď.",
+      "chance": "Nech rozhodnout náhodu.",
+      "chanceCaption": "Možná objevíš něco užitečného, co jsi nehledal.",
+      "browse": "Zúžit výběr",
+      "free": "Zobrazit aplikace zdarma",
+      "again": "Zkusit jinou"
+    },
+    "da": {
+      "headlines": [
+        [
+          "Én opgave.",
+          "Én nyttig app."
+        ],
+        [
+          "Små opgaver.",
+          "En lettere dag."
+        ],
+        [
+          "Find en app,",
+          "du ikke vidste du manglede."
+        ]
+      ],
+      "intro": "Til indkøb, hverdagens noter og lidt sjov. Små apps med et klart formål.",
+      "purpose": "Find det, du har brug for.",
+      "purposeCaption": "Vælg efter formål og pris. Ingen resultater er også et svar.",
+      "chance": "Lad tilfældet vælge.",
+      "chanceCaption": "Måske finder du noget nyttigt, du ikke ledte efter.",
+      "browse": "Indsnævr udvalget",
+      "free": "Se gratis apps",
+      "again": "Prøv en anden"
+    },
+    "de-DE": {
+      "headlines": [
+        [
+          "Eine Aufgabe.",
+          "Eine passende App."
+        ],
+        [
+          "Kleine Aufgaben.",
+          "Ein leichterer Tag."
+        ],
+        [
+          "Entdecke eine App,",
+          "die dir noch gefehlt hat."
+        ]
+      ],
+      "intro": "Für Einkäufe, Alltagsnotizen und ein wenig Spaß. Kleine Apps mit einem klaren Zweck.",
+      "purpose": "Finde, was du brauchst.",
+      "purposeCaption": "Grenze nach Zweck und Preis ein. Auch null Treffer sind ein Ergebnis.",
+      "chance": "Lass dich überraschen.",
+      "chanceCaption": "Vielleicht entdeckst du etwas Nützliches, das du gar nicht gesucht hast.",
+      "browse": "Auswahl eingrenzen",
+      "free": "Kostenlose Apps ansehen",
+      "again": "Andere App entdecken"
+    },
+    "el": {
+      "headlines": [
+        [
+          "Μία δουλειά.",
+          "Μία χρήσιμη εφαρμογή."
+        ],
+        [
+          "Μικρές εκκρεμότητες.",
+          "Πιο εύκολη μέρα."
+        ],
+        [
+          "Βρες μια εφαρμογή",
+          "που δεν ήξερες ότι χρειάζεσαι."
+        ]
+      ],
+      "intro": "Για ψώνια, καθημερινές σημειώσεις και λίγη διασκέδαση. Μικρές εφαρμογές με σαφή σκοπό.",
+      "purpose": "Βρες αυτό που χρειάζεσαι.",
+      "purposeCaption": "Φίλτραρε ανά χρήση και τιμή. Και το μηδέν είναι αποτέλεσμα.",
+      "chance": "Άφησε την τύχη να διαλέξει.",
+      "chanceCaption": "Ίσως βρεις κάτι χρήσιμο που δεν έψαχνες.",
+      "browse": "Περιόρισε τις επιλογές",
+      "free": "Δες δωρεάν εφαρμογές",
+      "again": "Δοκίμασε άλλη"
+    },
+    "es-ES": {
+      "headlines": [
+        [
+          "Una tarea.",
+          "Una app útil."
+        ],
+        [
+          "Pequeñas tareas.",
+          "Días más fáciles."
+        ],
+        [
+          "Descubre esa app",
+          "que aún no sabías que necesitabas."
+        ]
+      ],
+      "intro": "Para compras, notas cotidianas y un poco de diversión. Apps pequeñas con un propósito claro.",
+      "purpose": "Encuentra lo que necesitas.",
+      "purposeCaption": "Filtra por utilidad y precio. Cero resultados también es una respuesta.",
+      "chance": "Déjate sorprender.",
+      "chanceCaption": "Quizá descubras una app útil que no buscabas.",
+      "browse": "Reducir opciones",
+      "free": "Ver apps gratis",
+      "again": "Descubrir otra"
+    },
+    "es-MX": {
+      "headlines": [
+        [
+          "Una tarea.",
+          "Una app útil."
+        ],
+        [
+          "Pequeñas tareas.",
+          "Un día más sencillo."
+        ],
+        [
+          "Descubre esa app",
+          "que no sabías que necesitabas."
+        ]
+      ],
+      "intro": "Para las compras, los registros diarios y un rato de diversión. Apps pequeñas con un objetivo claro.",
+      "purpose": "Encuentra lo que necesitas.",
+      "purposeCaption": "Filtra por uso y precio. Si no hay resultados, también es información.",
+      "chance": "Prueba tu suerte.",
+      "chanceCaption": "Tal vez encuentres una app útil que ni buscabas.",
+      "browse": "Filtrar opciones",
+      "free": "Ver apps gratis",
+      "again": "Probar otra"
+    },
+    "fi": {
+      "headlines": [
+        [
+          "Yksi tehtävä.",
+          "Yksi hyödyllinen sovellus."
+        ],
+        [
+          "Pienet asiat.",
+          "Helpompi päivä."
+        ],
+        [
+          "Löydä sovellus,",
+          "jota et tiennyt kaipaavasi."
+        ]
+      ],
+      "intro": "Ostoksiin, arjen muistiinpanoihin ja pieneen hauskanpitoon. Pieniä sovelluksia selkeisiin tarpeisiin.",
+      "purpose": "Löydä tarvitsemasi.",
+      "purposeCaption": "Rajaa käyttötarkoituksen ja hinnan mukaan. Nolla osumaa on myös tulos.",
+      "chance": "Anna sattuman valita.",
+      "chanceCaption": "Ehkä löydät jotain hyödyllistä yllättäen.",
+      "browse": "Rajaa valikoimaa",
+      "free": "Näytä ilmaiset sovellukset",
+      "again": "Kokeile toista"
+    },
+    "fr-FR": {
+      "headlines": [
+        [
+          "Une tâche.",
+          "Une appli utile."
+        ],
+        [
+          "De petits besoins.",
+          "Des journées plus simples."
+        ],
+        [
+          "Découvrez l'appli",
+          "qu'il vous manquait."
+        ]
+      ],
+      "intro": "Pour les courses, les petits suivis du quotidien et un peu de jeu. Des applis simples, chacune avec son utilité.",
+      "purpose": "Trouvez ce qu'il vous faut.",
+      "purposeCaption": "Filtrez par usage et par prix. Aucun résultat, c'est aussi une réponse.",
+      "chance": "Laissez faire le hasard.",
+      "chanceCaption": "Une appli inattendue pourrait vous rendre service.",
+      "browse": "Affiner le choix",
+      "free": "Voir les applis gratuites",
+      "again": "En essayer une autre"
+    },
+    "fr-CA": {
+      "headlines": [
+        [
+          "Une tâche.",
+          "Une appli pratique."
+        ],
+        [
+          "De petits besoins.",
+          "Des journées plus simples."
+        ],
+        [
+          "Découvrez l'appli",
+          "qu'il vous manquait."
+        ]
+      ],
+      "intro": "Pour les achats, les notes du quotidien et un peu de plaisir. De petites applis pour des besoins précis.",
+      "purpose": "Trouvez ce qu'il vous faut.",
+      "purposeCaption": "Filtrez par usage et par prix. Aucun résultat, c'est aussi une réponse.",
+      "chance": "Laissez-vous surprendre.",
+      "chanceCaption": "Vous pourriez découvrir une appli pratique par hasard.",
+      "browse": "Affiner le choix",
+      "free": "Voir les applis gratuites",
+      "again": "En essayer une autre"
+    },
+    "gu-IN": {
+      "headlines": [
+        [
+          "એક કામ માટે",
+          "એક ઉપયોગી ઍપ."
+        ],
+        [
+          "નાનાં કામો",
+          "થોડાં સરળ બને."
+        ],
+        [
+          "કદાચ એવી ઍપ મળે",
+          "જેની જરૂર ખબર નહોતી."
+        ]
+      ],
+      "intro": "ખરીદી, રોજિંદી નોંધો અને થોડી મજા માટે. દરેક નાની ઍપનો સ્પષ્ટ હેતુ છે.",
+      "purpose": "જરૂરી ઍપ શોધો.",
+      "purposeCaption": "કામ અને કિંમત પ્રમાણે પસંદ કરો. કંઈ ન મળે તો એ પણ પરિણામ છે.",
+      "chance": "અચાનક એક ઍપ શોધો.",
+      "chanceCaption": "શોધ્યા વિના પણ ઉપયોગી કંઈક મળી શકે.",
+      "browse": "પસંદગી ઓછી કરો",
+      "free": "મફત ઍપ જુઓ",
+      "again": "બીજી ઍપ જુઓ"
+    },
+    "he": {
+      "headlines": [
+        [
+          "משימה אחת.",
+          "אפליקציה מתאימה."
+        ],
+        [
+          "משימות קטנות.",
+          "יום קצת קל יותר."
+        ],
+        [
+          "לגלות אפליקציה",
+          "שלא ידעת שצריך."
+        ]
+      ],
+      "intro": "לקניות, למעקב יומיומי ולקצת משחק. אפליקציות קטנות עם מטרה ברורה.",
+      "purpose": "למצוא את מה שצריך.",
+      "purposeCaption": "מסננים לפי שימוש ומחיר. גם אפס תוצאות זו תשובה.",
+      "chance": "לתת למקרה לבחור.",
+      "chanceCaption": "אולי תתגלה אפליקציה שימושית שלא חיפשת.",
+      "browse": "צמצום אפשרויות",
+      "free": "הצגת אפליקציות חינמיות",
+      "again": "אפליקציה אחרת"
+    },
+    "hi": {
+      "headlines": [
+        [
+          "एक काम के लिए",
+          "एक उपयोगी ऐप।"
+        ],
+        [
+          "छोटे-छोटे काम",
+          "थोड़े आसान हों।"
+        ],
+        [
+          "शायद मिल जाए वह ऐप",
+          "जिसकी ज़रूरत पता न थी।"
+        ]
+      ],
+      "intro": "खरीदारी, रोज़ के रिकॉर्ड और थोड़े मनोरंजन के लिए। हर छोटे ऐप का काम स्पष्ट है।",
+      "purpose": "ज़रूरत के हिसाब से खोजें।",
+      "purposeCaption": "काम और कीमत के अनुसार छाँटें। कुछ न मिलना भी एक नतीजा है।",
+      "chance": "किस्मत से एक ऐप पाएँ।",
+      "chanceCaption": "शायद कोई अनदेखा उपयोगी ऐप मिल जाए।",
+      "browse": "विकल्प छाँटें",
+      "free": "मुफ़्त ऐप देखें",
+      "again": "दूसरा ऐप देखें"
+    },
+    "hr": {
+      "headlines": [
+        [
+          "Jedan zadatak.",
+          "Jedna korisna aplikacija."
+        ],
+        [
+          "Sitni poslovi.",
+          "Lakši dan."
+        ],
+        [
+          "Pronađi aplikaciju",
+          "za koju nisi znao da ti treba."
+        ]
+      ],
+      "intro": "Za kupnju, svakodnevne bilješke i malo zabave. Male aplikacije s jasnom svrhom.",
+      "purpose": "Pronađi ono što trebaš.",
+      "purposeCaption": "Filtriraj po namjeni i cijeni. I nula rezultata je odgovor.",
+      "chance": "Prepusti izbor slučaju.",
+      "chanceCaption": "Možda otkriješ nešto korisno što nisi tražio.",
+      "browse": "Suzi izbor",
+      "free": "Pogledaj besplatne aplikacije",
+      "again": "Pokušaj s drugom"
+    },
+    "hu": {
+      "headlines": [
+        [
+          "Egy feladat.",
+          "Egy hasznos app."
+        ],
+        [
+          "Apró teendők.",
+          "Könnyebb napok."
+        ],
+        [
+          "Találj egy appot,",
+          "amiről nem tudtad, hogy kell."
+        ]
+      ],
+      "intro": "Vásárláshoz, napi jegyzetekhez és egy kis játékhoz. Kis appok világos céllal.",
+      "purpose": "Találd meg, ami kell.",
+      "purposeCaption": "Szűrj feladat és ár szerint. A nulla találat is eredmény.",
+      "chance": "Bízd a véletlenre.",
+      "chanceCaption": "Talán olyat találsz, amit nem is kerestél.",
+      "browse": "Szűkítsd a választékot",
+      "free": "Ingyenes appok",
+      "again": "Másik appot kérek"
+    },
+    "id": {
+      "headlines": [
+        [
+          "Satu kebutuhan.",
+          "Satu aplikasi tepat."
+        ],
+        [
+          "Urusan kecil.",
+          "Hari lebih ringan."
+        ],
+        [
+          "Temukan aplikasi",
+          "yang tak terpikirkan sebelumnya."
+        ]
+      ],
+      "intro": "Untuk belanja, catatan harian, dan sedikit hiburan. Aplikasi kecil dengan tujuan yang jelas.",
+      "purpose": "Cari yang Anda perlukan.",
+      "purposeCaption": "Saring berdasarkan kegunaan dan harga. Tidak ada hasil pun tetap jawaban.",
+      "chance": "Biarkan kejutan memilih.",
+      "chanceCaption": "Mungkin Anda menemukan sesuatu yang berguna tanpa mencarinya.",
+      "browse": "Persempit pilihan",
+      "free": "Lihat aplikasi gratis",
+      "again": "Coba aplikasi lain"
+    },
+    "it": {
+      "headlines": [
+        [
+          "Un compito.",
+          "Un'app utile."
+        ],
+        [
+          "Piccole incombenze.",
+          "Giornate più semplici."
+        ],
+        [
+          "Scopri l'app",
+          "che non sapevi ti servisse."
+        ]
+      ],
+      "intro": "Per la spesa, gli appunti quotidiani e un po' di svago. Piccole app con uno scopo preciso.",
+      "purpose": "Trova ciò che ti serve.",
+      "purposeCaption": "Filtra per utilità e prezzo. Anche zero risultati è una risposta.",
+      "chance": "Lasciati sorprendere.",
+      "chanceCaption": "Potresti scoprire un'app utile che non cercavi.",
+      "browse": "Restringi la scelta",
+      "free": "Vedi le app gratuite",
+      "again": "Prova un'altra app"
+    },
+    "kn-IN": {
+      "headlines": [
+        [
+          "ಒಂದು ಕೆಲಸಕ್ಕೆ",
+          "ಒಂದು ಉಪಯುಕ್ತ ಆ್ಯಪ್."
+        ],
+        [
+          "ಸಣ್ಣ ಕೆಲಸಗಳು",
+          "ಸ್ವಲ್ಪ ಸುಲಭವಾಗಲಿ."
+        ],
+        [
+          "ಬೇಕೆಂದು ತಿಳಿಯದ",
+          "ಆ್ಯಪ್ ಸಿಗಬಹುದು."
+        ]
+      ],
+      "intro": "ಖರೀದಿ, ದಿನನಿತ್ಯದ ದಾಖಲೆ ಮತ್ತು ಸ್ವಲ್ಪ ಮನರಂಜನೆಗೆ. ಪ್ರತಿ ಆ್ಯಪ್‌ಗೂ ಸ್ಪಷ್ಟ ಉದ್ದೇಶವಿದೆ.",
+      "purpose": "ನಿಮಗೆ ಬೇಕಾದ್ದನ್ನು ಹುಡುಕಿ.",
+      "purposeCaption": "ಬಳಕೆ ಮತ್ತು ಬೆಲೆಯಂತೆ ಆಯ್ಕೆ ಮಾಡಿ. ಏನೂ ಸಿಗದಿದ್ದರೂ ಅದೇ ಫಲಿತಾಂಶ.",
+      "chance": "ಅದೃಷ್ಟಕ್ಕೆ ಒಂದು ಆಯ್ಕೆ.",
+      "chanceCaption": "ಹುಡುಕದೇ ಉಪಯುಕ್ತ ಆ್ಯಪ್ ಸಿಗಬಹುದು.",
+      "browse": "ಆಯ್ಕೆ ಕಡಿಮೆ ಮಾಡಿ",
+      "free": "ಉಚಿತ ಆ್ಯಪ್‌ಗಳನ್ನು ನೋಡಿ",
+      "again": "ಮತ್ತೊಂದು ಆ್ಯಪ್ ನೋಡಿ"
+    },
+    "ko": {
+      "headlines": [
+        [
+          "하나의 할 일에",
+          "하나의 앱."
+        ],
+        [
+          "작은 번거로움을",
+          "조금 더 가볍게."
+        ],
+        [
+          "몰랐던 필요한 앱을",
+          "만날지도 몰라요."
+        ]
+      ],
+      "intro": "쇼핑 계산부터 일상 기록, 가벼운 놀이까지. 쓰임새가 분명한 작은 앱을 모았습니다.",
+      "purpose": "필요한 것부터 찾기.",
+      "purposeCaption": "용도와 가격으로 좁혀 보세요. 결과가 0개여도 괜찮습니다.",
+      "chance": "뜻밖의 앱 만나기.",
+      "chanceCaption": "찾고 있지 않았던 편리함을 발견할지도 몰라요.",
+      "browse": "후보 좁히기",
+      "free": "무료 앱 보기",
+      "again": "다른 앱 보기"
+    },
+    "ml-IN": {
+      "headlines": [
+        [
+          "ഒരു കാര്യത്തിന്",
+          "ഒരു ഉപകാരമുള്ള ആപ്പ്."
+        ],
+        [
+          "ചെറിയ കാര്യങ്ങൾ",
+          "കുറച്ച് എളുപ്പമാക്കാം."
+        ],
+        [
+          "അറിയാതെ വേണ്ടിയിരുന്ന",
+          "ആപ്പ് കണ്ടെത്താം."
+        ]
+      ],
+      "intro": "ഷോപ്പിംഗ്, ദിവസേനയുള്ള കുറിപ്പുകൾ, ചെറിയ വിനോദം എന്നിവയ്ക്ക്. ഓരോ ആപ്പിനും വ്യക്തമായ ലക്ഷ്യമുണ്ട്.",
+      "purpose": "ആവശ്യമുള്ളത് കണ്ടെത്തൂ.",
+      "purposeCaption": "ഉപയോഗവും വിലയും അനുസരിച്ച് തിരയൂ. ഫലം ഇല്ലാത്തതും ഒരു ഉത്തരമാണ്.",
+      "chance": "യാദൃശ്ചികമായി ഒന്ന് കണ്ടെത്തൂ.",
+      "chanceCaption": "തിരയാത്ത ഒരു ഉപകാരമുള്ള ആപ്പ് കണ്ടേക്കാം.",
+      "browse": "തിരഞ്ഞെടുപ്പ് ചുരുക്കൂ",
+      "free": "സൗജന്യ ആപ്പുകൾ കാണൂ",
+      "again": "മറ്റൊന്ന് കാണൂ"
+    },
+    "mr-IN": {
+      "headlines": [
+        [
+          "एका कामासाठी",
+          "एक उपयोगी ॲप."
+        ],
+        [
+          "छोटी कामे",
+          "थोडी सोपी करूया."
+        ],
+        [
+          "नकळत हवे असलेले",
+          "ॲप सापडेल कदाचित."
+        ]
+      ],
+      "intro": "खरेदी, दैनंदिन नोंदी आणि थोड्या विरंगुळ्यासाठी. प्रत्येक लहान ॲपचा उपयोग स्पष्ट आहे.",
+      "purpose": "गरजेप्रमाणे शोधा.",
+      "purposeCaption": "वापर आणि किमतीनुसार निवडा. शून्य निकालही उत्तर आहे.",
+      "chance": "योगायोगाने ॲप शोधा.",
+      "chanceCaption": "न शोधलेले काही उपयोगी सापडू शकते.",
+      "browse": "पर्याय कमी करा",
+      "free": "मोफत ॲप्स पाहा",
+      "again": "दुसरे ॲप पाहा"
+    },
+    "ms": {
+      "headlines": [
+        [
+          "Satu tugas.",
+          "Satu aplikasi berguna."
+        ],
+        [
+          "Kerja kecil.",
+          "Hari lebih mudah."
+        ],
+        [
+          "Temui aplikasi",
+          "yang anda tak sangka perlu."
+        ]
+      ],
+      "intro": "Untuk membeli-belah, catatan harian dan sedikit hiburan. Aplikasi kecil dengan tujuan jelas.",
+      "purpose": "Cari yang anda perlukan.",
+      "purposeCaption": "Tapis mengikut kegunaan dan harga. Tiada hasil juga satu jawapan.",
+      "chance": "Cuba pilihan rawak.",
+      "chanceCaption": "Mungkin anda temui sesuatu yang berguna tanpa mencarinya.",
+      "browse": "Kecilkan pilihan",
+      "free": "Lihat aplikasi percuma",
+      "again": "Cuba yang lain"
+    },
+    "nl-NL": {
+      "headlines": [
+        [
+          "Eén taak.",
+          "Eén handige app."
+        ],
+        [
+          "Kleine klusjes.",
+          "Een lichtere dag."
+        ],
+        [
+          "Ontdek de app",
+          "die je nog niet kende."
+        ]
+      ],
+      "intro": "Voor boodschappen, dagelijkse notities en een beetje plezier. Kleine apps met een duidelijk doel.",
+      "purpose": "Vind wat je nodig hebt.",
+      "purposeCaption": "Filter op doel en prijs. Nul resultaten is óók een antwoord.",
+      "chance": "Laat je verrassen.",
+      "chanceCaption": "Misschien ontdek je iets handig dat je niet zocht.",
+      "browse": "Beperk de keuze",
+      "free": "Bekijk gratis apps",
+      "again": "Probeer een andere"
+    },
+    "no": {
+      "headlines": [
+        [
+          "Én oppgave.",
+          "Én nyttig app."
+        ],
+        [
+          "Små gjøremål.",
+          "En enklere dag."
+        ],
+        [
+          "Finn en app",
+          "du ikke visste du trengte."
+        ]
+      ],
+      "intro": "Til handling, hverdagsnotater og litt moro. Små apper med et tydelig formål.",
+      "purpose": "Finn det du trenger.",
+      "purposeCaption": "Filtrer etter bruk og pris. Null treff er også et svar.",
+      "chance": "La tilfeldighetene velge.",
+      "chanceCaption": "Kanskje finner du noe nyttig du ikke lette etter.",
+      "browse": "Snevre inn valget",
+      "free": "Se gratisapper",
+      "again": "Prøv en annen"
+    },
+    "or-IN": {
+      "headlines": [
+        [
+          "ଗୋଟିଏ କାମ ପାଇଁ",
+          "ଗୋଟିଏ ଉପଯୋଗୀ ଆପ୍।"
+        ],
+        [
+          "ଛୋଟ କାମଗୁଡ଼ିକ",
+          "ଟିକେ ସହଜ ହେଉ।"
+        ],
+        [
+          "ଆବଶ୍ୟକ ବୋଲି ଜାଣିନଥିବା",
+          "ଆପ୍ ମିଳିପାରେ।"
+        ]
+      ],
+      "intro": "କିଣାକିଣି, ଦୈନିକ ଟିପ୍ପଣୀ ଓ ଅଳ୍ପ ମନୋରଞ୍ଜନ ପାଇଁ। ପ୍ରତ୍ୟେକ ଆପ୍‌ର ସ୍ପଷ୍ଟ ଉଦ୍ଦେଶ୍ୟ ଅଛି।",
+      "purpose": "ଦରକାରୀ ଆପ୍ ଖୋଜନ୍ତୁ।",
+      "purposeCaption": "କାମ ଓ ଦାମ ଅନୁସାରେ ବାଛନ୍ତୁ। ଶୂନ୍ୟ ଫଳ ମଧ୍ୟ ଉତ୍ତର।",
+      "chance": "ହଠାତ୍ ଗୋଟିଏ ଆପ୍ ଦେଖନ୍ତୁ।",
+      "chanceCaption": "ଖୋଜୁନଥିବା କିଛି ଉପଯୋଗୀ ମିଳିପାରେ।",
+      "browse": "ବିକଳ୍ପ କମାନ୍ତୁ",
+      "free": "ମାଗଣା ଆପ୍ ଦେଖନ୍ତୁ",
+      "again": "ଅନ୍ୟ ଆପ୍ ଦେଖନ୍ତୁ"
+    },
+    "pa-IN": {
+      "headlines": [
+        [
+          "ਇੱਕ ਕੰਮ ਲਈ",
+          "ਇੱਕ ਕੰਮ ਦੀ ਐਪ।"
+        ],
+        [
+          "ਛੋਟੇ ਕੰਮ",
+          "ਥੋੜ੍ਹੇ ਸੌਖੇ ਬਣਾਓ।"
+        ],
+        [
+          "ਸ਼ਾਇਦ ਮਿਲ ਜਾਵੇ",
+          "ਅਣਸੋਚੀ ਕੰਮ ਦੀ ਐਪ।"
+        ]
+      ],
+      "intro": "ਖਰੀਦਦਾਰੀ, ਰੋਜ਼ਾਨਾ ਨੋਟਾਂ ਅਤੇ ਥੋੜ੍ਹੇ ਮਨੋਰੰਜਨ ਲਈ। ਹਰ ਐਪ ਦਾ ਸਪੱਸ਼ਟ ਮਕਸਦ ਹੈ।",
+      "purpose": "ਲੋੜ ਮੁਤਾਬਕ ਲੱਭੋ।",
+      "purposeCaption": "ਕੰਮ ਅਤੇ ਕੀਮਤ ਨਾਲ ਛਾਂਟੋ। ਸਿਫ਼ਰ ਨਤੀਜੇ ਵੀ ਇੱਕ ਜਵਾਬ ਹਨ।",
+      "chance": "ਅਚਾਨਕ ਇੱਕ ਐਪ ਮਿਲੇ।",
+      "chanceCaption": "ਬਿਨਾਂ ਲੱਭੇ ਵੀ ਕੋਈ ਕੰਮ ਦੀ ਚੀਜ਼ ਮਿਲ ਸਕਦੀ ਹੈ।",
+      "browse": "ਚੋਣ ਘਟਾਓ",
+      "free": "ਮੁਫ਼ਤ ਐਪਾਂ ਵੇਖੋ",
+      "again": "ਹੋਰ ਐਪ ਵੇਖੋ"
+    },
+    "pl": {
+      "headlines": [
+        [
+          "Jedno zadanie.",
+          "Jedna przydatna aplikacja."
+        ],
+        [
+          "Małe sprawy.",
+          "Lżejszy dzień."
+        ],
+        [
+          "Odkryj aplikację,",
+          "o której nie wiedziałeś."
+        ]
+      ],
+      "intro": "Na zakupy, codzienne notatki i trochę zabawy. Małe aplikacje o jasnym przeznaczeniu.",
+      "purpose": "Znajdź to, czego potrzebujesz.",
+      "purposeCaption": "Filtruj według zastosowania i ceny. Zero wyników też jest odpowiedzią.",
+      "chance": "Daj się zaskoczyć.",
+      "chanceCaption": "Może odkryjesz coś przydatnego, czego nie szukałeś.",
+      "browse": "Zawęź wybór",
+      "free": "Zobacz darmowe aplikacje",
+      "again": "Pokaż inną"
+    },
+    "pt-BR": {
+      "headlines": [
+        [
+          "Uma tarefa.",
+          "Um app útil."
+        ],
+        [
+          "Pequenas tarefas.",
+          "Um dia mais leve."
+        ],
+        [
+          "Descubra o app",
+          "que você nem sabia que precisava."
+        ]
+      ],
+      "intro": "Para compras, registros do dia a dia e um pouco de diversão. Apps pequenos, com um propósito claro.",
+      "purpose": "Encontre o que precisa.",
+      "purposeCaption": "Filtre por função e preço. Nenhum resultado também é resposta.",
+      "chance": "Deixe o acaso escolher.",
+      "chanceCaption": "Você pode descobrir algo útil sem estar procurando.",
+      "browse": "Refinar opções",
+      "free": "Ver apps grátis",
+      "again": "Tentar outro"
+    },
+    "pt-PT": {
+      "headlines": [
+        [
+          "Uma tarefa.",
+          "Uma app útil."
+        ],
+        [
+          "Pequenas tarefas.",
+          "Um dia mais simples."
+        ],
+        [
+          "Descobre a app",
+          "que nem sabias que te faltava."
+        ]
+      ],
+      "intro": "Para compras, registos do dia a dia e um pouco de diversão. Pequenas apps com um objetivo claro.",
+      "purpose": "Encontra o que precisas.",
+      "purposeCaption": "Filtra por utilidade e preço. Zero resultados também é uma resposta.",
+      "chance": "Deixa-te surpreender.",
+      "chanceCaption": "Talvez descubras uma app útil que não procuravas.",
+      "browse": "Reduzir opções",
+      "free": "Ver apps gratuitas",
+      "again": "Experimentar outra"
+    },
+    "ro": {
+      "headlines": [
+        [
+          "O sarcină.",
+          "O aplicație utilă."
+        ],
+        [
+          "Lucruri mărunte.",
+          "Zile mai ușoare."
+        ],
+        [
+          "Descoperă aplicația",
+          "de care nu știai că ai nevoie."
+        ]
+      ],
+      "intro": "Pentru cumpărături, notițe zilnice și puțină distracție. Aplicații mici, cu scop clar.",
+      "purpose": "Găsește ce îți trebuie.",
+      "purposeCaption": "Filtrează după utilitate și preț. Și zero rezultate e un răspuns.",
+      "chance": "Lasă-te surprins.",
+      "chanceCaption": "Poate găsești ceva util fără să cauți.",
+      "browse": "Restrânge opțiunile",
+      "free": "Vezi aplicațiile gratuite",
+      "again": "Încearcă alta"
+    },
+    "ru": {
+      "headlines": [
+        [
+          "Одна задача.",
+          "Одно полезное приложение."
+        ],
+        [
+          "Мелкие дела.",
+          "День немного проще."
+        ],
+        [
+          "Найди приложение,",
+          "о котором не знал."
+        ]
+      ],
+      "intro": "Для покупок, повседневных записей и немного развлечений. Небольшие приложения с понятной целью.",
+      "purpose": "Найди то, что нужно.",
+      "purposeCaption": "Отбирай по назначению и цене. Ноль результатов — тоже ответ.",
+      "chance": "Доверь выбор случаю.",
+      "chanceCaption": "Возможно, найдётся то, что ты и не искал.",
+      "browse": "Сузить выбор",
+      "free": "Бесплатные приложения",
+      "again": "Попробовать другое"
+    },
+    "sk": {
+      "headlines": [
+        [
+          "Jedna úloha.",
+          "Jedna užitočná aplikácia."
+        ],
+        [
+          "Malé povinnosti.",
+          "Ľahší deň."
+        ],
+        [
+          "Objav aplikáciu,",
+          "o ktorej si nevedel."
+        ]
+      ],
+      "intro": "Na nákupy, každodenné poznámky a trochu zábavy. Malé aplikácie s jasným účelom.",
+      "purpose": "Nájdi, čo potrebuješ.",
+      "purposeCaption": "Filtruj podľa účelu a ceny. Aj nula výsledkov je odpoveď.",
+      "chance": "Nechaj sa prekvapiť.",
+      "chanceCaption": "Možno nájdeš niečo užitočné, čo si nehľadal.",
+      "browse": "Zúžiť výber",
+      "free": "Zobraziť bezplatné aplikácie",
+      "again": "Skúsiť inú"
+    },
+    "sl-SI": {
+      "headlines": [
+        [
+          "Ena naloga.",
+          "Ena uporabna aplikacija."
+        ],
+        [
+          "Majhna opravila.",
+          "Lažji dan."
+        ],
+        [
+          "Odkrij aplikacijo,",
+          "za katero nisi vedel."
+        ]
+      ],
+      "intro": "Za nakupe, vsakodnevne zapiske in malo zabave. Majhne aplikacije z jasnim namenom.",
+      "purpose": "Poišči, kar potrebuješ.",
+      "purposeCaption": "Filtriraj po namenu in ceni. Tudi nič zadetkov je odgovor.",
+      "chance": "Prepusti izbiro naključju.",
+      "chanceCaption": "Morda odkriješ kaj uporabnega, česar nisi iskal.",
+      "browse": "Zoži izbor",
+      "free": "Poglej brezplačne aplikacije",
+      "again": "Poskusi drugo"
+    },
+    "sv": {
+      "headlines": [
+        [
+          "En uppgift.",
+          "En användbar app."
+        ],
+        [
+          "Små sysslor.",
+          "En enklare dag."
+        ],
+        [
+          "Hitta appen",
+          "du inte visste att du behövde."
+        ]
+      ],
+      "intro": "För shopping, vardagsanteckningar och lite nöje. Små appar med ett tydligt syfte.",
+      "purpose": "Hitta det du behöver.",
+      "purposeCaption": "Filtrera efter användning och pris. Noll träffar är också ett svar.",
+      "chance": "Låt slumpen välja.",
+      "chanceCaption": "Kanske hittar du något användbart du inte letade efter.",
+      "browse": "Begränsa urvalet",
+      "free": "Visa gratisappar",
+      "again": "Prova en annan"
+    },
+    "ta-IN": {
+      "headlines": [
+        [
+          "ஒரு வேலைக்கு",
+          "ஒரு பயனுள்ள செயலி."
+        ],
+        [
+          "சின்னச் சின்ன வேலைகள்",
+          "இன்னும் எளிதாகட்டும்."
+        ],
+        [
+          "தேவை என நினைக்காத",
+          "செயலியையும் காணலாம்."
+        ]
+      ],
+      "intro": "கடைக்குச் செல்ல, தினசரி குறிப்புகள் எழுத, சிறிது விளையாட. ஒவ்வொரு செயலிக்கும் தெளிவான நோக்கம்.",
+      "purpose": "தேவையானதைத் தேடுங்கள்.",
+      "purposeCaption": "பயன் மற்றும் விலைபடி வடிகட்டுங்கள். முடிவு பூஜ்ஜியமாகவும் இருக்கலாம்.",
+      "chance": "எதிர்பாராத ஒரு செயலி.",
+      "chanceCaption": "தேடாத பயனுள்ள ஒன்றைக் கண்டுபிடிக்கலாம்.",
+      "browse": "தேர்வைக் குறைக்கவும்",
+      "free": "இலவச செயலிகளைப் பார்க்கவும்",
+      "again": "வேறொன்றைப் பார்க்கவும்"
+    },
+    "te-IN": {
+      "headlines": [
+        [
+          "ఒక పనికి",
+          "ఒక ఉపయోగకరమైన యాప్."
+        ],
+        [
+          "చిన్న పనులు",
+          "మరింత సులభంగా."
+        ],
+        [
+          "తెలియని అవసరానికి",
+          "యాప్ దొరకవచ్చు."
+        ]
+      ],
+      "intro": "షాపింగ్, రోజువారీ నోట్లు, కాస్త వినోదం కోసం. ప్రతి చిన్న యాప్‌కూ స్పష్టమైన పని ఉంటుంది.",
+      "purpose": "కావాల్సింది వెతకండి.",
+      "purposeCaption": "ఉపయోగం, ధర ప్రకారం వడపోయండి. సున్నా ఫలితమూ ఒక సమాధానమే.",
+      "chance": "అనుకోని యాప్‌ను చూడండి.",
+      "chanceCaption": "వెతకకుండానే ఉపయోగకరమైనది దొరకవచ్చు.",
+      "browse": "ఎంపికలు తగ్గించండి",
+      "free": "ఉచిత యాప్‌లు చూడండి",
+      "again": "మరో యాప్ చూడండి"
+    },
+    "th": {
+      "headlines": [
+        [
+          "หนึ่งเรื่องที่ต้องทำ",
+          "หนึ่งแอปที่ใช่"
+        ],
+        [
+          "งานเล็ก ๆ",
+          "ทำให้วันง่ายขึ้น"
+        ],
+        [
+          "อาจเจอแอป",
+          "ที่ไม่รู้ว่าต้องการ"
+        ]
+      ],
+      "intro": "สำหรับช็อปปิง จดบันทึกประจำวัน และความสนุกเล็ก ๆ แอปเล็กที่มีหน้าที่ชัดเจน",
+      "purpose": "ค้นหาสิ่งที่ต้องการ",
+      "purposeCaption": "กรองตามการใช้งานและราคา ไม่พบแอปก็เป็นคำตอบได้",
+      "chance": "ลองให้ความบังเอิญเลือก",
+      "chanceCaption": "คุณอาจพบแอปที่มีประโยชน์โดยไม่ได้ตั้งใจค้นหา",
+      "browse": "คัดตัวเลือก",
+      "free": "ดูแอปฟรี",
+      "again": "ลองแอปอื่น"
+    },
+    "tr": {
+      "headlines": [
+        [
+          "Bir iş için",
+          "bir doğru uygulama."
+        ],
+        [
+          "Küçük işler.",
+          "Daha kolay günler."
+        ],
+        [
+          "İhtiyacın olduğunu bilmediğin",
+          "uygulamayı bul."
+        ]
+      ],
+      "intro": "Alışveriş, günlük notlar ve biraz eğlence için. Her biri belirli bir işe yarayan küçük uygulamalar.",
+      "purpose": "İhtiyacından yola çık.",
+      "purposeCaption": "Amaca ve fiyata göre daralt. Sıfır sonuç da bir sonuçtur.",
+      "chance": "Şansa bir uygulama bırak.",
+      "chanceCaption": "Aramadığın bir kolaylıkla karşılaşabilirsin.",
+      "browse": "Seçenekleri daralt",
+      "free": "Ücretsiz uygulamaları gör",
+      "again": "Başka bir uygulama"
+    },
+    "uk": {
+      "headlines": [
+        [
+          "Одна справа.",
+          "Один корисний застосунок."
+        ],
+        [
+          "Дрібні турботи.",
+          "Трохи легший день."
+        ],
+        [
+          "Знайди застосунок,",
+          "про який не здогадувався."
+        ]
+      ],
+      "intro": "Для покупок, щоденних записів і трохи розваг. Маленькі застосунки з чітким призначенням.",
+      "purpose": "Знайди те, що потрібно.",
+      "purposeCaption": "Фільтруй за призначенням і ціною. Нуль результатів — теж відповідь.",
+      "chance": "Довірся випадку.",
+      "chanceCaption": "Можливо, знайдеш щось корисне, чого не шукав.",
+      "browse": "Звузити вибір",
+      "free": "Переглянути безкоштовні",
+      "again": "Спробувати інший"
+    },
+    "ur-PK": {
+      "headlines": [
+        [
+          "ایک کام کے لیے",
+          "ایک مفید ایپ۔"
+        ],
+        [
+          "چھوٹے کام",
+          "ذرا آسان بنائیں۔"
+        ],
+        [
+          "شاید مل جائے ایسی ایپ",
+          "جس کی ضرورت معلوم نہ تھی۔"
+        ]
+      ],
+      "intro": "خریداری، روزمرہ نوٹس اور تھوڑی تفریح کے لیے۔ ہر چھوٹی ایپ کا مقصد واضح ہے۔",
+      "purpose": "ضرورت کے مطابق تلاش کریں۔",
+      "purposeCaption": "کام اور قیمت کے لحاظ سے چھانٹیں۔ صفر نتیجہ بھی جواب ہے۔",
+      "chance": "اتفاق سے ایک ایپ دیکھیں۔",
+      "chanceCaption": "شاید ایسی مفید چیز ملے جسے آپ تلاش نہیں کر رہے تھے۔",
+      "browse": "انتخاب محدود کریں",
+      "free": "مفت ایپس دیکھیں",
+      "again": "دوسری ایپ دیکھیں"
+    },
+    "vi": {
+      "headlines": [
+        [
+          "Một việc nhỏ.",
+          "Một ứng dụng hữu ích."
+        ],
+        [
+          "Việc lặt vặt.",
+          "Ngày nhẹ nhàng hơn."
+        ],
+        [
+          "Tìm ứng dụng",
+          "bạn chưa biết mình cần."
+        ]
+      ],
+      "intro": "Để mua sắm, ghi chép hằng ngày và giải trí một chút. Những ứng dụng nhỏ, mỗi cái có mục đích rõ ràng.",
+      "purpose": "Tìm đúng thứ bạn cần.",
+      "purposeCaption": "Lọc theo công dụng và giá. Không có kết quả cũng là một câu trả lời.",
+      "chance": "Để may mắn chọn giúp.",
+      "chanceCaption": "Biết đâu bạn gặp ứng dụng hữu ích mà không hề tìm kiếm.",
+      "browse": "Thu hẹp lựa chọn",
+      "free": "Xem ứng dụng miễn phí",
+      "again": "Thử ứng dụng khác"
+    },
+    "zh-Hans": {
+      "headlines": [
+        [
+          "一件小事，",
+          "一个好用的应用。"
+        ],
+        [
+          "琐碎的事，",
+          "做起来轻松一点。"
+        ],
+        [
+          "发现那个",
+          "意想不到的实用应用。"
+        ]
+      ],
+      "intro": "购物计算、日常记录，还有一点小游戏。每款小应用都有明确的用途。",
+      "purpose": "从需要出发找应用。",
+      "purposeCaption": "按用途和价格筛选。没有结果，也是真实的结果。",
+      "chance": "偶遇一款应用。",
+      "chanceCaption": "也许会发现原本没想到的方便工具。",
+      "browse": "缩小范围",
+      "free": "看看免费应用",
+      "again": "换一个看看"
+    },
+    "zh-Hant": {
+      "headlines": [
+        [
+          "一件小事，",
+          "一個好用的 App。"
+        ],
+        [
+          "生活瑣事，",
+          "做起來輕鬆一點。"
+        ],
+        [
+          "發現那個",
+          "意想不到的實用 App。"
+        ]
+      ],
+      "intro": "購物計算、日常記錄，還有一點小遊戲。每款小 App 都有明確的用途。",
+      "purpose": "從需要出發找 App。",
+      "purposeCaption": "依用途和價格篩選。沒有結果，也是真實的結果。",
+      "chance": "偶遇一款 App。",
+      "chanceCaption": "也許會發現原本沒想到的方便工具。",
+      "browse": "縮小範圍",
+      "free": "看看免費 App",
+      "again": "換一個看看"
+    }
+  }
+}

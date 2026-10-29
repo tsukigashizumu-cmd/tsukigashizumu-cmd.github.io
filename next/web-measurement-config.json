@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "enabled": false,
+  "measurementId": "",
+  "privacyReviewed": false,
+  "localeReviewed": false,
+  "ga4PropertyVerified": false,
+  "notes": "DISABLED by design. Activate only after GA4 ownership, 50-locale policy, retention and live QA are verified; no placeholders."
+}

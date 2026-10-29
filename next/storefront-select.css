@@ -1,0 +1,10 @@
+/* P1L storefront selector: additive, header only; P20 atelier.css untouched. */
+.tsz-storefront-control{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(222,193,167,.32);border-radius:12px;padding:0 9px;min-height:44px;background:rgba(45,29,46,.45);color:inherit;max-width:220px}
+.tsz-storefront-control select{min-height:44px;max-width:175px;min-width:95px;color:inherit;background:transparent;border:0;font:inherit;cursor:pointer;appearance:auto}
+.tsz-storefront-symbol{opacity:.7;font-size:16px}
+.tsz-storefront-auto{min-width:44px;min-height:44px;border:1px solid rgba(222,193,167,.32);border-radius:12px;color:inherit;background:rgba(45,29,46,.45);font-size:22px;cursor:pointer}
+.tsz-storefront-auto[hidden]{display:none!important}
+.tsz-storefront-control:focus-within,.tsz-storefront-auto:focus-visible{outline:2px solid #edcba6;outline-offset:2px}
+.tsz-storefront-message{font-size:11px;line-height:1.45;max-width:270px;color:#d4c0b6;overflow-wrap:anywhere}
+@media(max-width:740px){.site-head .header-actions{flex-wrap:wrap;gap:6px}.tsz-storefront-control{max-width:min(100%,220px)}.tsz-storefront-message{width:100%;max-width:none;order:5}.tsz-storefront-control select{max-width:155px}}
+@media(prefers-reduced-motion:reduce){.tsz-storefront-auto{transition:none}}

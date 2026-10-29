@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Website privacy · Tsukigashizumu Studio</title>
+<meta name="description" content="How the Tsukigashizumu Studio app collection website handles language and App Store choices, Apple lookups, and optional website analytics.">
+<style>
+:root{color-scheme:dark;background:#16151a;color:#f5eee8;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+*{box-sizing:border-box}body{max-width:800px;margin:auto;padding:24px 22px 88px;font-size:16px;line-height:1.75}
+a{color:#f1c5a9;text-underline-offset:3px}a:focus-visible,button:focus-visible{outline:3px solid #f1c5a9;outline-offset:4px}
+.back{display:inline-flex;align-items:center;min-height:44px}.eyebrow{font-size:12px;letter-spacing:.15em;color:#b9a89f;text-transform:uppercase;margin-top:38px}
+h1{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(30px,5vw,47px);line-height:1.12;margin:12px 0 12px}
+h2{font-size:19px;margin:32px 0 8px;line-height:1.4;font-weight:600}p{margin:10px 0}ul{padding-left:24px;margin:8px 0}li{margin:7px 0}
+.small{font-size:14px;color:#c6b8af}.langbar{display:flex;gap:9px;margin:24px 0 28px;flex-wrap:wrap}.langbar button{min-height:44px;padding:9px 17px;border-radius:8px;border:1px solid #88776e;background:#262329;color:#f6eae1;cursor:pointer;font:inherit}
+.langbar button[aria-pressed="true"]{border-color:#ecc5aa;background:#483529}.panel{padding-top:2px}.panel[hidden]{display:none}
+.notice{border-left:2px solid #be9f89;padding:10px 15px;background:rgba(255,255,255,.035)}.divider{border-top:1px solid #4c4242;margin:35px 0 23px}
+@media (max-width:400px){body{padding:18px 18px 70px}h1{font-size:32px}}
+</style>
+</head>
+<body>
+<a id="back" class="back" href="./">← Back to the app collection / アプリ一覧へ</a>
+<p class="eyebrow">Tsukigashizumu Studio · Website privacy</p>
+<div class="langbar" role="group" aria-label="Policy language / 表示言語">
+<button id="policy-en" type="button" aria-pressed="true">English</button>
+<button id="policy-ja" type="button" aria-pressed="false">日本語</button>
+</div>
+<article id="policy-content-en" class="panel" lang="en">
+<h1>Website privacy</h1>
+<p class="small">Updated 29 October 2026 · Website only (not an iOS app privacy policy)</p>
+<p class="notice">This policy describes how this website currently works. Google Analytics is disabled. Before enabling analytics or materially changing how information is handled, we will review and update this policy and any required consent controls.</p>
+<h2>1. What this website does</h2>
+<p>This website presents apps by Tsukigashizumu Studio. Visitors can choose a display language and a country or region of the App Store, inspect publicly available app information, and follow links to Apple's App Store. Choosing a country on this website does not change the country of a visitor's Apple Account or guarantee that an app can be purchased there.</p>
+<h2>2. Requests to Apple</h2>
+<p>When a storefront is selected or the catalog is loaded, the website may request public app details and prices directly from Apple's <code>itunes.apple.com</code> Lookup API. These requests contain the selected country code and publicly listed app IDs. Because the visitor's browser makes the request, Apple can receive technical connection information such as an IP address and browser headers according to its own practices. Following an App Store link takes the visitor to <code>apps.apple.com</code>, where Apple's terms and privacy practices apply. A missing lookup result is not proof that an app is unavailable for sale.</p>
+<h2>3. Information kept in the browser</h2>
+<p>The website uses local browser storage to remember the selected display language and, when manually chosen, the App Store country or region. In-memory app lookup results may be reused briefly while the page is open. The website does not require an account to browse the app collection.</p>
+<h2>4. Optional website analytics</h2>
+<p>Google Analytics 4 (GA4) is <strong>currently disabled</strong>; no GA4 measurement ID is configured. A separate website consent interface has been prepared for possible future use. If the operator later verifies and enables GA4, analytics scripts are designed not to load until the visitor actively agrees. Declining analytics must not prevent ordinary browsing or App Store links. An analytics choice, if offered, can be stored in the browser and changed from “Analytics choices” on the app collection page.</p>
+<p>If enabled after approval, GA4 may process website page visits, certain browser and cookie information, and clicks on App Store links to produce aggregate reporting. These website clicks are <strong>not</strong> proof of an App Store purchase. The current implementation does not include advertising personalization. Data retention, Google property ownership, and required regional consent arrangements must be checked before GA4 is enabled.</p>
+<h2>5. Site hosting and app-to-site links</h2>
+<p>The website uses GitHub Pages hosting. The hosting provider may process routine access data, such as requests and technical logs, according to its practices. App-to-site links are designed to carry only fixed campaign attribution labels; they do not carry an app user's name, email address, device identifier, calculation contents, or other app records. The website's use of Apple's public Lookup API is separate from consent for GA4.</p>
+<h2>6. Questions and changes</h2>
+<p>For questions about this website, contact <a href="mailto:tsukigashizumu@gmail.com">tsukigashizumu@gmail.com</a>. GA4 remains disabled, and no future GA4 data retention period is asserted until it is verified. We will update this policy if the way this website handles information changes materially.</p>
+<p class="small">Detailed privacy information is available in English and Japanese. Other website interface languages currently display the English policy.</p>
+</article>
+<article id="policy-content-ja" class="panel" lang="ja" hidden>
+<h1>ウェブサイトのプライバシー</h1>
+<p class="small">更新日：2026年10月29日 · 本文書はウェブサイトに関する説明であり、iOSアプリのプライバシーポリシーとは別です。</p>
+<p class="notice">このポリシーは、現在のウェブサイトでの情報の取り扱いを説明しています。Google Analyticsは現在無効です。将来、アクセス解析を有効にする場合や情報の取り扱いを大きく変更する場合には、事前に本ポリシーと必要な同意管理を見直し、更新します。</p>
+<h2>1. このサイトでできること</h2>
+<p>Tsukigashizumu Studioのアプリを紹介するウェブサイトです。閲覧者は表示言語とApp Storeの国・地域を選び、公開されているアプリ情報や価格を確認して、AppleのApp Storeへ移動できます。サイトで国・地域を選んでも、Apple Accountの国・地域は変更されません。また、選択したストアで購入できることを保証するものではありません。</p>
+<h2>2. Appleへの通信</h2>
+<p>国・地域の選択時やアプリ一覧の読み込み時に、公開アプリ情報と価格を、閲覧者のブラウザからAppleの <code>itunes.apple.com</code> Lookup APIへ直接照会することがあります。照会には選択した国コードと公開アプリIDを使用します。ブラウザから直接通信するため、AppleにはIPアドレスやブラウザの通信ヘッダーなどの技術情報が、Appleの取り扱いに従って伝わる可能性があります。App Storeのリンクを開くと <code>apps.apple.com</code> に移動し、以後はAppleの規約・プライバシー上の取り扱いが適用されます。照会結果が0件であることは、その地域で販売されていないことの確定を意味しません。</p>
+<h2>3. ブラウザ内に保存する情報</h2>
+<p>表示言語と、閲覧者が手動で選んだApp Storeの国・地域を、ブラウザのローカルストレージに保存します。ページを開いている間、取得済みの商品情報を短時間再利用する場合があります。アプリ一覧の閲覧にアカウント登録は必要ありません。</p>
+<h2>4. 任意のアクセス解析</h2>
+<p>現在、Google Analytics 4（GA4）は<strong>無効</strong>で、計測IDも設定されていません。将来の利用に備えて、ウェブサイト専用の同意画面を用意しています。運営者が必要事項を確認してGA4を有効化する場合も、閲覧者が明示的に同意する前には解析スクリプトを読み込まない設計です。解析を拒否しても通常の閲覧やApp Storeへの移動は妨げません。同意選択が提供された場合、その選択はブラウザに保存され、アプリ一覧の「解析の設定」から変更できます。</p>
+<p>有効化後は、ページ閲覧、Cookieやブラウザに関する一部の情報、App Storeリンクのクリックなどが、Googleによってサイトの利用状況の集計に使われる可能性があります。ウェブ上のクリックは<strong>App Storeでの購入を証明しません</strong>。現行の実装では広告のパーソナライズは行いません。GA4を有効化する前に、データ保持期間、GA4プロパティの管理者、各地域で必要な同意手続きを確認します。</p>
+<h2>5. ホスティングとアプリからのリンク</h2>
+<p>このサイトはGitHub Pagesをホスティングに利用します。ホスティング事業者が、通常のアクセス記録や技術的なログを取り扱う可能性があります。アプリからのリンクには、定型の流入経路ラベルのみを付与する設計で、利用者の氏名、メールアドレス、端末識別子、計算内容、その他のアプリ記録は含めません。Appleへの公開API照会と、GA4への同意は別のものです。</p>
+<h2>6. 問い合わせと変更</h2>
+<p>このウェブサイトに関するお問い合わせは <a href="mailto:tsukigashizumu@gmail.com">tsukigashizumu@gmail.com</a> までご連絡ください。GA4は現在無効であり、将来のGA4データ保持期間は確認が完了するまで断定しません。ウェブサイトでの情報の取り扱いに重要な変更があれば、本文書を更新します。</p>
+<p class="small">詳細なプライバシー情報は日本語と英語で提供しています。ほかの表示言語では、現在は英語版のポリシーを表示します。</p>
+</article>
+<div class="divider"></div>
+<p class="small"><a id="back-bottom" href="./">Return to the app collection / アプリ一覧へ戻る</a></p>
+<script>
+(() => {
+'use strict';
+const k='tsz-next-language',valid=/^[a-z]{2,3}(?:-[A-Za-z]{2,5})?$/;
+let siteLanguage='en-US';
+try{const q=new URLSearchParams(location.search).get('language');const saved=localStorage.getItem(k);siteLanguage=(q&&valid.test(q)?q:valid.test(saved||'')?saved:'en-US');}catch(_){}
+const main=document.getElementById('back'),bottom=document.getElementById('back-bottom');
+const link='./?language='+encodeURIComponent(siteLanguage);
+main.href=link;bottom.href=link;
+const english=document.getElementById('policy-content-en'),japanese=document.getElementById('policy-content-ja');
+function setPolicy(lang){const ja=lang==='ja';english.hidden=ja;japanese.hidden=!ja;document.documentElement.lang=ja?'ja':'en';document.title=(ja?'ウェブサイトのプライバシー':'Website privacy')+' · Tsukigashizumu Studio';document.getElementById('policy-en').setAttribute('aria-pressed',String(!ja));document.getElementById('policy-ja').setAttribute('aria-pressed',String(ja));}
+document.getElementById('policy-en').addEventListener('click',()=>setPolicy('en'));
+document.getElementById('policy-ja').addEventListener('click',()=>setPolicy('ja'));
+setPolicy(siteLanguage.startsWith('ja')?'ja':'en');
+})();
+</script>
+</body>
+</html>

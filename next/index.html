@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111316">
+  <meta name="description" content="Explore publicly listed apps from the US App Store.">
+  <title>Explore apps · Tsukigashizumu Studio</title>
+  <script>try{const a=new URLSearchParams(location.search).get('atelier');if(a==='1'||a==='2'||a==='3'||a==='4'||a==='5'||a==='6'||a==='7'||a==='8'||a==='9'||a==='10'||a==='11'){document.documentElement.dataset.artDirection='painted-matter';if(a==='2')document.documentElement.dataset.artVisualVersion='p11-nocturne';if(a==='3'||a==='4'||a==='5'||a==='6'||a==='7'||a==='8'||a==='9'||a==='10'||a==='11')document.documentElement.dataset.artVisualVersion='p12-royale';if(a==='4'||a==='5'||a==='6'||a==='7'||a==='8'||a==='9'||a==='10'||a==='11')document.documentElement.dataset.lunarReal='1';if(a==='5'||a==='6'||a==='7'||a==='8'||a==='9'||a==='10'||a==='11')document.documentElement.dataset.moonSerene='1';if(a==='6'||a==='7'||a==='8'||a==='9'||a==='10'||a==='11')document.documentElement.dataset.lunarChroma='1';if(a==='7')document.documentElement.dataset.softLimb='1';if(a==='8'||a==='9'||a==='10'||a==='11')document.documentElement.dataset.trueLimb='1';if(a==='9'||a==='10'||a==='11')document.documentElement.dataset.naturalLimb='1';if(a==='10'||a==='11')document.documentElement.dataset.lunarGallery='1';if(a==='11')document.documentElement.dataset.salonFinish='1';}}catch(_){}</script>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./atelier.css">
+  <link rel="stylesheet" href="./web-measurement.css">
+  <link rel="stylesheet" href="./storefront-select.css">
+  <script defer src="./i18n.js"></script>
+  <script defer src="./device-layout.js"></script>
+  <script defer src="./web-measurement.js"></script>
+  <script defer src="./experiment.js"></script>
+  <script defer src="./hero-fit.js"></script>
+  <script defer src="./atelier.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <div class="shell">
+    <header class="site-head">
+      <a class="brand" href="../" aria-label="Tsukigashizumu Studio"><span class="brand-mark">t.</span><span>tsukigashizumu <span class="dim">studio</span></span></a>
+      <div class="header-actions">
+        <label class="locale-wrap"><span class="sr-only" data-i18n="language">Language</span><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c-7 6-7 12 0 18M12 3c7 6 7 12 0 18"></path></svg><select id="locale-select" aria-label="Language"></select></label>
+        <label class="tsz-storefront-control" for="tsz-storefront-select"><span class="tsz-storefront-symbol" aria-hidden="true">◎</span><span class="sr-only">App Store</span><select id="tsz-storefront-select" aria-label="App Store country / region"></select></label>
+        <button type="button" class="tsz-storefront-auto" id="tsz-storefront-auto" aria-label="Match App Store to language" title="Match App Store to language">↺</button>
+        <span id="tsz-storefront-message" class="tsz-storefront-message" role="status" aria-live="polite" aria-atomic="true"></span>
+        <a id="developer-link" class="storefront-link" href="https://apps.apple.com/us/developer/makoto-fukuoka/id1817908735" rel="noopener noreferrer" target="_blank"><span data-i18n="developer">Developer page</span> <span aria-hidden="true">↗</span></a>
+      </div>
+    </header>
+    <main>
+      <section class="hero" aria-labelledby="headline">
+        <div class="eyebrow"><span class="live-dot"></span><span id="storefront-eyebrow" dir="auto">APP STORE · UNITED STATES</span></div>
+        <h1 id="headline"><span id="hero-line1">One task.</span><br><em id="hero-line2">One useful app.</em></h1>
+        <p class="intro" id="hero-intro">For shopping, everyday records and a little fun. Small apps with clear purposes.</p>
+        <nav class="hero-actions" aria-label="Site sections"><a class="button-primary" href="#choose"><span id="hero-cta-browse">Narrow the choices</span> <span aria-hidden="true">↗</span></a><a class="button-outline" href="#free-now"><span id="hero-cta-free">See free apps</span></a></nav>
+        <div class="hero-lower">
+          <div class="stat"><strong id="app-count">—</strong><span data-i18n="appsFound">Apps found</span></div>
+          <div class="stat"><strong id="free-count">—</strong><span data-i18n="freeAt">Free at last check</span></div>
+          <div class="stat checked"><strong id="checked-at">—</strong><span data-i18n="checked">Last public data check</span></div>
+        </div>
+      </section>
+      <section class="choice-section" id="choose" aria-label="Choose how to explore">
+        <div class="choice-heading"><span class="eyebrow" data-i18n="collection">THE COLLECTION</span><a class="section-link" href="#catalog"><span data-i18n="explore">Explore the apps</span> <span aria-hidden="true">↗</span></a></div>
+        <div class="choice-grid">
+          <div class="choice-panel choice-purpose" aria-labelledby="purpose-title">
+            <div class="choice-topline"><span class="choice-ordinal">01</span><span class="choice-icon" aria-hidden="true">◎</span></div>
+            <h2 id="purpose-title">Find what you need.</h2>
+            <p id="purpose-caption" class="choice-caption">Narrow by purpose and price. Zero is a valid result.</p>
+            <div id="purpose-categories" class="purpose-categories" role="group" aria-label="Browse by category"></div>
+            <div class="purpose-controls">
+              <div class="purpose-prices" role="group" aria-label="Filter by price">
+                <button type="button" data-purpose-price="all" aria-pressed="true" data-i18n="all">All</button>
+                <button type="button" data-purpose-price="free" aria-pressed="false" data-i18n="free">Free</button>
+                <button type="button" data-purpose-price="paid" aria-pressed="false" data-i18n="paid">Paid</button>
+              </div>
+              <label class="purpose-search"><span class="sr-only" data-i18n="search">Search apps</span><input id="purpose-search" type="search" autocomplete="off" data-i18n-placeholder="search" placeholder="Search apps"></label>
+            </div>
+            <div class="purpose-result-head"><p class="purpose-count" aria-live="polite"><strong id="purpose-count">—</strong> <span data-i18n="appsFound">Apps found</span></p><button type="button" id="purpose-reset" class="purpose-reset" data-i18n="all">All</button></div>
+            <div id="purpose-preview" class="purpose-preview" aria-live="polite"></div>
+            <a class="choice-link" href="#catalog"><span data-i18n="explore">Explore the apps</span> <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="choice-panel choice-random" aria-labelledby="random-title">
+            <div class="choice-topline"><span class="choice-ordinal">02</span><span class="choice-icon" aria-hidden="true">✳</span></div>
+            <h2 id="random-title">Meet a surprise pick.</h2>
+            <p id="random-caption" class="choice-caption">You might find something useful along the way.</p>
+            <div id="pick-content" class="discovery-result" aria-live="polite"></div>
+            <button type="button" id="pick-button" class="button-primary choice-pick">Try another app</button>
+          </div>
+        </div>
+      </section>
+      <section class="free-section" id="free-now" aria-labelledby="free-title">
+        <div class="section-head free-head"><div><div class="eyebrow"><span class="live-dot"></span><span data-i18n="freeAt">Free at last check</span></div><div class="free-title-row"><h2 id="free-title" data-i18n="freePrice">FREE</h2><span id="free-total" class="free-total" aria-live="polite">—</span></div></div><a class="section-link" href="#catalog"><span data-i18n="explore">Explore the apps</span> <span aria-hidden="true">↗</span></a></div>
+        <p id="free-status" class="section-note" role="status" aria-live="polite"></p>
+        <div id="free-apps" class="free-grid"></div>
+      </section>
+      <section class="paid-section" id="paid-now" aria-labelledby="paid-title">
+        <div class="section-head paid-head">
+          <div>
+            <div class="eyebrow" data-i18n="priceSort">Price: low to high</div>
+            <div class="paid-title-row"><h2 id="paid-title" data-i18n="paid">Paid</h2><span id="paid-floor" class="paid-floor" aria-live="polite">—</span></div>
+          </div>
+          <a class="section-link" href="#catalog"><span data-i18n="explore">Explore the apps</span> <span aria-hidden="true">↗</span></a>
+        </div>
+        <p id="paid-status" class="section-note" role="status" aria-live="polite"></p>
+        <div id="paid-apps" class="paid-grid"></div>
+      </section>
+      <section class="catalog" id="catalog" aria-labelledby="catalog-title">
+        <div class="catalog-head"><div><div class="eyebrow" data-i18n="collection">THE COLLECTION</div><h2 id="catalog-title"><span data-i18n="explore">Explore the apps</span><span class="head-dot">.</span></h2></div><p class="tiny" data-i18n="tagline">No account. No pressure. Just discover.</p></div>
+        <div class="toolbar">
+          <label class="search-wrap"><span class="sr-only" data-i18n="search">Search apps</span><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"></circle><path d="m16.5 16.5 5 5"></path></svg><input id="search" type="search" autocomplete="off" placeholder="Search…" data-i18n-placeholder="search"></label>
+          <div class="segmented" role="group" aria-label="Filter apps"><button data-filter="all" aria-pressed="true" data-i18n="all">All</button><button data-filter="free" aria-pressed="false" data-i18n="free">Free</button><button data-filter="paid" aria-pressed="false" data-i18n="paid">Paid</button></div>
+          <label class="sort-label"><select id="sort" aria-label="Sort"><option value="price" data-i18n="priceSort">Price: low to high</option><option value="name" data-i18n="nameSort">Name: A to Z</option></select></label>
+        </div>
+        <div class="category-header"><span data-i18n="lpCategories">Browse by category</span></div><div id="category-filters" class="category-filters" role="group" aria-label="Browse by category"></div>
+        <p id="status" class="status" role="status" aria-live="polite" data-i18n="loading">Loading catalog…</p>
+        <p id="description-source" class="source-note" data-i18n="sourceInfo">App descriptions may appear in another language, even in your region.</p>
+        <div id="apps" class="app-grid" aria-live="off"></div>
+      </section>
+    </main>
+    <footer><span>© Tsukigashizumu Studio</span><span data-i18n="footer">Regional storefront · Final price and availability are determined by the App Store.</span></footer>
+    <nav class="tsz-measurement-footer" aria-label="Web privacy"><a href="./web-privacy.html" id="tsz-web-privacy-link">Website privacy</a><button id="tsz-consent-reopen" type="button" hidden>Analytics choices</button></nav>
+  </div>
+</body>
+</html>

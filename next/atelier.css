@@ -1,0 +1,1467 @@
+/* P10 — PAINTED MATTER (original abstract material language).
+   Opt-in only: /next/?atelier=1. Default site has zero P10 style changes.
+   Abstract painting is authored procedurally, no third-party artwork or imagery. */
+html[data-art-direction="painted-matter"] {
+  color-scheme: dark;
+  --bg:#171315; --panel:#251e20; --ink:#fff3e8; --muted:#d0bdb8;
+  --hair:#66514e; --soft:#31272a; --accent:#eeb79b;
+  --art-ink:#fff2e4; --art-rule:#7a5958;
+  background:#171315;
+}
+html[data-art-direction="painted-matter"][data-exp-color="lime"] {--accent:#eeb79b}
+html[data-art-direction="painted-matter"][data-exp-color="sky"] {--accent:#acd9df}
+html[data-art-direction="painted-matter"] body {
+  background:
+    radial-gradient(ellipse at 93% 5%,rgb(112 68 70 / 14%),transparent 43rem),
+    radial-gradient(ellipse at 2% 68%,rgb(106 74 84 / 10%),transparent 53rem),
+    #171315;
+  color:var(--ink);
+}
+html[data-art-direction="painted-matter"] ::selection { background:#ad6f6f; color:#fff; }
+html[data-art-direction="painted-matter"] .shell {position:relative}
+html[data-art-direction="painted-matter"] .site-head {
+  border-bottom-color:#675350; position:relative; z-index:3;
+}
+html[data-art-direction="painted-matter"] .brand-mark {
+  background:#e9c4b0; color:#2d1e22; border-radius:5px;
+  box-shadow:inset 0 0 0 1px rgb(255 255 255 / 25%);
+}
+html[data-art-direction="painted-matter"] .locale-wrap,
+html[data-art-direction="painted-matter"] .locale-wrap select {
+  background:#2b2325; color:var(--ink);
+}
+html[data-art-direction="painted-matter"] .storefront-link {
+  background:rgb(255 247 227 / 3%);
+}
+html[data-art-direction="painted-matter"] .hero {
+  position:relative; isolation:isolate; overflow:hidden;
+  border:1px solid #795c59; border-radius:28px;
+  margin-top:30px; margin-bottom:4px;
+  padding:clamp(34px,6.4vw,78px) clamp(25px,5.4vw,78px) 38px;
+  background:linear-gradient(120deg,#291d22,#4d3138 70%,#33252a);
+  min-height:550px;
+  box-shadow:0 29px 60px rgb(0 0 0 / 20%),inset 0 1px rgb(255 255 255 / 9%);
+}
+html[data-art-direction="painted-matter"] .hero-art {
+  position:absolute;z-index:-3;inset:0;width:100%;height:100%;display:block;pointer-events:none;
+}
+html[data-art-direction="painted-matter"] .hero::before {
+  content:"";position:absolute;inset:0;z-index:-2;pointer-events:none;
+  background:
+    linear-gradient(92deg,#21181dbd 0%,#24191de8 18%,#281e21c7 37%,#2a20216b 62%,#24191d14 100%),
+    linear-gradient(0deg,#1c181be8 0%,transparent 33%);
+}
+html[data-art-direction="painted-matter"] .hero::after {
+  content:"";pointer-events:none;position:absolute;inset:11px;z-index:-1;
+  border:1px solid rgb(255 237 209 / 16%);border-radius:21px;
+}
+html[data-art-direction="painted-matter"] .hero .eyebrow {color:#f6d8c7; font-weight:720;position:relative}
+html[data-art-direction="painted-matter"] .hero .live-dot {background:#f0baa3}
+html[data-art-direction="painted-matter"] .hero h1 {
+  color:#fff2e5;line-height:1.04;letter-spacing:-.063em;max-width:100%;
+  text-shadow:0 3px 24px rgb(17 12 14 / 26%);
+  position:relative;
+}
+html[data-art-direction="painted-matter"] .hero h1 em {
+  font-family:Georgia,"Times New Roman",serif;
+  font-style:italic;font-weight:450;color:#f3c1b3;
+}
+html[data-art-direction="painted-matter"] .hero .intro {
+  max-width:590px;color:#f2dad1; font-size:clamp(15px,1.6vw,18px);
+  text-shadow:0 2px 15px #27191ad9;
+}
+html[data-art-direction="painted-matter"] .button-primary {
+  color:#2d2022;background:var(--accent);border-color:var(--accent);
+  box-shadow:inset 0 1px rgb(255 255 255 / 22%);
+}
+html[data-art-direction="painted-matter"] .button-primary:hover {filter:brightness(1.09);background:var(--accent)}
+html[data-art-direction="painted-matter"] .button-outline {background:rgb(28 18 22 / 38%);border-color:#bb9890;color:#fff2e4}
+html[data-art-direction="painted-matter"] .button-outline:hover {background:rgb(247 220 196 / 10%)}
+html[data-art-direction="painted-matter"] .hero-lower {
+  border-top:1px solid #f8d2c149;padding-top:24px;margin-top:20px;
+  position:relative;
+}
+html[data-art-direction="painted-matter"] .hero-lower .stat strong {color:#fff1e4}
+html[data-art-direction="painted-matter"] .hero-lower .stat span {color:#e3c5bd}
+html[data-art-direction="painted-matter"] .choice-section,
+html[data-art-direction="painted-matter"] .free-section,
+html[data-art-direction="painted-matter"] .paid-section {
+  border-bottom-color:#604a48;
+}
+html[data-art-direction="painted-matter"] .choice-section {padding-top:52px}
+html[data-art-direction="painted-matter"] .choice-panel {
+  position:relative;isolation:isolate;overflow:hidden;
+  background:linear-gradient(158deg,#3c2d31 0%,#231b20 62%,#201b1d 100%);
+  border:1px solid #83615e;border-radius:18px;
+  box-shadow:inset 0 1px rgb(255 241 230 / 7%),0 8px 27px rgb(0 0 0 / 13%);
+}
+html[data-art-direction="painted-matter"] .choice-panel::before {
+  content:"";position:absolute;inset:-20% -25% 25% 26%;z-index:-1;
+  background:radial-gradient(ellipse at 75% 35%,rgb(174 98 100 / 17%),transparent 60%),
+             repeating-linear-gradient(158deg,transparent 0 21px,rgb(255 219 186 / 1.7%) 22px 23px);
+  pointer-events:none;
+}
+html[data-art-direction="painted-matter"] .choice-random {
+  background:radial-gradient(ellipse at 100% 0%,#695152 0%,#33272d 43%,#211b20 93%);
+}
+html[data-art-direction="painted-matter"] .choice-ordinal {letter-spacing:.26em}
+html[data-art-direction="painted-matter"] .choice-icon {color:#edb5a5;font-family:Georgia,serif}
+html[data-art-direction="painted-matter"] .choice-caption {color:#d9c4be}
+html[data-art-direction="painted-matter"] .purpose-categories button,
+html[data-art-direction="painted-matter"] .purpose-prices button,
+html[data-art-direction="painted-matter"] .category-filters button {
+  background:rgb(30 24 26 / 61%);border-color:#846c68;color:#f1dbd1;
+}
+html[data-art-direction="painted-matter"] .purpose-categories button[aria-pressed=true],
+html[data-art-direction="painted-matter"] .purpose-prices button[aria-pressed=true],
+html[data-art-direction="painted-matter"] .category-filters button[aria-pressed=true],
+html[data-art-direction="painted-matter"] .segmented button[aria-pressed=true] {
+  background:var(--accent);color:#2d2022;border-color:var(--accent);
+}
+html[data-art-direction="painted-matter"] .purpose-search input,
+html[data-art-direction="painted-matter"] .search-wrap,
+html[data-art-direction="painted-matter"] .segmented,
+html[data-art-direction="painted-matter"] .sort-label,
+html[data-art-direction="painted-matter"] .sort-label select {
+  background:#2d2426;border-color:#7d615b;color:#fff1e7;
+}
+html[data-art-direction="painted-matter"] .purpose-search input::placeholder,
+html[data-art-direction="painted-matter"] .search-wrap input::placeholder {color:#cab6ae}
+html[data-art-direction="painted-matter"] .purpose-mini,
+html[data-art-direction="painted-matter"] .choice-random .discovery-result .app-card {
+  background:#2c2527;border-color:#75605a;
+}
+html[data-art-direction="painted-matter"] .purpose-mini-link,
+html[data-art-direction="painted-matter"] .purpose-reset {border-color:#9e8076}
+html[data-art-direction="painted-matter"] .free-title-row h2 {
+  color:#eec2ad;text-shadow:0 4px 22px rgb(188 84 92 / 18%);
+}
+html[data-art-direction="painted-matter"] .paid-title-row h2 {color:#fff0e5}
+html[data-art-direction="painted-matter"] .app-card {
+  background:linear-gradient(158deg,#312729,#231d20 82%);
+  border-color:#715a55;border-radius:13px;
+  box-shadow:inset 0 1px rgb(255 243 219 / 5%);
+  transition:border-color .25s ease,transform .25s ease,box-shadow .25s ease;
+}
+html[data-art-direction="painted-matter"] .app-card:hover {
+  border-color:#ce9f8e;transform:translateY(-3px);
+  box-shadow:0 13px 25px rgb(0 0 0 / 20%);
+}
+html[data-art-direction="painted-matter"] .free-grid .app-card {
+  background:linear-gradient(130deg,#39302e,#262124 74%);border-color:#84736b;
+}
+html[data-art-direction="painted-matter"] .paid-grid .app-card {
+  background:linear-gradient(145deg,#302a2d,#221d20 82%);border-color:#69565a;
+}
+html[data-art-direction="painted-matter"] .price {border-color:#b08c82;color:#f7c5b0;background:rgb(30 24 24 / 35%)}
+html[data-art-direction="painted-matter"] .category {color:#edbca7}
+html[data-art-direction="painted-matter"] .app-description,
+html[data-art-direction="painted-matter"] .app-footer span {color:#d9c8c0}
+html[data-art-direction="painted-matter"] .app-footer {border-top-color:#6a514d}
+html[data-art-direction="painted-matter"] .choice-heading .eyebrow,
+html[data-art-direction="painted-matter"] .free-head .eyebrow,
+html[data-art-direction="painted-matter"] .paid-head .eyebrow,
+html[data-art-direction="painted-matter"] .catalog .eyebrow {letter-spacing:.24em}
+html[data-art-direction="painted-matter"] footer {border-top-color:#66514e;color:#d0b8ac}
+/* The local preview switch is never shown on normal public traffic. */
+.art-mode-preview {display:none}
+html[data-show-art-switch="1"] .art-mode-preview {
+  display:flex;position:fixed;z-index:40;right:18px;bottom:16px;
+  align-items:center;gap:12px;padding:9px 13px;
+  background:#241c1fef;color:#fff0e7;border:1px solid #ad8177;
+  border-radius:100px;box-shadow:0 14px 40px #0006;
+  font-size:11px;text-decoration:none;letter-spacing:.09em;font-weight:730;
+  backdrop-filter:blur(12px)
+}
+html[data-show-art-switch="1"] .art-mode-preview::before {
+  content:"";display:inline-block;width:12px;height:12px;border-radius:50%;
+  background:linear-gradient(135deg,#deaba3 0 49%,#603f48 50%);
+}
+html[data-show-art-switch="1"] .art-mode-preview:focus-visible {outline:3px solid #fff0e7;outline-offset:3px}
+@media (max-width:620px) {
+ html[data-art-direction="painted-matter"] .hero {
+   border-radius:19px;margin-top:15px;padding:31px 22px 25px;min-height:530px;
+ }
+ html[data-art-direction="painted-matter"] .hero::before {
+   background:linear-gradient(180deg,#22191cca,#251a21df 45%,#20191bf5 100%),
+              linear-gradient(90deg,#25191eb3,transparent 90%);
+ }
+ html[data-art-direction="painted-matter"] .hero::after {inset:8px;border-radius:13px}
+ html[data-art-direction="painted-matter"] .hero h1 {line-height:1.09;margin-block:27px 17px}
+ html[data-art-direction="painted-matter"] .hero .intro {color:#f1ded4}
+ html[data-art-direction="painted-matter"] .hero-lower {margin-top:20px;gap:18px}
+ html[data-art-direction="painted-matter"] .choice-section {padding-top:32px}
+ html[data-show-art-switch="1"] .art-mode-preview {right:12px;bottom:10px;font-size:10px}
+}
+@media (prefers-reduced-motion:reduce) {
+ html[data-art-direction="painted-matter"] .app-card {transition:none}
+ html[data-art-direction="painted-matter"] .app-card:hover {transform:none}
+}
+/* P9 device layout and P8 sky experiment have stronger compound selectors.
+   Reassert only art-surface padding and painted panel materials without changing
+   the underlying device grid or copy/color assignment. */
+html[data-art-direction="painted-matter"][data-device-layout] .hero {
+  padding:clamp(34px,6.4vw,78px) clamp(25px,5.4vw,78px) 38px;
+}
+html[data-art-direction="painted-matter"][data-device-layout] .hero h1 {
+  line-height:1.04;letter-spacing:-.063em;
+}
+html[data-art-direction="painted-matter"][data-exp-color] .choice-purpose {
+  background:radial-gradient(ellipse at 92% 3%,#63444b 0%,transparent 53%),linear-gradient(150deg,#3d2b30 0%,#231b20 79%);
+  border-color:#866461;
+}
+html[data-art-direction="painted-matter"][data-exp-color] .choice-random {
+  background:radial-gradient(ellipse at 100% 0%,#7b5a59 0%,#402e35 40%,#221b20 92%);
+  border-color:#8d6764;
+}
+@media(max-width:620px){
+ html[data-art-direction="painted-matter"][data-device-layout] .hero {
+  padding:31px 22px 25px;
+ }
+ html[data-art-direction="painted-matter"][data-device-layout] .hero h1 {
+  line-height:1.09;
+ }
+}
+/* P11 NOCTURNE ATELIER: a separate, opt-in editorial luxury skin.
+   All selectors are gated by pre-first-paint data-art-visual-version, and
+   nothing in the original LP or P10 painted preview is restyled. */
+html[data-art-visual-version="p11-nocturne"] {
+  --bg:#120e15;--panel:#2b1b27;--ink:#fff4eb;--muted:#e4c7c4;
+  --hair:#815b61;--soft:#32212e;--accent:#f4bca2;
+  --art-ink:#fff6ea;--art-rule:#9f6f75;
+  background:#120e15; color-scheme:dark;
+}
+html[data-art-visual-version="p11-nocturne"][data-exp-color="lime"],
+html[data-art-visual-version="p11-nocturne"][data-exp-color="sky"] {--accent:#f4bca2}
+html[data-art-visual-version="p11-nocturne"] body {
+  color:#fff4ea;
+  background:
+    radial-gradient(ellipse 60rem 46rem at 97% 8%,#6a3d4c32,transparent 72%),
+    radial-gradient(ellipse 57rem 64rem at -12% 42%,#6e3a5340,transparent 70%),
+    radial-gradient(ellipse 46rem 60rem at 90% 85%,#713e4738,transparent 71%),
+    #120e15;
+}
+html[data-art-visual-version="p11-nocturne"] .shell {position:relative}
+html[data-art-visual-version="p11-nocturne"] .shell::before {
+  content:"";pointer-events:none;position:absolute;left:0;top:0;width:100%;height:640px;
+  background:radial-gradient(ellipse at 63% 2%,#c2808230,transparent 46%);opacity:.7;
+}
+html[data-art-visual-version="p11-nocturne"] .site-head {
+  border-bottom:1px solid #b5828061;position:relative;z-index:4;
+  box-shadow:0 1px #f7d5b30c;
+}
+html[data-art-visual-version="p11-nocturne"] .brand {color:#fff4e9;letter-spacing:-.035em}
+html[data-art-visual-version="p11-nocturne"] .brand-mark {
+  color:#23151e;border:1px solid #fde3c1;
+  background:linear-gradient(140deg,#fce0c2,#d8a2a4 75%,#b9828b);
+  box-shadow:0 0 20px #dba49926,inset 0 1px #fff9e5;
+}
+html[data-art-visual-version="p11-nocturne"] .locale-wrap,
+html[data-art-visual-version="p11-nocturne"] .locale-wrap select {
+  color:#fff3e9;border-color:#9d7777;background:#24171fd9;
+}
+html[data-art-visual-version="p11-nocturne"] .storefront-link {
+  color:#fff1e7;border:1px solid #d5a49d;
+  background:linear-gradient(135deg,#a3616224,#2b1a25e8);
+  box-shadow:inset 0 1px #ffeacc29,0 0 22px #dba69f18;
+}
+html[data-art-visual-version="p11-nocturne"] .hero {
+  min-height:575px;isolation:isolate;overflow:hidden;
+  border:1px solid #b5867b7a;border-radius:27px;
+  padding:clamp(41px,6.4vw,78px) clamp(29px,5.4vw,78px) 39px;
+  background:#271722;
+  box-shadow:0 35px 75px #09080c9c,0 0 45px #ad73742a,
+    inset 0 1px #ffebdc41,inset 0 -1px #de9d7d42;
+}
+html[data-art-visual-version="p11-nocturne"] .hero-art {opacity:1;filter:saturate(1.05)}
+html[data-art-visual-version="p11-nocturne"] .hero::before {
+  background:
+    linear-gradient(89deg,#1b111dff 0%,#221522f0 20%,#241624d9 36%,#2d1c29a6 50%,#311a2736 79%,#21121b18 100%),
+    linear-gradient(0deg,#1b111df7 0%,#1d131f78 17%,transparent 43%);
+}
+html[data-art-visual-version="p11-nocturne"] .hero::after {
+  inset:9px;border-radius:20px;
+  border:1px solid #e6b49b40;box-shadow:inset 0 1px #fff0d918;
+}
+html[data-art-visual-version="p11-nocturne"] .hero .eyebrow {
+  letter-spacing:.33em;color:#f4ceb9;
+  text-transform:uppercase;font-weight:770;
+}
+html[data-art-visual-version="p11-nocturne"] .hero .live-dot {
+  background:#f0baa7;box-shadow:0 0 17px #fabba3a8;
+}
+html[data-art-visual-version="p11-nocturne"] .hero h1 {
+  font-family:"Hiragino Mincho ProN","YuMincho","Noto Serif JP",Georgia,serif;
+  color:#fff4e8;font-weight:720;line-height:1.14;
+  letter-spacing:-.052em;
+  text-shadow:0 3px 20px #160e16ef,0 1px 1px #ffe9d73b;
+  max-width:100%;position:relative;
+}
+html[data-art-visual-version="p11-nocturne"] .hero h1 em {
+  font-family:"Hiragino Mincho ProN","YuMincho","Noto Serif JP",Georgia,serif;
+  color:#f3b9b5;font-weight:540;font-style:normal;
+  text-shadow:0 2px 20px #1b101bef;
+}
+html[data-art-visual-version="p11-nocturne"] .hero .intro {
+  color:#f3ded7;font-weight:480;
+  text-shadow:0 2px 14px #120d15;max-width:550px;
+}
+html[data-art-visual-version="p11-nocturne"] .hero-actions {position:relative;z-index:1}
+html[data-art-visual-version="p11-nocturne"] .button-primary {
+  color:#2c1b26;font-weight:780;
+  border:1px solid #ffdfbd;
+  background:linear-gradient(130deg,#fff0d0 0%,#f4c2a7 45%,#d99591 96%);
+  box-shadow:0 6px 19px #d7968466,inset 0 2px #fff8e0c2,inset 0 -2px #9858634a;
+  transition:transform .24s ease,box-shadow .24s ease,filter .24s ease;
+}
+html[data-art-visual-version="p11-nocturne"] .button-primary:hover {
+  transform:translateY(-2px);filter:brightness(1.05);
+  box-shadow:0 9px 29px #d7968488,inset 0 2px #fff8e0c2;
+}
+html[data-art-visual-version="p11-nocturne"] .button-outline {
+  color:#fff0e6;border:1px solid #d5a69f;
+  background:linear-gradient(135deg,#2e1b25f0,#1a121de3);
+  box-shadow:inset 0 1px #ffe8ce31,0 6px 19px #100e15a6;
+}
+html[data-art-visual-version="p11-nocturne"] .button-outline:hover {
+  background:#4a2c38;color:#fff7e6;border-color:#f4c1ac;
+}
+html[data-art-visual-version="p11-nocturne"] .hero-lower {
+  border-top:1px solid #edbdaf70;margin-top:32px;padding-top:27px;
+  background:linear-gradient(0deg,#24182547,transparent);
+}
+html[data-art-visual-version="p11-nocturne"] .hero-lower .stat strong {color:#fff5ea;text-shadow:0 2px 17px #b078703b}
+html[data-art-visual-version="p11-nocturne"] .hero-lower .stat span {color:#e9ccc5}
+html[data-art-visual-version="p11-nocturne"] .choice-section {padding-top:57px}
+html[data-art-visual-version="p11-nocturne"] .choice-section,
+html[data-art-visual-version="p11-nocturne"] .free-section,
+html[data-art-visual-version="p11-nocturne"] .paid-section {border-bottom-color:#936c6d74}
+html[data-art-visual-version="p11-nocturne"] .choice-heading .eyebrow,
+html[data-art-visual-version="p11-nocturne"] .free-head .eyebrow,
+html[data-art-visual-version="p11-nocturne"] .paid-head .eyebrow,
+html[data-art-visual-version="p11-nocturne"] .catalog .eyebrow {color:#f0c2ad;letter-spacing:.25em}
+html[data-art-visual-version="p11-nocturne"] .section-link,
+html[data-art-visual-version="p11-nocturne"] .choice-link {color:#f6c9b3;text-decoration-color:#a97177}
+html[data-art-visual-version="p11-nocturne"] .choice-panel {
+  isolation:isolate;position:relative;overflow:hidden;
+  border:1px solid #b98a847d;border-radius:21px;
+  background:linear-gradient(136deg,#4a303f 0%,#372432 31%,#261923 77%,#201620 100%);
+  box-shadow:inset 0 1px #ffe1c653,inset 0 0 30px #dca2a30c,
+    0 18px 42px #0e0a11a3,0 0 0 4px #a36c7440;
+}
+html[data-art-visual-version="p11-nocturne"] .choice-panel::before {
+  inset:-35% -38% 20% 27%;z-index:-1;opacity:1;
+  background:
+    radial-gradient(circle at 73% 28%,#e8ada04f 0%,#a45f7240 19%,transparent 53%),
+    repeating-radial-gradient(ellipse at 72% 53%,transparent 0 36px,#f5d1ba14 37px 38px,transparent 39px 58px),
+    repeating-linear-gradient(146deg,transparent 0 22px,#ffe5c00a 23px 24px);
+  transform:rotate(-7deg);
+}
+html[data-art-visual-version="p11-nocturne"] .choice-panel::after {
+  content:"";position:absolute;inset:4px;border:1px solid #fbd2b02e;
+  border-radius:16px;pointer-events:none;z-index:-1;
+}
+html[data-art-visual-version="p11-nocturne"] .choice-purpose,
+html[data-art-visual-version="p11-nocturne"][data-exp-color] .choice-purpose {
+  background:
+    radial-gradient(ellipse at 92% 4%,#a16c784f,transparent 54%),
+    linear-gradient(132deg,#4a303f 0%,#30202e 59%,#251923 100%);
+  border-color:#bb8c83aa;
+}
+html[data-art-visual-version="p11-nocturne"] .choice-random,
+html[data-art-visual-version="p11-nocturne"][data-exp-color] .choice-random {
+  background:
+    radial-gradient(ellipse at 100% 0%,#b9878775,transparent 55%),
+    linear-gradient(145deg,#422a39,#2c1f2c 58%,#21171f);
+  border-color:#bb8986ba;
+}
+html[data-art-visual-version="p11-nocturne"] .choice-ordinal {
+  color:#f8b9a5;letter-spacing:.26em;text-shadow:0 0 13px #eeafa46b;
+}
+html[data-art-visual-version="p11-nocturne"] .choice-icon {color:#ffd9b4;text-shadow:0 0 14px #f4c4a8a0}
+html[data-art-visual-version="p11-nocturne"] .choice-panel h2,
+html[data-art-visual-version="p11-nocturne"] .free-title-row h2,
+html[data-art-visual-version="p11-nocturne"] .paid-title-row h2,
+html[data-art-visual-version="p11-nocturne"] .catalog h2 {
+  font-family:"Hiragino Mincho ProN","YuMincho","Noto Serif JP",Georgia,serif;
+  font-weight:710;letter-spacing:-.035em;color:#fff4e9;
+}
+html[data-art-visual-version="p11-nocturne"] .choice-caption {color:#f1d9d1}
+html[data-art-visual-version="p11-nocturne"] .purpose-categories button,
+html[data-art-visual-version="p11-nocturne"] .purpose-prices button,
+html[data-art-visual-version="p11-nocturne"] .category-filters button,
+html[data-art-visual-version="p11-nocturne"] .segmented button {
+  color:#f9e0d7;border:1px solid #aa8381;
+  background:linear-gradient(150deg,#372532e6,#211822ec);
+  box-shadow:inset 0 1px #ffdfc212;
+}
+html[data-art-visual-version="p11-nocturne"] .purpose-categories button:hover,
+html[data-art-visual-version="p11-nocturne"] .purpose-prices button:hover,
+html[data-art-visual-version="p11-nocturne"] .category-filters button:hover {
+  border-color:#f0c0ac;background:#5e3645;
+}
+html[data-art-visual-version="p11-nocturne"] .purpose-categories button[aria-pressed=true],
+html[data-art-visual-version="p11-nocturne"] .purpose-prices button[aria-pressed=true],
+html[data-art-visual-version="p11-nocturne"] .category-filters button[aria-pressed=true],
+html[data-art-visual-version="p11-nocturne"] .segmented button[aria-pressed=true] {
+  color:#291820;border-color:#ffd9b6;
+  background:linear-gradient(130deg,#ffe8c9,#e5a29a);
+  box-shadow:inset 0 1px #fff6dfb5,0 1px 13px #dc9e9273;
+}
+html[data-art-visual-version="p11-nocturne"] .purpose-search input,
+html[data-art-visual-version="p11-nocturne"] .search-wrap,
+html[data-art-visual-version="p11-nocturne"] .segmented,
+html[data-art-visual-version="p11-nocturne"] .sort-label,
+html[data-art-visual-version="p11-nocturne"] .sort-label select {
+  background:#231822ee;border-color:#9f7777;color:#fff1e8;
+}
+html[data-art-visual-version="p11-nocturne"] .purpose-search input:focus,
+html[data-art-visual-version="p11-nocturne"] .search-wrap:focus-within {border-color:#f5c8ae;box-shadow:0 0 0 3px #dfa9a23d}
+html[data-art-visual-version="p11-nocturne"] .purpose-mini,
+html[data-art-visual-version="p11-nocturne"] .choice-random .discovery-result .app-card {
+  border-color:#b28a86;background:linear-gradient(145deg,#362631f2,#211a24f5);
+  box-shadow:inset 0 1px #f7d9c32a,0 5px 16px #0e0b12a6;
+}
+html[data-art-visual-version="p11-nocturne"] .purpose-reset,
+html[data-art-visual-version="p11-nocturne"] .purpose-mini-link {color:#f7c8b8;border-color:#ce9b8f}
+html[data-art-visual-version="p11-nocturne"] .free-title-row h2 {
+  color:#f6c6aa;text-shadow:0 0 25px #de9b894a;
+}
+html[data-art-visual-version="p11-nocturne"] .app-card {
+  border:1px solid #947175;border-radius:17px;
+  background:linear-gradient(143deg,#392833f8,#241922f9);
+  box-shadow:0 9px 26px #0b081177,inset 0 1px #ffe6d024;
+  transition:border-color .24s ease,box-shadow .24s ease,transform .24s ease;
+}
+html[data-art-visual-version="p11-nocturne"] .app-card:hover {
+  transform:translateY(-3px);border-color:#edb8a6;
+  box-shadow:0 14px 35px #07050c8f,0 0 14px #c4807b32,inset 0 1px #ffe6d024;
+}
+html[data-art-visual-version="p11-nocturne"] .free-grid .app-card {
+  background:linear-gradient(132deg,#45333e,#251b26 85%);border-color:#a17a77;
+}
+html[data-art-visual-version="p11-nocturne"] .paid-grid .app-card {
+  background:linear-gradient(135deg,#362634,#211922 80%);border-color:#8d6b70;
+}
+html[data-art-visual-version="p11-nocturne"] .price {
+  color:#ffdfc1;border-color:#cd9a8b;
+  background:linear-gradient(160deg,#4a2930c0,#271b26);
+}
+html[data-art-visual-version="p11-nocturne"] .category {color:#f5c2a8}
+html[data-art-visual-version="p11-nocturne"] .app-description,
+html[data-art-visual-version="p11-nocturne"] .app-footer span {color:#e5cdc7}
+html[data-art-visual-version="p11-nocturne"] .app-footer {border-top-color:#986f73}
+html[data-art-visual-version="p11-nocturne"] footer {color:#e3c6bd;border-top-color:#826064}
+html[data-show-art-switch="1"] .art-mode-preview {
+  gap:0;padding:4px;bottom:14px;right:14px;
+  border:1px solid #bd8e83;box-shadow:0 12px 35px #100b16b5,0 0 19px #e5ab9c20;
+  background:#20151de8;backdrop-filter:blur(15px);
+}
+html[data-show-art-switch="1"] .art-mode-preview::before {display:none}
+html[data-show-art-switch="1"] .art-mode-preview a {
+  color:#e9c8c0;text-decoration:none;font:700 10px/1.2 -apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;
+  letter-spacing:.065em;padding:9px 10px;border-radius:50px;
+}
+html[data-show-art-switch="1"] .art-mode-preview a[aria-current="page"] {
+  color:#271923;background:linear-gradient(130deg,#ffebd0,#e0aaa1);
+}
+html[data-show-art-switch="1"] .art-mode-preview a:focus-visible {outline:2px solid white;outline-offset:3px}
+@media(max-width:620px){
+  html[data-art-visual-version="p11-nocturne"] .hero,
+  html[data-art-visual-version="p11-nocturne"][data-device-layout] .hero {
+    border-radius:20px;margin-top:16px;min-height:545px;padding:33px 23px 27px;
+  }
+  html[data-art-visual-version="p11-nocturne"] .hero::after {inset:7px;border-radius:14px}
+  html[data-art-visual-version="p11-nocturne"] .hero::before {
+    background:linear-gradient(180deg,#1a111be8,#231723e3 40%,#20151ef5 78%,#19121afc),
+      linear-gradient(90deg,#291824bb,transparent);
+  }
+  html[data-art-visual-version="p11-nocturne"] .hero h1,
+  html[data-art-visual-version="p11-nocturne"][data-device-layout] .hero h1 {
+    line-height:1.12;letter-spacing:-.06em;
+  }
+  html[data-art-visual-version="p11-nocturne"] .hero-lower {margin-top:21px;padding-top:17px}
+  html[data-art-visual-version="p11-nocturne"] .choice-section {padding-top:31px}
+  html[data-show-art-switch="1"] .art-mode-preview a {font-size:9px;padding:8px 8px}
+}
+@media (prefers-reduced-motion:reduce) {
+  html[data-art-visual-version="p11-nocturne"] .button-primary,
+  html[data-art-visual-version="p11-nocturne"] .app-card {transition:none}
+  html[data-art-visual-version="p11-nocturne"] .button-primary:hover,
+  html[data-art-visual-version="p11-nocturne"] .app-card:hover {transform:none}
+}
+
+/* P12 ROYALE CONTINUUM BASE: a separate, opt-in editorial luxury skin.
+   All selectors are gated by pre-first-paint data-art-visual-version, and
+   nothing in the original LP or P10 painted preview is restyled. */
+html[data-art-visual-version="p12-royale"] {
+  --bg:#120e15;--panel:#2b1b27;--ink:#fff4eb;--muted:#e4c7c4;
+  --hair:#815b61;--soft:#32212e;--accent:#f4bca2;
+  --art-ink:#fff6ea;--art-rule:#9f6f75;
+  background:#120e15; color-scheme:dark;
+}
+html[data-art-visual-version="p12-royale"][data-exp-color="lime"],
+html[data-art-visual-version="p12-royale"][data-exp-color="sky"] {--accent:#f4bca2}
+html[data-art-visual-version="p12-royale"] body {
+  color:#fff4ea;
+  background:
+    radial-gradient(ellipse 60rem 46rem at 97% 8%,#6a3d4c32,transparent 72%),
+    radial-gradient(ellipse 57rem 64rem at -12% 42%,#6e3a5340,transparent 70%),
+    radial-gradient(ellipse 46rem 60rem at 90% 85%,#713e4738,transparent 71%),
+    #120e15;
+}
+html[data-art-visual-version="p12-royale"] .shell {position:relative}
+html[data-art-visual-version="p12-royale"] .shell::before {
+  content:"";pointer-events:none;position:absolute;left:0;top:0;width:100%;height:640px;
+  background:radial-gradient(ellipse at 63% 2%,#c2808230,transparent 46%);opacity:.7;
+}
+html[data-art-visual-version="p12-royale"] .site-head {
+  border-bottom:1px solid #b5828061;position:relative;z-index:4;
+  box-shadow:0 1px #f7d5b30c;
+}
+html[data-art-visual-version="p12-royale"] .brand {color:#fff4e9;letter-spacing:-.035em}
+html[data-art-visual-version="p12-royale"] .brand-mark {
+  color:#23151e;border:1px solid #fde3c1;
+  background:linear-gradient(140deg,#fce0c2,#d8a2a4 75%,#b9828b);
+  box-shadow:0 0 20px #dba49926,inset 0 1px #fff9e5;
+}
+html[data-art-visual-version="p12-royale"] .locale-wrap,
+html[data-art-visual-version="p12-royale"] .locale-wrap select {
+  color:#fff3e9;border-color:#9d7777;background:#24171fd9;
+}
+html[data-art-visual-version="p12-royale"] .storefront-link {
+  color:#fff1e7;border:1px solid #d5a49d;
+  background:linear-gradient(135deg,#a3616224,#2b1a25e8);
+  box-shadow:inset 0 1px #ffeacc29,0 0 22px #dba69f18;
+}
+html[data-art-visual-version="p12-royale"] .hero {
+  min-height:575px;isolation:isolate;overflow:hidden;
+  border:1px solid #b5867b7a;border-radius:27px;
+  padding:clamp(41px,6.4vw,78px) clamp(29px,5.4vw,78px) 39px;
+  background:#271722;
+  box-shadow:0 35px 75px #09080c9c,0 0 45px #ad73742a,
+    inset 0 1px #ffebdc41,inset 0 -1px #de9d7d42;
+}
+html[data-art-visual-version="p12-royale"] .hero-art {opacity:1;filter:saturate(1.05)}
+html[data-art-visual-version="p12-royale"] .hero::before {
+  background:
+    linear-gradient(89deg,#1b111dff 0%,#221522f0 20%,#241624d9 36%,#2d1c29a6 50%,#311a2736 79%,#21121b18 100%),
+    linear-gradient(0deg,#1b111df7 0%,#1d131f78 17%,transparent 43%);
+}
+html[data-art-visual-version="p12-royale"] .hero::after {
+  inset:9px;border-radius:20px;
+  border:1px solid #e6b49b40;box-shadow:inset 0 1px #fff0d918;
+}
+html[data-art-visual-version="p12-royale"] .hero .eyebrow {
+  letter-spacing:.33em;color:#f4ceb9;
+  text-transform:uppercase;font-weight:770;
+}
+html[data-art-visual-version="p12-royale"] .hero .live-dot {
+  background:#f0baa7;box-shadow:0 0 17px #fabba3a8;
+}
+html[data-art-visual-version="p12-royale"] .hero h1 {
+  font-family:"Hiragino Mincho ProN","YuMincho","Noto Serif JP",Georgia,serif;
+  color:#fff4e8;font-weight:720;line-height:1.14;
+  letter-spacing:-.052em;
+  text-shadow:0 3px 20px #160e16ef,0 1px 1px #ffe9d73b;
+  max-width:100%;position:relative;
+}
+html[data-art-visual-version="p12-royale"] .hero h1 em {
+  font-family:"Hiragino Mincho ProN","YuMincho","Noto Serif JP",Georgia,serif;
+  color:#f3b9b5;font-weight:540;font-style:normal;
+  text-shadow:0 2px 20px #1b101bef;
+}
+html[data-art-visual-version="p12-royale"] .hero .intro {
+  color:#f3ded7;font-weight:480;
+  text-shadow:0 2px 14px #120d15;max-width:550px;
+}
+html[data-art-visual-version="p12-royale"] .hero-actions {position:relative;z-index:1}
+html[data-art-visual-version="p12-royale"] .button-primary {
+  color:#2c1b26;font-weight:780;
+  border:1px solid #ffdfbd;
+  background:linear-gradient(130deg,#fff0d0 0%,#f4c2a7 45%,#d99591 96%);
+  box-shadow:0 6px 19px #d7968466,inset 0 2px #fff8e0c2,inset 0 -2px #9858634a;
+  transition:transform .24s ease,box-shadow .24s ease,filter .24s ease;
+}
+html[data-art-visual-version="p12-royale"] .button-primary:hover {
+  transform:translateY(-2px);filter:brightness(1.05);
+  box-shadow:0 9px 29px #d7968488,inset 0 2px #fff8e0c2;
+}
+html[data-art-visual-version="p12-royale"] .button-outline {
+  color:#fff0e6;border:1px solid #d5a69f;
+  background:linear-gradient(135deg,#2e1b25f0,#1a121de3);
+  box-shadow:inset 0 1px #ffe8ce31,0 6px 19px #100e15a6;
+}
+html[data-art-visual-version="p12-royale"] .button-outline:hover {
+  background:#4a2c38;color:#fff7e6;border-color:#f4c1ac;
+}
+html[data-art-visual-version="p12-royale"] .hero-lower {
+  border-top:1px solid #edbdaf70;margin-top:32px;padding-top:27px;
+  background:linear-gradient(0deg,#24182547,transparent);
+}
+html[data-art-visual-version="p12-royale"] .hero-lower .stat strong {color:#fff5ea;text-shadow:0 2px 17px #b078703b}
+html[data-art-visual-version="p12-royale"] .hero-lower .stat span {color:#e9ccc5}
+html[data-art-visual-version="p12-royale"] .choice-section {padding-top:57px}
+html[data-art-visual-version="p12-royale"] .choice-section,
+html[data-art-visual-version="p12-royale"] .free-section,
+html[data-art-visual-version="p12-royale"] .paid-section {border-bottom-color:#936c6d74}
+html[data-art-visual-version="p12-royale"] .choice-heading .eyebrow,
+html[data-art-visual-version="p12-royale"] .free-head .eyebrow,
+html[data-art-visual-version="p12-royale"] .paid-head .eyebrow,
+html[data-art-visual-version="p12-royale"] .catalog .eyebrow {color:#f0c2ad;letter-spacing:.25em}
+html[data-art-visual-version="p12-royale"] .section-link,
+html[data-art-visual-version="p12-royale"] .choice-link {color:#f6c9b3;text-decoration-color:#a97177}
+html[data-art-visual-version="p12-royale"] .choice-panel {
+  isolation:isolate;position:relative;overflow:hidden;
+  border:1px solid #b98a847d;border-radius:21px;
+  background:linear-gradient(136deg,#4a303f 0%,#372432 31%,#261923 77%,#201620 100%);
+  box-shadow:inset 0 1px #ffe1c653,inset 0 0 30px #dca2a30c,
+    0 18px 42px #0e0a11a3,0 0 0 4px #a36c7440;
+}
+html[data-art-visual-version="p12-royale"] .choice-panel::before {
+  inset:-35% -38% 20% 27%;z-index:-1;opacity:1;
+  background:
+    radial-gradient(circle at 73% 28%,#e8ada04f 0%,#a45f7240 19%,transparent 53%),
+    repeating-radial-gradient(ellipse at 72% 53%,transparent 0 36px,#f5d1ba14 37px 38px,transparent 39px 58px),
+    repeating-linear-gradient(146deg,transparent 0 22px,#ffe5c00a 23px 24px);
+  transform:rotate(-7deg);
+}
+html[data-art-visual-version="p12-royale"] .choice-panel::after {
+  content:"";position:absolute;inset:4px;border:1px solid #fbd2b02e;
+  border-radius:16px;pointer-events:none;z-index:-1;
+}
+html[data-art-visual-version="p12-royale"] .choice-purpose,
+html[data-art-visual-version="p12-royale"][data-exp-color] .choice-purpose {
+  background:
+    radial-gradient(ellipse at 92% 4%,#a16c784f,transparent 54%),
+    linear-gradient(132deg,#4a303f 0%,#30202e 59%,#251923 100%);
+  border-color:#bb8c83aa;
+}
+html[data-art-visual-version="p12-royale"] .choice-random,
+html[data-art-visual-version="p12-royale"][data-exp-color] .choice-random {
+  background:
+    radial-gradient(ellipse at 100% 0%,#b9878775,transparent 55%),
+    linear-gradient(145deg,#422a39,#2c1f2c 58%,#21171f);
+  border-color:#bb8986ba;
+}
+html[data-art-visual-version="p12-royale"] .choice-ordinal {
+  color:#f8b9a5;letter-spacing:.26em;text-shadow:0 0 13px #eeafa46b;
+}
+html[data-art-visual-version="p12-royale"] .choice-icon {color:#ffd9b4;text-shadow:0 0 14px #f4c4a8a0}
+html[data-art-visual-version="p12-royale"] .choice-panel h2,
+html[data-art-visual-version="p12-royale"] .free-title-row h2,
+html[data-art-visual-version="p12-royale"] .paid-title-row h2,
+html[data-art-visual-version="p12-royale"] .catalog h2 {
+  font-family:"Hiragino Mincho ProN","YuMincho","Noto Serif JP",Georgia,serif;
+  font-weight:710;letter-spacing:-.035em;color:#fff4e9;
+}
+html[data-art-visual-version="p12-royale"] .choice-caption {color:#f1d9d1}
+html[data-art-visual-version="p12-royale"] .purpose-categories button,
+html[data-art-visual-version="p12-royale"] .purpose-prices button,
+html[data-art-visual-version="p12-royale"] .category-filters button,
+html[data-art-visual-version="p12-royale"] .segmented button {
+  color:#f9e0d7;border:1px solid #aa8381;
+  background:linear-gradient(150deg,#372532e6,#211822ec);
+  box-shadow:inset 0 1px #ffdfc212;
+}
+html[data-art-visual-version="p12-royale"] .purpose-categories button:hover,
+html[data-art-visual-version="p12-royale"] .purpose-prices button:hover,
+html[data-art-visual-version="p12-royale"] .category-filters button:hover {
+  border-color:#f0c0ac;background:#5e3645;
+}
+html[data-art-visual-version="p12-royale"] .purpose-categories button[aria-pressed=true],
+html[data-art-visual-version="p12-royale"] .purpose-prices button[aria-pressed=true],
+html[data-art-visual-version="p12-royale"] .category-filters button[aria-pressed=true],
+html[data-art-visual-version="p12-royale"] .segmented button[aria-pressed=true] {
+  color:#291820;border-color:#ffd9b6;
+  background:linear-gradient(130deg,#ffe8c9,#e5a29a);
+  box-shadow:inset 0 1px #fff6dfb5,0 1px 13px #dc9e9273;
+}
+html[data-art-visual-version="p12-royale"] .purpose-search input,
+html[data-art-visual-version="p12-royale"] .search-wrap,
+html[data-art-visual-version="p12-royale"] .segmented,
+html[data-art-visual-version="p12-royale"] .sort-label,
+html[data-art-visual-version="p12-royale"] .sort-label select {
+  background:#231822ee;border-color:#9f7777;color:#fff1e8;
+}
+html[data-art-visual-version="p12-royale"] .purpose-search input:focus,
+html[data-art-visual-version="p12-royale"] .search-wrap:focus-within {border-color:#f5c8ae;box-shadow:0 0 0 3px #dfa9a23d}
+html[data-art-visual-version="p12-royale"] .purpose-mini,
+html[data-art-visual-version="p12-royale"] .choice-random .discovery-result .app-card {
+  border-color:#b28a86;background:linear-gradient(145deg,#362631f2,#211a24f5);
+  box-shadow:inset 0 1px #f7d9c32a,0 5px 16px #0e0b12a6;
+}
+html[data-art-visual-version="p12-royale"] .purpose-reset,
+html[data-art-visual-version="p12-royale"] .purpose-mini-link {color:#f7c8b8;border-color:#ce9b8f}
+html[data-art-visual-version="p12-royale"] .free-title-row h2 {
+  color:#f6c6aa;text-shadow:0 0 25px #de9b894a;
+}
+html[data-art-visual-version="p12-royale"] .app-card {
+  border:1px solid #947175;border-radius:17px;
+  background:linear-gradient(143deg,#392833f8,#241922f9);
+  box-shadow:0 9px 26px #0b081177,inset 0 1px #ffe6d024;
+  transition:border-color .24s ease,box-shadow .24s ease,transform .24s ease;
+}
+html[data-art-visual-version="p12-royale"] .app-card:hover {
+  transform:translateY(-3px);border-color:#edb8a6;
+  box-shadow:0 14px 35px #07050c8f,0 0 14px #c4807b32,inset 0 1px #ffe6d024;
+}
+html[data-art-visual-version="p12-royale"] .free-grid .app-card {
+  background:linear-gradient(132deg,#45333e,#251b26 85%);border-color:#a17a77;
+}
+html[data-art-visual-version="p12-royale"] .paid-grid .app-card {
+  background:linear-gradient(135deg,#362634,#211922 80%);border-color:#8d6b70;
+}
+html[data-art-visual-version="p12-royale"] .price {
+  color:#ffdfc1;border-color:#cd9a8b;
+  background:linear-gradient(160deg,#4a2930c0,#271b26);
+}
+html[data-art-visual-version="p12-royale"] .category {color:#f5c2a8}
+html[data-art-visual-version="p12-royale"] .app-description,
+html[data-art-visual-version="p12-royale"] .app-footer span {color:#e5cdc7}
+html[data-art-visual-version="p12-royale"] .app-footer {border-top-color:#986f73}
+html[data-art-visual-version="p12-royale"] footer {color:#e3c6bd;border-top-color:#826064}
+html[data-art-visual-version="p12-royale"][data-show-art-switch="1"] .art-mode-preview {
+  gap:0;padding:4px;bottom:14px;right:14px;
+  border:1px solid #bd8e83;box-shadow:0 12px 35px #100b16b5,0 0 19px #e5ab9c20;
+  background:#20151de8;backdrop-filter:blur(15px);
+}
+html[data-art-visual-version="p12-royale"][data-show-art-switch="1"] .art-mode-preview::before {display:none}
+html[data-art-visual-version="p12-royale"][data-show-art-switch="1"] .art-mode-preview a {
+  color:#e9c8c0;text-decoration:none;font:700 10px/1.2 -apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;
+  letter-spacing:.065em;padding:9px 10px;border-radius:50px;
+}
+html[data-art-visual-version="p12-royale"][data-show-art-switch="1"] .art-mode-preview a[aria-current="page"] {
+  color:#271923;background:linear-gradient(130deg,#ffebd0,#e0aaa1);
+}
+html[data-art-visual-version="p12-royale"][data-show-art-switch="1"] .art-mode-preview a:focus-visible {outline:2px solid white;outline-offset:3px}
+@media(max-width:620px){
+  html[data-art-visual-version="p12-royale"] .hero,
+  html[data-art-visual-version="p12-royale"][data-device-layout] .hero {
+    border-radius:20px;margin-top:16px;min-height:545px;padding:33px 23px 27px;
+  }
+  html[data-art-visual-version="p12-royale"] .hero::after {inset:7px;border-radius:14px}
+  html[data-art-visual-version="p12-royale"] .hero::before {
+    background:linear-gradient(180deg,#1a111be8,#231723e3 40%,#20151ef5 78%,#19121afc),
+      linear-gradient(90deg,#291824bb,transparent);
+  }
+  html[data-art-visual-version="p12-royale"] .hero h1,
+  html[data-art-visual-version="p12-royale"][data-device-layout] .hero h1 {
+    line-height:1.12;letter-spacing:-.06em;
+  }
+  html[data-art-visual-version="p12-royale"] .hero-lower {margin-top:21px;padding-top:17px}
+  html[data-art-visual-version="p12-royale"] .choice-section {padding-top:31px}
+  html[data-art-visual-version="p12-royale"][data-show-art-switch="1"] .art-mode-preview a {font-size:9px;padding:8px 8px}
+}
+@media (prefers-reduced-motion:reduce) {
+  html[data-art-visual-version="p12-royale"] .button-primary,
+  html[data-art-visual-version="p12-royale"] .app-card {transition:none}
+  html[data-art-visual-version="p12-royale"] .button-primary:hover,
+  html[data-art-visual-version="p12-royale"] .app-card:hover {transform:none}
+}
+
+
+/* P12 ROYALE CONTINUUM — crafted highlights, editorial rhythm, and restrained luminosity.
+   Visual-only. ALL declarations gated to the atelier=3 namespace. */
+html[data-art-visual-version="p12-royale"] {
+  --accent:#f7c5a6;--hair:#9e7274;--royale-glass:#2b1a26;
+}
+html[data-art-visual-version="p12-royale"] body {
+  background:
+    radial-gradient(ellipse 44rem 33rem at 80% 0%,#ad66804a,transparent 70%),
+    radial-gradient(ellipse 36rem 53rem at 5% 19%,#63305045,transparent 74%),
+    radial-gradient(ellipse 55rem 35rem at 90% 46%,#b67a6531,transparent 72%),
+    radial-gradient(ellipse 34rem 59rem at 7% 83%,#6d38533b,transparent 70%),
+    #100b13;
+}
+html[data-art-visual-version="p12-royale"] .site-head {
+  border-image:none;border-bottom-color:#edbcad66;
+  background:linear-gradient(90deg,transparent,#f7d0ba0a 55%,transparent);
+}
+html[data-art-visual-version="p12-royale"] .brand-mark {
+  background:linear-gradient(135deg,#fff5d8 0%,#f7caa9 40%,#bd7d86 100%);
+  box-shadow:0 0 21px #ffba8d40,inset 0 1px #fff9ec;
+}
+html[data-art-visual-version="p12-royale"] .storefront-link {
+  box-shadow:inset 0 1px #fff4df60,0 0 22px #efb29039;
+  border-color:#f1c4ae;
+}
+html[data-art-visual-version="p12-royale"] .hero {
+  border-color:#edbca18c;
+  box-shadow:0 36px 88px #08050eae,0 0 46px #d48e7c3d,
+    inset 0 1px #fff3db8c,inset 0 -1px #d6857a64;
+  background:#1e101e;
+}
+html[data-art-visual-version="p12-royale"] .hero-art {filter:saturate(1.18) contrast(1.045)}
+html[data-art-visual-version="p12-royale"] .hero::before {
+  background:linear-gradient(90deg,#180e19f5 0%,#201320ef 15%,#201322df 37%,#2315289e 58%,#22101f24 84%,#21111e14 100%),
+   linear-gradient(0deg,#110c16ee,transparent 28%);
+}
+html[data-art-visual-version="p12-royale"] .hero::after {
+  inset:8px;border-color:#ffd0a76b;
+  box-shadow:inset 0 1px #fff2e063,0 0 28px #f7b5961f;
+}
+html[data-art-visual-version="p12-royale"] .hero h1 {
+  color:#fff9e9;letter-spacing:-.06em;
+  text-shadow:0 4px 26px #0e0817,0 1px #ffe7d54d;
+}
+html[data-art-visual-version="p12-royale"] .hero h1 em {
+  color:#f4bdb6;text-shadow:0 2px 19px #160e19,0 0 35px #c96f6c3d;
+}
+html[data-art-visual-version="p12-royale"] .hero .intro {color:#fff1e5}
+html[data-art-visual-version="p12-royale"] .button-primary {
+  background:linear-gradient(115deg,#fff7df 0%,#ffd4ac 33%,#eead9b 70%,#ce8589 100%);
+  border-color:#fff1cf;
+  box-shadow:0 0 19px #f9ba9c85,0 10px 25px #ba736b60,inset 0 2px #fffaf0e6;
+}
+html[data-art-visual-version="p12-royale"] .button-outline {
+  border-color:#e1b095;background:linear-gradient(130deg,#321b2fc7,#1a121ff5);
+  box-shadow:inset 0 1px #fff2d35c,0 0 23px #e89d9331;
+}
+html[data-art-visual-version="p12-royale"] .hero-lower {
+  border-top-color:#f9d6b27a;
+  box-shadow:0 -11px 23px -21px #ffd3ab;
+}
+/* Inside the selection panels, sculpt asymmetry rather than a repeated flat pattern. */
+html[data-art-visual-version="p12-royale"] .choice-panel {
+  border-color:#c9998ca6;
+  box-shadow:inset 0 1px #ffe6ca88,0 18px 45px #090713ab,
+   0 0 0 2px #cf938246,0 0 31px #c0777940;
+}
+html[data-art-visual-version="p12-royale"] .choice-purpose {
+  background:
+    radial-gradient(ellipse 47% 37% at 90% 7%,#f3c59d5a,transparent 73%),
+    radial-gradient(ellipse 42% 76% at 92% 79%,#d78d9140,transparent 75%),
+    linear-gradient(130deg,#49313e,#2c1c2a 65%,#221726);
+}
+html[data-art-visual-version="p12-royale"] .choice-random {
+  background:
+    radial-gradient(ellipse 57% 42% at 93% 5%,#dfb89a72,transparent 78%),
+    radial-gradient(ellipse 35% 65% at 87% 86%,#b66e7a66,transparent 77%),
+    linear-gradient(135deg,#4b303e,#2d1d2b 64%,#211822);
+}
+html[data-art-visual-version="p12-royale"] .choice-panel::before {
+  inset:-33% -27% 14% 38%;transform:rotate(-12deg);
+  background:
+    radial-gradient(circle at 75% 41%,#fde3b03b 0%,#c88c7a2b 22%,transparent 54%),
+    repeating-radial-gradient(ellipse at 78% 46%,transparent 0 50px,#f9cfad2b 51px 52px,transparent 53px 80px),
+    repeating-linear-gradient(142deg,transparent 0 36px,#ffe5b80a 37px 38px);
+}
+html[data-art-visual-version="p12-royale"] .choice-panel::after {
+  inset:5px;border-color:#f5cca665;
+  box-shadow:inset 0 0 20px #ffddb91b;
+}
+html[data-art-visual-version="p12-royale"] .choice-panel h2 {
+  text-shadow:0 2px 16px #180e19cc;
+}
+/* Infuse the long sections with warm pools of reflected light, without interrupting cards or filtering. */
+html[data-art-visual-version="p12-royale"] .free-section,
+html[data-art-visual-version="p12-royale"] .paid-section,
+html[data-art-visual-version="p12-royale"] .catalog {
+  position:relative;isolation:isolate;
+}
+html[data-art-visual-version="p12-royale"] .free-section::before,
+html[data-art-visual-version="p12-royale"] .paid-section::before,
+html[data-art-visual-version="p12-royale"] .catalog::before {
+  content:"";position:absolute;z-index:-1;pointer-events:none;
+  left:-5%;right:-5%;top:0;height:550px;
+  background:
+    radial-gradient(ellipse 55% 53% at 81% 10%,#c57d7450,transparent 70%),
+    radial-gradient(ellipse 51% 85% at 18% 50%,#803a6840,transparent 75%),
+    repeating-radial-gradient(ellipse at 92% -15%,transparent 0 76px,#edbf9b19 77px 78px,transparent 79px 118px);
+  opacity:.88;
+}
+html[data-art-visual-version="p12-royale"] .paid-section::before {
+  height:720px;
+  background:
+    radial-gradient(ellipse 52% 63% at 13% 24%,#bd7f6a40,transparent 75%),
+    radial-gradient(ellipse 53% 58% at 88% 70%,#ad677346,transparent 75%),
+    repeating-radial-gradient(ellipse at 4% 20%,transparent 0 68px,#edbf9b13 69px 70px,transparent 71px 110px);
+}
+html[data-art-visual-version="p12-royale"] .catalog::before {
+  height:660px;
+  background:
+    radial-gradient(ellipse 60% 62% at 81% 23%,#bd806b42,transparent 71%),
+    radial-gradient(ellipse 43% 46% at 12% 73%,#9b466b32,transparent 73%),
+    repeating-radial-gradient(ellipse at 104% -10%,transparent 0 64px,#f2c6aa14 65px 66px,transparent 67px 105px);
+}
+html[data-art-visual-version="p12-royale"] .free-title-row h2 {
+  background:linear-gradient(110deg,#fff5d9 3%,#ffccaa 50%,#ca8695);
+  background-clip:text;-webkit-background-clip:text;color:transparent;
+  text-shadow:none;filter:drop-shadow(0 4px 19px #d6958560);
+}
+html[data-art-visual-version="p12-royale"] .free-head,
+html[data-art-visual-version="p12-royale"] .paid-head {
+  position:relative;padding-bottom:25px;
+}
+html[data-art-visual-version="p12-royale"] .free-head::after,
+html[data-art-visual-version="p12-royale"] .paid-head::after {
+  content:"";position:absolute;bottom:0;left:0;width:min(360px,52%);height:1px;
+  background:linear-gradient(90deg,#ffdabbda,#edac9491,transparent);
+  box-shadow:0 0 14px #f4bca5;
+}
+/* A fine gilded rim and differentiated light in every app card; icons stay truthful. */
+html[data-art-visual-version="p12-royale"] .app-card {
+  position:relative;isolation:isolate;overflow:hidden;
+  border-color:#b286828c;border-radius:18px;
+  background:linear-gradient(145deg,#49313d 0%,#30202b 45%,#201720 100%);
+  box-shadow:inset 0 1px #ffe4c05a,0 14px 30px #07050b73,
+    0 0 0 1px #edab8f13;
+}
+html[data-art-visual-version="p12-royale"] .app-card::before {
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse 72% 64% at 101% 0%,#f1b59a24,transparent 74%),
+    linear-gradient(133deg,#fff7e910 0%,transparent 31%);
+}
+html[data-art-visual-version="p12-royale"] .app-card::after {
+  content:"";position:absolute;pointer-events:none;right:12px;top:10px;
+  width:58px;height:58px;border-radius:50%;
+  border:1px solid #d7a38624;box-shadow:0 0 0 10px #dab08a06,0 0 0 23px #dab08a05;
+  z-index:-1;
+}
+html[data-art-visual-version="p12-royale"] .paid-grid .app-card:nth-child(3n+2),
+html[data-art-visual-version="p12-royale"] .app-grid .app-card:nth-child(3n+2) {
+  background:linear-gradient(145deg,#36273a,#2c1e2c 62%,#1d1623);
+}
+html[data-art-visual-version="p12-royale"] .paid-grid .app-card:nth-child(3n),
+html[data-art-visual-version="p12-royale"] .app-grid .app-card:nth-child(3n) {
+  background:linear-gradient(145deg,#3f2a33,#30202a 64%,#211824);
+}
+html[data-art-visual-version="p12-royale"] .free-grid .app-card {
+  background:linear-gradient(145deg,#51373b,#33222c 50%,#211823);
+  border-color:#d3a08f9c;
+  box-shadow:inset 0 1px #ffe8cc75,0 0 28px #e4a38c19,0 16px 31px #09050b81;
+}
+html[data-art-visual-version="p12-royale"] .app-card:hover {
+  border-color:#ffe0b5;transform:translateY(-3px);
+  box-shadow:inset 0 1px #ffedd7b5,0 20px 38px #07050da6,0 0 27px #d9907d38;
+}
+html[data-art-visual-version="p12-royale"] .app-art {
+  border:1px solid #efc3a584;
+  box-shadow:0 0 0 3px #ffe5bf0b,0 7px 18px #110a16aa;
+}
+html[data-art-visual-version="p12-royale"] .app-title {color:#fff7e9;text-shadow:0 1px 9px #120a16}
+html[data-art-visual-version="p12-royale"] .price {border-color:#e1ad98;color:#ffe0bd;box-shadow:inset 0 1px #f9d4b02d}
+html[data-art-visual-version="p12-royale"] .app-footer {border-top-color:#b48784a8}
+html[data-art-visual-version="p12-royale"] .app-footer a {color:#ffe5d2}
+html[data-art-visual-version="p12-royale"] .app-footer a:hover {color:#ffbf98}
+html[data-art-visual-version="p12-royale"] .section-link {color:#ffd6b7}
+html[data-art-visual-version="p12-royale"] .catalog h2 {text-shadow:0 0 22px #e3a08932}
+html[data-art-visual-version="p12-royale"] .catalog .toolbar {
+  padding:13px;border:1px solid #bd8b8596;border-radius:19px;
+  background:linear-gradient(145deg,#412933e0,#201720f5);
+  box-shadow:inset 0 1px #ffe6ce42,0 12px 30px #09061179;
+}
+html[data-art-visual-version="p12-royale"] footer {border-top-color:#c08d806a}
+html[data-art-visual-version="p12-royale"][data-show-art-switch="1"] .art-mode-preview {max-width:calc(100vw - 20px);overflow:auto}
+@media(max-width:620px) {
+ html[data-art-visual-version="p12-royale"] .hero::before {
+  background:linear-gradient(180deg,#1b111be8,#231523e0 39%,#201520f7 83%,#190f1bfa);
+ }
+ html[data-art-visual-version="p12-royale"] .free-section::before,
+ html[data-art-visual-version="p12-royale"] .paid-section::before,
+ html[data-art-visual-version="p12-royale"] .catalog::before {left:-18px;right:-18px}
+ html[data-art-visual-version="p12-royale"] .catalog .toolbar {padding:10px}
+ html[data-art-visual-version="p12-royale"] .choice-panel::before {opacity:.62}
+ html[data-art-visual-version="p12-royale"][data-show-art-switch="1"] .art-mode-preview a {font-size:8px;padding:7px 6px}
+}
+@media(prefers-reduced-motion:reduce) {
+ html[data-art-visual-version="p12-royale"] .app-card {transition:none}
+ html[data-art-visual-version="p12-royale"] .app-card:hover {transform:none}
+}
+
+
+/* P13 — NASA REAL MOON: local source imagery only, opt-in atelier=4.
+   Inherits P12 layout, app cards, analytics exclusion, 50 locales, and all controls.
+   Reduced overlay on the right keeps near-side maria/craters legible. */
+html[data-lunar-real="1"] .hero-art{filter:saturate(1.05) contrast(1.025)}
+html[data-lunar-real="1"] .hero::before{
+  background:linear-gradient(90deg,#150d16f5 0%,#1c101beb 15%,#1e1222db 35%,#25162d77 58%,#1f12242a 85%,#21111e13 100%),
+             linear-gradient(0deg,#110c17d4,transparent 28%);
+}
+html[data-lunar-real="1"] .hero h1{
+  text-shadow:0 3px 17px #120918e8,0 1px 1px #110817;
+}
+html[data-lunar-real="1"] .hero .intro{
+  text-shadow:0 2px 9px #120918;
+}
+html[data-lunar-real="1"] .art-mode-preview{max-width:calc(100vw - 20px)}
+@media(max-width:620px){
+ html[data-lunar-real="1"] .hero::before{
+   background:linear-gradient(180deg,#150e18dd 0%,#211422d0 41%,#211521ed 72%,#19111bf9 100%),
+              linear-gradient(90deg,#1c111ba8,transparent);
+ }
+ html[data-lunar-real="1"] .hero-art{filter:saturate(.96) contrast(1.03)}
+ html[data-lunar-real="1"] .art-mode-preview{display:flex;max-width:calc(100vw - 16px);overflow-x:auto}
+ html[data-lunar-real="1"] .art-mode-preview a{white-space:nowrap;flex-shrink:0}
+}
+
+html[data-lunar-real="1"] .lunar-credit{display:block;padding:15px 0 10px;font-size:11px;color:#bda8a9;line-height:1.5}
+html[data-lunar-real="1"] .lunar-credit a{color:#dfb6a0;text-decoration:underline;text-underline-offset:2px}
+
+
+/* P14 SERENE MOONLIGHT — opt-in atelier=5 only. P13 remains pixel-for-pixel. */
+html[data-moon-serene="1"],html[data-moon-serene="1"] body {overflow-x:clip;}
+html[data-moon-serene="1"] .hero {
+  background:#20141f;
+  border-color:#cb998e8c;
+  box-shadow:0 28px 72px #08050d9c,0 0 38px #d5a58f21,inset 0 1px #fff0db57;
+}
+html[data-moon-serene="1"] .hero-art {
+  filter:saturate(.89) brightness(1.045);
+}
+html[data-moon-serene="1"] .hero::before {
+  /* Opaque, low-noise reading column; the lunar disc is entirely to its right. */
+  background:linear-gradient(90deg,#1b111eef 0%,#241723dc 28%,#261a28b8 48%,#2b1b2a36 70%,transparent 91%),
+             linear-gradient(0deg,#170f1bd6,transparent 24%);
+}
+html[data-moon-serene="1"] .hero h1 {
+  max-width:54%;
+  font-size:clamp(35px,4.7vw,51px);
+  letter-spacing:-.055em;
+  line-height:1.15;
+  text-shadow:0 2px 13px #110a13bd;
+}
+html[data-moon-serene="1"] .hero h1 em {
+  color:#f0beb6;
+  text-shadow:0 2px 13px #110a13bd;
+}
+html[data-moon-serene="1"] .hero .intro {
+  max-width:54%;
+  color:#f2dfd9;
+  line-height:1.78;
+  text-shadow:0 1px 6px #130d16a8;
+}
+html[data-moon-serene="1"] .hero-actions {max-width:100%;}
+html[data-moon-serene="1"] .hero-lower {border-top-color:#d6aa9a52;}
+html[data-moon-serene="1"] .hero::after {border-color:#e7c8ac52;}
+html[data-moon-serene="1"] .lunar-credit {color:#ccb4a8;}
+@media(min-width:621px) and (max-width:850px) {
+  html[data-moon-serene="1"] .hero h1 {max-width:53%;font-size:clamp(34px,4.55vw,44px)}
+  html[data-moon-serene="1"] .hero .intro {max-width:53%;font-size:14px}
+}
+@media(max-width:620px) {
+  html[data-moon-serene="1"] .hero,
+  html[data-moon-serene="1"][data-device-layout] .hero {
+    padding-top:28px;
+    min-height:640px;
+  }
+  html[data-moon-serene="1"] .hero::before {
+    background:linear-gradient(180deg,#20131c80 0%,#26182578 29%,#211522d8 41%,#20151fef 75%,#1a111df7 100%);
+  }
+  html[data-moon-serene="1"] .hero h1,
+  html[data-moon-serene="1"][data-device-layout] .hero h1 {
+    max-width:100%;
+    margin-top:177px;
+    font-size:clamp(31px,8.4vw,43px);
+    line-height:1.14;
+  }
+  html[data-moon-serene="1"] .hero .intro {
+    max-width:100%;
+    line-height:1.65;
+  }
+  html[data-moon-serene="1"] .hero-art {filter:saturate(.88) brightness(1.04)}
+}
+
+
+/* P15 LUNAR CHROMA — opt-in atelier=6; P14 / all older previews untouched.
+   A 120-second artistic color-grade cycle (not a claim about current Moon phases).
+   Pearl -> Harvest Gold -> Rose -> Blue -> Pearl. NASA pixel detail stays intact.
+   A tiny circular blend overlays only the lunar disk; lettering stays constant. */
+html[data-lunar-chroma="1"] .hero {animation:p15-frame 120s linear infinite}
+html[data-lunar-chroma="1"] .hero-art {
+  animation:p15-landscape 120s linear infinite;
+  /* No repeated Canvas2D painting: CSS compositor handles the slow color change. */
+}
+html[data-lunar-chroma="1"] .chroma-lunar-tint {
+  position:absolute;z-index:-2;pointer-events:none;border-radius:50%;
+  mix-blend-mode:color;opacity:.23;
+  background-color:#f1e8dd;
+  animation:p15-moon 120s linear infinite;
+}
+html[data-lunar-chroma="1"] .hero .button-primary {
+  animation:p15-button 120s linear infinite;
+}
+html[data-lunar-chroma="1"] .hero .button-primary:hover {filter:brightness(1.06)}
+html[data-lunar-chroma="1"] .hero h1 em {
+  animation:p15-title 120s linear infinite;
+}
+html[data-lunar-chroma="1"] .choice-panel {
+  animation:p15-panel 120s linear infinite;
+}
+@keyframes p15-moon {
+  0%,100% {background-color:#f1e8dd}
+  25% {background-color:#e8be80}
+  50% {background-color:#d7a2ae}
+  75% {background-color:#a5b4d8}
+}
+@keyframes p15-landscape {
+  0%,100% {filter:saturate(.80) sepia(.08) brightness(1.045)}
+  25% {filter:saturate(.98) sepia(.23) brightness(1.09)}
+  50% {filter:saturate(1.07) sepia(.09) brightness(1.065) hue-rotate(-8deg)}
+  75% {filter:saturate(.84) sepia(.025) brightness(1.05) hue-rotate(19deg)}
+}
+@keyframes p15-frame {
+  0%,100% {border-color:#c7ada1a1;box-shadow:0 28px 72px #08050d9c,0 0 38px #e0c8b11e,inset 0 1px #fff5e157}
+  25% {border-color:#d5ab80ad;box-shadow:0 28px 72px #08050d9c,0 0 38px #d9a57530,inset 0 1px #fff0ce57}
+  50% {border-color:#ca93a7ad;box-shadow:0 28px 72px #08050d9c,0 0 38px #cb8fa82c,inset 0 1px #fff0e557}
+  75% {border-color:#9ba7c7ad;box-shadow:0 28px 72px #08050d9c,0 0 38px #9da9ca24,inset 0 1px #eaefff57}
+}
+@keyframes p15-button {
+  0%,100% {background:#edc7b4;border-color:#f8dfcc;box-shadow:inset 0 1px #fff9e5b2,0 5px 20px #e6b9a152}
+  25% {background:#f0c595;border-color:#ffdfae;box-shadow:inset 0 1px #fff7dcb2,0 5px 20px #e4b27858}
+  50% {background:#e9b5c0;border-color:#ffe1e9;box-shadow:inset 0 1px #fff1f4b2,0 5px 20px #d996b457}
+  75% {background:#c6cce6;border-color:#e7edff;box-shadow:inset 0 1px #f7f7ffb2,0 5px 20px #a3b2d752}
+}
+@keyframes p15-title {
+  0%,100% {color:#f0d2c6}
+  25% {color:#f4d2ab}
+  50% {color:#edb4c2}
+  75% {color:#d4d9f2}
+}
+@keyframes p15-panel {
+  0%,100% {border-color:#b88f89}
+  25% {border-color:#c39d7f}
+  50% {border-color:#bb889e}
+  75% {border-color:#9798bd}
+}
+@media(prefers-reduced-motion:reduce) {
+  html[data-lunar-chroma="1"] .hero,
+  html[data-lunar-chroma="1"] .hero-art,
+  html[data-lunar-chroma="1"] .chroma-lunar-tint,
+  html[data-lunar-chroma="1"] .hero .button-primary,
+  html[data-lunar-chroma="1"] .hero h1 em,
+  html[data-lunar-chroma="1"] .choice-panel {animation:none !important}
+}
+
+
+/* P16 — SOFT LIMB. The lunar surface remains a NASA photograph; only its
+   optical edge fades, with no geometric frame or visible tint-mask rim.
+   All existing P10-P15 preview modes are untouched. */
+html[data-soft-limb="1"] .chroma-lunar-tint {
+  -webkit-mask-image:radial-gradient(circle, #000 0%, #000 88%, transparent 100%);
+  mask-image:radial-gradient(circle, #000 0%, #000 88%, transparent 100%);
+}
+
+
+/* P17 — TRUE LUNAR LIMB: an airless moon has a sharp silhouette.
+   NO soft alpha feather, NO circle stroke/glow around the lunar edge, NO
+   second colored disk layer. Only the EXISTING NASA photograph gets clipped.
+   The ambient decorative background remains artistic; it is not lunar atmosphere.
+   Earlier ?atelier=1..7 untouched. */
+html[data-true-limb="1"] .chroma-lunar-tint {display:none !important;}
+html[data-true-limb="1"] .hero-art {
+  animation:p17-photographic-grade 120s linear infinite;
+}
+@keyframes p17-photographic-grade {
+  0%,100% {filter:saturate(.86) sepia(.06) brightness(1.06) contrast(1.01)}
+  25% {filter:saturate(.90) sepia(.19) brightness(1.075) contrast(1.01)}
+  50% {filter:saturate(.96) sepia(.11) brightness(1.06) hue-rotate(-6deg) contrast(1.01)}
+  75% {filter:saturate(.81) sepia(.015) brightness(1.045) hue-rotate(16deg) contrast(1.01)}
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-true-limb="1"] .hero-art {
+    animation:none !important;
+    filter:saturate(.86) sepia(.06) brightness(1.06) contrast(1.01);
+  }
+}
+
+
+/* P19 — LUNAR SALON / editorial finish for the real-Moon LP.
+   Opt-in ?atelier=10 only. CSS-only elevation of the collection below the
+   hero. P18 NASA disk/geometry/photographic clipping is deliberately UNTOUCHED.
+   The contrast is in visual hierarchy, not in more bloom or decorative rings. */
+html[data-lunar-gallery="1"] {
+  --salon-gold:#e8c5a8;
+  --salon-ivory:#fff1e5;
+  --salon-ink:#211720;
+  --salon-line:#a77e79;
+  --salon-light:#efd0b6;
+}
+html[data-lunar-gallery="1"] body {
+  background:
+    radial-gradient(ellipse 40rem 48rem at 92% 17%,#71445324,transparent 75%),
+    radial-gradient(ellipse 34rem 60rem at 4% 63%,#75405e1c,transparent 78%),
+    #120e15;
+}
+/* Restrained header: let the moon be the only luminous hero art. */
+html[data-lunar-gallery="1"] .site-head {
+  border-bottom-color:#b78a805c;
+  box-shadow:0 1px 0 #fff1dc0a;
+}
+html[data-lunar-gallery="1"] .brand-mark {
+  box-shadow:inset 0 1px #fff4dca6,0 4px 19px #d4a29227;
+}
+html[data-lunar-gallery="1"] .storefront-link,
+html[data-lunar-gallery="1"] .locale-wrap {
+  border-color:#b68c8199;
+}
+html[data-lunar-gallery="1"] :is(.storefront-link,.section-link,.choice-link):focus-visible,
+html[data-lunar-gallery="1"] :is(button,input,select,a):focus-visible {
+  outline:2px solid #ffe3b8;outline-offset:3px;
+}
+/* Heading hierarchy — editorials on a dark matte ground, never a light leak. */
+html[data-lunar-gallery="1"] .choice-heading {margin-bottom:18px;}
+html[data-lunar-gallery="1"] .choice-heading .eyebrow,
+html[data-lunar-gallery="1"] :is(.free-head,.paid-head,.catalog) .eyebrow {
+  color:#e9c2ab;letter-spacing:.27em;
+}
+html[data-lunar-gallery="1"] .choice-panel {
+  border-radius:23px;
+  border-color:#bd988e9c;
+  box-shadow:inset 0 1px #fce3d757,0 18px 36px #09070bb0,0 0 0 4px #96707912;
+}
+html[data-lunar-gallery="1"] .choice-panel::before {
+  inset:-15% -5% -5% 33%;transform:none;opacity:1;
+  background:
+    radial-gradient(ellipse 46% 47% at 93% 8%,#f3c5ab31,transparent 88%),
+    linear-gradient(148deg,transparent 4%,#ffe1c705 47%,transparent 70%);
+}
+html[data-lunar-gallery="1"] .choice-panel::after {
+  inset:5px;border:1px solid #e9c8ae38;
+  border-radius:18px;box-shadow:inset 0 1px #fff5e513;
+}
+html[data-lunar-gallery="1"] .choice-purpose {
+  background:
+    radial-gradient(ellipse 58% 68% at 97% 0%,#a36f7842,transparent 79%),
+    linear-gradient(147deg,#4b3440 0%,#32232e 50%,#201820 100%);
+}
+html[data-lunar-gallery="1"] .choice-random {
+  background:
+    radial-gradient(ellipse 50% 65% at 103% 0%,#ba8b8254,transparent 86%),
+    linear-gradient(142deg,#46303c,#2b1e2a 56%,#1d1820);
+}
+html[data-lunar-gallery="1"] .choice-panel h2 {
+  color:#fff3e6;font-weight:680;letter-spacing:-.04em;
+  text-shadow:0 2px 15px #100c13a6;
+}
+html[data-lunar-gallery="1"] .choice-caption {color:#ead3cb;}
+html[data-lunar-gallery="1"] .purpose-controls {gap:10px;}
+html[data-lunar-gallery="1"] .purpose-search input,
+html[data-lunar-gallery="1"] .search-wrap,
+html[data-lunar-gallery="1"] .sort-label,
+html[data-lunar-gallery="1"] .sort-label select {
+  color:#fff1e7;background:#201821e9;border-color:#a17b79;
+  box-shadow:inset 0 1px #fff3e014;
+}
+html[data-lunar-gallery="1"] .purpose-search input:focus,
+html[data-lunar-gallery="1"] .search-wrap:focus-within {
+  border-color:#ffe0b6;
+  box-shadow:0 0 0 3px #e4b5a53b,inset 0 1px #fff5e32d;
+}
+html[data-lunar-gallery="1"] .purpose-categories button,
+html[data-lunar-gallery="1"] .purpose-prices button,
+html[data-lunar-gallery="1"] .category-filters button {
+  border-color:#9e7f7b;background:#2c202acc;
+}
+html[data-lunar-gallery="1"] .purpose-categories button[aria-pressed="true"],
+html[data-lunar-gallery="1"] .purpose-prices button[aria-pressed="true"],
+html[data-lunar-gallery="1"] .category-filters button[aria-pressed="true"],
+html[data-lunar-gallery="1"] .segmented button[aria-pressed="true"] {
+  color:#211720;background:#edd0b6;border-color:#ffe3c8;
+  box-shadow:inset 0 1px #fff7e7,0 2px 10px #d4a48c44;
+}
+html[data-lunar-gallery="1"] .purpose-mini,
+html[data-lunar-gallery="1"] .choice-random .discovery-result .app-card {
+  background:linear-gradient(155deg,#33232f,#251d28 73%,#211923);
+  border-color:#ac8881;
+  box-shadow:inset 0 1px #fff2db26,0 9px 23px #08060bb3;
+}
+html[data-lunar-gallery="1"] .choice-pick {
+  border-color:#ffe3c5;
+  background:linear-gradient(105deg,#ffead2,#eac4ac 52%,#d59c9d);
+  box-shadow:0 6px 15px #db9e9145,inset 0 1px #fff6e9d9;
+}
+/* Broad sections get ambience only around the title, not endless glowing cards. */
+html[data-lunar-gallery="1"] :is(.free-section,.paid-section,.catalog) {
+  position:relative;isolation:isolate;
+}
+html[data-lunar-gallery="1"] :is(.free-section,.paid-section,.catalog)::before {
+  left:-3%;right:-3%;top:0;height:410px;opacity:1;
+  background:
+    radial-gradient(ellipse 60% 61% at 85% 3%,#9b66722b,transparent 79%),
+    linear-gradient(180deg,#5b354014,transparent 86%);
+}
+html[data-lunar-gallery="1"] .paid-section::before {
+  height:490px;
+  background:
+    radial-gradient(ellipse 60% 60% at 10% 4%,#9874782a,transparent 82%),
+    linear-gradient(180deg,#37212c1a,transparent 93%);
+}
+html[data-lunar-gallery="1"] .catalog::before {
+  height:490px;
+  background:radial-gradient(ellipse 58% 55% at 82% 4%,#96647626,transparent 80%);
+}
+html[data-lunar-gallery="1"] .free-head,
+html[data-lunar-gallery="1"] .paid-head {padding-bottom:27px;margin-bottom:12px;}
+html[data-lunar-gallery="1"] :is(.free-head,.paid-head)::after {
+  width:min(420px,67%);height:1px;
+  background:linear-gradient(90deg,#f5d6b4bd,#bd8d876b,transparent);
+  box-shadow:0 0 8px #e3ac9740;
+}
+html[data-lunar-gallery="1"] :is(.free-title-row,.paid-title-row) h2 {
+  letter-spacing:-.05em;line-height:1.12;
+}
+html[data-lunar-gallery="1"] .free-title-row h2 {
+  background:linear-gradient(116deg,#fff5df 5%,#ecc6aa 58%,#ca9597);
+  background-clip:text;-webkit-background-clip:text;color:transparent;
+  filter:drop-shadow(0 3px 12px #ab7b7140);
+}
+html[data-lunar-gallery="1"] .paid-title-row h2 {
+  color:#fff1e2;text-shadow:0 3px 20px #9d6e8257;
+}
+html[data-lunar-gallery="1"] .free-total,
+html[data-lunar-gallery="1"] .paid-floor {color:#f6d0bb;}
+/* Deep satin panels: several degrees of tonal change, no cloned circle stamps. */
+html[data-lunar-gallery="1"] .app-card,
+html[data-lunar-gallery="1"] .free-grid .app-card,
+html[data-lunar-gallery="1"] .paid-grid .app-card,
+html[data-lunar-gallery="1"] .app-grid .app-card {
+  border-radius:17px;border-color:#a47e7b9a;
+  background:
+    radial-gradient(ellipse 74% 52% at 92% -14%,#e4b2a914,transparent 78%),
+    linear-gradient(154deg,#392a36 0%,#2a202d 56%,#211923 100%);
+  box-shadow:inset 0 1px #fff2e337,0 11px 26px #09060a7a;
+  transition:border-color .24s ease,box-shadow .24s ease,transform .24s ease;
+}
+html[data-lunar-gallery="1"] .free-grid .app-card {
+  border-color:#bd9486b6;
+  background:
+    radial-gradient(ellipse 55% 55% at 100% 0%,#d6a98c18,transparent 80%),
+    linear-gradient(148deg,#49343c,#332530 60%,#231c25);
+}
+html[data-lunar-gallery="1"] .paid-grid .app-card {
+  background:
+    radial-gradient(ellipse 67% 57% at 100% 0%,#b58fa510,transparent 83%),
+    linear-gradient(148deg,#352635,#271e2d 62%,#1f1926);
+}
+html[data-lunar-gallery="1"] .app-grid .app-card:nth-child(3n+2) {
+  background:
+    radial-gradient(ellipse 57% 55% at 100% 0%,#b9a6bd0d,transparent 79%),
+    linear-gradient(150deg,#332736,#28202e 62%,#1f1926);
+}
+html[data-lunar-gallery="1"] .app-grid .app-card:nth-child(3n) {
+  background:
+    radial-gradient(ellipse 60% 58% at 100% 0%,#d6a69610,transparent 79%),
+    linear-gradient(151deg,#392932,#2a202a 66%,#211923);
+}
+html[data-lunar-gallery="1"] .app-card::before {
+  background:linear-gradient(121deg,#fff1de0c 0%,transparent 40%);
+}
+html[data-lunar-gallery="1"] .app-card::after {display:none;}
+html[data-lunar-gallery="1"] .app-card:hover {
+  border-color:#e8c6ad;
+  box-shadow:inset 0 1px #fff6e363,0 16px 32px #09060cb0,0 0 0 1px #d6a58a28;
+  transform:translateY(-2px);
+}
+html[data-lunar-gallery="1"] .app-art {
+  border-color:#e6c5ab65;box-shadow:0 0 0 2px #e9c3a30d,0 7px 17px #0d0912a3;
+}
+html[data-lunar-gallery="1"] .app-title {
+  color:#fff3e7;text-shadow:none;letter-spacing:-.025em;
+}
+html[data-lunar-gallery="1"] .app-description,
+html[data-lunar-gallery="1"] .app-footer span {color:#ead7d0;}
+html[data-lunar-gallery="1"] .category {
+  color:#eac3b0;letter-spacing:.12em;
+}
+html[data-lunar-gallery="1"] .price {
+  border-color:#d8ad96;color:#ffe4cf;
+  background:linear-gradient(125deg,#4d333cdd,#2b202be6);
+  box-shadow:inset 0 1px #ffebcf2d;
+}
+html[data-lunar-gallery="1"] .app-footer {border-top-color:#aa888286;}
+html[data-lunar-gallery="1"] .app-footer a {color:#ffe4cc;}
+html[data-lunar-gallery="1"] .app-footer a:hover,
+html[data-lunar-gallery="1"] .section-link:hover,
+html[data-lunar-gallery="1"] .choice-link:hover {color:#fff3dc;}
+/* The catalog remains a usable discovery tool, not a wallpaper. */
+html[data-lunar-gallery="1"] .catalog .toolbar {
+  border-color:#a78783;background:linear-gradient(145deg,#352532f2,#231a26f8);
+  box-shadow:inset 0 1px #f5ddcb40,0 12px 27px #09060da3;
+}
+html[data-lunar-gallery="1"] .category-header,
+html[data-lunar-gallery="1"] .status {color:#ebd1c5;}
+html[data-lunar-gallery="1"] .catalog h2 {text-shadow:0 4px 20px #d7a49730;}
+html[data-lunar-gallery="1"] footer {border-top-color:#9c78767d;color:#dbc5be;}
+@media(max-width:620px) {
+  html[data-lunar-gallery="1"] .choice-heading {margin-bottom:13px;}
+  html[data-lunar-gallery="1"] .choice-panel {border-radius:19px;}
+  html[data-lunar-gallery="1"] .choice-panel::after {inset:4px;border-radius:15px;}
+  html[data-lunar-gallery="1"] .catalog .toolbar {padding:10px;}
+  html[data-lunar-gallery="1"] :is(.free-section,.paid-section,.catalog)::before {left:-12px;right:-12px;}
+  html[data-lunar-gallery="1"] .app-card:hover {transform:none;}
+  html[data-lunar-gallery="1"] .choice-panel::before {inset:-12% -10% -5% 40%;opacity:.65;}
+}
+@media(prefers-reduced-motion:reduce) {
+  html[data-lunar-gallery="1"] .app-card {transition:none;}
+  html[data-lunar-gallery="1"] .app-card:hover {transform:none;}
+}
+
+
+/* P20 — LUNAR SALON POLISH. Opt-in ?atelier=11 only.
+   Approved P19 color system and P18 NASA lunar geometry are untouched.
+   Improve fine interaction details, keyboard focus and text robustness without
+   changing the large-scale composition or introducing ornament. */
+html[data-salon-finish="1"] :is(#choose,#free-now,#paid-now,#catalog) {
+  scroll-margin-top:22px;
+}
+/* App listings: keep identity, prices and links stable in long translations. */
+html[data-salon-finish="1"] :is(.app-title,.purpose-mini .app-title) {
+  min-width:0;
+  line-height:1.35;
+  overflow-wrap:anywhere;
+}
+html[data-salon-finish="1"] :is(.app-description,.choice-caption,.section-note) {
+  overflow-wrap:break-word;
+}
+html[data-salon-finish="1"] :is(.price,.free-total,.paid-floor) {
+  font-variant-numeric:tabular-nums;
+}
+html[data-salon-finish="1"] .price {white-space:nowrap;}
+/* Tactile controls: clearly visible focus, subtle response without novelty UI. */
+html[data-salon-finish="1"] :is(.app-card,.purpose-mini):focus-within {
+  border-color:#f0d1b8;
+  box-shadow:inset 0 1px #fff4e459,0 0 0 2px #e6baa75e,0 14px 28px #08060b90;
+}
+html[data-salon-finish="1"] :is(.purpose-categories,.category-filters,.purpose-prices,.segmented) button:focus-visible,
+html[data-salon-finish="1"] :is(.choice-pick,.purpose-reset,.sort-label select,.locale-wrap select):focus-visible {
+  outline:2px solid #ffe2b9;
+  outline-offset:3px;
+}
+html[data-salon-finish="1"] :is(.purpose-categories,.category-filters,.purpose-prices,.segmented) button {
+  transition:background-color .18s ease,border-color .18s ease,box-shadow .18s ease;
+}
+html[data-salon-finish="1"] .purpose-reset:hover {
+  border-color:#f2cfb6;
+  color:#fff3e3;
+}
+/* Comfortable tap areas and text wrapping on narrow touch devices. */
+@media(max-width:620px) {
+  html[data-salon-finish="1"] :is(.purpose-categories,.category-filters,.purpose-prices,.segmented) button {
+    min-height:44px;
+    white-space:normal;
+    overflow-wrap:anywhere;
+  }
+  html[data-salon-finish="1"] :is(.purpose-reset,.choice-pick) {min-height:44px;}
+  html[data-salon-finish="1"] .app-title {font-size:clamp(16px,4.4vw,19px);}
+  html[data-salon-finish="1"] :is(.purpose-search input,.search-wrap input) {min-height:44px;}
+}
+/* Pointer hover must not shift cards on touch hardware. */
+@media(hover:none) {
+  html[data-salon-finish="1"] .app-card:hover {transform:none;}
+}
+/* Preview comparisons stay reachable without covering the entire phone viewport. */
+html[data-salon-finish="1"][data-show-art-switch="1"] .art-mode-preview {
+  max-width:calc(100vw - 24px);
+  overflow-x:auto;
+  overscroll-behavior-inline:contain;
+  scrollbar-width:thin;
+}
+html[data-salon-finish="1"] .art-mode-preview a {flex-shrink:0;}
+@media(prefers-reduced-motion:reduce) {
+  html[data-salon-finish="1"] :is(.purpose-categories,.category-filters,.purpose-prices,.segmented) button {
+    transition:none;
+  }
+  html[data-salon-finish="1"] .app-card:hover {transform:none;}
+}

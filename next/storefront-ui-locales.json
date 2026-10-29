@@ -1,0 +1,516 @@
+{
+  "schemaVersion": 1,
+  "kind": "tsz-storefront-ui",
+  "keys": [
+    "choose",
+    "manual",
+    "auto",
+    "unlisted",
+    "offline",
+    "partial",
+    "label",
+    "reset"
+  ],
+  "locales": {
+    "ar-SA": {
+      "choose": "اختر بلد متجر App Store أو منطقته",
+      "manual": "تم اختيار متجر App Store: {region}",
+      "auto": "متجر App Store: {region} (وفق لغة العرض)",
+      "unlisted": "لم يتم تأكيد توفر التطبيقات وأسعارها في {region}",
+      "offline": "تعذر الحصول على أحدث الأسعار في {region}",
+      "partial": "تُعرض فقط التطبيقات التي تم التحقق من توفرها في {region}",
+      "label": "بلد متجر App Store أو منطقته",
+      "reset": "مطابقة متجر App Store مع لغة العرض"
+    },
+    "bn-BD": {
+      "choose": "App Store-এর দেশ বা অঞ্চল বেছে নিন",
+      "manual": "App Store-এর জন্য {region} বেছে নেওয়া হয়েছে",
+      "auto": "প্রদর্শনের ভাষা অনুযায়ী App Store: {region}",
+      "unlisted": "{region}-এ অ্যাপের প্রাপ্যতা ও দাম নিশ্চিত নয়",
+      "offline": "{region}-এর সর্বশেষ দাম পাওয়া যায়নি",
+      "partial": "{region}-এ যাচাই করা অ্যাপগুলোই দেখানো হচ্ছে",
+      "label": "App Store-এর দেশ বা অঞ্চল",
+      "reset": "ভাষার সঙ্গে App Store মিলিয়ে নিন"
+    },
+    "ca": {
+      "choose": "Tria el país o la regió de l’App Store",
+      "manual": "App Store: {region} seleccionat",
+      "auto": "App Store: {region} (segons l’idioma)",
+      "unlisted": "No s’han confirmat la disponibilitat ni els preus a {region}",
+      "offline": "No s’han pogut obtenir els preus actuals de {region}",
+      "partial": "Només es mostren les apps verificades a {region}",
+      "label": "País o regió de l’App Store",
+      "reset": "Fes coincidir l’App Store amb l’idioma"
+    },
+    "cs": {
+      "choose": "Vyberte zemi nebo oblast App Storu",
+      "manual": "App Store: vybráno {region}",
+      "auto": "App Store: {region} (podle jazyka)",
+      "unlisted": "Dostupnost a ceny v oblasti {region} nejsou ověřené",
+      "offline": "Aktuální ceny v oblasti {region} se nepodařilo získat",
+      "partial": "Zobrazují se jen ověřené aplikace pro oblast {region}",
+      "label": "Země nebo oblast App Storu",
+      "reset": "Přizpůsobit App Store jazyku"
+    },
+    "da": {
+      "choose": "Vælg land eller område for App Store",
+      "manual": "App Store: {region} valgt",
+      "auto": "App Store: {region} (valgt ud fra sproget)",
+      "unlisted": "Tilgængelighed og priser er ikke bekræftet i {region}",
+      "offline": "De nyeste priser kunne ikke hentes for {region}",
+      "partial": "Kun bekræftede apps for {region} vises",
+      "label": "App Store-land eller -område",
+      "reset": "Tilpas App Store til sproget"
+    },
+    "de-DE": {
+      "choose": "Land oder Region des App Store auswählen",
+      "manual": "App Store: {region} ausgewählt",
+      "auto": "App Store: {region} (nach Sprache)",
+      "unlisted": "Verfügbarkeit und Preise für {region} nicht bestätigt",
+      "offline": "Aktuelle Preise für {region} konnten nicht abgerufen werden",
+      "partial": "Nur bestätigte Apps für {region} werden angezeigt",
+      "label": "Land oder Region des App Store",
+      "reset": "App Store an Sprache anpassen"
+    },
+    "el": {
+      "choose": "Επιλέξτε χώρα ή περιοχή του App Store",
+      "manual": "App Store: επιλέχθηκε η περιοχή {region}",
+      "auto": "App Store: {region} (σύμφωνα με τη γλώσσα)",
+      "unlisted": "Η διαθεσιμότητα και οι τιμές για {region} δεν έχουν επιβεβαιωθεί",
+      "offline": "Δεν ήταν δυνατή η λήψη πρόσφατων τιμών για {region}",
+      "partial": "Εμφανίζονται μόνο επαληθευμένες εφαρμογές για {region}",
+      "label": "Χώρα ή περιοχή App Store",
+      "reset": "Αντιστοίχιση App Store με τη γλώσσα"
+    },
+    "en-AU": {
+      "choose": "Choose an App Store country or region",
+      "manual": "App Store: {region} selected",
+      "auto": "App Store: {region} (language default)",
+      "unlisted": "Listing and price not confirmed in {region}",
+      "offline": "Latest prices unavailable for {region}",
+      "partial": "Only verified listings for {region} are shown",
+      "label": "App Store country or region",
+      "reset": "Match App Store to language"
+    },
+    "en-CA": {
+      "choose": "Choose an App Store country or region",
+      "manual": "App Store: {region} selected",
+      "auto": "App Store: {region} (language default)",
+      "unlisted": "Listing and price not confirmed in {region}",
+      "offline": "Latest prices unavailable for {region}",
+      "partial": "Only verified listings for {region} are shown",
+      "label": "App Store country or region",
+      "reset": "Match App Store to language"
+    },
+    "en-GB": {
+      "choose": "Choose an App Store country or region",
+      "manual": "App Store: {region} selected",
+      "auto": "App Store: {region} (language default)",
+      "unlisted": "Listing and price not confirmed in {region}",
+      "offline": "Latest prices unavailable for {region}",
+      "partial": "Only verified listings for {region} are shown",
+      "label": "App Store country or region",
+      "reset": "Match App Store to language"
+    },
+    "en-US": {
+      "choose": "Choose an App Store country or region",
+      "manual": "App Store: {region} selected",
+      "auto": "App Store: {region} (language default)",
+      "unlisted": "Listing and price not confirmed in {region}",
+      "offline": "Latest prices unavailable for {region}",
+      "partial": "Only verified listings for {region} are shown",
+      "label": "App Store country or region",
+      "reset": "Match App Store to language"
+    },
+    "es-ES": {
+      "choose": "Elige el país o la región del App Store",
+      "manual": "App Store: seleccionado {region}",
+      "auto": "App Store: {region} (según el idioma)",
+      "unlisted": "No se han confirmado la disponibilidad ni los precios en {region}",
+      "offline": "No se han podido obtener los precios actuales de {region}",
+      "partial": "Solo se muestran las apps verificadas en {region}",
+      "label": "País o región del App Store",
+      "reset": "Adaptar el App Store al idioma"
+    },
+    "es-MX": {
+      "choose": "Elige el país o la región de App Store",
+      "manual": "App Store: seleccionaste {region}",
+      "auto": "App Store: {region} (según el idioma)",
+      "unlisted": "No se han confirmado la disponibilidad ni los precios en {region}",
+      "offline": "No fue posible consultar los precios más recientes en {region}",
+      "partial": "Solo se muestran las apps verificadas en {region}",
+      "label": "País o región de App Store",
+      "reset": "Usar la región de App Store según el idioma"
+    },
+    "fi": {
+      "choose": "Valitse App Storen maa tai alue",
+      "manual": "App Store: {region} valittu",
+      "auto": "App Store: {region} (kielen perusteella)",
+      "unlisted": "Saatavuutta ja hintoja alueella {region} ei ole vahvistettu",
+      "offline": "Alueen {region} ajantasaisia hintoja ei saatu",
+      "partial": "Näytetään vain alueella {region} vahvistetut sovellukset",
+      "label": "App Storen maa tai alue",
+      "reset": "Valitse App Store kielen mukaan"
+    },
+    "fr-CA": {
+      "choose": "Choisissez le pays ou la région de l’App Store",
+      "manual": "App Store : {region} sélectionné",
+      "auto": "App Store : {region} (selon la langue)",
+      "unlisted": "Disponibilité et prix non confirmés pour {region}",
+      "offline": "Impossible d’obtenir les derniers prix pour {region}",
+      "partial": "Seules les apps vérifiées pour {region} sont affichées",
+      "label": "Pays ou région de l’App Store",
+      "reset": "Adapter l’App Store à la langue"
+    },
+    "fr-FR": {
+      "choose": "Choisissez le pays ou la région de l’App Store",
+      "manual": "App Store : {region} sélectionné",
+      "auto": "App Store : {region} (selon la langue)",
+      "unlisted": "Disponibilité et prix non confirmés pour {region}",
+      "offline": "Impossible de récupérer les derniers prix pour {region}",
+      "partial": "Seules les apps vérifiées pour {region} sont affichées",
+      "label": "Pays ou région de l’App Store",
+      "reset": "Adapter l’App Store à la langue"
+    },
+    "gu-IN": {
+      "choose": "App Store નો દેશ અથવા પ્રદેશ પસંદ કરો",
+      "manual": "App Store માટે {region} પસંદ કર્યું",
+      "auto": "ભાષા મુજબ App Store: {region}",
+      "unlisted": "{region} માં ઉપલબ્ધતા અને કિંમતોની પુષ્ટિ નથી",
+      "offline": "{region} ની નવીનતમ કિંમતો મળી નથી",
+      "partial": "{region} માટે ચકાસેલી એપ્સ જ દેખાડવામાં આવે છે",
+      "label": "App Store નો દેશ અથવા પ્રદેશ",
+      "reset": "App Store ને ભાષા સાથે મેળવો"
+    },
+    "he": {
+      "choose": "בחרו מדינה או אזור של ה-App Store",
+      "manual": "App Store: נבחר האזור {region}",
+      "auto": "App Store: {region} (לפי שפת התצוגה)",
+      "unlisted": "הזמינות והמחירים ב-{region} לא אומתו",
+      "offline": "לא ניתן לקבל מחירים עדכניים עבור {region}",
+      "partial": "מוצגות רק אפליקציות שאומתו עבור {region}",
+      "label": "מדינה או אזור של ה-App Store",
+      "reset": "התאמת ה-App Store לשפה"
+    },
+    "hi": {
+      "choose": "App Store का देश या क्षेत्र चुनें",
+      "manual": "App Store के लिए {region} चुना गया",
+      "auto": "भाषा के अनुसार App Store: {region}",
+      "unlisted": "{region} में उपलब्धता और कीमतें सत्यापित नहीं हैं",
+      "offline": "{region} की नई कीमतें प्राप्त नहीं हो सकीं",
+      "partial": "केवल {region} में सत्यापित ऐप दिखाए जा रहे हैं",
+      "label": "App Store का देश या क्षेत्र",
+      "reset": "App Store को भाषा के अनुसार चुनें"
+    },
+    "hr": {
+      "choose": "Odaberite državu ili regiju App Storea",
+      "manual": "App Store: odabrano {region}",
+      "auto": "App Store: {region} (prema jeziku)",
+      "unlisted": "Dostupnost i cijene za {region} nisu potvrđene",
+      "offline": "Najnovije cijene za {region} nisu dostupne",
+      "partial": "Prikazuju se samo potvrđene aplikacije za {region}",
+      "label": "Država ili regija App Storea",
+      "reset": "Uskladi App Store s jezikom"
+    },
+    "hu": {
+      "choose": "Válassza ki az App Store országát vagy régióját",
+      "manual": "App Store: {region} kiválasztva",
+      "auto": "App Store: {region} (a nyelv alapján)",
+      "unlisted": "A(z) {region} területén az elérhetőség és az árak nem ellenőrzöttek",
+      "offline": "A(z) {region} aktuális árai nem érhetők el",
+      "partial": "Csak a(z) {region} területén ellenőrzött appok jelennek meg",
+      "label": "App Store országa vagy régiója",
+      "reset": "App Store beállítása a nyelvhez"
+    },
+    "id": {
+      "choose": "Pilih negara atau wilayah App Store",
+      "manual": "App Store: {region} dipilih",
+      "auto": "App Store: {region} (sesuai bahasa)",
+      "unlisted": "Ketersediaan dan harga di {region} belum terverifikasi",
+      "offline": "Harga terbaru untuk {region} tidak tersedia",
+      "partial": "Hanya aplikasi terverifikasi di {region} yang ditampilkan",
+      "label": "Negara atau wilayah App Store",
+      "reset": "Sesuaikan App Store dengan bahasa"
+    },
+    "it": {
+      "choose": "Scegli il Paese o l’area geografica dell’App Store",
+      "manual": "App Store: {region} selezionato",
+      "auto": "App Store: {region} (in base alla lingua)",
+      "unlisted": "Disponibilità e prezzi non confermati per {region}",
+      "offline": "Impossibile ottenere i prezzi aggiornati per {region}",
+      "partial": "Vengono mostrate solo le app verificate per {region}",
+      "label": "Paese o area geografica dell’App Store",
+      "reset": "Abbina l’App Store alla lingua"
+    },
+    "ja": {
+      "choose": "App Storeの国・地域を選んでください",
+      "manual": "App Storeを{region}に設定しました",
+      "auto": "表示言語に合わせてApp Storeを{region}に設定しました",
+      "unlisted": "{region}での掲載・価格は確認できません",
+      "offline": "{region}の最新価格を取得できませんでした",
+      "partial": "{region}で掲載を確認できたアプリだけを表示しています",
+      "label": "App Storeの国・地域",
+      "reset": "App Storeを表示言語に合わせる"
+    },
+    "kn-IN": {
+      "choose": "App Store ದೇಶ ಅಥವಾ ಪ್ರದೇಶವನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+      "manual": "App Store ಗೆ {region} ಆಯ್ಕೆಮಾಡಲಾಗಿದೆ",
+      "auto": "ಭಾಷೆಯ ಪ್ರಕಾರ App Store: {region}",
+      "unlisted": "{region} ನಲ್ಲಿ ಲಭ್ಯತೆ ಮತ್ತು ಬೆಲೆಗಳನ್ನು ದೃಢೀಕರಿಸಲಾಗಿಲ್ಲ",
+      "offline": "{region} ನ ಇತ್ತೀಚಿನ ಬೆಲೆಗಳು ಲಭ್ಯವಾಗಿಲ್ಲ",
+      "partial": "{region} ನಲ್ಲಿ ಪರಿಶೀಲಿಸಿದ ಆ್ಯಪ್‌ಗಳನ್ನು ಮಾತ್ರ ತೋರಿಸಲಾಗುತ್ತಿದೆ",
+      "label": "App Store ದೇಶ ಅಥವಾ ಪ್ರದೇಶ",
+      "reset": "App Store ಅನ್ನು ಭಾಷೆಗೆ ಹೊಂದಿಸಿ"
+    },
+    "ko": {
+      "choose": "App Store 국가 또는 지역을 선택하세요",
+      "manual": "App Store가 {region}(으)로 설정되었습니다",
+      "auto": "표시 언어에 따라 App Store를 {region}(으)로 설정했습니다",
+      "unlisted": "{region}의 앱 등록 여부와 가격이 확인되지 않았습니다",
+      "offline": "{region}의 최신 가격을 가져올 수 없습니다",
+      "partial": "{region}에서 확인된 앱만 표시합니다",
+      "label": "App Store 국가 또는 지역",
+      "reset": "표시 언어에 맞춰 App Store 설정"
+    },
+    "ml-IN": {
+      "choose": "App Store രാജ്യമായോ പ്രദേശമായോ തിരഞ്ഞെടുക്കുക",
+      "manual": "App Store-ൽ {region} തിരഞ്ഞെടുത്തു",
+      "auto": "ഭാഷ അനുസരിച്ച് App Store: {region}",
+      "unlisted": "{region}-ലെ ലഭ്യതയും വിലയും സ്ഥിരീകരിച്ചിട്ടില്ല",
+      "offline": "{region}-ലെ പുതിയ വിലകൾ ലഭ്യമല്ല",
+      "partial": "{region}-ൽ സ്ഥിരീകരിച്ച ആപ്പുകൾ മാത്രം കാണിക്കുന്നു",
+      "label": "App Store രാജ്യം അല്ലെങ്കിൽ പ്രദേശം",
+      "reset": "App Store ഭാഷയ്ക്ക് അനുസരിച്ച് ക്രമീകരിക്കുക"
+    },
+    "mr-IN": {
+      "choose": "App Store चा देश किंवा प्रदेश निवडा",
+      "manual": "App Store साठी {region} निवडले",
+      "auto": "भाषेनुसार App Store: {region}",
+      "unlisted": "{region} मधील उपलब्धता आणि किमतींची खात्री झालेली नाही",
+      "offline": "{region} च्या नवीनतम किमती मिळाल्या नाहीत",
+      "partial": "{region} साठी पडताळलेले ॲप्सच दाखवले आहेत",
+      "label": "App Store देश किंवा प्रदेश",
+      "reset": "App Store भाषेनुसार जुळवा"
+    },
+    "ms": {
+      "choose": "Pilih negara atau rantau App Store",
+      "manual": "App Store: {region} dipilih",
+      "auto": "App Store: {region} (mengikut bahasa)",
+      "unlisted": "Ketersediaan dan harga di {region} belum disahkan",
+      "offline": "Harga terkini untuk {region} tidak dapat diperoleh",
+      "partial": "Hanya aplikasi yang disahkan untuk {region} dipaparkan",
+      "label": "Negara atau rantau App Store",
+      "reset": "Padankan App Store dengan bahasa"
+    },
+    "nl-NL": {
+      "choose": "Kies het land of de regio van de App Store",
+      "manual": "App Store: {region} geselecteerd",
+      "auto": "App Store: {region} (volgens de taal)",
+      "unlisted": "Beschikbaarheid en prijzen voor {region} zijn niet bevestigd",
+      "offline": "Actuele prijzen voor {region} konden niet worden opgehaald",
+      "partial": "Alleen geverifieerde apps voor {region} worden getoond",
+      "label": "Land of regio van de App Store",
+      "reset": "App Store afstemmen op taal"
+    },
+    "no": {
+      "choose": "Velg land eller område for App Store",
+      "manual": "App Store: {region} valgt",
+      "auto": "App Store: {region} (basert på språk)",
+      "unlisted": "Tilgjengelighet og priser for {region} er ikke bekreftet",
+      "offline": "Oppdaterte priser for {region} kunne ikke hentes",
+      "partial": "Bare bekreftede apper for {region} vises",
+      "label": "Land eller område for App Store",
+      "reset": "Tilpass App Store til språket"
+    },
+    "or-IN": {
+      "choose": "App Store ଦେଶ କିମ୍ବା ଅଞ୍ଚଳ ବାଛନ୍ତୁ",
+      "manual": "App Store ପାଇଁ {region} ବଛାଯାଇଛି",
+      "auto": "ଭାଷା ଅନୁଯାୟୀ App Store: {region}",
+      "unlisted": "{region} ରେ ଉପଲବ୍ଧତା ଓ ମୂଲ୍ୟ ନିଶ୍ଚିତ ହୋଇନାହିଁ",
+      "offline": "{region} ର ସଦ୍ୟତମ ମୂଲ୍ୟ ମିଳିଲା ନାହିଁ",
+      "partial": "{region} ପାଇଁ ଯାଞ୍ଚ ହୋଇଥିବା ଆପ୍‌ଗୁଡ଼ିକ ମାତ୍ର ଦେଖାଯାଉଛି",
+      "label": "App Store ଦେଶ କିମ୍ବା ଅଞ୍ଚଳ",
+      "reset": "App Store କୁ ଭାଷା ସହିତ ମେଳାନ୍ତୁ"
+    },
+    "pa-IN": {
+      "choose": "App Store ਦਾ ਦੇਸ਼ ਜਾਂ ਖੇਤਰ ਚੁਣੋ",
+      "manual": "App Store ਲਈ {region} ਚੁਣਿਆ ਗਿਆ",
+      "auto": "ਭਾਸ਼ਾ ਅਨੁਸਾਰ App Store: {region}",
+      "unlisted": "{region} ਵਿੱਚ ਉਪਲਬਧਤਾ ਅਤੇ ਕੀਮਤਾਂ ਦੀ ਪੁਸ਼ਟੀ ਨਹੀਂ ਹੋਈ",
+      "offline": "{region} ਦੀਆਂ ਨਵੀਆਂ ਕੀਮਤਾਂ ਨਹੀਂ ਮਿਲ ਸਕੀਆਂ",
+      "partial": "{region} ਲਈ ਜਾਂਚੀਆਂ ਐਪਾਂ ਹੀ ਦਿਖਾਈਆਂ ਜਾ ਰਹੀਆਂ ਹਨ",
+      "label": "App Store ਦਾ ਦੇਸ਼ ਜਾਂ ਖੇਤਰ",
+      "reset": "App Store ਨੂੰ ਭਾਸ਼ਾ ਨਾਲ ਮਿਲਾਓ"
+    },
+    "pl": {
+      "choose": "Wybierz kraj lub region App Store",
+      "manual": "App Store: wybrano {region}",
+      "auto": "App Store: {region} (według języka)",
+      "unlisted": "Dostępność i ceny w regionie {region} nie zostały potwierdzone",
+      "offline": "Nie udało się pobrać aktualnych cen dla {region}",
+      "partial": "Pokazywane są tylko zweryfikowane aplikacje dla {region}",
+      "label": "Kraj lub region App Store",
+      "reset": "Dopasuj App Store do języka"
+    },
+    "pt-BR": {
+      "choose": "Escolha o país ou a região da App Store",
+      "manual": "App Store: {region} selecionado",
+      "auto": "App Store: {region} (conforme o idioma)",
+      "unlisted": "Disponibilidade e preços em {region} não confirmados",
+      "offline": "Não foi possível obter os preços atualizados de {region}",
+      "partial": "Somente apps verificados em {region} são exibidos",
+      "label": "País ou região da App Store",
+      "reset": "Ajustar App Store ao idioma"
+    },
+    "pt-PT": {
+      "choose": "Escolha o país ou a região da App Store",
+      "manual": "App Store: {region} selecionado",
+      "auto": "App Store: {region} (de acordo com o idioma)",
+      "unlisted": "Disponibilidade e preços em {region} não confirmados",
+      "offline": "Não foi possível obter os preços atuais de {region}",
+      "partial": "São mostradas apenas as aplicações verificadas em {region}",
+      "label": "País ou região da App Store",
+      "reset": "Associar App Store ao idioma"
+    },
+    "ro": {
+      "choose": "Alege țara sau regiunea din App Store",
+      "manual": "App Store: {region} selectat",
+      "auto": "App Store: {region} (în funcție de limbă)",
+      "unlisted": "Disponibilitatea și prețurile din {region} nu sunt confirmate",
+      "offline": "Prețurile actuale din {region} nu au putut fi obținute",
+      "partial": "Sunt afișate doar aplicațiile verificate pentru {region}",
+      "label": "Țara sau regiunea din App Store",
+      "reset": "Potrivește App Store cu limba"
+    },
+    "ru": {
+      "choose": "Выберите страну или регион App Store",
+      "manual": "App Store: выбран регион {region}",
+      "auto": "App Store: {region} (по языку интерфейса)",
+      "unlisted": "Наличие приложений и цены для {region} не подтверждены",
+      "offline": "Не удалось получить актуальные цены для {region}",
+      "partial": "Показаны только приложения, подтверждённые для {region}",
+      "label": "Страна или регион App Store",
+      "reset": "Подобрать App Store по языку"
+    },
+    "sk": {
+      "choose": "Vyberte krajinu alebo región App Storu",
+      "manual": "App Store: vybrané {region}",
+      "auto": "App Store: {region} (podľa jazyka)",
+      "unlisted": "Dostupnosť a ceny pre {region} nie sú potvrdené",
+      "offline": "Nepodarilo sa získať aktuálne ceny pre {region}",
+      "partial": "Zobrazujú sa iba overené aplikácie pre {region}",
+      "label": "Krajina alebo región App Storu",
+      "reset": "Prispôsobiť App Store jazyku"
+    },
+    "sl-SI": {
+      "choose": "Izberite državo ali regijo trgovine App Store",
+      "manual": "App Store: izbrano {region}",
+      "auto": "App Store: {region} (glede na jezik)",
+      "unlisted": "Razpoložljivost in cene za {region} niso potrjene",
+      "offline": "Trenutnih cen za {region} ni bilo mogoče pridobiti",
+      "partial": "Prikazane so le preverjene aplikacije za {region}",
+      "label": "Država ali regija App Store",
+      "reset": "Uskladi App Store z jezikom"
+    },
+    "sv": {
+      "choose": "Välj land eller region för App Store",
+      "manual": "App Store: {region} valt",
+      "auto": "App Store: {region} (enligt språk)",
+      "unlisted": "Tillgänglighet och priser i {region} har inte bekräftats",
+      "offline": "Aktuella priser för {region} kunde inte hämtas",
+      "partial": "Endast verifierade appar för {region} visas",
+      "label": "App Store-land eller -region",
+      "reset": "Anpassa App Store efter språket"
+    },
+    "ta-IN": {
+      "choose": "App Store நாடு அல்லது பகுதியைத் தேர்ந்தெடுக்கவும்",
+      "manual": "App Store-க்கு {region} தேர்ந்தெடுக்கப்பட்டது",
+      "auto": "மொழிக்கு ஏற்ப App Store: {region}",
+      "unlisted": "{region} பகுதியில் கிடைக்கும் தன்மையும் விலைகளும் உறுதிசெய்யப்படவில்லை",
+      "offline": "{region} பகுதிக்கான சமீபத்திய விலைகள் கிடைக்கவில்லை",
+      "partial": "{region} பகுதியில் சரிபார்க்கப்பட்ட செயலிகள் மட்டுமே காட்டப்படுகின்றன",
+      "label": "App Store நாடு அல்லது பகுதி",
+      "reset": "App Store-ஐ மொழிக்கு ஏற்ப அமைக்கவும்"
+    },
+    "te-IN": {
+      "choose": "App Store దేశం లేదా ప్రాంతాన్ని ఎంచుకోండి",
+      "manual": "App Store కోసం {region} ఎంచుకోబడింది",
+      "auto": "భాష ప్రకారం App Store: {region}",
+      "unlisted": "{region} లో లభ్యత మరియు ధరలు నిర్ధారించబడలేదు",
+      "offline": "{region} తాజా ధరలు అందుబాటులో లేవు",
+      "partial": "{region} కోసం ధృవీకరించిన యాప్‌లు మాత్రమే చూపబడుతున్నాయి",
+      "label": "App Store దేశం లేదా ప్రాంతం",
+      "reset": "App Store ను భాషకు అనుగుణంగా మార్చండి"
+    },
+    "th": {
+      "choose": "เลือกประเทศหรือภูมิภาคของ App Store",
+      "manual": "เลือก App Store: {region} แล้ว",
+      "auto": "App Store: {region} (ตามภาษาที่แสดง)",
+      "unlisted": "ยังไม่ยืนยันการวางจำหน่ายและราคาใน {region}",
+      "offline": "ไม่สามารถดึงราคาล่าสุดของ {region} ได้",
+      "partial": "แสดงเฉพาะแอปที่ตรวจสอบแล้วใน {region}",
+      "label": "ประเทศหรือภูมิภาคของ App Store",
+      "reset": "ตั้งค่า App Store ตามภาษา"
+    },
+    "tr": {
+      "choose": "App Store ülkesini veya bölgesini seçin",
+      "manual": "App Store: {region} seçildi",
+      "auto": "App Store: {region} (dile göre)",
+      "unlisted": "{region} için kullanılabilirlik ve fiyatlar doğrulanmadı",
+      "offline": "{region} için güncel fiyatlar alınamadı",
+      "partial": "Yalnızca {region} için doğrulanan uygulamalar gösteriliyor",
+      "label": "App Store ülkesi veya bölgesi",
+      "reset": "App Store’u dile göre ayarla"
+    },
+    "uk": {
+      "choose": "Виберіть країну або регіон App Store",
+      "manual": "App Store: вибрано {region}",
+      "auto": "App Store: {region} (відповідно до мови)",
+      "unlisted": "Наявність додатків і ціни для {region} не підтверджені",
+      "offline": "Не вдалося отримати актуальні ціни для {region}",
+      "partial": "Показано лише перевірені додатки для {region}",
+      "label": "Країна або регіон App Store",
+      "reset": "Підібрати App Store за мовою"
+    },
+    "ur-PK": {
+      "choose": "App Store کا ملک یا علاقہ منتخب کریں",
+      "manual": "App Store کے لیے {region} منتخب کیا گیا",
+      "auto": "زبان کے مطابق App Store: {region}",
+      "unlisted": "{region} میں دستیابی اور قیمتوں کی تصدیق نہیں ہوئی",
+      "offline": "{region} کی تازہ ترین قیمتیں حاصل نہیں ہو سکیں",
+      "partial": "صرف {region} میں تصدیق شدہ ایپس دکھائی جا رہی ہیں",
+      "label": "App Store کا ملک یا علاقہ",
+      "reset": "App Store کو زبان کے مطابق کریں"
+    },
+    "vi": {
+      "choose": "Chọn quốc gia hoặc khu vực của App Store",
+      "manual": "App Store: đã chọn {region}",
+      "auto": "App Store: {region} (theo ngôn ngữ)",
+      "unlisted": "Chưa xác nhận tình trạng phát hành và giá tại {region}",
+      "offline": "Không thể lấy giá mới nhất tại {region}",
+      "partial": "Chỉ hiển thị ứng dụng đã xác minh tại {region}",
+      "label": "Quốc gia hoặc khu vực của App Store",
+      "reset": "Đặt App Store theo ngôn ngữ"
+    },
+    "zh-Hans": {
+      "choose": "选择 App Store 国家或地区",
+      "manual": "已选择 {region} App Store",
+      "auto": "已按显示语言设置为 {region} App Store",
+      "unlisted": "尚未确认 {region} 的上架情况和价格",
+      "offline": "无法获取 {region} 的最新价格",
+      "partial": "仅显示已确认在 {region} 上架的应用",
+      "label": "App Store 国家或地区",
+      "reset": "按语言设置 App Store"
+    },
+    "zh-Hant": {
+      "choose": "選擇 App Store 國家或地區",
+      "manual": "已選擇 {region} App Store",
+      "auto": "已依顯示語言設定為 {region} App Store",
+      "unlisted": "尚未確認 {region} 的上架情況和價格",
+      "offline": "無法取得 {region} 的最新價格",
+      "partial": "僅顯示已確認在 {region} 上架的 App",
+      "label": "App Store 國家或地區",
+      "reset": "依語言設定 App Store"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+/* TSZ Web measurement P1B - deliberately scoped, never alters P20 moon or collection. */
+.tsz-measurement-footer { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:15px; padding:10px 16px 24px; font:inherit; font-size:12px; }
+.tsz-measurement-footer a, .tsz-measurement-footer button { color:inherit; opacity:.74; text-decoration:underline; text-underline-offset:3px; background:none; border:0; font:inherit; cursor:pointer; padding:9px 4px; }
+.tsz-measurement-footer :is(a,button):focus-visible, .tsz-consent-panel button:focus-visible, .tsz-consent-panel a:focus-visible { outline:3px solid #f0c69a; outline-offset:3px; border-radius:6px; }
+.tsz-consent-panel { position:fixed; inset-inline:18px; bottom:max(18px,env(safe-area-inset-bottom)); z-index:9999; box-sizing:border-box; width:min(540px,calc(100% - 36px)); margin-inline:auto; margin-inline-start:auto; margin-inline-end:auto; padding:20px 22px 18px; border:1px solid rgba(245,198,163,.46); border-radius:18px; background:#231923; color:#fff5ef; box-shadow:0 14px 48px rgba(0,0,0,.55); font-family:system-ui,-apple-system,sans-serif; line-height:1.5; }
+.tsz-consent-panel[hidden], .tsz-measurement-footer button[hidden] { display:none!important; }
+.tsz-consent-panel h2 { color:inherit; font-size:17px; font-weight:650; margin:0 0 8px; line-height:1.35; }
+.tsz-consent-panel p { color:#e6d8d3; font-size:13px; margin:0 0 14px; }
+.tsz-consent-panel .tsz-consent-actions { display:flex; flex-wrap:wrap; gap:9px; }
+.tsz-consent-panel button { background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.4); color:#fffaf5; border-radius:10px; font-size:14px; min-height:44px; padding:9px 16px; cursor:pointer; flex:1 1 130px; }
+.tsz-consent-panel button.tsz-accept { color:#241b21; background:#ead0b8; border-color:#ead0b8; }
+.tsz-consent-panel a { color:#f3dccb; font-size:12px; display:inline-flex; align-items:center; box-sizing:border-box; min-height:44px; padding:10px 8px; text-decoration:underline; text-underline-offset:3px; }
+@media(max-width:400px){ .tsz-consent-panel{inset-inline:12px;width:calc(100% - 24px);padding:15px;border-radius:14px;}.tsz-consent-panel button{flex-basis:100%;} }
+@media(prefers-reduced-motion:reduce){ .tsz-consent-panel {transition:none!important; animation:none!important;} }
+
+/* P1BR2: 44px minimum for both public privacy and consent re-open controls. */
+.tsz-measurement-footer :is(a,button) { min-height:44px; display:inline-flex; align-items:center; box-sizing:border-box; }
