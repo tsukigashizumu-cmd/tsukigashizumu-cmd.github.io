@@ -88,7 +88,29 @@
     if(url.protocol!=='https:' || url.hostname!=='apps.apple.com' || !new RegExp('/id'+appId+'(?:[/?#]|$)').test(url.pathname))return;
     const place=a.closest('#free-apps')?'daily_free':a.closest('#paid-apps')?'price_drop':'app_catalog';
     const offer=a.dataset.tszOfferType==='free'?'free':'unknown';
-    window.gtag('event','app_store_outbound',{target_app_id:appId,target_app_slug:slug,offer_type:offer,placement:place});
+    const payload={target_app_id:appId,target_app_slug:slug,offer_type:offer,placement:place};
+    // Snapshot annotation comes only from the trusted LP app-card constructors.
+    // Stale/unsupported data must never become a made-up click price.
+    const amount=a.dataset.tszShownPrice, currency=a.dataset.tszShownCurrency;
+    const country=a.dataset.tszShownStorefront, checked=a.dataset.tszShownPriceCheckedUtc;
+    const checkedMs=Date.parse(checked||'');
+    const age=Date.now()-checkedMs;
+    const urlCountry=url.pathname.split('/')[1]?.toUpperCase();
+    if (amount && /^\d{1,6}(?:\.\d{1,4})?$/.test(amount) && Number.isFinite(Number(amount)) &&
+        /^[A-Z]{3}$/.test(currency||'') && /^[A-Z]{2}$/.test(country||'') &&
+        country===urlCountry && Number.isFinite(checkedMs) &&
+        age>=-60*1000 && age<=5*60*1000 &&
+        new Date(checkedMs).toISOString()===checked) {
+      payload.clicked_price=currency+':'+amount; // GA4 event-scope custom dimension
+      payload.clicked_price_amount=Number(amount); // numeric, no FX conversion
+      payload.price_currency=currency;
+      payload.price_storefront=country;
+      payload.price_checked_utc=checked; // source snapshot timestamp; do NOT register as dimension
+      payload.price_status='lp_display_verified';
+    } else {
+      payload.price_status='unverified';
+    }
+    window.gtag('event','app_store_outbound',payload);
     eventCount++;
   }
   async function init(){

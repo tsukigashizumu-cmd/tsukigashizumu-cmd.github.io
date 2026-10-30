@@ -14,8 +14,9 @@
   let availableCountries=[];
   let lastLocale=null;
   let storeMessage='';
-  const liveSnapshots=new Map();
-  const LIVE_CACHE_MS=15*60*1000;
+  // No cross-visit or in-tab price cache: price offers must come from a fresh lookup.
+  const PRICE_MAX_AGE_MS=5*60*1000;
+  let lastPriceFetchStarted=0;
   const APPLE_LOOKUP_HOST='https://itunes.apple.com/lookup';
   const ambiguousLocales=new Set(['ca','el','no','sv','ms']);
     const status = $('status');
@@ -56,7 +57,6 @@
       ascLocalizedName: Boolean(name), ascLocalizedDescription: Boolean(desc)};
   }
   let requestSerial = 0;
-  const snapshots = new Map();
   function trustedUrl(url, type) {
     try { const u = new URL(url);
       if (u.protocol !== 'https:' || u.username || u.password || u.port) return '';
@@ -157,7 +157,7 @@
     catch (_) { return model.country.toUpperCase(); }
   }
   function priceLabel(app) {
-    if (model.stale || !Number.isFinite(app.price) || !/^[A-Z]{3}$/.test(app.currency || '')) return t('checkPrice');
+    if (!priceVerified() || !Number.isFinite(app.price) || !/^[A-Z]{3}$/.test(app.currency || '')) return t('checkPrice');
     if (app.price === 0) return t('freePrice');
     const amount = app.formattedPrice || new Intl.NumberFormat(i18n.locale, {style:'currency',currency:app.currency}).format(app.price);
     // ¥ and $ are shared by several currencies: always make the ISO currency explicit.
@@ -169,6 +169,20 @@
     anchor.dataset.tszAppId = String(app.id);
     anchor.dataset.tszAppSlug = 'app_' + String(app.id); // stable across locale and storefront
     anchor.dataset.tszOfferType = priceVerified() && app.price === 0 ? 'free' : 'unknown';
+    // The price shown on this LP, NOT the App Store checkout/purchase price.
+    // Only annotate verified same-storefront display data; never infer from text/US fallback.
+    const checked=Date.parse(model.checkedUTC||'');
+    const age=Date.now()-checked;
+    if (priceVerified() && /^[a-z]{2}$/.test(model.country) &&
+        Number.isFinite(checked) && age>=-5*60*1000 && age<=PRICE_MAX_AGE_MS &&
+        Number.isFinite(app.price) && app.price>=0 && app.price<=999999 &&
+        /^\d{1,6}(?:\.\d{1,4})?$/.test(String(app.price)) &&
+        /^[A-Z]{3}$/.test(app.currency||'')) {
+      anchor.dataset.tszShownPrice=String(app.price);
+      anchor.dataset.tszShownCurrency=app.currency;
+      anchor.dataset.tszShownStorefront=model.country.toUpperCase();
+      anchor.dataset.tszShownPriceCheckedUtc=new Date(checked).toISOString();
+    }
   }
   function card(app) {
     const article = el('article', 'app-card');
@@ -176,7 +190,7 @@
     const art = trustedUrl(app.artworkUrl,'art');
     if (art) { const img=el('img','app-art');img.src=art;img.alt=app.name || 'App';img.loading='lazy';top.append(img); }
     else top.append(el('div','app-art app-art-placeholder',(app.name || '?').charAt(0)));
-    const p=el('span','price'+(model.stale || app.price === null ? ' unknown':''),priceLabel(app));p.dir='auto';top.append(p);
+    const p=el('span','price'+(!priceVerified() || app.price === null ? ' unknown':''),priceLabel(app));p.dir='auto';top.append(p);
     const category=el('div','category',app.category || 'App');category.dir='auto';
     const title=el('h3','app-title',app.name || 'App');title.dir='auto';
     const subtitle=app.subtitle ? el('p','app-subtitle',app.subtitle) : null;
@@ -190,7 +204,7 @@
     article.append(top,category,title);if(subtitle)article.append(subtitle);article.append(description,bottom);return article;
   }
   function categoryKey(app) { return String(app.category || 'App').trim() || 'App'; }
-  function priceVerified() { return model.catalogReady && !model.fallbackUS && !model.stale; }
+  function priceVerified() { return model.catalogReady && !model.fallbackUS && !model.stale && !isStale(model.checkedUTC); }
   function matchesChoices(app) {
     if (model.category !== 'all' && categoryKey(app) !== model.category) return false;
     if (model.filter === 'free' && (!priceVerified() || app.price !== 0)) return false;
@@ -273,7 +287,7 @@
   }
   function renderLowestPaid() {
     const list=$('paid-apps'), floor=$('paid-floor'), note=$('paid-status');
-    const verified=model.catalogReady&&!model.fallbackUS&&!model.stale;
+    const verified=priceVerified();
     const candidates=verified ? model.apps.filter(a=>Number.isFinite(a.price)&&a.price>0&&/^[A-Z]{3}$/.test(a.currency||'')) : [];
     const collator=new Intl.Collator(i18n.locale,{sensitivity:'base'});
     candidates.sort((a,b)=>a.price-b.price || collator.compare(a.name||'',b.name||''));
@@ -289,7 +303,7 @@
   }
   function renderHighlights() {
     const list=$('free-apps'), count=$('free-total'), note=$('free-status');
-    const verified=model.catalogReady&&!model.fallbackUS&&!model.stale;
+    const verified=priceVerified();
     const free=verified ? model.apps.filter(a=>a.price===0) : [];
     count.textContent=verified ? String(free.length) : '—';
     const frag=document.createDocumentFragment();
@@ -321,7 +335,7 @@
   }
   function paint() {
     $('app-count').textContent=model.catalogReady?String(model.apps.length):'—';
-    $('free-count').textContent=model.catalogReady && !model.stale ? String(model.apps.filter(a=>a.price===0).length):'—';
+    $('free-count').textContent=priceVerified() ? String(model.apps.filter(a=>a.price===0).length):'—';
     if (model.checkedUTC) { try{$('checked-at').textContent=new Intl.DateTimeFormat(i18n.locale,{timeZone:'UTC',dateStyle:'medium',timeStyle:'short'}).format(new Date(model.checkedUTC))+' UTC';}
       catch(_){$('checked-at').textContent=model.checkedUTC;} }
     else $('checked-at').textContent='—';
@@ -332,7 +346,7 @@
     $('description-source').hidden=!model.catalogReady || model.fallbackUS;
     if (!priceVerified() && model.filter !== 'all') model.filter='all';
     document.querySelectorAll('[data-filter]').forEach(b=>{b.disabled=!priceVerified() && b.dataset.filter!=='all';b.setAttribute('aria-pressed', b.dataset.filter===model.filter?'true':'false');});
-    status.classList.toggle('warning',model.stale || model.statusType!=='ok');
+    status.classList.toggle('warning',!priceVerified() || model.statusType!=='ok');
     renderCategories();renderHighlights();renderLowestPaid();render();
   }
   async function readJson(path) { const r=await fetch(path,{cache:'no-store'});if (!r.ok) throw Error('HTTP '+r.status);return r.json(); }
@@ -351,11 +365,10 @@
     for(const app of data.apps){if(!Number.isSafeInteger(app.id) || !allowed.has(app.id) || seen.has(app.id) || typeof app.name!=='string' || !/^[A-Z]{3}$/.test(app.currency || '') || (app.price!==null && !Number.isFinite(app.price)))throw Error('Invalid app in snapshot');seen.add(app.id);}
     return data;
   }
-  function isStale(iso) { const millis=Date.parse(iso||'');return !Number.isFinite(millis) || Date.now()-millis>48*3600*1000 || millis>Date.now()+5*60*1000; }
+  function isStale(iso) { const millis=Date.parse(iso||'');return !Number.isFinite(millis) || Date.now()-millis>PRICE_MAX_AGE_MS || millis>Date.now()+60*1000; }
   async function fetchLiveStorefront(country) {
     // Lookup uses public product IDs only. Never pass language, device IDs, user IDs, UTM, or history.
-    const cached=liveSnapshots.get(country);
-    if(cached && Date.now()-cached.stamp<LIVE_CACHE_MS)return cached.data;
+    lastPriceFetchStarted=Date.now();
     const ids=model.base.apps.map(a=>a.id);
     const url=new URL(APPLE_LOOKUP_HOST);
     url.searchParams.set('country',country);url.searchParams.set('entity','software');url.searchParams.set('id',ids.join(','));
@@ -390,7 +403,6 @@
     // Reject suspicious partial responses, not only network errors.
     if(rejected)throw Error('UNTRUSTED_LOOKUP_ROWS');
     const data={apps:results,lastCheckedUTC:new Date().toISOString(),country,live:true,listedCount:results.length};
-    liveSnapshots.set(country,{stamp:Date.now(),data});
     return data;
   }
   async function refreshLocale() {
@@ -428,15 +440,9 @@
       try{data=await fetchLiveStorefront(model.country);}catch(e){liveError=e;}
       if(serial!==requestSerial)return;
       if(!data || data.listedCount===0) {
-        // Same-country verified JSON only; no cross-country prices.
-        try {
-          if(model.country==='us')data=model.base;
-          else { const cached=snapshots.get(model.country);
-            data=cached?verifyRegion(cached,model.country):verifyRegion(await readJson('./data/storefronts/'+model.country+'.json'),model.country);
-            snapshots.set(model.country,data);
-          }
-          if(isStale(data.lastCheckedUTC))data=null;
-        } catch(_){data=null;}
+        // Never promote 48-hour-old generated snapshot prices to a live offer.
+        // Failed live lookup = unknown price; non-price catalog remains browsable.
+        data=null;
       }
       if(serial!==requestSerial)return;
       await loadAscMetadata();
@@ -484,5 +490,20 @@
   $('pick-button').addEventListener('click',()=>pickApp(true));
   initStoreControls();
   document.addEventListener('tsz-locale-changed',()=>{model.category='all';void refreshLocale();});
+  // Refresh on every navigation/load, on return to the tab, and while it remains open.
+  // Browser/server/Apple upstream caches can still exist; these requests do not guarantee
+  // that Apple has propagated a scheduled price change to every customer.
+  function recheckVisiblePrice(force) {
+    if(document.visibilityState==='hidden' || model.loading) return;
+    if(Date.now()-lastPriceFetchStarted < (force?10000:PRICE_MAX_AGE_MS)) return;
+    void refreshLocale();
+  }
+  document.addEventListener('visibilitychange',()=>{
+    if(document.visibilityState==='visible')recheckVisiblePrice(true);
+  });
+  window.addEventListener('pageshow',event=>{
+    if(event.persisted)recheckVisiblePrice(true);
+  });
+  window.setInterval(()=>recheckVisiblePrice(false),30000);
   void refreshLocale();
 })();
