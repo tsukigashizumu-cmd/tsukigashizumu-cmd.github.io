@@ -8,9 +8,60 @@
   <title>Explore apps · Tsukigashizumu Studio</title>
   <script>try{const a=new URLSearchParams(location.search).get('atelier')??'11';if(a==='1'||a==='2'||a==='3'||a==='4'||a==='5'||a==='6'||a==='7'||a==='8'||a==='9'||a==='10'||a==='11'){document.documentElement.dataset.artDirection='painted-matter';if(a==='2')document.documentElement.dataset.artVisualVersion='p11-nocturne';if(a==='3'||a==='4'||a==='5'||a==='6'||a==='7'||a==='8'||a==='9'||a==='10'||a==='11')document.documentElement.dataset.artVisualVersion='p12-royale';if(a==='4'||a==='5'||a==='6'||a==='7'||a==='8'||a==='9'||a==='10'||a==='11')document.documentElement.dataset.lunarReal='1';if(a==='5'||a==='6'||a==='7'||a==='8'||a==='9'||a==='10'||a==='11')document.documentElement.dataset.moonSerene='1';if(a==='6'||a==='7'||a==='8'||a==='9'||a==='10'||a==='11')document.documentElement.dataset.lunarChroma='1';if(a==='7')document.documentElement.dataset.softLimb='1';if(a==='8'||a==='9'||a==='10'||a==='11')document.documentElement.dataset.trueLimb='1';if(a==='9'||a==='10'||a==='11')document.documentElement.dataset.naturalLimb='1';if(a==='10'||a==='11')document.documentElement.dataset.lunarGallery='1';if(a==='11')document.documentElement.dataset.salonFinish='1';}}catch(_){}</script>
   <link rel="stylesheet" href="./styles.css">
+  <style id="tsz-lab-teaser-style">
+    .tsz-lab-teaser{position:relative;display:flex;align-items:center;justify-content:space-between;gap:clamp(14px,3vw,38px);padding:clamp(19px,3vw,35px);margin:clamp(18px,3.5vw,42px) 0;border:1px solid rgba(236,194,168,.42);border-radius:22px;background:linear-gradient(115deg,rgba(45,36,49,.97),rgba(22,20,30,.98) 76%);color:#faebdf;box-shadow:0 16px 48px rgba(0,0,0,.18)}
+    .tsz-lab-teaser-main{min-width:0;flex:1 1 460px}
+    .tsz-lab-teaser-kicker{display:inline-flex;gap:10px;align-items:center;font-size:clamp(10px,1.1vw,12px);letter-spacing:.13em;text-transform:uppercase;color:#e5bda7;font-weight:700}
+    .tsz-lab-teaser-kicker:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#e3b5a0}
+    .tsz-lab-teaser h2{font-size:clamp(23px,3.2vw,39px);line-height:1.12;letter-spacing:-.025em;margin:14px 0 10px;color:#fff0e5;overflow-wrap:anywhere}
+    .tsz-lab-teaser-description{font-size:clamp(13px,1.5vw,15px);line-height:1.65;max-width:46rem;margin:0;color:#e0cbd0}
+    .tsz-lab-teaser-price{flex:0 0 auto;min-width:155px;text-align:right;border-left:1px solid rgba(240,207,185,.25);padding-left:clamp(16px,2vw,32px)}
+    .tsz-lab-teaser-price-label,.tsz-lab-teaser-availability{font-size:11px;line-height:1.45;color:#dfc8bd}
+    .tsz-lab-teaser-price strong{display:block;margin:7px 0;font-size:clamp(27px,3.6vw,46px);line-height:1.1;color:#ffdfc2;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+    .tsz-lab-teaser-availability{color:#ceb5ac}
+    @media(max-width:660px){.tsz-lab-teaser{align-items:flex-start;flex-direction:column}.tsz-lab-teaser-main{flex:0 1 auto;width:100%}.tsz-lab-teaser-price{border-left:0;border-top:1px solid rgba(240,207,185,.25);padding:12px 0 0;text-align:left;width:100%}}
+  </style>
   <link rel="stylesheet" href="./atelier.css">
   <link rel="stylesheet" href="./web-measurement.css">
   <link rel="stylesheet" href="./storefront-select.css">
+  <script id="tsz-lab-teaser-locale">
+    (() => {
+      'use strict';
+      const copy = {
+        en: {
+          state: 'In development · App Store release in preparation',
+          description: "A specialized label-auditing tool is in development. We're preparing it for an App Store release.",
+          priceLabel: 'Planned U.S. price',
+          unavailable: 'Preview only · Not yet available for purchase',
+          accessiblePrice: 'Planned U.S. price, not available for purchase'
+        },
+        ja: {
+          state: '開発中 · App Store公開準備中',
+          description: 'ラベルの監査に特化した専門ツールを開発しています。App Storeでの公開に向けて準備中です。',
+          priceLabel: '米国での予定販売価格',
+          unavailable: '開発中 · 現在は購入できません',
+          accessiblePrice: '米国での予定販売価格。現在は購入できません'
+        }
+      };
+      const text = (id, value) => { const element = document.getElementById(id); if (element) element.textContent = value; };
+      function update() {
+        const panel = document.getElementById('labelauditlab-preview');
+        if (!panel) return;
+        const locale = String(window.TSZ_I18N?.locale || document.documentElement.lang || 'en');
+        const language = /^ja(?:-|$)/i.test(locale) ? 'ja' : 'en';
+        const row = copy[language];
+        panel.lang = language;
+        text('tsz-lab-teaser-state', row.state);
+        text('tsz-lab-teaser-description', row.description);
+        text('tsz-lab-teaser-price-label', row.priceLabel);
+        text('tsz-lab-teaser-availability', row.unavailable);
+        const price = panel.querySelector('.tsz-lab-teaser-price');
+        if (price) price.setAttribute('aria-label', row.accessiblePrice);
+      }
+      document.addEventListener('DOMContentLoaded', update);
+      document.addEventListener('tsz-locale-changed', update);
+    })();
+  </script>
   <script defer src="./i18n.js"></script>
   <script defer src="./device-layout.js"></script>
   <script defer src="./web-measurement.js"></script>
@@ -41,6 +92,18 @@
           <div class="stat"><strong id="app-count">—</strong><span data-i18n="appsFound">Apps found</span></div>
           <div class="stat"><strong id="free-count">—</strong><span data-i18n="freeAt">Free at last check</span></div>
           <div class="stat checked"><strong id="checked-at">—</strong><span data-i18n="checked">Last public data check</span></div>
+        </div>
+      </section>
+      <section class="tsz-lab-teaser" id="labelauditlab-preview" aria-labelledby="tsz-lab-teaser-title" lang="en">
+        <div class="tsz-lab-teaser-main">
+          <span class="tsz-lab-teaser-kicker" id="tsz-lab-teaser-state">In development · App Store release in preparation</span>
+          <h2 id="tsz-lab-teaser-title" lang="en">LabelAuditLab</h2>
+          <p class="tsz-lab-teaser-description" id="tsz-lab-teaser-description">A specialized label-auditing tool is in development. We're preparing it for an App Store release.</p>
+        </div>
+        <div class="tsz-lab-teaser-price" aria-label="Planned U.S. price, not available for purchase">
+          <div class="tsz-lab-teaser-price-label" id="tsz-lab-teaser-price-label">Planned U.S. price</div>
+          <strong lang="en-US">$19.99</strong>
+          <div class="tsz-lab-teaser-availability" id="tsz-lab-teaser-availability">Preview only · Not yet available for purchase</div>
         </div>
       </section>
       <section class="choice-section" id="choose" aria-label="Choose how to explore">
