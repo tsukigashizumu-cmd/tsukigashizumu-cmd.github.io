@@ -379,31 +379,47 @@
       if(!response.ok)throw Error('APPLE_HTTP_'+response.status);
       raw=await response.json();
     } finally {clearTimeout(timer);}
-    if(!raw || !Array.isArray(raw.results) || raw.results.length>ids.length || raw.resultCount!==raw.results.length)
+    if(!raw || !Array.isArray(raw.results) || raw.results.length>ids.length*2 || raw.resultCount!==raw.results.length)
       throw Error('INVALID_LOOKUP_RESPONSE');
     const baseline=new Map(model.base.apps.map(a=>[a.id,a]));
-    const seen=new Set();const results=[];let rejected=0;
+    const seen=new Set(), duplicates=new Set(), prices=new Map(), rejectionReasons={};
+    function reject(reason) { rejectionReasons[reason]=(rejectionReasons[reason]||0)+1; }
     for(const item of raw.results) {
+      if(!item || typeof item!=='object') {reject('bad_row');continue;}
       const id=item.trackId;
-      if(!Number.isSafeInteger(id) || !baseline.has(id) || seen.has(id) || item.artistId!==DEVELOPER_ID ||
-          item.kind!=='software' || !/^[A-Z]{3}$/.test(item.currency||'') ||
-          !Number.isFinite(item.price) || item.price<0) {rejected++;continue;}
-      // A returned ID/price does not prove this territory: validate the actual Apple store link.
-      let link;try{link=new URL(item.trackViewUrl);}catch(_){rejected++;continue;}
-      if(link.protocol!=='https:' || link.hostname!=='apps.apple.com' || link.username || link.password || link.port ||
-         !link.pathname.startsWith('/'+country+'/') || !new RegExp('/id'+id+'(?:[/?#]|$)').test(link.pathname)){
-        rejected++;continue;
+      if(!Number.isSafeInteger(id) || !baseline.has(id)) {reject('unknown_app');continue;}
+      if(seen.has(id)) { // Ambiguous duplicate: quarantine BOTH copies of this ID.
+        duplicates.add(id);prices.delete(id);reject('duplicate_id');continue;
       }
       seen.add(id);
-      // Never borrow a US price, nor trust a potentially mismatched URL from a response.
-      const base=baseline.get(id);
-      results.push({...base,price:item.price,currency:item.currency,formattedPrice:typeof item.formattedPrice==='string'?item.formattedPrice:'',
-        appStoreUrl:'https://apps.apple.com/'+country+'/app/id'+id});
+      // An invalid row must not erase other apps' freshly verified prices.
+      if(item.artistId!==DEVELOPER_ID || item.kind!=='software' ||
+          !/^[A-Z]{3}$/.test(item.currency||'') ||
+          !Number.isFinite(item.price) || item.price<0 || item.price>999999) {
+        reject('invalid_identity_or_price');continue;
+      }
+      // A returned ID/price alone does not prove this territory: validate Apple's URL.
+      let link;try{link=new URL(item.trackViewUrl);}catch(_){reject('invalid_url');continue;}
+      if(link.protocol!=='https:' || link.hostname!=='apps.apple.com' || link.username || link.password || link.port ||
+         !link.pathname.startsWith('/'+country+'/') || !new RegExp('/id'+id+'(?:[/?#]|$)').test(link.pathname)){
+        reject('wrong_storefront_or_url');continue;
+      }
+      prices.set(id,{price:item.price,currency:item.currency,
+        formattedPrice:typeof item.formattedPrice==='string'?item.formattedPrice:''});
     }
-    // Reject suspicious partial responses, not only network errors.
-    if(rejected)throw Error('UNTRUSTED_LOOKUP_ROWS');
-    const data={apps:results,lastCheckedUTC:new Date().toISOString(),country,live:true,listedCount:results.length};
-    return data;
+    const results=model.base.apps.map(base=>{
+      const verified=duplicates.has(base.id)?null:prices.get(base.id);
+      // Keep all catalog cards and trusted App Store destinations, but never invent
+      // unknown prices or borrow them from a prior snapshot / another storefront.
+      return {...base,...(verified||{price:null,currency:'',formattedPrice:''}),
+        appStoreUrl:'https://apps.apple.com/'+country+'/app/id'+base.id};
+    });
+    const diagnostic={country,requested:ids.length,returned:raw.results.length,
+      verified:prices.size,missing:ids.length-seen.size,rejected:rejectionReasons};
+    // Aggregated public data only: no visitor identity or pricing payload logged.
+    console.info('TSZ_PRICE_LOOKUP_SUMMARY',diagnostic);
+    return {apps:results,lastCheckedUTC:new Date().toISOString(),country,live:true,
+      listedCount:prices.size,requestedCount:ids.length,rejectedCount:Object.values(rejectionReasons).reduce((a,b)=>a+b,0)};
   }
   async function refreshLocale() {
     const serial=++requestSerial;
