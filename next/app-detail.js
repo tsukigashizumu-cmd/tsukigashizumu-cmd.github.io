@@ -111,7 +111,7 @@
     region.addEventListener('change',()=>{
       state.country=region.value;
       try{localStorage.setItem('tsz-next-storefront-manual-v1',state.country);}catch(_){}
-      render();void loadPublicScreens();
+      render();setupMotion();void loadPublicScreens();
     });
   }
   function canonicalLink(id){return HOME+'apps/'+id+'/';}
@@ -154,15 +154,28 @@
     $('story').hidden=!good;
     if(good)text('p19-story-body',story);
   }
+  let heroSlide=0;
   function renderHeroScreenshot(verified){
     const hero=$('p19-hero-evidence'),fallback=$('p19-hero-fallback'),img=$('p19-hero-img');
-    const entry=verified.find(v=>v.kind==='image');
-    if(!entry){hero.hidden=true;fallback.hidden=false;img.removeAttribute('src');return;}
+    const entries=verified.filter(v=>v.kind==='image');
+    if(!entries.length){hero.hidden=true;fallback.hidden=false;img.removeAttribute('src');return;}
+    heroSlide=Math.min(heroSlide,entries.length-1);
     hero.hidden=false;fallback.hidden=true;
-    img.onerror=()=>{hero.hidden=true;fallback.hidden=false;};
-    img.src=entry.src;
-    img.alt=T().screenCaption+' 1';
-    text('p19-hero-img-caption',format(T().screenSource,{country:state.country.toUpperCase(),number:1}));
+    const entry=entries[heroSlide];img.src=entry.src;img.alt=T().screenCaption+' '+(heroSlide+1);
+    img.referrerPolicy='no-referrer';img.onerror=()=>{hero.hidden=true;fallback.hidden=false;};
+    $('p193-stage-stack').replaceChildren();
+    entries.slice(0,3).forEach((shot,i)=>{if(i===heroSlide)return;
+      const el=create('div','p193-stack-card');el.style.setProperty('--p193-i',String(i));
+      const preview=create('img','');preview.alt='';preview.src=shot.src;preview.referrerPolicy='no-referrer';
+      el.append(preview);$('p193-stage-stack').append(el);
+    });
+    const dots=$('p193-stage-dots');dots.replaceChildren();
+    entries.forEach((_,i)=>{const b=create('button','p193-stage-dot',String(i+1).padStart(2,'0'));b.type='button';b.setAttribute('aria-label',(T().screenCaption)+' '+(i+1));b.setAttribute('aria-pressed',String(i===heroSlide));
+      b.addEventListener('click',()=>{heroSlide=i;renderHeroScreenshot(verified);});dots.append(b);});
+    const heroCaption=format(T().screenSource,{country:state.country.toUpperCase(),number:heroSlide+1});
+    text('p19-hero-img-caption',heroCaption+(entry.quality==='limited'?(state.locale.startsWith('ja')?' · 縮小版画像':' · reduced-size preview'):''));
+    $('p193-stage-primary').onclick=()=>zoomScreen(entries[heroSlide],verified.indexOf(entries[heroSlide]));
+    text('p193-stage-cta',state.locale.startsWith('ja')?'実画面を詳しく見る ↗':'EXPLORE THE SCREEN ↗');
   }
   function evidenceCopy(index){
     const conf=state.profile.publishedScreenEvidence;
@@ -170,16 +183,109 @@
     const editorial=entry?.[state.locale.startsWith('ja')?'ja':'en-US'];
     return editorial||{title:T().genericScreenTitle,detail:T().genericScreenText};
   }
-  function zoomScreen(entry,index){
-    const dialog=$('p19-zoom-dialog');if(!dialog||typeof dialog.showModal!=='function')return;
-    const img=$('p19-zoom-img');img.src=entry.src;
-    img.alt=T().screenCaption+' '+(index+1);
-    text('p19-zoom-label',T().screenCaption+' '+(index+1));
-    text('p19-zoom-source',format(T().screenSource,{country:state.country.toUpperCase(),number:index+1}));
-    dialog.showModal();
-  }
+
+// P19-4 image quality contract: source resolution is checked before scaling.
+// A larger viewer does NOT mean more source pixels. Try an Apple-hosted higher
+// resolution rendition of the SAME thumbnail; verify dimensions and aspect.
+let viewerIndex=0, viewerZoom=1, viewerRequest=0;
+function viewerItems(){return state.media.filter(v=>v.kind==='image');}
+function qualityText(japanese, kind, width, height){
+  const dimensions=width&&height ? width+' × '+height+' px' : '';
+  if(kind==='loading')return japanese?'画像の解像度を確認しています…':'Checking screenshot resolution…';
+  if(kind==='high')return japanese?'高解像度版を表示中：'+dimensions:'Higher-resolution image: '+dimensions;
+  if(kind==='limited')return japanese?'元画像が小さいため拡大を制限：'+dimensions+'。拡大しても文字の情報量は増えません。':'Limited by source image: '+dimensions+'. Enlarging cannot restore text detail.';
+  return japanese?'公開画像の実解像度：'+dimensions:'Published screenshot resolution: '+dimensions;
+}
+function setViewerQuality(kind){
+  const img=$('p19-zoom-img'),note=$('p194-quality-note');if(!note)return;
+  note.textContent=qualityText(state.locale.startsWith('ja'),kind,img.naturalWidth,img.naturalHeight);
+  note.dataset.quality=kind;
+}
+function higherAppleImage(src){
+  try{
+    const u=new URL(src);
+    if(!safeURL(u.href,'image')||!u.pathname.includes('/image/thumb/'))return '';
+    const match=u.pathname.match(/\/(\d{2,4})x(\d{2,4})bb\.(webp|png|jpe?g)$/i);
+    if(!match)return '';
+    if(Number(match[1])>=1200 && Number(match[2])>=2200)return '';
+    u.pathname=u.pathname.replace(/\/\d{2,4}x\d{2,4}bb\.(webp|png|jpe?g)$/i,'/1290x2796bb.'+match[3]);
+    return safeURL(u.href,'image');
+  }catch(_){return '';}
+}
+function viewerFit(){
+  const viewport=$('p193-zoom-viewport'),img=$('p19-zoom-img');
+  const nw=img.naturalWidth||1,nh=img.naturalHeight||1;
+  // Never enlarge beyond original pixel dimensions at Fit, including on tall screens.
+  const fit=Math.min(1,Math.max(100,viewport.clientHeight-24)/nh,Math.max(100,viewport.clientWidth-24)/nw);
+  return {fit,maxZoom:Math.min(4,Math.max(1,1/Math.max(fit,.01)))};
+}
+function viewerSize(keepCenter=false){
+  const viewport=$('p193-zoom-viewport'),img=$('p19-zoom-img');
+  if(!img.naturalWidth||!img.naturalHeight)return;
+  const oldX=viewport.scrollWidth?(viewport.scrollLeft+viewport.clientWidth/2)/viewport.scrollWidth:.5;
+  const oldY=viewport.scrollHeight?(viewport.scrollTop+viewport.clientHeight/2)/viewport.scrollHeight:.5;
+  const f=viewerFit();viewerZoom=Math.min(Math.max(1,viewerZoom),f.maxZoom);
+  const ratio=f.fit*viewerZoom;
+  img.style.width=Math.round(img.naturalWidth*ratio)+'px';
+  img.style.height=Math.round(img.naturalHeight*ratio)+'px';
+  text('p193-zoom-level',Math.round(viewerZoom*100)+'%');
+  if(keepCenter){viewport.scrollLeft=oldX*viewport.scrollWidth-viewport.clientWidth/2;viewport.scrollTop=oldY*viewport.scrollHeight-viewport.clientHeight/2;}
+  else{viewport.scrollLeft=(viewport.scrollWidth-viewport.clientWidth)/2;viewport.scrollTop=(viewport.scrollHeight-viewport.clientHeight)/2;}
+  $('p193-zoom-minus').disabled=viewerZoom<=1.015;
+  $('p193-zoom-plus').disabled=viewerZoom>=f.maxZoom-.015;
+}
+function viewerStep(delta){
+  viewerZoom=Math.max(1,Math.min(viewerFit().maxZoom,Math.round((viewerZoom+delta)*100)/100));viewerSize(true);
+}
+function tryHigherResolution(entry,request){
+  const upgraded=higherAppleImage(entry.src);if(!upgraded)return;
+  const probe=new Image();probe.referrerPolicy='no-referrer';
+  probe.onload=()=>{
+    if(request!==viewerRequest||!$('p19-zoom-dialog').open)return;
+    const img=$('p19-zoom-img');
+    const w=img.naturalWidth,h=img.naturalHeight;
+    const aspectOld=w/Math.max(1,h),aspectNew=probe.naturalWidth/Math.max(1,probe.naturalHeight);
+    if(probe.naturalWidth>=w*1.5&&probe.naturalHeight>=h*1.5&&Math.abs(aspectNew-aspectOld)<.035){
+      img.onload=()=>{if(request!==viewerRequest)return;viewerZoom=1;viewerSize();setViewerQuality('high');};
+      img.src=upgraded;
+      if(img.complete&&img.naturalWidth){viewerZoom=1;viewerSize();setViewerQuality('high');}
+    }
+  };
+  probe.onerror=()=>{};
+  probe.src=upgraded;
+}
+function viewerShow(index){
+  const items=viewerItems();if(!items.length)return;
+  const request=++viewerRequest;
+  viewerIndex=(index+items.length)%items.length;viewerZoom=1;
+  const entry=items[viewerIndex],img=$('p19-zoom-img');
+  img.style.width='';img.style.height='';
+  img.onload=()=>{
+    if(request!==viewerRequest)return;
+    viewerSize();
+    setViewerQuality(entry.quality==='high'?'high':(img.naturalWidth<800||img.naturalHeight<1600?'limited':'normal'));
+    if(entry.quality!=='high')tryHigherResolution(entry,request);
+  };
+  img.onerror=()=>{if(request===viewerRequest){const n=$('p194-quality-note');n.textContent=state.locale.startsWith('ja')?'画像を読み込めませんでした。':'Unable to load screenshot.';n.dataset.quality='limited';}};
+  img.referrerPolicy='no-referrer';img.src=entry.src;img.alt=T().screenCaption+' '+(viewerIndex+1);
+  text('p193-viewer-count',String(viewerIndex+1).padStart(2,'0')+' / '+String(items.length).padStart(2,'0'));
+  text('p19-zoom-label',evidenceCopy(state.media.indexOf(entry)).title);
+  text('p19-zoom-source',format(T().screenSource,{country:state.country.toUpperCase(),number:state.media.indexOf(entry)+1}));
+  $('p194-view-store').href=storeLink();
+  $('p193-prev').disabled=items.length<2;$('p193-next').disabled=items.length<2;
+  setViewerQuality('loading');
+  if(img.complete&&img.naturalWidth)img.onload();
+}
+function zoomScreen(entry,index){
+  const dialog=$('p19-zoom-dialog');if(!dialog||typeof dialog.showModal!=='function')return;
+  const items=viewerItems(),target=items.indexOf(entry);if(target<0)return;
+  if(!dialog.open)dialog.showModal();
+  viewerShow(target);
+  $('p193-zoom-viewport').focus({preventScroll:true});
+}
   function renderMedia(){
     const verified=state.media;
+    heroSlide=Math.min(heroSlide,Math.max(verified.length-1,0));
     const wrap=$('p19-media');wrap.replaceChildren();
     $('screens').hidden=verified.length===0;
     renderHeroScreenshot(verified);
@@ -188,8 +294,10 @@
       const feature=evidenceCopy(idx);
       const article=create('article','p19-proof-row');
       const detail=create('div','p19-proof-copy');
-      detail.append(create('span','p19-proof-index',String(idx+1).padStart(2,'0')),
+      detail.append(create('span','p19-proof-index','SCREEN / '+String(idx+1).padStart(2,'0')),
         create('h3','',feature.title),create('p','',feature.detail));
+      detail.append(create('div','p193-proof-accent'));
+      detail.append(create('span','p193-proof-instruction',state.locale.startsWith('ja')?'画像を開いて操作を確認 ↗':'OPEN SCREEN TO EXPLORE ↗'));
       const fig=create('figure','p19-shot');
       if(entry.kind==='image'){
         const btn=create('button','p19-shot-open');btn.type='button';btn.setAttribute('aria-label',T().screenZoom+' '+(idx+1));
@@ -205,8 +313,11 @@
         const video=create('video','');video.controls=true;video.preload='none';video.autoplay=false;
         video.loop=false;video.src=entry.src;if(entry.poster)video.poster=entry.poster;fig.append(video);
       }
-      fig.append(create('figcaption','',format(T().screenSource,{country:state.country.toUpperCase(),number:idx+1})));
+      const originalCaption=format(T().screenSource,{country:state.country.toUpperCase(),number:idx+1});
+      const qualitySuffix=entry.quality==='limited'?(state.locale.startsWith('ja')?' · 元画像の解像度が不足':' · low-resolution source'):'';
+      fig.append(create('figcaption','',originalCaption+qualitySuffix));
       article.append(detail,fig);wrap.append(article);
+      if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){article.classList.add('p193-proof-ready');requestAnimationFrame(()=>article.classList.add('p193-proof-visible'));}
     }
     renderToc();
   }
@@ -269,10 +380,54 @@
     }
     for(const l of links){if(l.dataset.p19Chapter===current)l.setAttribute('aria-current','location');else l.removeAttribute('aria-current');}
   }
+  function setupMotion(){
+    const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduced && 'IntersectionObserver' in window){
+      const io=new IntersectionObserver(items=>{
+        for(const it of items)if(it.isIntersecting){it.target.classList.add('p193-entered');io.unobserve(it.target);}
+      },{rootMargin:'0px 0px -30px 0px',threshold:.08});
+      document.querySelectorAll('.p19-hero,.p19-section,.p19-proof-row,.p19-case').forEach(el=>{el.classList.add('p193-reveal');io.observe(el);});
+    }
+    let ticking=false;
+    const update=()=>{
+      ticking=false;const max=Math.max(1,document.documentElement.scrollHeight-innerHeight);
+      const fraction=Math.min(1,Math.max(0,scrollY/max));
+      $('p193-progress').style.transform='scaleX('+fraction+')';
+      $('p193-toc-fill').style.transform='scaleX('+fraction+')';
+      setActiveToc();
+    };
+    window.addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(update);}},{passive:true});
+    window.addEventListener('resize',update,{passive:true});
+    update();
+  }
   function bindChapters(){
     window.addEventListener('scroll',setActiveToc,{passive:true});window.addEventListener('hashchange',setActiveToc);
-    $('p19-zoom-close').addEventListener('click',()=>$('p19-zoom-dialog').close());
-    $('p19-zoom-dialog').addEventListener('click',ev=>{if(ev.target===$('p19-zoom-dialog'))$('p19-zoom-dialog').close();});
+    const dialog=$('p19-zoom-dialog');
+    $('p19-zoom-close').addEventListener('click',()=>dialog.close());
+    $('p193-prev').addEventListener('click',()=>viewerShow(viewerIndex-1));
+    $('p193-next').addEventListener('click',()=>viewerShow(viewerIndex+1));
+    $('p193-zoom-plus').addEventListener('click',()=>viewerStep(.32));
+    $('p193-zoom-minus').addEventListener('click',()=>viewerStep(-.32));
+    $('p193-zoom-fit').addEventListener('click',()=>{viewerZoom=1;viewerSize();});
+    dialog.addEventListener('keydown',ev=>{
+      if(ev.key==='ArrowLeft'||ev.key==='ArrowRight'){
+        if(viewerItems().length>1){ev.preventDefault();viewerShow(viewerIndex+(ev.key==='ArrowLeft'?-1:1));}
+      }else if(ev.key==='+'||ev.key==='='){ev.preventDefault();viewerStep(.25);}
+      else if(ev.key==='-'){ev.preventDefault();viewerStep(-.25);}
+      else if(ev.key==='0'){ev.preventDefault();viewerZoom=1;viewerSize();}
+    });
+    $('p193-zoom-viewport').addEventListener('dblclick',()=>viewerStep(.5));
+    window.addEventListener('resize',()=>{if(dialog.open)viewerSize(true);});
+    // Pointer/touch pinch-zoom in the image viewport, without external libraries.
+    const vp=$('p193-zoom-viewport');let startDistance=0,startZoom=1;
+    vp.addEventListener('touchstart',ev=>{
+      if(ev.touches.length===2){startDistance=Math.hypot(ev.touches[0].clientX-ev.touches[1].clientX,ev.touches[0].clientY-ev.touches[1].clientY);startZoom=viewerZoom;}
+    },{passive:true});
+    vp.addEventListener('touchmove',ev=>{
+      if(ev.touches.length===2&&startDistance>0){ev.preventDefault();const d=Math.hypot(ev.touches[0].clientX-ev.touches[1].clientX,ev.touches[0].clientY-ev.touches[1].clientY);viewerZoom=Math.max(1,Math.min(viewerFit().maxZoom,startZoom*d/startDistance));viewerSize(true);}
+    },{passive:false});
+    vp.addEventListener('touchend',ev=>{if(ev.touches.length<2)startDistance=0;},{passive:true});
+    dialog.addEventListener('close',()=>{vp.scrollTop=0;vp.scrollLeft=0;});
     for(const btn of document.querySelectorAll('[data-p19-copy]'))btn.addEventListener('click',async()=>{
       const id=btn.dataset.p19Copy;if(!$(id)||$(id).hidden)return;
       const url=location.origin+PATH+'#'+id; // no UTM, no tracking query; real permanent chapter URL
@@ -285,6 +440,44 @@
     const urls=Array.isArray(item.screenshotUrls)?item.screenshotUrls:[];
     return urls.slice(0,5).map(url=>safeURL(url,'image')).filter(Boolean)
       .map((src,i)=>({kind:'image',src,caption:T().screenCaption+' '+(i+1)}));
+  }
+  // P19-5: All published screen surfaces must be driven by the SAME
+  // successfully decoded image resolution. P19-4 only upgraded the viewer.
+  // No image is bundled, generated, replaced with a fake UI, or copied to disk.
+  function probeScreenshot(url, timeoutMs=3200){
+    return new Promise(resolve=>{
+      const image=new Image();let settled=false;
+      const done=(info)=>{if(settled)return;settled=true;clearTimeout(timer);image.onload=null;image.onerror=null;resolve(info);};
+      const timer=setTimeout(()=>done(null),timeoutMs);
+      image.referrerPolicy='no-referrer';
+      image.onload=()=>done({src:url,width:image.naturalWidth,height:image.naturalHeight});
+      image.onerror=()=>done(null);
+      image.src=url;
+      if(image.complete&&image.naturalWidth)done({src:url,width:image.naturalWidth,height:image.naturalHeight});
+    });
+  }
+  async function resolvePublishedScreenshot(entry){
+    if(entry.kind!=='image')return entry;
+    // Local publisher-approved sources have their own media integrity contract.
+    if(!safeURL(entry.src,'image'))return entry;
+    const largeURL=higherAppleImage(entry.src);
+    const [source,larger]=await Promise.all([
+      probeScreenshot(entry.src),
+      largeURL?probeScreenshot(largeURL):Promise.resolve(null)
+    ]);
+    if(!source){return {...entry,quality:'unverified'};}
+    const sameAspect=larger&&Math.abs((larger.width/larger.height)-(source.width/source.height))<.035;
+    const improved=Boolean(larger&&sameAspect&&larger.width>=source.width*1.5&&larger.height>=source.height*1.5);
+    const chosen=improved?larger:source;
+    return {...entry,src:chosen.src,thumbnailSrc:source.src,
+      originalWidth:source.width,originalHeight:source.height,
+      pixelWidth:chosen.width,pixelHeight:chosen.height,
+      quality:improved?'high':(chosen.width<800||chosen.height<1600?'limited':'source')};
+  }
+  async function resolveAllPublishedScreens(entries){
+    // Resolve each rendition once, then use it in hero, stack, feature rows,
+    // and the viewer. No visual element silently retains the low-res thumbnail.
+    return Promise.all(entries.map(resolvePublishedScreenshot));
   }
   let mediaLoadSerial=0;
   async function loadPublicScreens(){
@@ -302,7 +495,10 @@
       const body=await response.json();
       if(body?.resultCount!==1||!Array.isArray(body.results)||body.results.length!==1)throw Error('APPLE_LOOKUP_AMBIGUOUS');
       if(serial!==mediaLoadSerial)return;
-      state.media=validatePublicShots(body.results[0]);renderMedia();renderToc();
+      const validated=validatePublicShots(body.results[0]);
+      const resolved=await resolveAllPublishedScreens(validated);
+      if(serial!==mediaLoadSerial)return;
+      state.media=resolved;renderMedia();renderToc();
     }catch(_){if(serial===mediaLoadSerial){state.media=[];renderMedia();renderToc();}}
   }
   async function start(){
@@ -316,7 +512,7 @@
       Object.assign(state,{base:baseData,asc,profile,mappings:map});
       pickLocale();buildSelectors();
       $('p19-load').hidden=true;$('p19-detail').hidden=false;
-      render();void loadPublicScreens();
+      render();setupMotion();void loadPublicScreens();
       if(location.hash){const hash=decodeURIComponent(location.hash.slice(1));if(/^[a-z-]{2,30}$/.test(hash)&&$(hash)&&!$(hash).hidden){requestAnimationFrame(()=>$(hash).scrollIntoView());}}
     }catch(e){
       $('p19-load').textContent=STRINGS['en-US'].error;
