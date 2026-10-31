@@ -1474,3 +1474,42 @@ html[data-true-limb="1"] .hero-art {animation:none !important;}
 html[data-true-limb="1"] .hero-art {
   filter:saturate(.86) sepia(.06) brightness(1.06) contrast(1.01);
 }
+
+/* P19-7R4: Long-page compositor stability. No price, data or routing edits.
+   Safari can fail to repaint large gradient pseudo-layers combined with
+   isolation / negative z-index. Keep decorative treatment in hero/cards,
+   but render the shelf and catalog content in normal document flow. */
+html[data-lunar-gallery="1"] :is(.free-section,.paid-section,.catalog),
+html[data-art-visual-version="p12-royale"] :is(.free-section,.paid-section,.catalog) {
+  isolation:auto !important;
+  contain:none !important;
+  overflow:visible !important;
+  transform:none !important;
+  filter:none !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  /* Solid, inexpensive base: avoids offscreen background blending layers. */
+  background:#171019;
+}
+html[data-lunar-gallery="1"] :is(.free-section,.paid-section,.catalog)::before,
+html[data-art-visual-version="p12-royale"] :is(.free-section,.paid-section,.catalog)::before {
+  content:none !important;
+  display:none !important;
+}
+/* Never hide or defer the actual product data while scrolling. */
+html[data-lunar-gallery="1"] :is(#free-apps,#paid-apps,#apps),
+html[data-lunar-gallery="1"] :is(.free-head,.paid-head,.catalog-head),
+html[data-lunar-gallery="1"] :is(.free-status,.paid-status,.status),
+html[data-lunar-gallery="1"] .tsz-price-unverified {
+  content-visibility:visible !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  filter:none !important;
+  transform:none !important;
+}
+/* On mobile and desktop the fallback panels always occupy normal layout. */
+html[data-lunar-gallery="1"] :is(#free-apps,#paid-apps,#apps) {
+  position:relative;
+  z-index:1;
+  min-height:0;
+}
