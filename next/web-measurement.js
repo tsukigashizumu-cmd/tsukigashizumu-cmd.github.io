@@ -24,6 +24,20 @@
   // Only locally generated same-origin Apple-ID entry pages create these labels.
   // Consent remains enforced by loadTag(); no query string or PII is forwarded.
   function cleanOwnedAppPageConfig(config){
+  // APPDOCK_P18_ID_FOLDER_BEGIN
+  // Folder path, not a query, is the source of app-owned attribution.
+  // This runs within the existing consent-gated GA4 configuration.
+  const folder=location.pathname.match(/^\/next\/([1-9][0-9]{5,19})(?:\/|\/index\.html)$/);
+  if (folder) {
+    const sender='app_'+folder[1];
+    if (allowedAppSources.has(sender) && !config.campaign_source) {
+      config.campaign_source=sender;
+      config.campaign_medium='owned_app';
+      config.campaign_name='daily_offers_v1';
+    }
+    return config;
+  }
+  // APPDOCK_P18_ID_FOLDER_END
     if (location.pathname!=='/next/' && location.pathname!=='/next/index.html') return config;
     const params=new URLSearchParams(location.search);
     if (['utm_source','utm_medium','utm_campaign','utm_content'].some(k=>params.has(k))){
