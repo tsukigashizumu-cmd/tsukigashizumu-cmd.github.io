@@ -24,6 +24,57 @@
     }
     return u.href;
   }
+  // APPDOCK_DYNAMIC_ALLOWLIST_V1: backward-compatible dynamic reader.
+  // APPDOCK_ALL_SOURCES_V2: AppDock is the sole source of UTM sender tokens.
+  // Public data contains only opaque tokens, never development app metadata.
+  async function loadAppDockSources() {
+    const validSource = (value) => typeof value === 'string' && /^[a-z0-9][a-z0-9_]{0,127}$/.test(value);
+    async function readLegacy() {
+      try {
+        const response = await fetch('./published_candidates.json', {cache:'no-store'});
+        if (!response.ok) return false;
+        const entries = await response.json();
+        if (!Array.isArray(entries) || entries.length === 0 || entries.length > 1000) return false;
+        const additions = new Set();
+        const base = new URL(location.origin + '/next/');
+        for (const item of entries) {
+          if (!item || item.rollout !== 'PUBLISHED_CANDIDATE' || item.appDockReleaseStatus !== 'published' ||
+              !Array.isArray(item.issues) || item.issues.length !== 0 ||
+              !validSource(item.utmSource) || additions.has(item.utmSource)) return false;
+          for (const [key, placement] of [['mainURL','post_result_lp_footer'],['settingsURL','config_footer_lp']]) {
+            if (typeof item[key] !== 'string') return false;
+            let u;
+            try { u = new URL(item[key]); } catch (_) { return false; }
+            if (u.origin !== base.origin || u.pathname !== base.pathname || u.hash ||
+                [...u.searchParams].length !== 4 ||
+                u.searchParams.get('utm_source') !== item.utmSource ||
+                u.searchParams.get('utm_medium') !== 'owned_app' ||
+                u.searchParams.get('utm_campaign') !== 'daily_offers_v1' ||
+                u.searchParams.get('utm_content') !== placement) return false;
+          }
+          additions.add(item.utmSource);
+        }
+        for (const source of additions) allowedAppSources.add(source);
+        return true;
+      } catch (_) { return false; }
+    }
+    try {
+      const response = await fetch('./appdock_source_allowlist.json', {cache:'no-store'});
+      // P6 deployments had no all-source file. Keep legacy support until first P7 sync.
+      if (!response.ok) return response.status === 404 ? readLegacy() : false;
+      const document = await response.json();
+      if (!document || document.schemaVersion !== 1 || !Array.isArray(document.sources) ||
+          document.sources.length === 0 || document.sources.length > 1000) return false;
+      const additions = new Set();
+      for (const source of document.sources) {
+        if (!validSource(source) || additions.has(source)) return false;
+        additions.add(source);
+      }
+      // Apply atomically: never allow a valid prefix of a damaged JSON registry.
+      for (const source of additions) allowedAppSources.add(source);
+      return true;
+    } catch (_) { return false; }
+  }
   function loadTag(){
     if (tagLoaded || !enabled || !granted || !allowedHost || !/^G-[A-Z0-9]{6,15}$/.test(id)) return;
     tagLoaded=true;
@@ -114,6 +165,7 @@
     eventCount++;
   }
   async function init(){
+    await loadAppDockSources();
     choice=readChoice();
     try {
       const r=await fetch(CONFIG,{cache:'no-store'});
