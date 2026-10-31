@@ -274,7 +274,7 @@
   function pickApp(advance=false) {
     const candidates=model.apps;
     const target=$('pick-content');
-    if (!candidates.length){target.replaceChildren(el('p','section-note',t('fetchFailed')));return;}
+    if (!candidates.length){target.replaceChildren(el('p','section-note',model.loading ? t('loading') : t('noMatch')));return;}
     let selected=candidates.find(a=>a.id===model.pickId);
     if (!selected || advance) {
       const options=candidates.filter(a=>a.id!==model.pickId);
@@ -439,10 +439,19 @@
     model.checkedUTC=null;model.fallbackUS=false;
     // Erase old storefront price data immediately. Never retain old price badges while switching.
     model.apps=model.base ? catalogWithoutPrices(model.country,i18n.locale) : [];
-    paint();
+    // An empty initial render previously showed a false "catalog read failed" message
+    // and needlessly repainted every section before any local data could arrive.
+    if(model.base)paint();
+    else status.textContent=t('loading');
     try {
-      // These are small same-origin JSON resources. Nothing from Apple is awaited here.
-      if(!model.base)model.base=verifyBase(await readJson('./data/apps.json'));
+      // P19-7R2: catalog is the ONLY dependency of the first useful paint.
+      if(!model.base){
+        model.base=verifyBase(await readJson('./data/apps.json'));
+        if(serial!==requestSerial)return;
+        model.apps=catalogWithoutPrices(model.country,i18n.locale);
+        model.loading=false;model.statusType='checking';model.catalogReady=false;
+        paint(); // Before storefront map, Apple, ASC metadata, and extra locale data.
+      }
       if(!mappings){const config=await readJson('./data/locale-storefronts.json');
         if(config.schemaVersion!==1 || config.developerId!==DEVELOPER_ID || Object.keys(config.storefrontByLocale||{}).length!==50)throw Error('Bad locale map');
         mappings=config.storefrontByLocale;
@@ -502,11 +511,18 @@
     } catch(e) {
       if(serial!==requestSerial)return;
       // Only a missing/invalid local catalog is allowed to leave the catalog empty.
-      model.apps=model.base ? catalogWithoutPrices('us',i18n.locale) : [];
-      model.loading=false;model.catalogReady=false;model.fallbackUS=true;
+      // Baseline success and optional map failure are different states. Do not erase
+      // the local catalog or claim that it could not be read when 34 IDs are present.
+      if(model.base){
+        model.country='us';model.apps=catalogWithoutPrices('us',i18n.locale);
+        model.statusType='price-unavailable';model.fallbackUS=true;
+      } else {
+        model.apps=[];model.statusType='failed';model.fallbackUS=true;
+      }
+      model.loading=false;model.catalogReady=false;
       model.stale=true;model.checkedUTC=null;model.filter='all';
-      model.statusType='failed';showStoreMessage('offline');
-      console.warn('Local catalog or storefront mapping failed:',e);
+      showStoreMessage('offline');
+      console.warn('Local catalog or storefront configuration unavailable:',e);
     } finally {
       if(serial===requestSerial){model.loading=false;model.priceLoading=false;updateStoreSelector();paint();}
     }
