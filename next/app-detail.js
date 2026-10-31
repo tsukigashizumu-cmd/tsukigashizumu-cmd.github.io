@@ -321,6 +321,49 @@ function zoomScreen(entry,index){
     }
     renderToc();
   }
+  // P19-6: chapter progress is navigation position, NOT tasks completed or scroll percentage.
+  // Only visible sections participate. Hidden story/media never inflate the denominator.
+  let p196MediaLoaded=false;
+  const p196Text=()=>state.locale.startsWith('ja')?{
+    kicker:'この商品のガイド',start:'最初から読む',chapter:'現在の章',media:'公開スクリーンショット',store:'選択したストア',
+    loading:'公開画像を確認しています',unavailable:'公開画像を取得できませんでした',available:'実際に確認できた公開画像',
+    country:'価格・公開状況はApp Storeで確認',details:'App Storeの説明全文を展開',progress:'現在の章'
+  }:{
+    kicker:'EXPLORE THE PRODUCT',start:'Start reading',chapter:'CURRENT CHAPTER',media:'PUBLISHED SCREENS',store:'SELECTED STOREFRONT',
+    loading:'Checking availability',unavailable:'Public screens unavailable',available:'Published App Store images',
+    country:'Confirm pricing in the App Store',details:'Expand the complete App Store listing',progress:'Current chapter'
+  };
+  function p196Chapters(){return [...document.querySelectorAll('[data-p19-chapter]')].filter(a=>!$(a.dataset.p19Chapter)?.hidden);}
+  function p196UpdateProgress(currentId){
+    const chapters=p196Chapters();if(!chapters.length)return;
+    const index=Math.max(0,chapters.findIndex(a=>a.dataset.p19Chapter===currentId));
+    const current=index+1,total=chapters.length,fmt=n=>String(n).padStart(2,'0');
+    text('p196-current',fmt(current));text('p196-total',fmt(total));
+    text('p196-mini-current',fmt(current));text('p196-mini-total',fmt(total));
+    text('p196-rail-current',fmt(current));text('p196-rail-total',fmt(total));
+    text('p196-rail-name',chapters[index].textContent);
+    $('p196-rail-fill').style.width=(100*current/total)+'%';
+    text('p196-active-name',chapters[index].textContent);
+    $('p196-bar').style.width=(100*current/total)+'%';
+    $('p196-progress-track').setAttribute('aria-valuemax',String(total));
+    $('p196-progress-track').setAttribute('aria-valuenow',String(current));
+    $('p196-progress-track').setAttribute('aria-label',p196Text().progress);
+    // Keep the active chapter visible in horizontal mobile navigation.
+    const active=chapters[index];
+    if(active&&window.matchMedia('(max-width: 820px)').matches&&active.getAttribute('aria-current')==='location'){
+      const nav=$('p19-toc-links');const left=active.offsetLeft-nav.offsetLeft;
+      if(left<nav.scrollLeft||left+active.offsetWidth>nav.scrollLeft+nav.clientWidth)nav.scrollTo({left:Math.max(0,left-25),behavior:'auto'});
+    }
+  }
+  function p196RefreshLabels(){
+    const t=p196Text();
+    text('p196-dash-kicker',t.kicker);text('p196-start-link',t.start+' ↗');
+    text('p196-chapter-label',t.chapter);text('p196-rail-label',t.chapter);text('p196-media-label',t.media);text('p196-storefront-label',t.store);
+    text('p196-country',state.country.toUpperCase());text('p196-country-foot',t.country);
+    text('p196-disclosure-title',t.details);
+    text('p196-media-count',p196MediaLoaded?String(state.media.filter(m=>m.kind==='image').length).padStart(2,'0'):'—');
+    text('p196-media-foot',!p196MediaLoaded?t.loading:state.media.filter(m=>m.kind==='image').length?t.available:t.unavailable);
+  }
   function renderToc(){
     const ids=['overview','screens','workflow','use-cases','story','full-description','related'];
     const labels=[T().overview,T().screens,T().workflow,T().usecases,T().story,T().description,T().related];
@@ -333,6 +376,7 @@ function zoomScreen(entry,index){
       if(number)number.textContent=String(visibleIndex).padStart(2,'0');
       const a=create('a','',labels[i]);a.href='#'+id;a.dataset.p19Chapter=id;wrap.append(a);
     });
+    p196RefreshLabels();p196UpdateProgress(wrap.querySelector('[aria-current="location"]')?.dataset.p19Chapter||wrap.querySelector('a')?.dataset.p19Chapter);
   }
   function render(){
     const copy=T(), ed=editable(), desc=descValue(), app=state.base.apps.find(x=>x.id===Number(APP_ID));
@@ -379,8 +423,11 @@ function zoomScreen(entry,index){
       if(section&&section.getBoundingClientRect().top<185)current=l.dataset.p19Chapter;
     }
     for(const l of links){if(l.dataset.p19Chapter===current)l.setAttribute('aria-current','location');else l.removeAttribute('aria-current');}
+    p196UpdateProgress(current);
   }
+  let p196MotionInstalled=false;
   function setupMotion(){
+    if(p196MotionInstalled){setActiveToc();return;}p196MotionInstalled=true;
     const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if(!reduced && 'IntersectionObserver' in window){
       const io=new IntersectionObserver(items=>{
@@ -401,7 +448,12 @@ function zoomScreen(entry,index){
     update();
   }
   function bindChapters(){
-    window.addEventListener('scroll',setActiveToc,{passive:true});window.addEventListener('hashchange',setActiveToc);
+    window.addEventListener('scroll',setActiveToc,{passive:true});
+    window.addEventListener('hashchange',()=>{
+      if(location.hash==='#full-description')$('p196-description-disclosure').open=true;
+      setActiveToc();
+    });
+    if(location.hash==='#full-description')$('p196-description-disclosure').open=true;
     const dialog=$('p19-zoom-dialog');
     $('p19-zoom-close').addEventListener('click',()=>dialog.close());
     $('p193-prev').addEventListener('click',()=>viewerShow(viewerIndex-1));
@@ -485,8 +537,8 @@ function zoomScreen(entry,index){
     const approved=state.profile.media.filter(m=>m.verified===true&&m.approvedByOwner===true&&localMediaURL(m.src,m.type))
       .map(m=>({kind:m.type==='video'?'video':'image',src:localMediaURL(m.src,m.type),
         poster:m.poster&&localMediaURL(m.poster,'screenshot')||'',caption:m.captionByLocale?.[state.locale]||m.captionByLocale?.['en-US']||''}));
-    if(approved.length){state.media=approved;renderMedia();renderToc();return;}
-    state.media=[];renderMedia();renderToc();
+    if(approved.length){state.media=approved;p196MediaLoaded=true;renderMedia();renderToc();return;}
+    p196MediaLoaded=false;state.media=[];renderMedia();renderToc();
     try{
       const url='https://itunes.apple.com/lookup?country='+encodeURIComponent(state.country)+'&entity=software&id='+APP_ID;
       const control=new AbortController();const timer=setTimeout(()=>control.abort(),8000);
@@ -498,8 +550,8 @@ function zoomScreen(entry,index){
       const validated=validatePublicShots(body.results[0]);
       const resolved=await resolveAllPublishedScreens(validated);
       if(serial!==mediaLoadSerial)return;
-      state.media=resolved;renderMedia();renderToc();
-    }catch(_){if(serial===mediaLoadSerial){state.media=[];renderMedia();renderToc();}}
+      state.media=resolved;p196MediaLoaded=true;renderMedia();renderToc();
+    }catch(_){if(serial===mediaLoadSerial){state.media=[];p196MediaLoaded=true;renderMedia();renderToc();}}
   }
   async function start(){
     if(location.pathname!==PATH && location.pathname!==PATH+'index.html')return;
