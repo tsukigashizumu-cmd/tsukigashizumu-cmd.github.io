@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "appId": "6772130038",
+  "developerId": 1817908735,
+  "status": "published_metadata_pilot",
+  "editorial": {
+    "en-US": {
+      "oneLine": "Build a reusable AI prompt instead of rewriting the same request.",
+      "problem": "Repeatedly writing a similar AI request can mean repeating the same instructions and details.",
+      "intro": "Choose a template, fill in the relevant fields, then generate a prompt you can copy. Saved input sets, history and custom templates support repeated work.",
+      "useCases": [
+        {
+          "title": "Repeat a familiar task",
+          "detail": "Start from a built-in template instead of a blank prompt."
+        },
+        {
+          "title": "Reuse your input",
+          "detail": "Save an input set and return to it when the task comes up again."
+        },
+        {
+          "title": "Maintain your own formats",
+          "detail": "Create custom prompt templates and import or export their definitions as JSON."
+        }
+      ],
+      "constraints": "PromptDock creates prompts; it does not automatically produce or guarantee an AI answer. The ChatGPT shortcut is optional."
+    },
+    "ja": {
+      "oneLine": "同じAIへの依頼を毎回書き直さず、使い回せるプロンプトを作る。",
+      "problem": "似た依頼を繰り返すたび、指示や条件を最初から書く手間が生じます。",
+      "intro": "テンプレートを選び、必要な項目を入力してプロンプトを生成・コピー。入力セットの保存、履歴、カスタムテンプレートで反復作業を助けます。",
+      "useCases": [
+        {
+          "title": "よく使う依頼を繰り返す",
+          "detail": "白紙から書き始めず、内蔵テンプレートを起点にする。"
+        },
+        {
+          "title": "前回の条件から再開する",
+          "detail": "保存した入力セットを呼び戻して、次の依頼に使う。"
+        },
+        {
+          "title": "自分用の書式を管理する",
+          "detail": "カスタムテンプレートを作り、JSONで書き出し・読み込みする。"
+        }
+      ],
+      "constraints": "PromptDockはプロンプトを作成する道具です。AIの回答を自動生成したり、回答品質を保証したりするものではありません。ChatGPTへのショートカットは任意です。"
+    }
+  },
+  "features": [
+    {
+      "featureId": "template-select",
+      "source": "asc-description",
+      "mediaIds": []
+    },
+    {
+      "featureId": "prompt-generate",
+      "source": "asc-description",
+      "mediaIds": []
+    },
+    {
+      "featureId": "save-and-history",
+      "source": "asc-description",
+      "mediaIds": []
+    },
+    {
+      "featureId": "custom-templates",
+      "source": "asc-description",
+      "mediaIds": []
+    }
+  ],
+  "media": [],
+  "story": {
+    "approved": false,
+    "byLocale": {}
+  },
+  "faq": [],
+  "source": {
+    "appId": "6772130038",
+    "description": "next/data/asc-localizations.json apps.6772130038.descriptionByLocale / next/data/apps.json",
+    "publishedScreenshots": "Optional public Apple iTunes Lookup response, independently validated by trackId, artistId, country and CDN host; no media bundled"
+  },
+  "lastEditorialReviewUTC": null,
+  "publishedScreenEvidence": {
+    "storefront": "jp",
+    "evidenceType": "observed_apple_store_published_screens_2026_11_01",
+    "mediaRequiresCurrentStorefront": true,
+    "entries": [
+      {
+        "index": 0,
+        "featureId": "template-select",
+        "en-US": {
+          "title": "A guide before you start",
+          "detail": "The first published screen introduces how to use PromptDock."
+        },
+        "ja": {
+          "title": "最初に使い方を確認",
+          "detail": "最初の公開画面では、PromptDockの基本的な操作の流れを案内しています。"
+        }
+      },
+      {
+        "index": 1,
+        "featureId": "template-select",
+        "en-US": {
+          "title": "Browse reusable templates",
+          "detail": "The template list provides a starting point instead of another blank request."
+        },
+        "ja": {
+          "title": "テンプレートから始める",
+          "detail": "テンプレート一覧から、白紙ではなく既存の型を選べます。"
+        }
+      },
+      {
+        "index": 2,
+        "featureId": "prompt-generate",
+        "en-US": {
+          "title": "Fill fields and generate",
+          "detail": "The composition screen shows the fields and the prompt generated from them."
+        },
+        "ja": {
+          "title": "項目を埋めて生成する",
+          "detail": "入力項目と、それを使って生成したプロンプトが同じ画面に表示されています。"
+        }
+      }
+    ]
+  }
+}
