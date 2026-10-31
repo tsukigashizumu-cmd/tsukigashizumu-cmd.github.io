@@ -285,6 +285,18 @@
     }
     target.replaceChildren(card(selected));
   }
+  // P19-7R3: a failed or pending live price lookup must never leave an empty
+  // decorative shelf that looks like missing products. This is NOT a FREE claim.
+  function showUnverifiedShelf(target) {
+    const panel=el('div','tsz-price-unverified');
+    panel.setAttribute('role','status');
+    const head=el('strong','tsz-price-unverified-head',model.priceLoading?t('checkPrice'):t('stale'));
+    const summary=el('p','tsz-price-unverified-note',
+      t('shown',{count:model.apps.length})+' · '+t('catalogNote'));
+    const link=el('a','tsz-price-unverified-action',t('explore')+' ↗');
+    link.href='#catalog';
+    panel.append(head,summary,link);target.replaceChildren(panel);
+  }
   function renderLowestPaid() {
     const list=$('paid-apps'), floor=$('paid-floor'), note=$('paid-status');
     const verified=priceVerified();
@@ -296,7 +308,8 @@
     floor.dir='ltr';
     const frag=document.createDocumentFragment();
     selected.forEach(a=>frag.append(card(a)));
-    list.replaceChildren(frag);
+    if(verified)list.replaceChildren(frag);
+    else showUnverifiedShelf(list);
     note.classList.toggle('warning',!verified);
     note.textContent=!verified ? (model.priceLoading?t('checkPrice'):(model.fallbackUS?t('referenceOnly'):t('stale')))
       : !selected.length ? t('noMatch') : t('catalogNote');
@@ -308,7 +321,8 @@
     count.textContent=verified ? String(free.length) : '—';
     const frag=document.createDocumentFragment();
     free.forEach(a=>frag.append(card(a)));
-    list.replaceChildren(frag);
+    if(verified)list.replaceChildren(frag);
+    else showUnverifiedShelf(list);
     note.classList.toggle('warning',!verified);
     if(!verified) note.textContent=model.priceLoading?t('checkPrice'):(model.fallbackUS?t('referenceOnly'):t('stale'));
     else if(!free.length) note.textContent=t('noMatch');

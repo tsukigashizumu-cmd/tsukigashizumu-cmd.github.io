@@ -1465,3 +1465,12 @@ html[data-salon-finish="1"] .art-mode-preview a {flex-shrink:0;}
   }
   html[data-salon-finish="1"] .app-card:hover {transform:none;}
 }
+
+/* P19-7R3: stability-first. Prevent always-running 120s filter/shadow
+   animations from repainting the promotional LP continuously.
+   Retain the Moon artwork, static grade, hover, active, and focus feedback. */
+html[data-lunar-chroma="1"] :is(.hero,.hero-art,.chroma-lunar-tint,.hero .button-primary,.hero h1 em,.choice-panel),
+html[data-true-limb="1"] .hero-art {animation:none !important;}
+html[data-true-limb="1"] .hero-art {
+  filter:saturate(.86) sepia(.06) brightness(1.06) contrast(1.01);
+}

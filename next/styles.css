@@ -229,3 +229,21 @@ html[dir=rtl] .purpose-mini-copy span,html[dir=rtl] .purpose-mini-link{direction
  :root[data-device-layout="pc-landscape"] .paid-grid{grid-template-columns:minmax(0,1fr)}
  :root[data-device-layout="pc-portrait"] .choice-panel{padding:19px}
 }
+
+/* P19-7R3: explicit fail-closed non-price shelf. Avoid vast empty promotional areas. */
+.tsz-price-unverified {
+  grid-column:1 / -1; min-width:0;display:flex;flex-wrap:wrap;align-items:center;
+  justify-content:space-between;gap:12px 20px;padding:22px clamp(16px,3vw,28px);
+  border:1px solid rgba(235,195,168,.42);border-radius:16px;
+  background:linear-gradient(125deg,rgba(65,43,54,.82),rgba(31,24,36,.95));
+}
+.tsz-price-unverified-head {color:#ffe1cc;font-size:clamp(14px,1.7vw,18px);line-height:1.5;}
+.tsz-price-unverified-note {flex:1 1 270px;color:#ddc5be;line-height:1.55;font-size:13px;margin:0;}
+.tsz-price-unverified-action {
+  flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;
+  min-height:42px;padding:10px 17px;border-radius:99px;
+  background:#f3cdb7;color:#201620;font-size:13px;font-weight:750;text-decoration:none;
+}
+.tsz-price-unverified-action:hover {background:#ffe4cc;}
+.tsz-price-unverified-action:focus-visible {outline:3px solid #fbe1c7;outline-offset:3px;}
+@media(max-width:620px){.tsz-price-unverified{align-items:stretch;flex-direction:column}.tsz-price-unverified-action{width:100%;}}
