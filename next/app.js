@@ -5,7 +5,7 @@
   const t = (key, vars) => i18n ? i18n.t(key, vars) : key;
   const DEVELOPER_ID = 1817908735;
   const model = { base: null, apps: [], country: 'us', filter: 'all', query: '', sort: 'price', stale: true,
-    catalogReady: false, loading: true, statusType: 'loading', checkedUTC: null, fallbackUS: false, category: 'all', pickId: null };
+    catalogReady: false, loading: true, priceLoading: false, statusType: 'loading', checkedUTC: null, fallbackUS: false, category: 'all', pickId: null };
   // Storefront selection and interface language are independent.
   // Only a manually chosen region is persisted; no user or device identifier is transmitted.
   const STORE_KEY='tsz-next-storefront-manual-v1';
@@ -298,7 +298,7 @@
     selected.forEach(a=>frag.append(card(a)));
     list.replaceChildren(frag);
     note.classList.toggle('warning',!verified);
-    note.textContent=!verified ? (model.loading?t('loading'):(model.fallbackUS?t('referenceOnly'):t('stale')))
+    note.textContent=!verified ? (model.priceLoading?t('checkPrice'):(model.fallbackUS?t('referenceOnly'):t('stale')))
       : !selected.length ? t('noMatch') : t('catalogNote');
   }
   function renderHighlights() {
@@ -310,14 +310,16 @@
     free.forEach(a=>frag.append(card(a)));
     list.replaceChildren(frag);
     note.classList.toggle('warning',!verified);
-    if(!verified) note.textContent=model.loading?t('loading'):(model.fallbackUS?t('referenceOnly'):t('stale'));
+    if(!verified) note.textContent=model.priceLoading?t('checkPrice'):(model.fallbackUS?t('referenceOnly'):t('stale'));
     else if(!free.length) note.textContent=t('noMatch');
     else note.textContent=t('catalogNote');
     pickApp();
   }
   function statusUpdate(count) {
     if (model.loading) { status.textContent=t('loading');return; }
+    if (model.statusType==='checking') { status.textContent=t('shown',{count})+' · '+t('checkPrice');return; }
     if (model.statusType==='unsynced') { status.textContent=t('fetchFailed')+' ('+regionName()+') · US App Store · '+t('referenceOnly');return; }
+    if (model.statusType==='price-unavailable') { status.textContent=t('shown',{count})+' · '+t('checkPrice')+' · '+t('stale');return; }
     if (model.statusType==='failed') { status.textContent=t('fetchFailed')+' · US App Store · '+t('referenceOnly');return; }
     if (count===0) { status.textContent=t('noMatch');return; }
     status.textContent=t('shown',{count})+' · '+t('catalogNote')+(model.stale?' '+t('stale'):'');
@@ -334,7 +336,7 @@
     renderPurpose(apps);
   }
   function paint() {
-    $('app-count').textContent=model.catalogReady?String(model.apps.length):'—';
+    $('app-count').textContent=!model.loading && model.base ? String(model.apps.length):'—';
     $('free-count').textContent=priceVerified() ? String(model.apps.filter(a=>a.price===0).length):'—';
     if (model.checkedUTC) { try{$('checked-at').textContent=new Intl.DateTimeFormat(i18n.locale,{timeZone:'UTC',dateStyle:'medium',timeStyle:'short'}).format(new Date(model.checkedUTC))+' UTC';}
       catch(_){$('checked-at').textContent=model.checkedUTC;} }
@@ -421,11 +423,25 @@
     return {apps:results,lastCheckedUTC:new Date().toISOString(),country,live:true,
       listedCount:prices.size,requestedCount:ids.length,rejectedCount:Object.values(rejectionReasons).reduce((a,b)=>a+b,0)};
   }
+  // P19-7: public catalog first. Live prices and large ASC translations must not gate cards.
+  // The first paint uses trusted baseline IDs with UNKNOWN prices; it never calls them FREE.
+  function catalogWithoutPrices(country, locale) {
+    return model.base.apps.map(a => withReleasedTranslation({
+      ...a, price:null, currency:'', formattedPrice:'',
+      appStoreUrl:'https://apps.apple.com/'+country+'/app/id'+a.id
+    },locale));
+  }
   async function refreshLocale() {
     const serial=++requestSerial;
-    // Never display an old region's prices while a new country is loading.
-    model.loading=true;model.statusType='loading';model.stale=true;model.catalogReady=false;model.apps=[];model.checkedUTC=null;paint();
+    model.loading=!model.base;
+    model.priceLoading=true;
+    model.statusType='loading';model.stale=true;model.catalogReady=false;
+    model.checkedUTC=null;model.fallbackUS=false;
+    // Erase old storefront price data immediately. Never retain old price badges while switching.
+    model.apps=model.base ? catalogWithoutPrices(model.country,i18n.locale) : [];
+    paint();
     try {
+      // These are small same-origin JSON resources. Nothing from Apple is awaited here.
       if(!model.base)model.base=verifyBase(await readJson('./data/apps.json'));
       if(!mappings){const config=await readJson('./data/locale-storefronts.json');
         if(config.schemaVersion!==1 || config.developerId!==DEVELOPER_ID || Object.keys(config.storefrontByLocale||{}).length!==50)throw Error('Bad locale map');
@@ -433,15 +449,12 @@
         availableCountries=[...new Set(['us',...Object.values(mappings)])].filter(c=>/^[a-z]{2}$/.test(c));
         if(manualCountry&&!availableCountries.includes(manualCountry))manualCountry=null;
       }
-      // Translation bundle is non-critical to price fetch: English fallback remains safe.
-      try { await loadStoreUi(); } catch(e) { console.warn('Storefront UI translations unavailable:',e.message); }
       if(serial!==requestSerial)return;
       const locale=i18n.locale;
       const suggested=mappings[locale];
       if(!/^[a-z]{2}$/.test(suggested||''))throw Error('Missing storefront country');
       const localeChanged=locale!==lastLocale;
       const previousCountry=model.country;
-      // Ambiguous bare locale codes require an explicit choice on first use.
       const ambiguous=ambiguousLocales.has(locale) && !manualCountry;
       if(manualCountry)model.country=manualCountry;
       else if(ambiguous && lastLocale===null)model.country='us';
@@ -449,39 +462,54 @@
       else if(!ambiguous)model.country=suggested;
       lastLocale=locale;
       if(model.country!==previousCountry){model.pickId=null;model.category='all';}
+
+      // FIRST USEFUL PAINT. All baseline apps, no speculative prices, no ASC 3MB wait.
+      model.apps=catalogWithoutPrices(model.country,locale);
+      model.loading=false;
+      model.statusType='checking';
+      model.catalogReady=false;model.fallbackUS=false;model.stale=true;
       updateStoreSelector();
       if(localeChanged && !manualCountry)showStoreMessage(ambiguous?'choose':'auto');
-      if(serial!==requestSerial)return;
+      paint();
+
+      // Both optional datasets may finish later. They must not delay the catalog or prices.
+      void loadStoreUi().then(()=>{if(serial===requestSerial)updateStoreSelector();})
+        .catch(e=>console.warn('Storefront UI translations unavailable:',e.message));
+      void loadAscMetadata().then(()=>{
+        if(serial!==requestSerial || !ascMetadata)return;
+        model.apps=model.apps.map(a=>withReleasedTranslation(a,locale));
+        paint();
+      }).catch(e=>console.warn('ASC localizations unavailable:',e.message));
+
       let data=null,liveError=null;
-      try{data=await fetchLiveStorefront(model.country);}catch(e){liveError=e;}
+      try { data=await fetchLiveStorefront(model.country); }
+      catch(e) { liveError=e; }
       if(serial!==requestSerial)return;
-      if(!data || data.listedCount===0) {
-        // Never promote 48-hour-old generated snapshot prices to a live offer.
-        // Failed live lookup = unknown price; non-price catalog remains browsable.
-        data=null;
-      }
-      if(serial!==requestSerial)return;
-      await loadAscMetadata();
-      if(serial!==requestSerial)return;
+      if(!data || data.listedCount===0)data=null;
       if(data && data.apps?.length){
-        model.apps=data.apps.map(a=>withReleasedTranslation(a,locale));model.stale=isStale(data.lastCheckedUTC);
-        model.checkedUTC=data.lastCheckedUTC;model.catalogReady=true;model.statusType='ok';model.fallbackUS=false;
+        model.apps=data.apps.map(a=>withReleasedTranslation(a,locale));
+        model.stale=isStale(data.lastCheckedUTC);
+        model.checkedUTC=data.lastCheckedUTC;
+        model.catalogReady=true;model.statusType='ok';model.fallbackUS=false;
         if(data.live && data.listedCount<model.base.apps.length)showStoreMessage('partial');
-        else if(liveError)showStoreMessage('offline');
       } else {
-        model.apps=model.base.apps.map(a=>withReleasedTranslation({...a,price:null,formattedPrice:'',currency:'',
-          appStoreUrl:a.appStoreUrl},locale));
-        model.catalogReady=false;model.fallbackUS=true;model.stale=true;model.checkedUTC=null;
-        model.filter='all';model.statusType='unsynced';showStoreMessage('unlisted');
+        // Keep ALL baseline cards visible when Apple is slow, offline or returns no valid rows.
+        model.apps=catalogWithoutPrices(model.country,locale);
+        model.catalogReady=false;model.fallbackUS=false;model.stale=true;model.checkedUTC=null;
+        model.filter='all';model.statusType='price-unavailable';showStoreMessage('offline');
+        if(liveError)console.info('TSZ_PRICE_UNAVAILABLE',String(liveError.message||liveError));
       }
     } catch(e) {
       if(serial!==requestSerial)return;
-      model.apps=model.base?model.base.apps.map(a=>withReleasedTranslation({...a,price:null,formattedPrice:'',currency:'',
-        appStoreUrl:a.appStoreUrl},i18n.locale)):[];
-      model.catalogReady=false;model.fallbackUS=true;model.stale=true;model.checkedUTC=null;
-      model.filter='all';model.statusType='failed';showStoreMessage('offline');
-      console.warn('Storefront lookup failed:',e);
-    } finally {if(serial===requestSerial){model.loading=false;updateStoreSelector();paint();}}
+      // Only a missing/invalid local catalog is allowed to leave the catalog empty.
+      model.apps=model.base ? catalogWithoutPrices('us',i18n.locale) : [];
+      model.loading=false;model.catalogReady=false;model.fallbackUS=true;
+      model.stale=true;model.checkedUTC=null;model.filter='all';
+      model.statusType='failed';showStoreMessage('offline');
+      console.warn('Local catalog or storefront mapping failed:',e);
+    } finally {
+      if(serial===requestSerial){model.loading=false;model.priceLoading=false;updateStoreSelector();paint();}
+    }
   }
   $('search').addEventListener('input',e=>{model.query=e.target.value.trim().toLocaleLowerCase();$('purpose-search').value=e.target.value;render();});
   $('purpose-search').addEventListener('input',e=>{
@@ -510,7 +538,7 @@
   // Browser/server/Apple upstream caches can still exist; these requests do not guarantee
   // that Apple has propagated a scheduled price change to every customer.
   function recheckVisiblePrice(force) {
-    if(document.visibilityState==='hidden' || model.loading) return;
+    if(document.visibilityState==='hidden' || model.loading || model.priceLoading) return;
     if(Date.now()-lastPriceFetchStarted < (force?10000:PRICE_MAX_AGE_MS)) return;
     void refreshLocale();
   }
