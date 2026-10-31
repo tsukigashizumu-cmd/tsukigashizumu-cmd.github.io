@@ -17,6 +17,46 @@
   // TSZ_CLEAN_X_PATH_P10_BEGIN
   // Attribution is written only by same-origin /next/x/ entry pages.
   // This does not load GA4 or bypass the existing consent gate.
+  // TSZ_CLEAN_JOB_BOARD_P12_BEGIN
+  // Same-origin /next/s/ entry page only: no query string, cookie, or GA4 bypass.
+  // This source label describes the entry LINK, not verified visitor identity.
+  function cleanJobBoardPageConfig(config){
+    if (location.pathname!=='/next/' && location.pathname!=='/next/index.html') return config;
+    const params=new URLSearchParams(location.search);
+    if (['utm_source','utm_medium','utm_campaign','utm_content'].some(k=>params.has(k))) return config;
+    // Do not replace an explicit X entry from this same tab.
+    if (config.campaign_source){
+      try { sessionStorage.removeItem('tsz-s-entry-v1'); } catch (_) {}
+      return config;
+    }
+    let arrived=false;
+    try {
+      const raw=sessionStorage.getItem('tsz-s-entry-v1');
+      if (raw){
+        const row=JSON.parse(raw);
+        arrived=Boolean(row && row.v===1 && row.source==='job_board' &&
+          row.medium==='referral' && row.campaign==='studio_jobs_v1' &&
+          row.content==='listing' && Number.isFinite(row.at) &&
+          row.at<=Date.now()+60000 && Date.now()-row.at<=1800000);
+        sessionStorage.removeItem('tsz-s-entry-v1');
+      }
+    } catch (_) { /* Storage restrictions must not stop the LP. */ }
+    if (!arrived){
+      try {
+        const ref=new URL(document.referrer);
+        arrived=ref.origin===location.origin &&
+          (ref.pathname==='/next/s/' || ref.pathname==='/next/s/index.html');
+      } catch (_) { /* No referrer means no fallback attribution. */ }
+    }
+    if (arrived){
+      config.campaign_source='job_board';
+      config.campaign_medium='referral';
+      config.campaign_name='studio_jobs_v1';
+      config.campaign_content='listing';
+    }
+    return config;
+  }
+  // TSZ_CLEAN_JOB_BOARD_P12_END
   function cleanXPageConfig(){
     const config={page_location:sanitizedPageUrl(),allow_google_signals:false,allow_ad_personalization_signals:false};
     const path=location.pathname;
@@ -134,7 +174,7 @@
     window.gtag('consent','default',consentObject('denied'));
     window.gtag('consent','update',consentObject('granted'));
     window.gtag('js',new Date());
-    window.gtag('config',id,cleanXPageConfig());
+    window.gtag('config',id,cleanJobBoardPageConfig(cleanXPageConfig()));
     const script=document.createElement('script');script.async=true;script.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(id);
     script.onerror=()=>{state='tag_error';};
     document.head.append(script);
