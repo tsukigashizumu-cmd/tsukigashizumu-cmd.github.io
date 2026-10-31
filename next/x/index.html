@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <meta name="referrer" content="same-origin">
+  <title>Tsukigashizumu Studio</title>
+  <meta name="description" content="Independent apps for everyday problems.">
+  <script>
+  (() => {
+    'use strict';
+    try {
+      sessionStorage.setItem('tsz-x-entry-v1', JSON.stringify({
+        v:1,source:'x',medium:'social',campaign:'studio_x_v1',
+        content:"profile",at:Date.now()
+      }));
+    } catch (_) { /* Allow navigation even when browser storage is blocked. */ }
+    location.replace(new URL("../", location.href).href);
+  })();
+  </script>
+</head>
+<body>
+  <p>Open <a href="../">Tsukigashizumu Studio</a>.</p>
+</body>
+</html>

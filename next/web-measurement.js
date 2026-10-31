@@ -14,6 +14,47 @@
   function readChoice(){try{const s=localStorage.getItem(STORAGE);return ['granted','denied'].includes(s)?s:null;}catch(_){return null;}}
   function saveChoice(value){try{localStorage.setItem(STORAGE,value);}catch(_){/* private mode remains per-page */}}
   function consentObject(value){return {analytics_storage:value,ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'};}
+  // TSZ_CLEAN_X_PATH_P10_BEGIN
+  // Attribution is written only by same-origin /next/x/ entry pages.
+  // This does not load GA4 or bypass the existing consent gate.
+  function cleanXPageConfig(){
+    const config={page_location:sanitizedPageUrl(),allow_google_signals:false,allow_ad_personalization_signals:false};
+    const path=location.pathname;
+    if (path!=='/next/' && path!=='/next/index.html') return config;
+    // Explicit UTM always wins; never overwrite an existing source.
+    const params=new URLSearchParams(location.search);
+    if (params.has('utm_source') || params.has('utm_medium') || params.has('utm_campaign') || params.has('utm_content')) return config;
+    let content='';
+    try {
+      const raw=sessionStorage.getItem('tsz-x-entry-v1');
+      if (raw){
+        const row=JSON.parse(raw);
+        const valid=row && row.v===1 && row.source==='x' && row.medium==='social' &&
+          row.campaign==='studio_x_v1' && ['profile','post'].includes(row.content) &&
+          Number.isFinite(row.at) && row.at<=Date.now()+60000 && (Date.now()-row.at)<=1800000;
+        if (valid) content=row.content;
+        sessionStorage.removeItem('tsz-x-entry-v1');
+      }
+    } catch (_) { /* Storage restrictions must not block the LP. */ }
+    // If browser storage is disabled, a same-origin entry page referrer still works.
+    if (!content){
+      try {
+        const ref=new URL(document.referrer);
+        if (ref.origin===location.origin){
+          if (ref.pathname==='/next/x/' || ref.pathname==='/next/x/index.html') content='profile';
+          if (ref.pathname==='/next/x/p/' || ref.pathname==='/next/x/p/index.html') content='post';
+        }
+      } catch (_) { /* No referrer: no inferred attribution. */ }
+    }
+    if (content){
+      config.campaign_source='x';
+      config.campaign_medium='social';
+      config.campaign_name='studio_x_v1';
+      config.campaign_content=content;
+    }
+    return config;
+  }
+  // TSZ_CLEAN_X_PATH_P10_END
   function sanitizedPageUrl(){
     const u=new URL(location.origin+location.pathname);
     const p=new URLSearchParams(location.search);
@@ -22,6 +63,16 @@
       u.searchParams.set('utm_source',source);u.searchParams.set('utm_medium',medium);
       u.searchParams.set('utm_campaign',campaign);u.searchParams.set('utm_content',content);
     }
+    // TSZ_X_UTM_V1_BEGIN: Accept only these fixed X referral values; strip other query params.
+    if (source === 'x' && medium === 'social' && campaign === 'studio_x_v1' &&
+        (content === 'post' || content === 'profile') &&
+        ['utm_source','utm_medium','utm_campaign','utm_content'].every(k => p.getAll(k).length === 1)) {
+      u.searchParams.set('utm_source', 'x');
+      u.searchParams.set('utm_medium', 'social');
+      u.searchParams.set('utm_campaign', 'studio_x_v1');
+      u.searchParams.set('utm_content', content);
+    }
+    // TSZ_X_UTM_V1_END
     return u.href;
   }
   // APPDOCK_DYNAMIC_ALLOWLIST_V1: backward-compatible dynamic reader.
@@ -83,7 +134,7 @@
     window.gtag('consent','default',consentObject('denied'));
     window.gtag('consent','update',consentObject('granted'));
     window.gtag('js',new Date());
-    window.gtag('config',id,{page_location:sanitizedPageUrl(),allow_google_signals:false,allow_ad_personalization_signals:false});
+    window.gtag('config',id,cleanXPageConfig());
     const script=document.createElement('script');script.async=true;script.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(id);
     script.onerror=()=>{state='tag_error';};
     document.head.append(script);
