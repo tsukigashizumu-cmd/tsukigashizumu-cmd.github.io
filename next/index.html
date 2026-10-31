@@ -69,7 +69,9 @@
   <script defer src="./hero-fit.js"></script>
   <script defer src="./atelier.js"></script>
   <script defer src="./app.js"></script>
-</head>
+<link rel="stylesheet" href="./appdock-original-shelf.css">
+  <script defer src="./appdock-original-shelf.js"></script>
+  </head>
 <body>
   <div class="shell">
     <header class="site-head">
@@ -150,6 +152,11 @@
         </div>
         <p id="paid-status" class="section-note" role="status" aria-live="polite"></p>
         <div id="paid-apps" class="paid-grid"></div>
+      </section>
+      <section id="appdock-original-shelf" aria-labelledby="appdock-original-title" hidden>
+        <div class="section-head"><div><div class="eyebrow">DEVELOPER PICKS</div><h2 id="appdock-original-title">Small tools with a different perspective</h2></div></div>
+        <p id="appdock-original-subtitle">Different uses, shared curiosity about everyday problems.</p>
+        <div id="appdock-original-items"></div>
       </section>
       <section class="catalog" id="catalog" aria-labelledby="catalog-title">
         <div class="catalog-head"><div><div class="eyebrow" data-i18n="collection">THE COLLECTION</div><h2 id="catalog-title"><span data-i18n="explore">Explore the apps</span><span class="head-dot">.</span></h2></div><p class="tiny" data-i18n="tagline">No account. No pressure. Just discover.</p></div>

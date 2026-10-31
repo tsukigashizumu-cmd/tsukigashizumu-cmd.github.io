@@ -1,0 +1,262 @@
+[
+  {
+    "appDockReleaseStatus" : "published",
+    "appleID" : "6761338604",
+    "bundleID" : "com.pendulumPOE.BacchusKarma",
+    "codeName" : "Bacchus Karma",
+    "displayName" : "Bacchus Karma",
+    "iosImplementationVerified" : false,
+    "issues" : [
+
+    ],
+    "legacyUTMSources" : [
+      "bundle_com_pendulumpoe_bacchuskarma"
+    ],
+    "lpAllowlistVerified" : false,
+    "mainURL" : "https://tsukigashizumu-cmd.github.io/next/?utm_source=app_6761338604&utm_medium=owned_app&utm_campaign=daily_offers_v1&utm_content=post_result_lp_footer",
+    "rollout" : "PUBLISHED_CANDIDATE",
+    "settingsURL" : "https://tsukigashizumu-cmd.github.io/next/?utm_source=app_6761338604&utm_medium=owned_app&utm_campaign=daily_offers_v1&utm_content=config_footer_lp",
+    "utmSource" : "app_6761338604",
+    "utmSourceOrigin" : "APPLE_ID_CANONICAL"
+  },
+  {
+    "appDockReleaseStatus" : "published",
+    "appleID" : "6796486391",
+    "bundleID" : "com.pendulumPOE.BreakThree",
+    "codeName" : "BreakThree",
+    "displayName" : "BreakThree",
+    "iosImplementationVerified" : false,
+    "issues" : [
+
+    ],
+    "legacyUTMSources" : [
+      "bundle_com_pendulumpoe_breakthree"
+    ],
+    "lpAllowlistVerified" : false,
+    "mainURL" : "https://tsukigashizumu-cmd.github.io/next/?utm_source=app_6796486391&utm_medium=owned_app&utm_campaign=daily_offers_v1&utm_content=post_result_lp_footer",
+    "rollout" : "PUBLISHED_CANDIDATE",
+    "settingsURL" : "https://tsukigashizumu-cmd.github.io/next/?utm_source=app_6796486391&utm_medium=owned_app&utm_campaign=daily_offers_v1&utm_content=config_footer_lp",
+    "utmSource" : "app_6796486391",
+    "utmSourceOrigin" : "APPLE_ID_CANONICAL"
+  },
+  {
+    "appDockReleaseStatus" : "published",
+    "appleID" : "6794575766",
+    "bundleID" : "com.pendulumPOE.Hitotsubu",
+    "codeName" : "Hitotsubu",
+    "displayName" : "Hitotsubu",
+    "iosImplementationVerified" : false,
+    "issues" : [
+
+    ],
+    "legacyUTMSources" : [
+      "bundle_com_pendulumpoe_hitotsubu"
+    ],
+    "lpAllowlistVerified" : false,
+    "mainURL" : "https://tsukigashizumu-cmd.github.io/next/?utm_source=app_6794575766&utm_medium=owned_app&utm_campaign=daily_offers_v1&utm_content=post_result_lp_footer",
+    "rollout" : "PUBLISHED_CANDIDATE",
+    "settingsURL" : "https://tsukigashizumu-cmd.github.io/next/?utm_source=app_6794575766&utm_medium=owned_app&utm_campaign=daily_offers_v1&utm_content=config_footer_lp",
+    "utmSource" : "app_6794575766",
+    "utmSourceOrigin" : "APPLE_ID_CANONICAL"
+  },
+  {
+    "appDockReleaseStatus" : "published",
+    "appleID" : "6795788626",
+    "bundleID" : "com.pendulumPOE.MineTime",
+    "codeName" : "Kizami",
+    "displayName" : "Kizami",
+    "iosImplementationVerified" : false,
+    "issues" : [
+
+    ],
+    "legacyUTMSources" : [
+      "bundle_com_pendulumpoe_minetime"
+    ],
+    "lpAllowlistVerified" : false,
+    "mainURL" : "https://tsukigashizumu-cmd.github.io/next/?utm_source=app_6795788626&utm_medium=owned_app&utm_campaign=daily_offers_v1&utm_content=post_result_lp_footer",
+    "rollout" : "PUBLISHED_CANDIDATE",
+    "settingsURL" : "https://tsukigashizumu-cmd.github.io/next/?utm_source=app_6795788626&utm_medium=owned_app&utm_campaign=daily_offers_v1&utm_content=config_footer_lp",
+    "utmSource" : "app_6795788626",
+    "utmSourceOrigin" : "APPLE_ID_CANONICAL"
+  },
+  {
+    "appDockReleaseStatus" : "published",
+    "appleID" : "6778138017",
+    "bundleID" : "com.pendulumPOE.Knotless",
+    "codeName" : "Knotless",
+    "displayName" : "Knotless",
+    "iosImplementationVerified" : false,
+    "issues" : [
+
+    ],
+    "legacyUTMSources" : [
+      "bundle_com_pendulumpoe_knotless"
+    ],
+    "lpAllowlistVerified" : false,
+    "mainURL" : "https://tsukigashizumu-cmd.github.io/next/?utm_source=app_6778138017&utm_medium=owned_app&utm_campaign=daily_offers_v1&utm_content=post_result_lp_footer",
+    "rollout" : "PUBLISHED_CANDIDATE",
+    "settingsURL" : "https://tsukigashizumu-cmd.github.io/next/?utm_source=app_6778138017&utm_medium=owned_app&utm_campaign=daily_offers_v1&utm_content=config_footer_lp",
+    "utmSource" : "app_6778138017",
+    "utmSourceOrigin" : "APPLE_ID_CANONICAL"
+  },
+  {
+    "appDockReleaseStatus" : "published",
+    "appleID" : "6781817734",
+    "bundleID" : "com.pendulumPOE.MealDrift",
+    "codeName" : "MealDrift",
+    "displayName" : "MealDrift",
+    "iosImplementationVerified" : false,
+    "issues" : [
+
+    ],
+    "legacyUTMSources" : [
+      "bundle_com_pendulumpoe_mealdrift"
+    ],
+    "lpAllowlistVerified" : false,
+    "mainURL" : "https://tsukigashizumu-cmd.github.io/next/?utm_source=app_6781817734&utm_medium=owned_app&utm_campaign=daily_offers_v1&utm_content=post_result_lp_footer",
+    "rollout" : "PUBLISHED_CANDIDATE",
+    "settingsURL" : "https://tsukigashizumu-cmd.github.io/next/?utm_source=app_6781817734&utm_medium=owned_app&utm_campaign=daily_offers_v1&utm_content=config_footer_lp",
+    "utmSource" : "app_6781817734",
+    "utmSourceOrigin" : "APPLE_ID_CANONICAL"
+  },
+  {
+    "appDockReleaseStatus" : "published",
+    "appleID" : "6781131521",
+    "bundleID" : "com.pendulumPOE.Waitless",
+    "codeName" : "Minpick",
+    "displayName" : "Minpick",
+    "iosImplementationVerified" : false,
+    "issues" : [
+
+    ],
+    "legacyUTMSources" : [
+      "bundle_com_pendulumpoe_waitless"
+    ],
+    "lpAllowlistVerified" : false,
+    "mainURL" : "https://tsukigashizumu-cmd.github.io/next/?utm_source=app_6781131521&utm_medium=owned_app&utm_campaign=daily_offers_v1&utm_content=post_result_lp_footer",
+    "rollout" : "PUBLISHED_CANDIDATE",
+    "settingsURL" : "https://tsukigashizumu-cmd.github.io/next/?utm_source=app_6781131521&utm_medium=owned_app&utm_campaign=daily_offers_v1&utm_content=config_footer_lp",
+    "utmSource" : "app_6781131521",
+    "utmSourceOrigin" : "APPLE_ID_CANONICAL"
+  },
+  {
+    "appDockReleaseStatus" : "published",
+    "appleID" : "6775229100",
+    "bundleID" : "com.pendulumPOE.PocoLog",
+    "codeName" : "Quiet Reserve",
+    "displayName" : "Quiet Reserve",
+    "iosImplementationVerified" : false,
+    "issues" : [
+
+    ],
+    "legacyUTMSources" : [
+      "bundle_com_pendulumpoe_pocolog"
+    ],
+    "lpAllowlistVerified" : false,
+    "mainURL" : "https://tsukigashizumu-cmd.github.io/next/?utm_source=app_6775229100&utm_medium=owned_app&utm_campaign=daily_offers_v1&utm_content=post_result_lp_footer",
+    "rollout" : "PUBLISHED_CANDIDATE",
+    "settingsURL" : "https://tsukigashizumu-cmd.github.io/next/?utm_source=app_6775229100&utm_medium=owned_app&utm_campaign=daily_offers_v1&utm_content=config_footer_lp",
+    "utmSource" : "app_6775229100",
+    "utmSourceOrigin" : "APPLE_ID_CANONICAL"
+  },
+  {
+    "appDockReleaseStatus" : "published",
+    "appleID" : "6760823598",
+    "bundleID" : "com.pendulumPOE.ShopSuggest",
+    "codeName" : "ShopSuggest",
+    "displayName" : "ShopSuggest",
+    "iosImplementationVerified" : false,
+    "issues" : [
+
+    ],
+    "legacyUTMSources" : [
+      "bundle_com_pendulumpoe_shopsuggest"
+    ],
+    "lpAllowlistVerified" : false,
+    "mainURL" : "https://tsukigashizumu-cmd.github.io/next/?utm_source=app_6760823598&utm_medium=owned_app&utm_campaign=daily_offers_v1&utm_content=post_result_lp_footer",
+    "rollout" : "PUBLISHED_CANDIDATE",
+    "settingsURL" : "https://tsukigashizumu-cmd.github.io/next/?utm_source=app_6760823598&utm_medium=owned_app&utm_campaign=daily_offers_v1&utm_content=config_footer_lp",
+    "utmSource" : "app_6760823598",
+    "utmSourceOrigin" : "APPLE_ID_CANONICAL"
+  },
+  {
+    "appDockReleaseStatus" : "published",
+    "appleID" : "6768180849",
+    "bundleID" : "com.pendulumPOE.SoftCount",
+    "codeName" : "Soft Count",
+    "displayName" : "Soft Count",
+    "iosImplementationVerified" : false,
+    "issues" : [
+
+    ],
+    "legacyUTMSources" : [
+      "bundle_com_pendulumpoe_softcount"
+    ],
+    "lpAllowlistVerified" : false,
+    "mainURL" : "https://tsukigashizumu-cmd.github.io/next/?utm_source=app_6768180849&utm_medium=owned_app&utm_campaign=daily_offers_v1&utm_content=post_result_lp_footer",
+    "rollout" : "PUBLISHED_CANDIDATE",
+    "settingsURL" : "https://tsukigashizumu-cmd.github.io/next/?utm_source=app_6768180849&utm_medium=owned_app&utm_campaign=daily_offers_v1&utm_content=config_footer_lp",
+    "utmSource" : "app_6768180849",
+    "utmSourceOrigin" : "APPLE_ID_CANONICAL"
+  },
+  {
+    "appDockReleaseStatus" : "published",
+    "appleID" : "6768219693",
+    "bundleID" : "com.pendulumPOE.StockClerkWorldDomination",
+    "codeName" : "Stockout Zero",
+    "displayName" : "Stockout Zero",
+    "iosImplementationVerified" : false,
+    "issues" : [
+
+    ],
+    "legacyUTMSources" : [
+      "bundle_com_pendulumpoe_stockclerkworlddomination"
+    ],
+    "lpAllowlistVerified" : false,
+    "mainURL" : "https://tsukigashizumu-cmd.github.io/next/?utm_source=app_6768219693&utm_medium=owned_app&utm_campaign=daily_offers_v1&utm_content=post_result_lp_footer",
+    "rollout" : "PUBLISHED_CANDIDATE",
+    "settingsURL" : "https://tsukigashizumu-cmd.github.io/next/?utm_source=app_6768219693&utm_medium=owned_app&utm_campaign=daily_offers_v1&utm_content=config_footer_lp",
+    "utmSource" : "app_6768219693",
+    "utmSourceOrigin" : "APPLE_ID_CANONICAL"
+  },
+  {
+    "appDockReleaseStatus" : "published",
+    "appleID" : "6786129971",
+    "bundleID" : "com.pendulumPOE.TwelveOath",
+    "codeName" : "TwelveOath",
+    "displayName" : "TwelveOath",
+    "iosImplementationVerified" : false,
+    "issues" : [
+
+    ],
+    "legacyUTMSources" : [
+      "bundle_com_pendulumpoe_twelveoath"
+    ],
+    "lpAllowlistVerified" : false,
+    "mainURL" : "https://tsukigashizumu-cmd.github.io/next/?utm_source=app_6786129971&utm_medium=owned_app&utm_campaign=daily_offers_v1&utm_content=post_result_lp_footer",
+    "rollout" : "PUBLISHED_CANDIDATE",
+    "settingsURL" : "https://tsukigashizumu-cmd.github.io/next/?utm_source=app_6786129971&utm_medium=owned_app&utm_campaign=daily_offers_v1&utm_content=config_footer_lp",
+    "utmSource" : "app_6786129971",
+    "utmSourceOrigin" : "APPLE_ID_CANONICAL"
+  },
+  {
+    "appDockReleaseStatus" : "published",
+    "appleID" : "6762347699",
+    "bundleID" : "com.pendulumPOE.ValuePop",
+    "codeName" : "Unit Choice",
+    "displayName" : "Unit Choice",
+    "iosImplementationVerified" : false,
+    "issues" : [
+
+    ],
+    "legacyUTMSources" : [
+      "bundle_com_pendulumpoe_valuepop"
+    ],
+    "lpAllowlistVerified" : false,
+    "mainURL" : "https://tsukigashizumu-cmd.github.io/next/?utm_source=app_6762347699&utm_medium=owned_app&utm_campaign=daily_offers_v1&utm_content=post_result_lp_footer",
+    "rollout" : "PUBLISHED_CANDIDATE",
+    "settingsURL" : "https://tsukigashizumu-cmd.github.io/next/?utm_source=app_6762347699&utm_medium=owned_app&utm_campaign=daily_offers_v1&utm_content=config_footer_lp",
+    "utmSource" : "app_6762347699",
+    "utmSourceOrigin" : "APPLE_ID_CANONICAL"
+  }
+]
