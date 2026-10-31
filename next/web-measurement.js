@@ -20,6 +20,58 @@
   // TSZ_CLEAN_JOB_BOARD_P12_BEGIN
   // Same-origin /next/s/ entry page only: no query string, cookie, or GA4 bypass.
   // This source label describes the entry LINK, not verified visitor identity.
+  // APPDOCK_P15_OWNED_ENTRY_BEGIN
+  // Only locally generated same-origin Apple-ID entry pages create these labels.
+  // Consent remains enforced by loadTag(); no query string or PII is forwarded.
+  function cleanOwnedAppPageConfig(config){
+    if (location.pathname!=='/next/' && location.pathname!=='/next/index.html') return config;
+    const params=new URLSearchParams(location.search);
+    if (['utm_source','utm_medium','utm_campaign','utm_content'].some(k=>params.has(k))){
+      try { sessionStorage.removeItem('tsz-app-entry-v1'); } catch (_) {}
+      return config;
+    }
+    if (config.campaign_source){
+      try { sessionStorage.removeItem('tsz-app-entry-v1'); } catch (_) {}
+      return config;
+    }
+    let id='',letter='';
+    const parseEntry=(entry) => {
+      const match=String(entry||'').match(/^\/next\/([1-9][0-9]{5,19})([ab])(?:\/|\/index\.html)$/);
+      return match && allowedAppSources.has('app_'+match[1]) ? match : null;
+    };
+    try {
+      const raw=sessionStorage.getItem('tsz-app-entry-v1');
+      if (raw){
+        const row=JSON.parse(raw);
+        const source=String(row?.source||'');
+        const match=source.match(/^app_([1-9][0-9]{5,19})$/);
+        if (row && row.v===1 && match && allowedAppSources.has(source) &&
+            row.medium==='owned_app' && row.campaign==='daily_offers_v1' &&
+            (row.content==='config_footer_lp' || row.content==='post_result_lp_footer') &&
+            Number.isFinite(row.at) && row.at<=Date.now()+60000 && Date.now()-row.at<=1800000){
+          id=match[1];letter=row.content==='config_footer_lp'?'a':'b';
+        }
+        sessionStorage.removeItem('tsz-app-entry-v1');
+      }
+    } catch (_) { /* Restricted storage cannot stop the storefront. */ }
+    if (!id){
+      try {
+        const ref=new URL(document.referrer);
+        if (ref.origin===location.origin){
+          const match=parseEntry(ref.pathname);
+          if (match){id=match[1];letter=match[2];}
+        }
+      } catch (_) { /* No referrer: no fallback attribution. */ }
+    }
+    if (id){
+      config.campaign_source='app_'+id;
+      config.campaign_medium='owned_app';
+      config.campaign_name='daily_offers_v1';
+      config.campaign_content=letter==='a'?'config_footer_lp':'post_result_lp_footer';
+    }
+    return config;
+  }
+  // APPDOCK_P15_OWNED_ENTRY_END
   function cleanJobBoardPageConfig(config){
     if (location.pathname!=='/next/' && location.pathname!=='/next/index.html') return config;
     const params=new URLSearchParams(location.search);
@@ -174,7 +226,7 @@
     window.gtag('consent','default',consentObject('denied'));
     window.gtag('consent','update',consentObject('granted'));
     window.gtag('js',new Date());
-    window.gtag('config',id,cleanJobBoardPageConfig(cleanXPageConfig()));
+    window.gtag('config',id,cleanOwnedAppPageConfig(cleanJobBoardPageConfig(cleanXPageConfig())));
     const script=document.createElement('script');script.async=true;script.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(id);
     script.onerror=()=>{state='tag_error';};
     document.head.append(script);

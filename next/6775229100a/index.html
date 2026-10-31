@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <meta name="referrer" content="same-origin">
+  <title>Tsukigashizumu Studio</title>
+  <script>
+  (() => {
+    'use strict';
+    try {
+      sessionStorage.removeItem('tsz-x-entry-v1');
+      sessionStorage.removeItem('tsz-s-entry-v1');
+      sessionStorage.setItem('tsz-app-entry-v1', JSON.stringify({
+        v:1,source:'app_6775229100',medium:'owned_app',campaign:'daily_offers_v1',
+        content:'config_footer_lp',at:Date.now()
+      }));
+    } catch (_) { /* Storage can be blocked; same-origin referrer is fallback. */ }
+    location.replace(new URL('../',location.href).href);
+  })();
+  </script>
+</head>
+<body><p>Open <a href="../">Tsukigashizumu Studio</a>.</p></body>
+</html>
