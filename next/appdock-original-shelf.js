@@ -40,7 +40,7 @@
       if (!cards.length) return; // Empty shelf is a valid, quiet state.
       cards.sort((a,b)=>a.id.localeCompare(b.id));
       const draw = () => {
-        const ja = (document.documentElement.lang || navigator.language || '').toLowerCase().startsWith('ja');
+        const ja = ((window.TSZ_I18N && window.TSZ_I18N.locale) || document.documentElement.lang || navigator.language || '').toLowerCase().startsWith('ja');
         const heading = document.getElementById('appdock-original-title');
         const subtitle = document.getElementById('appdock-original-subtitle');
         if (heading) heading.textContent = ja ? 'ちょっと変わった、でも役に立つ道具たち' : 'Small tools with a different perspective';
@@ -61,6 +61,7 @@
         shelf.hidden=false;
       };
       draw();
+      document.addEventListener('tsz-locale-changed',draw);
       if (typeof MutationObserver !== 'undefined') new MutationObserver(draw).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
     } catch (error) { // A broken feed must not damage existing catalog, prices, or GA4.
       console.warn('AppDock original shelf unavailable:', error.message);

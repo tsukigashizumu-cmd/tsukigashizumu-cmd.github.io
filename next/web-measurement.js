@@ -137,7 +137,7 @@
     if(!/^\d{8,12}$/.test(appId||'') || slug!=='app_'+appId)return;
     let url;try{url=new URL(a.href);}catch(_){return;}
     if(url.protocol!=='https:' || url.hostname!=='apps.apple.com' || !new RegExp('/id'+appId+'(?:[/?#]|$)').test(url.pathname))return;
-    const place=a.closest('#free-apps')?'daily_free':a.closest('#paid-apps')?'price_drop':'app_catalog';
+    const place=a.closest('#appdock-original-shelf')?'original_shelf':a.closest('#free-apps')?'daily_free':a.closest('#paid-apps')?'price_drop':'app_catalog';
     const offer=a.dataset.tszOfferType==='free'?'free':'unknown';
     const payload={target_app_id:appId,target_app_slug:slug,offer_type:offer,placement:place};
     // Snapshot annotation comes only from the trusted LP app-card constructors.

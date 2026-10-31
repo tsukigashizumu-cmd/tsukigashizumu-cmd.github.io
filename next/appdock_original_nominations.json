@@ -1,7 +1,62 @@
 {
   "items" : [
     {
+      "appID" : "6760823598",
+      "reason" : "",
+      "requestedListing" : "original_candidate"
+    },
+    {
+      "appID" : "6762347699",
+      "reason" : "",
+      "requestedListing" : "original_candidate"
+    },
+    {
       "appID" : "6768180849",
+      "reason" : "",
+      "requestedListing" : "original_candidate"
+    },
+    {
+      "appID" : "6768219693",
+      "reason" : "",
+      "requestedListing" : "original_candidate"
+    },
+    {
+      "appID" : "6775229100",
+      "reason" : "",
+      "requestedListing" : "original_candidate"
+    },
+    {
+      "appID" : "6778138017",
+      "reason" : "",
+      "requestedListing" : "original_candidate"
+    },
+    {
+      "appID" : "6781131521",
+      "reason" : "",
+      "requestedListing" : "original_candidate"
+    },
+    {
+      "appID" : "6781817734",
+      "reason" : "",
+      "requestedListing" : "original_candidate"
+    },
+    {
+      "appID" : "6786129971",
+      "reason" : "",
+      "requestedListing" : "original_candidate"
+    },
+    {
+      "appID" : "6794575766",
+      "reason" : "",
+      "requestedListing" : "original_candidate"
+    },
+    {
+      "appID" : "6795788626",
+      "reason" : "",
+      "requestedListing" : "original_candidate"
+    },
+    {
+      "appID" : "6796486391",
       "reason" : "",
       "requestedListing" : "original_candidate"
     }
