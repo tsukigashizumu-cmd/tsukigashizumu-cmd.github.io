@@ -74,6 +74,8 @@
     <!-- TSZ_P19_1_PROMPTDOCK_DETAIL_V1 -->
   <link rel="stylesheet" href="./app-detail.css">
   <script defer src="./app-detail-link.js"></script>
+  <link rel="stylesheet" href="./tsz-p198.css">
+  <script defer src="./tsz-p198.js"></script>
 </head>
 <body>
   <div class="shell">
@@ -111,6 +113,23 @@
           <div class="tsz-lab-teaser-availability" id="tsz-lab-teaser-availability">Preview only · Not yet available for purchase</div>
         </div>
       </section>
+      <!-- TSZ_P19_8A_GUIDE: read-only section tracker, no catalog scripts modified -->
+      <nav id="tsz-p198-guide" aria-label="Explore the page">
+        <details class="p198-accordion">
+          <summary class="p198-summary">
+            <span class="p198-title"><span class="p198-eyebrow" data-i18n="collection">THE COLLECTION</span><span class="p198-heading" data-i18n="explore">Explore the apps</span></span>
+            <span class="p198-fraction" aria-live="off" aria-label="Section position"><span id="tsz-p198-current">01</span><span class="p198-slash">/</span><span class="p198-denominator">04</span></span>
+            <span class="p198-open"><span data-i18n="explore">Explore the apps</span><svg class="p198-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></span>
+          </summary>
+          <div class="p198-disclosure"><div class="p198-link-grid">
+            <a class="p198-chapter" href="#choose"><span class="p198-n">01</span><span data-i18n="collection">THE COLLECTION</span></a>
+            <a class="p198-chapter" href="#free-now"><span class="p198-n">02</span><span data-i18n="freeAt">Free at last check</span></a>
+            <a class="p198-chapter" href="#paid-now"><span class="p198-n">03</span><span data-i18n="paid">Paid</span></a>
+            <a class="p198-chapter" href="#catalog"><span class="p198-n">04</span><span data-i18n="explore">Explore the apps</span></a>
+          </div></div>
+        </details>
+        <progress id="tsz-p198-progress" class="p198-meter" max="4" value="1" aria-label="Section progress">1 / 4</progress>
+      </nav>
       <section class="choice-section" id="choose" aria-label="Choose how to explore">
         <div class="choice-heading"><span class="eyebrow" data-i18n="collection">THE COLLECTION</span><a class="section-link" href="#catalog"><span data-i18n="explore">Explore the apps</span> <span aria-hidden="true">↗</span></a></div>
         <div class="choice-grid">
