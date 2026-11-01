@@ -43,3 +43,33 @@
 @media(max-width:620px){#tsz-p198-guide{top:4px;margin:12px 0 22px;border-radius:14px}#tsz-p198-guide .p198-summary{padding:10px 11px 8px;gap:7px}#tsz-p198-guide .p198-heading{font-size:12px}#tsz-p198-guide .p198-eyebrow{font-size:9px}#tsz-p198-guide .p198-fraction{font-size:19px}#tsz-p198-guide .p198-open{font-size:11px;padding:8px;min-height:35px}#tsz-p198-guide .p198-meter{width:calc(100% - 22px);margin:0 11px 10px}#tsz-p198-guide .p198-disclosure{padding:10px}#tsz-p198-guide .p198-chapter{min-height:44px}}
 @media(max-width:370px){#tsz-p198-guide .p198-summary{flex-wrap:wrap}#tsz-p198-guide .p198-open{margin-inline-start:auto}}
 @media(prefers-reduced-motion:reduce){#tsz-p198-guide .p198-chevron,#tsz-p198-guide .p198-meter::-webkit-progress-value{transition:none!important}}
+
+/* P19-8B: compact analytics bar and readable section-anchor landing.
+   Sticky nav intentionally stays narrow; targeted anchors account for its height. */
+#tsz-p198-guide {top:6px;margin:18px 0 27px;border-radius:15px;backdrop-filter:none;-webkit-backdrop-filter:none;background:#1e1924;box-shadow:0 12px 24px rgba(0,0,0,.24);isolation:isolate}
+#tsz-p198-guide .p198-summary {padding:9px 13px 7px;gap:10px}
+#tsz-p198-guide .p198-eyebrow {font-size:9px;letter-spacing:.11em}
+#tsz-p198-guide .p198-heading {font-size:14px;font-weight:770;line-height:1.35}
+#tsz-p198-guide .p198-meter {height:5px;margin-bottom:9px;width:calc(100% - 26px);margin-left:13px;margin-right:13px}
+#tsz-p198-guide .p198-open {min-height:35px;border-color:rgba(245,201,184,.45);background:rgba(245,201,184,.08)}
+#tsz-p198-guide .p198-accordion>summary:active .p198-open {background:rgba(245,201,184,.2)}
+#tsz-p198-guide .p198-chapter {transition:background-color .15s ease,border-color .15s ease}
+#tsz-p198-guide .p198-disclosure {transform-origin:top;animation:p198-unfold .18s ease-out both}
+@keyframes p198-unfold {from{opacity:.55;clip-path:inset(0 0 20% 0)}to{opacity:1;clip-path:inset(0 0 0 0)}}
+#choose,#free-now,#paid-now,#catalog {scroll-margin-top:104px}
+/* App Store CTAs are native links styled as buttons; real destinations, metadata
+   and price badges remain under the original validated rendering code. */
+.app-card .app-footer > a[href*="apps.apple.com"] {box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:8px 13px;border:1px solid rgba(245,201,184,.5);border-radius:11px;background:rgba(245,201,184,.10);color:#f9e3d8;text-align:center;text-decoration:none;line-height:1.3;max-width:100%;transition:background-color .16s ease,border-color .16s ease}
+.app-card .app-footer > a[href*="apps.apple.com"]:hover {background:rgba(245,201,184,.22);border-color:#f5c9b8;color:#fff4ed}
+.app-card .app-footer > a[href*="apps.apple.com"]:focus-visible {outline:2px solid #f5c9b8;outline-offset:3px}
+.app-card .app-footer {flex-wrap:wrap;align-items:center;row-gap:8px}
+@media(max-width:620px){
+  #tsz-p198-guide {top:3px;margin:11px 0 19px}
+  #tsz-p198-guide .p198-summary {padding:8px 10px 6px;gap:7px}
+  #tsz-p198-guide .p198-heading {font-size:12px}
+  #tsz-p198-guide .p198-open {min-height:34px}
+  #tsz-p198-guide .p198-meter {width:calc(100% - 20px);margin:0 10px 8px}
+  #choose,#free-now,#paid-now,#catalog {scroll-margin-top:88px}
+  .app-card .app-footer > a[href*="apps.apple.com"] {min-height:42px;padding:10px 12px}
+}
+@media(prefers-reduced-motion:reduce){#tsz-p198-guide .p198-disclosure{animation:none!important}.app-card .app-footer > a[href*="apps.apple.com"]{transition:none!important}}
