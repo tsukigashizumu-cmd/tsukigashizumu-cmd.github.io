@@ -21,3 +21,15 @@
 .app-card .tsz-description-content:focus-visible{outline:2px solid #a8cefa}
 @media(max-width:620px){.app-card .tsz-description-content{max-height:min(62vh,30rem);padding:13px 12px 15px}}
 @media(prefers-reduced-motion:reduce){.app-card .tsz-description-chevron{transition:none}}
+
+/* P19-8CR3: discrete line-by-line reading controls for expanded descriptions. */
+.app-card .tsz-description-controls{display:grid;grid-template-columns:minmax(42px,1fr) minmax(0,2.2fr) minmax(42px,1fr);align-items:center;gap:8px;padding:9px 12px 11px;border-top:1px solid rgba(173,192,211,.18);background:rgba(21,30,43,.95);direction:ltr}
+.app-card .tsz-description-controls[hidden]{display:none !important}
+.app-card .tsz-description-line-button{display:flex;align-items:center;justify-content:center;min-height:43px;width:100%;border:1px solid rgba(169,197,230,.38);border-radius:10px;background:rgba(93,131,180,.14);color:#e0ecfb;font:600 21px/1 system-ui,-apple-system,BlinkMacSystemFont,sans-serif;cursor:pointer;touch-action:manipulation;transition:background-color .14s ease,border-color .14s ease}
+.app-card .tsz-description-line-button:hover:not(:disabled){background:rgba(114,154,212,.29);border-color:rgba(178,213,251,.72)}
+.app-card .tsz-description-line-button:active:not(:disabled){background:rgba(125,178,236,.37)}
+.app-card .tsz-description-line-button:focus-visible{outline:2px solid #bbdafa;outline-offset:2px}
+.app-card .tsz-description-line-button:disabled{opacity:.32;cursor:default}
+.app-card .tsz-description-line-label{color:#b7c9df;font-size:12px;font-weight:600;line-height:1.35;text-align:center;overflow-wrap:anywhere}
+@media(max-width:420px){.app-card .tsz-description-controls{grid-template-columns:minmax(46px,1fr) minmax(0,2fr) minmax(46px,1fr);gap:7px;padding:8px 9px 10px}}
+@media(prefers-reduced-motion:reduce){.app-card .tsz-description-line-button{transition:none}}
