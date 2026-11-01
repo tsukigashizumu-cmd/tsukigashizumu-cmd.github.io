@@ -33,3 +33,23 @@
 .app-card .tsz-description-line-label{color:#b7c9df;font-size:12px;font-weight:600;line-height:1.35;text-align:center;overflow-wrap:anywhere}
 @media(max-width:420px){.app-card .tsz-description-controls{grid-template-columns:minmax(46px,1fr) minmax(0,2fr) minmax(46px,1fr);gap:7px;padding:8px 9px 10px}}
 @media(prefers-reduced-motion:reduce){.app-card .tsz-description-line-button{transition:none}}
+
+
+/* P19-8CR4: align the inline "read full overview" control at the foot
+   of every closed card, independently of the length of its introduction.
+   The accordion stays inside its card; no additional DOM or observers. */
+.app-card > .tsz-description-wrapper {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+}
+.app-card > .tsz-description-wrapper > .tsz-description-details:not([open]) {
+  margin-top: auto;
+}
+/* Keep the remaining space allocation stable when details are opened.
+   Do not hide or clamp original overview text. */
+.app-card > .tsz-description-wrapper > .tsz-description-details[open] {
+  margin-top: 0;
+}
