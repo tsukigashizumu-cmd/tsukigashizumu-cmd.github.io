@@ -195,7 +195,7 @@
     const title=el('h3','app-title',app.name || 'App');title.dir='auto';
     const subtitle=app.subtitle ? el('p','app-subtitle',app.subtitle) : null;
     if(subtitle){subtitle.dir='auto';subtitle.style.cssText='margin:-7px 0 0;font-size:12px;color:#b5babb;line-height:1.45;overflow-wrap:anywhere';}
-    const description=el('p','app-description',String(app.description || '').replace(/\s+/g,' ').trim() || t('viewApp'));
+    const description=(window.TSZ_FULL_DESCRIPTION && window.TSZ_FULL_DESCRIPTION.create(app,i18n?.locale)) || el('p','app-description',String(app.description || '').replace(/\s+/g,' ').trim() || t('viewApp'));
     description.dir='auto';
     const bottom=el('div','app-footer');bottom.append(el('span','',model.fallbackUS ? 'US App Store · Reference' : regionName() + ' App Store'));
     const link=trustedUrl(app.appStoreUrl,'store');
