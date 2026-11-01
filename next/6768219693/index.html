@@ -1,4 +1,4 @@
-<!-- APPDOCK_P18_FOLDER_ENTRY_V1 id=6768219693 fnv64=809b8d08deb90802 -->
+<!-- APPDOCK_P18_FOLDER_ENTRY_V1 id=6768219693 fnv64=ea4677210e5d633c -->
 <!doctype html>
 <html lang="en-US">
 <head>
@@ -78,6 +78,8 @@
   <script defer src="./app-detail-link.js"></script>
   <link rel="stylesheet" href="./tsz-p198.css">
   <script defer src="./tsz-p198.js"></script>
+  <link rel="stylesheet" href="./tsz-p198c.css">
+  <script defer src="./tsz-p198c.js"></script>
 </head>
 <body>
   <div class="shell">
@@ -115,11 +117,11 @@
           <div class="tsz-lab-teaser-availability" id="tsz-lab-teaser-availability">Preview only · Not yet available for purchase</div>
         </div>
       </section>
-      <!-- TSZ_P19_8A_GUIDE: read-only section tracker, no catalog scripts modified -->
+      <!-- TSZ_P19_8B_GUIDE: chapter-aware navigation, read-only catalog guard -->
       <nav id="tsz-p198-guide" aria-label="Explore the page">
         <details class="p198-accordion">
           <summary class="p198-summary">
-            <span class="p198-title"><span class="p198-eyebrow" data-i18n="collection">THE COLLECTION</span><span class="p198-heading" data-i18n="explore">Explore the apps</span></span>
+            <span class="p198-title"><span class="p198-eyebrow" data-i18n="collection">THE COLLECTION</span><span class="p198-heading" id="tsz-p198-heading">Explore the apps</span></span>
             <span class="p198-fraction" aria-live="off" aria-label="Section position"><span id="tsz-p198-current">01</span><span class="p198-slash">/</span><span class="p198-denominator">04</span></span>
             <span class="p198-open"><span data-i18n="explore">Explore the apps</span><svg class="p198-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></span>
           </summary>
@@ -184,6 +186,29 @@
       </section>
       <section class="catalog" id="catalog" aria-labelledby="catalog-title">
         <div class="catalog-head"><div><div class="eyebrow" data-i18n="collection">THE COLLECTION</div><h2 id="catalog-title"><span data-i18n="explore">Explore the apps</span><span class="head-dot">.</span></h2></div><p class="tiny" data-i18n="tagline">No account. No pressure. Just discover.</p></div>
+      <!-- TSZ_P19_8C_STORY: isolated factual pilot; screenshots validated at view time -->
+      <aside id="tsz-p198c-story" aria-labelledby="p198c-title" lang="en">
+        <div class="c-head"><span class="c-eyebrow" data-p198c="eyebrow">APP STORY · VERIFIED FEATURES</span><span class="c-index">01 / 01 · PromptDock</span></div>
+        <div class="c-layout">
+          <div class="c-copy">
+            <h3 id="p198c-title">PromptDock AI</h3>
+            <p class="c-problem" data-p198c="problem">Do you keep rewriting similar requests to AI?</p>
+            <p class="c-solution" data-p198c="solution">Choose a template, fill in the fields, and generate a prompt to copy. Saved inputs, history, and custom templates support repeat requests.</p>
+            <div class="c-actions"><a class="c-action c-primary" href="./apps/6772130038/" data-p198c="detail">Explore real screens and details</a><a class="c-action" id="p198c-store" href="https://apps.apple.com/us/app/id6772130038" target="_blank" rel="noopener noreferrer" data-p198c="store">View on App Store</a></div>
+            <p class="c-footnote" data-p198c="source">Based on published product features, not customer testimonials.</p>
+            <p class="c-footnote" id="p198c-translation-note" hidden>Editorial copy is in English.</p>
+          </div>
+          <div class="c-media" id="p198c-media" data-state="loading" aria-label="Published App Store media">
+            <img id="p198c-shot" class="c-shot" alt="" decoding="async" loading="lazy" referrerpolicy="no-referrer" hidden>
+            <p class="c-media-status" id="p198c-status" role="status">Checking published screenshots…</p>
+            <div class="c-media-controls"><button type="button" id="p198c-prev" aria-label="Previous screenshot" disabled>‹</button><span id="p198c-position" class="c-photo-position">— / —</span><button type="button" id="p198c-next" aria-label="Next screenshot" disabled>›</button></div>
+            <p class="c-source" id="p198c-source"></p>
+          </div>
+        </div>
+        <details class="c-accordion"><summary><span data-p198c="details">What the app actually does</span><svg class="c-chevron" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="c-detail"><ol><li data-p198c="step1">Start from a built-in template</li><li data-p198c="step2">Fill fields, then generate and copy the prompt</li><li data-p198c="step3">Reuse saved inputs, history, and custom formats</li></ol><p><strong data-p198c="caveat">It does not automatically generate an AI answer. The ChatGPT shortcut is optional.</strong></p></div>
+        </details>
+      </aside>
         <div class="toolbar">
           <label class="search-wrap"><span class="sr-only" data-i18n="search">Search apps</span><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"></circle><path d="m16.5 16.5 5 5"></path></svg><input id="search" type="search" autocomplete="off" placeholder="Search…" data-i18n-placeholder="search"></label>
           <div class="segmented" role="group" aria-label="Filter apps"><button data-filter="all" aria-pressed="true" data-i18n="all">All</button><button data-filter="free" aria-pressed="false" data-i18n="free">Free</button><button data-filter="paid" aria-pressed="false" data-i18n="paid">Paid</button></div>
