@@ -10,14 +10,14 @@
   const rtl=new Set(['ar-SA','he','ur-PK']);
   const strings={
     ja:{language:'言語',region:'App Storeの国',all:'アプリ一覧',label:'APP STORIES / TSUKIGASHIZUMU STUDIO',store:'App Storeで見る ↗',back:'アプリ一覧へ戻る',price:'価格・提供状況はApp Storeでご確認ください。',
-      toc:'このページの目次',about:'このアプリについて',screen:'アプリの画面',features:'もう少し詳しく',full:'詳しい説明',related:'ほかのアプリも見る',screenNote:'',
+      toc:'このページの目次',about:'このアプリについて',screen:'見どころを、画面で。',features:'もう少し詳しく',full:'詳しい説明',related:'ほかのアプリも見る',screenNote:'',
       noScreen:'', inspect:'画像を拡大',prev:'前の画像',next:'次の画像',close:'閉じる',fit:'画面に合わせる',original:'実ピクセル表示', count:'アプリ画面',
       sourceAsc:'Tsukigashizumu Studio',sourceCatalog:'Tsukigashizumu Studio',fallback:'このページでは、別の言語の説明をご案内しています。',
       aboutCaption:'',proof:'',fullCaption:'',noFeatures:'',
       loading:'アプリの紹介を準備しています…',error:'読み込みに失敗しました。ページを更新するか、アプリ一覧からお探しください。',imageSource:'アプリの画面',quality:'画像サイズ',qualityLimited:'この画像は拡大すると細部が粗く見える場合があります。',
       noReviews:'',more:'こちらのアプリもおすすめ',fullToggle:'説明全文を読む',chap:'読んでいる章'},
     en:{language:'Language',region:'App Store region',all:'All apps',label:'APP STORIES / TSUKIGASHIZUMU STUDIO',store:'View in App Store ↗',back:'Explore other apps',price:'For current pricing and availability, visit the App Store.',
-      toc:'ON THIS PAGE',about:'Meet the app',screen:'See the app',features:'A closer look',full:'About this app',related:'Explore more apps',screenNote:'',
+      toc:'ON THIS PAGE',about:'Meet the app',screen:'The app in action',features:'A closer look',full:'About this app',related:'Explore more apps',screenNote:'',
       noScreen:'',inspect:'Inspect screenshot',prev:'Previous image',next:'Next image',close:'Close',fit:'Fit',original:'Actual pixels',count:'App screens',
       sourceAsc:'Tsukigashizumu Studio',sourceCatalog:'Tsukigashizumu Studio',fallback:'This description is available in another language.',
       aboutCaption:'',proof:'',fullCaption:'',noFeatures:'',
@@ -116,6 +116,65 @@
       state.media=results.filter(Boolean);state.mediaLoaded=true;state.slide=0;renderScreens();
     }catch(e){if(serial===state.mediaSerial){state.media=[];state.mediaLoaded=true;renderScreens();}}
   }
+  function sentenceFrom(text){
+    const value=String(text||'').replace(/\s+/g,' ').trim();
+    if(!value)return '';
+    // A complete source sentence is preferable to a truncated marketing claim.
+    const m=value.match(/^.{1,115}?[。！？!?](?=\s|$|[^\s])|^.{1,115}?[.](?=\s|$)/);
+    if(m)return m[0].trim();
+    return value.length<=115?value:'';
+  }
+  function compactSource(text,limit=210){
+    const value=String(text||'').replace(/\s+/g,' ').trim();
+    if(value.length<=limit)return value;
+    const fragments=value.match(/[^。！？!?]+[。！？!?]|[^.!?]+[.!?](?=\s|$)/g)||[];
+    const whole=[];let total=0;
+    for(const s of fragments){if(total+s.length>limit)break;whole.push(s.trim());total+=s.length;}
+    return whole.join(' ').trim();
+  }
+  function storyText(i,n){
+    const jp=/^ja(?:-|$)/i.test(state.locale);
+    // Verified from the live Discount Stack screen captures (screens 03 and 04)
+    // and its Japanese/English App Store description. These claims are not invented.
+    if(id==='6802308517'&&state.media.length>=4){
+      const items=jp?[
+        {heading:'割引を重ねた、その先の支払額。',body:'2段階の割引を順番に適用し、支払う金額を確認。必要に応じて税金も加えて計算できます。'},
+        {heading:'条件を変えて、何度でも試す。',body:'割引率や元の価格を変えて再計算。計算結果に名前を付けて保存し、後で開き直すこともできます。'}
+      ]:[
+        {heading:'See the price after stacked discounts.',body:'Apply two percentage discounts in sequence, then check the estimated amount to pay. Optional tax can be added.'},
+        {heading:'Change the numbers. Compare again.',body:'Adjust the starting price or discounts and recalculate. Save a calculation by name to revisit it later.'}
+      ];return items[n]||items[0];
+    }
+    const d=desc().value,ps=paras(d),sub=subtitle().trim();
+    const usable=ps.map(p=>p.replace(/\s+/g,' ').trim()).filter(p=>p.length>24);
+    const lead=usable[0]||'';
+    const next=usable[1]||usable[0]||'';
+    if(n===0){
+      const heading=(sub.length>=4&&sub.length<=80?sub:sentenceFrom(lead))||title();
+      const body=compactSource(lead===heading?next:lead)||compactSource(next)||'';
+      return {heading,body:body===heading?'':body};
+    }
+    const heading=sentenceFrom(next)|| (jp?'このアプリでできること':'What this app can do');
+    const body=compactSource(next===heading?(usable[2]||lead):next)||compactSource(lead)||'';
+    return {heading,body:body===heading?'':body};
+  }
+  function storyRow(i,n,isExtra){
+    const t=tx(),shot=state.media[i],jp=/^ja(?:-|$)/i.test(state.locale),row=make('article','p199-shot-row'+(n%2?' p199-shot-reverse':''));
+    if(isExtra)row.classList.add('p199-shot-extra');
+    const copy=make('div','p199-shot-copy');
+    const kicker=make('span','p199-shot-kicker',jp?'このアプリの見どころ':'A CLOSER LOOK');
+    const item=isExtra?{heading:jp?'ほかの操作画面':'More app screens',body:jp?'画像を押すと、画面全体を拡大して見られます。':'Open an image to see the full screen.'}:storyText(i,n);
+    const head=make('h3','p199-shot-title',item.heading);
+    const detail=make('p','p199-shot-description',item.body);
+    head.dir='auto';detail.dir='auto';
+    const hint=make('span','p199-shot-hint',(jp?'画面を拡大して見る':'Tap to view full screen')+' ↗');
+    copy.append(kicker,head,detail,hint);
+    const btn=make('button','p199-shot-button');btn.type='button';
+    btn.setAttribute('aria-label',t.inspect+' '+(i+1));
+    const img=make('img','');img.src=shot.src;img.alt=t.imageSource+' '+(i+1);img.loading='lazy';img.referrerPolicy='no-referrer';btn.append(img);
+    btn.addEventListener('click',()=>openViewer(i));
+    row.append(copy,btn);return row;
+  }
   function renderScreens(){
     const t=tx(),m=state.media;
     const has=m.length>0;$('screens').hidden=!has;$('p199-hero-media').hidden=!has;$('p199-hero-fallback').hidden=has;
@@ -128,9 +187,18 @@
     set('p199-slide-count',String(state.slide+1).padStart(2,'0')+' / '+String(m.length).padStart(2,'0'));
     set('p199-hero-caption',t.count+' '+String(state.slide+1)+' / '+String(m.length));
     const holder=$('p199-gallery');holder.replaceChildren();
-    m.forEach((shot,i)=>{const row=make('article','p199-shot-row');row.append(make('div','p199-screen-description',t.imageSource+' '+String(i+1).padStart(2,'0')));
-      const btn=make('button','p199-shot-button');btn.type='button';btn.setAttribute('aria-label',t.inspect+' '+(i+1));const img=make('img','');img.src=shot.src;img.alt=t.imageSource+' '+(i+1);img.loading='lazy';img.referrerPolicy='no-referrer';btn.append(img);btn.addEventListener('click',()=>openViewer(i));
-      row.append(btn);holder.append(row);});
+    // Two editorial highlights, with the remaining original Apple screenshots still accessible.
+    // Never infer screenshot capabilities: generic text comes directly from the active ASC description.
+    const preferred=id==='6802308517'&&m.length>=4?[2,3]:m.map((_,i)=>i).slice(0,2);
+    const extra=m.map((_,i)=>i).filter(i=>!preferred.includes(i));
+    preferred.forEach((i,n)=>holder.append(storyRow(i,n,false)));
+    if(extra.length){
+      const more=make('details','p199-more-screens');
+      const summary=make('summary','',/^ja(?:-|$)/i.test(state.locale)?'ほかの画面を見る（'+extra.length+'枚）':'See more screenshots ('+extra.length+')');
+      const list=make('div','p199-extra-screens');
+      extra.forEach((i,n)=>list.append(storyRow(i,n,true)));
+      more.append(summary,list);holder.append(more);
+    }
     set('p199-hero-image-action',t.inspect);$('p199-hero-open').onclick=()=>openViewer(state.slide);
     $('p199-slide-prev').disabled=m.length<2;$('p199-slide-next').disabled=m.length<2;
     updateChapters();

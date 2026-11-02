@@ -91,3 +91,31 @@ body[data-p199-id] .p19-hero{background:radial-gradient(ellipse at 80% 18%,rgba(
 
 /* Keep the keyboard skip link accessible without creating a 10,000px RTL canvas. */
 html[dir="rtl"] body[data-p199-id] .p19-skip:not(:focus){left:0!important;right:auto!important;top:0!important;clip-path:inset(50%)!important;width:1px!important;height:1px!important;overflow:hidden!important;white-space:nowrap!important;padding:0!important;border:0!important}
+
+
+/* P19-9R2: two purposeful, readable screen stories; leave full-resolution viewer unchanged. */
+.p199-gallery{gap:22px}
+.p199-shot-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(16px,3vw,44px);padding:clamp(20px,3vw,38px);align-items:center;min-height:400px;overflow:hidden;background:linear-gradient(125deg,#1d2a3c,#131e2c);border-color:#45556b}
+.p199-shot-copy{min-width:0;max-width:42ch;display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.p199-shot-kicker{font-size:11px;font-weight:800;letter-spacing:.16em;color:#e4bda9;text-transform:uppercase}
+.p199-shot-title{font-size:clamp(21px,2.45vw,31px)!important;line-height:1.35!important;color:#fff1eb!important;margin:0!important;overflow-wrap:anywhere}
+.p199-shot-description{font-size:clamp(14px,1.2vw,16px);line-height:1.85;color:#ddd6dc;margin:0;white-space:pre-line;overflow-wrap:anywhere}
+.p199-shot-hint{margin-top:10px;border-bottom:1px solid #cda99d;padding-bottom:6px;color:#e9c5b7;font-size:12px;font-weight:700}
+.p199-shot-button{display:block;width:min(100%,300px);justify-self:center;min-width:0;border-radius:17px;transition:transform .18s ease}
+.p199-shot-button:hover{transform:translateY(-3px)}
+.p199-shot-button:focus-visible,.p199-more-screens summary:focus-visible{outline:3px solid #b5d5ff;outline-offset:5px}
+.p199-shot-button img{max-height:480px;width:100%;object-fit:contain;box-shadow:0 16px 36px rgba(0,0,0,.2)}
+.p199-shot-reverse .p199-shot-copy{order:2}
+.p199-shot-reverse .p199-shot-button{order:1}
+.p199-more-screens{border:1px solid #48536b;background:#182335;border-radius:16px;overflow:hidden}
+.p199-more-screens summary{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:17px 20px;color:#f2d5c6;font-size:14px;font-weight:750;cursor:pointer;list-style:none}
+.p199-more-screens summary::-webkit-details-marker{display:none}
+.p199-more-screens summary::after{content:'⌄';font-size:22px;line-height:1;transition:transform .18s}
+.p199-more-screens[open] summary::after{transform:rotate(180deg)}
+.p199-extra-screens{padding:0 13px 13px;display:grid;gap:14px}
+.p199-shot-extra{min-height:250px;padding:16px;grid-template-columns:minmax(0,1fr) minmax(0,175px);border-radius:12px}
+.p199-shot-extra .p199-shot-title{font-size:19px!important}
+.p199-shot-extra .p199-shot-button img{max-height:270px}
+@media(max-width:700px){.p199-shot-row,.p199-shot-extra{grid-template-columns:minmax(0,1fr);padding:20px;min-height:0;gap:20px}.p199-shot-reverse .p199-shot-copy,.p199-shot-reverse .p199-shot-button{order:initial}.p199-shot-copy{max-width:none;gap:12px}.p199-shot-title{font-size:24px!important}.p199-shot-button img{max-height:480px}.p199-shot-extra .p199-shot-button img{max-height:330px}}
+@media(max-width:390px){.p199-shot-row,.p199-shot-extra{padding:15px}.p199-shot-title{font-size:21px!important}.p199-extra-screens{padding:0 8px 8px}}
+@media(prefers-reduced-motion:reduce){.p199-shot-button,.p199-more-screens summary::after{transition:none}.p199-shot-button:hover{transform:none}}
