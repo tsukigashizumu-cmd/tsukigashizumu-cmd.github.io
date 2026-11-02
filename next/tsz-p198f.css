@@ -1,0 +1,194 @@
+/* TSZ P19-8F Premium Header. Layout-only: preserve locale/storefront IDs and handlers. */
+html body .site-head.tsz-premium-head {
+  display:grid;
+  grid-template-columns:minmax(170px,max-content) minmax(0,1fr) max-content;
+  align-items:center;
+  column-gap:clamp(12px,2vw,26px);
+  row-gap:12px;
+  height:auto;
+  min-height:78px;
+  padding:13px 0;
+  border-bottom:1px solid rgba(217,172,157,.29);
+  background:none;
+  box-shadow:none;
+  isolation:isolate;
+}
+html body .tsz-premium-head .brand {
+  min-width:0;
+  width:auto;
+  display:inline-flex;
+  align-items:center;
+  gap:11px;
+  font-size:14px;
+  line-height:1.15;
+  text-decoration:none;
+}
+html body .tsz-premium-head .brand-mark {
+  flex:0 0 35px;
+  width:35px;
+  height:35px;
+  border-radius:7px;
+  box-shadow:inset 0 1px rgba(255,253,243,.44);
+  font-size:18px;
+}
+html body .tsz-premium-head .tsz-premium-wordmark {
+  display:flex;
+  min-width:0;
+  flex-direction:column;
+  gap:2px;
+}
+html body .tsz-premium-head .tsz-premium-name {
+  font-size:14px;
+  font-weight:760;
+  letter-spacing:-.038em;
+  line-height:1.1;
+  white-space:nowrap;
+}
+html body .tsz-premium-head .tsz-premium-wordmark .dim {
+  font-size:10px;
+  font-weight:530;
+  letter-spacing:.065em;
+  line-height:1.1;
+  opacity:.86;
+}
+html body .site-head.tsz-premium-head .header-actions.tsz-premium-controls {
+  min-width:0;
+  width:100%;
+  max-width:none;
+  margin:0;
+  display:flex;
+  align-items:center;
+  flex-wrap:nowrap;
+  justify-content:flex-end;
+  gap:9px;
+}
+html body .tsz-premium-head .locale-wrap,
+html body .tsz-premium-head .tsz-storefront-control {
+  display:inline-flex;
+  align-items:center;
+  min-width:0;
+  height:42px;
+  min-height:42px;
+  padding:0 10px;
+  gap:7px;
+  flex:0 1 auto;
+  border:1px solid rgba(210,170,158,.37);
+  border-radius:11px;
+  background:rgba(41,31,42,.65);
+  color:#f4e7df;
+  box-shadow:none;
+  transition:border-color .17s,background-color .17s;
+}
+html body .tsz-premium-head .locale-wrap {width:clamp(112px,13vw,164px)}
+html body .tsz-premium-head .tsz-storefront-control {width:clamp(130px,14vw,178px);max-width:none}
+html body .tsz-premium-head .locale-wrap svg,
+html body .tsz-premium-head .tsz-storefront-symbol {flex:0 0 16px;opacity:.77}
+html body .tsz-premium-head .locale-wrap select,
+html body .tsz-premium-head .tsz-storefront-control select {
+  box-sizing:border-box;
+  flex:1 1 0;
+  width:100%;
+  min-width:0;
+  max-width:none;
+  min-height:36px;
+  padding:0;
+  border:0;
+  outline:0;
+  background:transparent;
+  color:inherit;
+  font-size:12px;
+  line-height:1.3;
+  text-overflow:ellipsis;
+  cursor:pointer;
+}
+html body .tsz-premium-head .locale-wrap:focus-within,
+html body .tsz-premium-head .tsz-storefront-control:focus-within {outline:2px solid #f0ceb4;outline-offset:2px}
+html body .tsz-premium-head .tsz-storefront-auto:not([hidden]) {
+  flex:0 0 42px;
+  width:42px;
+  height:42px;
+  min-height:42px;
+  min-width:42px;
+  border-radius:11px;
+  border:1px solid rgba(210,170,158,.37);
+  background:rgba(41,31,42,.65);
+  color:#f4e7df;
+  font-size:19px;
+}
+html body .site-head.tsz-premium-head .storefront-link.tsz-premium-developer {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  align-self:center;
+  min-height:42px;
+  max-width:170px;
+  padding:7px 4px;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+  color:#e9cbba;
+  font-size:12px;
+  font-weight:650;
+  line-height:1.3;
+  text-align:end;
+  white-space:normal;
+  text-decoration:none;
+  overflow-wrap:anywhere;
+}
+html body .tsz-premium-head .tsz-premium-developer:hover {color:#fff2e6;text-decoration:underline;text-underline-offset:4px}
+html body .tsz-premium-head .tsz-premium-developer span[aria-hidden] {flex:none}
+html body #tsz-storefront-message.tsz-premium-storefront-note {
+  width:auto;
+  max-width:none;
+  min-height:0;
+  margin:0 0 16px;
+  color:#d2bcba;
+  font-size:11px;
+  line-height:1.55;
+  overflow-wrap:anywhere;
+}
+html body #tsz-storefront-message.tsz-premium-storefront-note:empty {display:none}
+@media (max-width:850px) {
+  html body .site-head.tsz-premium-head {
+    grid-template-columns:minmax(0,1fr) auto;
+    grid-template-rows:auto auto;
+    row-gap:11px;
+    min-height:0;
+    padding:13px 0 15px;
+  }
+  html body .tsz-premium-head .brand {grid-row:1;grid-column:1;justify-self:start}
+  html body .site-head.tsz-premium-head .storefront-link.tsz-premium-developer {
+    grid-row:1;grid-column:2;justify-self:end;
+    max-width:clamp(90px,27vw,165px);
+    padding:3px 0;
+  }
+  html body .site-head.tsz-premium-head .header-actions.tsz-premium-controls {
+    grid-row:2;grid-column:1 / -1;
+    justify-content:stretch;
+    margin:0;
+    gap:9px;
+  }
+  html body .tsz-premium-head .locale-wrap,
+  html body .tsz-premium-head .tsz-storefront-control {
+    flex:1 1 0;
+    width:auto;
+    max-width:none;
+  }
+}
+@media (max-width:380px) {
+  html body .site-head.tsz-premium-head {column-gap:8px}
+  html body .tsz-premium-head .tsz-premium-name {font-size:13px}
+  html body .tsz-premium-head .brand-mark {width:32px;height:32px;flex-basis:32px}
+  html body .site-head.tsz-premium-head .storefront-link.tsz-premium-developer {font-size:11px;max-width:105px}
+  html body .site-head.tsz-premium-head .header-actions.tsz-premium-controls {gap:7px}
+  html body .tsz-premium-head .locale-wrap,
+  html body .tsz-premium-head .tsz-storefront-control {padding-inline:7px;gap:5px}
+  html body .tsz-premium-head .locale-wrap select,
+  html body .tsz-premium-head .tsz-storefront-control select {font-size:11px}
+}
+@media (prefers-reduced-motion:reduce) {
+  html body .tsz-premium-head .locale-wrap,
+  html body .tsz-premium-head .tsz-storefront-control {transition:none}
+}
