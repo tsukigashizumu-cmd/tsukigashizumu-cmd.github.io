@@ -9,20 +9,20 @@
   const state={apps:null,asc:null,map:null,locale:'en-US',country:'us',media:[],mediaSerial:0,mediaLoaded:false,slide:0};
   const rtl=new Set(['ar-SA','he','ur-PK']);
   const strings={
-    ja:{language:'言語',region:'App Storeの国',all:'アプリ一覧',label:'APP STORIES · 公開情報に基づく紹介',store:'App Storeで見る ↗',back:'ほかのアプリを探す',price:'現在の価格と公開状況は選択した国のApp Storeで確認してください。',
-      toc:'このページの目次',about:'どんなアプリ？',screen:'公開された実画面',features:'公開情報から読み解く',full:'App Storeの説明全文',related:'ほかのアプリ',screenNote:'選択中のストアで公開されているスクリーンショット。画像はアプリの更新で変更されることがあります。',
-      noScreen:'この国の実画面は確認できませんでした。画像を創作せず、公開情報だけをご案内しています。', inspect:'画像を拡大',prev:'前の画像',next:'次の画像',close:'閉じる',fit:'画面に合わせる',original:'実ピクセル表示', count:'公開画像',
-      sourceAsc:'App Store掲載説明',sourceCatalog:'スタジオの公開カタログ説明（App Storeロケール別記録は未収録）',fallback:'この言語の掲載説明は収録されていないため、{locale} の文章を表示しています。',
-      aboutCaption:'公開された説明の冒頭から抜粋。機能・効能を創作していません。',proof:'公開情報からの抜粋',fullCaption:'説明全文は元の改行を保って表示しています。',noFeatures:'追加の詳細は掲載説明全文をご覧ください。',
-      loading:'公開情報を読み込んでいます…',error:'商品情報を確認できませんでした。アプリ一覧に戻るか、App Storeで公開状況をご確認ください。',imageSource:'Apple App Store公開画像',quality:'公開画像の解像度',qualityLimited:'元画像の解像度には限界があります。拡大しても文字の情報は増えません。',
-      noReviews:'利用者の体験談や未確認の機能は掲載していません。',more:'近いカテゴリのアプリ',chap:'現在の章'},
-    en:{language:'Language',region:'App Store region',all:'All apps',label:'APP STORIES · EVIDENCE-BASED GUIDE',store:'View in App Store ↗',back:'Explore other apps',price:'Verify current pricing and availability in the selected App Store.',
-      toc:'ON THIS PAGE',about:'What is this app?',screen:'Published app screens',features:'From the published description',full:'Full App Store description',related:'Explore more apps',screenNote:'Screenshots published in the selected App Store. Images may change with app updates.',
-      noScreen:'No public screenshots were confirmed for this storefront. We do not substitute fabricated app screens.',inspect:'Inspect screenshot',prev:'Previous image',next:'Next image',close:'Close',fit:'Fit',original:'Actual pixels',count:'Published screens',
-      sourceAsc:'App Store listing description',sourceCatalog:'Studio public catalog description (no localized App Store record available)',fallback:'A description in your selected language is unavailable. Showing the {locale} listing instead.',
-      aboutCaption:'Taken from the opening of the published description; no invented features or benefits.',proof:'From the published listing',fullCaption:'The original description and paragraph breaks are preserved.',noFeatures:'Read the complete listing description for further details.',
-      loading:'Loading public app information…',error:'Unable to confirm the app data. Return to the catalog or check availability in the App Store.',imageSource:'Apple App Store published screenshot',quality:'Source image resolution',qualityLimited:'Source resolution is limited. Enlargement cannot restore fine text detail.',
-      noReviews:'No invented user testimonials or unverified features are shown.',more:'Apps in a similar category',chap:'Current chapter'}
+    ja:{language:'言語',region:'App Storeの国',all:'アプリ一覧',label:'APP STORIES / TSUKIGASHIZUMU STUDIO',store:'App Storeで見る ↗',back:'アプリ一覧へ戻る',price:'価格・提供状況はApp Storeでご確認ください。',
+      toc:'このページの目次',about:'このアプリについて',screen:'アプリの画面',features:'もう少し詳しく',full:'詳しい説明',related:'ほかのアプリも見る',screenNote:'',
+      noScreen:'', inspect:'画像を拡大',prev:'前の画像',next:'次の画像',close:'閉じる',fit:'画面に合わせる',original:'実ピクセル表示', count:'アプリ画面',
+      sourceAsc:'Tsukigashizumu Studio',sourceCatalog:'Tsukigashizumu Studio',fallback:'このページでは、別の言語の説明をご案内しています。',
+      aboutCaption:'',proof:'',fullCaption:'',noFeatures:'',
+      loading:'アプリの紹介を準備しています…',error:'読み込みに失敗しました。ページを更新するか、アプリ一覧からお探しください。',imageSource:'アプリの画面',quality:'画像サイズ',qualityLimited:'この画像は拡大すると細部が粗く見える場合があります。',
+      noReviews:'',more:'こちらのアプリもおすすめ',fullToggle:'説明全文を読む',chap:'読んでいる章'},
+    en:{language:'Language',region:'App Store region',all:'All apps',label:'APP STORIES / TSUKIGASHIZUMU STUDIO',store:'View in App Store ↗',back:'Explore other apps',price:'For current pricing and availability, visit the App Store.',
+      toc:'ON THIS PAGE',about:'Meet the app',screen:'See the app',features:'A closer look',full:'About this app',related:'Explore more apps',screenNote:'',
+      noScreen:'',inspect:'Inspect screenshot',prev:'Previous image',next:'Next image',close:'Close',fit:'Fit',original:'Actual pixels',count:'App screens',
+      sourceAsc:'Tsukigashizumu Studio',sourceCatalog:'Tsukigashizumu Studio',fallback:'This description is available in another language.',
+      aboutCaption:'',proof:'',fullCaption:'',noFeatures:'',
+      loading:'Preparing your app story…',error:'We couldn’t load this page. Please refresh or browse all apps.',imageSource:'App screenshot',quality:'Image size',qualityLimited:'Some fine details may appear soft when enlarged.',
+      noReviews:'',more:'You might also like',fullToggle:'Read the full description',chap:'Reading progress'}
   };
   const tx=()=>/^ja(?:-|$)/i.test(state.locale)?strings.ja:strings.en;
   const set=(id,v)=>{const x=$(id);if(x)x.textContent=String(v??'');};
@@ -43,7 +43,21 @@
   function title(){return state.asc.apps?.[id]?.nameByLocale?.[state.locale]||getApp().name;}
   function subtitle(){return state.asc.apps?.[id]?.subtitleByLocale?.[state.locale]||'';}
   function paras(s){return String(s||'').replace(/\r\n/g,'\n').trim().split(/\n\s*\n/).map(p=>p.trim()).filter(Boolean);}
-  function opening(s){const p=paras(s)[0]||'';return p.length>460?p.slice(0,460).replace(/\s+\S*$/,'')+'…':p;}
+  function opening(s){
+    const p=paras(s)[0]||'';
+    if(p.length<=360)return p;
+    const prefix=p.slice(0,360);
+    const endings=[...prefix.matchAll(/[。！？!?]|\.(?=\s|$)/g)];
+    if(endings.length)return p.slice(0,endings[endings.length-1].index+1);
+    return prefix.replace(/\s+\S*$/,'').trim()+'…';
+  }
+  function heroSummary(s,sub){
+    const first=opening(s).replace(/\s+/g,' ').trim();
+    if(sub)return {lead:sub,intro:first};
+    const m=first.match(/^(.+?[。！？!?]|.+?\.(?=\s|$))/);
+    if(m&&first.length>m[0].length+16)return {lead:m[0],intro:first.slice(m[0].length).trim()};
+    return {lead:first,intro:''};
+  }
   function renderDescription(value){const root=$('p199-full');root.replaceChildren();for(const p of paras(value)){const node=make('p','',p);node.dir='auto';root.append(node);}if(!root.children.length)root.append(make('p','',tx().error));}
   function renderHighlights(value){
     // Actual paragraphs, not inferred steps or fabricated user cases.
@@ -65,18 +79,18 @@
     const t=tx(),d=desc(),app=getApp();document.documentElement.lang=state.locale;document.documentElement.dir=rtl.has(state.locale)?'rtl':'ltr';
     document.title=title()+' · Tsukigashizumu Studio';set('p199-title',title());set('p199-crumb',title());
     const icon=$('p199-icon'),url=imageURL(app.artworkUrl);if(url){icon.src=url;icon.hidden=false;icon.onerror=()=>{icon.hidden=true;};}else icon.hidden=true;
-    const lead=subtitle()||opening(d.value).split(/[.!?。！？]/)[0]||title();set('p199-lead',lead);set('p199-intro',opening(d.value));
+    const summary=heroSummary(d.value,subtitle());set('p199-lead',summary.lead||title());set('p199-intro',summary.intro);
     set('p199-category',(app.category||'App')+' / App Store');set('p199-eyebrow',t.label);
     set('p199-all',t.all);set('p199-back',t.back);set('p199-store',t.store);set('p199-bottom-store',t.store);set('p199-price-note',t.price);
     $('p199-store').href=storeLink();$('p199-bottom-store').href=storeLink();set('p199-language-label',t.language);set('p199-country-label',t.region);
     for(const opt of $('p199-country').options)opt.textContent=nameFor(opt.value)+' ('+opt.value.toUpperCase()+')';
     for(const opt of $('p199-language').options)opt.textContent=opt.value+' · '+langFor(opt.value);
-    set('p199-source',d.source==='asc'?t.sourceAsc:t.sourceCatalog);
+    set('p199-source','');
     const fall=$('p199-fallback');fall.hidden=!d.fallback;if(d.fallback)fall.textContent=escLocale(t.fallback,{locale:d.locale});
     set('p199-about-head',t.about);set('p199-screen-head',t.screen);set('p199-features-head',t.features);set('p199-full-head',t.full);set('p199-related-head',t.related);
     set('p199-section-lead',opening(d.value));set('p199-about-caption',t.aboutCaption);set('p199-full-caption',t.fullCaption);set('p199-proof-caption',t.noReviews);
     set('p199-image-note',t.screenNote);set('p199-image-fallback',t.noScreen);set('p199-image-unavailable',t.noScreen);set('p199-image-count-label',t.count);
-    set('p199-toc-head',t.toc);set('p199-details-label',t.full);set('p199-related-caption',t.more);
+    set('p199-toc-head',t.toc);set('p199-details-label',t.full);set('p199-full-toggle',t.fullToggle);set('p199-related-caption',t.more);
     renderDescription(d.value);renderHighlights(d.value);makeRelated();
     const chapters=[['overview',t.about],['screens',t.screen],['features',t.features],['full-description',t.full],['related',t.related]];
     const toc=$('p199-toc');toc.replaceChildren();for(const [key,label] of chapters){if($(key).hidden)continue;const a=make('a','',label);a.href='#'+key;a.dataset.p199Chapter=key;toc.append(a);}
@@ -105,17 +119,18 @@
   function renderScreens(){
     const t=tx(),m=state.media;
     const has=m.length>0;$('screens').hidden=!has;$('p199-hero-media').hidden=!has;$('p199-hero-fallback').hidden=has;
-    $('p199-image-fallback').hidden=!state.mediaLoaded||has;
+    $('p199-image-fallback').hidden=true;
+    if(!has){set('p199-fallback-title',title());set('p199-fallback-subtitle',subtitle()||getApp().category||'Tsukigashizumu Studio');}
     if(!has){$('p199-hero-image').removeAttribute('src');set('p199-count','—');updateChapters();return;}
     set('p199-count',String(m.length).padStart(2,'0'));
     state.slide=Math.min(state.slide,m.length-1);
     const item=m[state.slide],image=$('p199-hero-image');image.src=item.src;image.referrerPolicy='no-referrer';image.alt=t.imageSource+' '+(state.slide+1);
     set('p199-slide-count',String(state.slide+1).padStart(2,'0')+' / '+String(m.length).padStart(2,'0'));
-    set('p199-hero-caption',t.imageSource+' · '+state.country.toUpperCase()+' · '+item.w+' × '+item.h+' px');
+    set('p199-hero-caption',t.count+' '+String(state.slide+1)+' / '+String(m.length));
     const holder=$('p199-gallery');holder.replaceChildren();
     m.forEach((shot,i)=>{const row=make('article','p199-shot-row');row.append(make('div','p199-screen-description',t.imageSource+' '+String(i+1).padStart(2,'0')));
       const btn=make('button','p199-shot-button');btn.type='button';btn.setAttribute('aria-label',t.inspect+' '+(i+1));const img=make('img','');img.src=shot.src;img.alt=t.imageSource+' '+(i+1);img.loading='lazy';img.referrerPolicy='no-referrer';btn.append(img);btn.addEventListener('click',()=>openViewer(i));
-      row.append(btn,make('p','p199-shot-caption',t.quality+': '+shot.w+' × '+shot.h+' px'));holder.append(row);});
+      row.append(btn);holder.append(row);});
     set('p199-hero-image-action',t.inspect);$('p199-hero-open').onclick=()=>openViewer(state.slide);
     $('p199-slide-prev').disabled=m.length<2;$('p199-slide-next').disabled=m.length<2;
     updateChapters();

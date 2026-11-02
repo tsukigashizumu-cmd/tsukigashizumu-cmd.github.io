@@ -67,3 +67,27 @@ body[data-p199-id] .p19-hero-art{display:block;min-height:260px}
 @media(prefers-reduced-motion:reduce){.p199-progress-fill{transition:none!important}}
 /* Hidden fallback must not remain visible beside validated Apple screenshots. */
 .p199-placeholder[hidden]{display:none!important}
+
+/* P19-9R1: customer-facing editorial presentation (no data/price logic changes). */
+body[data-p199-id] .p19-hero{background:radial-gradient(ellipse at 80% 18%,rgba(143,87,112,.22),transparent 53%),linear-gradient(125deg,#252033,#141824 85%);border-color:#554353}
+.p199-placeholder{background:radial-gradient(ellipse at 70% 20%,rgba(224,174,166,.14),transparent 60%),linear-gradient(140deg,#332635,#1b202c);border-color:#685063;min-height:300px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.025)}
+.p199-placeholder .p199-orbit{color:#e3b8a8;font-size:52px;line-height:1}
+.p199-placeholder strong{font-size:clamp(21px,3vw,30px);color:#fff2eb;line-height:1.2;overflow-wrap:anywhere}
+.p199-placeholder span:last-child{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#cbb5ba}
+#p199-about-caption,#p199-full-caption,#p199-proof-caption,#p199-image-note,#p199-image-fallback{display:none!important}
+.p199-full-details{border:1px solid #405066;border-radius:16px;background:#121d2d;overflow:hidden}
+.p199-full-details summary{cursor:pointer;list-style:none;padding:17px 20px;color:#f2d4c6;font-weight:750;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.p199-full-details summary::-webkit-details-marker{display:none}
+.p199-full-details summary::after{content:'⌄';font-size:23px;line-height:1;color:#edcbbd;transition:transform .18s}
+.p199-full-details[open] summary::after{transform:rotate(180deg)}
+.p199-full-details[open] summary{border-bottom:1px solid #405066}
+.p199-full-details .p199-description{padding:24px;max-height:min(70vh,640px);overflow:auto;overscroll-behavior:contain}
+.p199-section-lead{overflow-wrap:anywhere}
+.p199-evidence .p199-caption{font-size:11px;color:#cbb7c4}
+@media(max-width:390px){.p199-full-details .p199-description{padding:16px}}
+@media(prefers-reduced-motion:reduce){.p199-full-details summary::after{transition:none}}
+
+#p199-source{display:none!important}
+
+/* Keep the keyboard skip link accessible without creating a 10,000px RTL canvas. */
+html[dir="rtl"] body[data-p199-id] .p19-skip:not(:focus){left:0!important;right:auto!important;top:0!important;clip-path:inset(50%)!important;width:1px!important;height:1px!important;overflow:hidden!important;white-space:nowrap!important;padding:0!important;border:0!important}
