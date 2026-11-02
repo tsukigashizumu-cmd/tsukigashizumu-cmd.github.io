@@ -23,7 +23,15 @@
     if(text!==undefined)el.textContent=text;
     return el;
   }
-  function linkTo(id){return 'https://apps.apple.com/us/app/id'+id;}
+  // The storefront selector is owned by app.js. Read only its validated country.
+  // Links never change product IDs or their GA4 measurement attributes.
+  let shelfCountry='us';
+  function validCountry(value){return typeof value==='string' && /^[a-z]{2}$/.test(value);}
+  function selectedCountry(){
+    const selector=document.getElementById('tsz-storefront-select');
+    return (selector && validCountry(selector.value)) ? selector.value : shelfCountry;
+  }
+  function linkTo(id){return 'https://apps.apple.com/'+selectedCountry()+'/app/id'+id;}
   function markedAnchor(id, className){
     const a=node('a',className);
     a.href=linkTo(id);a.target='_blank';a.rel='noopener noreferrer';
@@ -126,6 +134,22 @@
         }
         list.replaceChildren(wrap);shelf.hidden=false;
       };
+      // Keep links current without rebuilding open detail panels or editing
+      // the owner nomination data. Country and language are independent.
+      const updateStoreLinks=()=>{
+        const chosen=selectedCountry();
+        for(const a of list.querySelectorAll('a[data-tsz-app-id]')){
+          const id=a.dataset.tszAppId;
+          if(appID(id))a.href='https://apps.apple.com/'+chosen+'/app/id'+id;
+        }
+      };
+      document.addEventListener('tsz-storefront-changed',event=>{
+        const country=event?.detail?.country;
+        if(validCountry(country)){
+          shelfCountry=country;
+          updateStoreLinks();
+        }
+      });
       draw();
       document.addEventListener('tsz-locale-changed',draw);
       // Listen only for the language value; never observe the shelf's children.

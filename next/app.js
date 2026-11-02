@@ -14,6 +14,7 @@
   let availableCountries=[];
   let lastLocale=null;
   let storeMessage='';
+  let lastPublishedStorefront=null;
   // No cross-visit or in-tab price cache: price offers must come from a fresh lookup.
   const PRICE_MAX_AGE_MS=5*60*1000;
   let lastPriceFetchStarted=0;
@@ -159,8 +160,13 @@
   function priceLabel(app) {
     if (!priceVerified() || !Number.isFinite(app.price) || !/^[A-Z]{3}$/.test(app.currency || '')) return t('checkPrice');
     if (app.price === 0) return t('freePrice');
-    const amount = app.formattedPrice || new Intl.NumberFormat(i18n.locale, {style:'currency',currency:app.currency}).format(app.price);
-    // ¥ and $ are shared by several currencies: always make the ISO currency explicit.
+    // Format the verified numeric amount and ISO currency ourselves. The upstream
+    // formattedPrice is not authoritative (it could contradict price/currency).
+    let amount;
+    try { amount = new Intl.NumberFormat(i18n.locale || 'en-US',
+      {style:'currency',currency:app.currency,currencyDisplay:'symbol'}).format(app.price); }
+    catch (_) { return t('checkPrice'); }
+    // ¥ and $ are shared by multiple currencies: keep the ISO currency explicit.
     return String(amount).toUpperCase().includes(app.currency) ? String(amount) : app.currency + ' ' + amount;
   }
   // Public App Store product IDs only. Keep data off the query string and never infer a discount from a paid price.
@@ -391,14 +397,19 @@
   function renderHighlights() {
     const list=$('free-apps'), count=$('free-total'), note=$('free-status');
     const verified=priceVerified();
-    const free=verified ? model.apps.filter(a=>a.price===0) : [];
-    count.textContent=verified ? String(free.length) : '—';
+    const known=verified ? model.apps.filter(a=>Number.isFinite(a.price)&&a.price>=0&&/^[A-Z]{3}$/.test(a.currency||'')) : [];
+    const partial=verified && known.length<model.base.apps.length;
+    const free=verified ? known.filter(a=>a.price===0) : [];
+    // A partially confirmed catalog cannot assert an overall free count of zero.
+    count.textContent=verified ? (partial ? (free.length ? String(free.length)+'+' : '—') : String(free.length)) : '—';
     const frag=document.createDocumentFragment();
     free.forEach(a=>frag.append(card(a)));
     if(verified)list.replaceChildren(frag);
     else showUnverifiedShelf(list);
     note.classList.toggle('warning',!verified);
     if(!verified) note.textContent=model.priceLoading?t('checkPrice'):(model.fallbackUS?t('referenceOnly'):t('stale'));
+    else if(partial) note.textContent=storefrontUiText('partial')+' ('+known.length+'/'+model.base.apps.length+')'+
+      (free.length ? ' · '+t('catalogNote') : '');
     else if(!free.length) note.textContent=t('noMatch');
     else note.textContent=t('catalogNote');
     pickApp();
@@ -426,12 +437,21 @@
   function paint() {
     setDescendingOrderLabels();
     $('app-count').textContent=!model.loading && model.base ? String(model.apps.length):'—';
-    $('free-count').textContent=priceVerified() ? String(model.apps.filter(a=>a.price===0).length):'—';
+    const knownFree=model.apps.filter(a=>Number.isFinite(a.price)&&a.price===0&&/^[A-Z]{3}$/.test(a.currency||''));
+    const knownTotal=model.apps.filter(a=>Number.isFinite(a.price)&&a.price>=0&&/^[A-Z]{3}$/.test(a.currency||''));
+    const partialFree=priceVerified() && model.base && knownTotal.length<model.base.apps.length;
+    $('free-count').textContent=priceVerified() ? (partialFree ? (knownFree.length ? String(knownFree.length)+'+' : '—') : String(knownFree.length)):'—';
     if (model.checkedUTC) { try{$('checked-at').textContent=new Intl.DateTimeFormat(i18n.locale,{timeZone:'UTC',dateStyle:'medium',timeStyle:'short'}).format(new Date(model.checkedUTC))+' UTC';}
       catch(_){$('checked-at').textContent=model.checkedUTC;} }
     else $('checked-at').textContent='—';
     $('storefront-eyebrow').textContent='APP STORE · '+regionName().toLocaleUpperCase(i18n.locale);
     $('developer-link').href='https://apps.apple.com/'+model.country+'/developer/makoto-fukuoka/id'+DEVELOPER_ID;
+    // Publish only when the selected storefront changes. Independent editorial
+    // shelf listens once; this does not observe/replace the catalog DOM.
+    if(lastPublishedStorefront!==model.country){
+      lastPublishedStorefront=model.country;
+      document.dispatchEvent(new CustomEvent('tsz-storefront-changed',{detail:{country:model.country}}));
+    }
     const footer=document.querySelector('footer [data-i18n="footer"]');
     if(footer)footer.textContent=t('footer',{region:regionName()});
     $('description-source').hidden=!model.catalogReady || model.fallbackUS;
@@ -495,8 +515,11 @@
          !link.pathname.startsWith('/'+country+'/') || !new RegExp('/id'+id+'(?:[/?#]|$)').test(link.pathname)){
         reject('wrong_storefront_or_url');continue;
       }
-      prices.set(id,{price:item.price,currency:item.currency,
-        formattedPrice:typeof item.formattedPrice==='string'?item.formattedPrice:''});
+      // Reject non-ISO currency codes that Intl cannot safely format. Apple
+      // formattedPrice is informational only and never used to label a price.
+      try { new Intl.NumberFormat('en-US',{style:'currency',currency:item.currency}).format(item.price); }
+      catch (_) { reject('unsupported_currency'); continue; }
+      prices.set(id,{price:item.price,currency:item.currency,formattedPrice:''});
     }
     // Mixed ISO currencies under one country make numeric ordering and formattedPrice
     // ambiguous (e.g. 'USD ¥50'). Fail closed instead of publishing a false floor.
@@ -581,6 +604,11 @@
         const known=model.apps.filter(a=>Number.isFinite(a.price)&&a.price>=0&&/^[A-Z]{3}$/.test(a.currency||''));
         if(note && priceVerified() && known.length<model.base.apps.length)
           note.textContent=storefrontUiText('partial')+' ('+known.length+'/'+model.base.apps.length+') · '+t('catalogNote');
+        // Translation arrival should not recreate cards and reset an open overview.
+        const freeNote=$('free-status');
+        if(freeNote && priceVerified() && known.length<model.base.apps.length)
+          freeNote.textContent=storefrontUiText('partial')+' ('+known.length+'/'+model.base.apps.length+')'+
+            (known.some(a=>a.price===0) ? ' · '+t('catalogNote') : '');
       }})
         .catch(e=>console.warn('Storefront UI translations unavailable:',e.message));
       void loadAscMetadata().then(()=>{
