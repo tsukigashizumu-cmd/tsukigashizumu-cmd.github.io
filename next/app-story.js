@@ -185,6 +185,27 @@
       const idx=Math.max(0,Math.min(4,shot.sourceIndex));
       const d=(jp?ja:en)[idx];return {heading:d[0],body:d[1]};
     }
+    if(id==='6802814389'){
+      // Text describes intended shopping situations, not unverified screen-specific capabilities.
+      const ja=[
+        ['あといくら使える？','買い物中に、予算の残りを確認したいときに。'],
+        ['カートの金額を確認','商品を追加したあとの金額を見ながら、予算と比べられます。'],
+        ['予算を決めて、選ぶ','買う前に上限を決め、使える金額を意識しながら選べます。'],
+        ['次の商品を選ぶ前に','このまま買い足せるか、残りの数字を目安に判断できます。'],
+        ['残りの予算を、ひと目で。','カートの金額と予算の残りを見比べて、会計前に確認できます。']
+      ];
+      const en=[
+        ['How much is left?','Keep the remaining budget in view while shopping.'],
+        ['Check your cart total','Compare the running cart amount with your spending limit.'],
+        ['Choose with a budget','Set a spending limit before adding more items.'],
+        ['Before adding one more item','Use the remaining amount to help you decide.'],
+        ['See what remains at a glance','Compare the cart amount with your remaining budget before checkout.']
+      ];
+      const index=Number(shot.sourceIndex);
+      if(Number.isInteger(index)&&index>=0&&index<5){
+        const item=(jp?ja:en)[index];return {heading:item[0],body:item[1]};
+      }
+    }
     return {heading:(jp?'実画面 ':'Screen ')+num,body:''};
   }
   // P19-9R6: shared editorial gallery pilot, no invented per-screenshot claims.
