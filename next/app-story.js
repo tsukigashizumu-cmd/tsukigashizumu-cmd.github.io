@@ -167,6 +167,27 @@
   // P19-9R6R1: captions only where the app's real purpose is verified.
   // Unverified screenshots show their real original number without invented claims.
   function sharedEditorialDetail(shot, jp, num){
+    if(id==='6804756267'){
+      // These are product-level examples, not claims about image-only features.
+      const ja=[
+        ['「この値段なら買う」を先に。','通常価格と目標価格を入力すると、必要な割引率を逆算できます。'],
+        ['目標価格から、割引率へ。','割引の大きさではなく、自分が決めた買値を基準にできます。'],
+        ['値引きの数字に流されない。','セールを見る前に、買いたい価格をはっきりさせるための計算です。'],
+        ['違う価格でも、条件を確かめる。','通常価格や目標価格を変えて、必要な割引率を計算できます。'],
+        ['買う基準は、自分で決める。','値下げを予測せず、入力した価格から割引率を求めます。']
+      ];
+      const en=[
+        ['Choose your buying price first.','Enter the regular price and your target to calculate the discount needed.'],
+        ['Work backward from your target.','Use the price you would pay as your benchmark, not the discount headline.'],
+        ['Decide before the sale.','Set your own buying threshold instead of reacting to sale labels.'],
+        ['Check another price.','Change the regular or target price to recalculate the discount needed.'],
+        ['Your threshold. Your decision.','No price forecasts: the calculation uses only the prices you enter.']
+      ];
+      const index=Number(shot.sourceIndex);
+      if(Number.isInteger(index)&&index>=0&&index<5){
+        const copy=(jp?ja:en)[index];return {heading:copy[0],body:copy[1]};
+      }
+    }
     if(id==='6804757287'){
       const ja=[
         ['価格と待ち時間を、同時に見る','現在価格・目標価格・待てる日数を入力して、節約額と時間の関係を比べます。'],
@@ -251,7 +272,7 @@
       const shot=m[indexes[selected]],num=String(shot.sourceIndex+1).padStart(2,'0');
       image.hidden=false;failText.hidden=true;image.src=shot.src;
       image.alt=(jp?'実際のアプリ画面 ':'App screenshot ')+num;
-      issue.textContent=(jp?'実画面 ':'SCREEN ')+num;
+      issue.textContent=(id==='6804756267'?(jp?'買う価格の基準':'YOUR BUYING THRESHOLD'):(jp?'実画面 ':'SCREEN ')+num);
       const editorial=sharedEditorialDetail(shot, jp, num);
       heading.textContent=editorial.heading;
       sub.textContent=editorial.body;
