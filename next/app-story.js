@@ -208,9 +208,19 @@
       if(shot.sourceIndex===3)return jp?
         {eyebrow:'04 / STACKED DISCOUNTS',heading:'割引が重なっても、見失わない。',body:'複数の割引を順番に反映し、金額と節約額の変化を確認できます。'}:
         {eyebrow:'04 / STACKED DISCOUNTS',heading:'Follow every discount.',body:'See how each successive discount changes the final price and savings.'};
+      // All five screen slots have copy; each statement is supported by the actual calculator UI.
+      if(shot.sourceIndex===0)return jp?
+        {eyebrow:'01 / PRICE TO PAY',heading:'元値から、支払額へ。',body:'元の金額と割引後の支払見込み額を、同じ画面で確認できます。'}:
+        {eyebrow:'01 / PRICE TO PAY',heading:'From price to amount due.',body:'See the original price and estimated amount after discounts on one screen.'};
+      if(shot.sourceIndex===1)return jp?
+        {eyebrow:'02 / DISCOUNT RESULT',heading:'条件が変わると、結果も変わる。',body:'割引の条件を調整したあと、支払見込み額をその場で確かめられます。'}:
+        {eyebrow:'02 / DISCOUNT RESULT',heading:'Change the terms. See the result.',body:'Adjust discount conditions and check the estimated amount to pay.'};
+      if(shot.sourceIndex===4)return jp?
+        {eyebrow:'05 / ANOTHER EXAMPLE',heading:'違う金額でも、同じように。',body:'金額を変えた計算例でも、元値と計算後の金額を見比べられます。'}:
+        {eyebrow:'05 / ANOTHER EXAMPLE',heading:'Another price, same clear result.',body:'Compare the starting price with the calculated result in another example.'};
       return jp?
-        {eyebrow:num+' / ORIGINAL SCREEN',heading:'実画面 '+num,body:''}:
-        {eyebrow:num+' / ORIGINAL SCREEN',heading:'Screen '+num,body:''};
+        {eyebrow:num+' / ORIGINAL SCREEN',heading:'支払見込み額を確認。',body:'計算した金額を、元の価格とあわせて確認できます。'}:
+        {eyebrow:num+' / ORIGINAL SCREEN',heading:'Review the amount to pay.',body:'See the calculated amount alongside the original price.'};
     }
     function update(k){
       discountFocus=k;const shot=m[indexes[k]],item=contentFor(shot);
