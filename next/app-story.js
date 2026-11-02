@@ -166,7 +166,7 @@
   }
   // P19-9R4: One real-image editorial stage with a compact five-screen navigator.
   // Special descriptions only belong to verified original Apple screenshot slots 03/04.
-  let discountFocus=0;
+  let discountFocus=2;
   function discountStoryStage(indexes){
     const jp=/^ja(?:-|$)/i.test(state.locale),t=tx(),m=state.media;
     const root=make('section','p199r4-stage');
@@ -209,11 +209,13 @@
         {eyebrow:'04 / STACKED DISCOUNTS',heading:'割引が重なっても、見失わない。',body:'複数の割引を順番に反映し、金額と節約額の変化を確認できます。'}:
         {eyebrow:'04 / STACKED DISCOUNTS',heading:'Follow every discount.',body:'See how each successive discount changes the final price and savings.'};
       return jp?
-        {eyebrow:num+' / APP SCREEN',heading:'実際の操作画面 '+num,body:''}:
-        {eyebrow:num+' / APP SCREEN',heading:'App screenshot '+num,body:''};
+        {eyebrow:num+' / ORIGINAL SCREEN',heading:'実画面 '+num,body:''}:
+        {eyebrow:num+' / ORIGINAL SCREEN',heading:'Screen '+num,body:''};
     }
     function update(k){
       discountFocus=k;const shot=m[indexes[k]],item=contentFor(shot);
+      // Neutral slots are actual screenshots: no unverified feature copy.
+      root.classList.toggle('is-neutral-screen',shot.sourceIndex!==2 && shot.sourceIndex!==3);
       eyebrow.textContent=item.eyebrow;heading.textContent=item.heading;
       description.textContent=item.body;description.hidden=!item.body;
       image.src=shot.src;
@@ -247,10 +249,8 @@
     const preferred=hasDiscountStage?discountIndexes:m.map((_,i)=>i).slice(0,2);
     const extra=m.map((_,i)=>i).filter(i=>!preferred.includes(i));
     if(id==='6802308517'){
-      // All available original Apple screenshots in one compact stage.
-      // 03/04 first where available; all other original numbers preserved.
-      const ordered=[2,3].map(src=>m.findIndex(s=>s.sourceIndex===src)).filter(i=>i>=0);
-      m.forEach((_,i)=>{if(!ordered.includes(i))ordered.push(i);});
+      // Original Apple screenshots in numeric order; start on 03 when possible.
+      const ordered=m.map((_,i)=>i).sort((a,b)=>m[a].sourceIndex-m[b].sourceIndex);
       holder.append(discountStoryStage(ordered));
     } else preferred.forEach((i,n)=>holder.append(storyRow(i,n,false)));
     if(extra.length && id!=='6802308517'){
