@@ -164,59 +164,69 @@
     btn.addEventListener('click',()=>openViewer(i));
     row.append(copy,btn);return row;
   }
-  // P19-9R3: Discount Stack editorial pilot. All other 33 pages retain P19-9R2.
-  // The captions below were written against the owner's actual screen 03/04 captures;
-  // they must never be assigned to an image merely because a failed probe shifted an index.
+  // P19-9R4: One real-image editorial stage with a compact five-screen navigator.
+  // Special descriptions only belong to verified original Apple screenshot slots 03/04.
   let discountFocus=0;
   function discountStoryStage(indexes){
-    const jp=/^ja(?:-|$)/i.test(state.locale),t=tx();
-    const items=jp?[
-      {tab:'支払額',eyebrow:'01 / RESULT',heading:'割引の先にある、支払額まで。',body:'元の価格に割引率を順番に反映。税率を含めた最終的な支払額を、画面上で確認できます。',detail:'割引後の金額と、最後に支払う金額を同じ画面で。'},
-      {tab:'割引の重ね方',eyebrow:'02 / COMPARE',heading:'割引が重なっても、数字を見失わない。',body:'複数の割引率を重ねたときの金額の変化を確認。最終金額と節約額を見比べられます。',detail:'条件が変われば、結果も変わる。だから何度でも試せる。'}
-    ]:[
-      {tab:'Final amount',eyebrow:'01 / RESULT',heading:'See what you actually pay.',body:'Apply discounts in sequence to the starting price. Check the final estimated amount, including tax when entered.',detail:'From the original price to the amount after discounts.'},
-      {tab:'Stacked offers',eyebrow:'02 / COMPARE',heading:'Keep each discount in perspective.',body:'See how successive discounts change the amount. Compare the final price with the savings shown on screen.',detail:'Change the inputs. See how the result changes.'}
-    ];
-    const root=make('section','p199r3-stage'),header=make('div','p199r3-stage-header');
-    header.append(make('span','p199r3-kicker','DISCOUNT STACK  /  SCREEN STORIES'),make('span','p199r3-stage-count','02 / 02'));
-    const tabs=make('div','p199r3-tabs');
-    const stage=make('div','p199r3-stage-content');
-    const copy=make('div','p199r3-copy');
-    const eyebrow=make('span','p199r3-eyebrow'),heading=make('h3','p199r3-heading'),body=make('p','p199r3-body'),detail=make('p','p199r3-detail');
-    const actions=make('div','p199r3-actions');
-    const inspect=make('button','p199r3-inspect',jp?'画面を大きく見る ↗':'View full screen ↗');inspect.type='button';
-    const store=make('a','p199r3-store',t.store);store.href=storeLink();store.rel='noopener noreferrer';store.target='_blank';
-    actions.append(inspect,store);copy.append(eyebrow,heading,body,detail,actions);
-    const imageButton=make('button','p199r3-media');imageButton.type='button';
-    const image=make('img','p199r3-image'),imageHint=make('span','p199r3-image-hint',jp?'押して拡大':'Tap to enlarge');
-    image.loading='lazy';image.referrerPolicy='no-referrer';imageButton.append(image,imageHint);
-    const visual=make('div','p199r3-visual');visual.append(imageButton);
-    stage.append(copy,visual);
-    const bottom=make('div','p199r3-bottom');const current=make('span','p199r3-current');
-    const switcher=make('div','p199r3-switcher');
-    const prev=make('button','p199r3-prev','‹');const next=make('button','p199r3-next','›');
+    const jp=/^ja(?:-|$)/i.test(state.locale),t=tx(),m=state.media;
+    const root=make('section','p199r4-stage');
+    const top=make('div','p199r4-top');
+    top.append(make('span','p199r4-brand','DISCOUNT STACK  /  SCREEN STORIES'),
+               make('span','p199r4-total',String(indexes.length).padStart(2,'0')+' '+(jp?'枚の実画面':'REAL SCREENS')));
+    const display=make('div','p199r4-display');
+    const copy=make('div','p199r4-copy');
+    const eyebrow=make('span','p199r4-eyebrow');
+    const heading=make('h3','p199r4-heading');
+    const description=make('p','p199r4-description');
+    const inspect=make('button','p199r4-inspect',jp?'画面を拡大して見る ↗':'Enlarge screenshot ↗');inspect.type='button';
+    copy.append(eyebrow,heading,description,inspect);
+    const imageButton=make('button','p199r4-visual');imageButton.type='button';
+    const image=make('img','p199r4-image');image.loading='eager';image.referrerPolicy='no-referrer';
+    imageButton.append(image);display.append(copy,imageButton);
+    const nav=make('div','p199r4-nav');
+    const current=make('span','p199r4-current');
+    const controls=make('div','p199r4-controls');
+    const prev=make('button','p199r4-prev','‹'),next=make('button','p199r4-next','›');
     prev.type='button';next.type='button';
     prev.title=jp?'前の画面':'Previous screen';next.title=jp?'次の画面':'Next screen';
-    switcher.append(prev,next);bottom.append(current,switcher);
-    const tabButtons=items.map((item,i)=>{
-      const tab=make('button','p199r3-tab',String(i+1).padStart(2,'0')+'  '+item.tab);tab.type='button';
-      tab.addEventListener('click',()=>update(i));tabs.append(tab);return tab;
+    controls.append(prev,next);nav.append(current,controls);
+    const rail=make('div','p199r4-rail');
+    const thumbnailButtons=indexes.map((idx,k)=>{
+      const shot=m[idx],number=String(shot.sourceIndex+1).padStart(2,'0');
+      const button=make('button','p199r4-thumb');button.type='button';
+      button.setAttribute('aria-label',(jp?'実画面 ':'Screenshot ')+number);
+      const picture=make('img','');picture.src=shot.src;
+      picture.referrerPolicy='no-referrer';picture.loading='lazy';picture.alt='';
+      button.append(picture,make('span','',number));
+      button.addEventListener('click',()=>update(k));rail.append(button);return button;
     });
-    function update(i){
-      discountFocus=i;const item=items[i],shot=state.media[indexes[i]];
-      eyebrow.textContent=item.eyebrow;heading.textContent=item.heading;body.textContent=item.body;detail.textContent=item.detail;
-      image.src=shot.src;image.alt=jp?'割引スタックの計算画面 '+String(shot.sourceIndex+1):'Discount Stack screenshot '+String(shot.sourceIndex+1);
-      const count=String(shot.sourceIndex+1).padStart(2,'0')+' / '+String(state.media.length).padStart(2,'0');
-      current.textContent=(jp?'実際のアプリ画面':'App screen')+' '+count;
-      tabButtons.forEach((tab,j)=>{
-        tab.classList.toggle('is-active',j===i);tab.setAttribute('aria-pressed',String(j===i));
-      });
-      const open=()=>openViewer(indexes[i]);
-      imageButton.onclick=open;inspect.onclick=open;
+    function contentFor(shot){
+      const num=String(shot.sourceIndex+1).padStart(2,'0');
+      if(shot.sourceIndex===2)return jp?
+        {eyebrow:'03 / FINAL AMOUNT',heading:'割引の先にある、支払額まで。',body:'割引と税を順番に反映。最終的に支払う金額を、ひと目で確認できます。'}:
+        {eyebrow:'03 / FINAL AMOUNT',heading:'What will you actually pay?',body:'Apply discounts and tax in sequence, then see the final amount.'};
+      if(shot.sourceIndex===3)return jp?
+        {eyebrow:'04 / STACKED DISCOUNTS',heading:'割引が重なっても、見失わない。',body:'複数の割引を順番に反映し、金額と節約額の変化を確認できます。'}:
+        {eyebrow:'04 / STACKED DISCOUNTS',heading:'Follow every discount.',body:'See how each successive discount changes the final price and savings.'};
+      return jp?
+        {eyebrow:num+' / APP SCREEN',heading:'実際の操作画面 '+num,body:''}:
+        {eyebrow:num+' / APP SCREEN',heading:'App screenshot '+num,body:''};
     }
-    prev.addEventListener('click',()=>update((discountFocus+items.length-1)%items.length));
-    next.addEventListener('click',()=>update((discountFocus+1)%items.length));
-    root.append(header,tabs,stage,bottom);update(Math.min(discountFocus,items.length-1));return root;
+    function update(k){
+      discountFocus=k;const shot=m[indexes[k]],item=contentFor(shot);
+      eyebrow.textContent=item.eyebrow;heading.textContent=item.heading;
+      description.textContent=item.body;description.hidden=!item.body;
+      image.src=shot.src;
+      image.alt=(jp?'割引スタックの実際の操作画面 ':'Discount Stack screenshot ')+(shot.sourceIndex+1);
+      current.textContent=String(shot.sourceIndex+1).padStart(2,'0')+' / '+String(m.length).padStart(2,'0');
+      thumbnailButtons.forEach((button,i)=>{
+        button.classList.toggle('is-active',i===k);button.setAttribute('aria-pressed',String(i===k));
+      });
+      const open=()=>openViewer(indexes[k]);imageButton.onclick=open;inspect.onclick=open;
+    }
+    prev.addEventListener('click',()=>update((discountFocus+indexes.length-1)%indexes.length));
+    next.addEventListener('click',()=>update((discountFocus+1)%indexes.length));
+    root.append(top,display,nav,rail);update(Math.min(discountFocus,indexes.length-1));return root;
   }
   function renderScreens(){
     const t=tx(),m=state.media;
@@ -236,9 +246,14 @@
     const hasDiscountStage=id==='6802308517'&&discountIndexes.every(i=>i>=0)&&discountIndexes.length===2;
     const preferred=hasDiscountStage?discountIndexes:m.map((_,i)=>i).slice(0,2);
     const extra=m.map((_,i)=>i).filter(i=>!preferred.includes(i));
-    if(hasDiscountStage)holder.append(discountStoryStage(preferred));
-    else preferred.forEach((i,n)=>holder.append(storyRow(i,n,false)));
-    if(extra.length){
+    if(id==='6802308517'){
+      // All available original Apple screenshots in one compact stage.
+      // 03/04 first where available; all other original numbers preserved.
+      const ordered=[2,3].map(src=>m.findIndex(s=>s.sourceIndex===src)).filter(i=>i>=0);
+      m.forEach((_,i)=>{if(!ordered.includes(i))ordered.push(i);});
+      holder.append(discountStoryStage(ordered));
+    } else preferred.forEach((i,n)=>holder.append(storyRow(i,n,false)));
+    if(extra.length && id!=='6802308517'){
       const more=make('details','p199-more-screens');
       const summary=make('summary','',/^ja(?:-|$)/i.test(state.locale)?'ほかの画面を見る（'+extra.length+'枚）':'See more screenshots ('+extra.length+')');
       const list=make('div','p199-extra-screens');
