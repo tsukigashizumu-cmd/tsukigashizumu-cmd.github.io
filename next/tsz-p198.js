@@ -4,7 +4,7 @@
   'use strict';
   const root=document.getElementById('tsz-p198-guide');
   if(!root)return;
-  const sectionIds=['choose','free-now','paid-now','catalog'];
+  const sectionIds=['choose','paid-now','free-now','catalog'];
   const sections=sectionIds.map(id=>document.getElementById(id));
   if(sections.some(s=>!s))return;
   const current=root.querySelector('#tsz-p198-current');

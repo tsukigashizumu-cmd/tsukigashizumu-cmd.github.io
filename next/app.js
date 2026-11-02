@@ -297,22 +297,90 @@
     link.href='#catalog';
     panel.append(head,summary,link);target.replaceChildren(panel);
   }
+  // P19-8E: verified storefront price tiers only; no background DOM observer.
+  // Price values are NEVER cached here across refreshes or storefront changes.
+  const paidMoreLabels={
+    'ar-SA':'عرض المزيد','bn-BD':'আরও দেখুন','ca':'Mostra’n més','cs':'Zobrazit více','da':'Vis flere',
+    'de-DE':'Mehr anzeigen','el':'Εμφάνιση περισσότερων','en-AU':'Show more','en-CA':'Show more',
+    'en-GB':'Show more','en-US':'Show more','es-ES':'Ver más','es-MX':'Ver más','fi':'Näytä lisää',
+    'fr-CA':'Voir plus','fr-FR':'Voir plus','gu-IN':'વધુ જુઓ','he':'הצג עוד','hi':'और देखें',
+    'hr':'Prikaži više','hu':'Több megjelenítése','id':'Tampilkan lainnya','it':'Mostra altro',
+    'ja':'さらに表示','kn-IN':'ಇನ್ನಷ್ಟು ನೋಡಿ','ko':'더 보기','ml-IN':'കൂടുതൽ കാണുക',
+    'mr-IN':'आणखी पहा','ms':'Lihat lagi','nl-NL':'Meer tonen','no':'Vis mer',
+    'or-IN':'ଅଧିକ ଦେଖନ୍ତୁ','pa-IN':'ਹੋਰ ਵੇਖੋ','pl':'Pokaż więcej','pt-BR':'Ver mais',
+    'pt-PT':'Ver mais','ro':'Afișează mai multe','ru':'Показать ещё','sk':'Zobraziť viac',
+    'sl-SI':'Prikaži več','sv':'Visa fler','ta-IN':'மேலும் காட்டு','te-IN':'మరిన్ని చూడండి',
+    'th':'ดูเพิ่มเติม','tr':'Daha fazla göster','uk':'Показати більше','ur-PK':'مزید دیکھیں',
+    'vi':'Xem thêm','zh-Hans':'显示更多','zh-Hant':'顯示更多'
+  };
+  // P19-8E3: 50-localized descending price order, independent of price data.
+  const highToLowLabels={"ar-SA":"السعر: من الأعلى إلى الأقل","bn-BD":"দাম: বেশি থেকে কম","ca":"Preu: de més alt a més baix","cs":"Cena: od nejvyšší","da":"Pris: høj til lav","de-DE":"Preis: hoch bis niedrig","el":"Τιμή: από υψηλή σε χαμηλή","en-AU":"Price: high to low","en-CA":"Price: high to low","en-GB":"Price: high to low","en-US":"Price: high to low","es-ES":"Precio: de mayor a menor","es-MX":"Precio: de mayor a menor","fi":"Hinta: korkein ensin","fr-CA":"Prix : du plus élevé au plus bas","fr-FR":"Prix : du plus élevé au plus bas","gu-IN":"કિંમત: ઊંચીથી નીચી","he":"מחיר: מהגבוה לנמוך","hi":"कीमत: अधिक से कम","hr":"Cijena: od više prema nižoj","hu":"Ár: csökkenő sorrendben","id":"Harga: tertinggi ke terendah","it":"Prezzo: dal più alto al più basso","ja":"価格：高い順","kn-IN":"ಬೆಲೆ: ಹೆಚ್ಚಿನದರಿಂದ ಕಡಿಮೆಗೆ","ko":"가격: 높은 순","ml-IN":"വില: ഉയർന്നതിൽ നിന്ന് താഴേക്ക്","mr-IN":"किंमत: जास्त ते कमी","ms":"Harga: tinggi ke rendah","nl-NL":"Prijs: hoog naar laag","no":"Pris: høyest først","or-IN":"ମୂଲ୍ୟ: ଅଧିକରୁ କମ୍","pa-IN":"ਕੀਮਤ: ਵੱਧ ਤੋਂ ਘੱਟ","pl":"Cena: od najwyższej","pt-BR":"Preço: do maior para o menor","pt-PT":"Preço: do mais alto para o mais baixo","ro":"Preț: de la mare la mic","ru":"Цена: по убыванию","sk":"Cena: od najvyššej","sl-SI":"Cena: od najvišje","sv":"Pris: högst först","ta-IN":"விலை: அதிகம் முதல் குறைவு","te-IN":"ధర: ఎక్కువ నుంచి తక్కువ","th":"ราคา: สูงไปต่ำ","tr":"Fiyat: yüksekten düşüğe","uk":"Ціна: від найвищої","ur-PK":"قیمت: زیادہ سے کم","vi":"Giá: từ cao xuống thấp","zh-Hans":"价格：从高到低","zh-Hant":"價格：由高至低"};
+  const highToLowLabel=()=>highToLowLabels[i18n?.locale]||highToLowLabels['en-US'];
+  function setDescendingOrderLabels(){
+    const label=highToLowLabel();
+    document.querySelectorAll('[data-tsz-high-to-low]').forEach(node=>{if(node.textContent!==label)node.textContent=label;});
+    const sort=$('sort');if(sort&&sort.getAttribute('aria-label')!==label)sort.setAttribute('aria-label',label);
+  }
+  const paidTierState={country:'',key:'all',visible:4};
+  const paidTierKey=app=>app.currency+':'+String(app.price);
   function renderLowestPaid() {
     const list=$('paid-apps'), floor=$('paid-floor'), note=$('paid-status');
+    const buttons=$('paid-tier-buttons'), count=$('paid-tier-count'), more=$('paid-tier-more');
     const verified=priceVerified();
-    const candidates=verified ? model.apps.filter(a=>Number.isFinite(a.price)&&a.price>0&&/^[A-Z]{3}$/.test(a.currency||'')) : [];
+    buttons.setAttribute('aria-label',highToLowLabel());
+    $('paid-tier-explorer').setAttribute('aria-label',highToLowLabel());
+    if(paidTierState.country!==model.country || !verified){
+      paidTierState.country=model.country;paidTierState.key='all';paidTierState.visible=4;
+    }
+    const known=verified ? model.apps.filter(a=>Number.isFinite(a.price)&&a.price>=0&&/^[A-Z]{3}$/.test(a.currency||'')) : [];
+    const partial=verified && known.length<model.base.apps.length;
+    const candidates=known.filter(a=>a.price>0);
     const collator=new Intl.Collator(i18n.locale,{sensitivity:'base'});
-    candidates.sort((a,b)=>a.price-b.price || collator.compare(a.name||'',b.name||''));
-    const selected=candidates.slice(0,4);
-    floor.textContent=selected.length ? priceLabel(selected[0]) : '—';
-    floor.dir='ltr';
+    candidates.sort((a,b)=>b.price-a.price || collator.compare(a.name||'',b.name||''));
+    const tiers=new Map();
+    for(const app of candidates){const key=paidTierKey(app);
+      if(!tiers.has(key))tiers.set(key,[]);tiers.get(key).push(app);
+    }
+    if(paidTierState.key!=='all'&&!tiers.has(paidTierState.key)){
+      paidTierState.key='all';paidTierState.visible=4;
+    }
+    const highestKnown=candidates[0]||null;
+    floor.textContent=highestKnown ? priceLabel(highestKnown)+' ↓' : '—';
+    floor.dir='auto';floor.disabled=!verified||!highestKnown;
+    floor.setAttribute('aria-pressed',String(Boolean(highestKnown)&&paidTierState.key===paidTierKey(highestKnown)));
+    floor.setAttribute('aria-label',highestKnown ? t('paid')+' · '+highToLowLabel()+' · '+priceLabel(highestKnown)+' · '+(partial?storefrontUiText('partial')+' · ':'')+t('explore') : t('checkPrice'));
+    const chips=document.createDocumentFragment();
+    if(verified&&candidates.length){
+      const addChip=(key,label,quantity)=>{
+        const b=el('button','tsz-paid-tier-chip',label);
+        b.type='button';b.dataset.tier=key;
+        b.setAttribute('aria-pressed',String(paidTierState.key===key));
+        b.setAttribute('aria-label',label+' · '+t('shown',{count:quantity}));
+        b.addEventListener('click',()=>{
+          if(!priceVerified()) { if(!model.priceLoading) void refreshLocale(); return; }
+          paidTierState.key=key;paidTierState.visible=4;renderLowestPaid();
+        });chips.append(b);
+      };
+      addChip('all',t('all'),candidates.length);
+      for(const [key,apps] of tiers)addChip(key,priceLabel(apps[0])+' · '+apps.length,apps.length);
+    }
+    buttons.replaceChildren(chips);
+    buttons.hidden=!verified||!candidates.length;
+    const matches=paidTierState.key==='all'?candidates:(tiers.get(paidTierState.key)||[]);
+    const visible=matches.slice(0,paidTierState.visible);
     const frag=document.createDocumentFragment();
-    selected.forEach(a=>frag.append(card(a)));
+    visible.forEach(a=>frag.append(card(a)));
     if(verified)list.replaceChildren(frag);
     else showUnverifiedShelf(list);
+    count.textContent=verified ? t('shown',{count:visible.length})+' / '+matches.length:t('checkPrice');
+    const remaining=matches.length-visible.length;
+    more.hidden=!verified||remaining<=0;
+    if(!more.hidden){more.textContent='＋ '+(paidMoreLabels[i18n.locale]||paidMoreLabels['en-US'])+' ('+remaining+')';
+      more.setAttribute('aria-label',more.textContent);}
     note.classList.toggle('warning',!verified);
     note.textContent=!verified ? (model.priceLoading?t('checkPrice'):(model.fallbackUS?t('referenceOnly'):t('stale')))
-      : !selected.length ? t('noMatch') : t('catalogNote');
+      : (partial ? storefrontUiText('partial')+' ('+known.length+'/'+model.base.apps.length+') · ' : '')+
+        (!candidates.length ? t('noMatch') : t('catalogNote'));
   }
   function renderHighlights() {
     const list=$('free-apps'), count=$('free-total'), note=$('free-status');
@@ -343,13 +411,14 @@
     let collator;try{collator=new Intl.Collator(i18n.locale,{sensitivity:'base'});}catch(_){collator=new Intl.Collator('en-US');}
     apps=apps.slice().sort(model.sort==='name'
       ? (a,b)=>collator.compare(a.name,b.name)
-      : (a,b)=>((a.price??Infinity)-(b.price??Infinity)) || collator.compare(a.name,b.name));
+      : (a,b)=>((Number.isFinite(b.price)?b.price:-Infinity)-(Number.isFinite(a.price)?a.price:-Infinity)) || collator.compare(a.name,b.name));
     const area=$('apps');const frag=document.createDocumentFragment();
     apps.forEach(app=>frag.append(card(app)));area.replaceChildren(frag);
     statusUpdate(apps.length);
     renderPurpose(apps);
   }
   function paint() {
+    setDescendingOrderLabels();
     $('app-count').textContent=!model.loading && model.base ? String(model.apps.length):'—';
     $('free-count').textContent=priceVerified() ? String(model.apps.filter(a=>a.price===0).length):'—';
     if (model.checkedUTC) { try{$('checked-at').textContent=new Intl.DateTimeFormat(i18n.locale,{timeZone:'UTC',dateStyle:'medium',timeStyle:'short'}).format(new Date(model.checkedUTC))+' UTC';}
@@ -422,6 +491,11 @@
       }
       prices.set(id,{price:item.price,currency:item.currency,
         formattedPrice:typeof item.formattedPrice==='string'?item.formattedPrice:''});
+    }
+    // Mixed ISO currencies under one country make numeric ordering and formattedPrice
+    // ambiguous (e.g. 'USD ¥50'). Fail closed instead of publishing a false floor.
+    if(new Set([...prices.values()].map(row=>row.currency)).size>1){
+      prices.clear();reject('mixed_currency_storefront');
     }
     const results=model.base.apps.map(base=>{
       const verified=duplicates.has(base.id)?null:prices.get(base.id);
@@ -496,7 +570,12 @@
       paint();
 
       // Both optional datasets may finish later. They must not delay the catalog or prices.
-      void loadStoreUi().then(()=>{if(serial===requestSerial)updateStoreSelector();})
+      void loadStoreUi().then(()=>{if(serial===requestSerial){updateStoreSelector();
+        const note=$('paid-status');
+        const known=model.apps.filter(a=>Number.isFinite(a.price)&&a.price>=0&&/^[A-Z]{3}$/.test(a.currency||''));
+        if(note && priceVerified() && known.length<model.base.apps.length)
+          note.textContent=storefrontUiText('partial')+' ('+known.length+'/'+model.base.apps.length+') · '+t('catalogNote');
+      }})
         .catch(e=>console.warn('Storefront UI translations unavailable:',e.message));
       void loadAscMetadata().then(()=>{
         if(serial!==requestSerial || !ascMetadata)return;
@@ -554,6 +633,19 @@
   $('purpose-reset').addEventListener('click',()=>{
     model.category='all';model.filter='all';model.query='';$('search').value='';$('purpose-search').value='';
     renderCategories();render();document.querySelectorAll('[data-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.filter==='all')));
+  });
+  $('paid-floor').addEventListener('click',()=>{
+    if(!priceVerified()) { if(!model.priceLoading) void refreshLocale(); return; }
+    const priced=model.apps.filter(a=>Number.isFinite(a.price)&&a.price>0&&/^[A-Z]{3}$/.test(a.currency||''));
+    priced.sort((a,b)=>b.price-a.price);
+    if(!priced.length)return;
+    const highest=paidTierKey(priced[0]);
+    paidTierState.key=paidTierState.key===highest?'all':highest;
+    paidTierState.visible=4;renderLowestPaid();
+  });
+  $('paid-tier-more').addEventListener('click',()=>{
+    if(!priceVerified()) { if(!model.priceLoading) void refreshLocale(); return; }
+    paidTierState.visible+=4;renderLowestPaid();
   });
   $('sort').addEventListener('change',e=>{model.sort=e.target.value;render();});
   document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{

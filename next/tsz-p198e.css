@@ -1,0 +1,32 @@
+/* P19-8E — price explorer experiment. Only the paid shelf is restyled. */
+html body .paid-section .paid-title-row{align-items:center;gap:15px;margin-top:6px}
+html body .paid-section .paid-title-row h2{font-size:clamp(40px,5.2vw,66px) !important;line-height:1.13;letter-spacing:-.045em}
+html body .paid-section .paid-head{align-items:center;gap:18px;flex-wrap:wrap}
+html body .paid-section .paid-floor{appearance:none;-webkit-appearance:none;display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:9px 17px;border:1px solid #c79b9e;border-radius:999px;color:#ffe0c6;background:linear-gradient(125deg,#4b303b,#2e2230);font:700 clamp(14px,1.8vw,20px)/1.25 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;letter-spacing:-.02em;box-shadow:0 4px 18px #0003;cursor:pointer;direction:auto;transition:background .16s ease,transform .16s ease,border-color .16s ease}
+html body .paid-section .paid-floor[aria-pressed="true"]{background:linear-gradient(125deg,#efcdb5,#d59bba);color:#241720;border-color:#f4dbc6}
+html body .paid-section .paid-floor:disabled{cursor:default;opacity:.6;box-shadow:none}
+html body .paid-section .paid-floor:not(:disabled):hover{transform:translateY(-1px);border-color:#ffdfc8}
+html body .paid-section .tsz-paid-tier-explorer{min-width:0;margin:24px 0 12px;padding:18px;border:1px solid #6e5667;border-radius:18px;background:linear-gradient(140deg,#241b29,#1c1724);box-shadow:0 12px 24px #0001}
+html body .paid-section .tsz-paid-tier-header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+html body .paid-section .tsz-paid-tier-eyebrow{font-size:12px;font-weight:730;letter-spacing:.055em;color:#f0c8c0}
+html body .paid-section .tsz-paid-tier-count{font-size:12px;color:#dfc5ce;font-variant-numeric:tabular-nums}
+html body .paid-section .tsz-paid-tier-buttons{display:flex;flex-wrap:wrap;align-items:center;gap:9px;min-width:0}
+html body .paid-section .tsz-paid-tier-buttons[hidden]{display:none!important}
+html body .paid-section .tsz-paid-tier-chip{appearance:none;-webkit-appearance:none;min-height:40px;max-width:100%;border:1px solid #826777;border-radius:999px;background:#261d2b;color:#f2e3e7;padding:9px 14px;cursor:pointer;font-size:13px;font-weight:700;font-variant-numeric:tabular-nums;overflow-wrap:anywhere;transition:background .16s ease, border-color .16s ease}
+html body .paid-section .tsz-paid-tier-chip[aria-pressed="true"]{background:linear-gradient(110deg,#f6dfc3,#e2afbd);border-color:#f8dec8;color:#281c24;box-shadow:0 3px 16px #e5b6b72b}
+html body .paid-section .tsz-paid-tier-chip:not([aria-pressed="true"]):hover{border-color:#f1cfc6;background:#3d2b3e}
+html body .paid-section :is(.tsz-paid-tier-chip,.paid-floor,.tsz-paid-tier-more):focus-visible{outline:3px solid #f5cdbd;outline-offset:3px}
+html body .paid-section .paid-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+html body .paid-section .tsz-paid-tier-more{display:block;width:100%;margin:18px auto 0;padding:13px;border-radius:13px;border:1px solid #806678;background:#241b29;color:#f4d2c8;cursor:pointer;font-weight:700;font-size:13px}
+html body .paid-section .tsz-paid-tier-more[hidden]{display:none!important}
+html body .paid-section .tsz-paid-tier-more:hover{background:#322434;border-color:#dfb1b9}
+html[dir="rtl"] body .paid-section .paid-floor{direction:auto}
+@media(max-width:620px){html body .paid-section .paid-grid{grid-template-columns:minmax(0,1fr)}html body .paid-section .tsz-paid-tier-explorer{padding:14px;margin-top:18px}html body .paid-section .tsz-paid-tier-chip{padding:9px 12px}html body .paid-section .paid-floor{min-height:42px}}
+@media(prefers-reduced-motion:reduce){html body .paid-section :is(.paid-floor,.tsz-paid-tier-chip){transition:none}html body .paid-section .paid-floor:hover{transform:none}}
+
+/* P19-8E2: narrow header overflow found in 320px Chrome fixture (41px).
+   Only shrink/wrap the existing developer action; do not change catalog cards. */
+@media(max-width:380px){
+  html body .header-actions{min-width:0;max-width:100%;flex-wrap:wrap;gap:8px}
+  html body .header-actions .storefront-link{min-width:0;max-width:100%;overflow-wrap:anywhere;white-space:normal}
+}
