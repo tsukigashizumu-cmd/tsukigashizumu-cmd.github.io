@@ -167,6 +167,13 @@
   // P19-9R6R1: captions only where the app's real purpose is verified.
   // Unverified screenshots show their real original number without invented claims.
   function sharedEditorialDetail(shot, jp, num){
+    // P19-9R6R9R4 Bundlevero: four source-indexed editorial stories, JP/EN only.
+    if(id==='6822927747'){
+      const bundleveroStories={"ja":[{"eyebrow":"購入方法を比較","heading":"単品とセット、支払額で比べる。","body":"欲しい商品・所有済みの商品・単品価格・セット条件を入力し、購入方法と支払総額を比較します。"},{"eyebrow":"所有済みの商品","heading":"持っているものも、計算に入れる。","body":"必要な商品と、すでに持っている商品を区別。重複する購入がないか確かめながら比べられます。"},{"eyebrow":"条件を見直す","heading":"条件を変えて、もう一度比べる。","body":"単品価格やセット内容、割引条件を見直し、入力した条件で買い方を比べ直せます。"},{"eyebrow":"プライバシーの案内","heading":"データの扱いも、確認できる。","body":"プライバシーポリシーをアプリ内で確認できます。入力や写真の文字認識についても、内容を確かめて使えます。"}],"en":[{"eyebrow":"COMPARE PURCHASE PLANS","heading":"Singles or bundles. See the total.","body":"Enter items you need, items you own, single prices, and bundle terms to compare purchase plans and total cost."},{"eyebrow":"ITEMS ALREADY OWNED","heading":"Count what you already have.","body":"Separate the items you need from those you own, then compare options before buying anything twice."},{"eyebrow":"RECHECK THE TERMS","heading":"Change the terms. Compare again.","body":"Adjust individual prices, bundle contents, or discounts and compare the resulting purchase options."},{"eyebrow":"PRIVACY INFORMATION","heading":"See how your data is handled.","body":"Review privacy information in the app and check the details before using text recognition from a photo."}]};
+      const source=Number(shot && shot.sourceIndex);
+      const entry=Number.isInteger(source) && source>=0 && source<4 ? bundleveroStories[jp?'ja':'en'][source] : null;
+      if(entry) return {eyebrow:entry.eyebrow,heading:entry.heading,body:entry.body};
+    }
     if(id==='6804756267'){
       // These are product-level examples, not claims about image-only features.
       const ja=[
@@ -275,6 +282,7 @@
       issue.textContent=(id==='6804756267'?(jp?'買う価格の基準':'YOUR BUYING THRESHOLD'):(jp?'実画面 ':'SCREEN ')+num);
       const editorial=sharedEditorialDetail(shot, jp, num);
       heading.textContent=editorial.heading;
+      if(id==='6822927747' && editorial.eyebrow) issue.textContent=editorial.eyebrow;
       sub.textContent=editorial.body;
       hint.hidden=(id==='6804757287');
       count.textContent=num+' / '+String(indexes.length).padStart(2,'0');
