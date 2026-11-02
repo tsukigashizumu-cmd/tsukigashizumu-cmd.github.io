@@ -317,9 +317,15 @@
   const highToLowLabels={"ar-SA":"السعر: من الأعلى إلى الأقل","bn-BD":"দাম: বেশি থেকে কম","ca":"Preu: de més alt a més baix","cs":"Cena: od nejvyšší","da":"Pris: høj til lav","de-DE":"Preis: hoch bis niedrig","el":"Τιμή: από υψηλή σε χαμηλή","en-AU":"Price: high to low","en-CA":"Price: high to low","en-GB":"Price: high to low","en-US":"Price: high to low","es-ES":"Precio: de mayor a menor","es-MX":"Precio: de mayor a menor","fi":"Hinta: korkein ensin","fr-CA":"Prix : du plus élevé au plus bas","fr-FR":"Prix : du plus élevé au plus bas","gu-IN":"કિંમત: ઊંચીથી નીચી","he":"מחיר: מהגבוה לנמוך","hi":"कीमत: अधिक से कम","hr":"Cijena: od više prema nižoj","hu":"Ár: csökkenő sorrendben","id":"Harga: tertinggi ke terendah","it":"Prezzo: dal più alto al più basso","ja":"価格：高い順","kn-IN":"ಬೆಲೆ: ಹೆಚ್ಚಿನದರಿಂದ ಕಡಿಮೆಗೆ","ko":"가격: 높은 순","ml-IN":"വില: ഉയർന്നതിൽ നിന്ന് താഴേക്ക്","mr-IN":"किंमत: जास्त ते कमी","ms":"Harga: tinggi ke rendah","nl-NL":"Prijs: hoog naar laag","no":"Pris: høyest først","or-IN":"ମୂଲ୍ୟ: ଅଧିକରୁ କମ୍","pa-IN":"ਕੀਮਤ: ਵੱਧ ਤੋਂ ਘੱਟ","pl":"Cena: od najwyższej","pt-BR":"Preço: do maior para o menor","pt-PT":"Preço: do mais alto para o mais baixo","ro":"Preț: de la mare la mic","ru":"Цена: по убыванию","sk":"Cena: od najvyššej","sl-SI":"Cena: od najvišje","sv":"Pris: högst först","ta-IN":"விலை: அதிகம் முதல் குறைவு","te-IN":"ధర: ఎక్కువ నుంచి తక్కువ","th":"ราคา: สูงไปต่ำ","tr":"Fiyat: yüksekten düşüğe","uk":"Ціна: від найвищої","ur-PK":"قیمت: زیادہ سے کم","vi":"Giá: từ cao xuống thấp","zh-Hans":"价格：从高到低","zh-Hant":"價格：由高至低"};
   const highToLowLabel=()=>highToLowLabels[i18n?.locale]||highToLowLabels['en-US'];
   function setDescendingOrderLabels(){
-    const label=highToLowLabel();
+    // A descending-price claim is meaningful only while fresh prices exist.
+    const label=priceVerified()?highToLowLabel():t('checkPrice');
     document.querySelectorAll('[data-tsz-high-to-low]').forEach(node=>{if(node.textContent!==label)node.textContent=label;});
-    const sort=$('sort');if(sort&&sort.getAttribute('aria-label')!==label)sort.setAttribute('aria-label',label);
+    const sort=$('sort');
+    if(sort){
+      // Describe the selected sort mode, not a different (unselected) option.
+      const selectedLabel=sort.selectedOptions?.[0]?.textContent?.trim() || label;
+      if(sort.getAttribute('aria-label')!==selectedLabel)sort.setAttribute('aria-label',selectedLabel);
+    }
   }
   const paidTierState={country:'',key:'all',visible:4};
   const paidTierKey=app=>app.currency+':'+String(app.price);
@@ -329,7 +335,7 @@
     const verified=priceVerified();
     buttons.setAttribute('aria-label',highToLowLabel());
     $('paid-tier-explorer').setAttribute('aria-label',highToLowLabel());
-    if(paidTierState.country!==model.country || !verified){
+    if(paidTierState.country!==model.country){
       paidTierState.country=model.country;paidTierState.key='all';paidTierState.visible=4;
     }
     const known=verified ? model.apps.filter(a=>Number.isFinite(a.price)&&a.price>=0&&/^[A-Z]{3}$/.test(a.currency||'')) : [];
@@ -341,7 +347,7 @@
     for(const app of candidates){const key=paidTierKey(app);
       if(!tiers.has(key))tiers.set(key,[]);tiers.get(key).push(app);
     }
-    if(paidTierState.key!=='all'&&!tiers.has(paidTierState.key)){
+    if(verified && paidTierState.key!=='all'&&!tiers.has(paidTierState.key)){
       paidTierState.key='all';paidTierState.visible=4;
     }
     const highestKnown=candidates[0]||null;
@@ -358,7 +364,7 @@
         b.setAttribute('aria-label',label+' · '+t('shown',{count:quantity}));
         b.addEventListener('click',()=>{
           if(!priceVerified()) { if(!model.priceLoading) void refreshLocale(); return; }
-          paidTierState.key=key;paidTierState.visible=4;renderLowestPaid();
+          paidTierState.key=key!=='all'&&paidTierState.key===key?'all':key;paidTierState.visible=4;renderLowestPaid();
         });chips.append(b);
       };
       addChip('all',t('all'),candidates.length);
@@ -647,7 +653,7 @@
     if(!priceVerified()) { if(!model.priceLoading) void refreshLocale(); return; }
     paidTierState.visible+=4;renderLowestPaid();
   });
-  $('sort').addEventListener('change',e=>{model.sort=e.target.value;render();});
+  $('sort').addEventListener('change',e=>{model.sort=e.target.value;setDescendingOrderLabels();render();});
   document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{
     model.filter=button.dataset.filter;
     document.querySelectorAll('[data-filter]').forEach(b=>b.setAttribute('aria-pressed',b===button?'true':'false'));
