@@ -207,6 +207,15 @@
     const link=trustedUrl(app.appStoreUrl,'store');
     if (link) { const a=el('a','',t('viewApp')+' ↗');a.href=link;a.target='_blank';a.rel='noopener noreferrer';
       a.setAttribute('aria-label',t('viewApp')+': '+app.name);markMeasurementLink(a,app);bottom.append(a); }
+    // P19-9: explicit per-card detail link. No MutationObserver; catalog cards are
+    // recreated by this renderer. PromptDock retains its previously approved link.
+    if (Number.isSafeInteger(app.id) && /^\d{8,12}$/.test(String(app.id)) && app.id !== 6772130038) {
+      const story=el('a','p199-story-link',/^ja(?:-|$)/i.test(i18n?.locale||'')?'詳しく見る':'Explore details');
+      story.href='./apps/'+app.id+'/';
+      story.setAttribute('aria-label',story.textContent+': '+app.name);
+      const store=bottom.querySelector('a[href]');
+      if(store) bottom.insertBefore(story,store);
+    }
     article.append(top,category,title);if(subtitle)article.append(subtitle);article.append(description,bottom);return article;
   }
   function categoryKey(app) { return String(app.category || 'App').trim() || 'App'; }
