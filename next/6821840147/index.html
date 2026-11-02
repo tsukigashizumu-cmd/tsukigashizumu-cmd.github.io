@@ -1,4 +1,4 @@
-<!-- APPDOCK_P18_FOLDER_ENTRY_V1 id=6821840147 fnv64=4308f8289f35127e -->
+<!-- APPDOCK_P18_FOLDER_ENTRY_V1 id=6821840147 fnv64=89e2fbf5f52e160d -->
 <!doctype html>
 <html lang="en-US">
 <head>
@@ -83,18 +83,19 @@
   <script defer src="./tsz-p198c.js"></script>
   <link rel="stylesheet" href="./tsz-p198cr2.css">
   <link rel="stylesheet" href="./tsz-p198e.css">
+  <link rel="stylesheet" href="./tsz-p198f.css">
 </head>
 <body>
   <div class="shell">
-    <header class="site-head">
-      <a class="brand" href="../" aria-label="Tsukigashizumu Studio"><span class="brand-mark">t.</span><span>tsukigashizumu <span class="dim">studio</span></span></a>
-      <div class="header-actions">
+    <!-- TSZ_P19_8F_PREMIUM_HEADER: original control IDs and event bindings preserved -->
+    <header class="site-head tsz-premium-head">
+      <a class="brand" href="../" aria-label="Tsukigashizumu Studio"><span class="brand-mark">t.</span><span class="tsz-premium-wordmark"><span class="tsz-premium-name">tsukigashizumu</span><span class="dim">studio</span></span></a>
+      <div class="header-actions tsz-premium-controls">
         <label class="locale-wrap"><span class="sr-only" data-i18n="language">Language</span><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c-7 6-7 12 0 18M12 3c7 6 7 12 0 18"></path></svg><select id="locale-select" aria-label="Language"></select></label>
         <label class="tsz-storefront-control" for="tsz-storefront-select"><span class="tsz-storefront-symbol" aria-hidden="true">◎</span><span class="sr-only">App Store</span><select id="tsz-storefront-select" aria-label="App Store country / region"></select></label>
         <button type="button" class="tsz-storefront-auto" id="tsz-storefront-auto" aria-label="Match App Store to language" title="Match App Store to language">↺</button>
-        <span id="tsz-storefront-message" class="tsz-storefront-message" role="status" aria-live="polite" aria-atomic="true"></span>
-        <a id="developer-link" class="storefront-link" href="https://apps.apple.com/us/developer/makoto-fukuoka/id1817908735" rel="noopener noreferrer" target="_blank"><span data-i18n="developer">Developer page</span> <span aria-hidden="true">↗</span></a>
       </div>
+      <a id="developer-link" class="storefront-link tsz-premium-developer" href="https://apps.apple.com/us/developer/makoto-fukuoka/id1817908735" rel="noopener noreferrer" target="_blank"><span data-i18n="developer">Developer page</span> <span aria-hidden="true">↗</span></a>
     </header>
     <main>
       <section class="hero" aria-labelledby="headline">
@@ -225,6 +226,7 @@
         <div class="category-header"><span data-i18n="lpCategories">Browse by category</span></div><div id="category-filters" class="category-filters" role="group" aria-label="Browse by category"></div>
         <p id="status" class="status" role="status" aria-live="polite" data-i18n="loading">Loading catalog…</p>
         <p id="description-source" class="source-note" data-i18n="sourceInfo">App descriptions may appear in another language, even in your region.</p>
+        <p id="tsz-storefront-message" class="tsz-storefront-message tsz-premium-storefront-note" role="status" aria-live="polite" aria-atomic="true"></p>
         <div id="apps" class="app-grid" aria-live="off"></div>
       </section>
     </main>
