@@ -423,6 +423,66 @@
     if (count===0) { status.textContent=t('noMatch');return; }
     status.textContent=t('shown',{count})+' · '+t('catalogNote')+(model.stale?' '+t('stale'):'');
   }
+  // P19-8E6: preserve the reader's place when this catalog gets rebuilt by a
+  // fresh price lookup. Only open descriptions currently in #apps are recorded.
+  // No MutationObserver, polling, browser storage or extra price requests.
+  let lastRenderedOverviewLocale=null;
+  function captureReadingState(area) {
+    const saved=new Map();
+    const active=document.activeElement;
+    area.querySelectorAll('details.tsz-description-details[open][data-tsz-app-id]').forEach(details=>{
+      const body=details.querySelector('.tsz-description-content');
+      if(!body || body.dataset.loaded!=='true')return;
+      let focus=null;
+      if(active===details.querySelector('.tsz-description-trigger'))focus='summary';
+      else {
+        const buttons=details.querySelectorAll('.tsz-description-line-button');
+        if(active===buttons[0])focus='up';
+        else if(active===buttons[1])focus='down';
+      }
+      saved.set(details.dataset.tszAppId,{
+        top:body.scrollTop,
+        range:Math.max(0,body.scrollHeight-body.clientHeight),
+        content:body.textContent,
+        focus
+      });
+    });
+    return saved;
+  }
+  function restoreReadingState(area,saved) {
+    if(!saved.size)return;
+    area.querySelectorAll('details.tsz-description-details[open][data-tsz-app-id]').forEach(details=>{
+      const previous=saved.get(details.dataset.tszAppId);
+      if(!previous)return;
+      const body=details.querySelector('.tsz-description-content');
+      if(!body || body.dataset.loaded!=='true')return;
+      const nextRange=Math.max(0,body.scrollHeight-body.clientHeight);
+      // Exact pixels when the prose is unchanged; approximate reading progress
+      // if a newer localized description replaces the old one on the same page.
+      const target=body.textContent===previous.content
+        ? previous.top
+        : previous.range>0 ? (previous.top/previous.range)*nextRange : 0;
+      body.scrollTop=Math.max(0,Math.min(nextRange,target));
+      if(!previous.focus)return;
+      const buttons=details.querySelectorAll('.tsz-description-line-button');
+      const targetControl=previous.focus==='summary'
+        ? details.querySelector('.tsz-description-trigger')
+        : previous.focus==='up'?buttons[0]:buttons[1];
+      if(targetControl){
+        const controlArea=targetControl.closest('.tsz-description-controls');
+        // The overview module hides line controls until its next animation
+        // frame. Make a previously focused control available synchronously,
+        // so consecutive price-driven repaints cannot erase keyboard focus.
+        if(controlArea && nextRange>1)controlArea.hidden=false;
+        const chosen=(targetControl.disabled || (controlArea && controlArea.hidden))
+          ? details.querySelector('.tsz-description-trigger') : targetControl;
+        if(chosen){
+          try {chosen.focus({preventScroll:true});}
+          catch(_) {chosen.focus();}
+        }
+      }
+    });
+  }
   function render() {
     let apps=model.apps.filter(matchesChoices);
     let collator;try{collator=new Intl.Collator(i18n.locale,{sensitivity:'base'});}catch(_){collator=new Intl.Collator('en-US');}
@@ -430,7 +490,11 @@
       ? (a,b)=>collator.compare(a.name,b.name)
       : (a,b)=>((Number.isFinite(b.price)?b.price:-Infinity)-(Number.isFinite(a.price)?a.price:-Infinity)) || collator.compare(a.name,b.name));
     const area=$('apps');const frag=document.createDocumentFragment();
+    const previousLocale=lastRenderedOverviewLocale;
+    const readingState=previousLocale===i18n.locale ? captureReadingState(area) : new Map();
     apps.forEach(app=>frag.append(card(app)));area.replaceChildren(frag);
+    restoreReadingState(area,readingState);
+    lastRenderedOverviewLocale=i18n.locale;
     statusUpdate(apps.length);
     renderPurpose(apps);
   }
