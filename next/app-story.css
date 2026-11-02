@@ -882,3 +882,45 @@ body[data-p199-id="6804756267"] .p199r6-thumb img{height:72px;max-width:54px}
     flex-wrap:nowrap;
   }
 }
+
+/* P19-9R6R5R2: BuyPrice real image containment / CSS ONLY. */
+/* Keep the R6R5 right-side control and thumbnail geometry. On desktop, the
+   screenshot can approach the thumbnail tier, but must never touch the card edge. */
+@media (min-width:761px){
+  body[data-p199-id="6804756267"] .p199r6-stage{
+    overflow:hidden;
+  }
+  body[data-p199-id="6804756267"] .p199r6-visual{
+    box-sizing:border-box;
+    padding:0 0 clamp(16px,2vw,24px);
+    min-height:0;
+    min-width:0;
+    overflow:hidden;
+    align-items:flex-start;
+  }
+  body[data-p199-id="6804756267"] .p199r6-image{
+    box-sizing:border-box;
+    display:block;
+    height:100%;
+    max-height:min(100%,640px);
+    width:auto;
+    max-width:100%;
+    object-fit:contain;
+    object-position:top center;
+    flex:0 1 auto;
+  }
+}
+/* Keep the existing mobile stack untouched; contain the photo if it grows
+   beyond its viewport on an unexpectedly tall App Store screenshot. */
+@media (max-width:760px){
+  body[data-p199-id="6804756267"] .p199r6-visual{
+    box-sizing:border-box;
+    overflow:hidden;
+  }
+  body[data-p199-id="6804756267"] .p199r6-image{
+    box-sizing:border-box;
+    max-height:100%;
+    max-width:100%;
+    object-fit:contain;
+  }
+}
