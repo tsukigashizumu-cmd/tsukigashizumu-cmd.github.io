@@ -1,4 +1,4 @@
-<!-- APPDOCK_P18_FOLDER_ENTRY_V1 id=6798447816 fnv64=3de506b191784a10 -->
+<!-- APPDOCK_P18_FOLDER_ENTRY_V1 id=6798447816 fnv64=4308f8289f35127e -->
 <!doctype html>
 <html lang="en-US">
 <head>
@@ -82,6 +82,7 @@
   <link rel="stylesheet" href="./tsz-p198c.css">
   <script defer src="./tsz-p198c.js"></script>
   <link rel="stylesheet" href="./tsz-p198cr2.css">
+  <link rel="stylesheet" href="./tsz-p198e.css">
 </head>
 <body>
   <div class="shell">
@@ -129,8 +130,8 @@
           </summary>
           <div class="p198-disclosure"><div class="p198-link-grid">
             <a class="p198-chapter" href="#choose"><span class="p198-n">01</span><span data-i18n="collection">THE COLLECTION</span></a>
-            <a class="p198-chapter" href="#free-now"><span class="p198-n">02</span><span data-i18n="freeAt">Free at last check</span></a>
-            <a class="p198-chapter" href="#paid-now"><span class="p198-n">03</span><span data-i18n="paid">Paid</span></a>
+            <a class="p198-chapter" href="#paid-now"><span class="p198-n">02</span><span data-i18n="paid">Paid</span></a>
+            <a class="p198-chapter" href="#free-now"><span class="p198-n">03</span><span data-i18n="freeAt">Free at last check</span></a>
             <a class="p198-chapter" href="#catalog"><span class="p198-n">04</span><span data-i18n="explore">Explore the apps</span></a>
           </div></div>
         </details>
@@ -165,21 +166,26 @@
           </div>
         </div>
       </section>
+      <section class="paid-section" id="paid-now" aria-labelledby="paid-title">
+        <div class="section-head paid-head">
+          <div>
+            <div class="eyebrow" data-tsz-high-to-low>Price: high to low</div>
+            <div class="paid-title-row"><h2 id="paid-title" data-i18n="paid">Paid</h2><button type="button" id="paid-floor" class="paid-floor" disabled aria-pressed="false">—</button></div>
+          </div>
+          <a class="section-link" href="#catalog"><span data-i18n="explore">Explore the apps</span> <span aria-hidden="true">↗</span></a>
+        </div>
+        <div id="paid-tier-explorer" class="tsz-paid-tier-explorer" aria-label="Price tiers">
+          <div class="tsz-paid-tier-header"><span class="tsz-paid-tier-eyebrow" data-tsz-high-to-low>Price: high to low</span><span id="paid-tier-count" class="tsz-paid-tier-count" role="status" aria-live="polite">—</span></div>
+          <div id="paid-tier-buttons" class="tsz-paid-tier-buttons" role="group" aria-label="Price tiers"></div>
+        </div>
+        <p id="paid-status" class="section-note" role="status" aria-live="polite"></p>
+        <div id="paid-apps" class="paid-grid"></div>
+        <button id="paid-tier-more" class="tsz-paid-tier-more" type="button" hidden></button>
+      </section>
       <section class="free-section" id="free-now" aria-labelledby="free-title">
         <div class="section-head free-head"><div><div class="eyebrow"><span class="live-dot"></span><span data-i18n="freeAt">Free at last check</span></div><div class="free-title-row"><h2 id="free-title" data-i18n="freePrice">FREE</h2><span id="free-total" class="free-total" aria-live="polite">—</span></div></div><a class="section-link" href="#catalog"><span data-i18n="explore">Explore the apps</span> <span aria-hidden="true">↗</span></a></div>
         <p id="free-status" class="section-note" role="status" aria-live="polite"></p>
         <div id="free-apps" class="free-grid"></div>
-      </section>
-      <section class="paid-section" id="paid-now" aria-labelledby="paid-title">
-        <div class="section-head paid-head">
-          <div>
-            <div class="eyebrow" data-i18n="priceSort">Price: low to high</div>
-            <div class="paid-title-row"><h2 id="paid-title" data-i18n="paid">Paid</h2><span id="paid-floor" class="paid-floor" aria-live="polite">—</span></div>
-          </div>
-          <a class="section-link" href="#catalog"><span data-i18n="explore">Explore the apps</span> <span aria-hidden="true">↗</span></a>
-        </div>
-        <p id="paid-status" class="section-note" role="status" aria-live="polite"></p>
-        <div id="paid-apps" class="paid-grid"></div>
       </section>
       <section id="appdock-original-shelf" aria-labelledby="appdock-original-title" hidden>
         <div class="section-head"><div><div class="eyebrow">DEVELOPER PICKS</div><h2 id="appdock-original-title">Small tools with a different perspective</h2></div></div>
@@ -214,7 +220,7 @@
         <div class="toolbar">
           <label class="search-wrap"><span class="sr-only" data-i18n="search">Search apps</span><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"></circle><path d="m16.5 16.5 5 5"></path></svg><input id="search" type="search" autocomplete="off" placeholder="Search…" data-i18n-placeholder="search"></label>
           <div class="segmented" role="group" aria-label="Filter apps"><button data-filter="all" aria-pressed="true" data-i18n="all">All</button><button data-filter="free" aria-pressed="false" data-i18n="free">Free</button><button data-filter="paid" aria-pressed="false" data-i18n="paid">Paid</button></div>
-          <label class="sort-label"><select id="sort" aria-label="Sort"><option value="price" data-i18n="priceSort">Price: low to high</option><option value="name" data-i18n="nameSort">Name: A to Z</option></select></label>
+          <label class="sort-label"><select id="sort" aria-label="Sort"><option value="price" data-tsz-high-to-low>Price: high to low</option><option value="name" data-i18n="nameSort">Name: A to Z</option></select></label>
         </div>
         <div class="category-header"><span data-i18n="lpCategories">Browse by category</span></div><div id="category-filters" class="category-filters" role="group" aria-label="Browse by category"></div>
         <p id="status" class="status" role="status" aria-live="polite" data-i18n="loading">Loading catalog…</p>
