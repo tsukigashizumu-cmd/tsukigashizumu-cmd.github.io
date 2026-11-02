@@ -164,6 +164,85 @@
     btn.addEventListener('click',()=>openViewer(i));
     row.append(copy,btn);return row;
   }
+  // P19-9R6R1: captions only where the app's real purpose is verified.
+  // Unverified screenshots show their real original number without invented claims.
+  function sharedEditorialDetail(shot, jp, num){
+    if(id==='6804757287'){
+      const ja=[
+        ['価格と待ち時間を、同時に見る','現在価格・目標価格・待てる日数を入力して、節約額と時間の関係を比べます。'],
+        ['条件を変えて、納得して選ぶ','金額や日数を変えて、いま買うか待つかを自分の基準で考えられます。'],
+        ['数字を変えて、もう一度比べる','別の価格条件でも、差額と待つ時間の関係を確認できます。'],
+        ['値下がりは予測しない','未来のセール価格ではなく、入力した価格と日数をもとに比較します。'],
+        ['待つ価値を、自分で決める','節約できる金額と待つ時間を見ながら、購入のタイミングを考えます。']
+      ];
+      const en=[
+        ['See the cost of waiting','Compare today’s price, your target price, and how many days you could wait.'],
+        ['Change the inputs, own the choice','Try different prices and time windows before deciding whether to buy or wait.'],
+        ['Compare another scenario','See how the difference in price relates to the time you would spend waiting.'],
+        ['Not a price prediction','The calculation uses your inputs, not a guess about future sales.'],
+        ['Decide what your time is worth','Consider both possible savings and the time you are willing to wait.']
+      ];
+      const idx=Math.max(0,Math.min(4,shot.sourceIndex));
+      const d=(jp?ja:en)[idx];return {heading:d[0],body:d[1]};
+    }
+    return {heading:(jp?'実画面 ':'Screen ')+num,body:''};
+  }
+  // P19-9R6: shared editorial gallery pilot, no invented per-screenshot claims.
+  const R6_PILOTS=new Set(["6760823598","6761338604","6762347699","6763169050","6765972725","6767983547","6768180849","6768219693","6769388691","6774479410","6775229100","6778138017","6781131521","6781497015","6781817734","6786129971","6787928513","6794575766","6795788626","6796486391","6798447816","6802814389","6804756043","6804756267","6804756535","6804756968","6804757195","6804757287","6808427228","6820674560","6821840147","6822927747"]);
+  function sharedStoryStage(indexes){
+    const jp=/^ja(?:-|$)/i.test(state.locale),m=state.media;
+    const section=make('section','p199r6-stage');
+    const mast=make('div','p199r6-mast');
+    mast.append(make('span','p199r6-kicker','APP / SCREEN COLLECTION'),
+      make('span','p199r6-total',String(indexes.length).padStart(2,'0')+' '+(jp?'枚の掲載画像':'ORIGINAL SCREENS')));
+    const stage=make('div','p199r6-layout');
+    const visual=make('button','p199r6-visual');visual.type='button';
+    const image=make('img','p199r6-image');image.loading='eager';image.decoding='async';image.referrerPolicy='no-referrer';
+    const failText=make('span','p199r6-image-fail',jp?'画像を読み込めませんでした':'Screenshot unavailable');failText.hidden=true;
+    image.addEventListener('error',()=>{image.hidden=true;failText.hidden=false;});
+    image.addEventListener('load',()=>{image.hidden=false;failText.hidden=true;});
+    visual.append(image,failText);
+    const narrative=make('div','p199r6-side');
+    const issue=make('span','p199r6-number');
+    const heading=make('h3','p199r6-title',title());heading.dir='auto';
+    const sub=make('p','p199r6-caption',jp?'App Storeに掲載されているアプリの実画面です。':'An original app screenshot shown on the App Store.');
+    const hint=make('p','p199r6-hint',jp?'番号を選ぶと、表示する画面が切り替わります。':'Select a number to switch screenshots.');
+    const inspect=make('button','p199r6-inspect',jp?'画面を拡大':'Enlarge screenshot');inspect.type='button';
+    const nav=make('div','p199r6-control');
+    const prev=make('button','p199r6-prev','‹'),next=make('button','p199r6-next','›');
+    prev.type='button';next.type='button';
+    prev.title=jp?'前の画像':'Previous screenshot';next.title=jp?'次の画像':'Next screenshot';
+    const count=make('span','p199r6-current');
+    nav.append(prev,count,next);
+    narrative.append(issue,heading,sub,hint,inspect,nav);stage.append(visual,narrative);
+    const rail=make('div','p199r6-rail');
+    let selected=0;
+    const buttons=indexes.map((original,k)=>{
+      const shot=m[original],number=String(shot.sourceIndex+1).padStart(2,'0');
+      const button=make('button','p199r6-thumb');button.type='button';
+      button.setAttribute('aria-label',(jp?'画面 ':'Screenshot ')+number);
+      const pic=make('img','');pic.loading='lazy';pic.decoding='async';pic.referrerPolicy='no-referrer';pic.alt='';pic.src=shot.src;
+      button.append(pic,make('span','',number));
+      button.addEventListener('click',()=>show(k));rail.append(button);return button;
+    });
+    function show(k){
+      selected=(k+indexes.length)%indexes.length;
+      const shot=m[indexes[selected]],num=String(shot.sourceIndex+1).padStart(2,'0');
+      image.hidden=false;failText.hidden=true;image.src=shot.src;
+      image.alt=(jp?'実際のアプリ画面 ':'App screenshot ')+num;
+      issue.textContent=(jp?'実画面 ':'SCREEN ')+num;
+      const editorial=sharedEditorialDetail(shot, jp, num);
+      heading.textContent=editorial.heading;
+      sub.textContent=editorial.body;
+      hint.hidden=(id==='6804757287');
+      count.textContent=num+' / '+String(indexes.length).padStart(2,'0');
+      buttons.forEach((b,i)=>{b.classList.toggle('is-active',i===selected);b.setAttribute('aria-pressed',String(i===selected));});
+      visual.onclick=()=>openViewer(indexes[selected]);inspect.onclick=()=>openViewer(indexes[selected]);
+    }
+    prev.addEventListener('click',()=>show(selected-1));next.addEventListener('click',()=>show(selected+1));
+    section.append(mast,stage,rail);show(0);return section;
+  }
+
   // P19-9R4: One real-image editorial stage with a compact five-screen navigator.
   // Special descriptions only belong to verified original Apple screenshot slots 03/04.
   let discountFocus=2;
@@ -262,8 +341,11 @@
       // Original Apple screenshots in numeric order; start on 03 when possible.
       const ordered=m.map((_,i)=>i).sort((a,b)=>m[a].sourceIndex-m[b].sourceIndex);
       holder.append(discountStoryStage(ordered));
+    } else if(R6_PILOTS.has(id)){
+      const ordered=m.map((_,i)=>i).sort((a,b)=>m[a].sourceIndex-m[b].sourceIndex);
+      holder.append(sharedStoryStage(ordered));
     } else preferred.forEach((i,n)=>holder.append(storyRow(i,n,false)));
-    if(extra.length && id!=='6802308517'){
+    if(extra.length && id!=='6802308517' && !R6_PILOTS.has(id)){
       const more=make('details','p199-more-screens');
       const summary=make('summary','',/^ja(?:-|$)/i.test(state.locale)?'ほかの画面を見る（'+extra.length+'枚）':'See more screenshots ('+extra.length+')');
       const list=make('div','p199-extra-screens');
