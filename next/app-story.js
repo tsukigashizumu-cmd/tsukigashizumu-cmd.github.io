@@ -60,6 +60,13 @@
   }
   function renderDescription(value){const root=$('p199-full');root.replaceChildren();for(const p of paras(value)){const node=make('p','',p);node.dir='auto';root.append(node);}if(!root.children.length)root.append(make('p','',tx().error));}
   function renderHighlights(value){
+    if(id==='6794575766'){
+      const jp=/^ja(?:-|$)/i.test(state.locale);
+      const items=hitotsubuEditorial(jp).highlights;
+      const list=$('p199-points');list.replaceChildren();
+      items.forEach((value,i)=>{const row=make('article','p199-point');row.append(make('span','p199-point-num',String(i+1).padStart(2,'0')));const p=make('p','',value);p.dir='auto';row.append(p);list.append(row);});
+      $('features').hidden=false;return;
+    }
     // Actual paragraphs, not inferred steps or fabricated user cases.
     const list=$('p199-points');list.replaceChildren();const chunks=paras(value).slice(1,4);
     chunks.forEach((p,i)=>{const row=make('article','p199-point');row.append(make('span','p199-point-num',String(i+1).padStart(2,'0')));const copy=make('p','',p);copy.dir='auto';row.append(copy);list.append(row);});
@@ -79,7 +86,7 @@
     const t=tx(),d=desc(),app=getApp();document.documentElement.lang=state.locale;document.documentElement.dir=rtl.has(state.locale)?'rtl':'ltr';
     document.title=title()+' · Tsukigashizumu Studio';set('p199-title',title());set('p199-crumb',title());
     const icon=$('p199-icon'),url=imageURL(app.artworkUrl);if(url){icon.src=url;icon.hidden=false;icon.onerror=()=>{icon.hidden=true;};}else icon.hidden=true;
-    const summary=heroSummary(d.value,subtitle());set('p199-lead',summary.lead||title());set('p199-intro',summary.intro);
+    const summary=heroSummary(d.value,subtitle());set('p199-lead',summary.lead||title());set('p199-intro',summary.intro);if(id==='6794575766'){const copy=hitotsubuEditorial(/^ja(?:-|$)/i.test(state.locale));set('p199-lead',copy.heroLead);set('p199-intro',copy.heroIntro);}
     set('p199-category',(app.category||'App')+' / App Store');set('p199-eyebrow',t.label);
     set('p199-all',t.all);set('p199-back',t.back);set('p199-store',t.store);set('p199-bottom-store',t.store);set('p199-price-note',t.price);
     $('p199-store').href=storeLink();$('p199-bottom-store').href=storeLink();set('p199-language-label',t.language);set('p199-country-label',t.region);
@@ -88,7 +95,7 @@
     set('p199-source','');
     const fall=$('p199-fallback');fall.hidden=!d.fallback;if(d.fallback)fall.textContent=escLocale(t.fallback,{locale:d.locale});
     set('p199-about-head',t.about);set('p199-screen-head',t.screen);set('p199-features-head',t.features);set('p199-full-head',t.full);set('p199-related-head',t.related);
-    set('p199-section-lead',opening(d.value));set('p199-about-caption',t.aboutCaption);set('p199-full-caption',t.fullCaption);set('p199-proof-caption',t.noReviews);
+    set('p199-section-lead',id==='6794575766'?hitotsubuEditorial(/^ja(?:-|$)/i.test(state.locale)).about:opening(d.value));set('p199-about-caption',t.aboutCaption);set('p199-full-caption',t.fullCaption);set('p199-proof-caption',t.noReviews);
     set('p199-image-note',t.screenNote);set('p199-image-fallback',t.noScreen);set('p199-image-unavailable',t.noScreen);set('p199-image-count-label',t.count);
     set('p199-toc-head',t.toc);set('p199-details-label',t.full);set('p199-full-toggle',t.fullToggle);set('p199-related-caption',t.more);
     renderDescription(d.value);renderHighlights(d.value);makeRelated();
@@ -166,7 +173,17 @@
   }
   // P19-9R6R1: captions only where the app's real purpose is verified.
   // Unverified screenshots show their real original number without invented claims.
+  // P19-9R6R9R10R1 Hitotsubu screen-by-screen editorial and concise overview.
+  function hitotsubuEditorial(jp){
+    const copy={"ja":{"heroLead":"今日の小さな出来事を、ひと粒ずつ。","heroIntro":"嬉しかったこと、助かったこと、今日を終えられたこと。タップでひと粒を残し、瓶から木箱へと積み重ねます。","about":"小さな出来事や気持ちを、タップひとつで粒として残すアプリ。粒が瓶にたまり、瓶は木箱へ、さらに大きな保管場所へと積み重なっていきます。","highlights":["覚えておきたい瞬間を、長い文章を書かずにひと粒として残せます。","ひと粒ずつ瓶にたまり、瓶から木箱、コンテナ、倉庫へと積み重なります。","残した粒は編集も削除もできません。過ごした時間を、そのまま残す設計です。"],"screens":[{"eyebrow":"01 / ひと粒を残す","heading":"何でもない日にも、ひと粒。","body":"嬉しかったことや、少し助かったこと。覚えておきたい瞬間を、タップして瓶に残します。"},{"eyebrow":"02 / 瓶が増えていく","heading":"小さな記録が、たまっていく。","body":"ひと粒ずつ集まった時間は、瓶になり、木箱へ。積み重ねが目に見える形になります。"},{"eyebrow":"03 / 積み重ねを眺める","heading":"ひと粒が、こんな景色になる。","body":"瓶や木箱が並び、残した時間がひとつの景色に。何もなかったと思う日々にも、粒は残っています。"}]},"en":{"heroLead":"Keep one small moment from today.","heroIntro":"Something good, a little help, or simply getting through the day. Save a grain with a tap and watch your collection grow.","about":"Save small moments and feelings as grains with a single tap. Grains fill jars; jars become crates, then larger stores of the time you have lived.","highlights":["Mark a moment worth remembering with a tap. No long journal entry is needed.","Grains gather in jars, then in crates, containers, and eventually a warehouse.","Saved grains cannot be edited or deleted. Each one stays as part of the day you lived."],"screens":[{"eyebrow":"01 / SAVE A GRAIN","heading":"One small thing from today.","body":"Something made you smile or helped you through. Tap to leave a grain in your jar."},{"eyebrow":"02 / WATCH IT GROW","heading":"Small moments add up.","body":"Grains gather in jars, then into crates. Watch everyday moments become something you can see."},{"eyebrow":"03 / YOUR COLLECTION","heading":"A whole world from one grain.","body":"Jars and crates form a growing scene. Even days that felt empty can leave something behind."}]}};
+    return copy[jp?"ja":"en"];
+  }
   function sharedEditorialDetail(shot, jp, num){
+    if(id==='6794575766'){
+      const source=Number(shot && shot.sourceIndex);
+      const page=Number.isInteger(source) && source>=0 && source<3 ? hitotsubuEditorial(jp).screens[source] : null;
+      if(page)return {eyebrow:page.eyebrow,heading:page.heading,body:page.body};
+    }
     // P19-9R6R9R9R1 HaulStamp: feature-grounded draft copy by sourceIndex (visual mapping pending).
     if(id==='6798447816'){
       const haulStampStories={"ja":[{"eyebrow":"荷待ち・荷役の記録","heading":"見えない時間を、記録に残す。","body":"荷待ち時間と荷役時間を、その場で測って記録。あとで確かめられる形に残します。"},{"eyebrow":"時間を分けて把握","heading":"待つ時間も、作業する時間も。","body":"荷待ちと荷役を別々に記録し、どれくらい時間がかかったかを振り返れます。"},{"eyebrow":"数量と重量","heading":"扱った荷物も、一緒に記録。","body":"個数と1個あたりの重量を入力し、合計重量を確認できます。"},{"eyebrow":"時間単価の目安","heading":"時間と単価から、参考額へ。","body":"設定した時間単価と記録時間から参考額を計算。請求額や法的な金額の確定ではありません。"},{"eyebrow":"履歴と出力","heading":"残した記録を、あとから使える。","body":"履歴を振り返り、必要に応じてPDF・CSV・テキストで出力・共有できます。"}],"en":[{"eyebrow":"WAITING & HANDLING","heading":"Keep a record of time that matters.","body":"Track waiting and cargo-handling time as it happens, then return to a saved record."},{"eyebrow":"SEPARATE TIME RECORDS","heading":"Time spent waiting. Time spent working.","body":"Record waiting and cargo handling separately to review how long each activity took."},{"eyebrow":"QUANTITY & WEIGHT","heading":"Keep the load details together.","body":"Record the item count and weight per item, then check the total weight."},{"eyebrow":"HOURLY RATE ESTIMATE","heading":"Turn time and rates into an estimate.","body":"Use the hourly rates you set and recorded time to view a reference estimate—not a confirmed invoice or legal amount."},{"eyebrow":"HISTORY & EXPORT","heading":"Save the work. Share the record.","body":"Review past records and export them as PDF, CSV, or text when needed."}]};
@@ -306,6 +323,7 @@
       heading.textContent=editorial.heading;
       if((id==='6822927747' || id==='6778138017') && editorial.eyebrow) issue.textContent=editorial.eyebrow;
       sub.textContent=editorial.body;
+      if(id==='6794575766' && editorial.eyebrow) issue.textContent=editorial.eyebrow;
       if(id==='6798447816' && editorial.eyebrow) issue.textContent=editorial.eyebrow;
       hint.hidden=(id==='6804757287');
       count.textContent=num+' / '+String(indexes.length).padStart(2,'0');
