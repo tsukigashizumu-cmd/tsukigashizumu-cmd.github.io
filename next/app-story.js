@@ -167,6 +167,13 @@
   // P19-9R6R1: captions only where the app's real purpose is verified.
   // Unverified screenshots show their real original number without invented claims.
   function sharedEditorialDetail(shot, jp, num){
+    // P19-9R6R9R9R1 HaulStamp: feature-grounded draft copy by sourceIndex (visual mapping pending).
+    if(id==='6798447816'){
+      const haulStampStories={"ja":[{"eyebrow":"荷待ち・荷役の記録","heading":"見えない時間を、記録に残す。","body":"荷待ち時間と荷役時間を、その場で測って記録。あとで確かめられる形に残します。"},{"eyebrow":"時間を分けて把握","heading":"待つ時間も、作業する時間も。","body":"荷待ちと荷役を別々に記録し、どれくらい時間がかかったかを振り返れます。"},{"eyebrow":"数量と重量","heading":"扱った荷物も、一緒に記録。","body":"個数と1個あたりの重量を入力し、合計重量を確認できます。"},{"eyebrow":"時間単価の目安","heading":"時間と単価から、参考額へ。","body":"設定した時間単価と記録時間から参考額を計算。請求額や法的な金額の確定ではありません。"},{"eyebrow":"履歴と出力","heading":"残した記録を、あとから使える。","body":"履歴を振り返り、必要に応じてPDF・CSV・テキストで出力・共有できます。"}],"en":[{"eyebrow":"WAITING & HANDLING","heading":"Keep a record of time that matters.","body":"Track waiting and cargo-handling time as it happens, then return to a saved record."},{"eyebrow":"SEPARATE TIME RECORDS","heading":"Time spent waiting. Time spent working.","body":"Record waiting and cargo handling separately to review how long each activity took."},{"eyebrow":"QUANTITY & WEIGHT","heading":"Keep the load details together.","body":"Record the item count and weight per item, then check the total weight."},{"eyebrow":"HOURLY RATE ESTIMATE","heading":"Turn time and rates into an estimate.","body":"Use the hourly rates you set and recorded time to view a reference estimate—not a confirmed invoice or legal amount."},{"eyebrow":"HISTORY & EXPORT","heading":"Save the work. Share the record.","body":"Review past records and export them as PDF, CSV, or text when needed."}]};
+      const source=Number(shot && shot.sourceIndex);
+      const entry=Number.isInteger(source) && source>=0 && source<5 ? haulStampStories[jp?'ja':'en'][source] : null;
+      if(entry)return {eyebrow:entry.eyebrow,heading:entry.heading,body:entry.body};
+    }
     // P19-9R6R9R6 Knotless: 3 original screenshot slots, JA/EN.
     if(id==='6778138017'){
       const knotlessStories={"ja":[{"eyebrow":"指先で触れる","heading":"触れるだけで、模様が動く。","body":"光る紐模様をタップすると、線の向きが変わります。難しい操作も、決められたゴールもありません。"},{"eyebrow":"色と向き","heading":"同じ模様が、少し違って見える。","body":"もう一度触れると、色も少し変化します。重なり合う線の表情が、少しずつ変わっていきます。"},{"eyebrow":"ただ眺める","heading":"ほどけそうで、またつながる。","body":"絡まりそうな光の線を、ただ眺める。スコアや勝敗はなく、触れて変化を楽しむ小さなアプリです。"}],"en":[{"eyebrow":"A LIGHT TOUCH","heading":"Tap a strand. Watch it turn.","body":"Touch the glowing strands to change their direction. There are no complicated controls or goals to reach."},{"eyebrow":"COLOR AND MOTION","heading":"Same strands. A different mood.","body":"Tap again and the colors shift a little. Watch the overlapping strands take on a new look."},{"eyebrow":"JUST WATCH","heading":"Almost tangled. Almost untangled.","body":"Watch the glowing strands quietly change. No score, no winning—just a small experience to touch and enjoy."}]};
@@ -299,6 +306,7 @@
       heading.textContent=editorial.heading;
       if((id==='6822927747' || id==='6778138017') && editorial.eyebrow) issue.textContent=editorial.eyebrow;
       sub.textContent=editorial.body;
+      if(id==='6798447816' && editorial.eyebrow) issue.textContent=editorial.eyebrow;
       hint.hidden=(id==='6804757287');
       count.textContent=num+' / '+String(indexes.length).padStart(2,'0');
       buttons.forEach((b,i)=>{b.classList.toggle('is-active',i===selected);b.setAttribute('aria-pressed',String(i===selected));});
