@@ -1,0 +1,291 @@
+/* P19-9R6R9R25R2: PuddingScoop dedicated preview + US5/JP7 high-res Apple screenshots; selection/focus fix from ShopSuggest R22R3. Existing video identity confirmation required before apply.
+   Keep the shared gallery untouched; this app alone has a Jiiya Roll-proportion player.
+   Scoped to PuddingScoop; protected shared JS and CSS stay unchanged. */
+(() => {
+  'use strict';
+  if (document.body?.dataset.p199Id !== '6763169050') return;
+  const holder = document.getElementById('p199-gallery');
+  if (!holder) return;
+  const APP = 6763169050;
+  const MEDIA = './tsz-apple-preview.mp4';
+  const MANIFEST = './tsz-pudding-images.json?v=p19-r25r2';
+  const COPY = {
+  "jp": {
+    "ja": [
+      [
+        "プリンをすくう、その瞬間を見る。",
+        "ドラッグでプリンを少しずつすくい、カラメルが出る前にやめるか続けるかを決める。短いプレイ映像です。"
+      ],
+      [
+        "ここでやめる？ もうひとすくい？",
+        "「Stop here?」の確認画面。ここで終了するか、もう少しすくうかを選べます。"
+      ],
+      [
+        "無事に終えた結果を確認。",
+        "カラメルが出る前に終了したときの結果画面。合計、すくった回数、平均、ベストが並びます。"
+      ],
+      [
+        "カラメルが出たら、そこで終了。",
+        "失敗時の「Reached caramel」結果画面。すくった回数やスコアを確認できます。"
+      ],
+      [
+        "履歴や遊び方をメニューから。",
+        "メニューには履歴、操作説明、記録のコピーなどの項目が並びます。"
+      ],
+      [
+        "すくった数も、記録も振り返る。",
+        "履歴画面に合計スコア、すくった回数、平均、ベストなどの集計が表示されています。"
+      ],
+      [
+        "時間ごとのベストを見比べる。",
+        "直近5分・10分・30分から長期間まで、期間別の記録が並びます。"
+      ],
+      [
+        "直近の結果を振り返る。",
+        "安全終了とカラメル到達の記録を、各プレイの結果とともに確認できます。"
+      ]
+    ],
+    "en": [
+      [
+        "Watch every scoop count.",
+        "Drag to scoop pudding. Decide whether to stop before caramel appears."
+      ],
+      [
+        "Stop now—or scoop once more?",
+        "The stop confirmation lets you cancel or end the current run."
+      ],
+      [
+        "Return safely and check your result.",
+        "A safe stop displays the total, number of scoops, average, and best."
+      ],
+      [
+        "Reach caramel, and the run ends.",
+        "The failed-run screen summarizes your score and scoop count."
+      ],
+      [
+        "Open the menu for more options.",
+        "The menu includes history, instructions, copying images and tags, and other controls."
+      ],
+      [
+        "Review your totals and records.",
+        "The History screen displays overall scores, scoop totals, averages, and personal records."
+      ],
+      [
+        "Compare your best over time.",
+        "Time-record panels show results for different periods, from minutes to long-term history."
+      ],
+      [
+        "Review recent results.",
+        "See runs that ended safely or reached caramel, with their scores and scoop counts."
+      ]
+    ]
+  },
+  "us": {
+    "ja": [
+      [
+        "プリンをすくう、その瞬間を見る。",
+        "ドラッグしてプリンをすくう実際のプレイ映像。カラメルが出る前にやめるか判断します。"
+      ],
+      [
+        "やめるか、もう少しすくうか。",
+        "終了するか続けるかを選ぶ確認画面です。"
+      ],
+      [
+        "合計や平均をまとめて確認。",
+        "履歴画面に合計、すくった回数、平均、最高記録などが表示されています。"
+      ],
+      [
+        "安全に終了した結果。",
+        "カラメルが出る前に戻った結果画面。合計や回数などを振り返れます。"
+      ],
+      [
+        "時間別の記録を並べて見る。",
+        "直近の数分から長期間まで、期間別のベスト記録を比較できます。"
+      ],
+      [
+        "直近のプレイ履歴。",
+        "カラメル到達による終了など、直近の結果を確認できます。"
+      ]
+    ],
+    "en": [
+      [
+        "Watch every scoop count.",
+        "Drag to scoop the pudding, then decide whether to stop before reaching caramel. See the game in action."
+      ],
+      [
+        "Stop here—or scoop again?",
+        "The stop confirmation offers a choice between ending the run and taking another scoop."
+      ],
+      [
+        "See the numbers behind each run.",
+        "The History screen shows totals, scoop counts, averages, and personal records."
+      ],
+      [
+        "A safe stop, a result to keep.",
+        "A returned-safely result summarizes your total, scoop count, average, and best."
+      ],
+      [
+        "See your best by time period.",
+        "Compare records from recent minutes to longer periods on the History screen."
+      ],
+      [
+        "Look back at the latest runs.",
+        "Recent entries include caramel encounters and the scores and scoop counts from each run."
+      ]
+    ]
+  }
+};
+  const make = (tag, cls, value) => {
+    const node = document.createElement(tag);
+    if (cls) node.className = cls;
+    if (value !== undefined) node.textContent = value;
+    return node;
+  };
+  const lang = () => /^ja(?:[-_]|$)/i.test(document.getElementById('p199-language')?.value || document.documentElement.lang || '') ? 'ja' : 'en';
+  const country = () => /^jp$/i.test(document.getElementById('p199-country')?.value || '') ? 'jp' : 'us';
+  const state = { manifest:null, selected:0, lang:'', region:'', stage:null, scheduled:false, drawing:false };
+  function validateManifest(value) {
+    if (!value || value.apple_id !== APP || !value.regions) throw Error('MANIFEST_WRONG_APP');
+    for (const region of ['us','jp']) {
+      const images = value.regions[region];
+      if (!Array.isArray(images) || images.length !== (region==='jp'?7:5) || new Set(images).size !== images.length) throw Error('REGION_IMAGE_COUNT_MISMATCH_'+region);
+      if (!images.every(src => /^https:\/\/[^/]+\.mzstatic\.com\//i.test(src))) throw Error('APPLE_IMAGE_ORIGIN_REQUIRED_'+region);
+    }
+    return value;
+  }
+  function createStage(images, language, region) {
+    const japanese = language === 'ja';
+    const text = COPY[region][language];
+    const stage = make('section','tsz-pudding-stage');
+    stage.id = 'tsz-pudding-r25r2';
+    stage.dataset.mediaCount = String(images.length+1);
+    stage.dataset.screenshotCount = String(images.length);
+    const mediaCount=images.length+1;
+    // Focus is a navigation affordance, not a second selected thumbnail.
+    stage.dataset.inputMode = 'pointer';
+    stage.addEventListener('pointerdown', () => {stage.dataset.inputMode = 'pointer';}, true);
+    stage.addEventListener('keydown', () => {stage.dataset.inputMode = 'keyboard';}, true);
+    const top = make('div','tsz-pudding-top');
+    top.append(make('span','tsz-pudding-kicker','APP / SCREEN COLLECTION'),
+      make('span','tsz-pudding-total',japanese ? `動画 01 ＋ 実画面 ${String(images.length).padStart(2,'0')}` : `01 VIDEO + ${String(images.length).padStart(2,'0')} SCREENS`));
+    const layout = make('div','tsz-pudding-layout');
+    const visual = make('div','tsz-pudding-visual');
+    const video = make('video','tsz-pudding-video');
+    video.controls=true; video.playsInline=true; video.preload='metadata'; video.src=MEDIA;
+    video.setAttribute('playsinline','');video.poster=images[0];
+    const picture = make('img','tsz-pudding-image');
+    picture.loading='eager'; picture.referrerPolicy='no-referrer';
+    const error = make('p','tsz-pudding-image-error',japanese?'画像を表示できませんでした。':'Screenshot could not be displayed.');
+    error.hidden=true;
+    picture.addEventListener('load',()=>{if (!picture.hidden) error.hidden=true;});
+    picture.addEventListener('error',()=>{picture.hidden=true;error.hidden=false;});
+    visual.append(video,picture,error);
+    const side = make('div','tsz-pudding-side');
+    side.append(top);
+    const editorial = make('div','tsz-pudding-editorial');
+    const issue = make('span','tsz-pudding-issue');
+    const headline = make('h3','tsz-pudding-headline');
+    const body = make('p','tsz-pudding-body');
+    editorial.append(issue,headline,body);
+    const controls = make('div','tsz-pudding-controls');
+    const nav = make('div','tsz-pudding-nav');
+    const expand=make('button','tsz-pudding-expand',japanese?'動画を全画面で見る':'Watch fullscreen');
+    expand.type='button';
+    const previous=make('button','tsz-pudding-arrow','‹');previous.type='button';
+    const counter=make('strong','tsz-pudding-counter');
+    const next=make('button','tsz-pudding-arrow','›');next.type='button';
+    previous.setAttribute('aria-label',japanese?'前の項目':'Previous');next.setAttribute('aria-label',japanese?'次の項目':'Next');
+    const navRight=make('div','tsz-pudding-nav-right');
+    navRight.append(previous,counter,next);
+    nav.append(expand,navRight);controls.append(nav);
+    const thumbs=make('div','tsz-pudding-thumbs');
+    const buttons=[];
+    for (let n=0; n<mediaCount; n++) {
+      const button=make('button','tsz-pudding-thumb');button.type='button';
+      button.title=n===0?(japanese?'動画':'Video'):`${japanese?'画像':'Screenshot'} ${n}`;
+      button.setAttribute('aria-label',button.title);
+      const thumbnail=make('img','');thumbnail.src=images[n===0?0:n-1];thumbnail.loading='lazy';
+      thumbnail.referrerPolicy='no-referrer';thumbnail.alt='';
+      button.append(thumbnail,make('span','',n===0?(japanese?'動画':'VIDEO'):String(n).padStart(2,'0')));
+      button.addEventListener('click',(event)=>{
+        show(n);
+        // Pointer focus should not linger after selecting or moving to another thumbnail.
+        // Keep genuine keyboard focus so Tab/Enter/Space remain usable.
+        if(event.detail > 0 && document.activeElement===button) button.blur();
+      });
+      buttons.push(button);thumbs.append(button);
+    }
+    controls.append(thumbs);side.append(editorial,controls);
+    layout.append(visual,side);stage.append(layout);
+    const dialog=make('dialog','tsz-pudding-dialog');
+    const dialogClose=make('button','tsz-pudding-dialog-close',japanese?'閉じる':'Close');dialogClose.type='button';
+    const dialogImg=make('img','tsz-pudding-dialog-image');dialogImg.alt='';
+    dialog.append(dialogClose,dialogImg);stage.append(dialog);
+    dialogClose.addEventListener('click',()=>dialog.close());
+    dialog.addEventListener('click',e=>{if(e.target===dialog) dialog.close();});
+    let selected=Math.max(0,Math.min(mediaCount-1,state.selected));
+    function show(index) {
+      const normalized=(index+mediaCount)%mediaCount;
+      if (selected===0 && normalized!==0) video.pause();
+      selected=normalized;state.selected=selected;
+      const isVideo=selected===0;
+      video.hidden=!isVideo;picture.hidden=isVideo;
+      if (!isVideo) {error.hidden=true;picture.src=images[selected-1];
+        picture.alt=`PuddingScoop ${japanese?'実画面':'screenshot'} ${String(selected).padStart(2,'0')}`;}
+      else error.hidden=true;
+      issue.textContent=isVideo?'VIDEO':`${japanese?'実画面':'SCREEN'} ${String(selected).padStart(2,'0')}`;
+      headline.textContent=text[selected][0];body.textContent=text[selected][1];
+      expand.textContent=isVideo?(japanese?'動画を全画面で見る':'Watch fullscreen'):(japanese?'画面を拡大':'Enlarge screenshot');
+      counter.textContent=`${String(selected+1).padStart(2,'0')} / ${String(mediaCount).padStart(2,'0')}`;
+      buttons.forEach((button,n)=>{const active=n===selected;button.classList.toggle('is-selected',active);button.setAttribute('aria-pressed',String(active));});
+      stage.dataset.selected = String(selected);
+      if (document.activeElement===previous || document.activeElement===next || buttons.includes(document.activeElement)) {
+        buttons[selected].scrollIntoView({block:'nearest',inline:'nearest',behavior:'instant'});
+      }
+    }
+    expand.addEventListener('click',()=>{
+      if(selected===0) {
+        if (typeof video.requestFullscreen==='function') {video.requestFullscreen().catch(()=>{});} 
+        else if(typeof video.webkitEnterFullscreen==='function') video.webkitEnterFullscreen();
+      } else {
+        dialogImg.src=images[selected-1];dialogImg.alt=picture.alt;
+        if(typeof dialog.showModal==='function') dialog.showModal();
+      }
+    });
+    previous.addEventListener('click',()=>show(selected-1));
+    next.addEventListener('click',()=>show(selected+1));
+    stage.addEventListener('keydown',e=>{
+      if(e.target instanceof HTMLInputElement || e.target instanceof HTMLSelectElement) return;
+      if(e.key==='ArrowLeft' || e.key==='ArrowRight') {
+        e.preventDefault();
+        show(selected+(e.key==='ArrowRight'?1:-1));
+        // Arrow-key navigation focuses the newly selected thumbnail, not the old one.
+        if(buttons.includes(e.target)) buttons[selected].focus({preventScroll:true});
+      }
+    });
+    show(selected);
+    return stage;
+  }
+  function redraw() {
+    state.scheduled=false;
+    if (state.drawing || !state.manifest) return;
+    const l=lang(),r=country();
+    if (state.stage?.isConnected && state.lang===l && state.region===r) return;
+    state.lang=l;state.region=r;state.drawing=true;
+    try {state.stage=createStage(state.manifest.regions[r],l,r);holder.replaceChildren(state.stage);}
+    finally {state.drawing=false;}
+  }
+  function queue() {
+    if (state.scheduled) return;
+    state.scheduled=true;requestAnimationFrame(redraw);
+  }
+  new MutationObserver(queue).observe(holder,{childList:true});
+  for (const id of ['p199-language','p199-country']) document.getElementById(id)?.addEventListener('change',queue);
+  fetch(MANIFEST,{cache:'no-store',credentials:'same-origin'}).then(response=>{
+    if(!response.ok) throw Error('MANIFEST_HTTP_'+response.status);
+    return response.json();
+  }).then(json=>{state.manifest=validateManifest(json);queue();}).catch(err=>{
+    holder.dataset.puddingGalleryError=String(err?.message || 'MANIFEST_LOAD_FAILED');
+    console.error('PUDDINGSCOOP_R25R2_LOAD_HOLD',err);
+  });
+})();
