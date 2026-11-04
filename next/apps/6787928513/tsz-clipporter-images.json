@@ -1,0 +1,26 @@
+{
+  "version": "P19_9R6R9R35R2",
+  "apple_id": 6787928513,
+  "image_pixels": [
+    1440,
+    900
+  ],
+  "original_source_pixels": [
+    800,
+    500
+  ],
+  "source_quality_note": "apple_resized_candidate_not_verified_native_detail",
+  "video_available": false,
+  "regions": {
+    "jp": [
+      "./tsz-clipporter-assets/JP/01.jpg",
+      "./tsz-clipporter-assets/JP/02.jpg",
+      "./tsz-clipporter-assets/JP/03.jpg"
+    ],
+    "us": [
+      "./tsz-clipporter-assets/US/01.jpg",
+      "./tsz-clipporter-assets/US/02.jpg",
+      "./tsz-clipporter-assets/US/03.jpg"
+    ]
+  }
+}
