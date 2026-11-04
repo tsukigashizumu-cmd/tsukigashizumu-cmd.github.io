@@ -1,0 +1,82 @@
+/* Herebit P19-9R6R9R32R2: image-only high-resolution gallery, no video present. Jiiya Roll visual proportions and placement.
+   Scope: .tsz-herebit-* ONLY. Shared app-story.js/css remain byte-identical. */
+.tsz-herebit-stage{box-sizing:border-box;min-width:0;width:100%;border:1px solid #624853;border-radius:17px;padding:17px 18px 16px;background:linear-gradient(135deg,#221820,#171218 75%);color:#f6eef0;font-family:inherit}
+.tsz-herebit-stage *{box-sizing:border-box}
+/* Screenshot reference: x~57-355 media, x~368 divider, x~386 right contents at a 840px card width. */
+.tsz-herebit-layout{display:grid;grid-template-columns:minmax(0,37%) minmax(0,63%);min-width:0;align-items:stretch;gap:0}
+.tsz-herebit-visual{width:100%;min-width:0;height:640px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;border-radius:12px;background:#0b0b0d}
+.tsz-herebit-image,.tsz-herebit-video{display:block;width:100%;height:100%;max-width:100%;max-height:none;object-fit:contain;border-radius:12px;background:#0b0b0d}
+.tsz-herebit-image[hidden],.tsz-herebit-video[hidden],.tsz-herebit-image-error[hidden]{display:none!important}
+.tsz-herebit-image-error{font-size:14px;color:#f3d8c9;padding:14px}
+.tsz-herebit-side{min-width:0;display:flex;flex-direction:column;min-height:0;padding:0 0 0 17px;margin-left:13px;border-left:1px solid #4c3743}
+.tsz-herebit-top{display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid #4d3e48;padding:14px 1px 17px;margin:0 0 16px;min-width:0}
+.tsz-herebit-kicker{font-size:10px!important;font-weight:800;letter-spacing:.17em;color:#e0bdb7;white-space:nowrap}
+.tsz-herebit-total{font-size:11px;color:#c4aeb8;font-variant-numeric:tabular-nums;text-align:right}
+.tsz-herebit-editorial{min-width:0;padding:0 3px 0 2px}
+.tsz-herebit-issue{display:block;font-size:11px!important;letter-spacing:.15em;color:#e2b8ab;font-weight:800}
+.tsz-herebit-headline{font-size:clamp(24px,2.6vw,31px)!important;line-height:1.27!important;letter-spacing:-.02em!important;font-weight:780!important;margin:13px 0 12px!important;color:#fff2f0!important;overflow-wrap:break-word}
+.tsz-herebit-body{font-size:14px!important;line-height:1.65!important;margin:0!important;color:#ebdfe1!important;max-width:58ch}
+/* Jiiya: action bar and thumbnail strip anchored to the lower-right, not under the image. */
+.tsz-herebit-controls{min-width:0;margin-top:auto;padding-top:16px}
+.tsz-herebit-nav{display:flex;justify-content:flex-end;align-items:center;gap:9px;padding:0 0 12px;border-bottom:1px solid #4d3e48}
+.tsz-herebit-expand{border:0;background:#eec6b4;color:#241c1c;border-radius:10px;padding:0 13px;min-height:42px;font:inherit;font-weight:700;font-size:12px;line-height:1.3;cursor:pointer;white-space:normal;text-align:center}
+.tsz-herebit-nav-right{display:flex;align-items:center;gap:9px;flex:0 0 auto}
+.tsz-herebit-arrow{display:grid;place-items:center;width:40px;height:42px;padding:0;border:1px solid #755665;border-radius:10px;background:#382934;color:#f8edf0;cursor:pointer;font-size:25px;line-height:1}
+.tsz-herebit-arrow:hover{background:#51394a}
+.tsz-herebit-counter{min-width:49px;text-align:center;font-size:12px!important;letter-spacing:.03em;font-variant-numeric:tabular-nums;color:#f6e4e9}
+.tsz-herebit-thumbs{display:flex;flex-wrap:nowrap;min-width:0;overflow-x:auto;overflow-y:hidden;gap:6px;padding:8px 1px 9px;scrollbar-width:thin;scrollbar-color:#765762 transparent;scroll-snap-type:x proximity;overscroll-behavior-inline:contain}
+.tsz-herebit-thumb{display:flex;flex-direction:column;justify-content:center;align-items:center;flex:0 0 68px;min-width:0;height:85px;padding:5px 4px 4px;gap:4px;border:1px solid #634959;border-radius:9px;background:#231d25;color:#efdee3;cursor:pointer;scroll-snap-align:start}
+.tsz-herebit-thumb img{display:block;max-width:100%;width:auto;height:57px;flex:1 1 auto;min-height:0;object-fit:contain;border-radius:3px}
+.tsz-herebit-thumb span{font-size:10px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.1}
+.tsz-herebit-thumb.is-selected{border-color:#e8bdaa;background:#42313b;box-shadow:0 0 0 2px #dfb19f55}
+/* The selected thumbnail alone carries the strong peach treatment. Pointer focus never looks selected. */
+.tsz-herebit-thumb:focus{outline:none}
+.tsz-herebit-stage[data-input-mode="keyboard"] .tsz-herebit-thumb:not(.is-selected):focus-visible{outline:1px dashed #a38c98;outline-offset:-4px}
+.tsz-herebit-stage[data-input-mode="keyboard"] .tsz-herebit-thumb.is-selected:focus-visible{outline:none}
+.tsz-herebit-expand:focus-visible,.tsz-herebit-arrow:focus-visible,.tsz-herebit-dialog-close:focus-visible{outline:3px solid #eec2aa;outline-offset:2px}
+/* R32R2: actually enlarge the screenshot; max-width alone only clamps intrinsic size. */
+.tsz-herebit-dialog{box-sizing:border-box;width:min(94vw,860px);max-width:none;height:min(92dvh,1200px);max-height:92dvh;overflow:hidden;background:#1d161e;color:#f8e8ee;border:1px solid #856272;border-radius:16px;padding:12px 14px 14px;box-shadow:0 15px 80px #000a}
+.tsz-herebit-dialog[open]{display:flex;flex-direction:column;align-items:stretch;gap:8px}
+.tsz-herebit-dialog::backdrop{background:#000c}
+.tsz-herebit-dialog-image{display:block;width:100%;height:100%;min-width:0;min-height:0;max-width:100%;max-height:none;object-fit:contain;margin:0 auto;flex:1 1 auto}
+.tsz-herebit-dialog-close{display:block;margin:0 0 10px auto;border:1px solid #806371;border-radius:8px;background:#342735;color:#f6eaf0;padding:8px 15px;cursor:pointer}
+@media(max-width:750px){
+ .tsz-herebit-stage{padding:14px}
+ .tsz-herebit-layout{grid-template-columns:1fr;gap:18px}
+ .tsz-herebit-visual{height:min(65svh,575px);max-width:330px;margin:auto}
+ .tsz-herebit-side{border-left:0;border-top:1px solid #4c3743;margin-left:0;padding:0;min-height:265px}
+ .tsz-herebit-top{padding:13px 0 14px;margin-bottom:14px}
+ .tsz-herebit-editorial{padding:0}
+ .tsz-herebit-controls{padding-top:26px}
+}
+@media(max-width:420px){
+ .tsz-herebit-visual{height:min(62svh,490px);max-width:260px}
+ .tsz-herebit-top{align-items:flex-start}
+ .tsz-herebit-kicker{font-size:9px!important}
+ .tsz-herebit-total{font-size:10px}
+ .tsz-herebit-nav{gap:6px}
+ .tsz-herebit-expand{font-size:11px;min-height:39px;padding:0 9px}
+ .tsz-herebit-arrow{width:34px;height:39px}
+ .tsz-herebit-nav-right{gap:5px}
+ .tsz-herebit-counter{min-width:47px;font-size:11px!important}
+ .tsz-herebit-thumb{flex-basis:62px;height:78px}
+}
+
+/* No video slot: three actual screenshots, full count 01/03–03/03. */
+
+/* Standalone host remains visible when the shared app-story loader is stalled. */
+body[data-p199-id="6781497015"] #tsz-herebit-host{max-width:1240px;width:calc(100% - 64px);margin:28px auto 48px;min-width:0}
+body[data-p199-id="6781497015"] #p199-content #tsz-herebit-host{width:100%;margin:28px 0 38px;max-width:none}
+body[data-p199-id="6781497015"] #p199-status{display:none!important}
+body[data-p199-id="6781497015"] #screens{display:none!important}
+.tsz-herebit-fallback{color:#f2e8ec;border-radius:15px;padding:22px 24px;margin-bottom:17px;border:1px solid #59424e;background:linear-gradient(140deg,#251b24,#16121a);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px}
+.tsz-herebit-fallback h2{font-size:clamp(27px,3.6vw,43px)!important;margin:0 0 6px!important;color:#fff!important}
+.tsz-herebit-fallback p{font-size:14px;max-width:58ch;margin:0;color:#e4d2d9;line-height:1.65}
+.tsz-herebit-fallback a{background:#ecc3b4;color:#281b20;padding:13px 17px;text-decoration:none;border-radius:10px;font-size:13px;font-weight:800;white-space:nowrap}
+#tsz-herebit-host[data-legacy-loaded="true"] .tsz-herebit-fallback{display:none}
+.tsz-herebit-inline-controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:0 0 14px}
+.tsz-herebit-inline-controls label{display:flex;align-items:center;gap:6px;font-size:12px;color:#decad5}
+.tsz-herebit-inline-controls select{border:1px solid #765665;background:#29212b;color:#f9edf0;border-radius:8px;padding:7px 8px;font:inherit;font-size:12px}
+#tsz-herebit-host[data-legacy-loaded="true"] .tsz-herebit-inline-controls{display:none}
+.tsz-herebit-load-error{padding:14px 18px;background:#2a1d27;border:1px solid #835268;color:#ffe1e3;border-radius:11px;font-size:13px}
+@media(max-width:750px){body[data-p199-id="6781497015"] #tsz-herebit-host{width:calc(100% - 26px);margin:22px auto 34px}.tsz-herebit-fallback{padding:20px 17px}}
