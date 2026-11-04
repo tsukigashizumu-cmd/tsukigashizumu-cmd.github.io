@@ -1,0 +1,39 @@
+{
+  "version": "P19_9R6R9R34R2",
+  "apple_id": 6786129971,
+  "image_pixels": [
+    1320,
+    2868
+  ],
+  "video_available": true,
+  "videos": {
+    "jp": "./tsz-twelveoath-preview-JP.mp4",
+    "us": "./tsz-twelveoath-preview-US.mp4"
+  },
+  "regions": {
+    "jp": [
+      "./tsz-twelveoath-assets/JP/01.jpg",
+      "./tsz-twelveoath-assets/JP/02.jpg",
+      "./tsz-twelveoath-assets/JP/03.jpg",
+      "./tsz-twelveoath-assets/JP/04.jpg",
+      "./tsz-twelveoath-assets/JP/05.jpg",
+      "./tsz-twelveoath-assets/JP/06.jpg",
+      "./tsz-twelveoath-assets/JP/07.jpg",
+      "./tsz-twelveoath-assets/JP/08.jpg",
+      "./tsz-twelveoath-assets/JP/09.jpg",
+      "./tsz-twelveoath-assets/JP/10.jpg"
+    ],
+    "us": [
+      "./tsz-twelveoath-assets/US/01.jpg",
+      "./tsz-twelveoath-assets/US/02.jpg",
+      "./tsz-twelveoath-assets/US/03.jpg",
+      "./tsz-twelveoath-assets/US/04.jpg",
+      "./tsz-twelveoath-assets/US/05.jpg",
+      "./tsz-twelveoath-assets/US/06.jpg",
+      "./tsz-twelveoath-assets/US/07.jpg",
+      "./tsz-twelveoath-assets/US/08.jpg",
+      "./tsz-twelveoath-assets/US/09.jpg",
+      "./tsz-twelveoath-assets/US/10.jpg"
+    ]
+  }
+}
