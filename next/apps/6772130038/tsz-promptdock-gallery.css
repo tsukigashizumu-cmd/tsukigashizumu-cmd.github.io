@@ -1,0 +1,84 @@
+/* PromptDock AI P19-9R6R9R29R2: image-only high-resolution gallery, no video present. Jiiya Roll visual proportions and placement.
+   Scope: .tsz-promptdock-* ONLY. Shared app-story.js/css remain byte-identical. */
+.tsz-promptdock-stage{box-sizing:border-box;min-width:0;width:100%;border:1px solid #624853;border-radius:17px;padding:17px 18px 16px;background:linear-gradient(135deg,#221820,#171218 75%);color:#f6eef0;font-family:inherit}
+.tsz-promptdock-stage *{box-sizing:border-box}
+/* Screenshot reference: x~57-355 media, x~368 divider, x~386 right contents at a 840px card width. */
+.tsz-promptdock-layout{display:grid;grid-template-columns:minmax(0,37%) minmax(0,63%);min-width:0;align-items:stretch;gap:0}
+.tsz-promptdock-visual{width:100%;min-width:0;height:640px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;border-radius:12px;background:#0b0b0d}
+.tsz-promptdock-image,.tsz-promptdock-video{display:block;width:100%;height:100%;max-width:100%;max-height:none;object-fit:contain;border-radius:12px;background:#0b0b0d}
+.tsz-promptdock-image[hidden],.tsz-promptdock-video[hidden],.tsz-promptdock-image-error[hidden]{display:none!important}
+.tsz-promptdock-image-error{font-size:14px;color:#f3d8c9;padding:14px}
+.tsz-promptdock-side{min-width:0;display:flex;flex-direction:column;min-height:0;padding:0 0 0 17px;margin-left:13px;border-left:1px solid #4c3743}
+.tsz-promptdock-top{display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid #4d3e48;padding:14px 1px 17px;margin:0 0 16px;min-width:0}
+.tsz-promptdock-kicker{font-size:10px!important;font-weight:800;letter-spacing:.17em;color:#e0bdb7;white-space:nowrap}
+.tsz-promptdock-total{font-size:11px;color:#c4aeb8;font-variant-numeric:tabular-nums;text-align:right}
+.tsz-promptdock-editorial{min-width:0;padding:0 3px 0 2px}
+.tsz-promptdock-issue{display:block;font-size:11px!important;letter-spacing:.15em;color:#e2b8ab;font-weight:800}
+.tsz-promptdock-headline{font-size:clamp(24px,2.6vw,31px)!important;line-height:1.27!important;letter-spacing:-.02em!important;font-weight:780!important;margin:13px 0 12px!important;color:#fff2f0!important;overflow-wrap:break-word}
+.tsz-promptdock-body{font-size:14px!important;line-height:1.65!important;margin:0!important;color:#ebdfe1!important;max-width:58ch}
+/* Jiiya: action bar and thumbnail strip anchored to the lower-right, not under the image. */
+.tsz-promptdock-controls{min-width:0;margin-top:auto;padding-top:16px}
+.tsz-promptdock-nav{display:flex;justify-content:flex-end;align-items:center;gap:9px;padding:0 0 12px;border-bottom:1px solid #4d3e48}
+.tsz-promptdock-expand{border:0;background:#eec6b4;color:#241c1c;border-radius:10px;padding:0 13px;min-height:42px;font:inherit;font-weight:700;font-size:12px;line-height:1.3;cursor:pointer;white-space:normal;text-align:center}
+.tsz-promptdock-nav-right{display:flex;align-items:center;gap:9px;flex:0 0 auto}
+.tsz-promptdock-arrow{display:grid;place-items:center;width:40px;height:42px;padding:0;border:1px solid #755665;border-radius:10px;background:#382934;color:#f8edf0;cursor:pointer;font-size:25px;line-height:1}
+.tsz-promptdock-arrow:hover{background:#51394a}
+.tsz-promptdock-counter{min-width:49px;text-align:center;font-size:12px!important;letter-spacing:.03em;font-variant-numeric:tabular-nums;color:#f6e4e9}
+.tsz-promptdock-thumbs{display:flex;flex-wrap:nowrap;min-width:0;overflow-x:auto;overflow-y:hidden;gap:6px;padding:8px 1px 9px;scrollbar-width:thin;scrollbar-color:#765762 transparent;scroll-snap-type:x proximity;overscroll-behavior-inline:contain}
+.tsz-promptdock-thumb{display:flex;flex-direction:column;justify-content:center;align-items:center;flex:0 0 68px;min-width:0;height:85px;padding:5px 4px 4px;gap:4px;border:1px solid #634959;border-radius:9px;background:#231d25;color:#efdee3;cursor:pointer;scroll-snap-align:start}
+.tsz-promptdock-thumb img{display:block;max-width:100%;width:auto;height:57px;flex:1 1 auto;min-height:0;object-fit:contain;border-radius:3px}
+.tsz-promptdock-thumb span{font-size:10px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.1}
+.tsz-promptdock-thumb.is-selected{border-color:#e8bdaa;background:#42313b;box-shadow:0 0 0 2px #dfb19f55}
+/* The selected thumbnail alone carries the strong peach treatment. Pointer focus never looks selected. */
+.tsz-promptdock-thumb:focus{outline:none}
+.tsz-promptdock-stage[data-input-mode="keyboard"] .tsz-promptdock-thumb:not(.is-selected):focus-visible{outline:1px dashed #a38c98;outline-offset:-4px}
+.tsz-promptdock-stage[data-input-mode="keyboard"] .tsz-promptdock-thumb.is-selected:focus-visible{outline:none}
+.tsz-promptdock-expand:focus-visible,.tsz-promptdock-arrow:focus-visible,.tsz-promptdock-dialog-close:focus-visible{outline:3px solid #eec2aa;outline-offset:2px}
+/* R22R4: actually enlarge the screenshot; max-width alone only clamps intrinsic size. */
+.tsz-promptdock-dialog{box-sizing:border-box;width:min(94vw,860px);max-width:none;height:min(92dvh,1200px);max-height:92dvh;overflow:hidden;background:#1d161e;color:#f8e8ee;border:1px solid #856272;border-radius:16px;padding:12px 14px 14px;box-shadow:0 15px 80px #000a}
+.tsz-promptdock-dialog[open]{display:flex;flex-direction:column;align-items:stretch;gap:8px}
+.tsz-promptdock-dialog::backdrop{background:#000c}
+.tsz-promptdock-dialog-image{display:block;width:100%;height:100%;min-width:0;min-height:0;max-width:100%;max-height:none;object-fit:contain;margin:0 auto;flex:1 1 auto}
+.tsz-promptdock-dialog-close{display:block;margin:0 0 10px auto;border:1px solid #806371;border-radius:8px;background:#342735;color:#f6eaf0;padding:8px 15px;cursor:pointer}
+@media(max-width:750px){
+ .tsz-promptdock-stage{padding:14px}
+ .tsz-promptdock-layout{grid-template-columns:1fr;gap:18px}
+ .tsz-promptdock-visual{height:min(65svh,575px);max-width:330px;margin:auto}
+ .tsz-promptdock-side{border-left:0;border-top:1px solid #4c3743;margin-left:0;padding:0;min-height:265px}
+ .tsz-promptdock-top{padding:13px 0 14px;margin-bottom:14px}
+ .tsz-promptdock-editorial{padding:0}
+ .tsz-promptdock-controls{padding-top:26px}
+}
+@media(max-width:420px){
+ .tsz-promptdock-visual{height:min(62svh,490px);max-width:260px}
+ .tsz-promptdock-top{align-items:flex-start}
+ .tsz-promptdock-kicker{font-size:9px!important}
+ .tsz-promptdock-total{font-size:10px}
+ .tsz-promptdock-nav{gap:6px}
+ .tsz-promptdock-expand{font-size:11px;min-height:39px;padding:0 9px}
+ .tsz-promptdock-arrow{width:34px;height:39px}
+ .tsz-promptdock-nav-right{gap:5px}
+ .tsz-promptdock-counter{min-width:47px;font-size:11px!important}
+ .tsz-promptdock-thumb{flex-basis:62px;height:78px}
+}
+
+/* No video slot: ten actual screenshots, full count 01/10–10/10. */
+
+/* Legacy detail page integration: full-width gallery, original sections and links retained. */
+body[data-p19-app-id="6772130038"] #screens[data-promptdock-superseded="yes"]{display:none!important}
+.tsz-promptdock-feature{margin:30px 0 38px;border-top:1px solid #4d3e48;padding-top:22px;min-width:0}
+.tsz-promptdock-feature-title{font-size:clamp(23px,3vw,31px)!important;font-weight:800;color:#f5ebed;margin:0 0 16px;line-height:1.25}
+@media(max-width:750px){.tsz-promptdock-feature{margin:22px 0 28px}}
+
+/* R29R3: visible, self-contained fallback when legacy app-detail.js cannot finish. */
+body[data-p19-app-id="6772130038"] #p19-load[data-tsz-gallery-ready="yes"]{display:none!important}
+.tsz-promptdock-safe-hero{box-sizing:border-box;margin:18px 0 16px;padding:27px clamp(18px,4vw,40px);color:#f5e8eb;background:linear-gradient(135deg,#211820,#17131b);border:1px solid #614756;border-radius:18px}
+.tsz-promptdock-safe-hero[hidden]{display:none!important}
+.tsz-promptdock-safe-kicker{display:block;font-size:10px;letter-spacing:.17em;font-weight:800;color:#e9c2b4}
+.tsz-promptdock-safe-hero h1{color:#fff1f1;font-size:clamp(30px,4.3vw,48px);line-height:1.15;margin:15px 0 14px}
+.tsz-promptdock-safe-hero p{font-size:16px;line-height:1.7;max-width:68ch;margin:0 0 22px;color:#eddee5}
+.tsz-promptdock-safe-actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.tsz-promptdock-safe-actions a{display:inline-flex;text-decoration:none;align-items:center;border-radius:999px;padding:12px 18px;background:#eec6b4;color:#231a1c;font-weight:700;font-size:13px}
+.tsz-promptdock-safe-actions a+a{background:transparent;color:#eedde4;border:1px solid #957887}
+.tsz-promptdock-safe-actions a:focus-visible{outline:3px solid #eec2aa;outline-offset:3px}
+body[data-p19-app-id="6772130038"] .tsz-promptdock-feature{width:100%;max-width:100%;box-sizing:border-box}
