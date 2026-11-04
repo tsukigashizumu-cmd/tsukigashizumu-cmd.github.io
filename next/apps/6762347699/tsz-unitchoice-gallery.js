@@ -137,8 +137,7 @@
     const issue = make('span','tsz-unitchoice-issue');
     const headline = make('h3','tsz-unitchoice-headline');
     const body = make('p','tsz-unitchoice-body');
-    const origin = make('p','tsz-unitchoice-origin',japanese?'Apple App Storeに掲載された実画面・実映像':'Original screenshots and video from the Apple App Store');
-    editorial.append(issue,headline,body,origin);
+    editorial.append(issue,headline,body);
     const controls = make('div','tsz-unitchoice-controls');
     const nav = make('div','tsz-unitchoice-nav');
     const expand=make('button','tsz-unitchoice-expand',japanese?'動画を全画面で見る':'Watch fullscreen');
