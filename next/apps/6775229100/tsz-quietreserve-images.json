@@ -1,0 +1,23 @@
+{
+  "version": "P19_9R6R9R31R2",
+  "apple_id": 6775229100,
+  "image_pixels": [
+    1320,
+    2868
+  ],
+  "video_available": false,
+  "regions": {
+    "jp": [
+      "./tsz-quietreserve-assets/JP/01.jpg",
+      "./tsz-quietreserve-assets/JP/02.jpg",
+      "./tsz-quietreserve-assets/JP/03.jpg",
+      "./tsz-quietreserve-assets/JP/04.jpg"
+    ],
+    "us": [
+      "./tsz-quietreserve-assets/US/01.jpg",
+      "./tsz-quietreserve-assets/US/02.jpg",
+      "./tsz-quietreserve-assets/US/03.jpg",
+      "./tsz-quietreserve-assets/US/04.jpg"
+    ]
+  }
+}
