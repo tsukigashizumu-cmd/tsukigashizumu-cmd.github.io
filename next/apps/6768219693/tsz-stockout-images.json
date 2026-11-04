@@ -1,0 +1,20 @@
+{
+  "apple_id": 6768219693,
+  "regions": {
+    "us": [
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/a3/0a/d2/a30ad281-0932-515c-0940-527f12e30939/01-01-01.png/1600x3200bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/58/bf/91/58bf9163-1c68-6213-80b7-6da71a768b69/01-02-01.png/1600x3200bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/4b/2d/bf/4b2dbf4d-0002-2ca4-63bd-6a7608b73f95/01-03-01.png/1600x3200bb.jpg"
+    ],
+    "jp": [
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/b2/7b/d3/b27bd313-a918-2519-a207-0849d7af8d5b/simulator_screenshot_E1709612-7023-4C84-B382-356328124AD2.png/1600x3200bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/39/db/0d/39db0dc6-d3a4-5f70-d5d4-707e7ad0c758/simulator_screenshot_D5D09126-B91E-4218-A46B-78BBFDF1A0C6.png/1600x3200bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/8f/fc/15/8ffc1560-5d84-858c-8416-3bd44ccef218/simulator_screenshot_216190D7-04BC-4229-9A62-460660BC466C.png/1600x3200bb.jpg"
+    ]
+  },
+  "pixels": [
+    1320,
+    2868
+  ],
+  "version": "P19_9R6R9R27R2"
+}
