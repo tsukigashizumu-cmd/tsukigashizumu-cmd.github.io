@@ -2,6 +2,18 @@
   "apple_id": 6760823598,
   "regions": {
     "us": [
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/0e/93/be/0e93beff-013b-d992-c783-e5f9420ee95b/simulator_screenshot_345A9EBF-6DF5-415A-BC1A-10685F299654.png/1600x3200bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/47/3c/e5/473ce58f-c5ba-04de-adbc-b7dae330d75c/simulator_screenshot_EAC316AB-9A35-477F-BC0D-6F6A5FDA79C2.png/1600x3200bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/52/21/5a/52215aaf-0db0-dde0-463d-07f80f45cc85/simulator_screenshot_D48E8176-7735-45F3-8689-C5501E9A5FD2.png/1600x3200bb.jpg"
+    ],
+    "jp": [
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/61/b0/74/61b07436-64c8-4e17-8cb5-63ba8c52c763/simulator_screenshot_2ABF3029-14A1-4047-BECE-4DF466871A63.png/1600x3200bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/20/57/0d/20570d10-f8ef-d05f-2b4c-ff45dff20cc5/simulator_screenshot_E148EDC7-0B64-4F44-B76A-01BAA2232E42.png/1600x3200bb.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/fc/f9/d1/fcf9d1f3-9e7c-bdf8-5b06-8acc86a7323a/simulator_screenshot_218BE25D-364D-4600-97EE-751AA309B544.png/1600x3200bb.jpg"
+    ]
+  },
+  "original_low_resolution": {
+    "us": [
       "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/0e/93/be/0e93beff-013b-d992-c783-e5f9420ee95b/simulator_screenshot_345A9EBF-6DF5-415A-BC1A-10685F299654.png/320x480bb.jpg",
       "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/47/3c/e5/473ce58f-c5ba-04de-adbc-b7dae330d75c/simulator_screenshot_EAC316AB-9A35-477F-BC0D-6F6A5FDA79C2.png/320x480bb.jpg",
       "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/52/21/5a/52215aaf-0db0-dde0-463d-07f80f45cc85/simulator_screenshot_D48E8176-7735-45F3-8689-C5501E9A5FD2.png/320x480bb.jpg"
@@ -10,6 +22,102 @@
       "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/61/b0/74/61b07436-64c8-4e17-8cb5-63ba8c52c763/simulator_screenshot_2ABF3029-14A1-4047-BECE-4DF466871A63.png/320x480bb.jpg",
       "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/20/57/0d/20570d10-f8ef-d05f-2b4c-ff45dff20cc5/simulator_screenshot_E148EDC7-0B64-4F44-B76A-01BAA2232E42.png/320x480bb.jpg",
       "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/fc/f9/d1/fcf9d1f3-9e7c-bdf8-5b06-8acc86a7323a/simulator_screenshot_218BE25D-364D-4600-97EE-751AA309B544.png/320x480bb.jpg"
+    ]
+  },
+  "resolution_evidence": {
+    "us": [
+      {
+        "index": 1,
+        "old_pixels": [
+          221,
+          480
+        ],
+        "new_pixels": [
+          1320,
+          2868
+        ],
+        "same_apple_asset_path": true,
+        "old_url_sha": "83c251b088e1c234c675365acdcce24bab845ef2548801c3caff2fff77a364ea",
+        "new_url_sha": "dbdb51c2a7a4c762c1719bb2caab5c7bd33edc0d5c8bddee43329ab24b0c8ac6",
+        "bytes": 291190
+      },
+      {
+        "index": 2,
+        "old_pixels": [
+          221,
+          480
+        ],
+        "new_pixels": [
+          1320,
+          2868
+        ],
+        "same_apple_asset_path": true,
+        "old_url_sha": "13563683ba05fa761b23917c6cceb5ac89b4886df7a5bee3a44ad22e862ad564",
+        "new_url_sha": "a50ad36c89f68d27c3b10d00afd3eb639688ec26822b52aced8b810dfbc802a5",
+        "bytes": 284095
+      },
+      {
+        "index": 3,
+        "old_pixels": [
+          221,
+          480
+        ],
+        "new_pixels": [
+          1320,
+          2868
+        ],
+        "same_apple_asset_path": true,
+        "old_url_sha": "13930f3b74372b5c67d49c40ee809f6553c2df219b36a8529b894481d665bc98",
+        "new_url_sha": "5afc2bd011bbeaefe0ce1134255d9854c449a4231ec08e1845954127a37e0d55",
+        "bytes": 387934
+      }
+    ],
+    "jp": [
+      {
+        "index": 1,
+        "old_pixels": [
+          221,
+          480
+        ],
+        "new_pixels": [
+          1320,
+          2868
+        ],
+        "same_apple_asset_path": true,
+        "old_url_sha": "591287b9761e120f702b36143f0093a00c69df58a644b3ade0f97e9cc8165253",
+        "new_url_sha": "048ea43275fcb967620a8a7bbb9ab9b1af337653bad24e3b81931b5606918b92",
+        "bytes": 158839
+      },
+      {
+        "index": 2,
+        "old_pixels": [
+          221,
+          480
+        ],
+        "new_pixels": [
+          1320,
+          2868
+        ],
+        "same_apple_asset_path": true,
+        "old_url_sha": "ec082ab30307aac76a7fb0fc4a18cb57641c0c91e350d5f87b382d59eb307665",
+        "new_url_sha": "2eeb806d0f2d87844525fe02854dcc68936fbefa482e1d1c57005dd126ede46a",
+        "bytes": 420281
+      },
+      {
+        "index": 3,
+        "old_pixels": [
+          221,
+          480
+        ],
+        "new_pixels": [
+          1320,
+          2868
+        ],
+        "same_apple_asset_path": true,
+        "old_url_sha": "e76a9715e1ab1572583485ab71e5abc43ba366859e61bc41f8cac93ec2418e5d",
+        "new_url_sha": "97ff7b420f04acedac2f3cefa416886e38a850d5d067490ef62c9b0eca7dabbe",
+        "bytes": 237207
+      }
     ]
   }
 }

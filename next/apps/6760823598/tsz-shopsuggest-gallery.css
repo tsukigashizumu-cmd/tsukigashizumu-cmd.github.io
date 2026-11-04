@@ -1,4 +1,4 @@
-/* ShopSuggest P19-9R6R9R22R3: Jiiya Roll visual proportions and placement.
+/* ShopSuggest P19-9R6R9R22R4: screenshot expansion only, no layout change. Jiiya Roll visual proportions and placement.
    Scope: .tsz-shop-* ONLY. Shared app-story.js/css remain byte-identical. */
 .tsz-shop-stage{box-sizing:border-box;min-width:0;width:100%;border:1px solid #624853;border-radius:17px;padding:17px 18px 16px;background:linear-gradient(135deg,#221820,#171218 75%);color:#f6eef0;font-family:inherit}
 .tsz-shop-stage *{box-sizing:border-box}
@@ -35,9 +35,11 @@
 .tsz-shop-stage[data-input-mode="keyboard"] .tsz-shop-thumb:not(.is-selected):focus-visible{outline:1px dashed #a38c98;outline-offset:-4px}
 .tsz-shop-stage[data-input-mode="keyboard"] .tsz-shop-thumb.is-selected:focus-visible{outline:none}
 .tsz-shop-expand:focus-visible,.tsz-shop-arrow:focus-visible,.tsz-shop-dialog-close:focus-visible{outline:3px solid #eec2aa;outline-offset:2px}
-.tsz-shop-dialog{max-width:min(92vw,700px);max-height:90vh;overflow:auto;background:#1d161e;color:#f8e8ee;border:1px solid #856272;border-radius:16px;padding:18px;box-shadow:0 15px 80px #000a}
+/* R22R4: actually enlarge the screenshot; max-width alone only clamps intrinsic size. */
+.tsz-shop-dialog{box-sizing:border-box;width:min(94vw,860px);max-width:none;height:min(92dvh,1200px);max-height:92dvh;overflow:hidden;background:#1d161e;color:#f8e8ee;border:1px solid #856272;border-radius:16px;padding:12px 14px 14px;box-shadow:0 15px 80px #000a}
+.tsz-shop-dialog[open]{display:flex;flex-direction:column;align-items:stretch;gap:8px}
 .tsz-shop-dialog::backdrop{background:#000c}
-.tsz-shop-dialog-image{display:block;max-width:100%;max-height:78vh;object-fit:contain;margin:auto}
+.tsz-shop-dialog-image{display:block;width:100%;height:100%;min-width:0;min-height:0;max-width:100%;max-height:none;object-fit:contain;margin:0 auto;flex:1 1 auto}
 .tsz-shop-dialog-close{display:block;margin:0 0 10px auto;border:1px solid #806371;border-radius:8px;background:#342735;color:#f6eaf0;padding:8px 15px;cursor:pointer}
 @media(max-width:750px){
  .tsz-shop-stage{padding:14px}
