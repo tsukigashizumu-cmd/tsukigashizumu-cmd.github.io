@@ -59,6 +59,8 @@
     return {lead:first,intro:''};
   }
   function renderDescription(value){const root=$('p199-full');root.replaceChildren();for(const p of paras(value)){const node=make('p','',p);node.dir='auto';root.append(node);}if(!root.children.length)root.append(make('p','',tx().error));}
+  // R39R5R5: PuddingScoop only. Source-locked editorial translation, not an ASC mutation.
+  const PUDDING_FEATURES_I18N = {"sourceEn":["The rules are easy.\nKeep scooping to raise your score, then pull back before the caramel appears.","Maybe you can go a little further.\nBut the next scoop might end it.","Enjoy that small push-your-luck moment in short, quick sessions."],"sourceJa":["遊び方はかんたん。\nプリンをすくい続けてスコアを伸ばし、カラメルが出る前に引き返します。","まだいけそう。\nでも、次で終わるかもしれない。","そんな小さな駆け引きを、短い時間で手軽に楽しめます。"],"translations":{"de-DE":["Die Regeln sind einfach.\nSchöpfe weiter, um deine Punktzahl zu erhöhen, und höre auf, bevor das Karamell erscheint.","Vielleicht schaffst du noch einen Löffel.\nDoch der nächste könnte die Runde beenden.","Genieße diesen kleinen Nervenkitzel zwischen Weitermachen und rechtzeitigem Aufhören – auch in kurzen Spielpausen."],"ar-SA":["القواعد بسيطة.\nواصل غرف البودينغ لرفع نقاطك، ثم توقّف قبل ظهور الكراميل.","ربما تستطيع أن تغرف ملعقة أخرى.\nلكن الملعقة التالية قد تنهي الجولة.","استمتع بلحظة المخاطرة الصغيرة هذه في جولات قصيرة وسريعة."]}};
   function renderHighlights(value){
     if(id==='6794575766'){
       const jp=/^ja(?:-|$)/i.test(state.locale);
@@ -68,8 +70,16 @@
       $('features').hidden=false;return;
     }
     // Actual paragraphs, not inferred steps or fabricated user cases.
-    const list=$('p199-points');list.replaceChildren();const chunks=paras(value).slice(1,4);
-    chunks.forEach((p,i)=>{const row=make('article','p199-point');row.append(make('span','p199-point-num',String(i+1).padStart(2,'0')));const copy=make('p','',p);copy.dir='auto';row.append(copy);list.append(row);});
+    const list=$('p199-points');list.replaceChildren();
+    const chunks=paras(value).slice(1,4);
+    const translated=(id==='6763169050' &&
+      (state.locale==='de-DE'||state.locale==='ar-SA') &&
+      desc().locale==='en-US' && chunks.length===3 &&
+      chunks.every((p,i)=>p===PUDDING_FEATURES_I18N.sourceEn[i]))
+        ? PUDDING_FEATURES_I18N.translations[state.locale] : null;
+    // In a future ASC update, unfamiliar source text must remain untouched.
+    list.dataset.tszHighlightSource=translated?'pudding-'+state.locale:'asc-original';
+    (translated||chunks).forEach((p,i)=>{const row=make('article','p199-point');row.append(make('span','p199-point-num',String(i+1).padStart(2,'0')));const copy=make('p','',p);copy.dir=translated&&state.locale==='ar-SA'?'rtl':'auto';row.append(copy);list.append(row);});
     $('features').hidden=chunks.length===0;
   }
   function makeRelated(){

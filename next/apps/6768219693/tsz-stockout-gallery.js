@@ -87,15 +87,18 @@
     ]
   }
 };
+  const LOCALIZED_CAPTION_COPY = {"de-DE":{"us":[["Von kleinen Bestandsprüfungen zur Automatisierung.","Sieh, wie Bestandsprüfungen, Upgrades und Fortschritt einen Betrieb Schritt für Schritt dem Ziel ohne Fehlbestände näherbringen."],["Mit einer Bestandsprüfung anfangen.","Auf dem Startbildschirm findest du die Bestandsprüfung sowie Guthaben, Level und das nächste Ziel."],["Beobachte, wie sich die Zahlen verändern.","Verfolge den Fortschritt, die Statistik und das Endziel, während dein Betrieb wächst."],["In das nächste Upgrade investieren.","Durchsuche Erweiterungen und Automatisierungssysteme und vergleiche ihre Kosten mit deinem verfügbaren Guthaben."]],"jp":[["Aus kleinen Bestandsprüfungen wird mehr.","Sieh, wie du mit Bestandsprüfungen Geld verdienst und in Stockout Zero neue Upgrades freischaltest."],["Fehlbestände im Blick behalten.","Der japanische Startbildschirm zeigt die Bestandsprüfung, das Level, das Guthaben und deinen Fortschritt."],["Fortschritt auf einen Blick.","Prüfe die Statistik und den aktuellen Spielstand, bevor du entscheidest, worin du als Nächstes investierst."],["Mit deinem Guthaben Systeme ausbauen.","Sieh dir verfügbare Upgrades und ihre Kosten an, um über manuelle Bestandsprüfungen hinauszugehen."]]},"ar-SA":{"us":[["من فحوص المخزون الصغيرة إلى الأتمتة.","شاهد كيف تقود فحوص المخزون والترقيات والتقدم إلى تشغيل يقترب من هدف انعدام نفاد المخزون."],["ابدأ بفحص المخزون.","تعرض الشاشة الرئيسية فحص المخزون إلى جانب الرصيد والمستوى والهدف التالي."],["راقب الأرقام وهي تتغير.","تابع التقدم والإحصاءات والهدف النهائي بينما تنمو عملية إدارة المخزون."],["استثمر في الترقية التالية.","تصفّح التوسعات وأنظمة الأتمتة المتاحة وقارن تكلفتها برصيدك الحالي."]],"jp":[["تبدأ الرحلة بفحص صغير للمخزون.","شاهد كيف تكسب المال عبر فحص المخزون، ثم تستخدمه لشراء الترقيات في Stockout Zero."],["لا تدع المخزون ينفد.","تعرض الشاشة الرئيسية اليابانية زر فحص المخزون والمستوى والرصيد والتقدم الحالي."],["اطّلع على التقدم بنظرة واحدة.","راجع الإحصاءات والمرحلة الحالية قبل اختيار الترقية التالية."],["طوّر الأنظمة بما جمعته من أموال.","تصفّح الترقيات وتكاليفها لتوسيع نشاطك من الفحص اليدوي إلى أنظمة أكبر."]]}};
+  const UI_LABELS = {"ja":{"kicker":"APP / SCREEN COLLECTION","total":"動画 01 ＋ 実画面 {count}","video":"VIDEO","screen":"実画面","fullscreen":"動画を全画面で見る","enlarge":"画面を拡大","thumbVideo":"動画","thumbScreen":"画像","imageError":"画像を表示できませんでした。","close":"閉じる","prev":"前の項目","next":"次の項目","alt":"実画面"},"en":{"kicker":"APP / SCREEN COLLECTION","total":"01 VIDEO + {count} SCREENS","video":"VIDEO","screen":"SCREEN","fullscreen":"Watch fullscreen","enlarge":"Enlarge screenshot","thumbVideo":"VIDEO","thumbScreen":"Screenshot","imageError":"Screenshot could not be displayed.","close":"Close","prev":"Previous","next":"Next","alt":"screenshot"},"de-DE":{"kicker":"APP / BILDSCHIRMGALERIE","total":"01 VIDEO + {count} ANSICHTEN","video":"VIDEO","screen":"ANSICHT","fullscreen":"Video im Vollbild ansehen","enlarge":"Screenshot vergrößern","thumbVideo":"VIDEO","thumbScreen":"Screenshot","imageError":"Screenshot konnte nicht angezeigt werden.","close":"Schließen","prev":"Vorheriges Element","next":"Nächstes Element","alt":"Screenshot"},"ar-SA":{"kicker":"التطبيق / معرض الشاشات","total":"فيديو 01 + {count} شاشات","video":"فيديو","screen":"الشاشة","fullscreen":"مشاهدة الفيديو بملء الشاشة","enlarge":"تكبير لقطة الشاشة","thumbVideo":"فيديو","thumbScreen":"لقطة شاشة","imageError":"تعذّر عرض لقطة الشاشة.","close":"إغلاق","prev":"العنصر السابق","next":"العنصر التالي","alt":"لقطة شاشة"}};
   const make = (tag, cls, value) => {
     const node = document.createElement(tag);
     if (cls) node.className = cls;
     if (value !== undefined) node.textContent = value;
     return node;
   };
-  const lang = () => /^ja(?:[-_]|$)/i.test(document.getElementById('p199-language')?.value || document.documentElement.lang || '') ? 'ja' : 'en';
+  const requestedLocale = () => document.getElementById('p199-language')?.value || new URLSearchParams(location.search).get('language') || document.documentElement.lang || 'en-US';
+  const lang = () => /^ja(?:[-_]|$)/i.test(requestedLocale()) ? 'ja' : 'en';
   const country = () => /^jp$/i.test(document.getElementById('p199-country')?.value || '') ? 'jp' : 'us';
-  const state = { manifest:null, selected:0, lang:'', region:'', stage:null, scheduled:false, drawing:false };
+  const state = { manifest:null, selected:0, lang:'', locale:'', region:'', stage:null, scheduled:false, drawing:false };
   function validateManifest(value) {
     if (!value || value.apple_id !== APP || !value.regions) throw Error('MANIFEST_WRONG_APP');
     for (const region of ['us','jp']) {
@@ -105,9 +108,10 @@
     }
     return value;
   }
-  function createStage(images, language, region) {
+  function createStage(images, language, region, locale) {
     const japanese = language === 'ja';
-    const text = COPY[region][language];
+    const ui = UI_LABELS[locale] || UI_LABELS[language] || UI_LABELS.en;
+    const text = LOCALIZED_CAPTION_COPY[locale]?.[region] || COPY[region][language];
     const stage = make('section','tsz-stockout-stage');
     stage.id = 'tsz-stockout-r27r2';
     stage.dataset.mediaCount = String(images.length+1);
@@ -118,8 +122,8 @@
     stage.addEventListener('pointerdown', () => {stage.dataset.inputMode = 'pointer';}, true);
     stage.addEventListener('keydown', () => {stage.dataset.inputMode = 'keyboard';}, true);
     const top = make('div','tsz-stockout-top');
-    top.append(make('span','tsz-stockout-kicker','APP / SCREEN COLLECTION'),
-      make('span','tsz-stockout-total',japanese ? `動画 01 ＋ 実画面 ${String(images.length).padStart(2,'0')}` : `01 VIDEO + ${String(images.length).padStart(2,'0')} SCREENS`));
+    top.append(make('span','tsz-stockout-kicker',ui.kicker),
+      make('span','tsz-stockout-total',ui.total.replace('{count}',String(images.length).padStart(2,'0'))));
     const layout = make('div','tsz-stockout-layout');
     const visual = make('div','tsz-stockout-visual');
     const video = make('video','tsz-stockout-video');
@@ -127,7 +131,7 @@
     video.setAttribute('playsinline','');video.poster=images[0];
     const picture = make('img','tsz-stockout-image');
     picture.loading='eager'; picture.referrerPolicy='no-referrer';
-    const error = make('p','tsz-stockout-image-error',japanese?'画像を表示できませんでした。':'Screenshot could not be displayed.');
+    const error = make('p','tsz-stockout-image-error',ui.imageError);
     error.hidden=true;
     picture.addEventListener('load',()=>{if (!picture.hidden) error.hidden=true;});
     picture.addEventListener('error',()=>{picture.hidden=true;error.hidden=false;});
@@ -138,15 +142,18 @@
     const issue = make('span','tsz-stockout-issue');
     const headline = make('h3','tsz-stockout-headline');
     const body = make('p','tsz-stockout-body');
+    // Caption direction only; player/media and navigation layout stay unchanged.
+    const captionDir = locale === 'ar-SA' ? 'rtl' : 'auto';
+    headline.dir = captionDir; body.dir = captionDir;
     editorial.append(issue,headline,body);
     const controls = make('div','tsz-stockout-controls');
     const nav = make('div','tsz-stockout-nav');
-    const expand=make('button','tsz-stockout-expand',japanese?'動画を全画面で見る':'Watch fullscreen');
+    const expand=make('button','tsz-stockout-expand',ui.fullscreen);
     expand.type='button';
     const previous=make('button','tsz-stockout-arrow','‹');previous.type='button';
     const counter=make('strong','tsz-stockout-counter');
     const next=make('button','tsz-stockout-arrow','›');next.type='button';
-    previous.setAttribute('aria-label',japanese?'前の項目':'Previous');next.setAttribute('aria-label',japanese?'次の項目':'Next');
+    previous.setAttribute('aria-label',ui.prev);next.setAttribute('aria-label',ui.next);
     const navRight=make('div','tsz-stockout-nav-right');
     navRight.append(previous,counter,next);
     nav.append(expand,navRight);controls.append(nav);
@@ -154,11 +161,11 @@
     const buttons=[];
     for (let n=0; n<mediaCount; n++) {
       const button=make('button','tsz-stockout-thumb');button.type='button';
-      button.title=n===0?(japanese?'動画':'Video'):`${japanese?'画像':'Screenshot'} ${n}`;
+      button.title=n===0?(japanese?'動画':(ui.thumbVideo==='VIDEO'?'Video':ui.thumbVideo)):`${ui.thumbScreen} ${n}`;
       button.setAttribute('aria-label',button.title);
       const thumbnail=make('img','');thumbnail.src=images[n===0?0:n-1];thumbnail.loading='lazy';
       thumbnail.referrerPolicy='no-referrer';thumbnail.alt='';
-      button.append(thumbnail,make('span','',n===0?(japanese?'動画':'VIDEO'):String(n).padStart(2,'0')));
+      button.append(thumbnail,make('span','',n===0?ui.thumbVideo:String(n).padStart(2,'0')));
       button.addEventListener('click',(event)=>{
         show(n);
         // Pointer focus should not linger after selecting or moving to another thumbnail.
@@ -170,7 +177,7 @@
     controls.append(thumbs);side.append(editorial,controls);
     layout.append(visual,side);stage.append(layout);
     const dialog=make('dialog','tsz-stockout-dialog');
-    const dialogClose=make('button','tsz-stockout-dialog-close',japanese?'閉じる':'Close');dialogClose.type='button';
+    const dialogClose=make('button','tsz-stockout-dialog-close',ui.close);dialogClose.type='button';
     const dialogImg=make('img','tsz-stockout-dialog-image');dialogImg.alt='';
     dialog.append(dialogClose,dialogImg);stage.append(dialog);
     dialogClose.addEventListener('click',()=>dialog.close());
@@ -183,11 +190,11 @@
       const isVideo=selected===0;
       video.hidden=!isVideo;picture.hidden=isVideo;
       if (!isVideo) {error.hidden=true;picture.src=images[selected-1];
-        picture.alt=`Stockout Zero ${japanese?'実画面':'screenshot'} ${String(selected).padStart(2,'0')}`;}
+        picture.alt=`Stockout Zero ${ui.alt} ${String(selected).padStart(2,'0')}`;}
       else error.hidden=true;
-      issue.textContent=isVideo?'VIDEO':`${japanese?'実画面':'SCREEN'} ${String(selected).padStart(2,'0')}`;
+      issue.textContent=isVideo?ui.video:`${ui.screen} ${String(selected).padStart(2,'0')}`;
       headline.textContent=text[selected][0];body.textContent=text[selected][1];
-      expand.textContent=isVideo?(japanese?'動画を全画面で見る':'Watch fullscreen'):(japanese?'画面を拡大':'Enlarge screenshot');
+      expand.textContent=isVideo?ui.fullscreen:ui.enlarge;
       counter.textContent=`${String(selected+1).padStart(2,'0')} / ${String(mediaCount).padStart(2,'0')}`;
       buttons.forEach((button,n)=>{const active=n===selected;button.classList.toggle('is-selected',active);button.setAttribute('aria-pressed',String(active));});
       stage.dataset.selected = String(selected);
@@ -221,10 +228,10 @@
   function redraw() {
     state.scheduled=false;
     if (state.drawing || !state.manifest) return;
-    const l=lang(),r=country();
-    if (state.stage?.isConnected && state.lang===l && state.region===r) return;
-    state.lang=l;state.region=r;state.drawing=true;
-    try {state.stage=createStage(state.manifest.regions[r],l,r);holder.replaceChildren(state.stage);}
+    const l=lang(),r=country(),locale=requestedLocale();
+    if (state.stage?.isConnected && state.lang===l && state.region===r && state.locale===locale) return;
+    state.lang=l;state.region=r;state.locale=locale;state.drawing=true;
+    try {state.stage=createStage(state.manifest.regions[r],l,r,locale);holder.replaceChildren(state.stage);}
     finally {state.drawing=false;}
   }
   function queue() {
