@@ -14,6 +14,7 @@
     document.documentElement.dir=/^(ar|he|ur)$/.test(locale)?'rtl':'ltr';
     selector.value=locale;
     selector.setAttribute('aria-label',dict.localeLabel);
+    var home=document.getElementById('brand-home');if(home)home.setAttribute('href','../'+locale+'/');
     document.title='PromptDock AI — '+dict.heroTitle;
     var meta=document.querySelector('meta[name="description"]');if(meta)meta.content=dict.heroLead;
     var canonical=document.querySelector('link[rel="canonical"]');

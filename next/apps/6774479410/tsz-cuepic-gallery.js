@@ -52,7 +52,7 @@
     const controls=make('div','tsz-cuepic-controls');
     const nav=make('div','tsz-cuepic-nav');const expand=make('button','tsz-cuepic-expand',ui.enlarge);expand.type='button';
     const prev=make('button','tsz-cuepic-arrow','‹');prev.type='button';
-    const counter=make('strong','tsz-cuepic-counter');
+    const counter=make('strong','tsz-cuepic-counter');counter.dir='ltr';counter.style.unicodeBidi='isolate';
     const next=make('button','tsz-cuepic-arrow','›');next.type='button';
     prev.setAttribute('aria-label',ui.prev);next.setAttribute('aria-label',ui.next);
     const navRight=make('div','tsz-cuepic-nav-right');navRight.append(prev,counter,next);

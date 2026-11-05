@@ -812,12 +812,34 @@
     html[dir="rtl"] .brand-text {unicode-bidi:isolate;direction:ltr;}
     @media (max-width: 640px){.header-nav { width:100%; } .language-select {max-width:165px;padding:8px 9px;}}
 
+    /* P1R1: keep language switching discoverable on narrow screens in both LTR and RTL. */
+    .language-control { display: flex; align-items: center; flex: 0 0 auto; min-width: 0; }
+    .language-control .language-select { width: 100%; }
+    @media (max-width: 640px) {
+      .site-header-inner {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(116px, 42%);
+        grid-template-areas: "brand locale" "navigation navigation";
+        gap: 8px 10px;
+        align-items: center;
+      }
+      .site-header-inner > .brand { grid-area: brand; min-width: 0; }
+      .site-header-inner > .language-control { grid-area: locale; min-width: 0; justify-self: stretch; }
+      .site-header-inner > .header-nav {
+        grid-area: navigation; min-width: 0; width: 100%;
+        margin: 0; justify-content: flex-start;
+      }
+      .brand-text { max-width: 108px; font-size: .94rem; line-height: 1.18; }
+      .brand { gap: 8px; }
+      .language-control .language-select { min-width: 0; max-width: none; padding: 8px 7px; font-size: .82rem; }
+    }
+
   </style>
 </head>
 <body>
   <header class="site-header">
     <div class="container site-header-inner">
-      <a class="brand" href="../en/" aria-label="PromptDock AI">
+      <a class="brand" id="brand-home" href="../es-419/" aria-label="PromptDock AI">
         <span class="brand-icon" aria-hidden="true"><img src="../en/assets/app-icon.png" alt=""></span>
         <span class="brand-text">PromptDock AI</span>
       </a>
@@ -825,6 +847,10 @@
         <a class="nav-link" href="#features"><span data-i18n="whatTitle">Qué hace</span></a>
         <a class="nav-link" href="#screenshots"><span data-i18n="stepsTitle">Cómo usar PromptDock AI</span></a>
         <a class="nav-link" href="#packs"><span data-i18n="templates">Plantilla</span></a>
+
+        <a class="nav-button" href="https://apps.apple.com/app/id6772130038" target="_blank" rel="noopener noreferrer">App Store ↗</a>
+      </nav>
+      <div class="language-control">
         <select id="language-selector" class="language-select" aria-label="Idioma de la app">
           <option value="ar">العربية</option>
           <option value="bg">български</option>
@@ -882,8 +908,7 @@
           <option value="zh-Hant">繁體中文</option>
           <option value="zh-HK">繁體中文（香港）</option>
         </select>
-        <a class="nav-button" href="https://apps.apple.com/app/id6772130038" target="_blank" rel="noopener noreferrer">App Store ↗</a>
-      </nav>
+      </div>
     </div>
   </header>
   <main>
