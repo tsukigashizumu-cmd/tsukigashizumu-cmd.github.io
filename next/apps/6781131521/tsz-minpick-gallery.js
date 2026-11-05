@@ -37,15 +37,23 @@
       ['One small step, right now.', 'Start one task with the next five minutes.']
     ]
   };
+  const LOCALIZED_CAPTION_COPY = {"de-DE":[["Minpick in Aktion ansehen","Die Originalvorschau aus dem App Store: Wähle die verfügbare Zeit, finde eine passende Aufgabe und leg los."],["Fünf Minuten frei. Und jetzt?","Die Entscheidung, womit du anfängst, sollte nicht die ganze Zeit kosten. Fang mit den Minuten an, die du hast."],["Nur Aufgaben, die zeitlich passen","Wähle aus, wie viele Minuten du hast, und sieh bis zu drei passende Aufgaben."],["Eine Aufgabe auswählen und loslegen","Entscheide dich für eine Aufgabe. Du musst nicht alles auf einmal erledigen."],["Erledigt.","Eine einfache Ansicht für die Aufgabe, die du gerade abgeschlossen hast."],["Weiter zur nächsten Aufgabe.","Ist eine Aufgabe erledigt, kannst du den nächsten Schritt auswählen."],["Nur drei Minuten? Auch das reicht.","Finde eine kleine Aufgabe, die in die verfügbare Zeit passt."],["Nutze die Zeit, die du hast.","Lege selbst fest, wie viele Minuten dir gerade zur Verfügung stehen."],["Alles andere für später aufheben.","Aufgaben, die du jetzt nicht angehst, bleiben in deiner Liste."],["Direkt vom Home-Bildschirm starten.","Wähle deine verfügbare Zeit direkt auf dem Home-Bildschirm."],["Jetzt einen kleinen Schritt machen.","Nutze die nächsten fünf Minuten, um eine Aufgabe anzufangen."]],"ar-SA":[["شاهد Minpick أثناء الاستخدام","معاينة التطبيق الأصلية من App Store: اختر الوقت المتاح، واعثر على مهمة تناسبه، ثم ابدأ."],["لديك خمس دقائق. ماذا بعد؟","لا تدع الحيرة بشأن ما تبدأ به تستهلك وقتك. ابدأ بما يمكنك فعله الآن."],["مهام تناسب وقتك فقط","اختر عدد الدقائق المتاحة لترى ما يصل إلى ثلاث مهام تناسب وقتك."],["اختر مهمة واحدة وابدأ","اختر مهمة واحدة لتبدأ بها. لست مضطرًا إلى إنجاز كل شيء."],["أنجزتها.","شاشة بسيطة تُظهر المهمة الواحدة التي أكملتها."],["انتقل إلى الخطوة التالية.","بعد إنهاء مهمة، يمكنك اختيار ما تفعله بعد ذلك."],["ثلاث دقائق فقط؟ تكفي أيضًا.","اعثر على مهمة صغيرة يمكنك إنجازها في الوقت المتاح."],["استفد من الوقت المتاح لك.","حدّد بنفسك عدد الدقائق التي يمكنك تخصيصها الآن."],["اترك البقية لوقت لاحق.","احتفظ في قائمتك بالمهام التي لن تبدأ بها الآن."],["ابدأ من الشاشة الرئيسية.","اختر الوقت المتاح لك مباشرة من الشاشة الرئيسية."],["خطوة صغيرة الآن.","ابدأ مهمة واحدة خلال الدقائق الخمس القادمة."]]};
+  const UI_LABELS = {"ja":{"kicker":"APP / SCREEN COLLECTION","total":"動画 01 ＋ 実画面 10","videoIssue":"VIDEO","screen":"SCREEN","watch":"動画を全画面で見る","enlarge":"画面を拡大","thumbVideo":"動画","thumb":"画像","imageError":"画像を表示できませんでした。","close":"閉じる","prev":"前の項目","next":"次の項目","alt":"実画面","origin":"Apple App Storeに掲載された実画面・実映像"},"en":{"kicker":"APP / SCREEN COLLECTION","total":"01 VIDEO + 10 ORIGINAL SCREENS","videoIssue":"VIDEO","screen":"SCREEN","watch":"Watch fullscreen","enlarge":"Enlarge screenshot","thumbVideo":"Video","thumb":"Screenshot","imageError":"Screenshot could not be displayed.","close":"Close","prev":"Previous","next":"Next","alt":"screenshot","origin":"Original screenshots and video from the Apple App Store"},"de-DE":{"kicker":"APP / BILDSCHIRMGALERIE","total":"01 VIDEO + 10 ANSICHTEN","videoIssue":"VIDEO","screen":"ANSICHT","watch":"Video im Vollbild ansehen","enlarge":"Screenshot vergrößern","thumbVideo":"Video","thumb":"Screenshot","imageError":"Screenshot konnte nicht geladen werden.","close":"Schließen","prev":"Vorheriges Element","next":"Nächstes Element","alt":"Screenshot","origin":"Originalbilder und -video aus dem Apple App Store"},"ar-SA":{"kicker":"التطبيق / معرض الشاشات","total":"فيديو واحد + ١٠ لقطات شاشة","videoIssue":"فيديو","screen":"لقطة","watch":"مشاهدة الفيديو بملء الشاشة","enlarge":"تكبير لقطة الشاشة","thumbVideo":"فيديو","thumb":"لقطة شاشة","imageError":"تعذّر عرض لقطة الشاشة.","close":"إغلاق","prev":"العنصر السابق","next":"العنصر التالي","alt":"لقطة شاشة","origin":"صور وفيديو أصليان من Apple App Store"}};
   const make = (tag, cls, value) => {
     const node = document.createElement(tag);
     if (cls) node.className = cls;
     if (value !== undefined) node.textContent = value;
     return node;
   };
-  const lang = () => /^ja(?:[-_]|$)/i.test(document.getElementById('p199-language')?.value || document.documentElement.lang || '') ? 'ja' : 'en';
+  let languageTouched = false;
+  const requestedLocale = () => {
+    const choice=document.getElementById('p199-language')?.value||'';
+    const query=new URLSearchParams(location.search).get('language')||'';
+    return languageTouched&&choice?choice:((choice==='de-DE'||choice==='ar-SA')?choice:((query==='de-DE'||query==='ar-SA')?query:(choice||query||document.documentElement.lang||navigator.language||'en-US')));
+  };
+  const lang = () => /^ja(?:[-_]|$)/i.test(requestedLocale()) ? 'ja' : 'en';
   const country = () => /^jp$/i.test(document.getElementById('p199-country')?.value || '') ? 'jp' : 'us';
-  const state = { manifest:null, selected:0, lang:'', region:'', stage:null, scheduled:false, drawing:false };
+  const state = { manifest:null, selected:0, lang:'', locale:'', region:'', stage:null, scheduled:false, drawing:false };
   function validateManifest(value) {
     if (!value || value.apple_id !== APP || !value.regions) throw Error('MANIFEST_WRONG_APP');
     for (const region of ['us','jp']) {
@@ -55,16 +63,17 @@
     }
     return value;
   }
-  function createStage(images, language, region) {
+  function createStage(images, language, region, locale) {
     const japanese = language === 'ja';
-    const text = COPY[language];
+    const text = LOCALIZED_CAPTION_COPY[locale] || COPY[language];
+    const label = UI_LABELS[locale] || UI_LABELS[language] || UI_LABELS.en;
     const stage = make('section','tsz-minpick-stage');
-    stage.id = 'tsz-minpick-r21r4';
+    stage.id = 'tsz-minpick-r21r4';stage.dataset.locale=locale;stage.dataset.region=region;stage.dir=locale==='ar-SA'?'rtl':'ltr';
     stage.dataset.mediaCount = '11';
     stage.dataset.screenshotCount = String(images.length);
     const top = make('div','tsz-minpick-top');
-    top.append(make('span','tsz-minpick-kicker','APP / SCREEN COLLECTION'),
-      make('span','tsz-minpick-total',japanese ? '動画 01 ＋ 実画面 10' : '01 VIDEO + 10 ORIGINAL SCREENS'));
+    top.append(make('span','tsz-minpick-kicker',label.kicker),
+      make('span','tsz-minpick-total',label.total));
     const layout = make('div','tsz-minpick-layout');
     const visual = make('div','tsz-minpick-visual');
     const video = make('video','tsz-minpick-video');
@@ -72,7 +81,7 @@
     video.setAttribute('playsinline','');video.poster=images[0];
     const picture = make('img','tsz-minpick-image');
     picture.loading='eager'; picture.referrerPolicy='no-referrer';
-    const error = make('p','tsz-minpick-image-error',japanese?'画像を表示できませんでした。':'Screenshot could not be displayed.');
+    const error = make('p','tsz-minpick-image-error',label.imageError);
     error.hidden=true;
     picture.addEventListener('load',()=>{if (!picture.hidden) error.hidden=true;});
     picture.addEventListener('error',()=>{picture.hidden=true;error.hidden=false;});
@@ -83,16 +92,17 @@
     const issue = make('span','tsz-minpick-issue');
     const headline = make('h3','tsz-minpick-headline');
     const body = make('p','tsz-minpick-body');
-    const origin = make('p','tsz-minpick-origin',japanese?'Apple App Storeに掲載された実画面・実映像':'Original screenshots and video from the Apple App Store');
+    const origin = make('p','tsz-minpick-origin',label.origin);
+    headline.dir=locale==='ar-SA'?'rtl':'auto';body.dir=locale==='ar-SA'?'rtl':'auto';
     editorial.append(issue,headline,body,origin);
     const controls = make('div','tsz-minpick-controls');
     const nav = make('div','tsz-minpick-nav');
-    const expand=make('button','tsz-minpick-expand',japanese?'動画を全画面で見る':'Watch fullscreen');
+    const expand=make('button','tsz-minpick-expand',label.watch);
     expand.type='button';
     const previous=make('button','tsz-minpick-arrow','‹');previous.type='button';
-    const counter=make('strong','tsz-minpick-counter');
+    const counter=make('strong','tsz-minpick-counter');counter.dir='ltr';counter.style.unicodeBidi='isolate';
     const next=make('button','tsz-minpick-arrow','›');next.type='button';
-    previous.setAttribute('aria-label',japanese?'前の項目':'Previous');next.setAttribute('aria-label',japanese?'次の項目':'Next');
+    previous.setAttribute('aria-label',label.prev);next.setAttribute('aria-label',label.next);
     const navRight=make('div','tsz-minpick-nav-right');
     navRight.append(previous,counter,next);
     nav.append(expand,navRight);controls.append(nav);
@@ -100,18 +110,18 @@
     const buttons=[];
     for (let n=0; n<11; n++) {
       const button=make('button','tsz-minpick-thumb');button.type='button';
-      button.title=n===0?(japanese?'動画':'Video'):`${japanese?'画像':'Screenshot'} ${n}`;
+      button.title=n===0?label.thumbVideo:`${label.thumb} ${n}`;
       button.setAttribute('aria-label',button.title);
       const thumbnail=make('img','');thumbnail.src=images[n===0?0:n-1];thumbnail.loading='lazy';
       thumbnail.referrerPolicy='no-referrer';thumbnail.alt='';
-      button.append(thumbnail,make('span','',n===0?(japanese?'動画':'VIDEO'):String(n).padStart(2,'0')));
+      button.append(thumbnail,make('span','',n===0?(locale==='ja'||locale==='ar-SA'?label.thumbVideo:'VIDEO'):String(n).padStart(2,'0')));
       button.addEventListener('click',()=>show(n));
       buttons.push(button);thumbs.append(button);
     }
     controls.append(thumbs);side.append(editorial,controls);
     layout.append(visual,side);stage.append(layout);
     const dialog=make('dialog','tsz-minpick-dialog');
-    const dialogClose=make('button','tsz-minpick-dialog-close',japanese?'閉じる':'Close');dialogClose.type='button';
+    const dialogClose=make('button','tsz-minpick-dialog-close',label.close);dialogClose.type='button';
     const dialogImg=make('img','tsz-minpick-dialog-image');dialogImg.alt='';
     dialog.append(dialogClose,dialogImg);stage.append(dialog);
     dialogClose.addEventListener('click',()=>dialog.close());
@@ -124,11 +134,11 @@
       const isVideo=selected===0;
       video.hidden=!isVideo;picture.hidden=isVideo;
       if (!isVideo) {error.hidden=true;picture.src=images[selected-1];
-        picture.alt=`Minpick ${japanese?'実画面':'screenshot'} ${String(selected).padStart(2,'0')}`;}
+        picture.alt=`Minpick ${label.alt} ${String(selected).padStart(2,'0')}`;}
       else error.hidden=true;
-      issue.textContent=isVideo?'VIDEO':`SCREEN ${String(selected).padStart(2,'0')}`;
+      issue.textContent=isVideo?label.videoIssue:`${label.screen} ${String(selected).padStart(2,'0')}`;
       headline.textContent=text[selected][0];body.textContent=text[selected][1];
-      expand.textContent=isVideo?(japanese?'動画を全画面で見る':'Watch fullscreen'):(japanese?'画面を拡大':'Enlarge screenshot');
+      expand.textContent=isVideo?label.watch:label.enlarge;
       counter.textContent=`${String(selected+1).padStart(2,'0')} / 11`;
       buttons.forEach((button,n)=>{const active=n===selected;button.classList.toggle('is-selected',active);button.setAttribute('aria-pressed',String(active));});
       stage.dataset.selected = String(selected);
@@ -157,10 +167,10 @@
   function redraw() {
     state.scheduled=false;
     if (state.drawing || !state.manifest) return;
-    const l=lang(),r=country();
-    if (state.stage?.isConnected && state.lang===l && state.region===r) return;
-    state.lang=l;state.region=r;state.drawing=true;
-    try {state.stage=createStage(state.manifest.regions[r],l,r);holder.replaceChildren(state.stage);}
+    const l=lang(),r=country(),loc=requestedLocale();
+    if (state.stage?.isConnected && state.lang===l && state.region===r && state.locale===loc) return;
+    state.lang=l;state.region=r;state.locale=loc;state.drawing=true;
+    try {state.stage=createStage(state.manifest.regions[r],l,r,loc);holder.replaceChildren(state.stage);}
     finally {state.drawing=false;}
   }
   function queue() {
@@ -168,7 +178,8 @@
     state.scheduled=true;requestAnimationFrame(redraw);
   }
   new MutationObserver(queue).observe(holder,{childList:true});
-  for (const id of ['p199-language','p199-country']) document.getElementById(id)?.addEventListener('change',queue);
+  document.getElementById('p199-language')?.addEventListener('change',()=>{languageTouched=true;queue();});
+  document.getElementById('p199-country')?.addEventListener('change',queue);
   fetch(MANIFEST,{cache:'no-store',credentials:'same-origin'}).then(response=>{
     if(!response.ok) throw Error('MANIFEST_HTTP_'+response.status);
     return response.json();
