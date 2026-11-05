@@ -71,15 +71,23 @@
     ]
   }
 };
+  const LOCALIZED_CAPTION_COPY = {"de-DE":{"jp":[["Sieh zu, wie ein Hintergrundbild entsteht.","Wähle ein Foto und wechsle zwischen Farbpaletten. Im App-Video siehst du, wie sich das Hintergrundbild dabei verändert."],["Kombiniere Farben für dein Hintergrundbild.","Farbpaletten als Karten und die Vorschau des Hintergrundbilds stehen im Editor nebeneinander. Vergleiche Farbkombinationen direkt."],["Foto und Farbe in einer Ansicht.","Bearbeite ein Design mit Fotohintergrund. Im Editor findest du unter anderem Glow, Effect, Photo, Text und Mark."]],"us":[["Sieh zu, wie ein Hintergrundbild entsteht.","Wähle ein Foto und wechsle zwischen Farbpaletten. Im App-Video siehst du, wie sich das Hintergrundbild dabei verändert."],["Kombiniere Farben für dein Hintergrundbild.","Farbpaletten als Karten und die Vorschau des Hintergrundbilds stehen im Editor nebeneinander. Vergleiche Farbkombinationen direkt."],["Foto und Farbe in einer Ansicht.","Bearbeite ein Design mit Fotohintergrund. Im Editor findest du unter anderem Glow, Effect, Photo, Text und Mark."]]},"ar-SA":{"jp":[["شاهد كيف تتغيّر خلفية الشاشة.","اختر صورة وبدّل بين لوحات الألوان. يُظهر فيديو التطبيق كيف يتغيّر شكل الخلفية مع كل اختيار."],["اصنع خلفيتك من مجموعات الألوان.","تظهر بطاقات لوحات الألوان ومعاينة الخلفية جنبًا إلى جنب في شاشة التحرير لتقارن بين التنسيقات بسهولة."],["الصورة والألوان في شاشة واحدة.","عدّل خلفية تستند إلى صورة باستخدام عناصر مثل Glow وEffect وPhoto وText وMark ضمن شاشة التحرير."]],"us":[["شاهد كيف تتغيّر خلفية الشاشة.","اختر صورة وبدّل بين لوحات الألوان. يُظهر فيديو التطبيق كيف يتغيّر شكل الخلفية مع كل اختيار."],["اصنع خلفيتك من مجموعات الألوان.","تظهر بطاقات لوحات الألوان ومعاينة الخلفية جنبًا إلى جنب في شاشة التحرير لتقارن بين التنسيقات بسهولة."],["الصورة والألوان في شاشة واحدة.","عدّل خلفية تستند إلى صورة باستخدام عناصر مثل Glow وEffect وPhoto وText وMark ضمن شاشة التحرير."]]}};
+  const UI_LABELS = {"ja":{"kicker":"APP / SCREEN COLLECTION","total":"動画 01 ＋ 実画面 02","videoIssue":"VIDEO","screen":"実画面","watch":"動画を全画面で見る","enlarge":"画面を拡大","thumbVideo":"動画","thumb":"画像","imageError":"画像を表示できませんでした。","close":"閉じる","prev":"前の項目","next":"次の項目","alt":"実画面"},"en":{"kicker":"APP / SCREEN COLLECTION","total":"01 VIDEO + 02 SCREENS","videoIssue":"VIDEO","screen":"SCREEN","watch":"Watch fullscreen","enlarge":"Enlarge screenshot","thumbVideo":"Video","thumb":"Screenshot","imageError":"Screenshot could not be displayed.","close":"Close","prev":"Previous","next":"Next","alt":"screenshot"},"de-DE":{"kicker":"APP / BILDSCHIRMGALERIE","total":"01 VIDEO + 02 ANSICHTEN","videoIssue":"VIDEO","screen":"ANSICHT","watch":"Video im Vollbild ansehen","enlarge":"Screenshot vergrößern","thumbVideo":"Video","thumb":"Screenshot","imageError":"Screenshot konnte nicht geladen werden.","close":"Schließen","prev":"Vorheriges Element","next":"Nächstes Element","alt":"Screenshot"},"ar-SA":{"kicker":"التطبيق / معرض الشاشات","total":"فيديو واحد + صورتان","videoIssue":"فيديو","screen":"صورة","watch":"عرض الفيديو بملء الشاشة","enlarge":"تكبير لقطة الشاشة","thumbVideo":"فيديو","thumb":"لقطة شاشة","imageError":"تعذّر عرض لقطة الشاشة.","close":"إغلاق","prev":"العنصر السابق","next":"العنصر التالي","alt":"لقطة شاشة"}};
   const make = (tag, cls, value) => {
     const node = document.createElement(tag);
     if (cls) node.className = cls;
     if (value !== undefined) node.textContent = value;
     return node;
   };
-  const lang = () => /^ja(?:[-_]|$)/i.test(document.getElementById('p199-language')?.value || document.documentElement.lang || '') ? 'ja' : 'en';
+  let languageTouched = false;
+  const requestedLocale = () => {
+    const choice=document.getElementById('p199-language')?.value||'';
+    const query=new URLSearchParams(location.search).get('language')||'';
+    return languageTouched&&choice?choice:((choice==='de-DE'||choice==='ar-SA')?choice:((query==='de-DE'||query==='ar-SA')?query:(choice||query||document.documentElement.lang||navigator.language||'en-US')));
+  };
+  const lang = () => /^ja(?:[-_]|$)/i.test(requestedLocale()) ? 'ja' : 'en';
   const country = () => /^jp$/i.test(document.getElementById('p199-country')?.value || '') ? 'jp' : 'us';
-  const state = { manifest:null, selected:0, lang:'', region:'', stage:null, scheduled:false, drawing:false };
+  const state = { manifest:null, selected:0, lang:'', locale:'', region:'', stage:null, scheduled:false, drawing:false };
   function validateManifest(value) {
     if (!value || value.apple_id !== APP || !value.regions) throw Error('MANIFEST_WRONG_APP');
     for (const region of ['us','jp']) {
@@ -89,11 +97,12 @@
     }
     return value;
   }
-  function createStage(images, language, region) {
+  function createStage(images, language, region, locale) {
     const japanese = language === 'ja';
-    const text = COPY[region][language];
+    const text = LOCALIZED_CAPTION_COPY[locale]?.[region] || COPY[region][language];
+    const label = UI_LABELS[locale] || UI_LABELS[language] || UI_LABELS.en;
     const stage = make('section','tsz-palette-stage');
-    stage.id = 'tsz-palette-r26r2';
+    stage.id = 'tsz-palette-r26r2';stage.dataset.locale=locale;stage.dataset.region=region;
     stage.dataset.mediaCount = String(images.length+1);
     stage.dataset.screenshotCount = String(images.length);
     const mediaCount=images.length+1;
@@ -102,8 +111,8 @@
     stage.addEventListener('pointerdown', () => {stage.dataset.inputMode = 'pointer';}, true);
     stage.addEventListener('keydown', () => {stage.dataset.inputMode = 'keyboard';}, true);
     const top = make('div','tsz-palette-top');
-    top.append(make('span','tsz-palette-kicker','APP / SCREEN COLLECTION'),
-      make('span','tsz-palette-total',japanese ? `動画 01 ＋ 実画面 ${String(images.length).padStart(2,'0')}` : `01 VIDEO + ${String(images.length).padStart(2,'0')} SCREENS`));
+    top.append(make('span','tsz-palette-kicker',label.kicker),
+      make('span','tsz-palette-total',label.total));
     const layout = make('div','tsz-palette-layout');
     const visual = make('div','tsz-palette-visual');
     const video = make('video','tsz-palette-video');
@@ -111,7 +120,7 @@
     video.setAttribute('playsinline','');video.poster=images[0];
     const picture = make('img','tsz-palette-image');
     picture.loading='eager'; picture.referrerPolicy='no-referrer';
-    const error = make('p','tsz-palette-image-error',japanese?'画像を表示できませんでした。':'Screenshot could not be displayed.');
+    const error = make('p','tsz-palette-image-error',label.imageError);
     error.hidden=true;
     picture.addEventListener('load',()=>{if (!picture.hidden) error.hidden=true;});
     picture.addEventListener('error',()=>{picture.hidden=true;error.hidden=false;});
@@ -122,15 +131,16 @@
     const issue = make('span','tsz-palette-issue');
     const headline = make('h3','tsz-palette-headline');
     const body = make('p','tsz-palette-body');
+    headline.dir=locale==='ar-SA'?'rtl':'auto';body.dir=locale==='ar-SA'?'rtl':'auto';
     editorial.append(issue,headline,body);
     const controls = make('div','tsz-palette-controls');
     const nav = make('div','tsz-palette-nav');
-    const expand=make('button','tsz-palette-expand',japanese?'動画を全画面で見る':'Watch fullscreen');
+    const expand=make('button','tsz-palette-expand',label.watch);
     expand.type='button';
     const previous=make('button','tsz-palette-arrow','‹');previous.type='button';
-    const counter=make('strong','tsz-palette-counter');
+    const counter=make('strong','tsz-palette-counter');counter.dir='ltr';counter.style.unicodeBidi='isolate';
     const next=make('button','tsz-palette-arrow','›');next.type='button';
-    previous.setAttribute('aria-label',japanese?'前の項目':'Previous');next.setAttribute('aria-label',japanese?'次の項目':'Next');
+    previous.setAttribute('aria-label',label.prev);next.setAttribute('aria-label',label.next);
     const navRight=make('div','tsz-palette-nav-right');
     navRight.append(previous,counter,next);
     nav.append(expand,navRight);controls.append(nav);
@@ -138,7 +148,7 @@
     const buttons=[];
     for (let n=0; n<mediaCount; n++) {
       const button=make('button','tsz-palette-thumb');button.type='button';
-      button.title=n===0?(japanese?'動画':'Video'):`${japanese?'画像':'Screenshot'} ${n}`;
+      button.title=n===0?label.thumbVideo:`${label.thumb} ${n}`;
       button.setAttribute('aria-label',button.title);
       const thumbnail=make('img','');thumbnail.src=images[n===0?0:n-1];thumbnail.loading='lazy';
       thumbnail.referrerPolicy='no-referrer';thumbnail.alt='';
@@ -154,7 +164,7 @@
     controls.append(thumbs);side.append(editorial,controls);
     layout.append(visual,side);stage.append(layout);
     const dialog=make('dialog','tsz-palette-dialog');
-    const dialogClose=make('button','tsz-palette-dialog-close',japanese?'閉じる':'Close');dialogClose.type='button';
+    const dialogClose=make('button','tsz-palette-dialog-close',label.close);dialogClose.type='button';
     const dialogImg=make('img','tsz-palette-dialog-image');dialogImg.alt='';
     dialog.append(dialogClose,dialogImg);stage.append(dialog);
     dialogClose.addEventListener('click',()=>dialog.close());
@@ -167,11 +177,11 @@
       const isVideo=selected===0;
       video.hidden=!isVideo;picture.hidden=isVideo;
       if (!isVideo) {error.hidden=true;picture.src=images[selected-1];
-        picture.alt=`Palette Spin ${japanese?'実画面':'screenshot'} ${String(selected).padStart(2,'0')}`;}
+        picture.alt=`Palette Spin ${label.alt} ${String(selected).padStart(2,'0')}`;}
       else error.hidden=true;
-      issue.textContent=isVideo?'VIDEO':`${japanese?'実画面':'SCREEN'} ${String(selected).padStart(2,'0')}`;
+      issue.textContent=isVideo?label.videoIssue:`${label.screen} ${String(selected).padStart(2,'0')}`;
       headline.textContent=text[selected][0];body.textContent=text[selected][1];
-      expand.textContent=isVideo?(japanese?'動画を全画面で見る':'Watch fullscreen'):(japanese?'画面を拡大':'Enlarge screenshot');
+      expand.textContent=isVideo?label.watch:label.enlarge;
       counter.textContent=`${String(selected+1).padStart(2,'0')} / ${String(mediaCount).padStart(2,'0')}`;
       buttons.forEach((button,n)=>{const active=n===selected;button.classList.toggle('is-selected',active);button.setAttribute('aria-pressed',String(active));});
       stage.dataset.selected = String(selected);
@@ -205,10 +215,10 @@
   function redraw() {
     state.scheduled=false;
     if (state.drawing || !state.manifest) return;
-    const l=lang(),r=country();
-    if (state.stage?.isConnected && state.lang===l && state.region===r) return;
-    state.lang=l;state.region=r;state.drawing=true;
-    try {state.stage=createStage(state.manifest.regions[r],l,r);holder.replaceChildren(state.stage);}
+    const l=lang(),r=country(),locale=requestedLocale();
+    if (state.stage?.isConnected && state.lang===l && state.region===r && state.locale===locale) return;
+    state.lang=l;state.region=r;state.locale=locale;state.drawing=true;
+    try {state.stage=createStage(state.manifest.regions[r],l,r,locale);holder.replaceChildren(state.stage);}
     finally {state.drawing=false;}
   }
   function queue() {
@@ -216,7 +226,7 @@
     state.scheduled=true;requestAnimationFrame(redraw);
   }
   new MutationObserver(queue).observe(holder,{childList:true});
-  for (const id of ['p199-language','p199-country']) document.getElementById(id)?.addEventListener('change',queue);
+  for (const id of ['p199-language','p199-country']) document.getElementById(id)?.addEventListener('change',event=>{if(id==='p199-language'&&event.isTrusted)languageTouched=true;queue();});
   fetch(MANIFEST,{cache:'no-store',credentials:'same-origin'}).then(response=>{
     if(!response.ok) throw Error('MANIFEST_HTTP_'+response.status);
     return response.json();
