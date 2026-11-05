@@ -7,10 +7,14 @@
   const APP=6769388691;
   const MANIFEST='./tsz-goodperson-images.json?v=p19-r28r2';
   const COPY={"jp":{"ja":[["あなたの「善人ぶり」は、どのタイプ？","10問の選択で、自分の「いい人」の振る舞いを振り返る診断。20種類のタイプから結果が表示されます。"],["答え方に、価値観が出る。","1日パスを買ったお客様への対応を考える設問。選択肢によって、優先することが見えてきます。"],["公平性クラッシャー","一人を助けるために、見えない誰かへ負担が回る。善意と公平性のずれを描く結果カード。"],["善意の感染源","責任を抱え込まずに広がっていく親切。気持ちの連鎖を描いた結果カード。"],["仕組み化の鬼","個人の努力よりも、再現できるルールを重視する。仕組みで優しさを回すタイプ。"],["沈黙の店長","衝突を避けて静かにやり過ごすことも、選択のひとつ。その影響を考えさせるカード。"],["優しいスタッフ依存症","優しさが特定の人に集中すると、そこに負担が生まれる。チームの関係を描くタイプ。"],["感情労働の王","人の気持ちを受け止め続ける優しさ。無理のない距離感を問いかける結果。"],["隠れコスト職人","その場をきれいに収める裏側で、誰かの手間が増える。見えないコストに目を向ける。"],["正論で刺す人","ルールは守れても、言葉が相手を傷つけることがある。正しさと温かさの違いを描く。"]],"en":[["Your “good-person” type","The Japanese start screen introduces the 10-choice diagnosis and the different types it can reveal."],["What would you do?","A day-pass scenario presents three different responses. Your choices reflect how you handle fairness and compassion."],["Fairness Crusher","A good deed helps one person but quietly shifts the burden to someone else."],["Source of Goodwill","Kindness can spread when responsibility does not stay with one individual."],["The System Builder","Let a dependable process support people instead of expecting endless personal sacrifice."],["Silent Manager","Keeping quiet avoids conflict, but does it resolve what matters?"],["Dependence on Kind Staff","Everyone looks to the kindest person, until they become the one doing all the work."],["King of Emotional Labor","Carrying other people’s feelings can become its own burden."],["Hidden Cost Maker","A neat solution may shift the work to someone who gets no credit."],["The Blunt Rule Follower","Being correct does not always mean being kind."]]},"us":{"ja":[["「いい人」の選択を、10問で。","英語版の開始画面。10問に答えると、20種類の善人ぶりタイプから結果が現れます。"],["その場でどう対応する？","1日パスを購入したお客さんが早く帰るとき、どうするか。価値観が表れる設問です。"],["Fairness Crusher｜公平性の代償","目の前の一人を助ける選択が、別の誰かに負担を移すことも。"],["Goodwill Source｜広がる善意","気持ちよい親切が、ひとりの負担にならずに周囲へ伝わっていく。"],["Policy Demon｜仕組みで決める","善意を個人の犠牲に頼らず、仕組みやルールで実現する。"],["Silent Manager｜静かな管理者","争いを避けて静かにすることが、いつも解決とは限らない。"],["Kind Staff Dependency｜優しさへの依存","親切な人に仕事が集まり続けると、やがてその人が疲れてしまう。"],["Emotional Labor King｜感情労働","他人の気持ちを抱え込みすぎないための距離感を問いかける。"],["Hidden Cost Crafter｜見えない負担","問題が解消したように見えても、どこかにしわ寄せが残る。"],["Blunt Rule Keeper｜正しさと優しさ","決まりを守ることと、人を傷つけないことは同じではない。"]],"en":[["What kind of “good person” are you?","Make 10 choices and discover a result among 20 good-person archetypes, each with a slightly sharp sense of humor."],["A small choice can say a lot.","A day-pass scenario asks what to do when a customer leaves early. Compare the possible responses before you choose."],["Fairness Crusher","A helpful act for one person may leave an unseen cost for someone else. This result explores that tension."],["Goodwill Source","Kindness spreads beyond one person, without requiring them to carry every responsibility alone."],["Policy Demon","Let the system carry decisions instead of relying on personal sacrifice or pressure."],["Silent Manager","Avoiding conflict may keep things quiet for now. This result asks what silence really accomplishes."],["Kind Staff Dependency","When everyone depends on one kind colleague, that person may bear the hidden cost."],["Emotional Labor King","Holding other people’s feelings takes work. Kindness should not turn into a cage."],["Hidden Cost Crafter","The problem looks solved, but the burden may have moved somewhere less visible."],["Blunt Rule Keeper","Following the rule can still leave someone hurt. The result questions whether being right is enough."]]}};
+  const LOCALIZED_CAPTION_COPY = {"de-DE":{"jp":[["Welcher „gute Mensch“ steckt in dir?","Beantworte zehn Fragen über dein Verhalten gegenüber anderen. Das Ergebnis zeigt einen von 20 Persönlichkeitstypen mit einem Augenzwinkern."],["Deine Antwort verrät deine Prioritäten.","Ein Fall mit einer Tageskarte stellt dich vor verschiedene Reaktionen auf einen Kunden. Welche Lösung findest du am fairsten?"],["Der Fairness-Zerstörer","Du hilfst einer Person, doch die zusätzliche Last landet bei jemandem, den niemand sieht."],["Die Quelle der Hilfsbereitschaft","Freundlichkeit kann sich weiterverbreiten, ohne dass eine Person alles allein tragen muss."],["Der Systemgestalter","Statt immer mehr Einsatz von Einzelnen zu verlangen, sorgst du mit verlässlichen Regeln für Unterstützung."],["Der schweigende Manager","Schweigen kann Konflikte vermeiden. Aber was ändert sich dadurch wirklich?"],["Abhängig vom netten Teammitglied","Wenn sich alle auf die freundlichste Person verlassen, wächst deren unsichtbare Arbeitslast."],["Der König der Gefühlsarbeit","Anderen immer wieder emotional beizustehen kostet Kraft. Wo liegt die gesunde Grenze?"],["Der Meister versteckter Kosten","An der Oberfläche ist alles geklärt. Doch vielleicht muss jemand anderes dafür mehr tun."],["Der Mensch mit der harten Wahrheit","Auch korrekte Regeln können verletzen. Was unterscheidet Recht haben von Freundlichkeit?"]],"us":[["Was für ein „guter Mensch“ bist du?","Triff zehn Entscheidungen und entdecke, welcher von 20 leicht bissigen Gutmensch-Typen zu deinen Antworten passt."],["Eine kleine Entscheidung sagt viel aus.","Ein Kunde verlässt ein Angebot mit Tageskarte früher. Wie reagierst du? Vergleiche die möglichen Antworten."],["Fairness-Zerstörer","Ein gut gemeinter Gefallen kann die Belastung unbemerkt auf jemand anderen verlagern."],["Quelle der Hilfsbereitschaft","Freundlichkeit breitet sich aus, ohne dass eine einzelne Person alle Verantwortung übernimmt."],["Regeldämon","Gute Entscheidungen brauchen faire Abläufe, statt persönliche Opfer oder sozialen Druck."],["Schweigender Manager","Konflikte zu vermeiden hält es erst einmal ruhig. Aber wird das Problem wirklich gelöst?"],["Abhängigkeit von netten Kollegen","Wenn sich alle auf den nettesten Menschen stützen, zahlt dieser oft den versteckten Preis."],["König der Gefühlsarbeit","Die Gefühle anderer zu tragen ist anstrengend. Freundlichkeit sollte nicht zum Käfig werden."],["Gestalter versteckter Kosten","Das Problem scheint gelöst. Vielleicht ist der Aufwand nur an eine andere Stelle gewandert."],["Strenger Regelhüter","Die Regeln zu befolgen kann trotzdem jemanden verletzen. Reicht es wirklich, im Recht zu sein?"]]},"ar-SA":{"jp":[["أي نوع من «الأشخاص الطيبين» أنت؟","أجب عن عشرة أسئلة لتتأمل تصرفاتك مع الآخرين، واكتشف أيًا من عشرين نمطًا للشخصية يظهر في نتيجتك."],["اختياراتك تكشف أولوياتك.","يعرض سؤال موقفًا يتعلق بعميل اشترى تذكرة ليوم كامل. قارِن ردود الفعل المختلفة وما تعنيه لك العدالة واللطف."],["محطّم الإنصاف","قد تساعد شخصًا واحدًا، لكن العبء ينتقل إلى شخص آخر لا يلاحظه أحد."],["مصدر انتشار الخير","يمكن أن تنتشر المعاملة الطيبة دون أن يتحمل شخص واحد المسؤولية كلها."],["صانع الأنظمة","بدلًا من الاعتماد على تضحيات الأفراد، تصنع قواعد واضحة تضمن استمرار المساعدة."],["المدير الصامت","قد تتجنب الخلاف بالصمت، لكن هل يغيّر ذلك ما يحتاج فعلًا إلى حل؟"],["الاعتماد على الزميل اللطيف","عندما يعتمد الجميع على ألطف شخص، تتراكم عليه أعباء العمل دون أن يراها الآخرون."],["ملك العمل العاطفي","مواصلة حمل مشاعر الآخرين تتطلب جهدًا. أين تضع حدودًا تحميك؟"],["صانع التكاليف الخفية","قد يبدو كل شيء مرتبًا، لكن شخصًا آخر ربما يتحمل العمل الإضافي في الخفاء."],["من يجرح بالحقائق","الالتزام بالقواعد لا يمنع جرح مشاعر الآخرين. فما الفرق بين الصواب واللطف؟"]],"us":[["أي نوع من «الأشخاص الطيبين» أنت؟","اتخذ عشرة قرارات واكتشف نتيجتك بين عشرين نمطًا للشخصية، لكل منها لمسة ساخرة خفيفة."],["القرار الصغير يكشف الكثير.","يُطلب منك الاختيار عندما يغادر عميل يحمل تذكرة ليوم كامل قبل الموعد. تأمل الردود المحتملة."],["محطّم الإنصاف","قد يفيد الفعل الطيب شخصًا واحدًا، لكنه يترك تكلفة غير مرئية على عاتق شخص آخر."],["منبع النوايا الطيبة","ينتشر اللطف بين الناس دون أن يضطر شخص واحد إلى حمل جميع المسؤوليات."],["شيطان الأنظمة","اجعل النظام العادل يتولى القرارات بدلًا من الضغط على الأفراد لتقديم تضحيات شخصية."],["المدير الصامت","تجنب المواجهة قد يبقي الأمور هادئة مؤقتًا، لكن ماذا يحقق الصمت بالفعل؟"],["الاعتماد على الزميل اللطيف","عندما يعتمد الجميع على زميل طيب واحد، فقد يتحمل هو تكلفة لا يلاحظها أحد."],["ملك العمل العاطفي","حمل مشاعر الآخرين عمل مرهق. لا ينبغي أن يتحول اللطف إلى قيد."],["صانع الأعباء المستترة","تبدو المشكلة محلولة، لكن العبء ربما انتقل إلى مكان آخر بعيدًا عن الأنظار."],["حارس القواعد الصارم","قد يسبب اتباع القواعد الأذى للآخرين. فهل يكفي أن تكون على حق؟"]]}};
+  const UI_LABELS = {"ja":{"kicker":"APP / SCREEN COLLECTION","total":"実画面 {count}","screen":"実画面","enlarge":"画面を拡大","thumb":"画像","imageError":"画像を表示できませんでした。","close":"閉じる","prev":"前の画像","next":"次の画像","alt":"実画面"},"en":{"kicker":"APP / SCREEN COLLECTION","total":"{count} SCREENS","screen":"SCREEN","enlarge":"Enlarge screenshot","thumb":"Screenshot","imageError":"Screenshot could not be displayed.","close":"Close","prev":"Previous screenshot","next":"Next screenshot","alt":"screenshot"},"de-DE":{"kicker":"APP / BILDSCHIRMGALERIE","total":"{count} ANSICHTEN","screen":"ANSICHT","enlarge":"Screenshot vergrößern","thumb":"Screenshot","imageError":"Screenshot konnte nicht angezeigt werden.","close":"Schließen","prev":"Vorheriger Screenshot","next":"Nächster Screenshot","alt":"Screenshot"},"ar-SA":{"kicker":"التطبيق / معرض الشاشات","total":"{count} شاشات","screen":"الشاشة","enlarge":"تكبير لقطة الشاشة","thumb":"لقطة شاشة","imageError":"تعذّر عرض لقطة الشاشة.","close":"إغلاق","prev":"لقطة الشاشة السابقة","next":"لقطة الشاشة التالية","alt":"لقطة شاشة"}};
   const make=(tag,cls,value)=>{const el=document.createElement(tag);if(cls)el.className=cls;if(value!==undefined)el.textContent=value;return el;};
-  const lang=()=>/^ja(?:[-_]|$)/i.test(document.getElementById('p199-language')?.value||document.documentElement.lang||'')?'ja':'en';
+  let languageTouched=false;
+  const requestedLocale=()=>{const select=document.getElementById('p199-language')?.value||'';const query=new URLSearchParams(location.search).get('language')||'';return languageTouched&&select?select:(['de-DE','ar-SA'].includes(select)?select:query||select||document.documentElement.lang||navigator.language||'en-US');};
+  const lang=()=>/^ja(?:[-_]|$)/i.test(requestedLocale())?'ja':'en';
   const country=()=>/^jp$/i.test(document.getElementById('p199-country')?.value||'')?'jp':'us';
-  const state={manifest:null,selected:0,lang:'',region:'',stage:null,scheduled:false,drawing:false};
+  const state={manifest:null,selected:0,lang:'',locale:'',region:'',stage:null,scheduled:false,drawing:false};
   function validateManifest(value){
     if(!value||value.apple_id!==APP||!value.regions)throw Error('MANIFEST_APP_ID_MISMATCH');
     for(const region of ['us','jp']){
@@ -20,38 +24,40 @@
     }
     return value;
   }
-  function createStage(images,language,region){
-    const japanese=language==='ja', count=images.length, copy=COPY[region][language];
+  function createStage(images,language,region,locale){
+    const japanese=language==='ja', count=images.length, copy=LOCALIZED_CAPTION_COPY[locale]?.[region]||COPY[region][language];
+    const ui=UI_LABELS[locale]||UI_LABELS[language]||UI_LABELS.en;
     const stage=make('section','tsz-goodperson-stage');stage.id='tsz-goodperson-r28r2';
-    stage.dataset.mediaCount=String(count);stage.dataset.screenshotCount=String(count);
+    stage.dataset.mediaCount=String(count);stage.dataset.screenshotCount=String(count);stage.dataset.locale=locale;stage.dataset.region=region;
     stage.dataset.inputMode='pointer';
     stage.addEventListener('pointerdown',()=>{stage.dataset.inputMode='pointer';},true);
     stage.addEventListener('keydown',()=>{stage.dataset.inputMode='keyboard';},true);
     const top=make('div','tsz-goodperson-top');
-    top.append(make('span','tsz-goodperson-kicker','APP / SCREEN COLLECTION'),make('span','tsz-goodperson-total',japanese?`実画面 ${String(count).padStart(2,'0')}`:`${String(count).padStart(2,'0')} SCREENS`));
+    top.append(make('span','tsz-goodperson-kicker',ui.kicker),make('span','tsz-goodperson-total',ui.total.replace('{count}',String(count).padStart(2,'0'))));
     const layout=make('div','tsz-goodperson-layout');
     const visual=make('div','tsz-goodperson-visual');
     const picture=make('img','tsz-goodperson-image');picture.loading='eager';
-    const error=make('p','tsz-goodperson-image-error',japanese?'画像を表示できませんでした。':'Screenshot could not be displayed.');error.hidden=true;
+    const error=make('p','tsz-goodperson-image-error',ui.imageError);error.hidden=true;
     picture.addEventListener('load',()=>{error.hidden=true;});
     picture.addEventListener('error',()=>{error.hidden=false;});
     visual.append(picture,error);
     const side=make('div','tsz-goodperson-side');side.append(top);
     const editorial=make('div','tsz-goodperson-editorial');
     const issue=make('span','tsz-goodperson-issue');const headline=make('h3','tsz-goodperson-headline');const body=make('p','tsz-goodperson-body');
+    headline.dir=locale==='ar-SA'?'rtl':'auto';body.dir=locale==='ar-SA'?'rtl':'auto';
     editorial.append(issue,headline,body);
     const controls=make('div','tsz-goodperson-controls');
-    const nav=make('div','tsz-goodperson-nav');const expand=make('button','tsz-goodperson-expand',japanese?'画面を拡大':'Enlarge screenshot');expand.type='button';
+    const nav=make('div','tsz-goodperson-nav');const expand=make('button','tsz-goodperson-expand',ui.enlarge);expand.type='button';
     const prev=make('button','tsz-goodperson-arrow','‹');prev.type='button';
-    const counter=make('strong','tsz-goodperson-counter');
+    const counter=make('strong','tsz-goodperson-counter');counter.dir='ltr';counter.style.unicodeBidi='isolate';
     const next=make('button','tsz-goodperson-arrow','›');next.type='button';
-    prev.setAttribute('aria-label',japanese?'前の画像':'Previous screenshot');next.setAttribute('aria-label',japanese?'次の画像':'Next screenshot');
+    prev.setAttribute('aria-label',ui.prev);next.setAttribute('aria-label',ui.next);
     const navRight=make('div','tsz-goodperson-nav-right');navRight.append(prev,counter,next);
     nav.append(expand,navRight);controls.append(nav);
     const thumbs=make('div','tsz-goodperson-thumbs');const buttons=[];
     for(let n=0;n<count;n++){
       const button=make('button','tsz-goodperson-thumb');button.type='button';
-      button.title=`${japanese?'画像':'Screenshot'} ${String(n+1).padStart(2,'0')}`;button.setAttribute('aria-label',button.title);
+      button.title=`${ui.thumb} ${String(n+1).padStart(2,'0')}`;button.setAttribute('aria-label',button.title);
       const thumb=make('img','');thumb.src=images[n];thumb.loading='lazy';thumb.alt='';
       button.append(thumb,make('span','',String(n+1).padStart(2,'0')));
       button.addEventListener('click',event=>{show(n);if(event.detail>0&&document.activeElement===button)button.blur();});
@@ -59,15 +65,15 @@
     }
     controls.append(thumbs);side.append(editorial,controls);layout.append(visual,side);stage.append(layout);
     const dialog=make('dialog','tsz-goodperson-dialog');
-    const close=make('button','tsz-goodperson-dialog-close',japanese?'閉じる':'Close');close.type='button';
+    const close=make('button','tsz-goodperson-dialog-close',ui.close);close.type='button';
     const full=make('img','tsz-goodperson-dialog-image');full.alt='';
     dialog.append(close,full);stage.append(dialog);
     close.addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});
     let selected=Math.max(0,Math.min(count-1,state.selected));
     function show(index){
       selected=(index+count)%count;state.selected=selected;
-      picture.src=images[selected];picture.alt=`Good Person Test ${japanese?'実画面':'screenshot'} ${String(selected+1).padStart(2,'0')}`;
-      issue.textContent=`${japanese?'実画面':'SCREEN'} ${String(selected+1).padStart(2,'0')}`;
+      picture.src=images[selected];picture.alt=`Good Person Test ${ui.alt} ${String(selected+1).padStart(2,'0')}`;
+      issue.textContent=`${ui.screen} ${String(selected+1).padStart(2,'0')}`;
       headline.textContent=copy[selected][0];body.textContent=copy[selected][1];
       counter.textContent=`${String(selected+1).padStart(2,'0')} / ${String(count).padStart(2,'0')}`;
       buttons.forEach((button,n)=>{const active=n===selected;button.classList.toggle('is-selected',active);button.setAttribute('aria-pressed',String(active));});
@@ -86,13 +92,13 @@
     show(selected);return stage;
   }
   function redraw(){state.scheduled=false;if(state.drawing||!state.manifest)return;
-    const l=lang(),r=country();if(state.stage?.isConnected&&l===state.lang&&r===state.region)return;
-    state.lang=l;state.region=r;state.drawing=true;
-    try{state.stage=createStage(state.manifest.regions[r],l,r);holder.replaceChildren(state.stage);}finally{state.drawing=false;}
+    const l=lang(),r=country(),locale=requestedLocale();if(state.stage?.isConnected&&l===state.lang&&r===state.region&&locale===state.locale)return;
+    state.lang=l;state.region=r;state.locale=locale;state.drawing=true;
+    try{state.stage=createStage(state.manifest.regions[r],l,r,locale);holder.replaceChildren(state.stage);}finally{state.drawing=false;}
   }
   function queue(){if(state.scheduled)return;state.scheduled=true;requestAnimationFrame(redraw);}
   new MutationObserver(queue).observe(holder,{childList:true});
-  for(const id of ['p199-language','p199-country'])document.getElementById(id)?.addEventListener('change',queue);
+  for(const id of ['p199-language','p199-country'])document.getElementById(id)?.addEventListener('change',event=>{if(id==='p199-language'&&event.isTrusted)languageTouched=true;queue();});
   fetch(MANIFEST,{cache:'no-store',credentials:'same-origin'}).then(r=>{if(!r.ok)throw Error('MANIFEST_HTTP_'+r.status);return r.json();})
     .then(j=>{state.manifest=validateManifest(j);queue();})
     .catch(err=>{holder.dataset.goodpersonGalleryError=String(err?.message||'MANIFEST_FAILED');console.error('GOODPERSONTEST_R28R2_LOAD_HOLD',err);});
