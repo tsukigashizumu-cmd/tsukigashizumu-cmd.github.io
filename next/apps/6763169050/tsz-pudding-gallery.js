@@ -136,6 +136,7 @@
   }
 };
   const LOCALIZED_CAPTION_COPY = {"de-DE":{"jp":[["Jeder Löffel zählt.","Ziehe über den Pudding und schöpfe ihn Stück für Stück. Entscheide, ob du vor dem Karamell aufhörst oder weitermachst. Das Video zeigt eine kurze Spielrunde."],["Jetzt aufhören oder noch einmal schöpfen?","Im Dialog „Stop here?“ entscheidest du, ob du die Runde beendest oder noch einmal schöpfst."],["Sicher aufgehört? Sieh dir dein Ergebnis an.","Nach einem sicheren Stopp zeigt der Ergebnisbildschirm die Gesamtpunktzahl, die Anzahl der Löffel, den Durchschnitt und den Bestwert."],["Karamell erreicht – die Runde ist vorbei.","Der Ergebnisbildschirm „Reached caramel“ zeigt nach einer gescheiterten Runde deine Punktzahl und die Anzahl der Löffel."],["Verlauf und Anleitung im Menü.","Im Menü findest du den Verlauf, eine Spielanleitung und Optionen zum Kopieren deiner Aufzeichnungen."],["Sieh deine gesammelten Ergebnisse an.","Der Verlauf zeigt die Gesamtpunktzahl, die Anzahl der Löffel, den Durchschnitt und persönliche Bestwerte."],["Vergleiche Bestwerte nach Zeitraum.","Vergleiche Bestwerte für die letzten 5, 10 oder 30 Minuten sowie längere Zeiträume."],["Blicke auf die letzten Runden zurück.","Sieh dir sichere Stopps und Runden mit erreichtem Karamell samt ihren Ergebnissen an."]],"us":[["Jeder Löffel zählt.","Sieh das Spiel in Aktion: Schöpfe den Pudding per Ziehbewegung und entscheide, ob du vor dem Karamell aufhörst."],["Jetzt aufhören oder weiterschöpfen?","Im Bestätigungsdialog entscheidest du, ob du die Runde beendest oder noch einmal schöpfst."],["Die Zahlen hinter jeder Runde.","Der Verlauf zeigt Gesamtpunktzahlen, die Anzahl der Löffel, Durchschnittswerte und persönliche Rekorde."],["Sicher gestoppt, Ergebnis gesichert.","Nach einem sicheren Stopp siehst du die Gesamtpunktzahl, die Anzahl der Löffel, den Durchschnitt und den Bestwert."],["Deine Bestwerte nach Zeitraum.","Vergleiche deine Rekorde im Verlauf – von den letzten Minuten bis zu längeren Zeiträumen."],["Deine letzten Spielrunden.","Der Verlauf zeigt auch Runden, die am Karamell endeten, mit Punktzahl und Anzahl der Löffel."]]},"ar-SA":{"jp":[["راقب كل ملعقة من البودينغ.","اسحب لتغرف البودينغ شيئًا فشيئًا، ثم قرّر هل تتوقف قبل ظهور الكراميل أم تواصل. هذا مقطع قصير من اللعب."],["هل تتوقف الآن أم تغرف مرة أخرى؟","تتيح لك شاشة «Stop here?» الاختيار بين إنهاء الجولة أو متابعة الغرف."],["توقفت بأمان؟ راجع نتيجتك.","تعرض شاشة النتيجة بعد التوقف الآمن المجموع وعدد الملاعق والمتوسط وأفضل نتيجة."],["عند الوصول إلى الكراميل تنتهي الجولة.","تعرض شاشة «Reached caramel» نتيجة الجولة غير الناجحة، بما فيها النقاط وعدد الملاعق."],["السجل وطريقة اللعب في القائمة.","تضم القائمة السجل وإرشادات اللعب وخيارات نسخ السجلات."],["راجع مجموعك وأرقامك القياسية.","تعرض شاشة السجل مجموع النقاط وعدد الملاعق والمتوسط وأفضل النتائج."],["قارن أفضل نتائجك حسب الفترة.","قارن أرقامك القياسية خلال آخر ٥ أو ١٠ أو ٣٠ دقيقة، أو عبر فترات أطول."],["راجع نتائج الجولات الأخيرة.","اطّلع على الجولات التي انتهت بأمان أو عند الكراميل مع نتائج كل جولة."]],"us":[["راقب كل ملعقة من البودينغ.","شاهد اللعب الفعلي: اسحب لتغرف البودينغ، ثم قرّر هل تتوقف قبل الوصول إلى الكراميل."],["هل تتوقف هنا أم تغرف مجددًا؟","تتيح لك شاشة التأكيد الاختيار بين إنهاء الجولة وغرف ملعقة أخرى."],["الأرقام وراء كل جولة.","تعرض شاشة السجل مجموع النقاط وعدد الملاعق والمتوسط والأرقام القياسية الشخصية."],["توقف آمن ونتيجة محفوظة.","تعرض نتيجة التوقف الآمن المجموع وعدد الملاعق والمتوسط وأفضل نتيجة."],["أفضل نتائجك حسب الفترة الزمنية.","قارن الأرقام القياسية من الدقائق الأخيرة إلى الفترات الأطول على شاشة السجل."],["استرجع أحدث جولاتك.","تشمل السجلات الأخيرة جولات الوصول إلى الكراميل مع النقاط وعدد الملاعق في كل جولة."]]}};
+  const UI_LABELS = {"ja":{"kicker":"APP / SCREEN COLLECTION","total":"動画 01 ＋ 実画面 {count}","video":"VIDEO","screen":"実画面","fullscreen":"動画を全画面で見る","enlarge":"画面を拡大","thumbVideo":"動画","thumbScreen":"画像","imageError":"画像を表示できませんでした。","close":"閉じる","prev":"前の項目","next":"次の項目","alt":"実画面"},"en":{"kicker":"APP / SCREEN COLLECTION","total":"01 VIDEO + {count} SCREENS","video":"VIDEO","screen":"SCREEN","fullscreen":"Watch fullscreen","enlarge":"Enlarge screenshot","thumbVideo":"VIDEO","thumbScreen":"Screenshot","imageError":"Screenshot could not be displayed.","close":"Close","prev":"Previous","next":"Next","alt":"screenshot"},"de-DE":{"kicker":"APP / BILDSCHIRMGALERIE","total":"01 VIDEO + {count} ANSICHTEN","video":"VIDEO","screen":"ANSICHT","fullscreen":"Video im Vollbild ansehen","enlarge":"Screenshot vergrößern","thumbVideo":"VIDEO","thumbScreen":"Screenshot","imageError":"Screenshot konnte nicht angezeigt werden.","close":"Schließen","prev":"Vorheriges Element","next":"Nächstes Element","alt":"Screenshot"},"ar-SA":{"kicker":"التطبيق / معرض الشاشات","total":"فيديو 01 + {count} شاشات","video":"فيديو","screen":"الشاشة","fullscreen":"مشاهدة الفيديو بملء الشاشة","enlarge":"تكبير لقطة الشاشة","thumbVideo":"فيديو","thumbScreen":"لقطة شاشة","imageError":"تعذّر عرض لقطة الشاشة.","close":"إغلاق","prev":"العنصر السابق","next":"العنصر التالي","alt":"لقطة شاشة"}};
   const make = (tag, cls, value) => {
     const node = document.createElement(tag);
     if (cls) node.className = cls;
@@ -157,6 +158,7 @@
   }
   function createStage(images, language, region, locale) {
     const japanese = language === 'ja';
+    const ui = UI_LABELS[locale] || UI_LABELS[language] || UI_LABELS.en;
     const text = LOCALIZED_CAPTION_COPY[locale]?.[region] || COPY[region][language];
     const stage = make('section','tsz-pudding-stage');
     stage.id = 'tsz-pudding-r25r2';
@@ -168,8 +170,8 @@
     stage.addEventListener('pointerdown', () => {stage.dataset.inputMode = 'pointer';}, true);
     stage.addEventListener('keydown', () => {stage.dataset.inputMode = 'keyboard';}, true);
     const top = make('div','tsz-pudding-top');
-    top.append(make('span','tsz-pudding-kicker','APP / SCREEN COLLECTION'),
-      make('span','tsz-pudding-total',japanese ? `動画 01 ＋ 実画面 ${String(images.length).padStart(2,'0')}` : `01 VIDEO + ${String(images.length).padStart(2,'0')} SCREENS`));
+    top.append(make('span','tsz-pudding-kicker',ui.kicker),
+      make('span','tsz-pudding-total',ui.total.replace('{count}',String(images.length).padStart(2,'0'))));
     const layout = make('div','tsz-pudding-layout');
     const visual = make('div','tsz-pudding-visual');
     const video = make('video','tsz-pudding-video');
@@ -177,7 +179,7 @@
     video.setAttribute('playsinline','');video.poster=images[0];
     const picture = make('img','tsz-pudding-image');
     picture.loading='eager'; picture.referrerPolicy='no-referrer';
-    const error = make('p','tsz-pudding-image-error',japanese?'画像を表示できませんでした。':'Screenshot could not be displayed.');
+    const error = make('p','tsz-pudding-image-error',ui.imageError);
     error.hidden=true;
     picture.addEventListener('load',()=>{if (!picture.hidden) error.hidden=true;});
     picture.addEventListener('error',()=>{picture.hidden=true;error.hidden=false;});
@@ -194,12 +196,12 @@
     editorial.append(issue,headline,body);
     const controls = make('div','tsz-pudding-controls');
     const nav = make('div','tsz-pudding-nav');
-    const expand=make('button','tsz-pudding-expand',japanese?'動画を全画面で見る':'Watch fullscreen');
+    const expand=make('button','tsz-pudding-expand',ui.fullscreen);
     expand.type='button';
     const previous=make('button','tsz-pudding-arrow','‹');previous.type='button';
     const counter=make('strong','tsz-pudding-counter');
     const next=make('button','tsz-pudding-arrow','›');next.type='button';
-    previous.setAttribute('aria-label',japanese?'前の項目':'Previous');next.setAttribute('aria-label',japanese?'次の項目':'Next');
+    previous.setAttribute('aria-label',ui.prev);next.setAttribute('aria-label',ui.next);
     const navRight=make('div','tsz-pudding-nav-right');
     navRight.append(previous,counter,next);
     nav.append(expand,navRight);controls.append(nav);
@@ -207,11 +209,11 @@
     const buttons=[];
     for (let n=0; n<mediaCount; n++) {
       const button=make('button','tsz-pudding-thumb');button.type='button';
-      button.title=n===0?(japanese?'動画':'Video'):`${japanese?'画像':'Screenshot'} ${n}`;
+      button.title=n===0?(japanese?'動画':(ui.thumbVideo==='VIDEO'?'Video':ui.thumbVideo)):`${ui.thumbScreen} ${n}`;
       button.setAttribute('aria-label',button.title);
       const thumbnail=make('img','');thumbnail.src=images[n===0?0:n-1];thumbnail.loading='lazy';
       thumbnail.referrerPolicy='no-referrer';thumbnail.alt='';
-      button.append(thumbnail,make('span','',n===0?(japanese?'動画':'VIDEO'):String(n).padStart(2,'0')));
+      button.append(thumbnail,make('span','',n===0?ui.thumbVideo:String(n).padStart(2,'0')));
       button.addEventListener('click',(event)=>{
         show(n);
         // Pointer focus should not linger after selecting or moving to another thumbnail.
@@ -223,7 +225,7 @@
     controls.append(thumbs);side.append(editorial,controls);
     layout.append(visual,side);stage.append(layout);
     const dialog=make('dialog','tsz-pudding-dialog');
-    const dialogClose=make('button','tsz-pudding-dialog-close',japanese?'閉じる':'Close');dialogClose.type='button';
+    const dialogClose=make('button','tsz-pudding-dialog-close',ui.close);dialogClose.type='button';
     const dialogImg=make('img','tsz-pudding-dialog-image');dialogImg.alt='';
     dialog.append(dialogClose,dialogImg);stage.append(dialog);
     dialogClose.addEventListener('click',()=>dialog.close());
@@ -236,11 +238,11 @@
       const isVideo=selected===0;
       video.hidden=!isVideo;picture.hidden=isVideo;
       if (!isVideo) {error.hidden=true;picture.src=images[selected-1];
-        picture.alt=`PuddingScoop ${japanese?'実画面':'screenshot'} ${String(selected).padStart(2,'0')}`;}
+        picture.alt=`PuddingScoop ${ui.alt} ${String(selected).padStart(2,'0')}`;}
       else error.hidden=true;
-      issue.textContent=isVideo?'VIDEO':`${japanese?'実画面':'SCREEN'} ${String(selected).padStart(2,'0')}`;
+      issue.textContent=isVideo?ui.video:`${ui.screen} ${String(selected).padStart(2,'0')}`;
       headline.textContent=text[selected][0];body.textContent=text[selected][1];
-      expand.textContent=isVideo?(japanese?'動画を全画面で見る':'Watch fullscreen'):(japanese?'画面を拡大':'Enlarge screenshot');
+      expand.textContent=isVideo?ui.fullscreen:ui.enlarge;
       counter.textContent=`${String(selected+1).padStart(2,'0')} / ${String(mediaCount).padStart(2,'0')}`;
       buttons.forEach((button,n)=>{const active=n===selected;button.classList.toggle('is-selected',active);button.setAttribute('aria-pressed',String(active));});
       stage.dataset.selected = String(selected);

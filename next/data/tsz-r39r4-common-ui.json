@@ -36,7 +36,26 @@
       "error": "تعذّر تحميل القائمة. راجع صفحة المطوّر لدى Apple.",
       "note": "قد تكون الأسعار قديمة. تحقّق من App Store.",
       "footer": "قد تكون الأسعار قديمة. تحقّق من App Store.",
-      "relatedText": "تطبيقات صغيرة مفيدة لقراراتك اليومية. تصفّح التطبيقات، واكتشف المجاني منها، واختر ما يناسبك."
+      "relatedText": "تطبيقات صغيرة مفيدة لقراراتك اليومية. تصفّح التطبيقات، واكتشف المجاني منها، واختر ما يناسبك.",
+      "label": "قصص التطبيقات / TSUKIGASHIZUMU STUDIO",
+      "toc": "في هذه الصفحة",
+      "about": "تعرّف على التطبيق",
+      "screen": "التطبيق أثناء الاستخدام",
+      "features": "نظرة عن قرب",
+      "full": "حول هذا التطبيق",
+      "inspect": "عرض لقطة الشاشة",
+      "prev": "الصورة السابقة",
+      "next": "الصورة التالية",
+      "close": "إغلاق",
+      "fit": "ملاءمة للنافذة",
+      "original": "الحجم الأصلي",
+      "count": "شاشات التطبيق",
+      "fallback": "يتوفر هذا الوصف باللغة {locale}.",
+      "imageSource": "لقطة شاشة للتطبيق",
+      "quality": "دقة الصورة",
+      "qualityLimited": "قد تبدو التفاصيل الدقيقة أقل وضوحًا عند التكبير.",
+      "fullToggle": "قراءة الوصف الكامل",
+      "chap": "تقدم القراءة"
     },
     "bn-BD": {
       "language": "ভাষা",
@@ -111,7 +130,26 @@
       "error": "Katalog konnte nicht geladen werden. Besuche die Apple-Entwicklerseite.",
       "note": "Preise könnten veraltet sein. Bitte im App Store prüfen.",
       "footer": "Preise könnten veraltet sein. Bitte im App Store prüfen.",
-      "relatedText": "Kleine nützliche Apps für Entscheidungen im Alltag. Entdecke den Katalog, finde kostenlose Apps und entscheide selbst."
+      "relatedText": "Kleine nützliche Apps für Entscheidungen im Alltag. Entdecke den Katalog, finde kostenlose Apps und entscheide selbst.",
+      "label": "APP-PORTRÄTS / TSUKIGASHIZUMU STUDIO",
+      "toc": "AUF DIESER SEITE",
+      "about": "Die App kennenlernen",
+      "screen": "Die App in Aktion",
+      "features": "Genauer betrachtet",
+      "full": "Über diese App",
+      "inspect": "Screenshot ansehen",
+      "prev": "Vorheriges Bild",
+      "next": "Nächstes Bild",
+      "close": "Schließen",
+      "fit": "An Fenster anpassen",
+      "original": "Originalpixel",
+      "count": "App-Ansichten",
+      "fallback": "Diese Beschreibung ist auf {locale} verfügbar.",
+      "imageSource": "App-Screenshot",
+      "quality": "Bildauflösung",
+      "qualityLimited": "Feine Details können beim Vergrößern unscharf wirken.",
+      "fullToggle": "Vollständige Beschreibung lesen",
+      "chap": "Lesefortschritt"
     },
     "el": {
       "language": "Γλώσσα",
@@ -773,5 +811,15 @@
       "footer": "價格可能已過時，請至 App Store 確認。",
       "relatedText": "幫助日常決策的實用小 App。瀏覽清單、探索免費 App，依自己的需要選擇。"
     }
+  },
+  "r39r5r4Pilot": {
+    "scope": "article UI labels only; App Store description body is not translated",
+    "newAuthoredLocales": [
+      "de-DE",
+      "ar-SA"
+    ],
+    "newAuthoredFieldsPerLocale": 19,
+    "existing13ExactReusePreserved": true,
+    "visualApproval": "pending"
   }
 }
