@@ -135,15 +135,17 @@
     ]
   }
 };
+  const LOCALIZED_CAPTION_COPY = {"de-DE":{"jp":[["Jeder Löffel zählt.","Ziehe über den Pudding und schöpfe ihn Stück für Stück. Entscheide, ob du vor dem Karamell aufhörst oder weitermachst. Das Video zeigt eine kurze Spielrunde."],["Jetzt aufhören oder noch einmal schöpfen?","Im Dialog „Stop here?“ entscheidest du, ob du die Runde beendest oder noch einmal schöpfst."],["Sicher aufgehört? Sieh dir dein Ergebnis an.","Nach einem sicheren Stopp zeigt der Ergebnisbildschirm die Gesamtpunktzahl, die Anzahl der Löffel, den Durchschnitt und den Bestwert."],["Karamell erreicht – die Runde ist vorbei.","Der Ergebnisbildschirm „Reached caramel“ zeigt nach einer gescheiterten Runde deine Punktzahl und die Anzahl der Löffel."],["Verlauf und Anleitung im Menü.","Im Menü findest du den Verlauf, eine Spielanleitung und Optionen zum Kopieren deiner Aufzeichnungen."],["Sieh deine gesammelten Ergebnisse an.","Der Verlauf zeigt die Gesamtpunktzahl, die Anzahl der Löffel, den Durchschnitt und persönliche Bestwerte."],["Vergleiche Bestwerte nach Zeitraum.","Vergleiche Bestwerte für die letzten 5, 10 oder 30 Minuten sowie längere Zeiträume."],["Blicke auf die letzten Runden zurück.","Sieh dir sichere Stopps und Runden mit erreichtem Karamell samt ihren Ergebnissen an."]],"us":[["Jeder Löffel zählt.","Sieh das Spiel in Aktion: Schöpfe den Pudding per Ziehbewegung und entscheide, ob du vor dem Karamell aufhörst."],["Jetzt aufhören oder weiterschöpfen?","Im Bestätigungsdialog entscheidest du, ob du die Runde beendest oder noch einmal schöpfst."],["Die Zahlen hinter jeder Runde.","Der Verlauf zeigt Gesamtpunktzahlen, die Anzahl der Löffel, Durchschnittswerte und persönliche Rekorde."],["Sicher gestoppt, Ergebnis gesichert.","Nach einem sicheren Stopp siehst du die Gesamtpunktzahl, die Anzahl der Löffel, den Durchschnitt und den Bestwert."],["Deine Bestwerte nach Zeitraum.","Vergleiche deine Rekorde im Verlauf – von den letzten Minuten bis zu längeren Zeiträumen."],["Deine letzten Spielrunden.","Der Verlauf zeigt auch Runden, die am Karamell endeten, mit Punktzahl und Anzahl der Löffel."]]},"ar-SA":{"jp":[["راقب كل ملعقة من البودينغ.","اسحب لتغرف البودينغ شيئًا فشيئًا، ثم قرّر هل تتوقف قبل ظهور الكراميل أم تواصل. هذا مقطع قصير من اللعب."],["هل تتوقف الآن أم تغرف مرة أخرى؟","تتيح لك شاشة «Stop here?» الاختيار بين إنهاء الجولة أو متابعة الغرف."],["توقفت بأمان؟ راجع نتيجتك.","تعرض شاشة النتيجة بعد التوقف الآمن المجموع وعدد الملاعق والمتوسط وأفضل نتيجة."],["عند الوصول إلى الكراميل تنتهي الجولة.","تعرض شاشة «Reached caramel» نتيجة الجولة غير الناجحة، بما فيها النقاط وعدد الملاعق."],["السجل وطريقة اللعب في القائمة.","تضم القائمة السجل وإرشادات اللعب وخيارات نسخ السجلات."],["راجع مجموعك وأرقامك القياسية.","تعرض شاشة السجل مجموع النقاط وعدد الملاعق والمتوسط وأفضل النتائج."],["قارن أفضل نتائجك حسب الفترة.","قارن أرقامك القياسية خلال آخر ٥ أو ١٠ أو ٣٠ دقيقة، أو عبر فترات أطول."],["راجع نتائج الجولات الأخيرة.","اطّلع على الجولات التي انتهت بأمان أو عند الكراميل مع نتائج كل جولة."]],"us":[["راقب كل ملعقة من البودينغ.","شاهد اللعب الفعلي: اسحب لتغرف البودينغ، ثم قرّر هل تتوقف قبل الوصول إلى الكراميل."],["هل تتوقف هنا أم تغرف مجددًا؟","تتيح لك شاشة التأكيد الاختيار بين إنهاء الجولة وغرف ملعقة أخرى."],["الأرقام وراء كل جولة.","تعرض شاشة السجل مجموع النقاط وعدد الملاعق والمتوسط والأرقام القياسية الشخصية."],["توقف آمن ونتيجة محفوظة.","تعرض نتيجة التوقف الآمن المجموع وعدد الملاعق والمتوسط وأفضل نتيجة."],["أفضل نتائجك حسب الفترة الزمنية.","قارن الأرقام القياسية من الدقائق الأخيرة إلى الفترات الأطول على شاشة السجل."],["استرجع أحدث جولاتك.","تشمل السجلات الأخيرة جولات الوصول إلى الكراميل مع النقاط وعدد الملاعق في كل جولة."]]}};
   const make = (tag, cls, value) => {
     const node = document.createElement(tag);
     if (cls) node.className = cls;
     if (value !== undefined) node.textContent = value;
     return node;
   };
-  const lang = () => /^ja(?:[-_]|$)/i.test(document.getElementById('p199-language')?.value || document.documentElement.lang || '') ? 'ja' : 'en';
+  const requestedLocale = () => document.getElementById('p199-language')?.value || new URLSearchParams(location.search).get('language') || document.documentElement.lang || 'en-US';
+  const lang = () => /^ja(?:[-_]|$)/i.test(requestedLocale()) ? 'ja' : 'en';
   const country = () => /^jp$/i.test(document.getElementById('p199-country')?.value || '') ? 'jp' : 'us';
-  const state = { manifest:null, selected:0, lang:'', region:'', stage:null, scheduled:false, drawing:false };
+  const state = { manifest:null, selected:0, lang:'', locale:'', region:'', stage:null, scheduled:false, drawing:false };
   function validateManifest(value) {
     if (!value || value.apple_id !== APP || !value.regions) throw Error('MANIFEST_WRONG_APP');
     for (const region of ['us','jp']) {
@@ -153,9 +155,9 @@
     }
     return value;
   }
-  function createStage(images, language, region) {
+  function createStage(images, language, region, locale) {
     const japanese = language === 'ja';
-    const text = COPY[region][language];
+    const text = LOCALIZED_CAPTION_COPY[locale]?.[region] || COPY[region][language];
     const stage = make('section','tsz-pudding-stage');
     stage.id = 'tsz-pudding-r25r2';
     stage.dataset.mediaCount = String(images.length+1);
@@ -186,6 +188,9 @@
     const issue = make('span','tsz-pudding-issue');
     const headline = make('h3','tsz-pudding-headline');
     const body = make('p','tsz-pudding-body');
+    // Caption direction only: preserve all player and thumbnail geometry.
+    const captionDir = locale === 'ar-SA' ? 'rtl' : 'auto';
+    headline.dir = captionDir; body.dir = captionDir;
     editorial.append(issue,headline,body);
     const controls = make('div','tsz-pudding-controls');
     const nav = make('div','tsz-pudding-nav');
@@ -269,10 +274,10 @@
   function redraw() {
     state.scheduled=false;
     if (state.drawing || !state.manifest) return;
-    const l=lang(),r=country();
-    if (state.stage?.isConnected && state.lang===l && state.region===r) return;
-    state.lang=l;state.region=r;state.drawing=true;
-    try {state.stage=createStage(state.manifest.regions[r],l,r);holder.replaceChildren(state.stage);}
+    const l=lang(),r=country(),locale=requestedLocale();
+    if (state.stage?.isConnected && state.lang===l && state.region===r && state.locale===locale) return;
+    state.lang=l;state.region=r;state.locale=locale;state.drawing=true;
+    try {state.stage=createStage(state.manifest.regions[r],l,r,locale);holder.replaceChildren(state.stage);}
     finally {state.drawing=false;}
   }
   function queue() {
