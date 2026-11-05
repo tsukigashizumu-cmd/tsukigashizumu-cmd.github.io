@@ -6,7 +6,7 @@
   const ARTIST=1817908735;
   const $=x=>document.getElementById(x);
   const make=(tag,cl,txt)=>{const n=document.createElement(tag);if(cl)n.className=cl;if(txt!==undefined)n.textContent=String(txt);return n;};
-  const state={apps:null,asc:null,map:null,locale:'en-US',country:'us',media:[],mediaSerial:0,mediaLoaded:false,slide:0};
+  const state={apps:null,asc:null,map:null,editorial:null,uiCopy:null,locale:'en-US',country:'us',media:[],mediaSerial:0,mediaLoaded:false,slide:0};
   const rtl=new Set(['ar-SA','he','ur-PK']);
   const strings={
     ja:{language:'言語',region:'App Storeの国',all:'アプリ一覧',label:'APP STORIES / TSUKIGASHIZUMU STUDIO',store:'App Storeで見る ↗',back:'アプリ一覧へ戻る',price:'価格・提供状況はApp Storeでご確認ください。',
@@ -24,7 +24,7 @@
       loading:'Preparing your app story…',error:'We couldn’t load this page. Please refresh or browse all apps.',imageSource:'App screenshot',quality:'Image size',qualityLimited:'Some fine details may appear soft when enlarged.',
       noReviews:'',more:'You might also like',fullToggle:'Read the full description',chap:'Reading progress'}
   };
-  const tx=()=>/^ja(?:-|$)/i.test(state.locale)?strings.ja:strings.en;
+  const tx=()=>{const fallback=/^ja(?:-|$)/i.test(state.locale)?strings.ja:strings.en;const translated=state.uiCopy?.locales?.[state.locale];return translated?{...fallback,...translated}:fallback;};
   const set=(id,v)=>{const x=$(id);if(x)x.textContent=String(v??'');};
   const validText=x=>typeof x==='string'&&Boolean(x.trim());
   const escLocale=(t,obj)=>String(t).replace(/\{(\w+)\}/g,(_,k)=>String(obj[k]??''));
@@ -86,7 +86,7 @@
     const t=tx(),d=desc(),app=getApp();document.documentElement.lang=state.locale;document.documentElement.dir=rtl.has(state.locale)?'rtl':'ltr';
     document.title=title()+' · Tsukigashizumu Studio';set('p199-title',title());set('p199-crumb',title());
     const icon=$('p199-icon'),url=imageURL(app.artworkUrl);if(url){icon.src=url;icon.hidden=false;icon.onerror=()=>{icon.hidden=true;};}else icon.hidden=true;
-    const summary=heroSummary(d.value,subtitle());set('p199-lead',summary.lead||title());set('p199-intro',summary.intro);if(id==='6794575766'){const copy=hitotsubuEditorial(/^ja(?:-|$)/i.test(state.locale));set('p199-lead',copy.heroLead);set('p199-intro',copy.heroIntro);}
+    const summary=heroSummary(d.value,subtitle());set('p199-lead',summary.lead||title());set('p199-intro',summary.intro);const lpEditorial=state.editorial?.apps?.[id]?.[state.locale];if(typeof lpEditorial==='string'&&lpEditorial.trim()){set('p199-lead',title());set('p199-intro',lpEditorial);$('p199-intro').dataset.tszSource='independent-editorial-not-apple';}else{$('p199-intro').removeAttribute('data-tsz-source');}if(id==='6794575766'){const copy=hitotsubuEditorial(/^ja(?:-|$)/i.test(state.locale));set('p199-lead',copy.heroLead);set('p199-intro',copy.heroIntro);}
     set('p199-category',(app.category||'App')+' / App Store');set('p199-eyebrow',t.label);
     set('p199-all',t.all);set('p199-back',t.back);set('p199-store',t.store);set('p199-bottom-store',t.store);set('p199-price-note',t.price);
     $('p199-store').href=storeLink();$('p199-bottom-store').href=storeLink();set('p199-language-label',t.language);set('p199-country-label',t.region);
@@ -469,11 +469,11 @@
   }
   async function start(){
     bind();try{
-      const [apps,asc,map]=await Promise.all([readJSON('data/apps.json'),readJSON('data/asc-localizations.json'),readJSON('data/locale-storefronts.json')]);
+      const [apps,asc,map,editorial,uiCopy]=await Promise.all([readJSON('data/apps.json'),readJSON('data/asc-localizations.json'),readJSON('data/locale-storefronts.json'),readJSON('data/tsz-r39-editorial-intros.json').catch(()=>null),readJSON('data/tsz-r39r4-common-ui.json').catch(()=>null)]);
       if(apps.developerId!==ARTIST||!Array.isArray(apps.apps)||apps.apps.length!==34||!apps.apps.find(a=>String(a.id)===id&&a.artistId===ARTIST))throw Error('INVALID_CATALOG');
       if(asc.developerId!==ARTIST||asc.schemaVersion!==1||!asc.apps||!Array.isArray(asc.baselineIds))throw Error('INVALID_ASC');
       if(map.developerId!==ARTIST||Object.keys(map.storefrontByLocale||{}).length!==50)throw Error('INVALID_STOREFRONTS');
-      state.apps=apps;state.asc=asc;state.map=map;
+      state.apps=apps;state.asc=asc;state.map=map;state.editorial=editorial?.schemaVersion===1&&editorial.kind==='tsz-independent-lp-editorial-summary'?editorial:null;state.uiCopy=uiCopy?.schemaVersion===1&&uiCopy.kind==='tsz-common-article-ui-exact-reuse'&&Object.keys(uiCopy.locales||{}).length===50?uiCopy:null;
       const locales=Object.keys(map.storefrontByLocale),search=new URLSearchParams(location.search);let saved='';try{saved=localStorage.getItem('tsz-next-language')||'';}catch(_){}
       const browser=[...(navigator.languages||[]),navigator.language].filter(Boolean);
       const find=v=>locales.find(c=>c.toLowerCase()===String(v).toLowerCase())||locales.find(c=>c.split('-')[0]===String(v).split('-')[0]);

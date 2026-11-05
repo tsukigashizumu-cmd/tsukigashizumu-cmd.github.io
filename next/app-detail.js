@@ -39,7 +39,7 @@
       usecaseSource:'公開されている機能説明に基づく使用例です。利用者の体験談ではありません。',mediaLastCheck:'アプリ更新により公開画像の内容が変わる場合があります。',expectation:'PromptDockはコピー・再利用できるプロンプトを生成します。AIの回答を自動生成するものではありません。'
     }
   };
-  const state={base:null,asc:null,profile:null,mappings:null,locale:'en-US',country:'us',media:[]};
+  const state={base:null,asc:null,profile:null,mappings:null,siteEditorial:null,uiCopy:null,locale:'en-US',country:'us',media:[]};
   const RTL=new Set(['ar-SA','he','ur-PK']);
   const text=(id,value)=>{const e=$(id);if(e)e.textContent=String(value??'');};
   const isStr=x=>typeof x==='string'&&Boolean(x.trim());
@@ -66,7 +66,7 @@
     try{return new Intl.DisplayNames([state.locale],{type:'region'}).of(code.toUpperCase())||code.toUpperCase();}catch(_){return code.toUpperCase();}
   }
   function format(s,vars){return String(s).replace(/\{(\w+)\}/g,(_,k)=>vars[k]??'');}
-  const T=()=>STRINGS[state.locale]||STRINGS[state.locale.startsWith('ja')?'ja':'en-US'];
+  const T=()=>{const fallback=STRINGS[state.locale]||STRINGS[state.locale.startsWith('ja')?'ja':'en-US'];const translated=state.uiCopy?.locales?.[state.locale];return translated?{...fallback,...translated}:fallback;};
   async function json(path){const r=await fetch(base+path,{cache:'no-store'});if(!r.ok)throw Error('DATA_HTTP_'+r.status);return r.json();}
   function verify(baseData,asc,profile,map){
     if(!baseData||baseData.developerId!==ARTIST_ID||!Array.isArray(baseData.apps))throw Error('INVALID_BASE');
@@ -393,7 +393,7 @@ function zoomScreen(entry,index){
     text('p19-workflow-heading',copy.workflow);text('p19-usecases-heading',copy.usecases);
     text('p19-story-heading',copy.story);text('p19-description-heading',copy.description);text('p19-related-heading',copy.related);
     text('p19-limit-heading',copy.constraint);text('p19-oneline',ed.oneLine);text('p19-problem',ed.problem);
-    text('p19-intro',ed.intro);text('p19-constraints',ed.constraints);text('p19-category',app.category+' / App Store');
+    text('p19-intro',ed.intro);const siteIntro=state.siteEditorial?.apps?.[APP_ID]?.[state.locale];if(isStr(siteIntro)){$('p19-intro').textContent=siteIntro;$('p19-intro').dataset.tszSource='independent-editorial-not-apple';}else{$('p19-intro').removeAttribute('data-tsz-source');}text('p19-constraints',ed.constraints);text('p19-category',app.category+' / App Store');
     const editorialFallback=!state.profile.editorial[state.locale];
     $('p19-editorial-source').hidden=!editorialFallback;
     if(editorialFallback)text('p19-editorial-source',copy.editorialFallback);
@@ -557,11 +557,11 @@ function zoomScreen(entry,index){
     if(location.pathname!==PATH && location.pathname!==PATH+'index.html')return;
     bindChapters();
     try{
-      const [baseData,asc,profile,map]=await Promise.all([
-        json('data/apps.json'),json('data/asc-localizations.json'),json('content/app-profiles/'+APP_ID+'.json'),json('data/locale-storefronts.json')
+      const [baseData,asc,profile,map,siteEditorial,uiCopy]=await Promise.all([
+        json('data/apps.json'),json('data/asc-localizations.json'),json('content/app-profiles/'+APP_ID+'.json'),json('data/locale-storefronts.json'),json('data/tsz-r39-editorial-intros.json').catch(()=>null),json('data/tsz-r39r4-common-ui.json').catch(()=>null)
       ]);
       verify(baseData,asc,profile,map);
-      Object.assign(state,{base:baseData,asc,profile,mappings:map});
+      Object.assign(state,{base:baseData,asc,profile,mappings:map,siteEditorial:siteEditorial?.schemaVersion===1&&siteEditorial.kind==='tsz-independent-lp-editorial-summary'?siteEditorial:null,uiCopy:uiCopy?.schemaVersion===1&&uiCopy.kind==='tsz-common-article-ui-exact-reuse'&&Object.keys(uiCopy.locales||{}).length===50?uiCopy:null});
       pickLocale();buildSelectors();
       $('p19-load').hidden=true;$('p19-detail').hidden=false;
       render();setupMotion();void loadPublicScreens();
