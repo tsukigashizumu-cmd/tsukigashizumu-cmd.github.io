@@ -8,10 +8,22 @@
   const APP=6786129971;
   const MANIFEST='./tsz-twelveoath-images.json?v=p19-r34r2';
   const COPY={"jp":{"ja":[["空いた時間を、次の一人へ。","日本語版の実操作映像。空き時間を探し、優先するお客様を選び、封蝋付きの案内状を作成して予約成立まで進みます。"],["予約金額と管理を、一つのホームに。","今月の予約金額、予約時間、予約管理、First Circle、メニューなどの入口を確認できます。"],["空き枠の案内状を、美しく届ける。","封筒を開くように表示される、空き枠のお知らせ。封蝋のあるメッセージを確認できます。"],["優先案内するお客様を登録する。","First Circleの円形一覧で、空き枠を最初に案内するお客様を管理します。"],["予約成立を、その場で記録。","予約成立の画面にサービス名、金額、時間がまとまって表示されます。"],["一日の予定と空き枠を確認。","時刻の並ぶ予約スケジュールから、空いている枠や既存の予約を見渡します。"],["空き枠の案内方法を選ぶ。","枠の時間を調整し、個別案内・公開共有・あとで決めるなどの方法を選択できます。"],["次に案内する一人を選ぶ。","希望サービスや曜日、連絡までの時間などの条件を見ながら、お客様を選択します。"],["この人に声をかける理由を整える。","希望するメニューや、空き枠ができたことなど、案内する理由を選んで文章へつなげます。"],["返事を待つ期限を管理する。","案内の送信時刻・待機期限を確認し、予約成立、辞退、次の案内などの状態を進めます。"],["連絡方法と希望曜日を登録。","お客様の名前、LINEやInstagramなどの連絡方法、希望曜日を設定できます。"]],"en":[["Turn an opening into a personal offer.","Watch the Japanese-language app select a client, create a sealed offer for an open slot, and record a confirmed booking."],["A home for bookings and value.","View booking value, booked time, reservation management, the First Circle, and service settings in one place."],["Make a personal invitation.","A wax-sealed invitation presents the available opening with its date, time, and a message for one client."],["Choose who hears about an opening first.","The First Circle shows clients who can be contacted before an open slot is offered more widely."],["Record a confirmed booking.","The booking record displays the confirmed service, price, date, and duration."],["See the day at a glance.","A timed schedule shows existing reservations alongside the open slot to fill."],["Decide how to offer a slot.","Adjust the opening and choose to contact one person privately, share publicly, or decide later."],["Pick the next person to contact.","Browse clients and match them using short notice, preferred service, or weekday criteria."],["Give the invitation a reason.","Choose why a client is a good match, such as their preferred service or a newly available opening."],["Track a reply without losing the slot.","See when an offer was sent, when the hold ends, and whether the booking is confirmed or declined."],["Keep each client’s preferences handy.","Edit the client name, contact method, and preferred days before sending an invitation."]]},"us":{"ja":[["空いた時間を、次の一人へ。","英語版の実操作映像。空き時間を探し、連絡するお客様を選び、案内状を作成して予約成立を記録します。"],["予約金額と管理を、一つのホームに。","今月の予約金額、予約時間、予約管理、First Circle、メニューなどの入口を確認できます。"],["空き枠の案内状を、美しく届ける。","封筒を開くように表示される、空き枠のお知らせ。封蝋のあるメッセージを確認できます。"],["優先案内するお客様を登録する。","First Circleの円形一覧で、空き枠を最初に案内するお客様を管理します。"],["予約成立を、その場で記録。","予約成立の画面にサービス名、金額、時間がまとまって表示されます。"],["一日の予定と空き枠を確認。","時刻の並ぶ予約スケジュールから、空いている枠や既存の予約を見渡します。"],["空き枠の案内方法を選ぶ。","枠の時間を調整し、個別案内・公開共有・あとで決めるなどの方法を選択できます。"],["次に案内する一人を選ぶ。","希望サービスや曜日、連絡までの時間などの条件を見ながら、お客様を選択します。"],["この人に声をかける理由を整える。","希望するメニューや、空き枠ができたことなど、案内する理由を選んで文章へつなげます。"],["返事を待つ期限を管理する。","案内の送信時刻・待機期限を確認し、予約成立、辞退、次の案内などの状態を進めます。"],["連絡方法と希望曜日を登録。","お客様の名前、LINEやInstagramなどの連絡方法、希望曜日を設定できます。"]],"en":[["Turn an opening into a personal offer.","Watch the English-language app select a client, prepare an offer for an opening, and record a confirmed booking."],["A home for bookings and value.","View booking value, booked time, reservation management, the First Circle, and service settings in one place."],["Make a personal invitation.","A wax-sealed invitation presents the available opening with its date, time, and a message for one client."],["Choose who hears about an opening first.","The First Circle shows clients who can be contacted before an open slot is offered more widely."],["Record a confirmed booking.","The booking record displays the confirmed service, price, date, and duration."],["See the day at a glance.","A timed schedule shows existing reservations alongside the open slot to fill."],["Decide how to offer a slot.","Adjust the opening and choose to contact one person privately, share publicly, or decide later."],["Pick the next person to contact.","Browse clients and match them using short notice, preferred service, or weekday criteria."],["Give the invitation a reason.","Choose why a client is a good match, such as their preferred service or a newly available opening."],["Track a reply without losing the slot.","See when an offer was sent, when the hold ends, and whether the booking is confirmed or declined."],["Keep each client’s preferences handy.","Edit the client name, contact method, and preferred days before sending an invitation."]]}};
+  const LOCALIZED_CAPTION_COPY={"de-DE":{"jp":[["Aus einer freien Zeit eine persönliche Einladung machen.","Die Originalvorschau zeigt die japanischsprachige App: ein freies Zeitfenster finden, einen Kunden auswählen, eine Einladung mit Wachssiegel gestalten und die bestätigte Buchung erfassen."],["Buchungswert und Termine auf einen Blick.","Sieh Buchungswert, belegte Zeiten, Terminverwaltung, First Circle und Serviceeinstellungen an einem Ort."],["Eine persönliche Einladung gestalten.","Die Einladung mit Wachssiegel zeigt das freie Zeitfenster mit Datum, Uhrzeit und einer persönlichen Nachricht."],["Wer erfährt zuerst von einem freien Termin?","Im First Circle verwaltest du Kontakte, die du vor einer öffentlichen Freigabe persönlich informieren kannst."],["Eine bestätigte Buchung erfassen.","Im Buchungseintrag stehen die bestätigte Leistung, der Preis, das Datum und die Dauer."],["Den Tag im Überblick behalten.","Der Zeitplan zeigt bestehende Reservierungen und ein freies Zeitfenster, das noch besetzt werden kann."],["Entscheiden, wie du den Termin anbietest.","Passe das freie Zeitfenster an und entscheide zwischen persönlicher Nachricht, öffentlicher Freigabe und späterer Entscheidung."],["Die nächste Person auswählen.","Durchsuche deine Kontakte nach kurzfristiger Verfügbarkeit, gewünschter Leistung oder bevorzugtem Wochentag."],["Einen passenden Grund für die Einladung finden.","Wähle etwa eine bevorzugte Leistung oder einen neu frei gewordenen Termin als Anlass für die Nachricht."],["Antworten und Fristen verfolgen.","Prüfe Versandzeit, Frist der Reservierung und ob die Person bestätigt oder abgesagt hat."],["Vorlieben der Kunden griffbereit halten.","Bearbeite Namen, Kontaktweg und bevorzugte Wochentage vor dem Versand einer Einladung."]],"us":[["Aus einer freien Zeit eine persönliche Einladung machen.","Die Originalvorschau zeigt die englischsprachige App: ein freies Zeitfenster finden, einen Kunden auswählen, ein persönliches Angebot vorbereiten und die bestätigte Buchung erfassen."],["Buchungswert und Termine auf einen Blick.","Sieh Buchungswert, belegte Zeiten, Terminverwaltung, First Circle und Serviceeinstellungen an einem Ort."],["Eine persönliche Einladung gestalten.","Die Einladung mit Wachssiegel zeigt das freie Zeitfenster mit Datum, Uhrzeit und einer persönlichen Nachricht."],["Wer erfährt zuerst von einem freien Termin?","Im First Circle verwaltest du Kontakte, die du vor einer öffentlichen Freigabe persönlich informieren kannst."],["Eine bestätigte Buchung erfassen.","Im Buchungseintrag stehen die bestätigte Leistung, der Preis, das Datum und die Dauer."],["Den Tag im Überblick behalten.","Der Zeitplan zeigt bestehende Reservierungen und ein freies Zeitfenster, das noch besetzt werden kann."],["Entscheiden, wie du den Termin anbietest.","Passe das freie Zeitfenster an und entscheide zwischen persönlicher Nachricht, öffentlicher Freigabe und späterer Entscheidung."],["Die nächste Person auswählen.","Durchsuche deine Kontakte nach kurzfristiger Verfügbarkeit, gewünschter Leistung oder bevorzugtem Wochentag."],["Einen passenden Grund für die Einladung finden.","Wähle etwa eine bevorzugte Leistung oder einen neu frei gewordenen Termin als Anlass für die Nachricht."],["Antworten und Fristen verfolgen.","Prüfe Versandzeit, Frist der Reservierung und ob die Person bestätigt oder abgesagt hat."],["Vorlieben der Kunden griffbereit halten.","Bearbeite Namen, Kontaktweg und bevorzugte Wochentage vor dem Versand einer Einladung."]]},"ar-SA":{"jp":[["حوّل الموعد الشاغر إلى دعوة شخصية.","يعرض الفيديو الأصلي التطبيق باللغة اليابانية: البحث عن موعد شاغر، واختيار عميل، وإعداد دعوة مختومة بالشمع، ثم تسجيل الحجز المؤكد."],["قيمة الحجوزات والمواعيد في مكان واحد.","اطّلع على قيمة الحجوزات والأوقات المحجوزة وإدارة المواعيد وFirst Circle وإعدادات الخدمات من مكان واحد."],["أنشئ دعوة شخصية.","تُظهر الدعوة المختومة بالشمع الموعد المتاح وتاريخه ووقته ورسالة مخصصة لأحد العملاء."],["من الذي يعرف بالموعد الشاغر أولًا؟","تتيح لك دائرة First Circle إدارة العملاء الذين يمكنك التواصل معهم قبل عرض الموعد للجميع."],["سجّل الحجز المؤكد.","يعرض سجل الحجز الخدمة المؤكدة والسعر والتاريخ والمدة."],["شاهد جدول اليوم بوضوح.","يعرض الجدول الزمني الحجوزات الحالية إلى جانب الموعد المتاح الذي تريد ملأه."],["اختر طريقة عرض الموعد.","عدّل الوقت المتاح واختر التواصل مع شخص واحد أو مشاركة الموعد علنًا أو اتخاذ القرار لاحقًا."],["اختر الشخص التالي للتواصل معه.","تصفّح العملاء وفق قِصر مهلة الإشعار أو الخدمة المفضلة أو أيام الأسبوع المناسبة."],["أضف سببًا مناسبًا للدعوة.","اختر سبب ملاءمة العميل، مثل خدمته المفضلة أو توفر موعد جديد."],["تابع الرد دون فقدان الموعد.","اعرف وقت إرسال الدعوة وموعد انتهاء الانتظار وما إذا كان الحجز قد تأكد أو رُفض."],["احتفظ بتفضيلات كل عميل.","عدّل اسم العميل وطريقة التواصل والأيام المفضلة قبل إرسال الدعوة."]],"us":[["حوّل الموعد الشاغر إلى دعوة شخصية.","يعرض الفيديو الأصلي التطبيق باللغة الإنجليزية: البحث عن موعد شاغر، واختيار عميل، وإعداد عرض شخصي للموعد، ثم تسجيل الحجز المؤكد."],["قيمة الحجوزات والمواعيد في مكان واحد.","اطّلع على قيمة الحجوزات والأوقات المحجوزة وإدارة المواعيد وFirst Circle وإعدادات الخدمات من مكان واحد."],["أنشئ دعوة شخصية.","تُظهر الدعوة المختومة بالشمع الموعد المتاح وتاريخه ووقته ورسالة مخصصة لأحد العملاء."],["من الذي يعرف بالموعد الشاغر أولًا؟","تتيح لك دائرة First Circle إدارة العملاء الذين يمكنك التواصل معهم قبل عرض الموعد للجميع."],["سجّل الحجز المؤكد.","يعرض سجل الحجز الخدمة المؤكدة والسعر والتاريخ والمدة."],["شاهد جدول اليوم بوضوح.","يعرض الجدول الزمني الحجوزات الحالية إلى جانب الموعد المتاح الذي تريد ملأه."],["اختر طريقة عرض الموعد.","عدّل الوقت المتاح واختر التواصل مع شخص واحد أو مشاركة الموعد علنًا أو اتخاذ القرار لاحقًا."],["اختر الشخص التالي للتواصل معه.","تصفّح العملاء وفق قِصر مهلة الإشعار أو الخدمة المفضلة أو أيام الأسبوع المناسبة."],["أضف سببًا مناسبًا للدعوة.","اختر سبب ملاءمة العميل، مثل خدمته المفضلة أو توفر موعد جديد."],["تابع الرد دون فقدان الموعد.","اعرف وقت إرسال الدعوة وموعد انتهاء الانتظار وما إذا كان الحجز قد تأكد أو رُفض."],["احتفظ بتفضيلات كل عميل.","عدّل اسم العميل وطريقة التواصل والأيام المفضلة قبل إرسال الدعوة."]]}};
+  const UI_LABELS={"ja":{"kicker":"APP / SCREEN COLLECTION","total":"動画 01 ＋ 実画面 10","videoIssue":"VIDEO","screen":"実画面","watch":"動画を全画面で見る","enlarge":"画面を拡大","thumbVideo":"動画","thumb":"画面","imageError":"画像を表示できませんでした。","close":"閉じる","prev":"前の項目","next":"次の項目","alt":"実画面","videoAlt":"TwelveOath 動画"},"en":{"kicker":"APP / SCREEN COLLECTION","total":"01 VIDEO + 10 SCREENS","videoIssue":"VIDEO","screen":"SCREEN","watch":"Watch fullscreen","enlarge":"Enlarge screenshot","thumbVideo":"VIDEO","thumb":"Screen","imageError":"Screenshot could not be displayed.","close":"Close","prev":"Previous item","next":"Next item","alt":"screenshot","videoAlt":"TwelveOath preview video"},"de-DE":{"kicker":"APP / BILDSCHIRMGALERIE","total":"01 VIDEO + 10 ANSICHTEN","videoIssue":"VIDEO","screen":"ANSICHT","watch":"Video im Vollbild ansehen","enlarge":"Screenshot vergrößern","thumbVideo":"VIDEO","thumb":"Ansicht","imageError":"Screenshot konnte nicht geladen werden.","close":"Schließen","prev":"Vorheriges Element","next":"Nächstes Element","alt":"Screenshot","videoAlt":"TwelveOath App-Vorschau"},"ar-SA":{"kicker":"التطبيق / معرض الشاشات","total":"فيديو واحد + ١٠ لقطات شاشة","videoIssue":"فيديو","screen":"لقطة","watch":"مشاهدة الفيديو بملء الشاشة","enlarge":"تكبير لقطة الشاشة","thumbVideo":"فيديو","thumb":"لقطة","imageError":"تعذّر عرض لقطة الشاشة.","close":"إغلاق","prev":"العنصر السابق","next":"العنصر التالي","alt":"لقطة شاشة","videoAlt":"فيديو معاينة TwelveOath"}};
   const make=(tag,cls,value)=>{const el=document.createElement(tag);if(cls)el.className=cls;if(value!==undefined)el.textContent=value;return el;};
-  const language=()=>{const p=document.getElementById('p199-language');const v=(host.dataset.legacyLoaded==='true'?p?.selectedOptions?.[0]?.value:null)||document.getElementById('tsz-twelveoath-language')?.value||navigator.language||'en';return /^ja(?:[-_]|$)/i.test(v)?'ja':'en';};
+  let standaloneLanguageTouched=false;
+  const activeLocale=()=>{
+    const select=document.getElementById('p199-language');
+    const chosen=select?.value||'';
+    const query=new URLSearchParams(location.search).get('language')||'';
+    const native=document.getElementById('tsz-twelveoath-language')?.value||'';
+    if(host.dataset.legacyLoaded==='true'&&chosen)return chosen;
+    if(standaloneLanguageTouched&&native)return native;
+    return query||native||chosen||navigator.language||'en';
+  };
+  const language=()=>/^ja(?:[-_]|$)/i.test(activeLocale())?'ja':'en';
   const country=()=>{const p=document.getElementById('p199-country');const v=(host.dataset.legacyLoaded==='true'?p?.selectedOptions?.[0]?.value:null)||document.getElementById('tsz-twelveoath-country')?.value||(/ja/i.test(navigator.language||'')?'jp':'us');return /^jp$/i.test(v)?'jp':'us';};
-  const state={manifest:null,selected:0,lang:'',region:'',stage:null,scheduled:false,drawing:false};
+  const state={manifest:null,selected:0,lang:'',locale:'',region:'',stage:null,scheduled:false,drawing:false};
   function validateManifest(m){
     if(!m||m.apple_id!==APP||m.version!=='P19_9R6R9R34R2'||!m.regions||!m.videos)throw Error('MANIFEST_ID_MISMATCH');
     for(const r of ['us','jp']){
@@ -22,49 +34,49 @@
     }
     return m;
   }
-  function createStage(images,videoUrl,lang,region){
-    const japanese=lang==='ja', count=images.length+1, copy=COPY[region][lang];
+  function createStage(images,videoUrl,lang,region,locale){
+    const japanese=lang==='ja', count=images.length+1, copy=LOCALIZED_CAPTION_COPY[locale]?.[region]||COPY[region][lang],labels=UI_LABELS[locale]||UI_LABELS[lang]||UI_LABELS.en;
     if(copy.length!==count)throw Error('COPY_MEDIA_MISMATCH');
-    const stage=make('section','tsz-twelveoath-stage');stage.id='tsz-twelveoath-r34r2';
+    const stage=make('section','tsz-twelveoath-stage');stage.id='tsz-twelveoath-r34r2';stage.dataset.locale=locale;stage.dir=locale==='ar-SA'?'rtl':'ltr';
     stage.dataset.mediaCount=String(count);stage.dataset.screenshotCount=String(images.length);
     stage.dataset.region=region;stage.dataset.inputMode='pointer';
     stage.addEventListener('pointerdown',()=>{stage.dataset.inputMode='pointer';},true);
     stage.addEventListener('keydown',()=>{stage.dataset.inputMode='keyboard';},true);
     const top=make('div','tsz-twelveoath-top');
-    top.append(make('span','tsz-twelveoath-kicker','APP / SCREEN COLLECTION'),make('span','tsz-twelveoath-total',japanese?'動画 01 ＋ 実画面 10':'01 VIDEO + 10 SCREENS'));
+    top.append(make('span','tsz-twelveoath-kicker',labels.kicker),make('span','tsz-twelveoath-total',labels.total));
     const layout=make('div','tsz-twelveoath-layout');
     const visual=make('div','tsz-twelveoath-visual');
     const video=make('video','tsz-twelveoath-video');
     video.controls=true;video.playsInline=true;video.preload='metadata';video.src=videoUrl;video.poster=images[0];
-    video.setAttribute('playsinline','');video.setAttribute('aria-label',japanese?'TwelveOath 動画':'TwelveOath preview video');
+    video.setAttribute('playsinline','');video.setAttribute('aria-label',labels.videoAlt);
     const picture=make('img','tsz-twelveoath-image');picture.loading='eager';picture.hidden=true;
-    const error=make('p','tsz-twelveoath-image-error',japanese?'画像を表示できませんでした。':'Screenshot could not be displayed.');error.hidden=true;
+    const error=make('p','tsz-twelveoath-image-error',labels.imageError);error.hidden=true;
     picture.addEventListener('load',()=>{error.hidden=true;});picture.addEventListener('error',()=>{error.hidden=false;});
     visual.append(video,picture,error);
     const side=make('div','tsz-twelveoath-side');side.append(top);
     const editorial=make('div','tsz-twelveoath-editorial');
     const issue=make('span','tsz-twelveoath-issue'),headline=make('h3','tsz-twelveoath-headline'),body=make('p','tsz-twelveoath-body');
-    editorial.append(issue,headline,body);
+    headline.dir=locale==='ar-SA'?'rtl':'auto';body.dir=locale==='ar-SA'?'rtl':'auto';editorial.append(issue,headline,body);
     const controls=make('div','tsz-twelveoath-controls'),nav=make('div','tsz-twelveoath-nav');
     const expand=make('button','tsz-twelveoath-expand');expand.type='button';
     const prev=make('button','tsz-twelveoath-arrow','‹');prev.type='button';
-    const counter=make('strong','tsz-twelveoath-counter');
+    const counter=make('strong','tsz-twelveoath-counter');counter.dir='ltr';counter.style.unicodeBidi='isolate';
     const next=make('button','tsz-twelveoath-arrow','›');next.type='button';
-    prev.setAttribute('aria-label',japanese?'前の項目':'Previous item');next.setAttribute('aria-label',japanese?'次の項目':'Next item');
+    prev.setAttribute('aria-label',labels.prev);next.setAttribute('aria-label',labels.next);
     const navRight=make('div','tsz-twelveoath-nav-right');navRight.append(prev,counter,next);nav.append(expand,navRight);controls.append(nav);
     const thumbs=make('div','tsz-twelveoath-thumbs'),buttons=[];
     for(let n=0;n<count;n++){
       const btn=make('button','tsz-twelveoath-thumb'+(n===0?' tsz-twelveoath-thumb-video':''));btn.type='button';
-      btn.title=n===0?(japanese?'動画':'Video'):`${japanese?'画面':'Screen'} ${String(n).padStart(2,'0')}`;
+      btn.title=n===0?labels.thumbVideo:`${labels.thumb} ${String(n).padStart(2,'0')}`;
       btn.setAttribute('aria-label',btn.title);
       const img=make('img','');img.src=images[Math.max(0,n-1)];img.loading='lazy';img.alt='';
-      btn.append(img,make('span','',n===0?(japanese?'動画':'VIDEO'):String(n).padStart(2,'0')));
+      btn.append(img,make('span','',n===0?labels.thumbVideo:String(n).padStart(2,'0')));
       btn.addEventListener('click',event=>{show(n);if(event.detail>0&&document.activeElement===btn)btn.blur();});
       buttons.push(btn);thumbs.append(btn);
     }
     controls.append(thumbs);side.append(editorial,controls);layout.append(visual,side);stage.append(layout);
     const dialog=make('dialog','tsz-twelveoath-dialog');
-    const close=make('button','tsz-twelveoath-dialog-close',japanese?'閉じる':'Close');close.type='button';
+    const close=make('button','tsz-twelveoath-dialog-close',labels.close);close.type='button';
     const large=make('img','tsz-twelveoath-dialog-image');large.alt='';dialog.append(close,large);stage.append(dialog);
     close.addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});
     let selected=Math.max(0,Math.min(count-1,state.selected));
@@ -73,10 +85,10 @@
       if(selected===0&&n!==0)video.pause();
       selected=n;state.selected=n;
       const isVideo=n===0;video.hidden=!isVideo;picture.hidden=isVideo;error.hidden=true;
-      if(!isVideo){picture.src=images[n-1];picture.alt=`TwelveOath ${japanese?'実画面':'screenshot'} ${String(n).padStart(2,'0')}`;}
-      issue.textContent=isVideo?'VIDEO':`${japanese?'実画面':'SCREEN'} ${String(n).padStart(2,'0')}`;
+      if(!isVideo){picture.src=images[n-1];picture.alt=`TwelveOath ${labels.alt} ${String(n).padStart(2,'0')}`;}
+      issue.textContent=isVideo?labels.videoIssue:`${labels.screen} ${String(n).padStart(2,'0')}`;
       headline.textContent=copy[n][0];body.textContent=copy[n][1];
-      expand.textContent=isVideo?(japanese?'動画を全画面で見る':'Watch fullscreen'):(japanese?'画面を拡大':'Enlarge screenshot');
+      expand.textContent=isVideo?labels.watch:labels.enlarge;
       counter.textContent=`${String(n+1).padStart(2,'0')} / ${String(count).padStart(2,'0')}`;
       buttons.forEach((b,k)=>{const active=k===n;b.classList.toggle('is-selected',active);b.setAttribute('aria-pressed',String(active));});
       stage.dataset.selected=String(n);
@@ -101,10 +113,10 @@
     return stage;
   }
   function redraw(){state.scheduled=false;if(state.drawing||!state.manifest)return;
-    const l=language(),r=country();if(state.stage?.isConnected&&l===state.lang&&r===state.region)return;
+    const l=language(),r=country(),loc=activeLocale();if(state.stage?.isConnected&&l===state.lang&&r===state.region&&loc===state.locale)return;
     if(state.stage)state.stage._stopVideo?.();
-    state.lang=l;state.region=r;state.drawing=true;
-    try{state.stage=createStage(state.manifest.regions[r],state.manifest.videos[r],l,r);holder.replaceChildren(state.stage);}finally{state.drawing=false;}
+    state.lang=l;state.region=r;state.locale=loc;state.drawing=true;
+    try{state.stage=createStage(state.manifest.regions[r],state.manifest.videos[r],l,r,loc);holder.replaceChildren(state.stage);}finally{state.drawing=false;}
   }
   function queue(){if(state.scheduled)return;state.scheduled=true;requestAnimationFrame(redraw);}
   const main=document.getElementById('p199-content'),shell=document.querySelector('.p19-shell'),footer=shell?.querySelector('footer.p19-footer');
@@ -121,7 +133,7 @@
     const l=document.getElementById('tsz-twelveoath-language'),c=document.getElementById('tsz-twelveoath-country');
     if(l)l.value=nativeJa?'ja':'en';if(c)c.value=nativeJa?'jp':'us';
   }
-  for(const id of ['p199-language','p199-country','tsz-twelveoath-language','tsz-twelveoath-country'])document.getElementById(id)?.addEventListener('change',queue);
+  for(const id of ['p199-language','p199-country','tsz-twelveoath-language','tsz-twelveoath-country'])document.getElementById(id)?.addEventListener('change',()=>{if(id==='tsz-twelveoath-language')standaloneLanguageTouched=true;queue();});
   fetch(MANIFEST,{cache:'no-store',credentials:'same-origin'})
     .then(res=>{if(!res.ok)throw Error('MANIFEST_HTTP_'+res.status);return res.json();})
     .then(j=>{state.manifest=validateManifest(j);queue();})
