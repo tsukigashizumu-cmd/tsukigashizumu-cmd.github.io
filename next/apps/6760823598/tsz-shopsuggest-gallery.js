@@ -51,7 +51,12 @@
   }
   function createStage(images, language, region, locale) {
     const japanese = language === 'ja';
-    const text = LOCALIZED_CAPTION_COPY[locale] || COPY[language];
+    const localizedText = LOCALIZED_CAPTION_COPY[locale] || COPY[language];
+    // R39R6P13R2: US Apple image #2 is the menu, #3 the saved list.
+    // Swap only the two ES captions on US; preserve JP and every approved locale.
+    const text = region === 'us' && (locale === 'es-MX' || locale === 'es-ES')
+      ? [localizedText[0], localizedText[1], localizedText[3], localizedText[2]]
+      : localizedText;
     const label = UI_LABELS[locale] || UI_LABELS[language] || UI_LABELS.en;
     const stage = make('section','tsz-shop-stage');
     stage.id = 'tsz-shop-r22r2';stage.dataset.locale=locale;stage.dataset.region=region;
