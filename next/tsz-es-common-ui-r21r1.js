@@ -16,6 +16,22 @@
     'Meet the app': ['Conoce la app','Conoce la aplicación'],
     'See the app': ['Explora la app','Explora la aplicación'],
     'A closer look': ['Mírala de cerca','Descúbrela en detalle'],
+    // R21R3: UI-only strings confirmed against the real app-story provider and Chrome captures.
+    'The app in action': ['La app en acción','La aplicación en acción'],
+    'This description is available in another language.': ['Esta descripción está disponible en otro idioma.','Esta descripción está disponible en otro idioma.'],
+    'Explore other apps': ['Explorar otras apps','Explorar otras aplicaciones'],
+    'You might also like': ['También te pueden gustar','También te pueden interesar'],
+    'App screens': ['Pantallas de la app','Pantallas de la aplicación'],
+    'App screenshot': ['Captura de la app','Captura de la aplicación'],
+    'Image size': ['Tamaño de la imagen','Tamaño de la imagen'],
+    'Previous image': ['Imagen anterior','Imagen anterior'],
+    'Next image': ['Imagen siguiente','Imagen siguiente'],
+    'Inspect screenshot': ['Ampliar captura','Ampliar captura'],
+    'We couldn’t load this page. Please refresh or browse all apps.': ['No se pudo cargar esta página. Actualiza o explora todas las apps.','No se pudo cargar esta página. Actualiza o explora todas las aplicaciones.'],
+    'Some fine details may appear soft when enlarged.': ['Al ampliar, algunos detalles pueden verse borrosos.','Al ampliar, algunos detalles pueden verse borrosos.'],
+    'The app in action ↗': ['La app en acción ↗','La aplicación en acción ↗'],
+    'Explore by category': ['Explorar por categoría','Explorar por categoría'],
+    'App': ['App','Aplicación'],
     'About this app': ['Acerca de esta app','Sobre esta aplicación'],
     'Explore more apps': ['Descubre más apps','Descubre más aplicaciones'],
     'Back to catalog': ['Volver al catálogo','Volver al catálogo'],
@@ -94,6 +110,10 @@
     'App Store screenshot gallery': ['Galería de capturas de App Store','Galería de capturas de App Store'],
     '見どころを、画面で。': ['Descubre la app en imágenes.','Descubre la aplicación en imágenes.'],
   };
+  // Provider renders a category + App Store brand; localize only the category.
+  for (const k of ['Games','Utilities','Developer Tools','Graphics & Design','Productivity','Lifestyle','Shopping','Health & Fitness','App']) {
+    if (terms[k]) terms[k + ' / App Store'] = terms[k].map(v => v + ' / App Store');
+  }
   // Some 50-locale providers already render localized Spanish before this overlay starts.
   // Recognize their existing values as well as English. Only the Spanish selectors activate us.
   const aliasToEnglish = new Map();
@@ -104,9 +124,10 @@
   const staticSourceKeys = {
     'p199-language-label':'Language','p199-all':'All apps',
     'p199-eyebrow':'APP STORIES',
-    'p199-about-head':'Meet the app','p199-screen-head':'See the app',
+    'p199-about-head':'Meet the app','p199-screen-head':'The app in action',
     'p199-features-head':'A closer look','p199-full-head':'About this app',
     'p199-related-head':'Explore more apps','p199-full-toggle':'Read the full description',
+    'p199-country-label':'App Store region','p199-related-caption':'You might also like',
     'p199-back':'Browse apps','p199-store':'View in App Store ↗',
     'p199-bottom-store':'View in App Store ↗','p199-price-note':'For current pricing and availability, visit the App Store.',
     'p199-hero-image-action':'Inspect screenshot ↗','p199-toc-head':'ON THIS PAGE',
@@ -147,7 +168,8 @@
     'p199-about-head','p199-screen-head','p199-features-head','p199-full-head','p199-related-head',
     'p199-full-toggle','p199-back','p199-store','p199-bottom-store','p199-price-note',
     'p199-hero-image-action','p199-toc-head','p199-modal-close-label','p199-fit','p199-actual',
-    'p199-status',
+    'p199-status', 'p199-country-label','p199-related-caption','p199-fallback',
+    'p199-image-count-label','p199-modal-quality','p199-image-fallback','p199-image-unavailable',
   ];
   const trackedText = new WeakMap();
   const trackedAttrs = new WeakMap();
@@ -235,7 +257,7 @@
     }
   }
   const categories = new Set(['Games','Utilities','Developer Tools','Graphics & Design','Productivity','Lifestyle','Shopping','Health & Fitness']);
-  const anchors = new Set(['Meet the app','See the app','A closer look','About this app','Explore more apps',
+  const anchors = new Set(['Meet the app','See the app','The app in action','A closer look','About this app','Explore more apps',
     'What it solves','Real app screens','How it works','When it helps','Why it was made','Full App Store description','Keep exploring']);
   function apply() {
     if(running)return;
@@ -253,6 +275,7 @@
           for (const el of document.querySelectorAll(sel)) setText(el,locale);
         }
       } else {
+        setText(document.getElementById('p199-fallback'),locale);
         setText(document.querySelector('.p19-footer > span'),locale);
         translateLeaves(document.getElementById('p199-related-list'),locale,categories);
       }
