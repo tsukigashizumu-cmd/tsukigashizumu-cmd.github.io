@@ -1,0 +1,51 @@
+/* TSZ Return Deadline R25 — decorative example calendar, not an app screenshot.
+   Numeric day markers are conceptual; they are NOT a retailer return policy. */
+body[data-p199-id="6804756968"] .tsz-rd25,
+body[data-p19-app-id="6804756968"] .tsz-rd25 {
+  --rd-cream:#fff4e3; --rd-peach:#f8ba88; --rd-ink:#102630;
+  box-sizing:border-box; position:relative; isolation:isolate; overflow:hidden;
+  display:grid; grid-template-columns: .84fr 1.16fr; align-items:center;
+  width:min(100%,550px); min-height:212px; margin:23px 0 10px;
+  padding:26px 28px; gap:20px;
+  border:1px solid rgba(207,242,233,.24); border-radius:23px;
+  background:radial-gradient(ellipse at 10% 5%,rgba(107,208,186,.2),transparent 59%),
+             radial-gradient(ellipse at 100% 100%,rgba(250,151,98,.14),transparent 50%),
+             linear-gradient(136deg,#112a33 0%,#162e36 50%,#14232e 100%);
+  box-shadow:0 18px 34px rgba(8,26,34,.17),inset 0 1px 0 rgba(255,255,255,.06);
+  color:var(--rd-cream);
+}
+.tsz-rd25 *, .tsz-rd25 *::before, .tsz-rd25 *::after {box-sizing:border-box}
+.tsz-rd25::before {content:"";position:absolute;inset:0;opacity:.22;pointer-events:none;
+  background:repeating-linear-gradient(135deg,transparent 0 35px,rgba(255,255,255,.025) 36px 37px);}
+.tsz-rd25__signal{position:relative;z-index:1; min-width:0;display:flex;flex-direction:column;align-items:flex-start}
+.tsz-rd25__dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#c7e8cf;
+ box-shadow:0 0 0 5px rgba(199,232,207,.08);margin:3px 0 15px}
+.tsz-rd25__number{font:650 clamp(56px,6.9vw,85px)/.96 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;
+ letter-spacing:-.075em; font-variant-numeric:tabular-nums;color:var(--rd-cream)}
+.tsz-rd25__line{margin-top:20px;display:flex;gap:6px;width:100%;max-width:140px}
+.tsz-rd25__line i{display:block;height:4px;flex:1;border-radius:4px;background:rgba(236,245,232,.2)}
+.tsz-rd25__line i:nth-child(-n+4){background:linear-gradient(90deg,#b8e3cd,#f8ba88)}
+.tsz-rd25__paper{position:relative;z-index:1;width:100%;max-width:255px;justify-self:center;
+ background:#f7f5e9;color:var(--rd-ink);border-radius:14px;padding:15px 13px 13px;
+ box-shadow:0 11px 30px rgba(1,15,20,.26),inset 0 1px 0 #fff;
+ transform:rotate(3deg)}
+.tsz-rd25__paper::after{content:"";position:absolute;right:0;top:0;width:30px;height:30px;
+ border-radius:0 13px 0 9px;background:linear-gradient(225deg,#d2ddd5 49%,#f7f5e9 51%);
+ box-shadow:-2px 2px 4px rgba(0,0,0,.04)}
+.tsz-rd25__binding{display:flex;gap:12px;margin:-23px 0 13px 16px;position:relative;z-index:2}
+.tsz-rd25__binding span{width:7px;height:20px;border:2px solid #92bdac;border-radius:10px;background:#183740}
+.tsz-rd25__calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}
+.tsz-rd25__day{display:grid;place-items:center;aspect-ratio:1/1;min-width:0; border-radius:7px;
+ font:500 clamp(9px,1.4vw,12px)/1 ui-sans-serif,-apple-system,BlinkMacSystemFont,sans-serif;
+ font-variant-numeric:tabular-nums;color:#55706b;background:rgba(51,97,87,.065)}
+.tsz-rd25__day[data-progress="1"]{background:#e1ede2;color:#36534b}
+.tsz-rd25__day[data-last="1"]{color:#172a2c;background:linear-gradient(145deg,#ffcf9b,#ed986b);
+ font-weight:800; box-shadow:0 2px 6px rgba(131,65,44,.2);outline:2px solid rgba(236,147,98,.26)}
+.tsz-rd25__paper-rule{height:3px;border-radius:8px;width:58%;margin:12px auto 0;
+ background:linear-gradient(90deg,#afc7b8,#eab79a)}
+@media(max-width:520px){.tsz-rd25{grid-template-columns:.72fr 1.28fr;padding:18px 16px;min-height:174px;gap:8px}
+.tsz-rd25__number{font-size:clamp(47px,15vw,68px)}
+.tsz-rd25__paper{padding:14px 10px 11px;border-radius:11px}
+.tsz-rd25__calendar{gap:3px}.tsz-rd25__day{border-radius:5px;font-size:9px}
+.tsz-rd25__binding{margin:-19px 0 8px 11px}}
+@media(prefers-reduced-motion:reduce){.tsz-rd25 *{transition:none!important;animation:none!important}}
