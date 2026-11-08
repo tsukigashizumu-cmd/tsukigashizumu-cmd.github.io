@@ -1,0 +1,52 @@
+/* TSZ Warranty Deadline R26: conceptual artwork only; not an app screenshot or actual warranty policy. */
+body[data-p199-id="6804757195"] .tsz-wd26,
+body[data-p19-app-id="6804757195"] .tsz-wd26 {
+  --wd-white:#f4fafb; --wd-mint:#9ee6cc; --wd-blue:#6d8fdf;
+  box-sizing:border-box; isolation:isolate; position:relative; overflow:hidden;
+  width:min(100%,550px); min-height:224px; margin:22px 0 8px;
+  display:grid; grid-template-columns:.82fr 1.18fr; align-items:center;
+  padding:23px 25px; gap:18px; border-radius:24px;
+  border:1px solid rgba(175,233,231,.20);
+  background:radial-gradient(ellipse at 84% 6%,rgba(139,188,219,.16),transparent 48%),
+             radial-gradient(ellipse at -5% 104%,rgba(135,210,184,.12),transparent 52%),
+             linear-gradient(125deg,#101b30,#19263c 63%,#111f31);
+  box-shadow:0 18px 34px rgba(4,20,39,.22),inset 0 1px 0 rgba(255,255,255,.06);
+  color:var(--wd-white);font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+}
+.tsz-wd26 *, .tsz-wd26 *::before, .tsz-wd26 *::after {box-sizing:border-box}
+.tsz-wd26::before {content:"";position:absolute;inset:-26% -20% auto auto;width:66%;aspect-ratio:1;border:1px solid rgba(197,235,243,.06);border-radius:50%;box-shadow:0 0 0 32px rgba(197,235,243,.017),0 0 0 85px rgba(197,235,243,.015);pointer-events:none}
+.tsz-wd26__metric {position:relative;z-index:2; min-width:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.tsz-wd26__status {display:flex;align-items:center;gap:7px;margin-bottom:18px}
+.tsz-wd26__status i {display:block;width:7px;height:7px;border-radius:50%;background:#9ee6cc;box-shadow:0 0 0 5px rgba(158,230,204,.09)}
+.tsz-wd26__status b {display:block;width:56px;height:3px;background:linear-gradient(90deg,#9ee6cc,transparent);border-radius:3px}
+.tsz-wd26__count {white-space:nowrap;font-variant-numeric:tabular-nums;display:flex;align-items:baseline;gap:5px;font-weight:650;line-height:1;font-size:clamp(58px,7vw,82px);letter-spacing:-.078em;color:#f9f9ff}
+.tsz-wd26__count small {font-size:21px;letter-spacing:-.01em;color:#9ee6cc;font-weight:600}
+.tsz-wd26__ticks {display:flex;gap:6px;margin-top:20px}
+.tsz-wd26__ticks i {width:17px;height:4px;border-radius:3px;background:rgba(234,246,255,.17)}
+.tsz-wd26__ticks i:nth-child(-n+4){background:linear-gradient(90deg,#9fe6ce,#90bde4)}
+.tsz-wd26__viz {position:relative;z-index:1;min-height:166px;display:flex;align-items:center;justify-content:center}
+.tsz-wd26__card {position:relative;margin:4px 7px 0 0;width:166px;height:151px;border-radius:18px;
+  background:linear-gradient(148deg,#e7f0ed,#c6d9df);color:#183342;transform:rotate(-7deg);
+  box-shadow:0 18px 26px rgba(1,12,27,.26),inset 0 1px 0 rgba(255,255,255,.8);
+  padding:18px 17px;display:flex;flex-direction:column;gap:10px}
+.tsz-wd26__card::before{content:"";position:absolute;top:0;right:0;width:34px;height:34px;border-radius:0 18px 0 8px;background:linear-gradient(225deg,#aebfcb 49%,#e7f0ed 51%)}
+.tsz-wd26__card-head {display:flex;gap:8px;align-items:center}
+.tsz-wd26__card-dot {width:22px;height:22px;border-radius:7px;background:#557a83;box-shadow:inset -7px -5px 0 rgba(0,0,0,.12)}
+.tsz-wd26__card-head i {width:58px;height:5px;border-radius:4px;background:#8caeb6}
+.tsz-wd26__card-line {display:block;height:5px;border-radius:3px;background:#a8c0c5;width:91%}
+.tsz-wd26__card-line:nth-of-type(3){width:76%}
+.tsz-wd26__card-line:nth-of-type(4){width:63%}
+.tsz-wd26__rule {margin-top:auto;width:85%;height:2px;border-radius:2px;background:#9eb3b7}
+.tsz-wd26__shield {position:absolute;right:2px;bottom:2px;width:103px;height:118px;filter:drop-shadow(0 12px 13px rgba(0,0,0,.28))}
+.tsz-wd26__shield-shape {position:absolute;inset:0;background:linear-gradient(145deg,#a6f4d8 0%,#64a6bc 60%,#537ab3 100%);
+  clip-path:polygon(50% 0,91% 16%,90% 56%,76% 79%,50% 100%,24% 79%,10% 56%,9% 16%)}
+.tsz-wd26__shield-inner {position:absolute;inset:7px;background:linear-gradient(150deg,#183948,#173451 75%);
+  clip-path:polygon(50% 0,91% 16%,90% 56%,76% 79%,50% 100%,24% 79%,10% 56%,9% 16%)}
+.tsz-wd26__check {position:absolute;left:35px;top:40px;width:39px;height:22px;border:solid #b1f4dd;border-width:0 0 7px 7px;transform:rotate(-45deg);border-radius:2px}
+@media(max-width:520px) {
+ body[data-p199-id="6804757195"] .tsz-wd26,body[data-p19-app-id="6804757195"] .tsz-wd26 {min-height:188px;grid-template-columns:.76fr 1.24fr;padding:17px 15px;gap:5px;border-radius:18px}
+ .tsz-wd26__count {font-size:clamp(49px,15vw,71px)}.tsz-wd26__count small{font-size:17px}
+ .tsz-wd26__ticks{gap:4px}.tsz-wd26__ticks i{width:13px}
+ .tsz-wd26__card{width:134px;height:135px;padding:15px 13px}.tsz-wd26__shield{width:87px;height:100px;right:0;bottom:5px}.tsz-wd26__check{left:31px;top:36px;width:31px;height:18px;border-width:0 0 6px 6px}
+}
+@media(prefers-reduced-motion:reduce){.tsz-wd26 *{transition:none!important;animation:none!important}}
