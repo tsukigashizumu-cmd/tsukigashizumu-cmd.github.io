@@ -1,0 +1,58 @@
+/* Cart Budget Calculator R29 — conceptual numeric budget visual. Not an app screenshot. */
+body[data-p199-id="6802814389"] .tsz-cb29,
+body[data-p19-app-id="6802814389"] .tsz-cb29 {
+  --cb29-paper:#eff5ff;--cb29-muted:#bac9dc;--cb29-teal:#8ce3ca;--cb29-gold:#f6c77b;
+  position:relative;isolation:isolate;width:min(100%,570px);margin:24px 0 12px;
+  padding:22px;border-radius:25px;overflow:hidden;box-sizing:border-box;
+  background:radial-gradient(ellipse at 91% 13%,rgba(121,215,184,.16),transparent 53%),
+     linear-gradient(132deg,#1b2539 0%,#101b2b 63%,#182a35 100%);
+  border:1px solid rgba(191,231,238,.22);box-shadow:0 20px 54px rgba(7,17,38,.22);
+  display:grid;grid-template-columns:minmax(0,1fr) 174px;column-gap:18px;align-items:center;
+  color:var(--cb29-paper);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+}
+.tsz-cb29 *, .tsz-cb29 *::before,.tsz-cb29 *::after{box-sizing:border-box}
+.tsz-cb29::after{content:"";position:absolute;right:-76px;top:-88px;width:250px;height:250px;border:1px solid rgba(222,249,243,.07);border-radius:50%;pointer-events:none;box-shadow:0 0 0 34px rgba(203,245,236,.018),0 0 0 66px rgba(203,245,236,.012)}
+.tsz-cb29__summary{position:relative;z-index:1;min-width:0;display:flex;flex-direction:column;gap:13px}
+.tsz-cb29__eyebrow{display:flex;align-items:center;gap:8px;opacity:.85}
+.tsz-cb29__cart{width:19px;height:19px;flex:0 0 auto;stroke:var(--cb29-teal);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.tsz-cb29__dots{display:flex;gap:5px}
+.tsz-cb29__dots i{width:5px;height:5px;background:rgba(214,244,238,.5);border-radius:50%}
+.tsz-cb29__dots i:last-child{background:var(--cb29-gold)}
+.tsz-cb29__equation{display:grid;grid-template-columns:minmax(0,1fr) 17px minmax(0,1fr) 17px minmax(0,1fr);gap:2px;align-items:end;
+   font-feature-settings:"tnum" 1;min-width:0}
+.tsz-cb29__number{font-size:clamp(23px,4.0vw,34px);font-weight:750;line-height:1.06;letter-spacing:-.055em;white-space:nowrap;text-align:center}
+.tsz-cb29__number--left{color:#dce6f1}
+.tsz-cb29__number--used{color:var(--cb29-gold)}
+.tsz-cb29__number--remaining{color:var(--cb29-teal);text-shadow:0 0 25px rgba(128,235,202,.2)}
+.tsz-cb29__operator{font-size:17px;line-height:1.8;font-weight:550;text-align:center;opacity:.62}
+.tsz-cb29__rule{height:1px;background:linear-gradient(90deg,transparent,rgba(221,238,241,.23),transparent)}
+.tsz-cb29__lines{display:flex;flex-direction:column;gap:7px}
+.tsz-cb29__line{display:flex;gap:9px;align-items:center;height:15px}
+.tsz-cb29__square{display:inline-block;width:8px;height:8px;transform:rotate(45deg);border:1.3px solid rgba(214,231,240,.6);border-radius:1px}
+.tsz-cb29__stub{display:inline-block;height:5px;max-width:100%;border-radius:10px;background:rgba(210,232,241,.19)}
+.tsz-cb29__line:nth-child(1) .tsz-cb29__stub{width:37%}
+.tsz-cb29__line:nth-child(2) .tsz-cb29__stub{width:56%}
+.tsz-cb29__line:nth-child(3) .tsz-cb29__stub{width:43%}
+.tsz-cb29__amount{font-size:11px;font-weight:620;color:rgba(241,248,250,.75);margin-left:auto;font-variant-numeric:tabular-nums}
+.tsz-cb29__ring-wrap{position:relative;z-index:1;width:160px;height:160px;align-self:center;justify-self:center}
+.tsz-cb29__ring{width:100%;height:100%;transform:rotate(-90deg);overflow:visible}
+.tsz-cb29__track{stroke:rgba(204,224,234,.12);stroke-width:12;fill:none}
+.tsz-cb29__used{stroke:var(--cb29-gold);stroke-width:12;fill:none;stroke-linecap:round;stroke-dasharray:72 100;
+ animation:tsz-cb29-fill 2.4s cubic-bezier(.2,.7,.25,1) both}
+.tsz-cb29__remaining{stroke:var(--cb29-teal);stroke-width:12;fill:none;stroke-linecap:round;stroke-dasharray:28 100;stroke-dashoffset:-72;animation:tsz-cb29-rest 2.4s cubic-bezier(.2,.7,.25,1) both}
+.tsz-cb29__inner{position:absolute;inset:22%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:5px}
+.tsz-cb29__inner strong{font-size:40px;font-weight:770;line-height:1;color:var(--cb29-teal);letter-spacing:-.065em;font-variant-numeric:tabular-nums}
+.tsz-cb29__inner span{width:33px;height:3px;border-radius:5px;background:var(--cb29-teal);opacity:.6}
+.tsz-cb29__inner b{font-size:11px;line-height:1;font-weight:630;color:rgba(225,242,237,.72);letter-spacing:.11em}
+@keyframes tsz-cb29-fill{from{stroke-dasharray:0 100}to{stroke-dasharray:72 100}}
+@keyframes tsz-cb29-rest{from{stroke-dasharray:0 100;stroke-dashoffset:0}to{stroke-dasharray:28 100;stroke-dashoffset:-72}}
+@media(max-width:500px){
+  body[data-p199-id="6802814389"] .tsz-cb29,body[data-p19-app-id="6802814389"] .tsz-cb29{
+   grid-template-columns:minmax(0,1fr) 117px;column-gap:9px;padding:15px 12px;border-radius:19px}
+  .tsz-cb29__summary{gap:10px}.tsz-cb29__equation{grid-template-columns:minmax(0,1fr) 11px minmax(0,1fr) 11px minmax(0,1fr)}
+  .tsz-cb29__number{font-size:clamp(19px,5.6vw,26px)}.tsz-cb29__operator{font-size:13px;line-height:1.6}
+  .tsz-cb29__ring-wrap{width:112px;height:112px}.tsz-cb29__inner strong{font-size:31px}.tsz-cb29__lines{gap:4px}
+  .tsz-cb29__amount{font-size:10px}.tsz-cb29__inner b{font-size:9px}
+}
+@media(max-width:345px){.tsz-cb29__ring-wrap{width:91px;height:91px}.tsz-cb29__inner strong{font-size:25px}}
+@media(prefers-reduced-motion:reduce){.tsz-cb29 *{animation:none!important;transition:none!important}}
