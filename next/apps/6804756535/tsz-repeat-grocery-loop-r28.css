@@ -1,0 +1,70 @@
+/* Repeat Grocery List — R28 conceptual loop illustration. NOT an app screenshot. */
+body[data-p199-id="6804756535"] .tsz-rgl28,
+body[data-p19-app-id="6804756535"] .tsz-rgl28 {
+  --rgl-white:#f1fff9;--rgl-slate:#bed3cc;--rgl-mint:#adf5c9;
+  position:relative;isolation:isolate;box-sizing:border-box;overflow:hidden;
+  width:min(100%,560px);margin:23px 0 12px;padding:21px 23px;
+  border:1px solid rgba(206,255,231,.2);border-radius:24px;
+  background:radial-gradient(ellipse at 91% 8%,rgba(120,232,182,.18),transparent 46%),
+    linear-gradient(137deg,#17282b,#122127 62%,#1c2c2d);
+  color:var(--rgl-white);box-shadow:0 19px 44px rgba(7,24,30,.19);
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(94px,130px);gap:17px;align-items:center;
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+}
+.tsz-rgl28 *, .tsz-rgl28 *::before, .tsz-rgl28 *::after {box-sizing:border-box}
+.tsz-rgl28::before{content:"";position:absolute;inset:auto -130px -185px auto;width:320px;height:320px;
+  border-radius:50%;border:1px solid rgba(198,255,231,.08);pointer-events:none;
+  box-shadow:0 0 0 42px rgba(201,255,226,.02),0 0 0 100px rgba(201,255,226,.012)}
+.tsz-rgl28__sheet{position:relative;z-index:1;min-width:0;background:rgba(255,255,255,.055);
+  border:1px solid rgba(216,254,237,.12);border-radius:17px;padding:15px 14px 12px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.03)}
+.tsz-rgl28__top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:13px}
+.tsz-rgl28__top strong{font-size:13px;font-weight:680;letter-spacing:.11em;color:var(--rgl-white);font-variant-numeric:tabular-nums}
+.tsz-rgl28__top strong span{color:var(--rgl-mint)}
+.tsz-rgl28__dots{display:flex;gap:4px}
+.tsz-rgl28__dots i{display:block;width:5px;height:5px;border-radius:50%;background:var(--rgl-mint);opacity:.32}
+.tsz-rgl28__dots i:first-child{opacity:1}
+.tsz-rgl28__list{display:flex;flex-direction:column;gap:8px}
+.tsz-rgl28__line{height:24px;display:flex;align-items:center;gap:12px;white-space:nowrap}
+.tsz-rgl28__tick{position:relative;display:flex;width:19px;height:19px;flex:0 0 19px;align-items:center;justify-content:center;
+  border:1.6px solid rgba(196,239,218,.55);border-radius:6px;color:#142922;
+  animation:tsz-rgl28-tick 7.5s ease-in-out infinite}
+.tsz-rgl28__tick svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2.4;
+  stroke-linecap:round;stroke-linejoin:round;opacity:0;animation:tsz-rgl28-mark 7.5s ease-in-out infinite}
+.tsz-rgl28__line:nth-child(2) .tsz-rgl28__tick,
+.tsz-rgl28__line:nth-child(2) .tsz-rgl28__tick svg{animation-delay:.75s}
+.tsz-rgl28__line:nth-child(3) .tsz-rgl28__tick,
+.tsz-rgl28__line:nth-child(3) .tsz-rgl28__tick svg{animation-delay:1.5s}
+.tsz-rgl28__line:nth-child(4) .tsz-rgl28__tick,
+.tsz-rgl28__line:nth-child(4) .tsz-rgl28__tick svg{animation-delay:2.25s}
+.tsz-rgl28__glyph{width:16px;height:16px;fill:none;stroke:#bbd6cd;stroke-width:1.7;stroke-linejoin:round;stroke-linecap:round;opacity:.76;flex:0 0 16px}
+.tsz-rgl28__bar{height:5px;max-width:100%;border-radius:10px;background:rgba(226,247,238,.29);flex:0 1 95px}
+.tsz-rgl28__line:nth-child(2) .tsz-rgl28__bar{flex-basis:66px}
+.tsz-rgl28__line:nth-child(3) .tsz-rgl28__bar{flex-basis:85px}
+.tsz-rgl28__line:nth-child(4) .tsz-rgl28__bar{flex-basis:57px}
+.tsz-rgl28__loop{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;min-height:176px}
+.tsz-rgl28__ring{display:flex;align-items:center;justify-content:center;width:108px;height:108px;
+  border-radius:50%;border:1px solid rgba(176,245,206,.25);box-shadow:0 0 0 10px rgba(174,239,205,.035),0 0 0 22px rgba(174,239,205,.022);
+  background:radial-gradient(circle at 37% 28%,rgba(184,255,215,.17),rgba(86,155,132,.06) 55%,rgba(25,70,56,.1))}
+.tsz-rgl28__arrow{width:67px;height:67px;stroke:var(--rgl-mint);stroke-width:1.75;fill:none;stroke-linecap:round;stroke-linejoin:round;
+  animation:tsz-rgl28-reset 7.5s ease-in-out infinite}
+.tsz-rgl28__mini{position:absolute;left:50%;bottom:-1px;transform:translateX(-50%);
+  font-size:12px;line-height:1;font-weight:720;letter-spacing:.12em;color:rgba(208,249,224,.76);font-variant-numeric:tabular-nums}
+@keyframes tsz-rgl28-tick{
+  0%,10%{background:transparent;border-color:rgba(196,239,218,.55)}
+  18%,78%{background:#b3f4cc;border-color:#b3f4cc}
+  90%,100%{background:transparent;border-color:rgba(196,239,218,.55)}
+}
+@keyframes tsz-rgl28-mark{0%,10%{opacity:0}18%,78%{opacity:1}90%,100%{opacity:0}}
+@keyframes tsz-rgl28-reset{0%,75%{transform:rotate(0)}86%,100%{transform:rotate(360deg)}}
+@media(max-width:480px){
+  body[data-p199-id="6804756535"] .tsz-rgl28,body[data-p19-app-id="6804756535"] .tsz-rgl28{padding:14px 13px;gap:7px;grid-template-columns:minmax(0,1fr) 78px;border-radius:19px}
+  .tsz-rgl28__sheet{padding:13px 10px 11px}.tsz-rgl28__line{gap:7px}
+  .tsz-rgl28__loop{min-height:166px}.tsz-rgl28__ring{width:72px;height:72px;box-shadow:0 0 0 9px rgba(174,239,205,.035)}
+  .tsz-rgl28__arrow{width:48px;height:48px}.tsz-rgl28__glyph{width:13px;height:13px;flex-basis:13px}
+}
+@media(prefers-reduced-motion:reduce){
+  .tsz-rgl28 *, .tsz-rgl28 *::before, .tsz-rgl28 *::after{animation:none!important;transition:none!important}
+  .tsz-rgl28__tick{background:var(--rgl-mint)!important;border-color:var(--rgl-mint)!important}
+  .tsz-rgl28__tick svg{opacity:1!important}
+}
