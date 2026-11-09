@@ -1,0 +1,29 @@
+/* TSZ_NOKARVO_R34_USABLE_AMOUNT_REVERSAL | static editorial example; not a screenshot. */
+body[data-p199-id="6820674560"] #tsz-nokarvo-r34 {
+  margin:clamp(24px,4vw,46px) 0 6px;padding:clamp(20px,3vw,35px);
+  color:#f5f4ed; background: radial-gradient(ellipse at 95% 2%,rgba(85,165,137,.20),transparent 50%),linear-gradient(137deg,#152c2b,#17272b 65%,#16202c);
+  border:1px solid rgba(149,186,170,.48);border-radius:22px;box-shadow:0 18px 40px rgba(0,0,0,.16);
+  font-variant-numeric:tabular-nums;overflow:hidden;isolation:isolate;
+}
+body[data-p199-id="6820674560"] #tsz-nokarvo-r34 * {box-sizing:border-box}
+body[data-p199-id="6820674560"] #tsz-nokarvo-r34 .nk34-kicker{margin:0 0 8px;color:#a7d5b7;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+body[data-p199-id="6820674560"] #tsz-nokarvo-r34 h3{margin:0;font-size:clamp(23px,3vw,34px);line-height:1.2;letter-spacing:-.02em;color:#f8f6ec}
+body[data-p199-id="6820674560"] #tsz-nokarvo-r34 .nk34-lede{margin:10px 0 23px;color:#cad8d1;line-height:1.6;font-size:14px}
+body[data-p199-id="6820674560"] #tsz-nokarvo-r34 .nk34-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+body[data-p199-id="6820674560"] #tsz-nokarvo-r34 .nk34-card{border:1px solid #5f7980;border-radius:16px;background:#22343c;padding:clamp(16px,2vw,24px);min-width:0}
+body[data-p199-id="6820674560"] #tsz-nokarvo-r34 .nk34-card--b{background:linear-gradient(155deg,#243c35,#213039);border-color:#a6c9a7}
+body[data-p199-id="6820674560"] #tsz-nokarvo-r34 .nk34-product{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:0 0 18px;color:#d9e3df;font-size:12px;letter-spacing:.09em;font-weight:800}
+body[data-p199-id="6820674560"] #tsz-nokarvo-r34 .nk34-letter{font-size:25px;letter-spacing:0;color:#fff7df}
+body[data-p199-id="6820674560"] #tsz-nokarvo-r34 .nk34-line{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-top:1px solid rgba(191,212,204,.17);padding:10px 0;font-size:13px;color:#c9d8d1}
+body[data-p199-id="6820674560"] #tsz-nokarvo-r34 .nk34-line strong{font-size:17px;color:#edf4ed;white-space:nowrap}
+body[data-p199-id="6820674560"] #tsz-nokarvo-r34 .nk34-unit{margin:14px 0 0;border-top:1px solid rgba(191,212,204,.3);padding-top:14px}
+body[data-p199-id="6820674560"] #tsz-nokarvo-r34 .nk34-label{display:block;font-size:12px;color:#bed0c9;line-height:1.4}
+body[data-p199-id="6820674560"] #tsz-nokarvo-r34 .nk34-gross{display:block;font-size:clamp(24px,3vw,31px);color:#f8edcf;font-weight:800;margin:3px 0 13px}
+body[data-p199-id="6820674560"] #tsz-nokarvo-r34 .nk34-usable{display:block;font-size:clamp(37px,5.3vw,59px);letter-spacing:-.035em;line-height:1.2;font-weight:900;color:#efcfac;margin-top:5px;overflow-wrap:anywhere}
+body[data-p199-id="6820674560"] #tsz-nokarvo-r34 .nk34-card--b .nk34-usable{color:#aee1b5}
+body[data-p199-id="6820674560"] #tsz-nokarvo-r34 .nk34-unitname{font-size:15px;font-weight:600;letter-spacing:0;color:#cdd6ce}
+body[data-p199-id="6820674560"] #tsz-nokarvo-r34 .nk34-winner{display:inline-flex;margin-top:11px;border:1px solid #9ec7a9;border-radius:8px;padding:6px 10px;font-size:12px;font-weight:800;color:#caeac5;background:rgba(43,109,67,.25)}
+body[data-p199-id="6820674560"] #tsz-nokarvo-r34 .nk34-card--a .nk34-winner{border-color:#d2b88b;color:#f3deb5;background:rgba(145,101,47,.2)}
+body[data-p199-id="6820674560"] #tsz-nokarvo-r34 .nk34-conclusion{font-size:clamp(16px,2.15vw,20px);font-weight:800;color:#edf2df;margin:22px 0 9px}
+body[data-p199-id="6820674560"] #tsz-nokarvo-r34 .nk34-note{font-size:12px;line-height:1.7;color:#b2c7bd;margin:10px 0 0}
+@media(max-width:640px){body[data-p199-id="6820674560"] #tsz-nokarvo-r34 .nk34-grid{grid-template-columns:1fr}}

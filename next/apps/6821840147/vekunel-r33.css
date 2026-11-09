@@ -1,0 +1,26 @@
+/* TSZ_VEKUNEL_R33_FREE_SHIPPING_COMPARISON | independent, illustrative diagram only. */
+body[data-p199-id="6821840147"] #tsz-vekunel-r33 {
+  margin: clamp(24px, 4vw, 45px) 0 6px; padding: clamp(19px, 3vw, 34px);
+  color: #f7efeb; background: radial-gradient(ellipse at 91% 5%,rgba(118,178,196,.17),transparent 47%),linear-gradient(135deg,#182b39,#142231 65%,#11202e);
+  border: 1px solid rgba(146,179,207,.48); border-radius: 22px; box-shadow: 0 16px 38px rgba(0,0,0,.15);
+  font-variant-numeric: tabular-nums; isolation: isolate; overflow: hidden;
+}
+body[data-p199-id="6821840147"] #tsz-vekunel-r33 * { box-sizing: border-box; }
+body[data-p199-id="6821840147"] #tsz-vekunel-r33 .vk33-kicker { margin:0 0 8px; color:#b5d9e5; font-size:12px; font-weight:800; letter-spacing:.13em; text-transform:uppercase; }
+body[data-p199-id="6821840147"] #tsz-vekunel-r33 h3 { font-size:clamp(21px,2.7vw,32px); line-height:1.18; color:#fff5ef; margin:0; letter-spacing:-.015em; }
+body[data-p199-id="6821840147"] #tsz-vekunel-r33 .vk33-sub { color:#c9d8e0; line-height:1.6; font-size:14px; margin:9px 0 25px; }
+body[data-p199-id="6821840147"] #tsz-vekunel-r33 .vk33-params { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:19px; }
+body[data-p199-id="6821840147"] #tsz-vekunel-r33 .vk33-param { border:1px solid #52667b; border-radius:10px; background:rgba(20,35,49,.84); padding:9px 12px; flex:1 1 120px; min-width:0; }
+body[data-p199-id="6821840147"] #tsz-vekunel-r33 .vk33-param span { display:block; color:#bdcfda; font-size:11px; line-height:1.4; }
+body[data-p199-id="6821840147"] #tsz-vekunel-r33 .vk33-param strong { display:block; font-size:22px; color:#fff3eb; margin-top:5px; }
+body[data-p199-id="6821840147"] #tsz-vekunel-r33 .vk33-columns { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; align-items:stretch; }
+body[data-p199-id="6821840147"] #tsz-vekunel-r33 .vk33-result { border:1px solid #5b7387; border-radius:16px; padding:clamp(15px,2vw,23px); background:#1b3042; min-width:0; }
+body[data-p199-id="6821840147"] #tsz-vekunel-r33 .vk33-result.vk33-extra { border-color:#d2af91; background:linear-gradient(140deg,#3d3331,#292b35); }
+body[data-p199-id="6821840147"] #tsz-vekunel-r33 .vk33-title { color:#d6e2e8; font-size:13px; font-weight:800; margin:0 0 8px; }
+body[data-p199-id="6821840147"] #tsz-vekunel-r33 .vk33-formula { color:#c1d3dd; font-size:clamp(12px,1.7vw,15px); white-space:normal; }
+body[data-p199-id="6821840147"] #tsz-vekunel-r33 .vk33-total { display:block; font-size:clamp(36px,6vw,64px); line-height:1.22; color:#f1f8fb; font-weight:800; letter-spacing:-.045em; margin-top:7px; }
+body[data-p199-id="6821840147"] #tsz-vekunel-r33 .vk33-extra .vk33-total { color:#f4d4b5; }
+body[data-p199-id="6821840147"] #tsz-vekunel-r33 .vk33-badge { display:inline-block; border:1px solid #e4b78b; padding:5px 9px; border-radius:7px; color:#ffddad; font-size:12px; font-weight:800; margin-top:9px; }
+body[data-p199-id="6821840147"] #tsz-vekunel-r33 .vk33-note { color:#aebfca; font-size:12px; line-height:1.65; margin:17px 0 0; }
+body[data-p199-id="6821840147"] #tsz-vekunel-r33 [dir=auto] { unicode-bidi:plaintext; }
+@media(max-width:600px){body[data-p199-id="6821840147"] #tsz-vekunel-r33 .vk33-columns { grid-template-columns:1fr; } body[data-p199-id="6821840147"] #tsz-vekunel-r33 .vk33-param {flex-basis:calc(50% - 8px);}}
