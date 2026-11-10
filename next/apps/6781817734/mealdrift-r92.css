@@ -1,0 +1,38 @@
+/* TSZ LP R92 | MealDrift | isolated, no global selectors */
+#tsz-mealdrift-r92{color:#26303b;max-width:1120px;margin:42px auto;padding:0 16px;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+#tsz-mealdrift-r92 *{box-sizing:border-box}
+#tsz-mealdrift-r92 .md92-panel{padding:clamp(17px,3vw,38px);border-radius:24px;background:linear-gradient(125deg,#fffef7 0%,#f0f8f4 72%,#e9f3f1 100%);border:1px solid #d1e6db;box-shadow:0 15px 40px #2d6f4220}
+#tsz-mealdrift-r92 .md92-kicker{font-size:.76rem;font-weight:800;letter-spacing:.1em;color:#287c60}
+#tsz-mealdrift-r92 h2{font-size:clamp(1.5rem,3.6vw,2.3rem);letter-spacing:-.035em;line-height:1.2;margin:10px 0;color:#143b32}
+#tsz-mealdrift-r92 .md92-head p{color:#465d55;line-height:1.65;margin:0 0 23px;max-width:70ch}
+#tsz-mealdrift-r92 .md92-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(260px,.95fr);gap:22px;align-items:start}
+#tsz-mealdrift-r92 .md92-left,#tsz-mealdrift-r92 .md92-right{background:#fff;border:1px solid #d9e7db;border-radius:18px;padding:19px;min-width:0}
+#tsz-mealdrift-r92 h3{font-size:1.05rem;margin:0 0 6px;color:#153e33}
+#tsz-mealdrift-r92 .md92-help{font-size:.79rem;line-height:1.45;display:block;color:#5e6f65;margin-bottom:14px}
+#tsz-mealdrift-r92 .md92-options{display:grid;gap:9px}
+#tsz-mealdrift-r92 .md92-meal{display:grid;gap:8px;border:1px solid #dfe9df;background:#f9fcf8;border-radius:12px;padding:12px;min-width:0}
+#tsz-mealdrift-r92 .md92-meal.is-skipped{opacity:.56}
+#tsz-mealdrift-r92 .md92-name{font-size:1rem;font-weight:720;color:#204638;overflow-wrap:anywhere}
+#tsz-mealdrift-r92 .md92-controls{display:flex;gap:7px;flex-wrap:wrap}
+#tsz-mealdrift-r92 button{font:inherit;cursor:pointer;min-height:38px;border-radius:9px;padding:8px 11px;border:1px solid #bad0c2;background:#fff;color:#21513d;font-size:.82rem;line-height:1.3}
+#tsz-mealdrift-r92 button:hover{background:#f1f9f3;border-color:#5aaf81}
+#tsz-mealdrift-r92 button:focus-visible,#tsz-mealdrift-r92 input:focus-visible{outline:3px solid #278563;outline-offset:2px}
+#tsz-mealdrift-r92 .md92-skip[aria-pressed="true"]{background:#e5e9e8;color:#57625c}
+#tsz-mealdrift-r92 .md92-add{margin-top:17px;border-top:1px solid #e3eee6;padding-top:12px}
+#tsz-mealdrift-r92 .md92-add label{display:block;font-size:.82rem;font-weight:700;margin-bottom:7px}
+#tsz-mealdrift-r92 .md92-addrow{display:flex;gap:8px;min-width:0}
+#tsz-mealdrift-r92 .md92-add input{flex:1;min-width:0;width:50px;background:#fff;border:1px solid #b9d2c3;border-radius:9px;padding:9px 12px;font:inherit;font-size:.88rem;color:#253c30}
+#tsz-mealdrift-r92 .md92-add small{display:block;font-size:.72rem;margin-top:7px;color:#758678}
+#tsz-mealdrift-r92 .md92-right{background:#f8fdf8}
+#tsz-mealdrift-r92 .md92-result{min-height:195px;background:linear-gradient(150deg,#e4f7e9,#f8ffea);border:1px solid #b7e2c4;border-radius:16px;padding:24px 17px;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:9px}
+#tsz-mealdrift-r92 .md92-result>span{font-size:.8rem;font-weight:750;color:#3f7b54}
+#tsz-mealdrift-r92 .md92-choice{font-size:clamp(1.28rem,2.7vw,2rem);line-height:1.4;font-weight:800;color:#1d4e37;overflow-wrap:anywhere}
+#tsz-mealdrift-r92 .md92-choice.has-choice{color:#0c683b}
+#tsz-mealdrift-r92 .md92-result p{font-size:.85rem;color:#52755e;margin:0;line-height:1.5}
+#tsz-mealdrift-r92 .md92-pick{background:#166746;color:#fff;border-color:#166746;width:100%;margin-top:14px;min-height:50px;font-size:1rem;font-weight:760}
+#tsz-mealdrift-r92 .md92-pick:hover{background:#0d5437;color:#fff}
+#tsz-mealdrift-r92 .md92-reset{width:100%;margin-top:8px}
+#tsz-mealdrift-r92 .md92-foot{border-top:1px solid #dae9dd;margin:22px 0 0;padding-top:12px;font-size:.77rem;color:#61766a;line-height:1.65}
+#tsz-mealdrift-r92[dir="rtl"] .md92-add input{text-align:right}
+@media(max-width:720px){#tsz-mealdrift-r92{margin:28px auto;padding:0 11px}#tsz-mealdrift-r92 .md92-panel{padding:16px;border-radius:16px}#tsz-mealdrift-r92 .md92-grid{grid-template-columns:minmax(0,1fr);gap:12px}#tsz-mealdrift-r92 .md92-left,#tsz-mealdrift-r92 .md92-right{padding:13px}#tsz-mealdrift-r92 .md92-meal{padding:10px}#tsz-mealdrift-r92 .md92-result{min-height:155px;padding:17px}}
+@media(max-width:350px){#tsz-mealdrift-r92 .md92-addrow{flex-wrap:wrap}#tsz-mealdrift-r92 .md92-addrow button{flex:1}}

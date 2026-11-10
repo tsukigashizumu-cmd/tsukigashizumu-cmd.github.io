@@ -1,0 +1,41 @@
+/* TSZ LP R93 | Quiet Reserve | scoped to the R93 demonstration only */
+#tsz-quietreserve-r93{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;max-width:1120px;margin:44px auto;padding:0 16px;color:#253945}
+#tsz-quietreserve-r93 *{box-sizing:border-box}
+#tsz-quietreserve-r93 .qr93-panel{background:linear-gradient(145deg,#f7fbfc,#e9f4f8 74%,#e4eef4);padding:clamp(16px,3.3vw,36px);border-radius:26px;border:1px solid #cddfe8;box-shadow:0 14px 45px rgba(40,88,115,.12)}
+#tsz-quietreserve-r93 .qr93-kicker{font-size:.75rem;letter-spacing:.11em;color:#3d8293;font-weight:780}
+#tsz-quietreserve-r93 h2{font-size:clamp(1.5rem,3vw,2.3rem);font-weight:780;line-height:1.24;color:#1d5061;letter-spacing:-.03em;margin:10px 0}
+#tsz-quietreserve-r93 .qr93-head>p{font-size:.94rem;color:#58727e;line-height:1.75;max-width:73ch;margin:0 0 25px}
+#tsz-quietreserve-r93 .qr93-columns{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:18px;align-items:stretch}
+#tsz-quietreserve-r93 .qr93-input,#tsz-quietreserve-r93 .qr93-output{background:rgba(255,255,255,.85);border:1px solid #d8e6ed;border-radius:19px;padding:22px;min-width:0}
+#tsz-quietreserve-r93 h3{font-size:1.01rem;color:#244f62;margin:0 0 12px;font-weight:740}
+#tsz-quietreserve-r93 .qr93-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+#tsz-quietreserve-r93 button{font:inherit;cursor:pointer;border-radius:11px;border:1px solid #b9d5e0;background:#f8fcfe;color:#315b6b;min-height:41px;padding:9px 13px;line-height:1.35;font-size:.86rem}
+#tsz-quietreserve-r93 button:hover{border-color:#6fadc2;background:#edf7fa}
+#tsz-quietreserve-r93 .qr93-chip.selected{background:#26687b;color:white;border-color:#26687b}
+#tsz-quietreserve-r93 button:focus-visible,#tsz-quietreserve-r93 input:focus-visible{outline:3px solid #427fcb;outline-offset:3px}
+#tsz-quietreserve-r93 .qr93-level{border-top:1px solid #e3edf0;padding:19px 0 14px}
+#tsz-quietreserve-r93 .qr93-level label{display:block;margin:0 0 18px;font-size:1.01rem;color:#244f62;font-weight:740}
+#tsz-quietreserve-r93 .qr93-water-wrap{display:flex;gap:23px;align-items:center;margin:0 0 20px}
+#tsz-quietreserve-r93 .qr93-water{width:94px;height:145px;border:3px solid #8db4c5;border-radius:15px 15px 26px 26px;position:relative;overflow:hidden;background:#f8fcfd;flex:none;display:grid;place-items:center;box-shadow:inset 0 4px 9px #366e8420}
+#tsz-quietreserve-r93 .qr93-fill{position:absolute;bottom:0;left:0;right:0;height:45%;background:linear-gradient(180deg,#92d4df,#3d90ba);transition:height 180ms ease}
+#tsz-quietreserve-r93 .qr93-water strong{position:relative;z-index:1;background:#fffdfde8;border-radius:9px;padding:5px 7px;color:#17445a;font-size:1.08rem}
+#tsz-quietreserve-r93 .qr93-level-info{display:flex;flex-direction:column;gap:8px;min-width:0}
+#tsz-quietreserve-r93 .qr93-level-info strong{font-size:clamp(2rem,5vw,3rem);letter-spacing:-.035em;color:#16566c;font-weight:800}
+#tsz-quietreserve-r93 .qr93-level-info span{color:#5e7d8b;line-height:1.4;font-size:.9rem}
+#tsz-quietreserve-r93 input[type=range]{width:100%;min-width:0;accent-color:#317f9c;cursor:pointer}
+#tsz-quietreserve-r93 .qr93-range-label{display:flex;justify-content:space-between;font-size:.77rem;color:#6b8292}
+#tsz-quietreserve-r93 .qr93-hint{font-size:.77rem;color:#6b8390;line-height:1.5;margin:9px 0 7px}
+#tsz-quietreserve-r93 .qr93-level+.qr93-tags{margin-bottom:0}
+#tsz-quietreserve-r93 .qr93-caption{font-size:.82rem;color:#44829a;font-weight:760;letter-spacing:.02em}
+#tsz-quietreserve-r93 .qr93-sub{color:#66818e;font-size:.86rem;line-height:1.6;margin:7px 0 21px}
+#tsz-quietreserve-r93 dl{margin:0;background:#f3f9fb;border:1px solid #e2edf1;border-radius:14px;padding:4px 16px}
+#tsz-quietreserve-r93 dl>div{padding:15px 2px;border-bottom:1px solid #dce9ee}
+#tsz-quietreserve-r93 dl>div:last-child{border-bottom:0}
+#tsz-quietreserve-r93 dt{font-size:.74rem;color:#668591;margin-bottom:6px}
+#tsz-quietreserve-r93 dd{font-size:1.04rem;font-weight:740;color:#194e61;margin:0;overflow-wrap:anywhere;line-height:1.5}
+#tsz-quietreserve-r93 .qr93-reset{width:100%;margin-top:19px;background:#fff}
+#tsz-quietreserve-r93 .qr93-footer{font-size:.75rem;line-height:1.7;color:#728994;margin:19px 0 0}
+#tsz-quietreserve-r93[dir=rtl] .qr93-head,#tsz-quietreserve-r93[dir=rtl] .qr93-input,#tsz-quietreserve-r93[dir=rtl] .qr93-output{text-align:right}
+@media(max-width:720px){#tsz-quietreserve-r93{margin:26px auto;padding:0 11px}#tsz-quietreserve-r93 .qr93-panel{border-radius:18px;padding:16px}#tsz-quietreserve-r93 .qr93-columns{grid-template-columns:minmax(0,1fr);gap:12px}#tsz-quietreserve-r93 .qr93-input,#tsz-quietreserve-r93 .qr93-output{padding:15px}#tsz-quietreserve-r93 .qr93-tags{margin-bottom:18px}}
+@media(max-width:350px){#tsz-quietreserve-r93 .qr93-water-wrap{gap:15px}#tsz-quietreserve-r93 .qr93-water{width:78px;height:125px}}
+@media(prefers-reduced-motion:reduce){#tsz-quietreserve-r93 .qr93-fill{transition:none}}
