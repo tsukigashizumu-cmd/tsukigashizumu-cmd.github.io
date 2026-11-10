@@ -1,0 +1,46 @@
+/* TSZ LP R90 / Discount Stack. Existing R48 styles unchanged. */
+#tsz-discount-stack-r90{box-sizing:border-box;max-width:1060px;margin:2.8rem auto;padding:0 1rem;color:#263046;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.55}
+#tsz-discount-stack-r90 *,#tsz-discount-stack-r90 *::before,#tsz-discount-stack-r90 *::after{box-sizing:border-box}
+#tsz-discount-stack-r90 .r90-wrap{padding:clamp(17px,3vw,34px);border-radius:23px;background:linear-gradient(140deg,#f1f7f3,#fff 56%,#f4f0fa);border:1px solid #d8e6da;box-shadow:0 12px 34px rgba(35,69,44,.07)}
+#tsz-discount-stack-r90 header{margin-bottom:22px}
+#tsz-discount-stack-r90 .r90-kicker{font-weight:800;font-size:.74rem;color:#2e7351;letter-spacing:.09em}
+#tsz-discount-stack-r90 h2{color:#1e4937!important;font-size:clamp(1.4rem,3.3vw,2.25rem)!important;line-height:1.23!important;margin:6px 0 10px!important}
+#tsz-discount-stack-r90 header p{font-size:.96rem;color:#647184;max-width:70ch;margin:0}
+#tsz-discount-stack-r90 .r90-layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:15px}
+#tsz-discount-stack-r90 .r90-panel{min-width:0;background:#fff;border:1px solid #d7e1db;border-radius:17px;padding:clamp(14px,2.4vw,23px)}
+#tsz-discount-stack-r90 .r90-inputs{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+#tsz-discount-stack-r90 label{display:block;font-size:.82rem;font-weight:700;color:#3b4b4a;min-width:0}
+#tsz-discount-stack-r90 label:first-child{grid-column:1/-1}
+#tsz-discount-stack-r90 label span{display:block;margin-bottom:5px}
+#tsz-discount-stack-r90 input{display:block;width:100%;min-width:0;max-width:100%;min-height:44px;padding:8px 11px;border:1px solid #bdcec3;border-radius:9px;background:#fff;color:#263a32;font:inherit;font-size:1rem}
+#tsz-discount-stack-r90 button{min-height:43px;padding:9px 13px;border:1px solid #2e7555;border-radius:9px;background:#2e7555;color:#fff;cursor:pointer;font:inherit;font-size:.84rem;font-weight:750;white-space:normal;overflow-wrap:anywhere}
+#tsz-discount-stack-r90 button:disabled{opacity:.4;cursor:default}
+#tsz-discount-stack-r90 button:focus-visible,#tsz-discount-stack-r90 input:focus-visible{outline:3px solid #8ebda7;outline-offset:2px}
+#tsz-discount-stack-r90 .r90-result{margin-top:14px;padding:15px;border-radius:12px;background:#eff7f1;border:1px solid #d3e8d8}
+#tsz-discount-stack-r90 .r90-result small{color:#557862;font-size:.76rem;display:block}
+#tsz-discount-stack-r90 .r90-result>strong{display:block;color:#246445;font-size:clamp(1.8rem,3vw,2.35rem);line-height:1.25;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+#tsz-discount-stack-r90 .r90-result>div{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-size:.84rem;margin:6px 0 8px}
+#tsz-discount-stack-r90 .r90-result>div b{color:#246445}
+#tsz-discount-stack-r90 #r90-math{list-style:none;padding:8px 0 0;margin:0;border-top:1px solid #c8e0d0;display:grid;gap:6px}
+#tsz-discount-stack-r90 #r90-math li{display:flex;justify-content:space-between;gap:12px;color:#5d6e65;font-size:.82rem}
+#tsz-discount-stack-r90 #r90-math strong{color:#3c5b48;font-variant-numeric:tabular-nums}
+#tsz-discount-stack-r90 #r90-error{margin:8px 0 0;color:#b14235;font-size:.77rem}
+#tsz-discount-stack-r90 #r90-error:empty,#tsz-discount-stack-r90 .r90-feedback:empty{display:none}
+#tsz-discount-stack-r90 .r90-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+#tsz-discount-stack-r90 button.r90-secondary{background:#fff;color:#34614c}
+#tsz-discount-stack-r90 .r90-feedback{font-size:.8rem;color:#23704a;margin:8px 0 0}
+#tsz-discount-stack-r90 .r90-historytop{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}
+#tsz-discount-stack-r90 .r90-historytop h3{margin:0!important;color:#315c43!important;font-size:1.08rem!important}
+#tsz-discount-stack-r90 #r90-count{padding:2px 9px;border-radius:999px;background:#edf5ee;color:#356a4d;font-size:.76rem;font-weight:800}
+#tsz-discount-stack-r90 .r90-items{display:grid;gap:10px;margin-top:14px}
+#tsz-discount-stack-r90 .r90-item{display:flex;justify-content:space-between;align-items:center;gap:12px;min-width:0;padding:12px;border:1px solid #e0e8e1;background:#fafdfb;border-radius:12px}
+#tsz-discount-stack-r90 .r90-item>div{min-width:0;overflow-wrap:anywhere}
+#tsz-discount-stack-r90 .r90-item strong{display:block;color:#283d33;font-size:.9rem}
+#tsz-discount-stack-r90 .r90-item small{display:block;color:#697d70;font-size:.72rem;margin-top:2px}
+#tsz-discount-stack-r90 .r90-item button{flex-shrink:0;background:#f1f7f2;color:#286443;min-height:38px;padding:7px 10px}
+#tsz-discount-stack-r90 .r90-empty{color:#697980;font-size:.85rem;margin:0}
+#tsz-discount-stack-r90 .r90-hint{font-size:.86rem;color:#3e6150;margin:16px 0 5px}
+#tsz-discount-stack-r90 .r90-foot{font-size:.77rem;color:#687783;margin:0;max-width:94ch}
+@media(max-width:760px){#tsz-discount-stack-r90 .r90-layout{grid-template-columns:1fr}}
+@media(max-width:360px){#tsz-discount-stack-r90 .r90-wrap{padding:12px}#tsz-discount-stack-r90 .r90-panel{padding:12px}#tsz-discount-stack-r90 .r90-actions{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){#tsz-discount-stack-r90 *{animation:none!important;transition:none!important}}
