@@ -1,0 +1,34 @@
+/* TSZ LP R124 / isolated website-only return reminder planner */
+#tsz-rd124{--r124-ink:#22314a;--r124-muted:#64758a;box-sizing:border-box;isolation:isolate;max-width:100%;margin:34px 0;padding:clamp(16px,3vw,36px);border:1px solid #e4dacd;border-radius:25px;background:radial-gradient(circle at 100% 0,#f8ebda 0,transparent 45%),linear-gradient(135deg,#fffdfb,#f1f3f6);color:var(--r124-ink);font-family:inherit;box-shadow:0 20px 55px #15294114;overflow:hidden}
+#tsz-rd124 *,#tsz-rd124 *:before,#tsz-rd124 *:after{box-sizing:border-box}
+#tsz-rd124 .rd124-meta{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;font-size:11px;font-weight:850;letter-spacing:.08em;color:#98704b}
+#tsz-rd124 .rd124-meta span:last-child{padding:8px 11px;border-radius:30px;border:1px solid #dbc2a6;letter-spacing:.02em}
+#tsz-rd124 h2{margin:18px 0 12px;font-size:clamp(25px,3.9vw,43px);line-height:1.14;letter-spacing:-.035em;color:#23344e}
+#tsz-rd124 .rd124-lead{color:#667688;font-size:14px;line-height:1.85;margin:0 0 23px;max-width:790px}
+#tsz-rd124 .rd124-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:stretch}
+#tsz-rd124 .rd124-card{min-width:0;padding:clamp(16px,2.3vw,24px);background:#fff;border:1px solid #e6e2dc;border-radius:19px}
+#tsz-rd124 .rd124-kicker{color:#866345;font-size:11px;letter-spacing:.11em;font-weight:850;text-transform:uppercase;margin-bottom:16px}
+#tsz-rd124 .rd124-field{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);align-items:center;gap:12px;font-weight:750;color:#34455b;font-size:13px;margin:0 0 12px;line-height:1.5}
+#tsz-rd124 input,#tsz-rd124 select{width:100%;min-width:0;padding:11px 10px;border-radius:11px;background:#faf9f7;border:1px solid #d9dce0;color:#23334c;font-size:14px;font-family:inherit;min-height:46px;max-width:100%;color-scheme:light}
+#tsz-rd124 button{cursor:pointer;font:inherit;min-height:45px}
+#tsz-rd124 button:focus-visible,#tsz-rd124 input:focus-visible,#tsz-rd124 select:focus-visible{outline:3px solid #bd8754;outline-offset:2px}
+#tsz-rd124 .rd124-reset{margin-top:6px;border:1px solid #d7bda0;border-radius:11px;background:#fff9f1;color:#705135;padding:11px 15px;font-size:13px;font-weight:800}
+#tsz-rd124 .rd124-reset:hover{background:#f9ead8}
+#tsz-rd124 .rd124-dark{color:#fefefd;background:linear-gradient(150deg,#1d2d44,#334961);border-color:#344d67}
+#tsz-rd124 .rd124-dark .rd124-kicker{color:#e6bd8e}
+#tsz-rd124 .rd124-remaining{padding:12px 16px;margin-bottom:17px;border-radius:13px;background:#465972;display:flex;align-items:center;justify-content:space-between;gap:13px}
+#tsz-rd124 .rd124-remaining span{color:#d3e0eb;font-size:12px}
+#tsz-rd124 .rd124-remaining strong{font-size:clamp(16px,2.2vw,23px);font-variant-numeric:tabular-nums;text-align:end}
+#tsz-rd124 .rd124-steps{display:grid;gap:0}
+#tsz-rd124 .rd124-step{position:relative;display:grid;grid-template-columns:19px minmax(0,1fr);column-gap:10px;row-gap:3px;padding:7px 8px 16px 0;border-inline-start:1px solid #738092;margin-inline-start:8px;color:#d4e0eb}
+#tsz-rd124 .rd124-dot{display:block;position:absolute;top:10px;inset-inline-start:-5px;width:9px;height:9px;background:#a7b9cb;border-radius:50%}
+#tsz-rd124 .rd124-step>span:nth-child(2),#tsz-rd124 .rd124-step strong{grid-column:2;font-size:12px;line-height:1.4}
+#tsz-rd124 .rd124-step strong{display:block;font-size:clamp(14px,1.8vw,18px);font-weight:850;color:#fff;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+#tsz-rd124 .rd124-highlight .rd124-dot{background:#f0ba77;box-shadow:0 0 0 4px #ecbd7925}
+#tsz-rd124 .rd124-highlight strong{color:#f6d6a4}
+#tsz-rd124 .rd124-step:last-child{border-inline-start-color:transparent}
+#tsz-rd124 .rd124-message{padding:13px;border-radius:12px;background:#f3e3cc;color:#594328;font-size:12px;line-height:1.6;font-weight:700;margin:2px 0 0}
+#tsz-rd124 .rd124-note{font-size:11px;line-height:1.85;color:#6d7a89;border-top:1px solid #dddcd7;margin:19px 0 0;padding-top:14px}
+#tsz-rd124[dir="rtl"] .rd124-field{text-align:right}
+@media(max-width:720px){#tsz-rd124 .rd124-grid{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:380px){#tsz-rd124{padding:13px}#tsz-rd124 .rd124-card{padding:13px}#tsz-rd124 .rd124-field{grid-template-columns:minmax(0,1fr);gap:4px}#tsz-rd124 .rd124-meta{font-size:10px}}

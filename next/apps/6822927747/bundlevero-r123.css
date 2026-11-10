@@ -1,0 +1,41 @@
+/* TSZ LP R123: website-only, isolated Bundlevero ownership comparison. */
+#tsz-bv123{--bv-ink:#213047;--bv-muted:#617082;--bv-copper:#b77f53;--bv-line:#dfdad2;box-sizing:border-box;position:relative;isolation:isolate;max-width:100%;margin:32px 0;padding:clamp(17px,3vw,35px);border:1px solid #e4d9ca;border-radius:24px;background:radial-gradient(circle at 95% 0,#f6e8d9 0,transparent 36%),linear-gradient(140deg,#fffdfa,#f2f3f5);color:var(--bv-ink);font-family:inherit;box-shadow:0 24px 65px #14223a12;overflow:hidden}
+#tsz-bv123 *,#tsz-bv123 *:before,#tsz-bv123 *:after{box-sizing:border-box}
+#tsz-bv123 .bv123-meta{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;color:#8a5a38;font-size:11px;letter-spacing:.1em;font-weight:800}
+#tsz-bv123 .bv123-meta span:last-child{border:1px solid #d9bba0;border-radius:30px;padding:7px 11px;letter-spacing:.03em}
+#tsz-bv123 h2{color:#23334c;font-size:clamp(25px,4vw,43px);letter-spacing:-.04em;line-height:1.14;margin:20px 0 11px}
+#tsz-bv123 .bv123-lead{color:#647284;font-size:14px;line-height:1.8;margin:0 0 23px;max-width:760px}
+#tsz-bv123 .bv123-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+#tsz-bv123 .bv123-box{padding:clamp(15px,2.3vw,23px);background:#fff;border:1px solid #e5e1dc;border-radius:18px;min-width:0}
+#tsz-bv123 .bv123-box.result{background:linear-gradient(155deg,#1d2f46,#30465d);color:#fff;border-color:#314c67}
+#tsz-bv123 .bv123-kicker{color:#78808b;font-size:11px;letter-spacing:.09em;text-transform:uppercase;font-weight:850;margin-bottom:11px}
+#tsz-bv123 .result .bv123-kicker{color:#e5bd97}
+#tsz-bv123 .bv123-items{display:grid;gap:9px}
+#tsz-bv123 button{cursor:pointer;font:inherit;border-radius:12px;transition:background .16s ease,border-color .16s ease;min-height:48px}
+#tsz-bv123 button:focus-visible{outline:3px solid #bd8754;outline-offset:2px}
+#tsz-bv123 .bv123-item{display:grid;grid-template-columns:32px minmax(0,1fr) auto;align-items:center;gap:10px;text-align:start;background:#f8f7f5;border:1px solid #ebe4dd;width:100%;padding:12px;color:#24374f}
+#tsz-bv123 .bv123-item[aria-pressed="true"]{background:#e9f3ed;border-color:#90bba0}
+#tsz-bv123 .bv123-symbol{width:32px;height:32px;border-radius:10px;background:#e1e5ec;display:grid;place-items:center;font-weight:900;color:#3e536f}
+#tsz-bv123 .bv123-item[aria-pressed="true"] .bv123-symbol{background:#cde2d3;color:#326c4d}
+#tsz-bv123 .bv123-itemname{display:block;font-weight:800;font-size:13px;line-height:1.4}
+#tsz-bv123 .bv123-itemstate{display:block;font-size:11px;color:#718091;margin-top:3px}
+#tsz-bv123 .bv123-price{font-size:14px;font-weight:900;font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate}
+#tsz-bv123 .bv123-helper{color:#6d7b87;font-size:12px;line-height:1.6;margin:13px 0 0}
+#tsz-bv123 .bv123-actions{display:flex;gap:10px;margin-top:17px;flex-wrap:wrap;align-items:center}
+#tsz-bv123 .bv123-reset{border:1px solid #cbb7a5;color:#735337;background:#fffbf7;padding:11px 15px;font-weight:750;font-size:12px}
+#tsz-bv123 .bv123-reset:hover{background:#f6e9de}
+#tsz-bv123 .bv123-totals{display:grid;gap:10px;margin-top:5px}
+#tsz-bv123 .bv123-total{padding:11px 13px;border:1px solid #52667a;border-radius:13px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+#tsz-bv123 .bv123-total span{font-size:12px;color:#cedbe6;line-height:1.5}
+#tsz-bv123 .bv123-total strong{font-size:clamp(19px,2.6vw,25px);color:#fff;white-space:nowrap;font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate}
+#tsz-bv123 .bv123-total.winner{border-color:#d7ae7d;background:#47516a;box-shadow:inset 3px 0 #e8c294}
+#tsz-bv123 .bv123-result{margin-top:15px;padding:13px 15px;background:#f4e2cc;border-radius:12px;color:#2c4057;display:grid;gap:5px;min-height:78px}
+#tsz-bv123 .bv123-result strong{font-size:16px;line-height:1.4}
+#tsz-bv123 .bv123-result p{font-size:12px;line-height:1.65;margin:0;color:#6a553e}
+#tsz-bv123 .bv123-counter{font-size:12px;color:#dce6ed;margin:18px 0 0;line-height:1.8}
+#tsz-bv123 .bv123-footnote{border-top:1px solid #e3dfd7;margin:18px 0 0;padding-top:13px;color:#677588;font-size:11px;line-height:1.8}
+#tsz-bv123[dir="rtl"] .bv123-item{text-align:right}
+#tsz-bv123[dir="rtl"] .bv123-total.winner{box-shadow:inset -3px 0 #e8c294}
+@media(max-width:690px){#tsz-bv123 .bv123-grid{grid-template-columns:1fr}}
+@media(max-width:360px){#tsz-bv123{padding:13px;margin-inline:-2px}#tsz-bv123 .bv123-box{padding:13px}#tsz-bv123 .bv123-meta{font-size:10px}}
+@media(prefers-reduced-motion:reduce){#tsz-bv123 button{transition:none}}

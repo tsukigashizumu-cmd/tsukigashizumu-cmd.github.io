@@ -1,0 +1,46 @@
+/* TSZ LP R122 — standalone, CSS strictly scoped to the website-only demo. */
+#tsz-sc122{--sc122-ink:#243e55;--sc122-muted:#637b8b;--sc122-line:#dae5e9;--sc122-accent:#367885;box-sizing:border-box;position:relative;isolation:isolate;margin:28px 0;padding:clamp(16px,3vw,35px);border:1px solid #d4e5e7;border-radius:24px;background:radial-gradient(circle at 78% 5%,#dfefee 0,transparent 42%),linear-gradient(140deg,#f8fbfc,#ecf3f5);box-shadow:0 25px 60px #173e4918;overflow:hidden;color:var(--sc122-ink);font-family:inherit}
+#tsz-sc122 *,#tsz-sc122 *:before,#tsz-sc122 *:after{box-sizing:border-box}
+#tsz-sc122 button{font:inherit;cursor:pointer;border-radius:12px;border:1px solid #c4dadc;padding:10px 12px;min-height:44px;background:white;color:#285467;transition:background .15s ease,border-color .15s ease;line-height:1.35}
+#tsz-sc122 button:hover{background:#e7f2f1;border-color:#83b5b5}
+#tsz-sc122 button:focus-visible{outline:3px solid #237b8b;outline-offset:3px}
+#tsz-sc122 .sc122-meta{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;color:#35767c;font-weight:850;font-size:11px;letter-spacing:.13em}
+#tsz-sc122 .sc122-meta span:last-child{letter-spacing:.04em;padding:7px 11px;border:1px solid #adcdd0;border-radius:24px}
+#tsz-sc122 .sc122-intro{margin:20px 0 23px;max-width:750px}
+#tsz-sc122 h2{font-size:clamp(26px,3.8vw,41px);line-height:1.12;letter-spacing:-.035em;margin:0 0 12px;color:#183e53}
+#tsz-sc122 .sc122-intro p{font-size:14px;line-height:1.8;margin:0;color:#587482}
+#tsz-sc122 .sc122-layout{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:16px;align-items:stretch}
+#tsz-sc122 .sc122-panel{border:1px solid #d6e4e9;border-radius:18px;padding:clamp(15px,2.7vw,24px);background:#fff;min-width:0}
+#tsz-sc122 .sc122-panel.preview{background:linear-gradient(165deg,#15394a,#234f62);color:#f5fbfb;border-color:#315966;display:flex;flex-direction:column;justify-content:space-between;gap:12px;min-height:330px}
+#tsz-sc122 .sc122-label{font-size:11px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:#5b7686}
+#tsz-sc122 .preview .sc122-label{color:#bedee0}
+#tsz-sc122 .sc122-ring{--pct:26%;--ringcolor:#7dc5bb;width:min(210px,76%);aspect-ratio:1;margin:9px auto;display:grid;place-items:center;border-radius:50%;background:conic-gradient(var(--ringcolor) var(--pct),#335969 var(--pct));box-shadow:0 0 38px #1f87932c;position:relative;flex-shrink:0}
+#tsz-sc122 .sc122-ring:before{content:"";position:absolute;inset:13px;border-radius:50%;background:#173d50}
+#tsz-sc122 .sc122-ringinner{position:relative;text-align:center;display:grid;gap:3px}
+#tsz-sc122 .sc122-ringinner strong{font-variant-numeric:tabular-nums;font-size:clamp(27px,4vw,43px);font-weight:800;line-height:1.12;color:#fff}
+#tsz-sc122 .sc122-ringinner span{font-size:12px;color:#d3eaeb;font-weight:700}
+#tsz-sc122 .sc122-previewbottom{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid #406878;padding-top:16px}
+#tsz-sc122 .sc122-previewbottom strong{display:block;color:white;font-size:19px;line-height:1.4}
+#tsz-sc122 .sc122-previewbottom small{font-size:11px;color:#c2dde0;line-height:1.7}
+#tsz-sc122 .sc122-progress-track{height:7px;margin-top:12px;border-radius:50px;background:#386474;overflow:hidden}
+#tsz-sc122 .sc122-progress-fill{height:100%;width:7%;background:#94d0c5;border-radius:50px;transition:width .18s ease}
+#tsz-sc122 .sc122-modegrid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}
+#tsz-sc122 .sc122-modegrid button{text-align:start;min-height:75px;display:flex;flex-direction:column;justify-content:center;gap:5px;padding:12px 13px}
+#tsz-sc122 .sc122-modegrid button strong{font-weight:850;font-size:13px}
+#tsz-sc122 .sc122-modegrid button small{font-size:11px;color:#69808e;font-weight:650;direction:ltr;unicode-bidi:isolate}
+#tsz-sc122 .sc122-modegrid button[aria-pressed="true"]{background:#e4f3f0;border-color:#378987;box-shadow:inset 0 0 0 1px #378987;color:#1e5e61}
+#tsz-sc122 .sc122-modegrid button[aria-pressed="true"] small{color:#366c6f}
+#tsz-sc122 .sc122-controls{display:flex;gap:9px;flex-wrap:wrap;margin-top:17px}
+#tsz-sc122 .sc122-controls button{flex:1;font-weight:800;font-size:12px}
+#tsz-sc122 .sc122-controls button[data-step]{background:#275e6a;border-color:#275e6a;color:white}
+#tsz-sc122 .sc122-controls button[data-step]:hover{background:#1e4b56}
+#tsz-sc122 .sc122-result{margin-top:17px;padding:15px;background:#e9f3f2;border-radius:13px;border:1px solid #d2e5e3;display:grid;gap:6px}
+#tsz-sc122 .sc122-result strong{font-size:14px;color:#245d64;line-height:1.5}
+#tsz-sc122 .sc122-result p{font-size:12px;line-height:1.7;color:#527780;margin:0}
+#tsz-sc122 .sc122-footnote{font-size:11px;color:#657b87;line-height:1.8;margin:18px 0 0;padding-top:14px;border-top:1px solid #d7e5e9}
+#tsz-sc122[dir="rtl"] .sc122-modegrid button{text-align:right}
+#tsz-sc122[dir="rtl"] .sc122-ring{direction:ltr}
+#tsz-sc122[dir="rtl"] .sc122-progress-track{direction:ltr}
+@media(max-width:700px){#tsz-sc122 .sc122-layout{grid-template-columns:1fr}#tsz-sc122 .sc122-panel.preview{min-height:280px}#tsz-sc122 .sc122-ring{width:175px}}
+@media(max-width:360px){#tsz-sc122{padding:13px;margin-inline:-2px}#tsz-sc122 .sc122-panel{padding:13px}#tsz-sc122 .sc122-modegrid button{padding:10px}#tsz-sc122 .sc122-ring{width:156px}#tsz-sc122 .sc122-meta{font-size:10px}}
+@media(prefers-reduced-motion:reduce){#tsz-sc122 button,#tsz-sc122 .sc122-progress-fill{transition:none}}
