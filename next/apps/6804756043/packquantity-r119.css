@@ -1,0 +1,48 @@
+/* TSZ LP R119: independent, scoped, website-only PackQuantity plan-reuse illustration */
+#tsz-pq119{box-sizing:border-box;max-width:100%;margin:34px 0 48px;padding:clamp(20px,4.4vw,38px);border:1px solid rgba(173,184,198,.23);border-radius:22px;color:#f4f6f9;background:linear-gradient(145deg,#14202a 0%,#0f1820 65%,#141d24 100%);box-shadow:0 15px 48px rgba(0,0,0,.15);font-family:inherit;line-height:1.55}
+#tsz-pq119 *{box-sizing:border-box}
+#tsz-pq119 .pq119-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:17px}
+#tsz-pq119 .pq119-kicker{font-size:11px;letter-spacing:.14em;font-weight:800;color:#d9b982}
+#tsz-pq119 .pq119-badge{font-size:10px;letter-spacing:.05em;color:#d4dbe2;padding:6px 10px;border:1px solid #536070;border-radius:100px}
+#tsz-pq119 h2{font-size:clamp(24px,3.8vw,38px);letter-spacing:-.035em;line-height:1.2;margin:0 0 13px;font-weight:700;color:#fff}
+#tsz-pq119 .pq119-intro{max-width:68ch;font-size:14px;color:#becad4;margin:0 0 25px}
+#tsz-pq119 .pq119-layout{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:18px;align-items:start}
+#tsz-pq119 .pq119-control,#tsz-pq119 .pq119-output{min-width:0}
+#tsz-pq119 .pq119-saved{padding:20px;border:1px solid rgba(215,188,137,.4);background:rgba(212,177,119,.08);border-radius:17px}
+#tsz-pq119 .pq119-label{color:#e5c490;font-weight:800;text-transform:uppercase;letter-spacing:.07em;font-size:11px;margin-bottom:8px}
+#tsz-pq119 .pq119-saved>strong{display:block;font-size:19px;overflow-wrap:anywhere;margin-bottom:14px;color:#fff}
+#tsz-pq119 dl{margin:0 0 16px;display:grid;grid-template-columns:1fr 1fr;gap:11px}
+#tsz-pq119 dl div{min-width:0}
+#tsz-pq119 dt{font-size:11px;color:#aebbc8}
+#tsz-pq119 dd{font-size:15px;color:#faf9f5;font-weight:750;margin:3px 0 0;overflow-wrap:anywhere}
+#tsz-pq119 .pq119-edit{margin-top:16px;padding:19px;border:1px solid #344350;border-radius:17px;background:#17242d}
+#tsz-pq119 .pq119-fields{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+#tsz-pq119 .pq119-fields label{min-width:0;display:flex;flex-direction:column;gap:5px;font-size:12px;color:#ccd5de}
+#tsz-pq119 .pq119-fields label:first-child{grid-column:1/-1}
+#tsz-pq119 input{display:block;width:100%;min-width:0;border-radius:9px;padding:11px 12px;border:1px solid #647181;background:#0b141b;color:#fff;font-size:16px;font-family:inherit}
+#tsz-pq119 input:focus-visible,#tsz-pq119 button:focus-visible{outline:3px solid #e4c084;outline-offset:2px}
+#tsz-pq119 .pq119-buttons{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+#tsz-pq119 button{cursor:pointer;min-height:44px;max-width:100%;padding:10px 14px;border-radius:10px;background:#dfbb7c;color:#14202a;border:1px solid #dfbb7c;font-size:13px;line-height:1.3;font-weight:750;font-family:inherit}
+#tsz-pq119 button:hover{filter:brightness(1.09)}
+#tsz-pq119 button.pq119-secondary{background:transparent;border-color:#85919a;color:#f5f5f5}
+#tsz-pq119 .pq119-output{border:1px solid #546577;background:radial-gradient(circle at 90% 0%,#203844 0%,#101c25 60%);padding:24px;border-radius:17px}
+#tsz-pq119 .pq119-main-result{padding-bottom:20px;border-bottom:1px solid #485663}
+#tsz-pq119 .pq119-main-result>div{font-size:12px;color:#cfdded}
+#tsz-pq119 .pq119-main-result strong{display:block;font-size:clamp(62px,10vw,92px);font-weight:780;line-height:1.07;letter-spacing:-.05em;color:#f4d49f;font-variant-numeric:tabular-nums}
+#tsz-pq119 .pq119-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+#tsz-pq119 .pq119-stats>div{min-width:0;overflow-wrap:anywhere}
+#tsz-pq119 .pq119-stats span{display:block;color:#b5c4d3;font-size:11px}
+#tsz-pq119 .pq119-stats strong{display:block;color:#fff;font-size:clamp(18px,3.5vw,24px);font-weight:750;margin-top:4px}
+#tsz-pq119 .pq119-stats small{display:block;font-size:10px;color:#b5c4d3}
+#tsz-pq119 .pq119-equation{margin-top:19px;padding:14px;border-radius:10px;background:#0b151d}
+#tsz-pq119 .pq119-equation span{display:block;color:#e1be85;font-size:11px;font-weight:750}
+#tsz-pq119 .pq119-equation p{overflow-wrap:anywhere;font-size:12px;color:#dae6ed;margin:7px 0 0}
+#tsz-pq119 .pq119-status{font-size:12px;color:#d4e0ec;margin:14px 0 0}
+#tsz-pq119 .pq119-error{font-size:12px;color:#ffd2cc;margin:9px 0 0}
+#tsz-pq119 .pq119-error[hidden]{display:none}
+#tsz-pq119 .pq119-invalid .pq119-main-result strong{color:#b9c2cc}
+#tsz-pq119 .pq119-footnote{border-top:1px solid #394955;color:#adbcc9;padding-top:16px;margin:21px 0 0;font-size:11px;line-height:1.7}
+#tsz-pq119[dir="rtl"]{text-align:start}
+#tsz-pq119[dir="rtl"] input{direction:ltr;text-align:right}
+@media(max-width:760px){#tsz-pq119 .pq119-layout{grid-template-columns:1fr}#tsz-pq119 .pq119-main-result strong{font-size:65px}}
+@media(max-width:380px){#tsz-pq119{padding:17px 13px;border-radius:16px}#tsz-pq119 .pq119-fields{grid-template-columns:1fr}#tsz-pq119 .pq119-fields label:first-child{grid-column:auto}#tsz-pq119 .pq119-saved,#tsz-pq119 .pq119-edit,#tsz-pq119 .pq119-output{padding:15px}#tsz-pq119 button{width:100%}#tsz-pq119 dl{gap:7px}}
