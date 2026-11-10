@@ -1,0 +1,44 @@
+/* TSZ LP R75 — Nokunera "one item" interactive illustration.
+ * Scope: #tsz-nk75 only. No global, header, gallery, or existing R35 overrides. */
+#tsz-nk75{--nk-ink:#ecf6f3;--nk-muted:#abc3bd;--nk-teal:#92e2c5;--nk-line:rgba(155,207,194,.17);box-sizing:border-box;position:relative;isolation:isolate;margin:2.2rem 0;padding:clamp(20px,4vw,38px);border:1px solid var(--nk-line);border-radius:26px;background:radial-gradient(ellipse at 97% 0%,rgba(54,124,108,.31),transparent 46%),linear-gradient(145deg,#142b29,#101f24 65%,#101b23);color:var(--nk-ink);box-shadow:0 19px 50px rgba(2,13,17,.2);overflow:hidden;font-family:inherit}
+#tsz-nk75 *,#tsz-nk75 *::before,#tsz-nk75 *::after{box-sizing:border-box}
+#tsz-nk75 button,#tsz-nk75 input,#tsz-nk75 select{font:inherit}
+#tsz-nk75 .nk75-flag{display:inline-flex;align-items:center;gap:.5em;font-size:.73rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--nk-teal)}
+#tsz-nk75 .nk75-flag::before{content:"";height:7px;width:7px;display:inline-block;border-radius:99px;background:var(--nk-teal)}
+#tsz-nk75 .nk75-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:start;gap:clamp(20px,4vw,44px);margin-top:15px}
+#tsz-nk75 h2{font-weight:750;font-size:clamp(1.5rem,3.3vw,2.1rem);line-height:1.2;letter-spacing:-.035em;color:var(--nk-ink);margin:10px 0 13px}
+#tsz-nk75 .nk75-lead{margin:0 0 20px;color:#c9dad4;line-height:1.73;font-size:.96rem}
+#tsz-nk75 .nk75-steps{display:grid;gap:10px;margin-top:24px;padding:0;list-style:none}
+#tsz-nk75 .nk75-steps li{display:flex;align-items:flex-start;gap:11px;color:#b9d1c9;font-size:.88rem;line-height:1.58}
+#tsz-nk75 .nk75-steps b{display:grid;place-items:center;flex:0 0 25px;height:25px;border:1px solid rgba(162,223,207,.4);border-radius:50%;color:#c8f9e8;font-size:.77rem}
+#tsz-nk75 .nk75-card{width:100%;min-width:0;padding:clamp(17px,3vw,27px);background:linear-gradient(160deg,#f8faf5,#e8efea);border-radius:20px;box-shadow:0 14px 33px rgba(0,0,0,.19);color:#18342e}
+#tsz-nk75 .nk75-cardhead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:18px;color:#4c7267;font-weight:750;font-size:.74rem;letter-spacing:.07em;text-transform:uppercase}
+#tsz-nk75 .nk75-cardhead .nk75-demo{border:1px solid #a6c7bb;padding:4px 8px;border-radius:99px;color:#2a7560;font-size:.65rem}
+#tsz-nk75 .nk75-fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+#tsz-nk75 .nk75-field{display:flex;flex-direction:column;gap:7px;min-width:0;color:#40665c;font-size:.77rem;font-weight:750}
+#tsz-nk75 .nk75-wide{grid-column:1/-1}
+#tsz-nk75 .nk75-select,#tsz-nk75 .nk75-input{min-width:0;width:100%;border:1px solid #c6d9d0;color:#193e33;background:#fff;border-radius:11px;padding:11px 12px;line-height:1.25;font-size:.92rem}
+#tsz-nk75 .nk75-input:focus,#tsz-nk75 .nk75-select:focus{outline:2px solid #27876d;outline-offset:2px}
+#tsz-nk75 .nk75-counter{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#fff;border:1px solid #c6d9d0;border-radius:11px;min-height:48px;padding:4px}
+#tsz-nk75 .nk75-counter button{width:39px;height:38px;border-radius:8px;display:grid;place-items:center;border:0;background:#eaf3ed;color:#194c3d;cursor:pointer;font-size:1.25rem;line-height:1;font-weight:700;transition:background .15s ease}
+#tsz-nk75 .nk75-counter button:hover{background:#cde6d8}
+#tsz-nk75 .nk75-counter button:disabled{opacity:.4;cursor:not-allowed}
+#tsz-nk75 .nk75-counter output{font-size:1.5rem;font-weight:800;line-height:1.2;font-variant-numeric:tabular-nums;color:#1a4235}
+#tsz-nk75 .nk75-result{display:flex;align-items:center;gap:12px;border-top:1px solid #cadcd4;margin-top:18px;padding-top:16px}
+#tsz-nk75 .nk75-dot{width:11px;height:11px;flex:0 0 11px;border-radius:50%;background:#3f9d7b;box-shadow:0 0 0 5px #d7eee3}
+#tsz-nk75[data-low="true"] .nk75-dot{background:#c3752e;box-shadow:0 0 0 5px #f6e7d1}
+#tsz-nk75 .nk75-result-text{flex:1;min-width:0}
+#tsz-nk75 .nk75-result-text strong{display:block;font-size:.95rem;color:#194a3a}
+#tsz-nk75[data-low="true"] .nk75-result-text strong{color:#8a4d20}
+#tsz-nk75 .nk75-result-text span{display:block;margin-top:4px;color:#55756a;line-height:1.42;font-size:.8rem}
+#tsz-nk75 .nk75-action{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
+#tsz-nk75 .nk75-action button{border:1px solid #b9d2c4;border-radius:10px;padding:9px 13px;min-height:40px;color:#1a5140;background:#fff;cursor:pointer;font-size:.82rem;font-weight:750}
+#tsz-nk75 .nk75-action button:first-child{background:#1c5949;color:#f3fff9;border-color:#1c5949}
+#tsz-nk75 .nk75-action button:disabled{opacity:.45;cursor:not-allowed}
+#tsz-nk75 .nk75-action button:hover:not(:disabled){filter:brightness(1.06)}
+#tsz-nk75 .nk75-foot{border-top:1px solid var(--nk-line);padding-top:15px;margin-top:24px;font-size:.76rem;line-height:1.6;color:#a9c5bd}
+#tsz-nk75 button:focus-visible{outline:3px solid #61caa8;outline-offset:3px}
+#tsz-nk75[dir="rtl"] .nk75-cardhead,#tsz-nk75[dir="rtl"] .nk75-result{text-align:right}
+@media(max-width:760px){#tsz-nk75{border-radius:20px;margin:1.4rem 0;padding:18px}#tsz-nk75 .nk75-grid{grid-template-columns:1fr;gap:18px}#tsz-nk75 .nk75-steps{margin-top:15px}#tsz-nk75 .nk75-card{padding:18px}}
+@media(max-width:380px){#tsz-nk75 .nk75-fields{grid-template-columns:1fr}#tsz-nk75 .nk75-counter{min-height:50px}}
+@media(prefers-reduced-motion:reduce){#tsz-nk75 *{transition:none!important}}

@@ -1,0 +1,50 @@
+/* TSZ LP R78 • HaulStamp isolated explanatory illustration */
+#tsz-hs78{--hs-ink:#19303b;--hs-slate:#536671;--hs-line:#d4e5e5;--hs-teal:#087d78;--hs-deep:#075750;--hs-mint:#e4f8f2;--hs-orange:#d98c4c;box-sizing:border-box;isolation:isolate;position:relative;max-width:1160px;margin:clamp(26px,4vw,56px) auto;padding:clamp(20px,4vw,46px);border:1px solid #d7ebe5;border-radius:27px;background:radial-gradient(ellipse at 5% 5%,#d9f4e8 0%,transparent 50%),linear-gradient(130deg,#f7fffc 10%,#f9fcfd 85%);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--hs-ink);box-shadow:0 22px 56px #003c4110;overflow:hidden}
+#tsz-hs78 *,#tsz-hs78 *::before,#tsz-hs78 *::after{box-sizing:border-box}
+#tsz-hs78 .hs78-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+#tsz-hs78 .hs78-eyebrow{font-size:11px;font-weight:820;letter-spacing:.095em;color:var(--hs-deep)}
+#tsz-hs78 .hs78-tag{font-size:10px;letter-spacing:.07em;font-weight:800;color:#115f53;padding:8px 11px;border:1px solid #a5d6c4;border-radius:50px;background:#e5faf0}
+#tsz-hs78 .hs78-cols{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:clamp(24px,3.5vw,44px);align-items:start}
+#tsz-hs78 h2{font-size:clamp(27px,3.8vw,44px);letter-spacing:-.035em;line-height:1.12;margin:0 0 15px;font-weight:850;color:#143c40}
+#tsz-hs78 .hs78-lead{line-height:1.8;max-width:47ch;color:#49616a;font-size:clamp(13px,1.3vw,15px);margin:0 0 24px}
+#tsz-hs78 .hs78-slip{border:1px solid #c6dede;border-radius:19px;overflow:hidden;background:#fff;box-shadow:0 12px 40px #064c4b10}
+#tsz-hs78 .hs78-sliphead{display:flex;justify-content:space-between;gap:8px;align-items:center;padding:17px 18px;border-bottom:1px solid #e2ecec;font-size:12px;font-weight:830;letter-spacing:.01em}
+#tsz-hs78 .hs78-dot{width:8px;height:8px;background:#0b9e81;border-radius:50%;box-shadow:0 0 0 5px #e8f8f3}
+#tsz-hs78 .hs78-timeline{padding:20px 20px 18px}
+#tsz-hs78 .hs78-timeline-row{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:12px;font-weight:760;margin:0 0 9px}
+#tsz-hs78 .hs78-timeline-row b{font-size:11px;font-variant-numeric:tabular-nums}
+#tsz-hs78 .hs78-track{height:10px;background:#edf4f2;border-radius:16px;margin:0 0 17px;overflow:hidden}
+#tsz-hs78 .hs78-fill{height:100%;width:0%;border-radius:inherit;transition:width .2s ease-out}
+#tsz-hs78 .hs78-fill.wait{background:linear-gradient(90deg,#108f7a,#5bbaaa)}
+#tsz-hs78 .hs78-fill.handling{background:linear-gradient(90deg,#c98848,#edb978)}
+#tsz-hs78 .hs78-hero{display:flex;gap:18px;align-items:end;justify-content:space-between;padding:18px 20px;background:#eff9f5;border-top:1px solid #e2eceb;border-bottom:1px solid #e2eceb}
+#tsz-hs78 .hs78-hero>div:first-child{display:flex;flex-direction:column;gap:5px}
+#tsz-hs78 .hs78-hero span{font-size:11px;font-weight:730;color:#51716e}
+#tsz-hs78 .hs78-hero strong{color:#087067;font-size:clamp(32px,4.2vw,49px);line-height:1;letter-spacing:-.04em;font-weight:850;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+#tsz-hs78 .hs78-hero small{font-size:10px;color:#527570}
+#tsz-hs78 .hs78-stats{min-width:120px}
+#tsz-hs78 .hs78-stats p{margin:0 0 10px;display:flex;flex-direction:column;align-items:flex-end;gap:3px}
+#tsz-hs78 .hs78-stats p:last-child{margin-bottom:0}
+#tsz-hs78 .hs78-stats b{font-size:14px;white-space:nowrap;font-variant-numeric:tabular-nums}
+#tsz-hs78 .hs78-receipt{padding:14px 20px 16px}
+#tsz-hs78 .hs78-receipt p{margin:0;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dashed #dfe9e8;color:#5b6d74;font-size:12px}
+#tsz-hs78 .hs78-receipt p:last-child{border:0}
+#tsz-hs78 .hs78-receipt b{color:#1b353d;text-align:end;font-size:13px;font-variant-numeric:tabular-nums}
+#tsz-hs78 .hs78-error{margin:0;padding:0 20px;color:#a42f2f;font-weight:700;font-size:12px}
+#tsz-hs78[data-valid="false"] .hs78-error{padding:12px 20px}
+#tsz-hs78 .hs78-editor{border:1px solid #d5e6e3;background:#fff;border-radius:20px;padding:clamp(18px,2.8vw,27px);box-shadow:0 12px 36px #064c4b09}
+#tsz-hs78 .hs78-editor h3{font-size:17px;letter-spacing:-.02em;margin:0 0 19px;font-weight:830;color:#20424a}
+#tsz-hs78 .hs78-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px 13px}
+#tsz-hs78 .hs78-fields label{display:flex;flex-direction:column;min-width:0;gap:7px}
+#tsz-hs78 .hs78-fields label span{color:#52646b;font-size:11px;font-weight:720;line-height:1.35}
+#tsz-hs78 .hs78-fields input{appearance:textfield;-moz-appearance:textfield;background:#f7faf9;border:1px solid #cbdcda;outline:none;border-radius:11px;width:100%;max-width:100%;color:#1e343b;min-height:43px;padding:9px 11px;font-family:inherit;font-size:16px;font-weight:730;font-variant-numeric:tabular-nums}
+#tsz-hs78 .hs78-fields input:focus-visible{border-color:var(--hs-teal);box-shadow:0 0 0 3px #88ccbf5c}
+#tsz-hs78 .hs78-fields input::-webkit-inner-spin-button,#tsz-hs78 .hs78-fields input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+#tsz-hs78 .hs78-reset{border:1px solid #79c3b5;color:#075f58;background:#e9f8f3;border-radius:12px;cursor:pointer;font-family:inherit;font-size:12px;font-weight:820;padding:12px 18px;min-height:44px;width:100%;margin-top:23px;transition:background .16s ease}
+#tsz-hs78 .hs78-reset:hover{background:#d5f2e8}
+#tsz-hs78 .hs78-reset:focus-visible{outline:3px solid #51a89c;outline-offset:3px}
+#tsz-hs78 .hs78-caveat{color:#667a7c;font-size:11px;line-height:1.75;border-top:1px solid #d9e8e2;padding-top:18px;margin:28px 0 0}
+#tsz-hs78[dir="rtl"] .hs78-stats p{align-items:flex-start}
+@media(max-width:770px){#tsz-hs78 .hs78-cols{grid-template-columns:1fr}#tsz-hs78 .hs78-lead{max-width:65ch}#tsz-hs78 .hs78-top{margin-bottom:20px}}
+@media(max-width:430px){#tsz-hs78{padding:18px;border-radius:18px}#tsz-hs78 .hs78-fields{gap:14px 10px}#tsz-hs78 .hs78-fields label span{min-height:31px}#tsz-hs78 .hs78-hero{gap:12px}#tsz-hs78 .hs78-stats{min-width:90px}#tsz-hs78 .hs78-hero strong{font-size:33px}}
+@media(prefers-reduced-motion:reduce){#tsz-hs78 .hs78-fill,#tsz-hs78 .hs78-reset{transition:none}}
