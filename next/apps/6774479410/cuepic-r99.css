@@ -1,0 +1,51 @@
+/* TSZ LP R99 CuePic: fully scoped, image-free, no remote assets. */
+#tsz-cuepic-r99{box-sizing:border-box;width:min(1160px,100%);margin:64px auto 76px;padding:0 18px;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;color:#1b273c;line-height:1.5}
+#tsz-cuepic-r99 *,#tsz-cuepic-r99 *:before,#tsz-cuepic-r99 *:after{box-sizing:border-box}
+#tsz-cuepic-r99 .cp99-lead{max-width:760px;margin-bottom:24px}
+#tsz-cuepic-r99 .cp99-eyebrow{font-size:12px;font-weight:850;letter-spacing:.12em;color:#c44d52;margin-bottom:14px}
+#tsz-cuepic-r99 h2{font-size:clamp(25px,3.4vw,42px);line-height:1.2;font-weight:850;letter-spacing:-.025em;margin:0 0 12px;color:#202c40}
+#tsz-cuepic-r99 .cp99-lead p{font-size:15px;line-height:1.8;margin:0;color:#637188}
+#tsz-cuepic-r99 .cp99-shell{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);overflow:hidden;border:1px solid #dfe3ec;border-radius:24px;background:#fff;box-shadow:0 18px 50px rgba(25,38,62,.08)}
+#tsz-cuepic-r99 .cp99-tools{padding:30px;display:flex;flex-direction:column;gap:14px}
+#tsz-cuepic-r99 h3{font-size:13px;font-weight:800;color:#33445d;margin:0 0 4px}
+#tsz-cuepic-r99 .cp99-buttons{display:flex;flex-wrap:wrap;gap:9px}
+#tsz-cuepic-r99 button{font:inherit;cursor:pointer}
+#tsz-cuepic-r99 .cp99-tool{border:1px solid #d9dfe9;border-radius:12px;padding:12px 14px;color:#33445d;background:#f8f9fc;font-size:14px;font-weight:700;min-height:44px}
+#tsz-cuepic-r99 .cp99-tool[aria-pressed=true]{border-color:#d9414a;background:#fff0f0;box-shadow:0 0 0 2px #ffe0e0;color:#a7232e}
+#tsz-cuepic-r99 button:focus-visible,#tsz-cuepic-r99 [tabindex]:focus-visible{outline:3px solid #ed7b72;outline-offset:3px}
+#tsz-cuepic-r99 .cp99-rule{height:1px;background:#e7ebf1;margin:8px 0}
+#tsz-cuepic-r99 .cp99-steps{padding-inline-start:25px;display:flex;flex-direction:column;gap:10px;min-height:124px;margin:0;font-size:14px;font-weight:650;color:#41516a}
+#tsz-cuepic-r99 .cp99-steps li{padding:5px 2px}
+#tsz-cuepic-r99 .cp99-steps .cp99-empty{list-style:none;color:#8390a3;font-weight:450;font-size:13px;margin-inline-start:-24px;max-width:285px;line-height:1.6}
+#tsz-cuepic-r99 .cp99-status{min-height:26px;margin:0;color:#8b3340;font-size:13px;font-weight:750}
+#tsz-cuepic-r99 .cp99-actions{display:flex;flex-wrap:wrap;gap:8px}
+#tsz-cuepic-r99 .cp99-actions button{border:1px solid #cfd7e3;background:#fff;border-radius:10px;font-size:13px;font-weight:720;padding:10px 14px;min-height:42px;color:#35475f}
+#tsz-cuepic-r99 .cp99-actions button:disabled{opacity:.4;cursor:not-allowed}
+#tsz-cuepic-r99 .cp99-tip{font-size:12px;color:#77859a;margin:8px 0 0;line-height:1.7}
+#tsz-cuepic-r99 .cp99-stage{min-width:0;padding:26px 20px 14px;background:#f5f6fa;border-inline-start:1px solid #e5e8ef;display:flex;align-items:center;flex-direction:column}
+#tsz-cuepic-r99 .cp99-stage h3{align-self:start;margin:0 0 17px}
+#tsz-cuepic-r99 .cp99-phone{width:min(318px,100%);border:8px solid #293343;border-radius:38px;background:#293343;box-shadow:0 16px 40px rgba(31,44,65,.19);overflow:hidden;position:relative}
+#tsz-cuepic-r99 .cp99-notch{position:absolute;z-index:2;top:0;left:50%;transform:translateX(-50%);background:#293343;width:38%;height:18px;border-radius:0 0 15px 15px}
+#tsz-cuepic-r99 .cp99-screen{position:relative;isolation:isolate;border-radius:29px 29px 22px 22px;overflow:hidden;background:#f4f6fb;min-height:445px;cursor:crosshair;user-select:none;-webkit-user-select:none;touch-action:manipulation}
+#tsz-cuepic-r99 .cp99-top{display:flex;justify-content:space-between;padding:12px 17px 18px;font-size:11px;font-weight:700;color:#536078}
+#tsz-cuepic-r99 .cp99-settings-title{font-size:28px;letter-spacing:-.045em;font-weight:800;padding:4px 20px 18px;color:#202a3e}
+#tsz-cuepic-r99 .cp99-list{padding:0 10px;display:flex;flex-direction:column;gap:8px}
+#tsz-cuepic-r99 .cp99-entry{background:#fff;display:flex;align-items:center;gap:11px;min-height:56px;padding:9px 10px;border-radius:12px;box-shadow:0 1px 3px rgba(48,66,94,.045)}
+#tsz-cuepic-r99 .cp99-entry-icon{display:grid;place-items:center;flex:0 0 31px;height:31px;border-radius:9px;color:#fff;font-size:17px;font-weight:800}
+#tsz-cuepic-r99 .cp99-purple{background:#796ec6}#tsz-cuepic-r99 .cp99-blue{background:#438cdf}#tsz-cuepic-r99 .cp99-orange{background:#db945c}#tsz-cuepic-r99 .cp99-teal{background:#3a9c98}#tsz-cuepic-r99 .cp99-indigo{background:#5b6caa}
+#tsz-cuepic-r99 .cp99-entry div{flex:1;min-width:0}
+#tsz-cuepic-r99 .cp99-entry strong{font-size:13px;display:block;color:#34435b;line-height:1.3}
+#tsz-cuepic-r99 .cp99-entry small{font-size:10px;color:#8591a3;line-height:1.3;display:block;margin-top:3px}
+#tsz-cuepic-r99 .cp99-chevron{color:#a3adbd;font-size:22px}
+#tsz-cuepic-r99 .cp99-marks{pointer-events:none;position:absolute;inset:0;z-index:5}
+#tsz-cuepic-r99 .cp99-mark{position:absolute;display:flex;align-items:center;justify-content:center;transform:translate(-50%,-50%);color:#ec3742;filter:drop-shadow(0 3px 2px rgba(62,20,20,.16))}
+#tsz-cuepic-r99 .cp99-circle{border:4px solid #f0434c;border-radius:50%;width:76px;height:54px;background:rgba(235,55,64,.045)}
+#tsz-cuepic-r99 .cp99-rectangle{border:4px solid #f0434c;border-radius:8px;width:112px;height:47px;background:rgba(235,55,64,.045)}
+#tsz-cuepic-r99 .cp99-arrow{font-size:65px;font-weight:900;line-height:1;transform:translate(-50%,-50%) rotate(-30deg);text-shadow:0 1px 0 #fff}
+#tsz-cuepic-r99 .cp99-mark i{position:absolute;inset-inline-end:-10px;top:-11px;display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#de283a;color:#fff;font:800 11px ui-sans-serif,system-ui,sans-serif;border:2px solid #fff}
+#tsz-cuepic-r99 .cp99-bottom{height:7px;width:76px;background:#e5e7eb;border-radius:99px;margin:10px auto 3px}
+#tsz-cuepic-r99 .cp99-stage-label{color:#7b8799;margin:12px 0 0;font-size:12px}
+#tsz-cuepic-r99 .cp99-foot{max-width:900px;margin:18px 0 0;color:#8993a5;font-size:12px;line-height:1.7}
+#tsz-cuepic-r99 [dir=rtl] .cp99-mark{direction:ltr}
+@media(max-width:740px){#tsz-cuepic-r99{margin:46px auto 60px}#tsz-cuepic-r99 .cp99-shell{grid-template-columns:1fr}#tsz-cuepic-r99 .cp99-tools{padding:23px 20px}#tsz-cuepic-r99 .cp99-steps{min-height:0;gap:4px}#tsz-cuepic-r99 .cp99-stage{border-inline-start:0;border-top:1px solid #e5e8ef;padding:20px 12px 15px}#tsz-cuepic-r99 .cp99-stage h3{align-self:center}}
+@media(max-width:360px){#tsz-cuepic-r99{padding:0 12px}#tsz-cuepic-r99 .cp99-tools{padding:18px 16px}#tsz-cuepic-r99 .cp99-tool{padding:10px 11px;font-size:12px}}
