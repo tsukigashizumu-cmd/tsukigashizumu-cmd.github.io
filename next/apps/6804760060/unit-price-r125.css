@@ -1,0 +1,38 @@
+/* R125 Unit Price / isolated LP-only sequential discounts and tax demo */
+#tsz-up125{--up125-ink:#223248;--up125-mute:#64768a;isolation:isolate;max-width:100%;box-sizing:border-box;margin:36px 0;padding:clamp(16px,3vw,36px);border:1px solid #e0d7ce;border-radius:25px;background:radial-gradient(circle at 100% 0,#f8e9d4,transparent 40%),linear-gradient(140deg,#fffdfa,#f1f3f7);color:var(--up125-ink);font-family:inherit;box-shadow:0 20px 55px #102b4414;overflow:hidden}
+#tsz-up125 *,#tsz-up125 *::before,#tsz-up125 *::after{box-sizing:border-box}
+#tsz-up125 .up125-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#9b6d42;font-size:11px;letter-spacing:.08em;font-weight:800}
+#tsz-up125 .up125-head span:last-child{padding:7px 10px;border:1px solid #d8bea1;border-radius:999px;letter-spacing:0}
+#tsz-up125 h2{font-size:clamp(26px,3.7vw,43px);line-height:1.17;letter-spacing:-.035em;color:#1f324a;margin:17px 0 11px}
+#tsz-up125 .up125-lead{font-size:14px;line-height:1.8;color:var(--up125-mute);max-width:840px;margin:0 0 22px}
+#tsz-up125 .up125-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+#tsz-up125 .up125-card{min-width:0;padding:clamp(14px,2.1vw,22px);border:1px solid #e4e4e2;border-radius:18px;background:#fff}
+#tsz-up125 .up125-card h3{font-size:13px;font-weight:850;color:#8b613d;letter-spacing:.055em;margin:0 0 17px;line-height:1.5}
+#tsz-up125 .up125-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px 12px}
+#tsz-up125 .up125-fields label{min-width:0;display:flex;flex-direction:column;gap:6px;font-weight:700;font-size:12px;color:#4d5f72;line-height:1.4}
+#tsz-up125 input{min-width:0;width:100%;min-height:44px;padding:10px 11px;border-radius:10px;background:#fcfbf9;border:1px solid #d6dae0;color:#21354d;font-size:16px;line-height:1.4;appearance:textfield;color-scheme:light;font-family:inherit}
+#tsz-up125 input::-webkit-inner-spin-button,#tsz-up125 input::-webkit-outer-spin-button{opacity:.6}
+#tsz-up125 button{cursor:pointer;font:inherit;font-size:13px;font-weight:800;border-radius:12px;padding:11px 15px;min-height:44px}
+#tsz-up125 input:focus-visible,#tsz-up125 button:focus-visible{outline:3px solid #d29c68;outline-offset:2px}
+#tsz-up125 .up125-actions{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+#tsz-up125 [data-promo]{border:1px solid #99673b;background:#8c603c;color:#fff}
+#tsz-up125 [data-promo]:hover{background:#725031}
+#tsz-up125 [data-reset]{border:1px solid #d9c4aa;background:#fff9f1;color:#74553d}
+#tsz-up125 .up125-result{padding:clamp(15px,2.5vw,26px);border-radius:19px;background:linear-gradient(135deg,#20324a,#344d68);color:#fff}
+#tsz-up125 .up125-result-head{font-weight:850;letter-spacing:.08em;font-size:11px;color:#edd0ac;margin-bottom:15px}
+#tsz-up125 .up125-totals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+#tsz-up125 .up125-totals>div{display:flex;min-width:0;flex-direction:column;gap:5px;padding:16px;border-radius:13px;background:#ffffff12;border:1px solid #ffffff19}
+#tsz-up125 .up125-totals span{color:#e1eaf2;font-size:11px;line-height:1.45}
+#tsz-up125 .up125-totals strong{font-size:16px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+#tsz-up125 .up125-totals b{font-size:clamp(20px,3vw,31px);color:#f4d49e;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+#tsz-up125 .up125-winner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:7px 14px;align-items:center;padding:15px 4px 0}
+#tsz-up125 .up125-winner span{font-size:12px;color:#dbe5f1}
+#tsz-up125 .up125-winner strong{font-size:clamp(15px,2vw,21px);color:#ffd49b;overflow-wrap:anywhere}
+#tsz-up125 .up125-winner b{font-size:16px;font-variant-numeric:tabular-nums}
+#tsz-up125 .up125-error{font-size:12px;line-height:1.6;color:#3d2b1d;background:#ffe7c6;padding:11px;border-radius:9px;margin:13px 0 0}
+#tsz-up125 .up125-error[hidden]{display:none}
+#tsz-up125 .up125-explainer{font-size:12px;color:#4c6076;line-height:1.7;font-weight:750;margin:20px 0 10px}
+#tsz-up125 .up125-note{font-size:11px;line-height:1.85;color:#72808e;border-top:1px solid #dcdfe2;padding-top:14px;margin:0}
+#tsz-up125[dir="rtl"] .up125-fields label{text-align:right}
+@media(max-width:730px){#tsz-up125 .up125-options{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:390px){#tsz-up125{padding:13px}#tsz-up125 .up125-fields{gap:10px 8px}#tsz-up125 .up125-card{padding:13px}#tsz-up125 .up125-totals>div{padding:12px}#tsz-up125 .up125-winner{grid-template-columns:minmax(0,1fr)}}
