@@ -1,0 +1,40 @@
+/* TSZ LP R101 — scoped PuddingScoop push-your-luck demo; no external assets. */
+#tsz-puddingscoop-r101{--ps-ink:#352b2c;--ps-muted:#756568;--ps-amber:#e8ac55;--ps-edge:#e7d5cc;max-width:1080px;margin:clamp(28px,5vw,60px) auto;padding:clamp(18px,4.5vw,38px);border:1px solid #e7d4c8;border-radius:26px;background:linear-gradient(145deg,#fff8ed,#fff4e8 53%,#fce8de);color:var(--ps-ink);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;box-shadow:0 14px 42px #603c2814;box-sizing:border-box;text-align:start}
+#tsz-puddingscoop-r101 *,#tsz-puddingscoop-r101 *:before,#tsz-puddingscoop-r101 *:after{box-sizing:border-box}
+#tsz-puddingscoop-r101 .ps101-eyebrow{font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:750;color:#975a42;margin:0 0 9px}
+#tsz-puddingscoop-r101 h2{font-size:clamp(23px,3.4vw,36px);letter-spacing:-.055em;line-height:1.25;margin:0 0 11px;font-weight:850}
+#tsz-puddingscoop-r101 .ps101-intro{max-width:650px;font-size:clamp(14px,1.9vw,16px);line-height:1.75;color:var(--ps-muted);margin:0 0 20px}
+#tsz-puddingscoop-r101 .ps101-board{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:18px;align-items:stretch}
+#tsz-puddingscoop-r101 .ps101-stage{background:radial-gradient(ellipse at 50% 18%,#ffe5b2,#f4cb93 53%,#eab87d);border-radius:19px;min-height:350px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;position:relative;overflow:hidden;padding:20px 10px 28px;border:1px solid #e7b784}
+#tsz-puddingscoop-r101 .ps101-stage:after{content:"";position:absolute;left:5%;right:5%;bottom:-30%;height:46%;border-radius:50%;background:#f1ca9b;filter:blur(16px);pointer-events:none}
+#tsz-puddingscoop-r101 .ps101-stage-note{font-size:12px;font-weight:750;color:#734b33;position:relative;z-index:3}
+#tsz-puddingscoop-r101 .ps101-plate{position:relative;display:grid;place-items:center;width:min(86%,340px);aspect-ratio:1.05;z-index:1}
+#tsz-puddingscoop-r101 .ps101-plate:before{content:"";position:absolute;inset:12% 0 0;border-radius:50%;background:radial-gradient(ellipse,#fff8ec 38%,#e3c8ac 69%,#fff 73%,#d6b597 81%,#9b775e 92%);transform:scaleY(.65);box-shadow:0 19px 20px #79503536;top:36%}
+#tsz-puddingscoop-r101 .ps101-pudding{position:relative;z-index:2;width:74%;aspect-ratio:1.1;border-radius:48% 48% 44% 44% / 24% 24% 47% 47%;background:linear-gradient(98deg,#d1892d 0%,#f8d475 18%,#ffed9c 53%,#e6ad49 85%,#a36524 100%);box-shadow:inset 0 12px 10px #ffeca67d,inset 0 -24px 16px #a9693466,0 16px 16px #9b653051;touch-action:none;cursor:crosshair;user-select:none;outline-offset:5px;overflow:hidden}
+#tsz-puddingscoop-r101 .ps101-pudding:before{content:"";position:absolute;inset:0 1% auto;height:30%;border-radius:50%;background:radial-gradient(ellipse at 50% 30%,#ad511f,#7c3118 72%,#a4481d);box-shadow:0 4px 12px #742e1b66;z-index:2}
+#tsz-puddingscoop-r101 .ps101-pudding.ps101-ended{cursor:default}
+#tsz-puddingscoop-r101 .ps101-scoop-hole{position:absolute;z-index:3;border-radius:50%;width:27%;height:16%;background:radial-gradient(ellipse at 48% 40%,#c78a45 12%,#b17b38 42%,#ffeaa3 70%,#ffd16e 78%);box-shadow:inset 0 3px 8px #73421e66;transform:rotate(var(--twist,0deg));pointer-events:none}
+#tsz-puddingscoop-r101 .ps101-caramel{position:absolute;inset:30% 22% 15%;z-index:4;border-radius:50%;background:radial-gradient(ellipse,#7e2916 8%,#a8421f 63%,#e7a047);box-shadow:0 0 0 8px #ffe5a9a3;display:none;place-items:center;color:white;font-weight:850;font-size:14px;text-align:center;padding:8px;pointer-events:none}
+#tsz-puddingscoop-r101 .ps101-pudding.ps101-burnt .ps101-caramel{display:grid}
+#tsz-puddingscoop-r101 .ps101-control{background:#fffdf8b8;border:1px solid var(--ps-edge);padding:20px;border-radius:19px;display:flex;flex-direction:column;gap:14px;min-width:0}
+#tsz-puddingscoop-r101 .ps101-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+#tsz-puddingscoop-r101 .ps101-stat{background:#fff8ed;border:1px solid #f0e0d0;padding:13px;border-radius:13px;min-width:0}
+#tsz-puddingscoop-r101 .ps101-stat-label{font-size:12px;color:#81635a;font-weight:600}
+#tsz-puddingscoop-r101 .ps101-stat strong{display:block;font-size:clamp(24px,4vw,34px);font-variant-numeric:tabular-nums;letter-spacing:-.05em;line-height:1.25}
+#tsz-puddingscoop-r101 .ps101-risk{height:8px;background:#eed6ba;border-radius:99px;overflow:hidden}
+#tsz-puddingscoop-r101 .ps101-risk span{height:100%;display:block;width:0;background:linear-gradient(90deg,#c68540,#ae4b2b);border-radius:inherit;transition:width .25s}
+#tsz-puddingscoop-r101 .ps101-risklabel{font-size:12px;color:#8b5845;font-weight:600;margin-top:-8px}
+#tsz-puddingscoop-r101 .ps101-status{min-height:69px;margin:0;font-size:15px;font-weight:750;line-height:1.55;display:flex;align-items:center;color:#584337}
+#tsz-puddingscoop-r101 .ps101-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+#tsz-puddingscoop-r101 button{font:inherit;font-weight:750;min-height:48px;border-radius:12px;border:1px solid #cc9b73;padding:10px;cursor:pointer;transition:filter .12s,transform .12s}
+#tsz-puddingscoop-r101 button:active{transform:scale(.98)}
+#tsz-puddingscoop-r101 button:focus-visible,#tsz-puddingscoop-r101 .ps101-pudding:focus-visible{outline:3px solid #3c82a3;outline-offset:3px}
+#tsz-puddingscoop-r101 button:disabled{cursor:default;opacity:.5}
+#tsz-puddingscoop-r101 .ps101-scoop{background:#6d3826;border-color:#6d3826;color:#fff}
+#tsz-puddingscoop-r101 .ps101-bank{background:#fff9ed;color:#6d3826}
+#tsz-puddingscoop-r101 .ps101-again{background:#fff9ed;color:#6d3826;grid-column:1/-1}
+#tsz-puddingscoop-r101 .ps101-caption{font-size:12px;line-height:1.65;color:#816e63;margin:0}
+#tsz-puddingscoop-r101[dir=rtl]{text-align:right}
+@media(max-width:700px){#tsz-puddingscoop-r101 .ps101-board{grid-template-columns:minmax(0,1fr)}#tsz-puddingscoop-r101 .ps101-stage{min-height:275px;padding:14px 10px 12px}#tsz-puddingscoop-r101 .ps101-plate{max-width:290px;width:70%}#tsz-puddingscoop-r101 .ps101-control{padding:16px}#tsz-puddingscoop-r101 .ps101-status{min-height:40px}}
+@media(max-width:360px){#tsz-puddingscoop-r101{padding:15px;border-radius:18px}#tsz-puddingscoop-r101 .ps101-stage{min-height:240px}#tsz-puddingscoop-r101 .ps101-plate{width:79%}#tsz-puddingscoop-r101 .ps101-actions{gap:6px}#tsz-puddingscoop-r101 button{padding:8px 5px;font-size:13px}}
+@media(prefers-reduced-motion:reduce){#tsz-puddingscoop-r101 *{transition:none!important}}
