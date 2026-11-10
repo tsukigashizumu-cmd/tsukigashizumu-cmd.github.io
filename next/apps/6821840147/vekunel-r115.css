@@ -1,0 +1,44 @@
+/* TSZ R115 / Vekunel: independent scoped comparison demo, not an app screenshot. */
+#tsz-vekunel-r115{box-sizing:border-box;isolation:isolate;position:relative;margin:36px auto;padding:clamp(19px,3.4vw,38px);width:100%;max-width:1120px;background:radial-gradient(ellipse at 5% 0%,#eee8ff 0%,transparent 51%),linear-gradient(145deg,#fff,#f8f9ff);border:1px solid #dce1ef;border-radius:24px;box-shadow:0 16px 45px #2b316116;color:#253047;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;overflow:hidden;min-width:0}
+#tsz-vekunel-r115 *,#tsz-vekunel-r115 *::before,#tsz-vekunel-r115 *::after{box-sizing:border-box}
+#tsz-vekunel-r115 .vk115-top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:13px}
+#tsz-vekunel-r115 .vk115-overline{color:#6455a1;font-size:11px;font-weight:800;letter-spacing:.09em}
+#tsz-vekunel-r115 .vk115-chip{padding:6px 12px;border:1px solid #bcb4e5;border-radius:99px;color:#574787;background:#f3efff;font-size:11px;font-weight:800}
+#tsz-vekunel-r115 h2{font-size:clamp(24px,3.6vw,39px);line-height:1.13;font-weight:860;letter-spacing:-.038em;color:#26263f;margin:0 0 10px}
+#tsz-vekunel-r115 .vk115-lead{font-size:clamp(13px,1.8vw,16px);line-height:1.65;color:#66728a;margin:0 0 23px;max-width:720px}
+#tsz-vekunel-r115 .vk115-layout{display:grid;grid-template-columns:minmax(0,.87fr) minmax(0,1.5fr);gap:17px;align-items:start}
+#tsz-vekunel-r115 .vk115-editor,#tsz-vekunel-r115 .vk115-comparison{min-width:0;background:#fff;border:1px solid #dde2ef;border-radius:18px;padding:clamp(13px,2vw,22px)}
+#tsz-vekunel-r115 h3{font-size:15px;letter-spacing:-.015em;font-weight:800;color:#34415d;margin:0 0 14px}
+#tsz-vekunel-r115 .vk115-inputs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+#tsz-vekunel-r115 label{display:grid;gap:6px;min-width:0;font-size:11px;color:#626c82;font-weight:700;line-height:1.4}
+#tsz-vekunel-r115 label:nth-child(3){grid-column:1/-1}
+#tsz-vekunel-r115 input{width:100%;min-width:0;min-height:43px;border:1px solid #cbd4e6;background:#fafbff;border-radius:10px;padding:8px 10px;font-family:inherit;font-size:16px;font-weight:700;color:#303858;direction:ltr;text-align:start}
+#tsz-vekunel-r115 input:focus-visible,#tsz-vekunel-r115 button:focus-visible{outline:3px solid #917ee2;outline-offset:2px}
+#tsz-vekunel-r115 .vk115-original{display:grid;gap:6px;margin-top:17px;padding:16px;border-radius:13px;background:#343053;color:#fff}
+#tsz-vekunel-r115 .vk115-original>span{font-size:11px;color:#dad5f0;font-weight:700}
+#tsz-vekunel-r115 .vk115-original>strong{font-size:clamp(27px,3.4vw,38px);font-variant-numeric:tabular-nums;line-height:1.1;overflow-wrap:anywhere}
+#tsz-vekunel-r115 .vk115-original small{font-size:11px;color:#e6e2ef;line-height:1.5}
+#tsz-vekunel-r115 .vk115-reset{width:100%;min-height:42px;cursor:pointer;margin-top:11px;padding:10px;background:#f4f1ff;border:1px solid #d9d0f2;border-radius:10px;font-size:12px;font-weight:800;color:#5a4989}
+#tsz-vekunel-r115 .vk115-choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+#tsz-vekunel-r115 .vk115-card{min-width:0;background:linear-gradient(160deg,#fbfcff,#fff);border:1px solid #e1e5ef;padding:12px;border-radius:13px;display:grid;align-content:start;gap:12px}
+#tsz-vekunel-r115 .vk115-card[data-outcome="cheaper"]{border-color:#91c7b1;background:linear-gradient(175deg,#f1faf6,#fff)}
+#tsz-vekunel-r115 .vk115-card[data-outcome="costlier"]{border-color:#e9bbb6;background:linear-gradient(175deg,#fff7f6,#fff)}
+#tsz-vekunel-r115 .vk115-card-head{display:grid;gap:7px;align-content:start}
+#tsz-vekunel-r115 .vk115-card-head b{font-size:13px;color:#34405d}
+#tsz-vekunel-r115 .vk115-card-head span{font-size:10px;line-height:1.4;color:#63718a;min-height:30px}
+#tsz-vekunel-r115 .vk115-pay{display:grid;gap:4px;padding:9px 0;border-top:1px solid #e3e8f2;border-bottom:1px solid #e3e8f2}
+#tsz-vekunel-r115 .vk115-pay span,#tsz-vekunel-r115 .vk115-detail span,#tsz-vekunel-r115 .vk115-delta span{font-size:10px;line-height:1.45;color:#748099}
+#tsz-vekunel-r115 .vk115-pay strong{font-size:clamp(22px,2.4vw,30px);line-height:1.1;font-weight:850;letter-spacing:-.04em;color:#2e3356;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+#tsz-vekunel-r115 .vk115-detail{display:flex;gap:5px;justify-content:space-between;align-items:center}
+#tsz-vekunel-r115 .vk115-detail b{font-size:13px;color:#3b435f;font-variant-numeric:tabular-nums}
+#tsz-vekunel-r115 .vk115-delta{display:grid;gap:4px}
+#tsz-vekunel-r115 .vk115-delta strong{font-size:12px;line-height:1.45;overflow-wrap:anywhere;color:#6b4251}
+#tsz-vekunel-r115 .vk115-card[data-outcome="cheaper"] .vk115-delta strong{color:#187655}
+#tsz-vekunel-r115 .vk115-best{margin:14px 0 0;padding:12px 14px;border:1px solid #d8d9ed;background:#f5f4fd;border-radius:11px;color:#4c4675;font-size:12px;font-weight:800;line-height:1.5}
+#tsz-vekunel-r115 .vk115-error{margin:12px 0 0;font-size:12px;color:#a63540;font-weight:800}
+#tsz-vekunel-r115 .vk115-note{font-size:11px;line-height:1.65;color:#77819a;margin:18px 0 4px}
+#tsz-vekunel-r115 .vk115-currency{font-size:11px;color:#9489b4;font-weight:700;margin:0}
+#tsz-vekunel-r115[dir="rtl"] .vk115-best{text-align:right}
+@media(max-width:900px){#tsz-vekunel-r115 .vk115-layout{grid-template-columns:1fr}}
+@media(max-width:540px){#tsz-vekunel-r115{margin:23px auto;padding:15px;border-radius:18px}#tsz-vekunel-r115 .vk115-choices{grid-template-columns:1fr}#tsz-vekunel-r115 .vk115-card{grid-template-columns:minmax(0,.95fr) minmax(0,1fr);gap:12px;align-items:center}#tsz-vekunel-r115 .vk115-card-head{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:8px}#tsz-vekunel-r115 .vk115-card-head span{min-height:0;text-align:end}#tsz-vekunel-r115 .vk115-pay{border:0;padding:0}#tsz-vekunel-r115 .vk115-detail{grid-column:1/-1}#tsz-vekunel-r115 .vk115-delta{grid-column:1/-1;border-top:1px solid #e8e8ef;padding-top:7px}}
+@media(max-width:440px){#tsz-vekunel-r115 h2{font-size:25px}#tsz-vekunel-r115 .vk115-editor,#tsz-vekunel-r115 .vk115-comparison{padding:13px}#tsz-vekunel-r115 .vk115-inputs{grid-template-columns:1fr}#tsz-vekunel-r115 label:nth-child(3){grid-column:auto}}
