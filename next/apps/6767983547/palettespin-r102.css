@@ -1,0 +1,37 @@
+/* Palette Spin R102 — scoped, no external fonts/assets. LP illustrative only. */
+#tsz-palettespin-r102{--ps-ink:#222a40;--ps-muted:#697287;--ps-line:#e4e5ef;box-sizing:border-box;max-width:1080px;margin:36px auto;padding:clamp(17px,3.2vw,36px);font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;color:var(--ps-ink);background:linear-gradient(150deg,#f8f8ff,#f3f6ff 70%,#f9f6fe);border:1px solid var(--ps-line);border-radius:27px;box-shadow:0 18px 60px rgba(51,66,105,.08)}
+#tsz-palettespin-r102 *{box-sizing:border-box}
+#tsz-palettespin-r102 .ps102-eyebrow{font-size:.75rem;letter-spacing:.13em;font-weight:800;color:#62659b;text-transform:uppercase;margin:0 0 8px}
+#tsz-palettespin-r102 h2{font-size:clamp(1.38rem,2.7vw,2rem);line-height:1.3;letter-spacing:-.028em;margin:0 0 9px;color:#252a48}
+#tsz-palettespin-r102 .ps102-lede{line-height:1.65;color:#5b6077;margin:0 0 22px;font-size:.93rem}
+#tsz-palettespin-r102 .ps102-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(235px,.8fr);gap:clamp(18px,4vw,46px);align-items:center}
+#tsz-palettespin-r102 .ps102-controls{min-width:0}
+#tsz-palettespin-r102 .ps102-label{display:block;font-size:.85rem;font-weight:800;margin:0 0 9px;color:#353955}
+#tsz-palettespin-r102 .ps102-presets{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:22px}
+#tsz-palettespin-r102 .ps102-swatch{background:#fff;border:2px solid transparent;border-radius:13px;padding:7px;display:flex;flex-direction:column;align-items:stretch;gap:7px;font:inherit;font-size:.77rem;font-weight:750;color:#373a58;cursor:pointer;min-width:0}
+#tsz-palettespin-r102 .ps102-swatch[aria-pressed="true"]{border-color:#5a62ba;box-shadow:0 0 0 2px #dedfff}
+#tsz-palettespin-r102 .ps102-swatch:focus-visible,#tsz-palettespin-r102 .ps102-spin:focus-visible,#tsz-palettespin-r102 .ps102-reset:focus-visible,#tsz-palettespin-r102 input:focus-visible{outline:3px solid #655de2;outline-offset:3px}
+#tsz-palettespin-r102 .ps102-swatch-dot{border-radius:8px;height:36px;display:block;flex:none}
+#tsz-palettespin-r102 .ps102-swatch[data-palette="dusk"] .ps102-swatch-dot{background:linear-gradient(125deg,#ecc9db,#9ea1ee,#403c80)}
+#tsz-palettespin-r102 .ps102-swatch[data-palette="citrus"] .ps102-swatch-dot{background:linear-gradient(125deg,#ffdb80,#f89f8c,#df4478)}
+#tsz-palettespin-r102 .ps102-swatch[data-palette="sea"] .ps102-swatch-dot{background:linear-gradient(125deg,#c7f0e7,#72c4de,#4776bc)}
+#tsz-palettespin-r102 .ps102-input{display:block;width:100%;min-width:0;border:1px solid #cfd3e5;background:#fff;border-radius:12px;padding:12px 13px;color:#343650;font:inherit;font-size:1rem;margin-bottom:17px}
+#tsz-palettespin-r102 .ps102-buttons{display:flex;flex-wrap:wrap;gap:9px;align-items:center}
+#tsz-palettespin-r102 .ps102-spin{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;background:#464789;color:#fff;border-radius:12px;font:inherit;font-size:.97rem;font-weight:800;cursor:pointer;padding:12px 18px;min-height:46px;flex:1 1 160px;box-shadow:0 7px 17px rgba(54,61,139,.18)}
+#tsz-palettespin-r102 .ps102-spin:hover{background:#363774}
+#tsz-palettespin-r102 .ps102-reset{border:1px solid #c9cbe1;border-radius:12px;background:#fff;color:#505575;font:inherit;font-weight:700;cursor:pointer;min-height:46px;padding:11px 15px}
+#tsz-palettespin-r102 .ps102-status{min-height:25px;color:#656b80;font-size:.84rem;margin:12px 0 0;line-height:1.5}
+#tsz-palettespin-r102 .ps102-fine{border-top:1px solid #e2e3ee;padding-top:13px;font-size:.75rem;line-height:1.65;color:#687083;margin:21px 0 0}
+#tsz-palettespin-r102 .ps102-stage{display:flex;align-items:center;justify-content:center;min-width:0;padding:3px 0}
+#tsz-palettespin-r102 .ps102-device{width:min(100%,240px);aspect-ratio:9/18.1;border-radius:35px;padding:8px;background:#242437;box-shadow:0 17px 38px rgba(43,41,92,.26),inset 0 0 0 1px rgba(255,255,255,.28);position:relative}
+#tsz-palettespin-r102 .ps102-screen{height:100%;width:100%;border-radius:28px;overflow:hidden;position:relative;isolation:isolate;background:linear-gradient(153deg,#ecd6dd 0%,#a3a7ee 50%,#47457d 100%);transition:background .22s ease}
+#tsz-palettespin-r102 .ps102-screen:before{content:"";position:absolute;inset:-45%;background:radial-gradient(circle at 24% 31%,rgba(255,255,255,.46),transparent 33%),radial-gradient(circle at 76% 77%,rgba(255,255,255,.17),transparent 43%);pointer-events:none}
+#tsz-palettespin-r102 .ps102-island{position:absolute;z-index:3;top:11px;left:50%;transform:translateX(-50%);width:36%;height:17px;border-radius:13px;background:#252535}
+#tsz-palettespin-r102 .ps102-clock{position:absolute;z-index:2;inset:14% 0 auto;text-align:center;font-weight:650;letter-spacing:-.055em;font-size:clamp(2.6rem,5vw,3.7rem);color:white;text-shadow:0 2px 13px rgba(18,28,79,.17);direction:ltr}
+#tsz-palettespin-r102 .ps102-date{position:absolute;z-index:2;inset:11% 0 auto;text-align:center;font-size:.72rem;font-weight:700;color:white;text-shadow:0 2px 10px #42447755}
+#tsz-palettespin-r102 .ps102-custom{position:absolute;z-index:2;bottom:25%;left:7%;right:7%;text-align:center;color:white;font-size:clamp(.95rem,2vw,1.2rem);font-weight:700;text-shadow:0 2px 12px #28305c66;overflow-wrap:anywhere;white-space:pre-wrap}
+#tsz-palettespin-r102 .ps102-lock{position:absolute;z-index:2;bottom:12px;inset-inline:0;text-align:center;color:#ffffffd8;font-size:.65rem}
+#tsz-palettespin-r102 .ps102-footer{text-align:center;color:#676c87;font-size:.75rem;margin-top:11px;font-weight:750}
+@media(max-width:620px){#tsz-palettespin-r102{margin:21px auto;padding:17px;border-radius:18px}#tsz-palettespin-r102 .ps102-layout{grid-template-columns:1fr;gap:21px}#tsz-palettespin-r102 .ps102-stage{grid-row:1}#tsz-palettespin-r102 .ps102-device{width:190px}#tsz-palettespin-r102 .ps102-controls{grid-row:2}#tsz-palettespin-r102 .ps102-clock{font-size:2.8rem}#tsz-palettespin-r102 .ps102-presets{margin-bottom:16px}#tsz-palettespin-r102 .ps102-swatch-dot{height:28px}#tsz-palettespin-r102 .ps102-fine{margin-top:14px}}
+@media(max-width:350px){#tsz-palettespin-r102{padding:11px}#tsz-palettespin-r102 .ps102-device{width:170px}#tsz-palettespin-r102 .ps102-swatch{font-size:.7rem;padding:5px}#tsz-palettespin-r102 .ps102-spin{flex-basis:128px;padding:11px 12px}#tsz-palettespin-r102 .ps102-reset{padding:10px}}
+@media(prefers-reduced-motion:reduce){#tsz-palettespin-r102 .ps102-screen{transition:none}}
