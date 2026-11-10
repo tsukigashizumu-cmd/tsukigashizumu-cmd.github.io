@@ -1,0 +1,44 @@
+/* TSZ LP R83 | Pack Size Price Compare website-only example. All selectors scoped. */
+#tsz-ps83{--ps83-ink:#1f3340;--ps83-muted:#60727d;--ps83-line:#dae5e5;--ps83-green:#166e61;--ps83-coral:#ad5040;box-sizing:border-box;margin:30px 0;padding:clamp(18px,3.5vw,34px);border:1px solid #d2e2df;border-radius:22px;background:linear-gradient(140deg,#f7fbf7,#eff5f2 55%,#f3f0e9);box-shadow:0 20px 45px #1e39330f;font-family:inherit;color:var(--ps83-ink);overflow:hidden}
+#tsz-ps83 *,#tsz-ps83 *::before,#tsz-ps83 *::after{box-sizing:border-box}
+#tsz-ps83 .ps83-top{display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between;align-items:center;font-size:11px;font-weight:850;letter-spacing:.13em;color:var(--ps83-green);text-transform:uppercase}
+#tsz-ps83 .ps83-pill{border:1px solid #b4d7c9;padding:7px 10px;border-radius:999px;font-size:10px;letter-spacing:.05em}
+#tsz-ps83 .ps83-title{max-width:660px;margin:19px 0 25px}
+#tsz-ps83 h2{margin:0 0 10px;color:#14313a;font-size:clamp(26px,3.7vw,39px);font-weight:850;letter-spacing:-.045em;line-height:1.12}
+#tsz-ps83 .ps83-title p{font-size:14px;color:var(--ps83-muted);line-height:1.7;margin:0}
+#tsz-ps83 .ps83-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+#tsz-ps83 .ps83-card{min-width:0;background:#fff;border:1px solid var(--ps83-line);border-radius:17px;padding:clamp(13px,2vw,21px);box-shadow:0 6px 18px #2a4a4410}
+#tsz-ps83 .ps83-cardtop{display:flex;align-items:center;gap:12px}
+#tsz-ps83 .ps83-num{font-weight:850;font-size:13px;color:var(--ps83-green);background:#e6f4ee;border-radius:8px;padding:8px}
+#tsz-ps83 h3{font-size:13px;letter-spacing:.08em;font-weight:850;margin:0;color:#24464a}
+#tsz-ps83 .ps83-package{display:flex;align-items:center;justify-content:center;margin:18px auto 22px;height:138px;max-width:170px;border:2px solid #477b71;border-radius:16px 16px 13px 13px;position:relative;color:#fff;font-size:25px;letter-spacing:-.035em;font-weight:850;box-shadow:inset 0 8px 16px #ffffff30,0 13px 20px #193d3b24}
+#tsz-ps83 .ps83-package::before{content:"";position:absolute;top:13px;left:12px;right:12px;border-top:2px solid #ffffff70}
+#tsz-ps83 .ps83-small{width:105px;height:105px;background:linear-gradient(130deg,#5fa59b,#377970)}
+#tsz-ps83 .ps83-bulk{width:154px;height:138px;background:linear-gradient(130deg,#d48a61,#aa5f43);border-color:#b56a4c}
+#tsz-ps83 .ps83-fields{display:grid;grid-template-columns:1fr 1fr minmax(65px,.6fr);gap:8px}
+#tsz-ps83 label{min-width:0;display:flex;flex-direction:column;gap:6px;font-size:11px;color:#526771;font-weight:750}
+#tsz-ps83 input,#tsz-ps83 select{display:block;width:100%;min-width:0;min-height:43px;border:1px solid #b6cbc6;background:#fbfdfb;color:#17333a;border-radius:9px;padding:8px;font-family:inherit;font-size:15px;font-variant-numeric:tabular-nums}
+#tsz-ps83 input:focus-visible,#tsz-ps83 select:focus-visible,#tsz-ps83 button:focus-visible{outline:3px solid #2b9280;outline-offset:2px}
+#tsz-ps83 .ps83-unitcost{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;margin-top:17px;padding-top:13px;border-top:1px solid var(--ps83-line)}
+#tsz-ps83 .ps83-unitcost span{font-size:11px;font-weight:800;color:var(--ps83-muted)}
+#tsz-ps83 .ps83-unitcost strong{font-size:clamp(26px,3vw,38px);font-weight:850;letter-spacing:-.03em;color:#18594e;font-variant-numeric:tabular-nums}
+#tsz-ps83 .ps83-result{margin-top:15px;background:#e5f3ed;border:1px solid #b7dacb;border-radius:15px;padding:clamp(15px,2.5vw,24px)}
+#tsz-ps83 .ps83-result[data-state="b"]{background:#f4ebe2;border-color:#e2d0b8}
+#tsz-ps83 .ps83-result[data-state="invalid"]{background:#f7edea;border-color:#debab2}
+#tsz-ps83 .ps83-resulthead{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;font-size:12px;font-weight:750;color:#43655c}
+#tsz-ps83 .ps83-resulthead strong{font-size:clamp(21px,3vw,30px);color:#16554a;letter-spacing:-.03em}
+#tsz-ps83 .ps83-bars{margin:15px 0;display:grid;gap:8px}
+#tsz-ps83 .ps83-bars div{display:flex;align-items:center;gap:10px;font-size:11px;font-weight:750;color:#536d68}
+#tsz-ps83 .ps83-bars span{width:19px}
+#tsz-ps83 .ps83-bars i{display:block;max-width:100%;height:10px;background:#559d89;border-radius:99px;transition:width .15s ease}
+#tsz-ps83 .ps83-bars div+div i{background:#c68b67}
+#tsz-ps83 .ps83-result p{font-weight:780;margin:0;line-height:1.55;color:#284942;font-size:14px;min-height:1.4em}
+#tsz-ps83 .ps83-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+#tsz-ps83 button{cursor:pointer;border-radius:10px;padding:11px 17px;font-size:13px;font-weight:800;font-family:inherit;min-height:45px}
+#tsz-ps83 .ps83-primary{background:#176e5e;color:white;border:1px solid #176e5e}
+#tsz-ps83 .ps83-reset{background:transparent;color:#345e55;border:1px solid #9bbeb0}
+#tsz-ps83 .ps83-footnote{margin:18px 0 0;padding-top:14px;border-top:1px solid #d0e0d8;font-size:11px;line-height:1.7;color:var(--ps83-muted)}
+#tsz-ps83[dir="rtl"] .ps83-num{direction:ltr}
+@media(max-width:750px){#tsz-ps83 .ps83-cards{grid-template-columns:1fr}#tsz-ps83 .ps83-package{margin:10px auto 15px}}
+@media(max-width:400px){#tsz-ps83{padding:15px;margin-inline:-4px;border-radius:15px}#tsz-ps83 .ps83-fields{gap:6px}#tsz-ps83 input,#tsz-ps83 select{padding:6px;font-size:14px}#tsz-ps83 .ps83-actions{display:grid;grid-template-columns:1fr}#tsz-ps83 .ps83-unitcost strong{font-size:28px}}
+@media(prefers-reduced-motion:reduce){#tsz-ps83 .ps83-bars i{transition:none}}
