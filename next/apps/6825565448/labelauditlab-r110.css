@@ -1,0 +1,37 @@
+/* TSZ LP R110 / LabelAuditLab — isolated educational comparison interface. */
+#tsz-labelauditlab-r110{--la-ink:#e8f1f8;--la-sub:#a9becb;--la-stroke:rgba(172,215,231,.19);--la-sea:#4be4d3;--la-coral:#ffaf8d;max-width:1050px;margin:38px auto 58px;padding:clamp(18px,4vw,35px);box-sizing:border-box;border:1px solid var(--la-stroke);border-radius:26px;background:radial-gradient(ellipse at 12% 2%,#1c3e53 0%,transparent 54%),linear-gradient(145deg,#102733,#06141d 70%);color:var(--la-ink);font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5;box-shadow:0 18px 48px rgba(1,16,24,.19);direction:ltr}
+#tsz-labelauditlab-r110 *{box-sizing:border-box}
+#tsz-labelauditlab-r110[dir=rtl]{direction:rtl}
+#tsz-labelauditlab-r110 .la110-kicker{font-size:.72rem;letter-spacing:.16em;color:var(--la-sea);font-weight:800;margin-bottom:8px}
+#tsz-labelauditlab-r110 h2{font-size:clamp(1.6rem,4.2vw,2.55rem);line-height:1.2;letter-spacing:-.025em;color:#f3f9ff;margin:0 0 10px}
+#tsz-labelauditlab-r110 .la110-lead{font-size:.98rem;color:var(--la-sub);margin:0 0 24px;max-width:720px}
+#tsz-labelauditlab-r110 .la110-grid{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:17px;align-items:stretch}
+#tsz-labelauditlab-r110 .la110-editor,#tsz-labelauditlab-r110 .la110-result{min-width:0;padding:20px;border-radius:19px;border:1px solid var(--la-stroke);background:rgba(8,24,34,.67)}
+#tsz-labelauditlab-r110 .la110-field{display:flex;flex-direction:column;gap:6px;color:#d9e8f0;font-weight:700;font-size:.82rem;margin:0 0 15px}
+#tsz-labelauditlab-r110 .la110-kind,#tsz-labelauditlab-r110 .la110-source input{display:block;width:100%;border-radius:11px;background:#081b27;border:1px solid #416073;color:#f2fbff;padding:11px 12px;min-height:45px;font-size:1rem;min-width:0}
+#tsz-labelauditlab-r110 .la110-kind:focus-visible,#tsz-labelauditlab-r110 .la110-source input:focus-visible,#tsz-labelauditlab-r110 button:focus-visible,#tsz-labelauditlab-r110 .la110-uncertain:focus-visible{outline:3px solid #bdfbf2;outline-offset:2px}
+#tsz-labelauditlab-r110 .la110-source{padding:12px 12px 13px;border-radius:13px;border:1px solid rgba(115,157,179,.24);background:rgba(18,49,65,.48);margin-bottom:10px}
+#tsz-labelauditlab-r110 .la110-index{display:flex;align-items:baseline;gap:9px;font-size:.71rem;letter-spacing:.08em;font-weight:800;color:var(--la-sea);margin-bottom:7px}
+#tsz-labelauditlab-r110 .la110-index span{letter-spacing:0;color:#d3e2eb;font-size:.8rem}
+#tsz-labelauditlab-r110 .la110-source input{text-align:start;font-variant-numeric:tabular-nums;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+#tsz-labelauditlab-r110 .la110-uncertain-line{display:flex;gap:9px;align-items:flex-start;color:#cedfe8;font-size:.83rem;margin:13px 0 17px;cursor:pointer}
+#tsz-labelauditlab-r110 .la110-uncertain{accent-color:#56dcd1;width:17px;height:17px;flex:none;margin:3px 0 0}
+#tsz-labelauditlab-r110 .la110-actions{display:flex;gap:7px;flex-wrap:wrap}
+#tsz-labelauditlab-r110 .la110-actions button{font-size:.77rem;line-height:1.35;border-radius:9px;border:1px solid #547386;padding:10px 12px;background:#173849;color:#effaff;font-weight:700;cursor:pointer;min-height:40px;flex:1 1 auto}
+#tsz-labelauditlab-r110 .la110-actions button:first-child{border-color:#5fcac2;background:#174c4b}
+#tsz-labelauditlab-r110 .la110-actions button:hover{filter:brightness(1.19)}
+#tsz-labelauditlab-r110 .la110-result{background:linear-gradient(155deg,rgba(15,51,63,.92),rgba(8,23,34,.89));display:flex;flex-direction:column}
+#tsz-labelauditlab-r110 .la110-result-eyebrow{font-size:.72rem;letter-spacing:.12em;color:var(--la-sub);font-weight:700;margin-bottom:20px}
+#tsz-labelauditlab-r110 .la110-result-badge{align-self:flex-start;border:1px solid #e7a18a;border-radius:999px;color:#ffd6bd;padding:6px 13px;background:rgba(139,57,37,.23);font-weight:800;font-size:.8rem}
+#tsz-labelauditlab-r110 .la110-result-badge[data-status=match]{background:rgba(15,104,95,.29);border-color:#5adacb;color:#b0fff0}
+#tsz-labelauditlab-r110 .la110-result-badge[data-status=missing],#tsz-labelauditlab-r110 .la110-result-badge[data-status=uncertain]{background:rgba(136,108,24,.2);border-color:#d9bd67;color:#ffe4a0}
+#tsz-labelauditlab-r110 .la110-result-title{font-size:clamp(1.3rem,2.5vw,1.8rem);margin:13px 0 8px;line-height:1.3;color:#f2fbff}
+#tsz-labelauditlab-r110 .la110-result-detail,#tsz-labelauditlab-r110 .la110-extra{color:#bbd0db;font-size:.9rem;margin:0 0 8px}
+#tsz-labelauditlab-r110 .la110-evidence{display:grid;gap:8px;margin-top:12px}
+#tsz-labelauditlab-r110 .la110-evidence>div{min-width:0;background:rgba(7,25,37,.75);border:1px solid #315064;border-radius:10px;padding:9px 11px}
+#tsz-labelauditlab-r110 .la110-evidence span{font-size:.74rem;color:#a2bbc8;display:block}
+#tsz-labelauditlab-r110 .la110-evidence strong{display:block;color:#e4f8ff;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.95rem;direction:ltr;text-align:start;overflow-wrap:anywhere}
+#tsz-labelauditlab-r110 .la110-evidence strong[data-empty=true]{color:#edba90}
+#tsz-labelauditlab-r110 .la110-result-foot{font-size:.72rem;color:#99b6c6;border-top:1px solid var(--la-stroke);margin-top:auto;padding-top:16px;line-height:1.55}
+@media(max-width:700px){#tsz-labelauditlab-r110{margin:24px 12px;padding:18px;border-radius:18px}#tsz-labelauditlab-r110 .la110-grid{grid-template-columns:minmax(0,1fr)}#tsz-labelauditlab-r110 .la110-editor,#tsz-labelauditlab-r110 .la110-result{padding:15px}#tsz-labelauditlab-r110 .la110-result-eyebrow{margin-bottom:12px}}
+@media(max-width:380px){#tsz-labelauditlab-r110{padding:12px;margin:18px 6px}#tsz-labelauditlab-r110 .la110-editor,#tsz-labelauditlab-r110 .la110-result{padding:12px}#tsz-labelauditlab-r110 .la110-actions button{font-size:.74rem;padding:9px 8px}}
