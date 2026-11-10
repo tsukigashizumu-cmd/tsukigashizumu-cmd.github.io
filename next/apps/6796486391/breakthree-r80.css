@@ -1,0 +1,48 @@
+/* BreakThree / R80 / standalone website-only explanation, scoped to #tsz-bt80. */
+#tsz-bt80{--bt80-slate:#121a28;--bt80-ink:#f6f2eb;--bt80-dim:#bcc4cc;--bt80-accent:#e2a766;--bt80-line:#46505c;box-sizing:border-box;position:relative;isolation:isolate;margin:clamp(24px,4vw,58px) auto;max-width:1120px;padding:clamp(24px,4vw,48px);border:1px solid #3a414e;border-radius:26px;background:radial-gradient(circle at 14% 11%,#35415b 0%,transparent 46%),linear-gradient(130deg,#172131 0%,#10141e 100%);color:var(--bt80-ink);font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5;overflow:hidden}
+#tsz-bt80 *,#tsz-bt80 *::before,#tsz-bt80 *::after{box-sizing:border-box}
+#tsz-bt80 .bt80-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:30px}
+#tsz-bt80 .bt80-eyebrow{font-size:.73rem;letter-spacing:.17em;font-weight:800;color:#e8b786}
+#tsz-bt80 .bt80-badge{font-size:.67rem;letter-spacing:.05em;padding:7px 11px;border-radius:40px;border:1px solid #626a78;color:#e0e2e7;text-align:center}
+#tsz-bt80 .bt80-main{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(255px,.82fr);gap:clamp(24px,3vw,48px);align-items:stretch}
+#tsz-bt80 h2{font-size:clamp(1.8rem,3.5vw,2.85rem);font-weight:750;line-height:1.15;letter-spacing:-.045em;margin:0;max-width:15ch;color:#fff}
+#tsz-bt80 .bt80-intro{font-size:clamp(.89rem,1.35vw,1.03rem);line-height:1.75;color:var(--bt80-dim);margin:16px 0 20px;max-width:52ch}
+#tsz-bt80 .bt80-candles{height:145px;display:grid;grid-template-columns:repeat(3,1fr);justify-items:center;align-items:end;gap:14px;padding:6px 0 14px;border-bottom:1px solid #4b5060}
+#tsz-bt80 .bt80-candle{position:relative;height:112px;min-width:55px;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:8px;opacity:.48;filter:saturate(.65);transition:opacity .25s,filter .25s}
+#tsz-bt80 .bt80-candle.is-active,#tsz-bt80 .bt80-candle.is-done{opacity:1;filter:saturate(1)}
+#tsz-bt80 .bt80-wax{position:relative;display:block;width:32px;height:72px;border-radius:8px 8px 4px 4px;background:linear-gradient(90deg,#d1ac7b,#fff0c6 42%,#b8946e);box-shadow:0 11px 18px #0004}
+#tsz-bt80 .bt80-wax::before{content:"";position:absolute;left:15px;top:-8px;height:8px;border-left:2px solid #4f322d}
+#tsz-bt80 .bt80-flame{position:absolute;top:-5px;left:50%;width:13px;height:19px;z-index:2;border-radius:100% 0 85% 85%;background:linear-gradient(120deg,#fff8cc,#f3a558);transform:translateX(-50%) rotate(-35deg);filter:drop-shadow(0 0 13px #ffc26d);opacity:0;transition:opacity .25s}
+#tsz-bt80 .bt80-candle.is-active .bt80-flame{opacity:1}
+#tsz-bt80 .bt80-candle.is-done .bt80-wax{height:45px}
+#tsz-bt80 .bt80-candle small{font-size:.72rem;color:#d5d7dd;white-space:nowrap}
+#tsz-bt80 .bt80-track{height:8px;background:#465061;border-radius:30px;overflow:hidden;margin:24px 0 10px}
+#tsz-bt80 .bt80-track-fill{height:100%;width:0;background:linear-gradient(90deg,#c17f4c,#f0bb7f);border-radius:30px;transition:width .12s}
+#tsz-bt80 .bt80-progress-header{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;color:#ebebf1}
+#tsz-bt80 .bt80-progress-header strong{font-variant-numeric:tabular-nums;font-size:1.03rem}
+#tsz-bt80 .bt80-progress-header span{font-size:.8rem;color:#d1c5b7}
+#tsz-bt80 .bt80-range-label{display:block;font-size:.82rem;font-weight:650;margin-top:20px;color:#e9e6df}
+#tsz-bt80 input[type=range]{display:block;width:100%;margin:14px 0 6px;accent-color:#f2b774;cursor:pointer;touch-action:pan-y}
+#tsz-bt80 .bt80-range-ends{display:flex;justify-content:space-between;font-size:.7rem;color:#bfc6cc}
+#tsz-bt80 .bt80-chapter{display:grid;gap:4px;margin-top:22px;padding:15px 18px;border:1px solid #657080;border-radius:12px;background:#ffffff0b}
+#tsz-bt80 .bt80-chapter span{font-size:.71rem;color:#c3c9d0}
+#tsz-bt80 .bt80-chapter strong{font-size:.94rem;font-weight:640;color:#fff2df}
+#tsz-bt80 button{font:inherit;cursor:pointer;border:0;max-width:100%;transition:transform .12s,background .12s}
+#tsz-bt80 button:hover{transform:translateY(-1px)}
+#tsz-bt80 button:focus-visible,#tsz-bt80 input:focus-visible{outline:3px solid #f3cf99;outline-offset:3px}
+#tsz-bt80 .bt80-reset{color:#d7dadd;background:transparent;text-decoration:underline;text-underline-offset:4px;margin-top:15px;padding:4px 0;font-size:.76rem}
+#tsz-bt80 .bt80-right{border:1px solid #555b67;border-radius:20px;padding:clamp(22px,2.2vw,30px);text-align:center;background:linear-gradient(160deg,#242e3e,#171c28);display:flex;flex-direction:column;align-items:center;justify-content:center}
+#tsz-bt80 .bt80-pause-symbol{position:relative;width:138px;height:138px;display:grid;place-items:center;margin-bottom:24px}
+#tsz-bt80 .bt80-pause-ring{position:absolute;inset:0;border-radius:50%;background:conic-gradient(#f3bd7b var(--bt80-progress,0%),#566273 var(--bt80-progress,0%));mask:radial-gradient(farthest-side,transparent calc(100% - 8px),#000 calc(100% - 7px))}
+#tsz-bt80 .bt80-pause-center{font-weight:650;font-size:3.3rem;letter-spacing:-.08em;color:#f9e8cd;font-variant-numeric:tabular-nums}
+#tsz-bt80 .bt80-ticking .bt80-pause-symbol{filter:drop-shadow(0 0 17px #d3a26344)}
+#tsz-bt80 h3{margin:0;font-size:clamp(1.17rem,1.8vw,1.55rem);font-weight:750;color:#fff}
+#tsz-bt80 .bt80-right p{font-size:.87rem;line-height:1.65;color:#c6c9cf;margin:11px 0 15px}
+#tsz-bt80 .bt80-countdown{font-size:2rem;font-weight:750;font-variant-numeric:tabular-nums;color:#ffe2b9}
+#tsz-bt80 .bt80-status{font-size:.76rem;color:#d0d7de;min-height:1.5em;margin:2px 0 18px}
+#tsz-bt80 .bt80-cta{width:100%;border-radius:11px;background:#f0b877;color:#22202a;padding:14px 18px;font-weight:800;line-height:1.35}
+#tsz-bt80 .bt80-cta:hover{background:#ffcd97}
+#tsz-bt80 .bt80-note{margin:28px 0 0;padding:14px 0 0;border-top:1px solid #4a5160;font-size:.73rem;line-height:1.7;color:#c6cbd2}
+#tsz-bt80[dir=rtl]{text-align:right}
+@media(max-width:760px){#tsz-bt80{padding:22px 18px;border-radius:20px}#tsz-bt80 .bt80-main{grid-template-columns:1fr;gap:20px}#tsz-bt80 .bt80-heading{margin-bottom:24px}#tsz-bt80 h2{max-width:none;font-size:2rem}#tsz-bt80 .bt80-candles{height:130px}#tsz-bt80 .bt80-right{padding:22px}#tsz-bt80 .bt80-pause-symbol{width:100px;height:100px;margin-bottom:12px}#tsz-bt80 .bt80-pause-center{font-size:2.5rem}#tsz-bt80 .bt80-note{font-size:.72rem}}
+@media(prefers-reduced-motion:reduce){#tsz-bt80 *,#tsz-bt80 *::before,#tsz-bt80 *::after{transition:none!important;animation:none!important}}
