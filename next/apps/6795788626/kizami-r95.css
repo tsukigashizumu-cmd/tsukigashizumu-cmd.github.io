@@ -1,0 +1,48 @@
+/* TSZ LP R95 / Kizami mine shaft. Scoped; text only; no external assets. */
+#tsz-kizami-r95{--kz95-text:#f3eddf;--kz95-muted:#b3b2a8;--kz95-edge:rgba(223,187,120,.25);isolation:isolate;box-sizing:border-box;direction:ltr;position:relative;overflow:hidden;margin:clamp(38px,6vw,90px) auto;max-width:1130px;padding:clamp(23px,4.2vw,52px);border:1px solid rgba(227,189,121,.34);border-radius:30px;background:radial-gradient(ellipse at 87% 12%,rgba(152,111,62,.18),transparent 45%),linear-gradient(145deg,#111a20 0%,#10191e 49%,#172022 100%);color:var(--kz95-text);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN",sans-serif;line-height:1.6;box-shadow:0 24px 64px rgba(9,16,24,.18)}
+#tsz-kizami-r95 *{box-sizing:border-box}
+#tsz-kizami-r95[dir="rtl"]{direction:rtl}
+#tsz-kizami-r95 .kz95-layout{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:clamp(24px,5vw,58px);align-items:start}
+#tsz-kizami-r95 .kz95-copy,#tsz-kizami-r95 .kz95-art{min-width:0}
+#tsz-kizami-r95 .kz95-kicker{margin:0 0 14px;color:#ebba72;font-size:.71rem;font-weight:750;letter-spacing:.20em;text-transform:uppercase}
+#tsz-kizami-r95 h2{margin:0;color:#fff6df;font-size:clamp(1.65rem,3.25vw,2.7rem);font-weight:760;line-height:1.35;letter-spacing:-.02em}
+#tsz-kizami-r95 .kz95-intro{margin:19px 0 29px;max-width:38ch;color:#d3d0c6;font-size:.98rem;line-height:1.9}
+#tsz-kizami-r95 .kz95-controls{border-top:1px solid var(--kz95-edge);padding-top:25px}
+#tsz-kizami-r95 .kz95-label{margin:0 0 10px;color:#e7e0d3;font-size:.78rem;font-weight:700}
+#tsz-kizami-r95 .kz95-kinds,#tsz-kizami-r95 .kz95-times{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin-bottom:23px}
+#tsz-kizami-r95 button{font:inherit;cursor:pointer;transition:background .15s,border-color .15s,transform .15s;color:inherit}
+#tsz-kizami-r95 button:focus-visible{outline:3px solid #f1c783;outline-offset:2px}
+#tsz-kizami-r95 .kz95-kind,#tsz-kizami-r95 .kz95-time{min-width:0;min-height:46px;overflow-wrap:anywhere;border:1px solid rgba(229,220,200,.20);border-radius:10px;background:rgba(255,255,255,.035);font-size:.79rem;line-height:1.25;padding:8px 3px;text-align:center}
+#tsz-kizami-r95 .kz95-kind[aria-pressed="true"],#tsz-kizami-r95 .kz95-time[aria-pressed="true"]{border-color:#e8ba74;background:#e7b777;color:#182229;font-weight:760}
+#tsz-kizami-r95 .kz95-add{display:block;width:100%;min-height:50px;border:0;border-radius:12px;background:linear-gradient(115deg,#f0c481,#d5a45f);font-size:.94rem;font-weight:800;color:#19242b}
+#tsz-kizami-r95 .kz95-add:hover:not(:disabled){transform:translateY(-1px);background:#ffd89e}
+#tsz-kizami-r95 .kz95-add:disabled{opacity:.52;cursor:not-allowed}
+#tsz-kizami-r95 .kz95-actions{margin:16px 0 0;display:flex;align-items:center;flex-wrap:wrap;gap:12px 20px;justify-content:space-between}
+#tsz-kizami-r95 .kz95-reset{background:transparent;border:0;border-bottom:1px solid #b9b5a9;padding:2px 0;border-radius:0;color:#dfd4be;font-size:.78rem}
+#tsz-kizami-r95 .kz95-notice{color:#ebba72;font-size:.79rem;margin:0}
+#tsz-kizami-r95 .kz95-disclaimer{margin:27px 0 0;color:#9da49f;font-size:.73rem;line-height:1.75}
+#tsz-kizami-r95 .kz95-art{position:relative;padding:19px 22px 20px;background:radial-gradient(circle at 50% 120px,rgba(208,169,92,.05),transparent 90px),#0b141a;border:1px solid rgba(219,192,145,.18);border-radius:20px;overflow:hidden}
+#tsz-kizami-r95 .kz95-art-top{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding-bottom:10px}
+#tsz-kizami-r95 .kz95-caption{color:#bdb9ad;font-size:.73rem}
+#tsz-kizami-r95 .kz95-total{font-weight:750;font-size:clamp(1.3rem,2.25vw,1.9rem);color:#edbd7b;letter-spacing:.01em;font-variant-numeric:tabular-nums}
+#tsz-kizami-r95 .kz95-counter{margin-inline-start:auto;color:#a8aea7;font-size:.71rem}
+#tsz-kizami-r95 .kz95-ground{height:57px;position:relative;display:flex;align-items:center;justify-content:center}
+#tsz-kizami-r95 .kz95-horizon{position:absolute;height:2px;left:-22px;right:-22px;top:37px;background:linear-gradient(90deg,transparent,#bfa276 14%,#d7b981 50%,#bfa276 86%,transparent)}
+#tsz-kizami-r95 .kz95-surface{position:absolute;top:6px;color:#f6cc90;font-size:29px;z-index:1}
+#tsz-kizami-r95 .kz95-earth-text{position:absolute;top:44px;left:0;right:0;text-align:center;color:#777e79;font-size:.66rem}
+#tsz-kizami-r95 .kz95-depth{display:flex;flex-direction:column;align-items:center;min-height:110px;padding:20px 0 5px;background:repeating-linear-gradient(0deg,transparent 0,transparent 43px,rgba(223,178,121,.025) 44px,transparent 45px)}
+#tsz-kizami-r95 .kz95-stratum{position:relative;flex-shrink:0;width:min(73%,265px);min-height:17px;border:1px solid rgba(241,190,115,.28);border-top:0;background:linear-gradient(90deg,rgba(139,97,54,.06) 0 22%,rgba(234,176,87,.09) 30%,rgba(231,174,96,.055) 62%,rgba(130,98,69,.08));box-shadow:inset 2px 0 rgba(242,183,89,.12),inset -2px 0 rgba(242,183,89,.13)}
+#tsz-kizami-r95 .kz95-stratum:before,#tsz-kizami-r95 .kz95-stratum:after{content:"";position:absolute;inset-inline-start:0;inset-inline-end:0;top:0;height:1px;background:linear-gradient(90deg,transparent,#e9bc75,transparent)}
+#tsz-kizami-r95 .kz95-stratum-marker{position:absolute;inset-inline-start:-10px;top:3px;color:#edc98d;font-size:16px;line-height:1}
+#tsz-kizami-r95 .kz95-stratum-label{position:absolute;top:50%;inset-inline-start:15px;transform:translateY(-50%);color:#d2c6b2;font-size:.68rem;max-width:calc(100% - 20px);text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+#tsz-kizami-r95 .kz95-empty{padding:20px 0;color:#9b9d95;font-size:.8rem}
+#tsz-kizami-r95 .kz95-end{margin:7px 0 16px;text-align:center;color:#c7a26d;font-size:.74rem}
+#tsz-kizami-r95 .kz95-record-label{font-size:.81rem;color:#e9d7b9;margin:23px 0 8px}
+#tsz-kizami-r95 .kz95-records{list-style:none;padding:0;margin:0;display:grid;gap:5px;max-height:165px;overflow-y:auto}
+#tsz-kizami-r95 .kz95-records li{display:flex;justify-content:space-between;gap:10px;align-items:center;border-bottom:1px solid rgba(203,177,138,.1);padding:5px 1px;color:#c4c9c0;font-size:.78rem}
+#tsz-kizami-r95 .kz95-records strong{color:#f1d3a3;font-variant-numeric:tabular-nums;white-space:nowrap}
+#tsz-kizami-r95 .kz95-examples{margin:12px 0 0;font-size:.68rem;color:#89928e}
+#tsz-kizami-r95 .kz95-sr{position:absolute;overflow:hidden;clip:rect(0,0,0,0);width:1px;height:1px;margin:-1px;padding:0;border:0}
+@media(max-width:760px){#tsz-kizami-r95 .kz95-layout{grid-template-columns:1fr;gap:23px}#tsz-kizami-r95 .kz95-intro{max-width:unset}#tsz-kizami-r95 .kz95-art{padding:18px 18px 22px}#tsz-kizami-r95 .kz95-horizon{left:-18px;right:-18px}}
+@media(max-width:360px){#tsz-kizami-r95{padding:19px 13px;border-radius:17px}#tsz-kizami-r95 h2{font-size:1.5rem}#tsz-kizami-r95 .kz95-kinds,#tsz-kizami-r95 .kz95-times{gap:4px}#tsz-kizami-r95 .kz95-kind,#tsz-kizami-r95 .kz95-time{font-size:.7rem;padding:7px 2px}#tsz-kizami-r95 .kz95-art{padding:15px 12px}#tsz-kizami-r95 .kz95-horizon{left:-12px;right:-12px}#tsz-kizami-r95 .kz95-stratum{width:83%}}
+@media(prefers-reduced-motion:reduce){#tsz-kizami-r95 button{transition:none}}
