@@ -1,0 +1,36 @@
+/* TSZ LP R167 Quiet Reserve — two-day reflection, fictitious sample entries only. No storage, network or tracking. */
+(()=>{'use strict';
+const ID='tsz-qr167', APP='6775229100';
+if(document.getElementById(ID))return;
+const I={
+ ja:{eyebrow:'QUIET RESERVE  /  比べて気づく',sample:'ページ内のサンプル',title:'同じ35%でも、疲れた理由は違う。',intro:'残っている余力だけでは見えないものがあります。2つの日を選んで、きっかけと助けになった行動を並べてみましょう。',left:'記録 A',right:'記録 B',level:'残っていた余力',trigger:'負担になったこと',help:'その日にしたこと',same:'どちらも残り{v}%。でも、負担になったことと対処は同じとは限りません。',different:'残った余力は{a}%と{b}%。何に疲れ、何をしたかも並べて見られます。',swap:'左右を入れ替える',reset:'最初の比較に戻す',note:'LP専用の架空の4日間の記録です。実アプリの記録は読み込まず、選択は保存・送信しません。診断や助言をするものではありません。',days:['11/03','11/05','11/08','11/10'],tags:['人混み','通知','急な予定変更','大きな音'],actions:['静かな道を歩いた','通知を一時停止した','一度立ち止まった','休憩をとった'],dateLabel:'サンプル日付',water:'余力',total:'4つのサンプルから2つを比較'},
+ en:{eyebrow:'QUIET RESERVE  /  LOOK BACK',sample:'On-page sample',title:'The same 35%. A different reason.',intro:'A reserve level alone never tells the whole story. Compare two days to see what drained you and what you tried afterward.',left:'Entry A',right:'Entry B',level:'Reserve left',trigger:'What drained you',help:'What you did that day',same:'Both days ended at {v}% reserve. But what drained you — and what you did — may differ.',different:'Reserve levels were {a}% and {b}%. See the triggers and actions side by side.',swap:'Swap the two days',reset:'Restore first comparison',note:'Four fictional entries for this website only. No app records are read, saved or sent. This is not a diagnosis or advice.',days:['Nov 03','Nov 05','Nov 08','Nov 10'],tags:['Crowds','Notifications','Sudden changes','Loud noises'],actions:['Walked somewhere quiet','Paused notifications','Stopped for a moment','Took a break'],dateLabel:'Sample date',water:'Reserve',total:'Compare two of four sample days'},
+ ar:{eyebrow:'QUIET RESERVE  /  مراجعة هادئة',sample:'مثال داخل الصفحة',title:'النسبة نفسها ٣٥٪، لكن السبب مختلف.',intro:'مستوى الطاقة وحده لا يحكي كل شيء. اختر يومين وقارن بين ما أتعبك وما فعلته بعد ذلك.',left:'السجل أ',right:'السجل ب',level:'الطاقة المتبقية',trigger:'ما الذي أتعبك',help:'ماذا فعلت في ذلك اليوم',same:'بقيت {v}٪ في اليومين. لكن السبب وطريقة التعامل قد يختلفان.',different:'كانت الطاقة المتبقية {a}٪ و{b}٪. قارن بين الأسباب والإجراءات جنبًا إلى جنب.',swap:'تبديل اليومين',reset:'استعادة المقارنة الأولى',note:'أربعة سجلات خيالية على هذه الصفحة فقط. لا قراءة أو حفظ أو إرسال لسجلات التطبيق. هذا ليس تشخيصًا أو نصيحة.',days:['03/11','05/11','08/11','10/11'],tags:['الازدحام','الإشعارات','تغيّر الخطط فجأة','أصوات عالية'],actions:['مشيت في مكان هادئ','أوقفت الإشعارات مؤقتًا','توقفت للحظة','أخذت استراحة'],dateLabel:'تاريخ توضيحي',water:'الطاقة',total:'قارن بين يومين من أربعة أيام افتراضية'}
+};
+const entries=[{level:35,tag:0,help:0},{level:35,tag:1,help:1},{level:60,tag:2,help:2},{level:20,tag:3,help:3}];
+function locale(){const query=new URLSearchParams(location.search).get('lang')||'';const select=document.getElementById('p199-language')?.value||'';const from=select||query||document.documentElement.lang||navigator.language||'en';return from.toLowerCase().startsWith('ar')?'ar':from.toLowerCase().startsWith('ja')?'ja':'en'}
+function mount(){if(document.getElementById(ID))return;
+ const anchor=document.getElementById('overview')||document.querySelector('main')||document.body;
+ const root=document.createElement('section');root.id=ID;root.setAttribute('aria-labelledby','qr167-title');
+ root.innerHTML=`<div class="qr167-hero"><div class="qr167-super"><span data-t="eyebrow"></span><span class="qr167-pill" data-t="sample"></span></div><h2 id="qr167-title" data-t="title"></h2><p data-t="intro"></p></div>
+ <div class="qr167-body"><div class="qr167-kicker" data-t="total"></div><div class="qr167-choose"><div><label for="qr167-a" data-t="left"></label><select id="qr167-a" data-side="a"></select></div><div><label for="qr167-b" data-t="right"></label><select id="qr167-b" data-side="b"></select></div></div>
+ <div class="qr167-compare"><article class="qr167-card" data-card="a"><div class="qr167-date" data-field="date"></div><div class="qr167-level"><div><span data-t="level"></span><strong data-field="level">35%</strong></div><div class="qr167-meter"><span data-field="fill"></span></div></div><div class="qr167-facts"><div><span data-t="trigger"></span><strong data-field="tag"></strong></div><div><span data-t="help"></span><strong data-field="help"></strong></div></div></article>
+ <article class="qr167-card" data-card="b"><div class="qr167-date" data-field="date"></div><div class="qr167-level"><div><span data-t="level"></span><strong data-field="level">35%</strong></div><div class="qr167-meter"><span data-field="fill"></span></div></div><div class="qr167-facts"><div><span data-t="trigger"></span><strong data-field="tag"></strong></div><div><span data-t="help"></span><strong data-field="help"></strong></div></div></article></div>
+ <p class="qr167-insight" data-value="insight" aria-live="polite"></p><div class="qr167-actions"><button type="button" data-action="swap" data-t="swap"></button><button type="button" data-action="reset" data-t="reset"></button></div><p class="qr167-disclaimer" data-t="note"></p></div>`;
+ anchor.insertAdjacentElement('afterend',root);
+ let a=0,b=1;
+ const $=(s)=>root.querySelector(s);
+ function render(){const lang=locale(),w=I[lang];root.dir=lang==='ar'?'rtl':'ltr';root.lang=lang;
+  root.querySelectorAll('[data-t]').forEach(el=>{el.textContent=w[el.dataset.t]||''});
+  for(const [side,value] of [['a',a],['b',b]]){const sel=$(`#qr167-${side}`);const options=entries.map((e,i)=>`<option value="${i}"></option>`);if(sel.options.length!==entries.length)sel.innerHTML=options.join('');Array.from(sel.options).forEach((o,i)=>{o.textContent=w.days[i]+' · '+w.tags[entries[i].tag]});sel.value=String(value);
+   const rec=entries[value],card=$(`[data-card="${side}"]`);card.querySelector('[data-field="date"]').textContent=w.days[value];card.querySelector('[data-field="level"]').textContent=rec.level+'%';card.querySelector('[data-field="fill"]').style.width=rec.level+'%';card.querySelector('[data-field="tag"]').textContent=w.tags[rec.tag];card.querySelector('[data-field="help"]').textContent=w.actions[rec.help];
+  }
+  $('[data-value="insight"]').textContent=entries[a].level===entries[b].level?w.same.replace('{v}',entries[a].level):w.different.replace('{a}',entries[a].level).replace('{b}',entries[b].level);
+ }
+ root.addEventListener('change',e=>{const select=e.target.closest('select[data-side]');if(!select||!root.contains(select))return;const v=Number(select.value);if(!Number.isInteger(v)||v<0||v>3)return;if(select.dataset.side==='a')a=v;else b=v;render();});
+ root.addEventListener('click',e=>{const bt=e.target.closest('button[data-action]');if(!bt||!root.contains(bt))return;if(bt.dataset.action==='swap'){[a,b]=[b,a]};if(bt.dataset.action==='reset'){a=0;b=1}render()});
+ document.getElementById('p199-language')?.addEventListener('change',render);
+ let prev=locale();new MutationObserver(()=>{let next=locale();if(next!==prev){prev=next;render()}}).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});render();
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount,{once:true});else mount();
+})();
