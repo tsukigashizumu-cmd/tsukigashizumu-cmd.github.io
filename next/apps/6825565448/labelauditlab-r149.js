@@ -1,0 +1,42 @@
+/* LabelAuditLab R149. Independent LP-only synthetic comparison demonstration. No scanning, recognition, storage, or network. */
+(() => {
+  'use strict';
+  const ID='tsz-labelauditlab-r149';
+  if(document.getElementById(ID))return;
+  const query=new URLSearchParams(location.search);
+  const language=x=>/^ja/i.test(x||'')?'ja':/^ar/i.test(x||'')?'ar':'en';
+  const i18n={
+    ja:{eyebrow:'LABELAUDITLAB / THREE-SOURCE REVIEW',title:'読めた。それで、一致している？',intro:'バーコードに入っている値。ラベルに印字された文字。手元の参照値。3つの証拠を並べて、確認すべき差を見つける。',section:'3つの情報を見比べる',sample:'見本を切り替える',mismatch:'ロットが食い違う',match:'すべて同じ',missing:'参照値がない',fields:'確認項目',code:'バーコードから取得した値',ocr:'印字文字のOCR候補',reference:'手元の参照値',status:'比較結果',matches:'一致候補',review:'不一致候補',gaps:'根拠不足',equal:'3つの値は一致しています',different:'値に食い違いがあります。原ラベルと参照資料を確認してください。',unavailable:'比較に必要な値がありません。追加の証拠を確認してください。',reset:'見本を初期化',note:'これはLP専用の架空データ比較です。画像・バーコード・OCRの読み取りは行いません。一致候補は真正性、GS1認証、印字品質や規制適合を証明せず、最終判断は人が行います。入力内容は保存・送信されません。',sourceHint:'3つの値を直接編集すると、判定が即座に変わります。',gtin:'GTIN',lot:'ロット',expiry:'有効期限',serial:'シリアル',language:'言語'},
+    en:{eyebrow:'LABELAUDITLAB / THREE-SOURCE REVIEW',title:'It scans. But does it match?',intro:'Decoded barcode data. Printed-text OCR candidates. Your reference record. Place all three side by side to uncover what deserves another look.',section:'Compare three sources',sample:'Choose an example',mismatch:'Lot mismatch',match:'Everything matches',missing:'Reference missing',fields:'Review a field',code:'Decoded barcode value',ocr:'Printed-text OCR candidate',reference:'Your reference value',status:'Review outcome',matches:'Potential matches',review:'Possible mismatches',gaps:'Evidence gaps',equal:'All three entries match.',different:'These entries differ. Check the original label and reference.',unavailable:'A value needed for comparison is missing. Inspect the evidence.',reset:'Reset example',note:'LP-only synthetic values. No image, barcode, or OCR scanning. A potential match does not prove authenticity, GS1 certification, print quality, or compliance. Human review is required. Nothing is saved or sent.',sourceHint:'Edit any of the three entries to update the comparison immediately.',gtin:'GTIN',lot:'Lot',expiry:'Expiry',serial:'Serial',language:'Language'},
+    ar:{eyebrow:'LABELAUDITLAB / THREE-SOURCE REVIEW',title:'تمت القراءة. لكن هل تتطابق القيم؟',intro:'بيانات الرمز، والنص المطبوع المقروء، والمرجع الذي توفره أنت. ضع المصادر الثلاثة جنباً إلى جنب لتعرف ما يحتاج إلى مراجعة.',section:'قارن ثلاثة مصادر',sample:'اختر مثالاً',mismatch:'اختلاف رقم الدفعة',match:'كل القيم متطابقة',missing:'مرجع غير متوفر',fields:'اختر حقلاً',code:'القيمة المستخرجة من الرمز',ocr:'النص المطبوع (قراءة OCR)',reference:'القيمة المرجعية لديك',status:'نتيجة المراجعة',matches:'تطابق محتمل',review:'اختلاف محتمل',gaps:'نقص الأدلة',equal:'القيم الثلاث متطابقة.',different:'هناك اختلاف بين القيم. راجع الملصق الأصلي والمرجع.',unavailable:'قيمة لازمة للمقارنة مفقودة. راجع الأدلة المتاحة.',reset:'إعادة المثال',note:'قيم افتراضية للتوضيح فقط. لا يتم مسح صور أو رموز أو إجراء OCR. التطابق المحتمل لا يثبت الأصالة أو اعتماد GS1 أو جودة الطباعة أو الامتثال. القرار النهائي يحتاج مراجعة بشرية. لا يتم حفظ البيانات أو إرسالها.',sourceHint:'عدّل أياً من القيم الثلاث لتتغير النتيجة فوراً.',gtin:'GTIN',lot:'رقم الدفعة',expiry:'تاريخ الانتهاء',serial:'الرقم التسلسلي',language:'اللغة'}
+  };
+  const fieldList=['gtin','lot','expiry','serial'];
+  const initial=()=>({
+    gtin:{code:'04912345678904',ocr:'04912345678904',ref:'04912345678904'},
+    lot:{code:'L-042',ocr:'L-043',ref:'L-042'},
+    expiry:{code:'2027-08-31',ocr:'2027-08-31',ref:'2027-08-31'},
+    serial:{code:'S-0182',ocr:'S-0182',ref:'S-0182'}
+  });
+  const clone=rows=>JSON.parse(JSON.stringify(rows));
+  const host=document.querySelector('#p199-content .p199-body')||document.querySelector('#p199-content')||document.querySelector('main')||document.body;
+  const root=document.createElement('section');root.id=ID;host.appendChild(root);
+  let lang=language(query.get('lang')||document.documentElement.lang||navigator.language),field='lot',sample='mismatch',rows=initial();
+  function scenario(which){sample=which;rows=initial();if(which==='match')rows.lot.ocr='L-042';if(which==='missing')rows.lot.ref='';field='lot';}
+  function verdict(row){let vals=Object.values(row).map(x=>String(x).trim());if(vals.some(x=>!x))return 'gap';return vals.every(v=>v===vals[0])?'match':'review';}
+  function counts(){let result={match:0,review:0,gap:0};fieldList.forEach(f=>result[verdict(rows[f])]++);return result;}
+  function safe(x){return String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+  function render(){let t=i18n[lang],totals=counts();root.lang=lang;root.dir=lang==='ar'?'rtl':'ltr';root.innerHTML=`
+    <div class="la149-shell"><div class="la149-top"><div><div class="la149-eyebrow">${t.eyebrow}</div><h2>${t.title}</h2><p class="la149-lead">${t.intro}</p></div><label class="la149-language">${t.language}<select id="la149-lang" aria-label="${t.language}"><option value="ja" ${lang==='ja'?'selected':''}>日本語</option><option value="en" ${lang==='en'?'selected':''}>English</option><option value="ar" ${lang==='ar'?'selected':''}>العربية</option></select></label></div>
+    <div class="la149-summary"><div class="la149-summary-label">${t.status}</div><div class="la149-metrics"><div><strong id="la149-count-match">${totals.match}</strong><span>${t.matches}</span></div><div><strong id="la149-count-review">${totals.review}</strong><span>${t.review}</span></div><div><strong id="la149-count-gap">${totals.gap}</strong><span>${t.gaps}</span></div></div></div>
+    <div class="la149-workspace"><div class="la149-side"><h3>01 <span>${t.sample}</span></h3><div class="la149-scenarios">${[['mismatch',t.mismatch],['match',t.match],['missing',t.missing]].map(([k,v])=>`<button type="button" class="la149-scenario" data-la149-scenario="${k}" aria-pressed="${sample===k}">${v}</button>`).join('')}</div><h3 class="la149-fieldhead">02 <span>${t.fields}</span></h3><div class="la149-fields">${fieldList.map(f=>`<button type="button" class="la149-field" data-la149-field="${f}" aria-pressed="${field===f}"><span>${t[f]}</span><i class="la149-dot is-${verdict(rows[f])}"></i></button>`).join('')}</div></div>
+    <div class="la149-panel"><div class="la149-paneltop"><div><span>03 / ${t.section}</span><h3 id="la149-selectedfield">${t[field]}</h3></div><span class="la149-panelbadge">3 SOURCES</span></div><p class="la149-hint">${t.sourceHint}</p><div class="la149-sources">${[['code','code','01'],['ocr','ocr','02'],['ref','reference','03']].map(([k,l,n])=>`<label class="la149-source"><small>${n} / ${t[l]}</small><input data-la149-input="${k}" type="text" spellcheck="false" dir="ltr" maxlength="80" value="${safe(rows[field][k])}" aria-label="${t[l]}" autocomplete="off"/><span class="la149-underline"></span></label>`).join('')}</div><div class="la149-verdict" id="la149-verdict" role="status"></div><button class="la149-reset" type="button" id="la149-reset">${t.reset}</button></div></div><p class="la149-disclaimer">${t.note}</p></div>`;
+    root.querySelector('#la149-lang').addEventListener('change',e=>{lang=language(e.target.value);render();});
+    root.querySelectorAll('[data-la149-scenario]').forEach(b=>b.addEventListener('click',()=>{scenario(b.dataset.la149Scenario);render();}));
+    root.querySelectorAll('[data-la149-field]').forEach(b=>b.addEventListener('click',()=>{field=b.dataset.la149Field;render();}));
+    root.querySelectorAll('[data-la149-input]').forEach(input=>input.addEventListener('input',e=>{rows[field][e.target.dataset.la149Input]=e.target.value;refresh();}));
+    root.querySelector('#la149-reset').addEventListener('click',()=>{scenario('mismatch');render();});
+    refresh();
+  }
+  function refresh(){const t=i18n[lang],totals=counts(),v=verdict(rows[field]);for(const kind of ['match','review','gap'])root.querySelector('#la149-count-'+kind).textContent=totals[kind];root.querySelectorAll('[data-la149-field]').forEach(b=>{const f=b.dataset.la149Field;b.querySelector('.la149-dot').className='la149-dot is-'+verdict(rows[f]);});let outcome=root.querySelector('#la149-verdict');outcome.className='la149-verdict is-'+v;outcome.innerHTML=`<span class="la149-statusicon" aria-hidden="true">${v==='match'?'✓':v==='review'?'!':'?'}</span><div><strong>${v==='match'?t.matches:v==='review'?t.review:t.gaps}</strong><p>${v==='match'?t.equal:v==='review'?t.different:t.unavailable}</p></div>`;}
+  render();
+})();

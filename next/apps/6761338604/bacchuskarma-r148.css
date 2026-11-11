@@ -1,0 +1,62 @@
+/* Bacchus Karma R148: completely scoped LP-only controls and board. */
+#tsz-bacchuskarma-r148{box-sizing:border-box;display:block;width:100%;max-width:1160px;margin:clamp(20px,5vw,62px) auto;color:#263039;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;isolation:isolate}
+#tsz-bacchuskarma-r148 *,#tsz-bacchuskarma-r148 *:before,#tsz-bacchuskarma-r148 *:after{box-sizing:border-box}
+#tsz-bacchuskarma-r148 button,#tsz-bacchuskarma-r148 select,#tsz-bacchuskarma-r148 input{font:inherit}
+#tsz-bacchuskarma-r148 button{cursor:pointer}
+#tsz-bacchuskarma-r148 button:disabled{cursor:default;opacity:.7}
+#tsz-bacchuskarma-r148 button:focus-visible,#tsz-bacchuskarma-r148 input:focus-visible,#tsz-bacchuskarma-r148 select:focus-visible{outline:3px solid #d19c64;outline-offset:3px}
+#tsz-bacchuskarma-r148 .bk148-shell{position:relative;overflow:hidden;border-radius:24px;border:1px solid #e9e1d7;background:#f8f5ee;box-shadow:0 19px 65px rgba(27,23,35,.10);padding:clamp(16px,3.7vw,38px)}
+#tsz-bacchuskarma-r148 .bk148-top{display:flex;justify-content:space-between;align-items:flex-start;gap:22px;margin-bottom:26px}
+#tsz-bacchuskarma-r148 .bk148-eyebrow{font-size:10px;font-weight:900;letter-spacing:.17em;color:#96684f;margin-bottom:12px}
+#tsz-bacchuskarma-r148 h2{font-size:clamp(25px,3vw,38px);line-height:1.25;letter-spacing:-.035em;margin:0!important;font-weight:850;color:#283139}
+#tsz-bacchuskarma-r148 .bk148-lead{max-width:610px;margin:12px 0 0;color:#626d71;font-size:14px;line-height:1.8}
+#tsz-bacchuskarma-r148 .bk148-language{display:flex;align-items:center;gap:8px;white-space:nowrap;color:#7a7774;font-size:11px;flex:0 0 auto}
+#tsz-bacchuskarma-r148 .bk148-language select{border:1px solid #e2dcd5;background:#fff;color:#354147;border-radius:9px;padding:7px 9px;max-width:132px;min-width:0}
+#tsz-bacchuskarma-r148 .bk148-workspace{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:16px;align-items:start}
+#tsz-bacchuskarma-r148 .bk148-editor,#tsz-bacchuskarma-r148 .bk148-controls{border:1px solid #ebe4da;border-radius:18px;background:#fff;padding:clamp(15px,2.6vw,27px);min-width:0}
+#tsz-bacchuskarma-r148 .bk148-subhead,#tsz-bacchuskarma-r148 .bk148-control-title,#tsz-bacchuskarma-r148 .bk148-step3{display:flex;align-items:center;gap:10px;min-width:0}
+#tsz-bacchuskarma-r148 h3{font-size:14px;line-height:1.5;font-weight:800;margin:0!important;color:#34434a}
+#tsz-bacchuskarma-r148 .bk148-ordinal{font-size:11px;color:#a67b57;font-weight:900;white-space:nowrap}
+#tsz-bacchuskarma-r148 .bk148-chip{margin-inline-start:auto;color:#d0bc9c;background:#263541;border-radius:20px;font-size:9px;letter-spacing:.07em;padding:6px 8px;font-weight:850;white-space:nowrap}
+#tsz-bacchuskarma-r148 .bk148-help{font-size:12px;line-height:1.65;color:#858c8c;margin:9px 0 14px}
+#tsz-bacchuskarma-r148 .bk148-boardframe{background:#222b39;border-radius:17px;padding:clamp(12px,2.4vw,22px);box-shadow:0 13px 26px rgba(10,23,39,.13)}
+#tsz-bacchuskarma-r148 .bk148-boardhead{display:flex;justify-content:space-between;gap:10px;align-items:center;color:#f5dcaf;font-size:10px;font-weight:900;letter-spacing:.06em;margin-bottom:13px}
+#tsz-bacchuskarma-r148 .bk148-boardhead span:last-child{font-size:8px;color:#8895a0;text-align:end}
+#tsz-bacchuskarma-r148 .bk148-board{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:clamp(2px,.5vw,5px);padding:7px;border:1px solid #506071;border-radius:10px;background:#1c2634;aspect-ratio:1/1;max-width:415px;width:100%;margin-inline:auto;direction:ltr}
+#tsz-bacchuskarma-r148 .bk148-cell{display:block;min-width:0;min-height:0;aspect-ratio:1;background:#2f3e50;border:1px solid rgba(180,190,202,.14);border-radius:4px;padding:0;transition:background .12s ease,transform .12s ease;touch-action:manipulation}
+#tsz-bacchuskarma-r148 .bk148-cell:hover{background:#59687a}
+#tsz-bacchuskarma-r148 .bk148-cell.is-initial{background:#a58c76;border-color:#d9c3aa;box-shadow:inset 0 0 0 2px rgba(255,255,255,.1)}
+#tsz-bacchuskarma-r148 .bk148-cell.is-placed{background:#63ada9;border-color:#b4dcda;box-shadow:inset 0 0 0 2px rgba(255,255,255,.13)}
+#tsz-bacchuskarma-r148 .bk148-boardfoot{display:flex;justify-content:space-between;gap:10px;margin-top:14px;flex-wrap:wrap;color:#b6c1c9;font-size:10px}
+#tsz-bacchuskarma-r148 .bk148-boardfoot strong{color:#f7f0dd;font-variant-numeric:tabular-nums}
+#tsz-bacchuskarma-r148 .bk148-dot{display:inline-block;width:7px;height:7px;border-radius:3px;margin-inline-end:5px;background:var(--bk148-color)}
+#tsz-bacchuskarma-r148 .bk148-back{border:0;background:transparent;color:#51646b;font-size:12px;padding:13px 0 0;text-decoration:underline;text-underline-offset:4px;font-weight:750}
+#tsz-bacchuskarma-r148 .bk148-piecegrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:17px 0 12px}
+#tsz-bacchuskarma-r148 .bk148-piececard{min-width:0;border:1px solid #e9e4dc;border-radius:12px;background:#faf9f6;padding:8px 5px 11px}
+#tsz-bacchuskarma-r148 .bk148-piecebtn{display:flex;flex-direction:column;align-items:center;gap:2px;width:100%;min-width:0;border:1px solid transparent;background:transparent;padding:4px 1px 5px;border-radius:8px;color:#334149}
+#tsz-bacchuskarma-r148 .bk148-piecebtn[aria-pressed=false]{opacity:.36;filter:grayscale(.7)}
+#tsz-bacchuskarma-r148 .bk148-piecebtn strong{font-size:13px;color:#29343d}
+#tsz-bacchuskarma-r148 .bk148-piecebtn small{font-size:9px;font-weight:800;color:#9a6d4c}
+#tsz-bacchuskarma-r148 .bk148-shapebox{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(4,1fr);gap:2px;width:48px;height:48px;direction:ltr}
+#tsz-bacchuskarma-r148 .bk148-shapebox i{border-radius:2px;background:#e6e6e5}
+#tsz-bacchuskarma-r148 .bk148-shapebox i.filled{background:var(--bk148-ink);box-shadow:inset 0 0 0 1px rgba(0,0,0,.07)}
+#tsz-bacchuskarma-r148 .bk148-weightlabel{display:flex;justify-content:center;gap:4px;align-items:center;font-size:9px;text-align:center;color:#718085;min-width:0}
+#tsz-bacchuskarma-r148 .bk148-weightlabel b{color:#303e47}
+#tsz-bacchuskarma-r148 .bk148-piececard input{display:block;width:100%;margin:8px 0 1px;accent-color:#956953}
+#tsz-bacchuskarma-r148 .bk148-summary{display:flex;gap:12px;justify-content:space-between;color:#748086;font-size:11px;border-top:1px solid #efeae3;padding:14px 0 4px}
+#tsz-bacchuskarma-r148 .bk148-summary strong{color:#293a43}
+#tsz-bacchuskarma-r148 .bk148-actions{margin-top:17px;border-top:1px solid #e9e5de;padding-top:19px}
+#tsz-bacchuskarma-r148 .bk148-playhead{background:#f1f5f5;border-radius:13px;padding:12px 15px;margin-top:13px;display:flex;justify-content:space-between;align-items:center;gap:15px}
+#tsz-bacchuskarma-r148 .bk148-caption{display:block;font-size:10px;color:#74848b;margin-bottom:6px}
+#tsz-bacchuskarma-r148 #bk148-nextlabel{font-size:27px;font-variant-numeric:tabular-nums;color:#2c454d}
+#tsz-bacchuskarma-r148 .bk148-current{width:61px;height:61px;display:flex;align-items:center;justify-content:center;border-radius:9px;background:#fff}
+#tsz-bacchuskarma-r148 .bk148-big-q{font-size:26px;color:#abb7b9;font-weight:800}
+#tsz-bacchuskarma-r148 .bk148-notice{min-height:33px;font-size:11px;line-height:1.5;color:#6d7f81;margin:12px 0}
+#tsz-bacchuskarma-r148 .bk148-primary{display:block;width:100%;border:0;border-radius:11px;background:#b97955;color:#fff;font-size:13px;font-weight:850;padding:13px 12px;box-shadow:0 6px 19px rgba(182,113,69,.22)}
+#tsz-bacchuskarma-r148 .bk148-primary:hover{background:#a76440}
+#tsz-bacchuskarma-r148 .bk148-reset{display:block;margin:11px auto 0;border:0;background:transparent;color:#768184;font-size:12px;text-decoration:underline;text-underline-offset:3px;padding:5px;font-weight:750}
+#tsz-bacchuskarma-r148 .bk148-disclaimer{margin:19px 0 0;color:#8b8f8d;font-size:11px;line-height:1.8}
+#tsz-bacchuskarma-r148[dir=rtl] .bk148-top{text-align:right}
+@media(max-width:760px){#tsz-bacchuskarma-r148 .bk148-workspace{grid-template-columns:1fr}#tsz-bacchuskarma-r148 .bk148-top{flex-direction:column;gap:12px}#tsz-bacchuskarma-r148 .bk148-editor,#tsz-bacchuskarma-r148 .bk148-controls{padding:17px}#tsz-bacchuskarma-r148 .bk148-board{max-width:380px}#tsz-bacchuskarma-r148 .bk148-piecegrid{gap:7px}}
+@media(max-width:360px){#tsz-bacchuskarma-r148 .bk148-shell{padding:13px;border-radius:18px}#tsz-bacchuskarma-r148 .bk148-editor,#tsz-bacchuskarma-r148 .bk148-controls{padding:12px}#tsz-bacchuskarma-r148 .bk148-boardframe{padding:11px}#tsz-bacchuskarma-r148 .bk148-piecegrid{gap:4px}#tsz-bacchuskarma-r148 .bk148-piececard{padding:6px 2px 8px}#tsz-bacchuskarma-r148 .bk148-shapebox{width:37px;height:37px;gap:1px}#tsz-bacchuskarma-r148 .bk148-weightlabel{font-size:8px}#tsz-bacchuskarma-r148 .bk148-boardhead{font-size:9px}#tsz-bacchuskarma-r148 .bk148-chip{font-size:8px;padding:5px}}
+@media(prefers-reduced-motion:reduce){#tsz-bacchuskarma-r148 *{transition:none!important}}

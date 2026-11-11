@@ -1,0 +1,58 @@
+/* IkmahLog R152 / two-car garage. All styles scoped to one LP illustration. */
+#tsz-ikmahlog-r152{font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;max-width:1080px;width:100%;margin:52px auto;min-width:0;color:#23384a;line-height:1.55}
+#tsz-ikmahlog-r152 *,#tsz-ikmahlog-r152 *::before,#tsz-ikmahlog-r152 *::after{box-sizing:border-box}
+#tsz-ikmahlog-r152 button,#tsz-ikmahlog-r152 input,#tsz-ikmahlog-r152 select{font:inherit}
+#tsz-ikmahlog-r152 button{cursor:pointer;touch-action:manipulation}
+#tsz-ikmahlog-r152 .im152-shell{width:100%;min-width:0;background:#f8f7f3;border:1px solid #e4e4df;border-radius:22px;padding:clamp(15px,3.2vw,32px);box-shadow:0 22px 54px rgba(13,33,48,.08)}
+#tsz-ikmahlog-r152 .im152-top{display:flex;justify-content:space-between;align-items:start;gap:22px}
+#tsz-ikmahlog-r152 .im152-top>div{min-width:0}
+#tsz-ikmahlog-r152 .im152-eyebrow{font-size:11px;letter-spacing:.18em;color:#b17858;font-weight:850}
+#tsz-ikmahlog-r152 h2{color:#1e3748;font-size:clamp(25px,3vw,38px);margin:10px 0 8px;line-height:1.28;letter-spacing:-.035em}
+#tsz-ikmahlog-r152 .im152-top p{font-size:clamp(12px,1.2vw,14px);color:#6c7e87;max-width:660px;line-height:1.85;margin:0 0 20px}
+#tsz-ikmahlog-r152 .im152-language{display:grid;gap:5px;flex:0 0 145px;font-size:11px;color:#667985;font-weight:750}
+#tsz-ikmahlog-r152 select,#tsz-ikmahlog-r152 input{width:100%;min-width:0;border:1px solid #d9dedc;border-radius:9px;padding:10px 11px;background:#fff;color:#23384a;outline-offset:2px}
+#tsz-ikmahlog-r152 .im152-status{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#263f50;color:#fff;padding:13px 18px;border-radius:12px;margin:3px 0 14px;font-size:12px}
+#tsz-ikmahlog-r152 .im152-status>span{color:#e7b28f;font-size:10px;letter-spacing:.12em;font-weight:850;text-transform:uppercase}
+#tsz-ikmahlog-r152 .im152-status strong{font-weight:800}
+#tsz-ikmahlog-r152 .im152-cars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:16px}
+#tsz-ikmahlog-r152 .im152-cars button{display:flex;align-items:center;text-align:start;gap:13px;min-width:0;border:1px solid #dce0df;background:#fff;padding:15px;border-radius:13px;transition:background .15s,border-color .15s}
+#tsz-ikmahlog-r152 .im152-cars button[aria-pressed=true]{background:#f1eee8;border-color:#d1a181;box-shadow:inset 0 0 0 1px #d1a181}
+#tsz-ikmahlog-r152 .im152-caricon{display:grid;place-items:center;width:46px;height:46px;border-radius:12px;background:#dce6e6;color:#355a66;font-size:28px;flex:none;line-height:1}
+#tsz-ikmahlog-r152 .im152-cars button[aria-pressed=true] .im152-caricon{background:#d4e1df}
+#tsz-ikmahlog-r152 .im152-cars button>span:last-child{display:grid;min-width:0;gap:2px}
+#tsz-ikmahlog-r152 .im152-cars small{font-size:10px;color:#b27852;font-weight:850;letter-spacing:.06em}
+#tsz-ikmahlog-r152 .im152-cars strong{font-size:16px;color:#263f51;line-height:1.4}
+#tsz-ikmahlog-r152 .im152-cars em{font-style:normal;color:#75868c;font-size:11px}
+#tsz-ikmahlog-r152 .im152-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:14px;align-items:start}
+#tsz-ikmahlog-r152 .im152-panel{background:#fff;border:1px solid #e2e4e1;border-radius:13px;padding:19px;min-width:0}
+#tsz-ikmahlog-r152 h3{font-size:16px;color:#294557;margin:0 0 16px;font-weight:850}
+#tsz-ikmahlog-r152 .im152-paneltop{display:flex;justify-content:space-between;gap:10px;align-items:center}
+#tsz-ikmahlog-r152 .im152-pill{background:#edf1f2;border-radius:12px;padding:4px 9px;color:#54737e;font-size:11px;font-weight:800;white-space:nowrap}
+#tsz-ikmahlog-r152 .im152-records{min-height:212px;display:grid;align-content:start;gap:8px}
+#tsz-ikmahlog-r152 .im152-entry{display:flex;gap:10px;align-items:center;padding:12px;background:#f8f9f7;border:1px solid #eaedeb;border-radius:10px;min-width:0}
+#tsz-ikmahlog-r152 .im152-type{background:#e3edef;color:#426c77;border-radius:6px;padding:7px 8px;min-width:70px;text-align:center;flex:none;font-size:11px;font-weight:850}
+#tsz-ikmahlog-r152 .im152-fuel{background:#f4e8dc;color:#9f6c46}
+#tsz-ikmahlog-r152 .im152-insurance{background:#e9e6f0;color:#6c6085}
+#tsz-ikmahlog-r152 .im152-parts{background:#e5efdf;color:#64815b}
+#tsz-ikmahlog-r152 .im152-entry-body{min-width:0;flex:1;display:grid;gap:4px}
+#tsz-ikmahlog-r152 .im152-entry-body strong{font-size:12px;font-weight:800;color:#2c4757;overflow-wrap:anywhere}
+#tsz-ikmahlog-r152 .im152-entry-body small{font-size:11px;color:#789098}
+#tsz-ikmahlog-r152 .im152-ok{color:#91b09e;font-size:8px}
+#tsz-ikmahlog-r152 .im152-detail{font-size:11px;color:#7a8d95;line-height:1.8;margin:16px 0 0;border-top:1px solid #eceeea;padding-top:13px}
+#tsz-ikmahlog-r152 .im152-editor label{display:grid;gap:6px;color:#617681;font-size:11px;font-weight:750;margin:0 0 11px}
+#tsz-ikmahlog-r152 .im152-editor input{font-size:14px}
+#tsz-ikmahlog-r152 .im152-actions{display:flex;gap:8px;margin-top:14px;align-items:stretch}
+#tsz-ikmahlog-r152 .im152-actions button{min-width:0;min-height:44px;border-radius:9px;padding:10px 11px;font-size:12px;font-weight:800;line-height:1.45}
+#tsz-ikmahlog-r152 #im152-save{background:#2a4859;color:white;border:1px solid #2a4859;flex:1.1}
+#tsz-ikmahlog-r152 #im152-undo{background:#fff;color:#55727d;border:1px solid #d0dbde;flex:.9}
+#tsz-ikmahlog-r152 #im152-undo:disabled{opacity:.45;cursor:default}
+#tsz-ikmahlog-r152 .im152-alert{color:#397a58;background:#eaf5ef;border-radius:7px;padding:8px 10px;font-size:11px;font-weight:750;margin:12px 0 0}
+#tsz-ikmahlog-r152 .im152-alert[hidden]{display:none}
+#tsz-ikmahlog-r152 .im152-alert.im152-error{color:#a84b4b;background:#fff1ed}
+#tsz-ikmahlog-r152 .im152-reset{display:block;margin:14px 0 0 auto;border:0;background:transparent;color:#84939c;text-decoration:underline;text-underline-offset:3px;padding:5px;font-size:11px}
+#tsz-ikmahlog-r152 .im152-foot{border-top:1px solid #e4e8e4;margin-top:22px;padding-top:16px}
+#tsz-ikmahlog-r152 .im152-foot span{font-size:12px;color:#b0714e;font-weight:750}
+#tsz-ikmahlog-r152 .im152-foot p{font-size:11px;color:#85918f;margin:8px 0 0;line-height:1.8}
+#tsz-ikmahlog-r152[dir=rtl] .im152-entry{text-align:start}
+@media(max-width:760px){#tsz-ikmahlog-r152 .im152-grid{grid-template-columns:1fr}#tsz-ikmahlog-r152 .im152-records{min-height:0}}
+@media(max-width:500px){#tsz-ikmahlog-r152 .im152-shell{padding:14px;border-radius:14px}#tsz-ikmahlog-r152 .im152-top{display:block}#tsz-ikmahlog-r152 .im152-language{margin:0 0 12px auto;max-width:170px}#tsz-ikmahlog-r152 .im152-cars{gap:7px}#tsz-ikmahlog-r152 .im152-cars button{padding:10px;gap:6px;align-items:flex-start}#tsz-ikmahlog-r152 .im152-caricon{width:30px;height:30px;font-size:19px;border-radius:7px}#tsz-ikmahlog-r152 .im152-cars strong{font-size:13px}#tsz-ikmahlog-r152 .im152-cars small,#tsz-ikmahlog-r152 .im152-cars em{font-size:10px}#tsz-ikmahlog-r152 .im152-panel{padding:14px}#tsz-ikmahlog-r152 .im152-status{padding:12px;gap:5px}#tsz-ikmahlog-r152 .im152-type{min-width:62px;padding:6px 5px}#tsz-ikmahlog-r152 .im152-entry{gap:7px}#tsz-ikmahlog-r152 .im152-actions{flex-direction:column}}

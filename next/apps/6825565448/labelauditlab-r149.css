@@ -1,0 +1,54 @@
+/* LabelAuditLab R149: scoped LP-only review demo */
+#tsz-labelauditlab-r149{display:block;min-width:0;margin:42px auto;color:#253342;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6;--la-ink:#243342;--la-accent:#b66c51;--la-mute:#74818b}
+#tsz-labelauditlab-r149 *,#tsz-labelauditlab-r149 *::before,#tsz-labelauditlab-r149 *::after{box-sizing:border-box}
+#tsz-labelauditlab-r149 button,#tsz-labelauditlab-r149 select,#tsz-labelauditlab-r149 input{font:inherit}
+#tsz-labelauditlab-r149 button{cursor:pointer;touch-action:manipulation}
+#tsz-labelauditlab-r149 .la149-shell{width:100%;max-width:1040px;margin:auto;background:#f5f2ec;border:1px solid #e9e3d9;border-radius:22px;padding:clamp(17px,4vw,42px);box-shadow:0 17px 55px rgba(30,45,56,.08)}
+#tsz-labelauditlab-r149 .la149-top{display:flex;justify-content:space-between;align-items:flex-start;gap:25px}
+#tsz-labelauditlab-r149 .la149-eyebrow{color:#a36852;font-size:10px;font-weight:900;letter-spacing:.16em}
+#tsz-labelauditlab-r149 h2{font-family:inherit;max-width:740px;margin:13px 0 11px;font-size:clamp(24px,3.9vw,43px);line-height:1.25;font-weight:850;letter-spacing:-.035em;color:#243442}
+#tsz-labelauditlab-r149 .la149-lead{font-size:clamp(12px,1.3vw,14px);max-width:700px;color:#667580;line-height:1.85;margin:0 0 18px}
+#tsz-labelauditlab-r149 .la149-language{font-size:10px;color:#829097;display:flex;flex-direction:column;min-width:116px;gap:4px}
+#tsz-labelauditlab-r149 .la149-language select{border:1px solid #d9d9d6;border-radius:9px;background:#fff;min-width:0;width:100%;padding:8px;color:#2c3d49;font-size:12px}
+#tsz-labelauditlab-r149 .la149-summary{display:flex;justify-content:space-between;gap:18px;align-items:center;padding:22px 25px;background:#263747;color:#fff;border-radius:17px;margin:10px 0 22px;flex-wrap:wrap}
+#tsz-labelauditlab-r149 .la149-summary-label{font-size:11px;color:#b8c7d0;letter-spacing:.06em;font-weight:800}
+#tsz-labelauditlab-r149 .la149-metrics{display:flex;gap:clamp(14px,3vw,38px);justify-content:space-evenly;flex:1}
+#tsz-labelauditlab-r149 .la149-metrics>div{display:flex;flex-direction:column;align-items:center;min-width:58px}
+#tsz-labelauditlab-r149 .la149-metrics strong{font-size:32px;line-height:1.2;font-variant-numeric:tabular-nums;font-weight:850;letter-spacing:-.03em;color:#f9f3e8}
+#tsz-labelauditlab-r149 .la149-metrics>div:nth-child(2) strong{color:#f6ad87}
+#tsz-labelauditlab-r149 .la149-metrics>div:nth-child(3) strong{color:#d4c3ed}
+#tsz-labelauditlab-r149 .la149-metrics span{color:#c5d0d8;font-size:10px;white-space:normal;text-align:center}
+#tsz-labelauditlab-r149 .la149-workspace{display:grid;grid-template-columns:minmax(205px,.66fr) minmax(0,1.7fr);gap:18px;align-items:stretch}
+#tsz-labelauditlab-r149 .la149-side,#tsz-labelauditlab-r149 .la149-panel{min-width:0;background:#fff;border:1px solid #e6e4de;border-radius:15px;padding:22px}
+#tsz-labelauditlab-r149 .la149-side h3{font:900 11px/1.4 inherit;color:#b8755c;margin:0 0 13px;display:flex;gap:8px;align-items:center}
+#tsz-labelauditlab-r149 .la149-side h3 span{font-size:12px;color:#4e6270;font-weight:800}
+#tsz-labelauditlab-r149 .la149-scenarios,#tsz-labelauditlab-r149 .la149-fields{display:grid;gap:7px}
+#tsz-labelauditlab-r149 .la149-scenario,#tsz-labelauditlab-r149 .la149-field{background:#f8f8f5;border:1px solid #e5e8e7;color:#586b75;border-radius:9px;padding:10px 12px;text-align:start;font-size:12px;font-weight:750;min-height:42px;line-height:1.45}
+#tsz-labelauditlab-r149 .la149-scenario[aria-pressed=true],#tsz-labelauditlab-r149 .la149-field[aria-pressed=true]{background:#f6e9df;color:#835239;border-color:#d7a78d}
+#tsz-labelauditlab-r149 .la149-fieldhead{margin-top:25px!important}
+#tsz-labelauditlab-r149 .la149-field{display:flex;align-items:center;justify-content:space-between;gap:8px}
+#tsz-labelauditlab-r149 .la149-dot{display:inline-block;flex:none;width:9px;height:9px;border-radius:50%;background:#a0b6ae}
+#tsz-labelauditlab-r149 .la149-dot.is-review{background:#d28a68}
+#tsz-labelauditlab-r149 .la149-dot.is-gap{background:#b7a0d5}
+#tsz-labelauditlab-r149 .la149-paneltop{display:flex;justify-content:space-between;align-items:center;gap:10px}
+#tsz-labelauditlab-r149 .la149-paneltop span:first-child{font-size:10px;color:#a87762;font-weight:800;letter-spacing:.08em}
+#tsz-labelauditlab-r149 .la149-paneltop h3{margin:7px 0;font-size:clamp(20px,2.3vw,29px);color:#233442;line-height:1.3}
+#tsz-labelauditlab-r149 .la149-panelbadge{font-size:10px;font-weight:850;color:#7e8b91;padding:5px 9px;background:#f0f1ee;border-radius:20px;white-space:nowrap}
+#tsz-labelauditlab-r149 .la149-hint{font-size:11px;color:#7c868b;margin:8px 0 16px}
+#tsz-labelauditlab-r149 .la149-sources{display:grid;gap:10px}
+#tsz-labelauditlab-r149 .la149-source{display:block;min-width:0;background:#f7f8f7;border:1px solid #edf0ed;border-radius:11px;padding:12px 14px}
+#tsz-labelauditlab-r149 .la149-source small{display:block;font-size:10px;color:#7a8a91;margin-bottom:8px;line-height:1.5}
+#tsz-labelauditlab-r149 .la149-source input{display:block;width:100%;min-width:0;padding:5px 2px;border:0;border-bottom:1px solid #c8d1d4;background:transparent;color:#253c49;font-family:ui-monospace,Consolas,Menlo,monospace;font-size:clamp(13px,1.4vw,16px);font-weight:750;border-radius:0;outline-offset:2px}
+#tsz-labelauditlab-r149 .la149-source:focus-within{border-color:#b97758;background:#fffdf8}
+#tsz-labelauditlab-r149 .la149-verdict{margin:18px 0 13px;padding:16px;border-radius:11px;background:#f6ece5;display:flex;gap:13px;align-items:center;color:#75563e;min-width:0}
+#tsz-labelauditlab-r149 .la149-verdict.is-match{background:#e8f1ec;color:#416a56}
+#tsz-labelauditlab-r149 .la149-verdict.is-gap{background:#f2eff8;color:#725b91}
+#tsz-labelauditlab-r149 .la149-statusicon{flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;border:1px solid currentColor;font-size:17px;font-weight:900}
+#tsz-labelauditlab-r149 .la149-verdict strong{font-size:13px;display:block;margin-bottom:3px}
+#tsz-labelauditlab-r149 .la149-verdict p{font-size:11px;line-height:1.65;margin:0}
+#tsz-labelauditlab-r149 .la149-reset{background:transparent;color:#8f6d5c;padding:7px 2px;border:0;text-decoration:underline;font-size:11px;font-weight:800}
+#tsz-labelauditlab-r149 .la149-disclaimer{font-size:11px;color:#899098;line-height:1.8;margin:19px 0 0}
+#tsz-labelauditlab-r149[dir=rtl] .la149-top{text-align:right}
+@media(max-width:760px){#tsz-labelauditlab-r149 .la149-workspace{grid-template-columns:1fr}#tsz-labelauditlab-r149 .la149-top{flex-direction:column;gap:7px}#tsz-labelauditlab-r149 .la149-language{align-self:flex-start}#tsz-labelauditlab-r149 .la149-side,#tsz-labelauditlab-r149 .la149-panel{padding:16px}#tsz-labelauditlab-r149 .la149-scenarios{grid-template-columns:repeat(3,minmax(0,1fr))}#tsz-labelauditlab-r149 .la149-scenario{text-align:center;font-size:10px;padding:9px 5px}#tsz-labelauditlab-r149 .la149-fields{grid-template-columns:repeat(2,minmax(0,1fr))}#tsz-labelauditlab-r149 .la149-summary{padding:15px;gap:10px}#tsz-labelauditlab-r149 .la149-metrics{justify-content:space-between}}
+@media(max-width:360px){#tsz-labelauditlab-r149 .la149-shell{padding:12px;border-radius:16px}#tsz-labelauditlab-r149 .la149-side,#tsz-labelauditlab-r149 .la149-panel{padding:12px}#tsz-labelauditlab-r149 .la149-metrics{width:100%;gap:4px}#tsz-labelauditlab-r149 .la149-summary-label{width:100%}#tsz-labelauditlab-r149 .la149-metrics strong{font-size:27px}#tsz-labelauditlab-r149 .la149-scenarios{gap:4px}#tsz-labelauditlab-r149 .la149-scenario{font-size:9px;padding:7px 3px}#tsz-labelauditlab-r149 .la149-panelbadge{font-size:8px;padding:5px}#tsz-labelauditlab-r149 .la149-source{padding:10px}}
+@media(prefers-reduced-motion:reduce){#tsz-labelauditlab-r149 *{transition:none!important}}

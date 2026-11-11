@@ -1,0 +1,44 @@
+/* Buy Price R144 — isolated, responsive comparison explainer. No external assets. */
+#tsz-buyprice-r144{--bp144-ink:#213644;--bp144-navy:#0e2130;--bp144-line:#d7d6d0;--bp144-copper:#be7955;--bp144-cream:#faf8f2;max-width:1120px;margin:clamp(30px,5vw,65px) auto;padding:clamp(18px,4vw,45px);color:var(--bp144-ink);background:var(--bp144-cream);border:1px solid var(--bp144-line);border-radius:20px;font-family:system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.5;box-sizing:border-box;overflow-wrap:anywhere}
+#tsz-buyprice-r144 *,#tsz-buyprice-r144 *::before,#tsz-buyprice-r144 *::after{box-sizing:border-box}
+#tsz-buyprice-r144 .bp144-overline{font-size:11px;letter-spacing:.15em;font-weight:800;color:#a25a3d;margin:0 0 12px}
+#tsz-buyprice-r144 h2{font-size:clamp(25px,3.8vw,42px);font-weight:800;letter-spacing:-.038em;line-height:1.2;margin:0 0 15px;color:#182f3c}
+#tsz-buyprice-r144 .bp144-intro{font-size:clamp(14px,1.6vw,17px);line-height:1.7;max-width:770px;margin:0 0 12px;color:#4b5c64}
+#tsz-buyprice-r144 .bp144-caption{font-size:12px;margin:0 0 23px;color:#74818a}
+#tsz-buyprice-r144 .bp144-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:16px;align-items:stretch}
+#tsz-buyprice-r144 .bp144-stage{min-width:0;background:var(--bp144-navy);border-radius:17px;padding:clamp(19px,2.7vw,29px);color:#f5f7f5}
+#tsz-buyprice-r144 .bp144-subhead{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#e0b6a0;font-weight:800;margin:0 0 10px}
+#tsz-buyprice-r144 .bp144-big{font-size:clamp(49px,7.5vw,86px);font-weight:800;line-height:1.1;letter-spacing:-.07em;font-variant-numeric:tabular-nums;color:#fff;text-align:start;white-space:nowrap}
+#tsz-buyprice-r144 .bp144-unit{font-size:12px;color:#aac2c3;margin:3px 0 29px}
+#tsz-buyprice-r144 .bp144-comparison{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:19px}
+#tsz-buyprice-r144 .bp144-comparison>div{border:1px solid #3b5661;padding:13px;border-radius:11px;min-width:0}
+#tsz-buyprice-r144 .bp144-comparison span{display:block;color:#a9bdc1;font-size:11px;margin-bottom:5px}
+#tsz-buyprice-r144 .bp144-comparison strong{display:block;font-size:clamp(17px,2.4vw,24px);font-variant-numeric:tabular-nums;color:#f5f6f4;text-align:start}
+#tsz-buyprice-r144 .bp144-result{padding:13px 15px;font-weight:750;font-size:14px;margin-bottom:25px;border-radius:9px;background:#594130;color:#fff2e4}
+#tsz-buyprice-r144 .bp144-result[data-bp144-status=yes],#tsz-buyprice-r144 .bp144-result[data-bp144-status=same]{background:#1e4b4a;color:#dbf8eb}
+#tsz-buyprice-r144 .bp144-result[data-bp144-status=error]{background:#693630;color:#fff}
+#tsz-buyprice-r144 .bp144-progress-label{font-size:11px;display:flex;align-items:baseline;justify-content:space-between;gap:8px;color:#d1dbdf;margin:0 0 9px}
+#tsz-buyprice-r144 .bp144-progress-label strong{font-size:17px;color:#eed4bf;white-space:nowrap}
+#tsz-buyprice-r144 .bp144-meter{height:11px;background:#36505d;border-radius:20px;overflow:hidden;direction:ltr}
+#tsz-buyprice-r144 .bp144-meter-fill{height:100%;border-radius:20px;background:linear-gradient(90deg,#a9a29b,#d99c7f);transition:width .2s ease}
+#tsz-buyprice-r144 .bp144-insight{font-size:12px;color:#b8c9c9;margin:14px 0 0}
+#tsz-buyprice-r144 .bp144-form{background:#fff;border:1px solid #e1ded8;border-radius:17px;padding:clamp(18px,2.5vw,26px);min-width:0}
+#tsz-buyprice-r144 h3{font-size:16px;margin:0 0 13px;color:#243744}
+#tsz-buyprice-r144 .bp144-presets{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:18px}
+#tsz-buyprice-r144 button,#tsz-buyprice-r144 input{font:inherit}
+#tsz-buyprice-r144 .bp144-presets button{border-radius:9px;border:1px solid #cdd2cf;background:#f7f5f0;color:#344750;font-weight:750;min-height:43px;padding:8px;cursor:pointer}
+#tsz-buyprice-r144 .bp144-presets button[aria-pressed=true]{background:#254253;color:#fff;border-color:#254253}
+#tsz-buyprice-r144 .bp144-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+#tsz-buyprice-r144 .bp144-field{display:flex;flex-direction:column;gap:5px;min-width:0}
+#tsz-buyprice-r144 .bp144-field span{font-size:12px;font-weight:720;color:#3d5560}
+#tsz-buyprice-r144 .bp144-field input{max-width:100%;min-width:0;width:100%;border:1px solid #bcc7c8;background:#fff;color:#1c3443;border-radius:8px;padding:10px;font-size:16px;min-height:46px;font-variant-numeric:tabular-nums}
+#tsz-buyprice-r144 .bp144-formula{font-size:11px;color:#68777d;margin:18px 0 0;line-height:1.6}
+#tsz-buyprice-r144 .bp144-error{font-size:12px;color:#a12b27;font-weight:750;min-height:18px;margin:10px 0 0}
+#tsz-buyprice-r144 .bp144-reset{width:100%;min-height:44px;background:#f4ede6;border:1px solid #ccbfb4;border-radius:9px;color:#35505b;font-size:12px;font-weight:750;cursor:pointer;margin-top:10px}
+#tsz-buyprice-r144 button:focus-visible,#tsz-buyprice-r144 input:focus-visible{outline:3px solid #bf7452;outline-offset:2px}
+#tsz-buyprice-r144 .bp144-footer{font-size:11px;line-height:1.8;color:#66757e;margin:19px 0 0}
+#tsz-buyprice-r144[dir=rtl]{text-align:right}
+#tsz-buyprice-r144[dir=rtl] .bp144-big,#tsz-buyprice-r144[dir=rtl] .bp144-comparison strong{direction:ltr;text-align:right}
+@media(max-width:810px){#tsz-buyprice-r144 .bp144-grid{grid-template-columns:minmax(0,1fr)}#tsz-buyprice-r144 .bp144-stage{min-height:330px}}
+@media(max-width:390px){#tsz-buyprice-r144{padding:14px;border-radius:13px;margin:22px auto}#tsz-buyprice-r144 .bp144-stage,#tsz-buyprice-r144 .bp144-form{padding:16px;border-radius:11px}#tsz-buyprice-r144 .bp144-fields{gap:8px}#tsz-buyprice-r144 .bp144-big{font-size:52px}#tsz-buyprice-r144 .bp144-comparison>div{padding:10px}}
+@media(prefers-reduced-motion:reduce){#tsz-buyprice-r144 *{transition:none!important}}

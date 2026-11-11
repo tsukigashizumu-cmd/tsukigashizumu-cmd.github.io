@@ -1,0 +1,38 @@
+/* PromptDock AI R145 — fully scoped LP demo; no external media or fonts. */
+#tsz-promptdock-r145{--pd145-navy:#142433;--pd145-copper:#c1876b;--pd145-sand:#f8f5ef;--pd145-ink:#253541;max-width:1120px;margin:clamp(32px,5vw,64px) auto;padding:clamp(18px,3.9vw,48px);border:1px solid #ded8d0;border-radius:22px;background:var(--pd145-sand);color:var(--pd145-ink);font-family:system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.5;box-sizing:border-box;overflow-wrap:anywhere}
+#tsz-promptdock-r145 *,#tsz-promptdock-r145 *:before,#tsz-promptdock-r145 *:after{box-sizing:border-box}
+#tsz-promptdock-r145 .pd145-over{letter-spacing:.16em;font-size:11px;font-weight:800;color:#96624e;margin:0 0 12px}
+#tsz-promptdock-r145 h2{font-size:clamp(27px,4vw,48px);line-height:1.15;letter-spacing:-.043em;font-weight:800;color:#182d3a;margin:0 0 15px}
+#tsz-promptdock-r145 .pd145-lead{font-size:clamp(14px,1.6vw,17px);line-height:1.75;color:#566670;max-width:750px;margin:0 0 29px}
+#tsz-promptdock-r145 .pd145-workspace{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:17px;align-items:stretch}
+#tsz-promptdock-r145 .pd145-builder{padding:clamp(18px,2.6vw,29px);border:1px solid #e0dad3;background:#fff;border-radius:16px;min-width:0}
+#tsz-promptdock-r145 .pd145-step{color:#925d4b;letter-spacing:.105em;font-size:11px;font-weight:800;margin:0 0 13px}
+#tsz-promptdock-r145 .pd145-modes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+#tsz-promptdock-r145 .pd145-modes button{border:1px solid #d8d6d2;border-radius:11px;background:#f5f3ee;color:#3c525e;min-height:48px;padding:8px 12px;cursor:pointer;font-weight:760;font-size:13px;line-height:1.3}
+#tsz-promptdock-r145 .pd145-modes button[aria-pressed=true]{background:#21394b;color:#fff;border-color:#21394b;box-shadow:inset 0 0 0 1px #21394b}
+#tsz-promptdock-r145 .pd145-fill{margin:24px 0 12px}
+#tsz-promptdock-r145 .pd145-fields{display:grid;gap:13px}
+#tsz-promptdock-r145 .pd145-field{display:flex;flex-direction:column;gap:6px;min-width:0}
+#tsz-promptdock-r145 .pd145-field span{font-size:12px;color:#3c5361;font-weight:750}
+#tsz-promptdock-r145 .pd145-field textarea{width:100%;min-width:0;max-width:100%;height:auto;min-height:67px;resize:vertical;padding:12px 13px;border-radius:10px;border:1px solid #cbd1d2;color:#223949;background:#fff;font-family:inherit;font-size:14px;line-height:1.5}
+#tsz-promptdock-r145 .pd145-reset{margin-top:16px;width:100%;min-height:44px;border:1px solid #d2c7bb;background:#faf4ec;color:#52606a;border-radius:10px;cursor:pointer;font-weight:750;font-size:12px}
+#tsz-promptdock-r145 .pd145-paper{background:var(--pd145-navy);color:#eff1ed;min-width:0;border-radius:16px;border:1px solid #263e4a;padding:clamp(19px,2.9vw,32px);display:flex;flex-direction:column;box-shadow:0 14px 30px #182d3715}
+#tsz-promptdock-r145 .pd145-paper-header{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:11px;letter-spacing:.085em;font-weight:800;color:#e1b6a2;padding-bottom:16px;border-bottom:1px solid #35515d}
+#tsz-promptdock-r145 .pd145-spark{font-size:21px;color:#e9b998}
+#tsz-promptdock-r145 .pd145-textwrap{padding:22px 0;flex:1;min-width:0}
+#tsz-promptdock-r145 pre{font-family:ui-monospace,'SFMono-Regular',Consolas,monospace;font-size:clamp(12px,1.3vw,14px);line-height:1.85;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;margin:0;color:#f1f4f0;max-width:100%;text-align:start;unicode-bidi:plaintext}
+#tsz-promptdock-r145 .pd145-paper-actions{border-top:1px solid #35515d;padding-top:15px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:space-between}
+#tsz-promptdock-r145 .pd145-count{font-size:11px;color:#b8c8ca}
+#tsz-promptdock-r145 .pd145-count strong{color:#fff;font-variant-numeric:tabular-nums}
+#tsz-promptdock-r145 #pd145-copy{border:1px solid #ddab8e;background:#d9a38a;color:#172b38;border-radius:9px;padding:10px 13px;min-height:43px;cursor:pointer;font-size:13px;font-weight:800;max-width:100%}
+#tsz-promptdock-r145 .pd145-status{margin:9px 0 0;color:#d3e6d7;font-size:12px;min-height:18px}
+#tsz-promptdock-r145 .pd145-bottom{display:flex;align-items:center;gap:9px;margin:22px 0 8px;color:#344b57;font-size:12px;font-weight:700}
+#tsz-promptdock-r145 .pd145-dot{width:8px;height:8px;flex:0 0 8px;background:#779e97;border-radius:50%}
+#tsz-promptdock-r145 .pd145-foot{font-size:11px;line-height:1.8;color:#778187;margin:0}
+#tsz-promptdock-r145 :is(button,textarea):focus-visible{outline:3px solid #cc8c6e;outline-offset:3px}
+#tsz-promptdock-r145 button,#tsz-promptdock-r145 textarea{font:inherit}
+#tsz-promptdock-r145[dir=rtl]{text-align:right}
+#tsz-promptdock-r145[dir=rtl] .pd145-paper-header{direction:rtl}
+@media(max-width:790px){#tsz-promptdock-r145 .pd145-workspace{grid-template-columns:1fr}#tsz-promptdock-r145 .pd145-paper{min-height:335px}}
+@media(max-width:390px){#tsz-promptdock-r145{padding:13px;border-radius:13px;margin:22px auto}#tsz-promptdock-r145 .pd145-builder,#tsz-promptdock-r145 .pd145-paper{padding:16px;border-radius:11px}#tsz-promptdock-r145 .pd145-modes button{font-size:12px;padding:6px}#tsz-promptdock-r145 .pd145-paper-actions{gap:7px}#tsz-promptdock-r145 pre{font-size:12px}}
+@media(prefers-reduced-motion:reduce){#tsz-promptdock-r145 *{animation:none!important;transition:none!important}}
