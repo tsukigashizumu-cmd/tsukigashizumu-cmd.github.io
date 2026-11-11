@@ -1,0 +1,51 @@
+/* TSZ LP R169 / scoped to Knotless app 6778138017 / desktop-mobile-RTL / no external assets. */
+body[data-p199-id="6778138017"].kn169-ready{background:#0b090b;color:#f9eae2}
+body[data-p199-id="6778138017"].kn169-ready .p19-shell{background:transparent}
+body[data-p199-id="6778138017"].kn169-ready #p199-status,body[data-p199-id="6778138017"].kn169-ready #p199-content>.p199-progress,body[data-p199-id="6778138017"].kn169-ready #p199-content>.p19-hero{display:none!important}
+#tsz-knotless-r169{--kn169-cream:#ffebe3;--kn169-muted:#dcc9c7;box-sizing:border-box;position:relative;isolation:isolate;overflow:hidden;margin:16px auto 32px;width:100%;max-width:1200px;color:var(--kn169-cream);background:radial-gradient(ellipse at 30% 80%,rgba(137,55,48,.28),transparent 53%),radial-gradient(ellipse at 76% 24%,rgba(14,96,101,.2),transparent 50%),linear-gradient(120deg,#160f12,#050c10 70%,#130e14);border:1px solid rgba(250,220,210,.38);border-radius:21px;padding:clamp(20px,4vw,50px);font-family:Georgia,'Times New Roman',serif;text-align:start;box-shadow:0 25px 65px #0005}
+#tsz-knotless-r169:before{content:"";position:absolute;inset:auto -8% -123px -8%;height:170px;border-top:2px solid #ffb38a;transform:rotate(-5deg);border-radius:55% 75% 0 0;box-shadow:0 -15px 55px #f3755c3b;pointer-events:none;z-index:-1}
+#tsz-knotless-r169 *,#tsz-knotless-r169 *:before,#tsz-knotless-r169 *:after{box-sizing:border-box}
+#tsz-knotless-r169 .kn169-top{display:flex;gap:25px;align-items:center;border-bottom:1px solid #e7c9be66;padding:0 0 16px;margin:0 0 clamp(27px,5vw,56px)}
+#tsz-knotless-r169 .kn169-brand{font-size:clamp(28px,3.2vw,43px);line-height:1;font-weight:500;letter-spacing:-.04em;white-space:nowrap}
+#tsz-knotless-r169 .kn169-brand span{color:#ffb995}
+#tsz-knotless-r169 .kn169-topline{font:600 10px/1.4 system-ui,sans-serif;letter-spacing:.13em;opacity:.72;flex:1}
+#tsz-knotless-r169 .kn169-top a{font:500 13px/1.3 system-ui,sans-serif;color:#fff0e9;text-decoration:none;border-bottom:1px solid #e5bca6;padding-bottom:5px;white-space:nowrap}
+#tsz-knotless-r169 .kn169-hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:center;gap:clamp(25px,4vw,60px);position:relative}
+#tsz-knotless-r169 .kn169-copy{min-width:0}
+#tsz-knotless-r169 .kn169-kicker{font:700 10px/1.4 system-ui,sans-serif;letter-spacing:.19em;color:#e7b2ac;margin-bottom:24px}
+#tsz-knotless-r169 h2{font:400 clamp(39px,5.3vw,76px)/1.03 Georgia,'Times New Roman',serif;letter-spacing:-.052em;color:#ffece3;margin:0 0 28px;overflow-wrap:break-word;max-width:670px}
+#tsz-knotless-r169 .kn169-sub{font:italic 400 clamp(19px,2vw,29px)/1.3 Georgia,'Times New Roman',serif;letter-spacing:.02em;color:#ffe8dd;margin:0 0 33px}
+#tsz-knotless-r169 .kn169-store{display:inline-flex;align-items:center;justify-content:center;gap:15px;min-height:62px;padding:12px clamp(17px,2.7vw,31px);font:650 16px/1.25 system-ui,-apple-system,sans-serif;color:#fff6ed;text-decoration:none;border:1px solid #f8cfba;border-radius:16px;background:linear-gradient(180deg,#fff2e51d,#65332940);box-shadow:0 0 23px #f8a1852c,inset 0 0 11px #fff2ec20;white-space:normal}
+#tsz-knotless-r169 .kn169-store:hover{background:#bd78524a;box-shadow:0 0 31px #f8a18560}
+#tsz-knotless-r169 .kn169-app-icon{font-size:23px}
+#tsz-knotless-r169 .kn169-interactive{min-width:0;text-align:center}
+#tsz-knotless-r169 .kn169-board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;max-width:515px;width:100%;margin:0 auto;direction:ltr;filter:drop-shadow(0 0 32px #5ab4e43b)}
+#tsz-knotless-r169 .kn169-tile{width:100%;min-width:0;aspect-ratio:1;background:radial-gradient(circle at 48% 40%,#363049b8,#09232ca8 72%,#130e1d);border:1px solid #f3c1d142;padding:0;border-radius:21%;overflow:hidden;cursor:pointer;appearance:none;display:block;box-shadow:inset 0 0 28px #e0a6cb1a;transition:box-shadow .2s,border-color .2s}
+#tsz-knotless-r169 .kn169-tile:hover{border-color:#ffe4e2a8;box-shadow:inset 0 0 22px #feccaf30,0 0 20px #ffc4d443}
+#tsz-knotless-r169 .kn169-tile:focus-visible,#tsz-knotless-r169 .kn169-reset:focus-visible,#tsz-knotless-r169 a:focus-visible{outline:3px solid #ffe7a6;outline-offset:3px}
+#tsz-knotless-r169 .kn169-tile svg{width:100%;height:100%;display:block;filter:hue-rotate(var(--kn169-hue,0deg))}
+#tsz-knotless-r169 .kn169-tile .kn169-rotor{transform:rotate(var(--kn169-turn,0deg));transform-origin:center;transition:transform .4s cubic-bezier(.17,.67,.23,1)}
+#tsz-knotless-r169 .kn169-tile path{fill:none;stroke-linecap:round}
+#tsz-knotless-r169 .kn169-glow{stroke:#d6aef4;stroke-width:20;opacity:.65;filter:blur(9px)}
+#tsz-knotless-r169 .kn169-light{stroke-width:14;opacity:.93}
+#tsz-knotless-r169 .kn169-core{stroke:#fff9ef;stroke-width:3;opacity:.8}
+#tsz-knotless-r169 .kn169-actions{display:flex;justify-content:center;align-items:center;gap:16px;margin-top:16px;font:500 12px/1.4 system-ui,sans-serif;color:#e3ceca}
+#tsz-knotless-r169 .kn169-reset{background:#ffffff10;color:#ffeae1;border:1px solid #fff4e35a;border-radius:999px;font:600 11px/1.4 system-ui,sans-serif;min-height:38px;padding:8px 12px;cursor:pointer}
+#tsz-knotless-r169 .kn169-reset:hover{background:#ffffff22}
+#tsz-knotless-r169 .kn169-live{font:400 11px/1.5 system-ui,sans-serif;color:#ceb8bc;margin:8px 0 0;min-height:16px}
+#tsz-knotless-r169 .kn169-divider{display:flex;align-items:center;gap:20px;justify-content:center;font:400 clamp(19px,2.3vw,29px)/1.25 Georgia,serif;text-align:center;margin:clamp(41px,5.5vw,70px) 0 34px}
+#tsz-knotless-r169 .kn169-divider:before,#tsz-knotless-r169 .kn169-divider:after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,#d2afaa85)}
+#tsz-knotless-r169 .kn169-divider:after{transform:scaleX(-1)}
+#tsz-knotless-r169 .kn169-features{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:25px}
+#tsz-knotless-r169 .kn169-features article{display:flex;gap:13px;align-items:flex-start;min-width:0}
+#tsz-knotless-r169 .kn169-mini{flex:0 0 67px;aspect-ratio:1;border:1px solid #ffd6e077;border-radius:15px;background:radial-gradient(ellipse at 20% 80%,#5bd7ff,#07313e 42%,#141821 65%);box-shadow:inset 0 0 18px #0005,0 0 14px #9ce8ff1c}
+#tsz-knotless-r169 .kn169-mini:after{content:"";display:block;height:100%;border-radius:inherit;background:linear-gradient(115deg,transparent 33%,#cbf5ff 45%,#52b8ee 51%,transparent 62%);transform:rotate(23deg)}
+#tsz-knotless-r169 .kn169-b{filter:hue-rotate(155deg)}#tsz-knotless-r169 .kn169-c{filter:hue-rotate(70deg)}
+#tsz-knotless-r169 .kn169-features h3{font:500 clamp(17px,1.8vw,22px)/1.25 Georgia,serif;color:#fff1e9;margin:0 0 7px}
+#tsz-knotless-r169 .kn169-features p{font:400 13px/1.65 system-ui,-apple-system,sans-serif;color:#d5c5c6;margin:0}
+#tsz-knotless-r169 .kn169-note{margin:36px 0 0;text-align:center;font:400 11px/1.6 system-ui,sans-serif;color:#baa9b0}
+#tsz-knotless-r169[dir=rtl] .kn169-top,#tsz-knotless-r169[dir=rtl] .kn169-features article{flex-direction:row}
+#tsz-knotless-r169[dir=rtl] .kn169-app-icon{order:0}
+@media(max-width:880px){#tsz-knotless-r169 .kn169-hero{grid-template-columns:1fr;gap:33px}#tsz-knotless-r169 .kn169-copy{text-align:center}#tsz-knotless-r169 h2{max-width:720px;margin-left:auto;margin-right:auto;font-size:clamp(42px,8vw,68px)}#tsz-knotless-r169 .kn169-features{grid-template-columns:1fr;max-width:520px;margin:auto}#tsz-knotless-r169 .kn169-board{max-width:380px}#tsz-knotless-r169 .kn169-topline{display:none}#tsz-knotless-r169 .kn169-top{justify-content:space-between}}
+@media(max-width:420px){#tsz-knotless-r169{margin:8px auto 18px;padding:20px 15px;border-radius:16px}#tsz-knotless-r169 .kn169-top{margin-bottom:26px}#tsz-knotless-r169 .kn169-brand{font-size:30px}#tsz-knotless-r169 .kn169-top a{font-size:11px}#tsz-knotless-r169 .kn169-kicker{font-size:9px;margin-bottom:16px}#tsz-knotless-r169 h2{font-size:clamp(34px,10.2vw,44px);margin-bottom:20px}#tsz-knotless-r169 .kn169-sub{font-size:20px;margin-bottom:23px}#tsz-knotless-r169 .kn169-store{min-height:54px;font-size:13px}#tsz-knotless-r169 .kn169-board{gap:3px}#tsz-knotless-r169 .kn169-tile{border-radius:17%}#tsz-knotless-r169 .kn169-actions{flex-direction:column;gap:7px}#tsz-knotless-r169 .kn169-divider{margin:29px 0 24px;font-size:20px}#tsz-knotless-r169 .kn169-mini{flex-basis:59px}#tsz-knotless-r169 .kn169-note{font-size:10px}}
+@media(prefers-reduced-motion:reduce){#tsz-knotless-r169 .kn169-tile,#tsz-knotless-r169 .kn169-rotor{transition:none!important}}
