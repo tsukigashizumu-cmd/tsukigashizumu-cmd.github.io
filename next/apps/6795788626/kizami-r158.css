@@ -1,0 +1,46 @@
+/* Kizami R158: LP-only visual record of chosen time across days without streaks. */
+#tsz-kz158{--kz158-ink:#f3f0e8;--kz158-muted:#a8b5c2;--kz158-border:rgba(204,225,233,.16);--kz158-accent:#e8b987;color:var(--kz158-ink);background:linear-gradient(142deg,#102131 0%,#0b1723 56%,#10242f 100%);border:1px solid #263e4c;border-radius:24px;padding:clamp(20px,3.4vw,42px);margin:32px 0;box-shadow:0 18px 42px rgba(3,12,20,.13);font-family:system-ui,-apple-system,BlinkMacSystemFont,'Noto Sans',sans-serif;line-height:1.6;box-sizing:border-box;max-width:100%;min-width:0;overflow:hidden}
+#tsz-kz158 *{box-sizing:border-box;min-width:0}
+#tsz-kz158 .kz158-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+#tsz-kz158 .kz158-eyebrow{color:var(--kz158-accent);font-size:12px;font-weight:750;letter-spacing:.13em;text-transform:uppercase}
+#tsz-kz158 .kz158-pill{border:1px solid rgba(232,185,135,.35);border-radius:999px;padding:4px 10px;font-size:11px;color:#f2d8bd;background:rgba(232,185,135,.07)}
+#tsz-kz158 h2{font-size:clamp(23px,3.4vw,37px);line-height:1.32;color:#fff;font-weight:750;letter-spacing:-.025em;margin:15px 0 10px;max-width:100%}
+#tsz-kz158 .kz158-lead{font-size:clamp(13px,1.8vw,16px);color:#c6d0d7;margin:0 0 25px;max-width:760px}
+#tsz-kz158 .kz158-columns{display:grid;grid-template-columns:minmax(0,1.38fr) minmax(0,1fr);gap:18px;align-items:stretch}
+#tsz-kz158 .kz158-card{background:rgba(255,255,255,.045);border:1px solid var(--kz158-border);border-radius:17px;padding:clamp(14px,2.1vw,22px);min-width:0}
+#tsz-kz158 .kz158-card-title{font-size:12px;color:#d8e0e3;font-weight:750;letter-spacing:.07em;text-transform:uppercase;margin:0 0 12px}
+#tsz-kz158 .kz158-week{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;direction:ltr}
+#tsz-kz158 .kz158-day{appearance:none;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:88px;border:1px solid rgba(210,228,230,.17);border-radius:12px;background:rgba(11,27,39,.68);padding:10px 3px;gap:6px;color:#e7eef1;cursor:pointer;transition:background .2s,border-color .2s,transform .2s;font:inherit;overflow-wrap:anywhere}
+#tsz-kz158 .kz158-day:hover{background:rgba(31,59,71,.84);border-color:rgba(232,185,135,.65)}
+#tsz-kz158 .kz158-day:focus-visible,#tsz-kz158 button:focus-visible{outline:2px solid #fff;outline-offset:3px}
+#tsz-kz158 .kz158-day[aria-pressed="true"]{background:rgba(232,185,135,.16);border-color:#e8b987;box-shadow:inset 0 0 0 1px #e8b987}
+#tsz-kz158 .kz158-day-name{font-size:11px;color:#b9c5cd;white-space:nowrap}
+#tsz-kz158 .kz158-day-value{font-size:clamp(12px,1.6vw,17px);font-weight:760;line-height:1.1;white-space:nowrap}
+#tsz-kz158 .kz158-day[data-empty="true"] .kz158-day-value{font-size:19px;color:#718897}
+#tsz-kz158 .kz158-day[data-empty="false"] .kz158-day-value{color:#f3cda6}
+#tsz-kz158 .kz158-day-caption{font-size:9px;color:#8ca3b1;line-height:1.25;text-align:center}
+#tsz-kz158 .kz158-actions{margin-top:21px}
+#tsz-kz158 .kz158-action-label{font-size:12px;color:#d3e0e8;display:block;margin-bottom:9px}
+#tsz-kz158 .kz158-options{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;direction:ltr}
+#tsz-kz158 .kz158-choice{border:1px solid rgba(204,225,233,.24);background:rgba(255,255,255,.04);color:#eaf1f2;border-radius:10px;min-height:44px;padding:8px 4px;cursor:pointer;font:inherit;font-size:13px;font-weight:680;white-space:normal}
+#tsz-kz158 .kz158-choice:hover{border-color:#e8b987}
+#tsz-kz158 .kz158-choice[aria-pressed="true"]{background:#e9bb8d;color:#152331;border-color:#e9bb8d}
+#tsz-kz158 .kz158-actions-bottom{display:flex;flex-wrap:wrap;gap:9px;margin-top:15px}
+#tsz-kz158 .kz158-secondary{background:transparent;border:1px solid rgba(225,231,233,.29);color:#dfe9eb;border-radius:9px;padding:9px 14px;font:inherit;font-size:12px;cursor:pointer}
+#tsz-kz158 .kz158-secondary:disabled{opacity:.35;cursor:not-allowed}
+#tsz-kz158 .kz158-right{display:flex;flex-direction:column;justify-content:space-between}
+#tsz-kz158 .kz158-meta{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:4px 0 16px}
+#tsz-kz158 .kz158-number{display:block;font-size:clamp(26px,3.3vw,39px);line-height:1.1;font-variant-numeric:tabular-nums;font-weight:750;letter-spacing:-.04em;color:#f6f8f5}
+#tsz-kz158 .kz158-sub{display:block;font-size:11px;color:#a9bac6;line-height:1.45;margin-top:7px}
+#tsz-kz158 .kz158-quiet{border:1px solid rgba(232,185,135,.25);background:rgba(232,185,135,.07);border-radius:12px;padding:11px 13px;color:#f4dfc8;font-size:12px;margin:10px 0 12px;min-height:56px}
+#tsz-kz158 .kz158-trace{display:flex;align-items:stretch;gap:12px;height:122px;margin:5px 0 0;direction:ltr}
+#tsz-kz158 .kz158-track{position:relative;width:19px;height:100%;border:1px solid rgba(232,185,135,.3);background:repeating-linear-gradient(to bottom,rgba(255,255,255,.055) 0,rgba(255,255,255,.055) 1px,transparent 1px,transparent 17px);border-radius:10px;overflow:hidden}
+#tsz-kz158 .kz158-fill{position:absolute;left:0;right:0;top:0;height:0;background:linear-gradient(#f2d0ab,#bd7845);border-radius:8px;transition:height .3s}
+#tsz-kz158 .kz158-trace-labels{display:flex;flex-direction:column;justify-content:space-between;font-size:11px;color:#aec0ca;padding:3px 0}
+#tsz-kz158 .kz158-trace-labels strong{color:#efcfab;font-size:14px}
+#tsz-kz158 .kz158-note{color:#a1b2bb;font-size:11px;line-height:1.65;margin:17px 0 0}
+#tsz-kz158[dir="rtl"] .kz158-head,#tsz-kz158[dir="rtl"] .kz158-columns{direction:rtl}
+#tsz-kz158[dir="rtl"] .kz158-trace{justify-content:flex-end}
+@media(max-width:760px){#tsz-kz158 .kz158-columns{grid-template-columns:1fr}#tsz-kz158 .kz158-day{min-height:82px}}
+@media(max-width:390px){#tsz-kz158{border-radius:14px;padding:12px;margin:18px 0}#tsz-kz158 .kz158-head{gap:8px}#tsz-kz158 h2{font-size:23px}#tsz-kz158 .kz158-lead{font-size:13px}#tsz-kz158 .kz158-card{padding:11px}#tsz-kz158 .kz158-week{gap:3px}#tsz-kz158 .kz158-day{border-radius:8px;min-height:76px;padding:5px 1px;gap:5px}#tsz-kz158 .kz158-day-name{font-size:10px}#tsz-kz158 .kz158-day-value{font-size:12px}#tsz-kz158 .kz158-day-caption{font-size:8px}#tsz-kz158 .kz158-options{gap:4px}#tsz-kz158 .kz158-choice{font-size:12px;padding:8px 2px}#tsz-kz158 .kz158-number{font-size:27px}}
+@media(prefers-reduced-motion:reduce){#tsz-kz158 *,#tsz-kz158 *::before,#tsz-kz158 *::after{transition:none!important}}
