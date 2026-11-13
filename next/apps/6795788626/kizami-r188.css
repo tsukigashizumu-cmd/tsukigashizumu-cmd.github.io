@@ -1,0 +1,60 @@
+/* R188 Kizami — isolated responsive CSS. All selectors scoped to #tsz-kizami-r188. */
+#tsz-kizami-r188{--kzm188-progress:100%;--kzm188-dark:#09201a;--kzm188-cream:#fff2d7;isolation:isolate;display:block;position:relative;box-sizing:border-box;overflow:hidden;color:var(--kzm188-cream);background:#081d18;font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:24px auto 36px;width:100%;max-width:1320px;border-radius:20px;border:1px solid rgba(244,202,142,.39);box-shadow:0 24px 70px #0005}
+#tsz-kizami-r188 *,#tsz-kizami-r188 *::before,#tsz-kizami-r188 *::after{box-sizing:border-box}
+#tsz-kizami-r188 button,#tsz-kizami-r188 a{font:inherit}
+#tsz-kizami-r188 .kzm188-inner{position:relative;background:radial-gradient(ellipse at 67% 8%,#32503870,transparent 35%),linear-gradient(150deg,#0b2b21,#081b17 58%,#050f12);padding:29px clamp(16px,3.2vw,46px) 30px}
+#tsz-kizami-r188 .kzm188-top{display:flex;align-items:center;gap:12px;border-bottom:1px solid #ae825a66;padding-bottom:16px;font-family:Georgia,serif;letter-spacing:.14em;font-size:13px;white-space:nowrap}
+#tsz-kizami-r188 .kzm188-top strong{font-size:clamp(19px,2.7vw,27px);color:#ffe9c9;letter-spacing:.16em}
+#tsz-kizami-r188 .kzm188-topline{height:20px;width:1px;background:#af895f}
+#tsz-kizami-r188 .kzm188-logo{font-size:35px;color:#d88e52;line-height:1}
+#tsz-kizami-r188 .kzm188-top>span:last-child{font-size:11px;color:#d1b998;overflow:hidden;text-overflow:ellipsis}
+#tsz-kizami-r188 .kzm188-head{max-width:100%;padding:22px 0 6px}
+#tsz-kizami-r188 .kzm188-head>p:first-child{font-size:11px;letter-spacing:.27em;font-weight:700;color:#edb879;text-transform:uppercase}
+#tsz-kizami-r188 .kzm188-head h2{font-family:Georgia,"Times New Roman",serif;font-size:clamp(32px,4vw,61px);line-height:1.07;letter-spacing:-.045em;font-style:italic;font-weight:700;max-width:860px;margin:10px 0 14px;color:#fff3e2;overflow-wrap:anywhere}
+#tsz-kizami-r188 .kzm188-head h2 em{color:#f3b56b;font-style:inherit;text-decoration:underline;text-decoration-color:#d4ab77;text-underline-offset:9px;text-decoration-thickness:2px}
+#tsz-kizami-r188 .kzm188-lede{font-family:Georgia,serif;font-size:clamp(16px,1.8vw,24px);font-style:italic;letter-spacing:.005em;color:#efe3ca;margin:0 0 7px}
+#tsz-kizami-r188 .kzm188-layout{display:grid;grid-template-columns:minmax(0,1.13fr) minmax(320px,.87fr);align-items:stretch;gap:clamp(12px,2.2vw,30px);margin-top:12px}
+#tsz-kizami-r188 .kzm188-earth{position:relative;overflow:hidden;min-width:0;min-height:470px;border:1px solid #88704b;border-radius:17px;background:linear-gradient(to bottom,#214032 0%,#0d2722 19.5%,#503b2b 19.7%,#3d3028 31%,#27352e 31.2%,#13443b 44%,#1b3738 45%,#744632 59%,#5a3e32 60%,#827456 74%,#73694d 75%,#47423f 88%,#212e2f 100%);box-shadow:inset 0 0 30px #0008}
+#tsz-kizami-r188 .kzm188-earth::before{content:"";position:absolute;inset:18% 0 0;pointer-events:none;background:repeating-linear-gradient(165deg,transparent 0 14px,#e8bf8540 15px 17px,transparent 20px 38px),repeating-linear-gradient(14deg,transparent 0 27px,#061d1c42 28px 29px,transparent 29px 60px);mix-blend-mode:screen;opacity:.37}
+#tsz-kizami-r188 .kzm188-reading{position:absolute;z-index:2;top:0;height:23%;inset-inline:0;background:radial-gradient(ellipse at 53% 38%,#f5d2966a,transparent 53%),linear-gradient(#223c31,#172c22);display:grid;place-items:center;color:#ffdc91}
+#tsz-kizami-r188 .kzm188-reading span{font-size:60px;text-shadow:0 0 35px #eebe7d;line-height:1}
+#tsz-kizami-r188 .kzm188-book{position:absolute;bottom:13%;inset-inline-start:calc(50% - 19px);font-size:20px;color:#fff0bf;transform:skew(-14deg);text-shadow:0 3px 8px #000}
+#tsz-kizami-r188 .kzm188-ground{position:absolute;top:22.5%;inset-inline:0;height:3px;background:linear-gradient(90deg,transparent,#edc593,transparent);box-shadow:0 0 15px #d5aa56}
+#tsz-kizami-r188 .kzm188-strata{position:absolute;inset:22% 0 2%;z-index:1;display:flex;flex-direction:column;justify-content:space-around;padding:9px 22px;pointer-events:none;}
+#tsz-kizami-r188 .kzm188-strata span{font-size:11px;letter-spacing:.20em;text-transform:uppercase;font-weight:700;text-shadow:0 1px 6px #001b16;color:#f2dfb8d9}
+#tsz-kizami-r188 .kzm188-strata span:nth-child(even){text-align:end}
+#tsz-kizami-r188 .kzm188-shaftbase{position:absolute;z-index:3;top:23%;bottom:4%;left:50%;width:13px;transform:translateX(-50%);border:1px solid #b57836;border-radius:8px;background:#070f0f80;box-shadow:0 0 3px #ffe2995c}
+#tsz-kizami-r188 .kzm188-shaft{position:absolute;inset-inline:0;top:0;height:var(--kzm188-progress);border-radius:8px;transition:height 550ms cubic-bezier(.15,.7,.25,1);background:linear-gradient(90deg,#f8a246,#fff8ce,#f4a64c);box-shadow:0 0 18px 6px #ffe1a89c,0 0 45px 15px #f7a7545c}
+#tsz-kizami-r188 .kzm188-marker{position:absolute;z-index:4;top:calc(23% + (73% * var(--kzm188-progress) / 100));display:none}
+#tsz-kizami-r188 .kzm188-card{min-width:0;padding:clamp(18px,2.1vw,30px);border:2px solid #d2ad7c;border-radius:20px;color:#1c2b24;background:linear-gradient(155deg,#fffaf0,#f9ebd4 65%,#eddbc0);box-shadow:0 14px 30px #0009,inset 0 0 25px #be965925;align-self:center}
+#tsz-kizami-r188 .kzm188-card-title{display:flex;align-items:center;gap:10px;border-bottom:1px solid #b89f7a;padding-bottom:13px;margin-bottom:17px}
+#tsz-kizami-r188 .kzm188-card-title>span{font-size:29px;color:#9f6a3d}
+#tsz-kizami-r188 .kzm188-card h3{font:italic bold clamp(21px,2.3vw,30px) Georgia,serif;margin:0;color:#2e2a21}
+#tsz-kizami-r188 .kzm188-options{display:grid;gap:11px}
+#tsz-kizami-r188 .kzm188-option{width:100%;min-width:0;min-height:63px;display:grid;grid-template-columns:36px minmax(0,1fr) auto 26px;gap:9px;align-items:center;text-align:start;border:1px solid #d0b38a;color:#263b32;border-radius:100px;padding:10px 15px;background:#fffaf19c;cursor:pointer;box-shadow:0 3px 9px #ab8f6222;transition:background 180ms,border 180ms,transform 180ms}
+#tsz-kizami-r188 .kzm188-option:hover{transform:translateY(-1px);border-color:#a77846}
+#tsz-kizami-r188 .kzm188-option[aria-pressed="true"]{background:linear-gradient(120deg,#ffdfa5,#fff3d6);border-color:#bb8a4e;box-shadow:0 0 0 2px #cba56e33,0 4px 14px #be995b28}
+#tsz-kizami-r188 .kzm188-option:focus-visible,#tsz-kizami-r188 .kzm188-reset:focus-visible,#tsz-kizami-r188 .kzm188-store:focus-visible{outline:3px solid #17c7b0;outline-offset:3px}
+#tsz-kizami-r188 .kzm188-picto{display:grid;place-items:center;font-size:28px;font-family:Georgia,serif;color:#8a6745}
+#tsz-kizami-r188 .kzm188-opt-label{font-size:clamp(15px,1.4vw,19px);font-weight:700;overflow-wrap:anywhere}
+#tsz-kizami-r188 .kzm188-option strong{white-space:nowrap;font-size:16px;font-variant-numeric:tabular-nums}
+#tsz-kizami-r188 .kzm188-option small{font-size:11px}
+#tsz-kizami-r188 .kzm188-check{display:grid;place-items:center;border-radius:50%;border:1px solid #a68056;width:25px;height:25px;font-size:15px}
+#tsz-kizami-r188 .kzm188-option[aria-pressed="true"] .kzm188-check{background:#6b4a2b;color:white;border-color:#6b4a2b}
+#tsz-kizami-r188 .kzm188-summary{display:flex;align-items:baseline;justify-content:center;gap:11px;min-height:98px;margin-top:18px;border-radius:13px;padding:10px;color:#fcd998;background:linear-gradient(120deg,#25190e,#4c2f15 52%,#2b1e11);border:2px solid #c18b4a;box-shadow:inset 0 0 20px #b7762633;text-align:center}
+#tsz-kizami-r188 .kzm188-summary output{font:italic bold clamp(48px,5vw,66px) Georgia,serif;font-variant-numeric:tabular-nums;line-height:1.1}
+#tsz-kizami-r188 .kzm188-summary span{font:italic 17px Georgia,serif}
+#tsz-kizami-r188 .kzm188-card-small{color:#675e4d;font-size:13px;line-height:1.5;margin:13px 0}
+#tsz-kizami-r188 .kzm188-reset{display:block;margin:auto;border:0;border-bottom:1px solid currentColor;background:transparent;padding:5px 7px;cursor:pointer;color:#6a4929;font-size:13px;font-weight:650}
+#tsz-kizami-r188 .kzm188-bottom{text-align:center;display:grid;justify-items:center;gap:13px;padding-top:23px}
+#tsz-kizami-r188 .kzm188-bottom>p:first-child{font:italic 19px Georgia,serif;margin:0}
+#tsz-kizami-r188 .kzm188-store{display:inline-block;text-decoration:none;border-radius:100px;color:#221a13;background:linear-gradient(120deg,#ffe49e,#ffbe66,#fff1bc);font-weight:750;padding:17px 28px;box-shadow:0 5px 25px #e8a45f50;max-width:100%}
+#tsz-kizami-r188 .kzm188-note{font-size:11px;color:#dfc9a7;max-width:700px;margin:0;line-height:1.5}
+#tsz-kizami-r188[dir="rtl"] .kzm188-option{text-align:start}
+#tsz-kizami-r188[dir="rtl"] .kzm188-opt-label{text-align:start}
+@media(max-width:840px){#tsz-kizami-r188 .kzm188-layout{grid-template-columns:minmax(0,1fr)}#tsz-kizami-r188 .kzm188-earth{min-height:320px}#tsz-kizami-r188 .kzm188-card{margin-top:-40px;z-index:5;position:relative;max-width:580px;width:calc(100% - 22px);justify-self:center}#tsz-kizami-r188 .kzm188-head h2{max-width:670px}}
+@media(max-width:420px){#tsz-kizami-r188{margin:14px 0 25px;border-radius:14px}#tsz-kizami-r188 .kzm188-inner{padding:14px 12px 19px}#tsz-kizami-r188 .kzm188-top{gap:7px;padding-bottom:10px}#tsz-kizami-r188 .kzm188-top strong{font-size:19px}#tsz-kizami-r188 .kzm188-topline{display:none}#tsz-kizami-r188 .kzm188-top>span:last-child{font-size:9px}#tsz-kizami-r188 .kzm188-head{padding-top:17px}#tsz-kizami-r188 .kzm188-head h2{font-size:clamp(27px,8vw,36px);line-height:1.11}#tsz-kizami-r188 .kzm188-lede{font-size:16px}#tsz-kizami-r188 .kzm188-earth{min-height:280px}#tsz-kizami-r188 .kzm188-strata{padding:7px 11px}#tsz-kizami-r188 .kzm188-strata span{font-size:8px;letter-spacing:.06em}#tsz-kizami-r188 .kzm188-card{padding:15px 13px;width:calc(100% - 10px);margin-top:-23px}#tsz-kizami-r188 .kzm188-card h3{font-size:21px}#tsz-kizami-r188 .kzm188-card-title{margin-bottom:12px}#tsz-kizami-r188 .kzm188-option{padding:8px;grid-template-columns:25px minmax(0,1fr) auto 23px;min-height:55px;gap:6px}#tsz-kizami-r188 .kzm188-picto{font-size:21px}#tsz-kizami-r188 .kzm188-opt-label{font-size:15px}#tsz-kizami-r188 .kzm188-option strong{font-size:13px}#tsz-kizami-r188 .kzm188-summary{min-height:80px}#tsz-kizami-r188 .kzm188-summary output{font-size:48px}#tsz-kizami-r188 .kzm188-summary span{font-size:13px}#tsz-kizami-r188 .kzm188-bottom{padding-top:16px}#tsz-kizami-r188 .kzm188-bottom>p:first-child{font-size:16px}}
+@media(prefers-reduced-motion:reduce){#tsz-kizami-r188 .kzm188-shaft,#tsz-kizami-r188 .kzm188-option{transition:none}}
+/* Japanese mobile typography: preserve the semantic break between clauses. */
+#tsz-kizami-r188[lang="ja"] .kzm188-head h2 span,#tsz-kizami-r188[lang="ja"] .kzm188-head h2 em{display:block}
+@media(max-width:420px){#tsz-kizami-r188[lang="ja"] .kzm188-head h2 em{font-size:clamp(24px,6.8vw,30px);letter-spacing:-.065em}}
