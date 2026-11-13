@@ -1,0 +1,69 @@
+/* IkmahLog R184: responsive, CSS-only vehicle/garage scene; no images/video/fonts. */
+body[data-p199-id="6808427228"] .ik184,body[data-p199-id="6808427228"] .ik184 *{box-sizing:border-box}
+body[data-p199-id="6808427228"] .ik184{position:relative;isolation:isolate;width:calc(100% - 24px);max-width:1230px;margin:22px auto 34px;color:#fff8ef!important;text-align:start;direction:ltr;overflow:hidden;border:1px solid #6d8588;border-radius:22px;background:#101a1e;box-shadow:0 25px 70px rgba(3,13,21,.28);font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+.ik184 :where(h2,p,small,div,span,label,input,button,output,em,strong){box-sizing:border-box;max-width:none;min-width:0}
+.ik184 :where(h2,p){margin:0!important;padding:0;color:inherit}
+.ik184 .ik184-top{height:64px;padding:9px 38px;display:flex;align-items:center;gap:18px;border-bottom:1px solid rgba(243,182,114,.72);position:relative;z-index:5;background:rgba(11,20,25,.92)}
+.ik184 .ik184-brand{display:inline-flex;align-items:center;gap:12px;font:700 clamp(25px,3.3vw,38px)/1 Georgia,"Times New Roman",serif;letter-spacing:-.035em;color:#f9ecdc}
+.ik184 .ik184-top-sub{font:italic 17px Georgia,serif;color:#e8d8be;border-left:1px solid #c79a64;padding-left:18px}
+.ik184 .ik184-gauge{width:45px;height:27px;display:inline-block;position:relative;border:3px solid #7fdbc9;border-bottom:0;border-radius:46px 46px 0 0}
+.ik184 .ik184-gauge:before{content:"";position:absolute;left:50%;bottom:-1px;width:2px;height:21px;background:#ffca88;transform-origin:bottom;transform:rotate(36deg)}
+.ik184 .ik184-gauge span{position:absolute;bottom:0;left:40%;width:9px;height:9px;border-radius:50%;background:#a6f4da}
+.ik184 .ik184-scene{position:absolute;inset:64px 0 0;height:390px;z-index:0;overflow:hidden;pointer-events:none;background:radial-gradient(ellipse at 66% 12%,rgba(180,159,125,.25),transparent 35%),linear-gradient(180deg,#252d2e 0,#182529 68%,#09181b 100%)}
+.ik184 .ik184-scene:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 145px,rgba(227,203,169,.14) 146px 148px,transparent 149px 290px),linear-gradient(150deg,rgba(249,211,160,.11),transparent 30%);opacity:.7}
+.ik184 .ik184-scene:after{content:"";position:absolute;bottom:0;left:0;right:0;height:33%;background:linear-gradient(0deg,#091517,transparent),repeating-linear-gradient(0deg,rgba(160,181,180,.07) 0 1px,transparent 1px 30px)}
+.ik184 .ik184-garage{position:absolute;top:20%;right:3%;width:50%;height:68%;filter:drop-shadow(0 17px 16px #060f10)}
+.ik184 .ik184-car{position:absolute;right:5%;bottom:15%;width:92%;height:32%;border-radius:48% 35% 16% 14% / 58% 51% 22% 24%;background:linear-gradient(180deg,#738785 0,#3b5257 34%,#111f2a 67%,#18282b 87%,#0c1417 100%);border:2px solid #98aba7;box-shadow:inset 0 -10px 0 #101b20,inset 0 9px 12px rgba(223,242,235,.13)}
+.ik184 .ik184-car:before{content:"";position:absolute;right:-7px;top:49%;width:37px;height:13px;border-radius:17px;background:linear-gradient(90deg,#aac3ca,#f7ead3);box-shadow:0 0 16px #c6c6a6}
+.ik184 .ik184-car:after{content:"";position:absolute;left:2%;top:45%;width:19px;height:13px;border-radius:6px;background:#ca6443;box-shadow:0 0 15px #ca6443}
+.ik184 .ik184-roof{position:absolute;left:19%;top:-65%;width:59%;height:99%;border-radius:70% 55% 4px 4px;background:linear-gradient(140deg,#516b73,#1e363e 60%,#142a36);transform:skewX(-13deg);border:2px solid #8ea1a2}
+.ik184 .ik184-window{position:absolute;left:31%;top:-46%;height:48%;width:36%;border-radius:45% 18% 0 0;background:linear-gradient(145deg,#0e242c,#48616a 80%);transform:skewX(-13deg);border:1px solid #8196a0}
+.ik184 .ik184-wheel{position:absolute;bottom:-16px;width:52px;height:52px;border:10px solid #060a0d;background:radial-gradient(circle,#768183 0 23%,#171c20 24% 60%,#4a555c 62%);border-radius:50%;box-shadow:0 0 0 2px #5a696e}
+.ik184 .ik184-wheel-a{left:18%}.ik184 .ik184-wheel-b{right:13%}
+.ik184 .ik184-content{position:relative;z-index:2;padding:25px 38px 27px;background:linear-gradient(180deg,transparent 0 24%,rgba(10,23,27,.43) 32%,#101d20 80%)}
+.ik184 .ik184-copy{min-height:285px;max-width:725px;padding-top:6px;position:relative;z-index:1}
+.ik184 .ik184-eyebrow{font-size:10px;letter-spacing:.2em;font-weight:700;color:#87e4d4;margin-bottom:10px!important}
+.ik184 h2{font:italic 700 clamp(43px,5.6vw,80px)/.99 Georgia,"Times New Roman",serif;letter-spacing:-.052em;text-wrap:balance;color:#f9eedf!important;margin-bottom:17px!important}
+.ik184 h2 span,.ik184 h2 em{display:block}.ik184 h2 em{color:#93e9dc;font-style:italic}
+.ik184 .ik184-tagline{font:italic clamp(16px,2vw,23px)/1.3 Georgia,serif;color:#e4ded5}
+.ik184 .ik184-dashboard{background:linear-gradient(165deg,#fcf5e8,#e6dbcb 82%);padding:19px 19px 16px;border-radius:22px;color:#132b32;border:1px solid #fff9f0;box-shadow:0 18px 44px rgba(0,0,0,.42)}
+.ik184 .ik184-overview{display:grid;grid-template-columns:1fr 1fr minmax(0,1.05fr);gap:11px;align-items:stretch}
+.ik184 .ik184-stat{display:flex;flex-direction:column;align-items:start;justify-content:center;padding:11px 9px;border-right:1px solid #d0bfa8;gap:11px}
+.ik184 .ik184-stat small{display:block;color:#38424c;line-height:1.18;letter-spacing:.03em;font-size:clamp(10px,1.5vw,13px);font-weight:800;text-transform:uppercase}
+.ik184 .ik184-stat output{color:#152b30;font:700 clamp(21px,3.4vw,42px)/1.08 Georgia,serif;white-space:nowrap;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.ik184 .ik184-result{padding:12px 7px;border-radius:16px;background:linear-gradient(140deg,#11a395,#075e69);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center;box-shadow:inset 0 1px rgba(255,255,255,.45)}
+.ik184 .ik184-result output{color:#fff;font:italic 750 clamp(24px,3.7vw,50px)/1 Georgia,serif;letter-spacing:-.035em;white-space:nowrap;font-variant-numeric:tabular-nums}
+.ik184 .ik184-result span{font-size:12px;font-weight:800;letter-spacing:.15em}
+.ik184 .ik184-result.ik184-due{background:linear-gradient(145deg,#a67029,#b57f2f)}
+.ik184 .ik184-result.ik184-overdue{background:linear-gradient(145deg,#b35a36,#9b2c27)}
+.ik184 .ik184-trackarea{margin:17px 5px 8px}
+.ik184 .ik184-track{height:14px;border-radius:50px;overflow:hidden;background:#d3cac0;position:relative;border:1px solid #afb2af}
+.ik184 .ik184-track>div{height:100%;width:45%;border-radius:50px;background:linear-gradient(90deg,#04b1a4,#0f797f);transition:width .18s ease}
+.ik184 .ik184-tracklabels{display:flex;justify-content:space-between;gap:15px;margin-top:8px;font:700 12px system-ui;color:#3f4a4b}
+.ik184 .ik184-record{border-top:1px solid #d1beae;margin:15px 4px;padding-top:13px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.ik184 .ik184-record>div{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:13px;color:#354d56}
+.ik184 .ik184-record strong{font-size:16px;color:#12383a;white-space:nowrap}
+.ik184 .ik184-icon{font-size:22px;color:#007d79}.ik184 .ik184-service{font-weight:700}
+.ik184 .ik184-record p{font:italic 15px/1.3 Georgia,serif;max-width:300px;text-align:end;color:#394953}
+.ik184 .ik184-editor{margin-top:13px;border-top:1px solid #d0bc9f;padding-top:12px}
+.ik184 .ik184-editor-title{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
+.ik184 .ik184-editor-title strong{font-size:12px;letter-spacing:.12em;color:#344c4d}
+.ik184 .ik184-editor button{cursor:pointer;border:1px solid #668e87;background:transparent;border-radius:9px;padding:7px 10px;font:700 12px system-ui;color:#15524f}
+.ik184 .ik184-editor button:hover{background:#d9f4e9}
+.ik184 .ik184-inputs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.ik184 .ik184-inputs label{display:flex;flex-direction:column;gap:6px;color:#324a4d;font:700 11px/1.25 system-ui}
+.ik184 .ik184-inputs input{width:100%;height:43px;padding:7px 10px;border-radius:10px;border:1px solid #8aa8a4;background:#fffdf7;color:#142a30;box-shadow:none;font:700 clamp(17px,2vw,23px)/1 system-ui;direction:ltr;text-align:center;font-variant-numeric:tabular-nums}
+.ik184 .ik184-inputs input[aria-invalid="true"]{border:2px solid #b64534;background:#fff0ea}
+.ik184 .ik184-err{margin:9px 0 0!important;color:#a6362e!important;font-size:12px;font-weight:800}
+.ik184 .ik184-err[hidden]{display:none!important}.ik184 .ik184-detail{font-size:10px;margin-top:9px!important;color:#6d6a64!important}
+.ik184 .ik184-store{margin:20px auto 18px;display:flex;align-items:center;justify-content:center;gap:14px;max-width:450px;min-height:58px;border-radius:50px;padding:10px 18px;border:1px solid #ddfff5;background:linear-gradient(135deg,#b3fff0,#44bea9);box-shadow:0 8px 22px rgba(17,155,145,.2);text-decoration:none!important;color:#0c292c!important;font:800 clamp(14px,2vw,18px)/1.2 system-ui}
+.ik184 .ik184-store:hover{filter:brightness(1.05)}.ik184 .ik184-apple{font-size:21px;color:#092a2d}
+.ik184 .ik184-features{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:11px 30px;font:italic 17px/1.2 Georgia,serif;color:#f4ecdd;margin:5px auto 13px}
+.ik184 .ik184-features>span+span{border-left:1px solid #ad8d69;padding-left:25px}
+.ik184 .ik184-note{text-align:center!important;color:#cfcbc0!important;font:italic 11px/1.4 Georgia,serif}
+.ik184 a:focus-visible,.ik184 button:focus-visible,.ik184 input:focus-visible{outline:3px solid #e2bd71;outline-offset:3px}
+.ik184[dir="rtl"]{text-align:right}.ik184[dir="rtl"] .ik184-overview{direction:rtl}.ik184[dir="rtl"] .ik184-stat{border-left:1px solid #d0bfa8;border-right:0}.ik184[dir="rtl"] .ik184-trackarea{direction:ltr}.ik184[dir="rtl"] .ik184-scene{transform:scaleX(-1)}.ik184[dir="rtl"] .ik184-top-sub{border-left:0;border-right:1px solid #c79a64;padding-left:0;padding-right:18px}
+@media(max-width:860px){.ik184 .ik184-top{padding:10px 22px}.ik184 .ik184-content{padding:25px 20px}.ik184 .ik184-copy{min-height:255px}.ik184 .ik184-garage{width:63%;right:0}.ik184 .ik184-dashboard{padding:15px}.ik184 .ik184-record{display:block}.ik184 .ik184-record p{margin-top:8px!important;max-width:none;text-align:start}}
+@media(max-width:530px){body[data-p199-id="6808427228"] .ik184{width:calc(100% - 16px);border-radius:17px;margin:14px auto 24px}.ik184 .ik184-top{height:56px;padding:7px 14px}.ik184 .ik184-brand{font-size:25px}.ik184 .ik184-top-sub{font-size:12px;padding-left:8px}.ik184 .ik184-gauge{width:33px;height:20px;border-width:2px}.ik184 .ik184-gauge:before{height:15px}.ik184 .ik184-scene{inset:56px 0 0;height:330px}.ik184 .ik184-garage{top:38%;width:80%;right:-4%;height:46%;opacity:.9}.ik184 .ik184-wheel{width:29px;height:29px;border-width:5px;bottom:-8px}.ik184 .ik184-content{padding:15px 12px 18px}.ik184 .ik184-copy{min-height:256px;padding:3px 5px}.ik184 h2{font-size:clamp(30px,9vw,43px);line-height:1.08;margin-bottom:11px!important}.ik184 .ik184-tagline{font-size:15px;max-width:280px}.ik184 .ik184-eyebrow{font-size:9px;letter-spacing:.12em}.ik184 .ik184-dashboard{padding:11px 9px 13px;border-radius:17px}.ik184 .ik184-overview{grid-template-columns:1fr 1fr;gap:5px}.ik184 .ik184-stat{padding:8px 5px;min-height:78px;gap:8px}.ik184 .ik184-stat small{font-size:9px}.ik184 .ik184-stat output{font-size:clamp(19px,5.9vw,26px)}.ik184 .ik184-result{grid-column:1/-1;min-height:70px;flex-direction:row;gap:12px}.ik184 .ik184-result output{font-size:clamp(32px,9vw,43px)}.ik184 .ik184-result span{font-size:11px}.ik184 .ik184-trackarea{margin:13px 4px 7px}.ik184 .ik184-tracklabels{font-size:11px}.ik184 .ik184-record{margin-top:10px;padding-top:10px}.ik184 .ik184-record>div{gap:7px;font-size:11px}.ik184 .ik184-record strong{font-size:14px}.ik184 .ik184-record p{font-size:12px}.ik184 .ik184-inputs{gap:6px}.ik184 .ik184-inputs label{font-size:9px;gap:5px}.ik184 .ik184-inputs input{height:40px;padding:4px 2px;font-size:16px}.ik184 .ik184-editor-title strong{font-size:10px}.ik184 .ik184-editor button{font-size:10px}.ik184 .ik184-store{min-height:49px;margin:14px auto;font-size:14px;gap:9px}.ik184 .ik184-features{font-size:13px;gap:6px 13px}.ik184 .ik184-features>span+span{padding-left:10px}.ik184 .ik184-note{font-size:10px}}
+@media(max-width:340px){.ik184 .ik184-content{padding:13px 8px 16px}.ik184 .ik184-dashboard{padding:10px 7px}.ik184 .ik184-stat output{font-size:18px}.ik184 .ik184-stat small{font-size:8px}.ik184 .ik184-inputs input{font-size:14px}.ik184 .ik184-top-sub{display:none}.ik184 .ik184-features{font-size:12px}.ik184 .ik184-record>div{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.ik184 *, .ik184 *:before,.ik184 *:after{animation:none!important;transition:none!important}}
