@@ -1,0 +1,62 @@
+/* R174 Buy or Wait: CSS scoped to web-only illustrative interactive hero. No images, fonts or external dependencies. */
+#tsz-buy-or-wait-r174{--bw-orange:#ff791e;--bw-ice:#bedcff;--bw-plum:#1d102b;position:relative;isolation:isolate;box-sizing:border-box;overflow:hidden;color:#faf7ff;width:min(calc(100% - 20px),1400px);margin:20px auto 42px;border:1px solid #b894e088;border-radius:23px;padding:clamp(20px,3.1vw,43px);background:radial-gradient(ellipse 76% 52% at 91% 40%,#6b338266 0%,transparent 70%),radial-gradient(ellipse 70% 50% at 8% 110%,#702e525c 0%,transparent 80%),linear-gradient(125deg,#110d1d,#22132e 55%,#0b0b19);box-shadow:0 23px 65px #0006;font:15px/1.45 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;text-align:start}
+#tsz-buy-or-wait-r174 *{box-sizing:border-box}
+#tsz-buy-or-wait-r174::before,#tsz-buy-or-wait-r174::after{content:"";position:absolute;width:72%;height:280px;border-radius:50%;pointer-events:none;transform:rotate(-18deg);border-top:3px solid #aa7af3a0;filter:drop-shadow(0 6px 18px #9d5afb90)}
+#tsz-buy-or-wait-r174::before{right:-19%;top:35%}#tsz-buy-or-wait-r174::after{left:-25%;bottom:-230px;transform:rotate(-12deg);border-color:#fc9a9c88}
+#tsz-buy-or-wait-r174 .bw174-header{display:flex;align-items:center;justify-content:space-between;gap:16px;position:relative;z-index:3;padding:0 0 18px;border-bottom:1px solid #e6cfff55}
+#tsz-buy-or-wait-r174 .bw174-brand{display:flex;gap:12px;align-items:center;min-width:0}
+#tsz-buy-or-wait-r174 .bw174-brand strong{display:block;font:700 clamp(15px,2vw,24px)/1.05 Georgia,'Times New Roman',serif;letter-spacing:.1em;color:#fff}
+#tsz-buy-or-wait-r174 .bw174-brand small{display:block;color:#d4c0f7;letter-spacing:.12em;font-size:11px;margin-top:4px}
+#tsz-buy-or-wait-r174 .bw174-mark{color:var(--bw-orange);font-size:clamp(25px,3.6vw,46px);line-height:1}
+#tsz-buy-or-wait-r174 .bw174-nav{font-size:13px;text-decoration:none;border-bottom:1px solid #d8b9ea9c;color:#e8ddfa;white-space:nowrap}
+#tsz-buy-or-wait-r174 .bw174-layout{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);align-items:center;gap:clamp(20px,3vw,46px);min-height:490px;padding:35px 0 24px}
+#tsz-buy-or-wait-r174 .bw174-copy{min-width:0}#tsz-buy-or-wait-r174 .bw174-overline{font-size:11px;letter-spacing:.21em;font-weight:800;color:#c9aafb;margin:0 0 21px}
+#tsz-buy-or-wait-r174 h2{font:700 clamp(36px,5.2vw,73px)/1.02 Georgia,'Times New Roman',serif;letter-spacing:-.045em;margin:0;color:#fff;max-width:660px;overflow-wrap:normal}
+#tsz-buy-or-wait-r174 h2 em{font-weight:500;font-style:italic;color:var(--bw-orange);white-space:normal}
+#tsz-buy-or-wait-r174 h2 em.bw174-day-em{color:var(--bw-ice)}
+#tsz-buy-or-wait-r174 .bw174-lead{font:italic clamp(17px,1.9vw,23px)/1.43 Georgia,serif;color:#ece3fa;margin:24px 0 31px;max-width:510px}
+#tsz-buy-or-wait-r174 .bw174-cta{display:inline-flex;max-width:100%;align-items:center;gap:13px;justify-content:center;min-height:55px;border-radius:999px;text-decoration:none;padding:12px 22px;color:#fff!important;background:linear-gradient(180deg,#ff9b3c 0%,#ee5502 100%);border:1px solid #ffca81;box-shadow:0 11px 28px #b43e1459,inset 0 1px #fff6;font-weight:800;text-align:center;font-size:clamp(13px,1.55vw,17px)}
+#tsz-buy-or-wait-r174 .bw174-cta span:first-child{font-size:22px;line-height:1}
+#tsz-buy-or-wait-r174 .bw174-right{position:relative;min-width:0;padding-top:105px}#tsz-buy-or-wait-r174 .bw174-hourglass{position:absolute;z-index:0;right:7%;top:-45px;width:178px;height:175px;border-radius:35% 35% 48% 48%;filter:drop-shadow(0 0 26px #b289ff44)}
+#tsz-buy-or-wait-r174 .bw174-hourglass::before{content:"";position:absolute;inset:0;border:12px solid #ba93e1a8;clip-path:polygon(0 0,100% 0,100% 15%,62% 50%,100% 85%,100% 100%,0 100%,0 85%,38% 50%,0 15%);border-radius:25px;background:linear-gradient(115deg,#f5d1ff33,transparent,#d8b4ff1a)}
+#tsz-buy-or-wait-r174 .bw174-sand{position:absolute;left:24%;width:52%;height:26%;background:linear-gradient(#ffc189,#ffa769);opacity:.87;clip-path:polygon(0 100%,50% 0,100% 100%)}
+#tsz-buy-or-wait-r174 .bw174-sand-up{top:16%;transform:rotate(180deg)}#tsz-buy-or-wait-r174 .bw174-sand-down{bottom:14%}
+#tsz-buy-or-wait-r174 .bw174-card{position:relative;z-index:2;padding:clamp(14px,2.3vw,30px);border-radius:24px;background:linear-gradient(145deg,#faf5ff,#f4e5f9);border:1px solid #fff;box-shadow:0 20px 50px #0008;color:#201434}
+#tsz-buy-or-wait-r174 .bw174-tiles{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0}
+#tsz-buy-or-wait-r174 .bw174-tiles label{display:flex;min-width:0;flex-direction:column;justify-content:space-between;gap:10px;padding:0 13px;cursor:text}
+#tsz-buy-or-wait-r174 .bw174-tiles label:first-child{padding-inline-start:0}
+#tsz-buy-or-wait-r174 .bw174-tiles label:not(:first-child){border-inline-start:1px solid #5d447764}
+#tsz-buy-or-wait-r174 .bw174-tiles label>span:first-child{font-weight:800;color:#35224b;font-size:clamp(11px,1.15vw,14px);line-height:1.25;min-height:30px}
+#tsz-buy-or-wait-r174 .bw174-value{display:flex;align-items:center;gap:2px;min-width:0;direction:ltr}
+#tsz-buy-or-wait-r174 .bw174-value b{font:700 clamp(19px,2.5vw,31px)/1 Georgia,serif}
+#tsz-buy-or-wait-r174 .bw174-value input{font:700 clamp(19px,2.5vw,31px)/1.2 Georgia,serif;min-width:0;width:100%;border:1px solid transparent;border-radius:8px;padding:4px 2px;color:#24123a;background:transparent;box-shadow:none;appearance:textfield}
+#tsz-buy-or-wait-r174 .bw174-value input::-webkit-outer-spin-button,#tsz-buy-or-wait-r174 .bw174-value input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+#tsz-buy-or-wait-r174 .bw174-value input:focus{outline:2px solid #7c44ff;background:#fff}
+#tsz-buy-or-wait-r174 .bw174-value input[aria-invalid=true]{outline:2px solid #c83f37;background:#fff3ef}
+#tsz-buy-or-wait-r174 .bw174-day-value{display:flex;align-items:baseline;gap:5px;white-space:nowrap;font-family:Georgia,serif}
+#tsz-buy-or-wait-r174 .bw174-day-value strong{font-size:clamp(20px,2.7vw,35px);line-height:1.1}
+#tsz-buy-or-wait-r174 .bw174-day-value small{font-size:clamp(11px,1.25vw,14px)}
+#tsz-buy-or-wait-r174 .bw174-slider{padding:30px 0 16px}#tsz-buy-or-wait-r174 .bw174-slider input{width:100%;height:9px;appearance:none;-webkit-appearance:none;cursor:pointer;border-radius:99px;border:0;outline-offset:6px;background:linear-gradient(to right,#8d44ff var(--bw174-pct,45%),#d8ccde var(--bw174-pct,45%))}
+#tsz-buy-or-wait-r174 .bw174-slider input::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:#fff;border:3px solid #783df4;box-shadow:0 2px 8px #301d4644}
+#tsz-buy-or-wait-r174 .bw174-slider input::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid #783df4}
+#tsz-buy-or-wait-r174 .bw174-range-label{display:flex;justify-content:space-between;gap:8px;margin-top:11px;font-size:12px;color:#493562}
+#tsz-buy-or-wait-r174 .bw174-range-label strong{color:#5422cf;font-size:15px}
+#tsz-buy-or-wait-r174 .bw174-result{display:flex;align-items:center;gap:10px;border-radius:17px;border:1px solid #ffdccf;background:linear-gradient(125deg,#ffede4,#ffe0d3);padding:15px 16px;box-shadow:0 8px 20px #b5683822}
+#tsz-buy-or-wait-r174 .bw174-result .bw174-tag{color:#eb5919;font-size:29px;line-height:1}
+#tsz-buy-or-wait-r174 .bw174-result strong{font-size:clamp(12px,1.4vw,18px);line-height:1.15;color:#45244b;min-width:0}
+#tsz-buy-or-wait-r174 .bw174-result output{margin-inline-start:auto;font:700 clamp(26px,3.3vw,47px)/1 Georgia,serif;color:#f45b19;white-space:nowrap}
+#tsz-buy-or-wait-r174 #bw174-note{font:italic 14px Georgia,serif;color:#5a4268;text-align:center;margin:13px 0 5px}
+#tsz-buy-or-wait-r174 .bw174-error{color:#a72c20;font-size:12px;min-height:0;margin:5px 0;text-align:center}
+#tsz-buy-or-wait-r174 #bw174-reset{display:block;margin:10px auto 0;padding:6px 10px;border:1px solid #aa8cbb;border-radius:8px;background:transparent;color:#4b2d62;font:600 12px system-ui;cursor:pointer}
+#tsz-buy-or-wait-r174 .bw174-footer{position:relative;z-index:2;text-align:center;border-top:1px solid #b2a2d455;padding:22px 0 0}
+#tsz-buy-or-wait-r174 .bw174-footer strong{font:italic clamp(17px,2vw,22px) Georgia,serif;color:#f0d7ff}
+#tsz-buy-or-wait-r174 .bw174-footer p{font-size:12px;color:#cfc0dd;max-width:900px;margin:8px auto 0}
+#tsz-buy-or-wait-r174[dir=rtl] .bw174-tiles label:first-child{padding-inline-start:0}
+#tsz-buy-or-wait-r174[dir=rtl] .bw174-sand{left:24%}
+@media(max-width:850px){#tsz-buy-or-wait-r174 .bw174-layout{grid-template-columns:1fr;gap:15px;padding-top:30px}#tsz-buy-or-wait-r174 .bw174-right{padding-top:50px}#tsz-buy-or-wait-r174 .bw174-hourglass{top:-70px;right:5%;width:110px;height:110px;opacity:.55}#tsz-buy-or-wait-r174 h2{font-size:clamp(33px,7vw,52px)}#tsz-buy-or-wait-r174 .bw174-lead{margin:15px 0 20px}#tsz-buy-or-wait-r174 .bw174-card{max-width:680px;margin:auto}}
+@media(max-width:430px){#tsz-buy-or-wait-r174{width:calc(100% - 12px);border-radius:18px;padding:15px 13px;margin:12px auto 26px}#tsz-buy-or-wait-r174 .bw174-header{padding-bottom:13px}#tsz-buy-or-wait-r174 .bw174-brand{gap:8px}#tsz-buy-or-wait-r174 .bw174-brand strong{font-size:16px;letter-spacing:.045em}#tsz-buy-or-wait-r174 .bw174-brand small{font-size:10px;letter-spacing:0}#tsz-buy-or-wait-r174 .bw174-nav{font-size:10px;white-space:normal;text-align:end}#tsz-buy-or-wait-r174 .bw174-overline{margin:0 0 12px;font-size:9px}#tsz-buy-or-wait-r174 h2{font-size:clamp(30px,9vw,39px);line-height:1.06}#tsz-buy-or-wait-r174 .bw174-lead{font-size:16px;line-height:1.4}#tsz-buy-or-wait-r174 .bw174-cta{width:100%;padding:12px 10px;min-height:48px;font-size:13px}#tsz-buy-or-wait-r174 .bw174-right{padding-top:20px}#tsz-buy-or-wait-r174 .bw174-hourglass{top:-38px;width:86px;height:87px}#tsz-buy-or-wait-r174 .bw174-card{padding:14px 11px;border-radius:18px}#tsz-buy-or-wait-r174 .bw174-tiles label{padding:0 6px}#tsz-buy-or-wait-r174 .bw174-tiles label>span:first-child{font-size:10px;min-height:37px;overflow-wrap:anywhere}#tsz-buy-or-wait-r174 .bw174-value b,#tsz-buy-or-wait-r174 .bw174-value input{font-size:clamp(16px,5.25vw,22px)}#tsz-buy-or-wait-r174 .bw174-day-value strong{font-size:clamp(18px,6vw,24px)}#tsz-buy-or-wait-r174 .bw174-day-value small{font-size:10px}#tsz-buy-or-wait-r174 .bw174-slider{padding:25px 2px 12px}#tsz-buy-or-wait-r174 .bw174-result{padding:12px 9px;gap:5px}#tsz-buy-or-wait-r174 .bw174-result strong{font-size:11px}#tsz-buy-or-wait-r174 .bw174-result output{font-size:28px}#tsz-buy-or-wait-r174 .bw174-result .bw174-tag{font-size:22px}#tsz-buy-or-wait-r174 .bw174-footer{padding-top:14px}#tsz-buy-or-wait-r174 .bw174-footer strong{font-size:16px}#tsz-buy-or-wait-r174 .bw174-footer p{font-size:11px}}
+@media(prefers-reduced-motion:reduce){#tsz-buy-or-wait-r174 *,#tsz-buy-or-wait-r174 *::before,#tsz-buy-or-wait-r174 *::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+#tsz-buy-or-wait-r174 h2 em:first-of-type{margin-inline-end:.08em}
+#tsz-buy-or-wait-r174 h2 .bw174-day-em{white-space:nowrap}
+@media(max-width:430px){#tsz-buy-or-wait-r174 .bw174-hourglass{display:none}}
