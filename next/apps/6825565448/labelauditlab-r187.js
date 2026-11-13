@@ -114,12 +114,13 @@
   const $$=selector=>Array.from(root.querySelectorAll(selector));
   let lang='en';
   function detectLang(){
-    const selector=document.querySelector('#p199-language');
-    const x=String(selector?.value||new URLSearchParams(location.search).get('lang')||document.documentElement.lang||'en').toLowerCase();
+    const selector=document.querySelector('#lal31-language, #p199-language');
+    const urlLang=new URLSearchParams(location.search).get('lang');
+    const x=String(urlLang?.toLowerCase().startsWith('ar')?'ar':selector?.value||urlLang||document.documentElement.lang||'en').toLowerCase();
     return x.startsWith('ar')?'ar':x.startsWith('ja')?'ja':'en';
   }
   function country(){
-    const x=String(document.querySelector('#p199-country')?.value||'us').toLowerCase();
+    const x=String(document.querySelector('#lal31-country, #p199-country')?.value||'us').toLowerCase();
     return /^[a-z]{2}$/.test(x)?x:'us';
   }
   function render(){
@@ -162,8 +163,8 @@
   }
   ['barcode','ocr','reference'].forEach(k=>$('#lal187-'+k).addEventListener('input',render));
   $('#lal187-reset').addEventListener('click',()=>{ $('#lal187-barcode').value='L-042';$('#lal187-ocr').value='L-043';$('#lal187-reference').value='L-042';render(); });
-  document.querySelector('#p199-language')?.addEventListener('change',applyLanguage);
-  document.querySelector('#p199-country')?.addEventListener('change',()=>{$('.lal187-store').href='https://apps.apple.com/'+country()+'/app/id'+APP_ID;});
+  ['#lal31-language','#p199-language'].forEach(sel=>document.querySelector(sel)?.addEventListener('change',applyLanguage));
+  ['#lal31-country','#p199-country'].forEach(sel=>document.querySelector(sel)?.addEventListener('change',()=>{$('.lal187-store').href='https://apps.apple.com/'+country()+'/app/id'+APP_ID;}));
   window.addEventListener('popstate',applyLanguage);
   applyLanguage();
 })();
