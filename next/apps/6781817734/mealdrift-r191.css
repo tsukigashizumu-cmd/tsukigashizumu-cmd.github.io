@@ -1,0 +1,60 @@
+/* TSZ LP R191 — MealDrift: premium illustrative food story and meal picker. */
+#tsz-mealdrift-r191{--md191-cream:#fff3d9;--md191-red:#ae422f;--md191-gold:#e5b979;--md191-forest:#102c1d;box-sizing:border-box;isolation:isolate;position:relative;overflow:hidden;width:100%;margin:20px auto 36px;border:1px solid #d3b58669;border-radius:25px;background:radial-gradient(ellipse at 22% 74%,#52602d4d,transparent 54%),radial-gradient(circle at 81% 10%,#b67b3b30,transparent 31%),linear-gradient(125deg,#15291b 1%,#0a1b14 53%,#142d20 100%);color:var(--md191-cream);font:400 16px/1.48 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;box-shadow:0 24px 70px #0004}
+#tsz-mealdrift-r191 *{box-sizing:border-box}
+#tsz-mealdrift-r191 button{font:inherit;cursor:pointer;appearance:none}
+#tsz-mealdrift-r191 .md191-inner{max-width:1240px;margin:0 auto;padding:21px clamp(16px,3vw,41px) 22px}
+#tsz-mealdrift-r191 .md191-mast{display:flex;align-items:center;gap:10px;border-bottom:1px solid #f8eac15c;padding:0 0 14px;min-width:0}
+#tsz-mealdrift-r191 .md191-brand-icon{display:grid;place-items:center;width:38px;height:38px;border:1px solid #ffe5b2b8;border-radius:12px;background:#244332;color:#ffefc1;font-size:25px}
+#tsz-mealdrift-r191 .md191-mast strong{font:700 clamp(24px,3vw,34px)/1.2 Georgia,serif;letter-spacing:-.025em}
+#tsz-mealdrift-r191 .md191-mast-note{margin-inline-start:auto;max-width:48%;text-align:end;color:#e2cba5;font-size:10px;letter-spacing:.065em}
+#tsz-mealdrift-r191 .md191-grid{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);gap:clamp(19px,3.3vw,48px);align-items:center;padding:23px 0 14px}
+#tsz-mealdrift-r191 .md191-story{min-width:0}
+#tsz-mealdrift-r191 .md191-overline{color:#efc899;letter-spacing:.14em;font-size:11px;font-weight:650;margin:0 0 12px}
+#tsz-mealdrift-r191 h2{font:italic 700 clamp(37px,5.1vw,75px)/.99 Georgia,"Times New Roman",serif;letter-spacing:-.045em;overflow-wrap:anywhere;color:#fff5df;text-wrap:balance;margin:0}
+#tsz-mealdrift-r191 h2 em{color:#ffc69f;display:inline;font:inherit}
+#tsz-mealdrift-r191 .md191-subtitle{font:italic 22px/1.35 Georgia,serif;color:#e8dbb8;max-width:520px;margin:21px 0 8px}
+#tsz-mealdrift-r191 .md191-scene{position:relative;height:clamp(195px,24vw,295px);margin:12px 0 6px;overflow:hidden;border-radius:22px;background:radial-gradient(ellipse at 50% 70%,#f4b05235,transparent 46%),radial-gradient(circle at 70% 0%,#c5ac6c55,transparent 30%),linear-gradient(0deg,#352719,#1d3322 75%,#17291b);border:1px solid #b4975e5e;box-shadow:inset 0 -29px 48px #210b0970}
+#tsz-mealdrift-r191 .md191-lamp{position:absolute;top:-40px;left:45%;width:130px;height:80px;border-radius:0 0 68px 68px;background:radial-gradient(ellipse at bottom,#ffdcaa,#9d6a2b 37%,#312819 72%);filter:drop-shadow(0 20px 28px #e5a85b85)}
+#tsz-mealdrift-r191 .md191-lamp:after{content:"";position:absolute;inset:35px -30px -170px;background:radial-gradient(ellipse at top,#ffcb6740,transparent 66%);pointer-events:none}
+#tsz-mealdrift-r191 .md191-scene-table{position:absolute;inset:auto -5% -14% -5%;height:31%;transform:rotate(-2deg);border-top:5px solid #a87944;box-shadow:inset 0 20px 35px #170d0b;background:repeating-linear-gradient(0deg,#613f2c,#765039 12px,#613f2c 13px,#4b3325 24px)}
+#tsz-mealdrift-r191 .md191-plate{position:absolute;width:min(61%,340px);aspect-ratio:1.1;left:21%;bottom:-30px;border-radius:50%;background:radial-gradient(ellipse at 33% 20%,#fffaf0,#e0d4b6 63%,#9a8e73 78%,#fff1d4 84%,#b4a58f);border:6px solid #fff2d2;box-shadow:0 22px 35px #090d0ca8,0 0 0 3px #84765a}
+#tsz-mealdrift-r191 .md191-dish{position:absolute;inset:16% 13%;border-radius:50%;overflow:hidden;display:grid;place-items:center;box-shadow:inset 6px 4px 9px #35120a7f,0 6px 10px #1f120b80}
+#tsz-mealdrift-r191 .md191-dish-pasta{background:repeating-radial-gradient(ellipse at 43% 51%,#e9a04c 0 4px,#b83f21 5px 10px,#f6b466 11px 14px,#9f3120 15px 18px)}
+#tsz-mealdrift-r191 .md191-dish-curry{background:radial-gradient(circle at 43% 49%,#f5e0af 0 29%,#c26a27 30% 56%,#8b3c19 57% 70%)}
+#tsz-mealdrift-r191 .md191-dish-bowl{background:radial-gradient(circle at 29% 40%,#db7045 0 13%,transparent 14%),radial-gradient(circle at 69% 48%,#efc868 0 16%,transparent 17%),repeating-conic-gradient(#2f6838 0 14deg,#92a344 15deg 32deg,#e6bd69 33deg 47deg,#387c53 48deg 63deg)}
+#tsz-mealdrift-r191 .md191-dish-top{position:absolute;top:38%;left:43%;color:#fff5c1;font-size:37px;text-shadow:0 1px 12px #733f12}
+#tsz-mealdrift-r191 .md191-dish-leaf{position:absolute;top:30%;left:48%;width:24px;height:42px;border-radius:90% 5% 85% 10%;background:linear-gradient(130deg,#83ac43,#2b572d);transform:rotate(35deg);box-shadow:0 1px 5px #12300b}
+#tsz-mealdrift-r191 .md191-dish-leaf-b{transform:translate(-27px,-12px) rotate(-40deg);width:21px;height:35px}
+#tsz-mealdrift-r191 .md191-dish-leaf-c{transform:translate(18px,-8px) rotate(75deg);width:21px;height:34px}
+#tsz-mealdrift-r191 .md191-fork{position:absolute;height:85%;width:6px;right:12%;top:25%;transform:rotate(21deg);border-radius:5px;background:linear-gradient(90deg,#d1c6b6,#fff9e2,#756f64)}
+#tsz-mealdrift-r191 .md191-image-note{text-align:center;color:#d9c396;font:italic 13px Georgia,serif;margin:5px 0}
+#tsz-mealdrift-r191 .md191-card{min-width:0;border:1px solid #e8bf84;border-radius:28px;padding:clamp(18px,2.2vw,29px);background:radial-gradient(ellipse at 20% 8%,#fffaf0,#f3e1bc 73%,#eacfa1);color:#38251d;box-shadow:0 18px 45px #0005, inset 0 0 0 5px #faf5df8a}
+#tsz-mealdrift-r191 .md191-card-top{display:flex;align-items:center;gap:12px;justify-content:space-between;font:700 13px Georgia,serif;letter-spacing:.16em;border-bottom:1px solid #9b725b6b;padding-bottom:10px}
+#tsz-mealdrift-r191 .md191-sun{color:#b46c29;font-size:26px}
+#tsz-mealdrift-r191 .md191-choice{display:block;text-align:center;overflow-wrap:anywhere;margin:11px 0 2px;color:#9c352b;font:italic 700 clamp(32px,4vw,55px)/1.05 Georgia,serif;letter-spacing:-.045em}
+#tsz-mealdrift-r191 .md191-card-note{text-align:center;margin:3px 0 12px;font:italic 16px Georgia,serif}
+#tsz-mealdrift-r191 .md191-card-illustration{min-height:118px;display:flex;gap:13px;align-items:center;padding:9px 14px;border:1px solid #a66d4875;border-radius:17px;background:linear-gradient(150deg,#553520,#261a12);color:#ffe7c3;font:italic 15px Georgia,serif}
+#tsz-mealdrift-r191 .md191-mini-plate{width:102px;height:102px;flex:0 0 102px;display:grid;place-items:center;border:5px solid #fff0c8;border-radius:50%;background:radial-gradient(circle,#edd8b2,#8f674a 70%,#4a2b1b);box-shadow:0 8px 13px #0005}
+#tsz-mealdrift-r191 .md191-mini-plate span{font-size:46px;filter:drop-shadow(0 5px 8px #0005)}
+#tsz-mealdrift-r191 .md191-options{margin:14px 0 12px;padding:0;border:0;min-width:0}
+#tsz-mealdrift-r191 .md191-options legend{width:100%;padding:0 0 7px;color:#795740;font:700 11px/1.4 -apple-system,Arial,sans-serif;letter-spacing:.07em}
+#tsz-mealdrift-r191 .md191-option-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+#tsz-mealdrift-r191 .md191-option{min-width:0;min-height:83px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:7px 4px;border-radius:13px;border:1px solid #a8836c99;background:#fff4db;color:#593a2c;font-size:12px;font-weight:700;line-height:1.22;text-align:center;overflow-wrap:anywhere;transition:transform .15s ease,background .15s ease}
+#tsz-mealdrift-r191 .md191-option.is-active{background:#9c3726;color:#fff6e9;border-color:#d15a3c;box-shadow:0 3px 12px #b83e2980}
+#tsz-mealdrift-r191 .md191-option:hover{transform:translateY(-2px)}
+#tsz-mealdrift-r191 .md191-option-icon{font-size:24px;line-height:1.1}
+#tsz-mealdrift-r191 .md191-pick{width:100%;min-height:51px;display:flex;justify-content:center;align-items:center;gap:11px;padding:10px 14px;border-radius:26px;border:1px solid #52754c;background:linear-gradient(180deg,#2a6139,#143c25);color:#fff7d9;font:700 20px Georgia,serif;box-shadow:0 7px 12px #20412960}
+#tsz-mealdrift-r191 .md191-pick span:first-child{font-size:24px}
+#tsz-mealdrift-r191 .md191-pick:hover{background:#347246}
+#tsz-mealdrift-r191 .md191-hint{font:italic 12px/1.3 Georgia,serif;text-align:center;margin:9px 0 0;color:#7f5b3f}
+#tsz-mealdrift-r191 .md191-footer{display:flex;gap:12px;align-items:center;justify-content:space-between;border-top:1px solid #ecc58665;padding-top:14px}
+#tsz-mealdrift-r191 .md191-footer p{margin:0;font:700 clamp(11px,1.6vw,15px)/1.3 Georgia,serif;color:#e9d3a1;letter-spacing:.025em}
+#tsz-mealdrift-r191 .md191-footer a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;flex:0 0 auto;text-align:center;text-decoration:none!important;padding:10px 20px;color:#19291c!important;border-radius:28px;background:linear-gradient(180deg,#fff3d8,#f0c87d);border:1px solid #fff7e4;box-shadow:0 4px 18px #ffda7d50;font:700 17px/1.2 -apple-system,Arial,sans-serif}
+#tsz-mealdrift-r191 .md191-legal{margin:12px 0 0;text-align:center;color:#d2b993;font:italic 12px/1.4 Georgia,serif}
+#tsz-mealdrift-r191 :is(button,a):focus-visible{outline:3px solid #57d0b5;outline-offset:3px}
+#tsz-mealdrift-r191[dir="rtl"] .md191-scene{direction:ltr}
+#tsz-mealdrift-r191[dir="rtl"] .md191-mast-note{text-align:start}
+@media(max-width:850px){#tsz-mealdrift-r191 .md191-grid{grid-template-columns:minmax(0,1fr);gap:12px}#tsz-mealdrift-r191 .md191-story{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}#tsz-mealdrift-r191 .md191-overline,#tsz-mealdrift-r191 h2,#tsz-mealdrift-r191 .md191-subtitle{grid-column:1}#tsz-mealdrift-r191 .md191-scene{grid-row:1/span 3;grid-column:2;height:240px;margin:0}#tsz-mealdrift-r191 .md191-image-note{grid-column:2}#tsz-mealdrift-r191 h2{font-size:clamp(32px,4.8vw,50px)}#tsz-mealdrift-r191 .md191-subtitle{font-size:16px}#tsz-mealdrift-r191 .md191-card{max-width:650px;margin:auto;width:100%}}
+@media(max-width:540px){#tsz-mealdrift-r191{border-radius:17px;margin:12px auto 24px}#tsz-mealdrift-r191 .md191-inner{padding:14px 12px 17px}#tsz-mealdrift-r191 .md191-mast strong{font-size:25px}#tsz-mealdrift-r191 .md191-mast-note{max-width:39%;font-size:8px}#tsz-mealdrift-r191 .md191-story{display:block}#tsz-mealdrift-r191 .md191-overline{font-size:9px;margin-bottom:7px}#tsz-mealdrift-r191 h2{font-size:clamp(31px,9vw,44px);line-height:1.04}#tsz-mealdrift-r191 .md191-subtitle{margin:10px 0;font-size:15px}#tsz-mealdrift-r191 .md191-scene{height:155px;margin:9px 0 3px}#tsz-mealdrift-r191 .md191-plate{width:45%;left:28%;bottom:-32px}#tsz-mealdrift-r191 .md191-lamp{left:38%;height:60px}#tsz-mealdrift-r191 .md191-image-note{display:none}#tsz-mealdrift-r191 .md191-card{border-radius:18px;padding:15px 12px}#tsz-mealdrift-r191 .md191-card-top{font-size:11px}#tsz-mealdrift-r191 .md191-choice{font-size:clamp(29px,8vw,38px)}#tsz-mealdrift-r191 .md191-card-note{font-size:13px}#tsz-mealdrift-r191 .md191-card-illustration{min-height:77px}#tsz-mealdrift-r191 .md191-mini-plate{width:65px;height:65px;flex-basis:65px}#tsz-mealdrift-r191 .md191-mini-plate span{font-size:34px}#tsz-mealdrift-r191 .md191-option{min-height:74px;font-size:10px;padding:6px 2px}#tsz-mealdrift-r191 .md191-option-icon{font-size:22px}#tsz-mealdrift-r191 .md191-pick{min-height:47px;font-size:18px}#tsz-mealdrift-r191 .md191-footer{flex-direction:column;align-items:stretch;text-align:center}#tsz-mealdrift-r191 .md191-footer a{width:100%}}
+@media(max-width:350px){#tsz-mealdrift-r191 .md191-inner{padding:12px 8px}#tsz-mealdrift-r191 .md191-mast-note{font-size:7px}#tsz-mealdrift-r191 .md191-option-grid{gap:4px}#tsz-mealdrift-r191 .md191-option{font-size:9px}#tsz-mealdrift-r191 .md191-card{padding:12px 8px}}
+@media(prefers-reduced-motion:reduce){#tsz-mealdrift-r191 .md191-option{transition:none}}
