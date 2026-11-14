@@ -1,0 +1,230 @@
+/* R200 P2: isolated Return Deadline demo; only #tsz-return-deadline-r200 selectors are used. */
+#tsz-return-deadline-r200{color-scheme:dark;--bg:#10121c;--panel:#1d2030;--panel2:#171a28;--ink:#faf3ec;--muted:#bdb6c1;--soft:#8c8796;--orange:#ff986d;--apricot:#ffbd8e;--lavender:#b9acf0;--border:rgba(245,230,255,.17);--shadow:rgba(5,3,13,.65)}
+#tsz-return-deadline-r200 *{box-sizing:border-box}
+#tsz-return-deadline-r200{scroll-behavior:smooth}
+#tsz-return-deadline-r200{margin:0;background:#0a0c14;color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;overflow-x:hidden}
+#tsz-return-deadline-r200 a{color:inherit;text-decoration:none}
+#tsz-return-deadline-r200 button,#tsz-return-deadline-r200 input,#tsz-return-deadline-r200 select{font:inherit}
+#tsz-return-deadline-r200 button,#tsz-return-deadline-r200 input,#tsz-return-deadline-r200 select,#tsz-return-deadline-r200 a{outline-offset:3px}
+#tsz-return-deadline-r200 button:focus-visible,#tsz-return-deadline-r200 input:focus-visible,#tsz-return-deadline-r200 select:focus-visible,#tsz-return-deadline-r200 a:focus-visible{outline:2px solid #ffd1a6}
+#tsz-return-deadline-r200 .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+#tsz-return-deadline-r200 .shell{position:relative;isolation:isolate;width:min(1540px,100%);margin:0 auto;min-height:100vh;overflow:hidden;background:radial-gradient(ellipse at 87% 12%,rgba(125,92,165,.16),transparent 30%),radial-gradient(ellipse at 12% 65%,rgba(250,105,65,.11),transparent 37%),linear-gradient(132deg,#171825 0%,#171927 48%,#111420 100%);border-inline:1px solid #252331}
+#tsz-return-deadline-r200 .shell::before,#tsz-return-deadline-r200 .shell::after{content:"";position:absolute;z-index:-1;pointer-events:none;left:-12%;width:120%;height:170px;border-radius:50%;transform:rotate(-2deg)}
+#tsz-return-deadline-r200 .shell::before{bottom:50px;background:radial-gradient(ellipse at 60% 30%,rgba(255,135,82,.28),transparent 48%),linear-gradient(100deg,transparent,rgba(137,124,219,.1),rgba(255,99,53,.11),transparent);filter:blur(22px)}
+#tsz-return-deadline-r200 .shell::after{bottom:-109px;height:210px;background:linear-gradient(85deg,#26253c,#443045 43%,#a45d55 78%,#35243f);box-shadow:0 -13px 35px rgba(249,129,92,.14),0 -1px 2px rgba(255,197,141,.4)}
+#tsz-return-deadline-r200 .site-header{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:100px;padding:20px clamp(23px,4.3vw,72px);border-bottom:1px solid rgba(245,220,250,.045)}
+#tsz-return-deadline-r200 .brand{display:flex;align-items:center;gap:14px;min-width:0}
+#tsz-return-deadline-r200 .brand-mark{display:grid;place-items:center;flex-shrink:0;width:57px;height:57px;border:1px solid rgba(253,165,134,.4);border-radius:17px;background:linear-gradient(155deg,#30263c,#191b2b 60%,#3b2331);box-shadow:0 10px 25px rgba(0,0,0,.25);color:#ffb28b}
+#tsz-return-deadline-r200 .brand-mark svg{width:37px}
+#tsz-return-deadline-r200 .brand-name{font-family:Georgia,"Times New Roman",serif;font-size:clamp(21px,1.9vw,31px);font-weight:600;letter-spacing:-.045em;white-space:nowrap}
+#tsz-return-deadline-r200 .top-nav{display:flex;align-items:center;gap:26px;font-size:13px;color:#d4cbd5}
+#tsz-return-deadline-r200 .top-nav a:hover{color:#ffa77d}
+#tsz-return-deadline-r200 .header-actions{display:flex;align-items:center;gap:10px}
+#tsz-return-deadline-r200 .mini-select{display:inline-flex;align-items:center;border:1px solid #4b4055;border-radius:8px;background:rgba(255,255,255,.035)}
+#tsz-return-deadline-r200 .mini-select select{background:transparent;border:0;padding:8px 8px;color:var(--ink);font-size:12px;cursor:pointer;max-width:92px}
+#tsz-return-deadline-r200 .mini-select option,#tsz-return-deadline-r200 .item-select option,#tsz-return-deadline-r200 .period-control option{color:#111;background:#fff}
+#tsz-return-deadline-r200 .store-button{display:inline-flex;align-items:center;justify-content:center;gap:13px;white-space:nowrap;padding:13px 22px;background:linear-gradient(110deg,#ffca9f 0%,#ff9b70 50%,#f07851 100%);color:#201322;font-weight:800;font-size:13px;border-radius:100px;box-shadow:0 10px 25px rgba(230,110,77,.19),inset 0 1px 1px #ffe3c0;transition:transform .16s ease,filter .16s ease}
+#tsz-return-deadline-r200 .store-button:hover{transform:translateY(-1px);filter:brightness(1.08)}
+#tsz-return-deadline-r200 .hero{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(24px,3.5vw,64px);padding:38px clamp(23px,4.3vw,72px) 42px;min-height:650px;align-items:center}
+#tsz-return-deadline-r200 .hero-copy{min-width:0;padding-bottom:8px}
+#tsz-return-deadline-r200 .eyebrow{display:flex;align-items:center;gap:12px;color:var(--apricot);letter-spacing:.24em;font-size:11px;font-weight:750}
+#tsz-return-deadline-r200 .eyebrow .dash{width:48px;height:4px;border-radius:4px;background:linear-gradient(90deg,#ff865c,#ffba89)}
+#tsz-return-deadline-r200 h1{margin:26px 0 20px;max-width:660px;font-family:Georgia,"Times New Roman",serif;font-size:clamp(41px,4.6vw,76px);letter-spacing:-.06em;line-height:1.035;font-weight:700;text-wrap:balance}
+#tsz-return-deadline-r200 h1 em{font-style:normal;color:#ffb58d}
+#tsz-return-deadline-r200 .hero-sub{max-width:490px;margin:0;color:#ded2d0;font-family:Georgia,"Times New Roman",serif;font-size:clamp(19px,1.7vw,28px);line-height:1.38}
+#tsz-return-deadline-r200 .scene{position:relative;height:218px;max-width:540px;margin:20px 0 15px;isolation:isolate}
+#tsz-return-deadline-r200 .scene-halo{position:absolute;inset:30% 0 0 6%;background:radial-gradient(ellipse,rgba(239,118,95,.17),transparent 65%);filter:blur(10px)}
+#tsz-return-deadline-r200 .shopping-bag{position:absolute;bottom:2px;left:7%;width:178px;height:130px;transform:rotate(-6deg);border:2px solid #e6b7c2;background:linear-gradient(145deg,#a986b1,#6c567e 70%,#463348);box-shadow:4px 22px 27px rgba(0,0,0,.38);clip-path:polygon(2% 3%,98% 3%,93% 100%,5% 100%)}
+#tsz-return-deadline-r200 .bag-handle{position:absolute;border:6px solid #e8c0d2;border-bottom:0;border-radius:50px 50px 0 0;width:76px;height:52px;left:49px;top:-29px}
+#tsz-return-deadline-r200 .bag-seam{position:absolute;left:20px;right:20px;top:12px;border-top:1px solid #eec6d7;opacity:.5}
+#tsz-return-deadline-r200 .bag-glyph{font-size:74px;position:absolute;top:27px;left:61px;color:#ffbe9b;opacity:.7}
+#tsz-return-deadline-r200 .receipt{position:absolute;bottom:0;left:24%;width:124px;height:150px;background:linear-gradient(#fff4e7,#dfb6b4);transform:rotate(-11deg);padding:30px 15px 0;box-shadow:0 13px 30px #0006;clip-path:polygon(0 0,100% 0,100% 95%,90% 100%,81% 95%,71% 100%,61% 95%,50% 100%,39% 95%,28% 100%,17% 95%,8% 100%,0 95%)}
+#tsz-return-deadline-r200 .receipt-heading{height:11px;background:#765c68;width:65%;margin:4px auto 19px}
+#tsz-return-deadline-r200 .receipt-line{height:4px;margin:10px 0;background:#b99d9d}
+#tsz-return-deadline-r200 .receipt-line.w70{width:70%}
+#tsz-return-deadline-r200 .receipt-line.w92{width:92%}
+#tsz-return-deadline-r200 .receipt-line.w60{width:60%}
+#tsz-return-deadline-r200 .receipt-line.w80{width:80%}
+#tsz-return-deadline-r200 .calendar-art{position:absolute;left:47%;bottom:4px;width:155px;height:163px;transform:rotate(5deg);border-radius:12px;background:linear-gradient(150deg,#302c45,#131a28);border:2px solid #c0a0cb;box-shadow:0 18px 25px #0008,0 0 35px rgba(255,138,104,.18);text-align:center}
+#tsz-return-deadline-r200 .calendar-binding{position:absolute;width:100%;height:22px;top:13px;border-top:3px solid #ffb6a2;border-bottom:2px solid #b6a3bc}
+#tsz-return-deadline-r200 .calendar-month{padding-top:47px;letter-spacing:.32em;font-size:14px;color:#ffbf9b}
+#tsz-return-deadline-r200 .calendar-day{font-family:Georgia,serif;font-size:70px;line-height:1.1;color:#fff4eb;text-shadow:0 0 22px rgba(252,137,99,.25)}
+#tsz-return-deadline-r200 .value-points{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;max-width:590px;margin-top:14px}
+#tsz-return-deadline-r200 .value-points>div{display:flex;flex-direction:column;gap:11px;align-items:center;padding:0 12px;color:#f0ded7;min-height:95px;text-align:center;font-family:Georgia,serif;font-size:13px;line-height:1.35}
+#tsz-return-deadline-r200 .value-points>div+div{border-left:1px solid rgba(255,201,176,.32)}
+#tsz-return-deadline-r200 .value-icon{font-family:system-ui;font-size:30px;line-height:1;color:var(--apricot)}
+#tsz-return-deadline-r200 .demo-wrap{min-width:0}
+#tsz-return-deadline-r200 .calc-panel{position:relative;min-width:0;border:1px solid rgba(220,183,255,.47);border-radius:28px;padding:clamp(22px,2.2vw,35px);background:linear-gradient(145deg,rgba(89,72,109,.45),rgba(24,26,40,.94) 38%,rgba(23,25,37,.98));box-shadow:0 24px 70px #0007,0 0 50px rgba(255,134,98,.07),inset 0 1px 0 rgba(255,255,255,.13)}
+#tsz-return-deadline-r200 .calc-panel::before{content:"";position:absolute;inset:-1px;border-radius:28px;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(255,181,143,.07)}
+#tsz-return-deadline-r200 .panel-head{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:18px}
+#tsz-return-deadline-r200 .panel-eyebrow{font-size:11px;letter-spacing:.16em;font-weight:800;color:#ffdbbd}
+#tsz-return-deadline-r200 .demo-pill{font-size:9px;letter-spacing:.1em;white-space:nowrap;color:#adf2da;border:1px solid #436f6d;border-radius:100px;padding:6px 9px}
+#tsz-return-deadline-r200 .item-block{display:flex;align-items:center;gap:15px;padding:14px 0 17px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);min-width:0}
+#tsz-return-deadline-r200 .item-emoji{display:grid;place-items:center;flex:none;width:68px;height:67px;font-size:33px;border:1px solid rgba(203,183,244,.5);border-radius:17px;background:linear-gradient(135deg,rgba(125,105,161,.45),rgba(26,29,42,.94));box-shadow:0 0 22px rgba(146,113,193,.12)}
+#tsz-return-deadline-r200 .item-text{display:flex;flex:1;flex-direction:column;gap:5px;min-width:0}
+#tsz-return-deadline-r200 .minor{font-size:10px;letter-spacing:.15em;color:#b8a9bb}
+#tsz-return-deadline-r200 .item-text strong{font-family:Georgia,serif;font-size:clamp(17px,1.8vw,23px);line-height:1.16;overflow-wrap:anywhere}
+#tsz-return-deadline-r200 .item-select select{max-width:105px;background:rgba(255,255,255,.08);border:1px solid var(--border);color:#fff;padding:9px 7px;border-radius:11px;font-size:12px;cursor:pointer}
+#tsz-return-deadline-r200 .field-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px solid var(--border)}
+#tsz-return-deadline-r200 .field-row>label{display:flex;align-items:center;gap:12px;font-size:14px;font-weight:650;color:#ede0da}
+#tsz-return-deadline-r200 .form-icon{width:23px;flex:0 0 23px;text-align:center;color:#ffd3ad;font-size:20px}
+#tsz-return-deadline-r200 .field-row input,#tsz-return-deadline-r200 .field-row select{min-width:0;background:rgba(255,255,255,.07);color:#fff;outline-offset:2px;border:1px solid rgba(255,229,255,.3);border-radius:12px;height:43px;padding:8px 11px;font-size:14px}
+#tsz-return-deadline-r200 .field-row input[type=date]{width:170px;color-scheme:dark}
+#tsz-return-deadline-r200 .field-row input[type=date]::-webkit-calendar-picker-indicator{filter:invert(.9) sepia(.2)}
+#tsz-return-deadline-r200 .period-control{display:flex;gap:6px;justify-content:flex-end;min-width:0}
+#tsz-return-deadline-r200 .period-control input{width:73px;text-align:center}
+#tsz-return-deadline-r200 .period-control select{width:104px}
+#tsz-return-deadline-r200 .form-error{font-size:13px;margin:8px 0 0;color:#ffc49e}
+#tsz-return-deadline-r200 .result{display:flex;align-items:center;gap:clamp(15px,3vw,30px);margin-top:20px;border-radius:19px;padding:19px;background:linear-gradient(100deg,rgba(255,111,71,.1),rgba(30,24,40,.88));border:1px solid rgba(255,156,99,.62);box-shadow:0 0 26px rgba(227,117,77,.08)}
+#tsz-return-deadline-r200 .dial{--fill:54%;position:relative;display:grid;place-items:center;flex-shrink:0;width:clamp(132px,12.6vw,190px);aspect-ratio:1;border-radius:50%;background:conic-gradient(from 0deg,#ffb27b 0%,#fa825c var(--fill),rgba(212,201,232,.22) var(--fill),rgba(212,201,232,.22) 100%);box-shadow:0 0 26px rgba(255,146,91,.12);transform:rotate(-90deg)}
+#tsz-return-deadline-r200 .dial-inner{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;position:absolute;inset:12px;border-radius:50%;background:#24212c;transform:rotate(90deg)}
+#tsz-return-deadline-r200 .dial-number{font:700 clamp(50px,5vw,80px)/1 Georgia,serif;color:#ffac7e;letter-spacing:-.08em}
+#tsz-return-deadline-r200 .dial-label{font-size:12px;color:#fff1e8}
+#tsz-return-deadline-r200 .result-copy{min-width:0;flex:1}
+#tsz-return-deadline-r200 .result-kicker{font-size:11px;letter-spacing:.16em;font-weight:750;color:#ffbd97}
+#tsz-return-deadline-r200 .deadline{font:700 clamp(26px,2.6vw,42px)/1.1 Georgia,serif;letter-spacing:-.05em;margin:9px 0 12px;overflow-wrap:anywhere}
+#tsz-return-deadline-r200 .status{display:flex;align-items:center;gap:8px;font-size:12px;color:#cfc1c9}
+#tsz-return-deadline-r200 .status-dot{display:inline-block;height:7px;width:7px;border-radius:50%;background:#ffa87b}
+#tsz-return-deadline-r200 .reset-button{margin-top:13px;border:0;background:transparent;color:#ffcfb4;cursor:pointer;font-size:12px;text-decoration:underline;text-underline-offset:3px;padding:3px 0}
+#tsz-return-deadline-r200 .reset-button:hover{color:white}
+#tsz-return-deadline-r200 .result.is-expired{border-color:rgba(255,104,102,.75)}
+#tsz-return-deadline-r200 .result.is-expired .dial{background:conic-gradient(#f67c80 0%,#f67c80 100%)}
+#tsz-return-deadline-r200 .result.is-expired .dial-number{color:#ff9f9f}
+#tsz-return-deadline-r200 .result.is-future .dial-number{color:#c4b3fc}
+#tsz-return-deadline-r200 .result.is-future .dial{background:conic-gradient(#ac95fa 0%,#ac95fa 100%)}
+#tsz-return-deadline-r200 .timeline{position:relative;margin:24px 2px 0}
+#tsz-return-deadline-r200 .timeline-line{height:3px;background:linear-gradient(90deg,#d9cadd,#ff925f);position:relative;margin:13px 8px 15px}
+#tsz-return-deadline-r200 .elapsed-bar{position:absolute;left:0;top:0;height:100%;width:43%;background:#ffc18e}
+#tsz-return-deadline-r200 .timeline-dot{position:absolute;width:15px;height:15px;border-radius:50%;top:50%;transform:translate(-50%,-50%);background:#ffb58b;box-shadow:0 0 12px rgba(255,167,116,.6);border:2px solid #fce8df}
+#tsz-return-deadline-r200 .timeline-dot.start{left:0;background:#f9d9c6}
+#tsz-return-deadline-r200 .timeline-dot.today{left:43%;background:#373044;border-color:#ffbd8a}
+#tsz-return-deadline-r200 .timeline-dot.end{left:100%;background:#ff9266}
+#tsz-return-deadline-r200 .timeline-labels{display:flex;justify-content:space-between;gap:4px;color:#e0d3d7}
+#tsz-return-deadline-r200 .timeline-labels>div{display:flex;flex-direction:column;gap:4px;min-width:0}
+#tsz-return-deadline-r200 .timeline-labels>div:nth-child(2){text-align:center}
+#tsz-return-deadline-r200 .timeline-labels>div:nth-child(3){text-align:right}
+#tsz-return-deadline-r200 .timeline-labels span{font-size:10px;letter-spacing:.075em;color:#c1b0bd}
+#tsz-return-deadline-r200 .timeline-labels strong{font-size:12px;font-weight:600;color:#ffdbc0}
+#tsz-return-deadline-r200 .disclaimer{display:flex;align-items:flex-start;gap:8px;margin:20px 0 0;padding:15px 0 0;border-top:1px solid var(--border);font-size:11px;line-height:1.45;color:#bdb2bf}
+#tsz-return-deadline-r200 .disclaimer>span:first-child{color:#ffbc8d;font-size:15px}
+#tsz-return-deadline-r200 .bottom-cta{display:flex;align-items:center;justify-content:space-between;gap:22px;margin:0 clamp(23px,4.3vw,72px) 25px;padding:19px 25px;background:linear-gradient(100deg,rgba(41,40,62,.7),rgba(78,51,66,.48));border:1px solid rgba(245,194,173,.16);border-radius:20px}
+#tsz-return-deadline-r200 .bottom-cta>div{display:flex;flex-direction:column;gap:5px}
+#tsz-return-deadline-r200 .bottom-cta strong{font:700 clamp(17px,1.6vw,22px) Georgia,serif}
+#tsz-return-deadline-r200 .bottom-cta span{color:#ddcbd0;font-size:12px;line-height:1.4}
+#tsz-return-deadline-r200 .bottom-cta .store-button span{color:#201322;font-size:13px}
+#tsz-return-deadline-r200 .r200-footer{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;padding:17px clamp(23px,4.3vw,72px) 25px;color:#a49aa8;font-size:11px}
+#tsz-return-deadline-r200[dir=rtl] .hero,#tsz-return-deadline-r200[dir=rtl] .site-header,#tsz-return-deadline-r200[dir=rtl] .bottom-cta{direction:rtl}
+#tsz-return-deadline-r200[dir=rtl] .value-points>div+div{border-left:0;border-right:1px solid rgba(255,201,176,.32)}
+#tsz-return-deadline-r200[dir=rtl] .result-copy{text-align:right}
+#tsz-return-deadline-r200[dir=rtl] .timeline{direction:ltr}
+#tsz-return-deadline-r200[dir=rtl] .timeline-labels>div{direction:rtl}
+#tsz-return-deadline-r200[dir=rtl] .timeline-labels>div:nth-child(3){text-align:left}
+#tsz-return-deadline-r200[dir=rtl] .timeline-labels>div:nth-child(1){text-align:right}
+#tsz-return-deadline-r200[dir=rtl] .eyebrow{direction:rtl}
+#tsz-return-deadline-r200[dir=rtl] .hero-copy{text-align:right}
+#tsz-return-deadline-r200[dir=rtl] .shopping-bag{left:auto;right:7%;transform:rotate(6deg)}
+#tsz-return-deadline-r200[dir=rtl] .receipt{left:auto;right:24%;transform:rotate(11deg)}
+#tsz-return-deadline-r200[dir=rtl] .calendar-art{left:auto;right:47%}
+#tsz-return-deadline-r200[dir=rtl] .field-row{direction:rtl}
+#tsz-return-deadline-r200[dir=rtl] .period-control{direction:ltr}
+#tsz-return-deadline-r200[dir=rtl] .item-block{direction:rtl}
+#tsz-return-deadline-r200[dir=rtl] .brand{direction:rtl}
+@media (max-width:1100px){#tsz-return-deadline-r200 .site-header{gap:12px}
+#tsz-return-deadline-r200 .brand-name{font-size:21px}
+#tsz-return-deadline-r200 .top-nav{display:none}
+#tsz-return-deadline-r200 .header-actions{gap:7px}
+#tsz-return-deadline-r200 .store-top{padding:11px 13px}
+#tsz-return-deadline-r200 .hero{gap:25px}
+#tsz-return-deadline-r200 .scene{height:180px}
+#tsz-return-deadline-r200 .shopping-bag{scale:.86;transform-origin:bottom left}
+#tsz-return-deadline-r200 .receipt{scale:.84;transform-origin:bottom left}
+#tsz-return-deadline-r200 .calendar-art{scale:.84;transform-origin:bottom left}
+#tsz-return-deadline-r200 .value-points>div{font-size:12px;padding:0 6px}
+#tsz-return-deadline-r200 .result{gap:15px;padding:15px}
+#tsz-return-deadline-r200 .dial{width:132px}}
+@media (max-width:820px){#tsz-return-deadline-r200 .site-header{min-height:77px;padding-top:14px;padding-bottom:14px}
+#tsz-return-deadline-r200 .brand-mark{width:43px;height:43px;border-radius:13px}
+#tsz-return-deadline-r200 .brand-mark svg{width:29px}
+#tsz-return-deadline-r200 .brand-name{font-size:20px}
+#tsz-return-deadline-r200 .brand-name span{display:none}
+#tsz-return-deadline-r200 .store-top{display:none}
+#tsz-return-deadline-r200 .hero{display:flex;flex-direction:column;align-items:stretch;padding-top:32px;gap:32px}
+#tsz-return-deadline-r200 .hero-copy{padding-bottom:0}
+#tsz-return-deadline-r200 .hero h1{font-size:clamp(44px,7.6vw,64px);margin:16px 0}
+#tsz-return-deadline-r200 .hero-sub{max-width:640px}
+#tsz-return-deadline-r200 .scene{height:175px;max-width:520px;margin:15px auto;width:100%}
+#tsz-return-deadline-r200 .value-points{max-width:660px;margin:4px auto 0}
+#tsz-return-deadline-r200 .calc-panel{max-width:670px;margin:0 auto}
+#tsz-return-deadline-r200 .bottom-cta{margin-top:4px}}
+@media (max-width:480px){#tsz-return-deadline-r200 .site-header{gap:7px;padding:14px 18px}
+#tsz-return-deadline-r200 .brand{gap:9px}
+#tsz-return-deadline-r200 .brand-name{font-size:18px}
+#tsz-return-deadline-r200 .mini-select select{font-size:11px;padding:6px 4px;max-width:77px}
+#tsz-return-deadline-r200 .header-actions{gap:3px}
+#tsz-return-deadline-r200 .hero{padding:32px 18px 24px;gap:24px}
+#tsz-return-deadline-r200 .eyebrow{font-size:9px;letter-spacing:.18em}
+#tsz-return-deadline-r200 .eyebrow .dash{width:28px;height:3px}
+#tsz-return-deadline-r200 h1{font-size:clamp(38px,11vw,53px)!important;letter-spacing:-.055em;line-height:1.04}
+#tsz-return-deadline-r200 .hero-sub{font-size:19px;line-height:1.36}
+#tsz-return-deadline-r200 .scene{height:146px;margin:10px auto}
+#tsz-return-deadline-r200 .shopping-bag{scale:.72;left:2%}
+#tsz-return-deadline-r200 .receipt{scale:.70;left:23%}
+#tsz-return-deadline-r200 .calendar-art{scale:.72;left:48%}
+#tsz-return-deadline-r200 .value-points{margin-top:6px}
+#tsz-return-deadline-r200 .value-points>div{font-size:10px;padding:0 5px;gap:9px;min-height:75px}
+#tsz-return-deadline-r200 .value-icon{font-size:25px}
+#tsz-return-deadline-r200 .calc-panel{padding:18px 15px;border-radius:22px}
+#tsz-return-deadline-r200 .panel-eyebrow{font-size:10px;letter-spacing:.11em}
+#tsz-return-deadline-r200 .item-block{gap:10px}
+#tsz-return-deadline-r200 .item-emoji{width:51px;height:52px;font-size:25px;border-radius:12px}
+#tsz-return-deadline-r200 .item-text strong{font-size:17px}
+#tsz-return-deadline-r200 .item-select select{max-width:66px;font-size:10px;padding:7px 4px}
+#tsz-return-deadline-r200 .minor{font-size:8px}
+#tsz-return-deadline-r200 .field-row{gap:7px;padding:11px 0}
+#tsz-return-deadline-r200 .field-row>label{gap:5px;font-size:12px;min-width:0}
+#tsz-return-deadline-r200 .form-icon{width:19px;flex:0 0 19px;font-size:16px}
+#tsz-return-deadline-r200 .field-row input,#tsz-return-deadline-r200 .field-row select{font-size:12px;height:38px;padding:5px 6px}
+#tsz-return-deadline-r200 .field-row input[type=date]{width:136px;max-width:51%}
+#tsz-return-deadline-r200 .period-control{gap:4px}
+#tsz-return-deadline-r200 .period-control input{width:53px}
+#tsz-return-deadline-r200 .period-control select{width:79px}
+#tsz-return-deadline-r200 .result{padding:12px 9px;gap:12px}
+#tsz-return-deadline-r200 .dial{width:116px}
+#tsz-return-deadline-r200 .dial-inner{inset:10px}
+#tsz-return-deadline-r200 .dial-number{font-size:48px}
+#tsz-return-deadline-r200 .dial-label{font-size:10px}
+#tsz-return-deadline-r200 .result-kicker{font-size:9px;letter-spacing:.08em}
+#tsz-return-deadline-r200 .deadline{font-size:clamp(22px,6vw,29px)}
+#tsz-return-deadline-r200 .status{font-size:10px}
+#tsz-return-deadline-r200 .reset-button{font-size:10px}
+#tsz-return-deadline-r200 .timeline-labels span{font-size:8px}
+#tsz-return-deadline-r200 .timeline-labels strong{font-size:10px}
+#tsz-return-deadline-r200 .disclaimer{font-size:10px}
+#tsz-return-deadline-r200 .bottom-cta{margin:0 18px 18px;padding:18px 16px;flex-direction:column;align-items:stretch;gap:16px}
+#tsz-return-deadline-r200 .bottom-cta .store-button{width:100%}
+#tsz-return-deadline-r200 .r200-footer{padding:12px 18px 23px;font-size:10px}}
+@media (max-width:350px){#tsz-return-deadline-r200 .site-header{padding-inline:12px}
+#tsz-return-deadline-r200 .brand-mark{width:36px;height:36px}
+#tsz-return-deadline-r200 .brand-name{font-size:16px}
+#tsz-return-deadline-r200 .mini-select select{max-width:65px}
+#tsz-return-deadline-r200 .hero{padding-inline:12px}
+#tsz-return-deadline-r200 h1{font-size:37px!important}
+#tsz-return-deadline-r200 .hero-sub{font-size:17px}
+#tsz-return-deadline-r200 .calc-panel{padding:15px 10px}
+#tsz-return-deadline-r200 .result{gap:9px}
+#tsz-return-deadline-r200 .dial{width:108px}
+#tsz-return-deadline-r200 .deadline{font-size:21px}
+#tsz-return-deadline-r200 .item-text strong{font-size:15px}
+#tsz-return-deadline-r200 .field-row>label{font-size:11px}
+#tsz-return-deadline-r200 .field-row input[type=date]{width:125px}
+#tsz-return-deadline-r200 .bottom-cta{margin-inline:12px}}
+@media (prefers-reduced-motion:reduce){#tsz-return-deadline-r200{scroll-behavior:auto}
+#tsz-return-deadline-r200 .store-button{transition:none}}
+#tsz-return-deadline-r200 .item-select{position:relative;display:grid;place-items:center;width:40px;height:40px;flex:0 0 40px;border-radius:11px;background:rgba(255,255,255,.08);border:1px solid var(--border)}
+#tsz-return-deadline-r200 .item-select::after{content:"⌄";font-size:24px;line-height:1;color:#ffdbc8;pointer-events:none;position:absolute;top:3px}
+#tsz-return-deadline-r200 .item-select:focus-within{outline:2px solid #ffd1a6;outline-offset:2px}
+#tsz-return-deadline-r200 .item-select select{position:absolute;inset:0;opacity:0;max-width:none;width:100%;height:100%;cursor:pointer;padding:0}
+#tsz-return-deadline-r200 [hidden]{display:none!important}
+#tsz-return-deadline-r200 [hidden]{display:none!important}
+#tsz-return-deadline-r200 .r200-hero-link{margin-top:22px}
+@media (max-width:480px){#tsz-return-deadline-r200[lang=ja] h1{font-size:clamp(26px,7.4vw,31px)!important;letter-spacing:-.05em}}
