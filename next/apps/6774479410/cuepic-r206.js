@@ -76,8 +76,8 @@
     return 'en';
   }
   function region() {
-    const select = element('p199-country') || element('tsz-cuepic-country');
-    const candidate = select && select.value ? select.value.toLowerCase() : 'us';
+    const select = [element('p199-country'), element('tsz-cuepic-country')].find(el => el && el.value);
+    const candidate = select ? select.value.toLowerCase() : 'us';
     return /^jp$|^ja$|^jpn$|^japan$/.test(candidate) ? 'jp' : 'us';
   }
   function picture(t) {
