@@ -1,0 +1,60 @@
+/* R230 Buy or Wait Calculator: independently scoped interactive illustration. */
+#tsz-buywait-r230{--bw-bg:#121a2b;--bw-card:#1c273b;--bw-ink:#eef1f4;--bw-soft:#a9b7c9;--bw-line:#34425a;--bw-glow:#cdf482;--bw-gold:#f3c98c;box-sizing:border-box;isolation:isolate;position:relative;z-index:1;width:calc(100% - 28px);max-width:1260px;min-width:0;margin:32px auto 46px;background:radial-gradient(ellipse at 86% -8%,rgba(142,171,205,.17),transparent 45%),radial-gradient(ellipse at -5% 92%,rgba(205,244,130,.095),transparent 50%),var(--bw-bg);border:1px solid #354158;border-radius:25px;padding:clamp(19px,4vw,53px);font:400 15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--bw-ink);box-shadow:0 28px 60px rgba(11,20,34,.22);overflow:hidden}
+#tsz-buywait-r230 *,#tsz-buywait-r230 *:before,#tsz-buywait-r230 *:after{box-sizing:border-box}
+#tsz-buywait-r230 button,#tsz-buywait-r230 select,#tsz-buywait-r230 input{font:inherit}
+#tsz-buywait-r230 button{cursor:pointer}
+#tsz-buywait-r230 button:focus-visible,#tsz-buywait-r230 select:focus-visible,#tsz-buywait-r230 input:focus-visible{outline:3px solid var(--bw-glow);outline-offset:3px}
+#tsz-buywait-r230 .bw230-cap,#tsz-buywait-r230 .bw230-head,#tsz-buywait-r230 .bw230-fine,#tsz-buywait-r230 .bw230-summary-row{display:flex;justify-content:space-between;align-items:center;gap:12px}
+#tsz-buywait-r230 .bw230-cap{font-size:11px;font-weight:750;letter-spacing:.15em;color:var(--bw-glow);text-transform:uppercase;flex-wrap:wrap}
+#tsz-buywait-r230 .bw230-cap mark{background:transparent;color:var(--bw-soft);font-weight:600;letter-spacing:.05em}
+#tsz-buywait-r230 .bw230-head{align-items:flex-end;margin:27px 0 30px;flex-wrap:wrap}
+#tsz-buywait-r230 .bw230-copy{min-width:0;flex:1 1 355px}
+#tsz-buywait-r230 h2{max-width:850px;margin:0;color:#fcfcf6;font-size:clamp(31px,4.7vw,65px);font-weight:820;line-height:1.065;letter-spacing:-.06em}
+#tsz-buywait-r230 h2 em{font-style:normal;color:var(--bw-glow)}
+#tsz-buywait-r230 .bw230-lead{color:var(--bw-soft);max-width:600px;margin:14px 0 0;font-size:clamp(13px,1.35vw,16px);line-height:1.7}
+#tsz-buywait-r230 .bw230-selects{display:flex;align-items:end;gap:10px;flex-wrap:wrap}
+#tsz-buywait-r230 .bw230-selects label{font-size:10px;font-weight:730;color:#b5c4d3;letter-spacing:.09em;display:grid;gap:6px}
+#tsz-buywait-r230 select{color:#f4f7fb;background:#243247;border:1px solid #4b5a70;border-radius:10px;font-size:12px;padding:9px 28px 9px 10px;max-width:100%;min-width:108px}
+#tsz-buywait-r230 .bw230-content{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.92fr);gap:18px;align-items:stretch}
+#tsz-buywait-r230 .bw230-panel{min-width:0;border:1px solid var(--bw-line);border-radius:19px;padding:clamp(17px,2.4vw,29px);background:rgba(255,255,255,.035)}
+#tsz-buywait-r230 .bw230-panel-head{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:20px}
+#tsz-buywait-r230 .bw230-number{font-size:10px;font-weight:740;color:#aac1d0;letter-spacing:.17em}
+#tsz-buywait-r230 .bw230-live{font-size:10px;letter-spacing:.05em;border:1px solid #3e5e47;color:var(--bw-glow);border-radius:50px;padding:5px 9px;white-space:nowrap}
+#tsz-buywait-r230 h3{margin:0;font-size:clamp(19px,2vw,26px);font-weight:770;line-height:1.25;letter-spacing:-.038em;color:#fafbf8}
+#tsz-buywait-r230 .bw230-intro{font-size:12px;line-height:1.65;color:var(--bw-soft);margin:7px 0 19px}
+#tsz-buywait-r230 .bw230-prices{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+#tsz-buywait-r230 .bw230-field{min-width:0;display:grid;gap:9px;color:#bdcbd5;font-size:12px;font-weight:650}
+#tsz-buywait-r230 .bw230-currency{display:flex;align-items:center;gap:7px;border:1px solid #536177;background:#101b2c;border-radius:12px;min-width:0;padding:0 11px;min-height:55px}
+#tsz-buywait-r230 .bw230-currency span{color:var(--bw-glow);font-size:20px;font-weight:750}
+#tsz-buywait-r230 input[type=number]{background:transparent;border:0;outline:none;min-width:0;width:100%;color:#f6f8fd;font-size:clamp(19px,2.3vw,25px);font-weight:770;font-variant-numeric:tabular-nums;appearance:textfield}
+#tsz-buywait-r230 input[type=number]:focus-visible{outline:0}
+#tsz-buywait-r230 .bw230-days-head{display:flex;gap:8px;align-items:center;justify-content:space-between;margin:26px 0 12px;flex-wrap:wrap}
+#tsz-buywait-r230 .bw230-days-head label{font-size:13px;font-weight:720}
+#tsz-buywait-r230 .bw230-days{display:flex;align-items:baseline;gap:6px;white-space:nowrap}
+#tsz-buywait-r230 .bw230-days strong{font-size:34px;line-height:1;font-weight:820;letter-spacing:-.04em;color:var(--bw-glow);font-variant-numeric:tabular-nums}
+#tsz-buywait-r230 .bw230-days span{color:#b5c4d1;font-size:12px}
+#tsz-buywait-r230 input[type=range]{accent-color:var(--bw-glow);width:100%;height:21px;cursor:pointer}
+#tsz-buywait-r230 .bw230-ticks{display:flex;justify-content:space-between;color:#8194a9;font-size:10px;margin:1px 0 20px}
+#tsz-buywait-r230 .bw230-presets{display:flex;gap:7px;flex-wrap:wrap}
+#tsz-buywait-r230 .bw230-presets button,#tsz-buywait-r230 .bw230-reset{border-radius:10px;border:1px solid #4a5870;padding:9px 11px;background:#202d41;color:#cbd8e3;font-size:11px;font-weight:650}
+#tsz-buywait-r230 .bw230-presets button[aria-pressed=true]{border-color:#a9d36c;background:#263b31;color:#e3ffb9}
+#tsz-buywait-r230 .bw230-reset{margin-top:17px;background:transparent;color:#b2c1d0}
+#tsz-buywait-r230 .bw230-result{background:linear-gradient(160deg,#223348,#1c293c 80%);border:1px solid #546279;display:flex;flex-direction:column;justify-content:space-between}
+#tsz-buywait-r230 .bw230-overline{font-size:11px;letter-spacing:.13em;color:#b9c9d4;text-transform:uppercase;font-weight:700}
+#tsz-buywait-r230 .bw230-hero-number{color:#f2f8ee;font-size:clamp(55px,6vw,94px);font-weight:840;line-height:1;letter-spacing:-.075em;margin:18px 0 1px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+#tsz-buywait-r230 .bw230-per{color:var(--bw-glow);font-size:16px;font-weight:670}
+#tsz-buywait-r230 .bw230-bars{margin-top:29px;display:grid;gap:14px}
+#tsz-buywait-r230 .bw230-bar-head{display:flex;justify-content:space-between;gap:14px;color:#c9d3dd;font-size:12px;margin-bottom:8px}
+#tsz-buywait-r230 .bw230-bar-head strong{font-variant-numeric:tabular-nums;color:#f7f8f4}
+#tsz-buywait-r230 .bw230-rail{height:9px;overflow:hidden;border-radius:20px;background:#344458}
+#tsz-buywait-r230 .bw230-fill{display:block;height:100%;width:100%;border-radius:inherit;background:#8b9aac;transition:width .14s ease}
+#tsz-buywait-r230 .bw230-fill.saving{background:linear-gradient(90deg,#9dbf77,#d4ff92)}
+#tsz-buywait-r230 .bw230-callout{margin:20px 0 0;padding:13px 15px;border-radius:12px;border:1px solid #5d7152;color:#dcf7c8;background:rgba(158,197,109,.07);font-size:12px;line-height:1.6}
+#tsz-buywait-r230 .bw230-callout[aria-invalid=true]{border-color:#b5876a;color:#ffcfaa;background:rgba(208,131,86,.07)}
+#tsz-buywait-r230 .bw230-summary{font-size:12px;color:#aebfd0;line-height:1.7;margin:14px 0 0}
+#tsz-buywait-r230 .bw230-fine{margin-top:24px;border-top:1px solid #334158;padding-top:16px;align-items:flex-start;color:#8fa3b5;font-size:11px;line-height:1.65;flex-wrap:wrap}
+#tsz-buywait-r230 .bw230-store{color:#e9f5d5;font-weight:700;text-decoration:underline;text-decoration-color:#8aa36d;text-underline-offset:4px}
+#tsz-buywait-r230 [dir=rtl]{text-align:start}
+@media(max-width:790px){#tsz-buywait-r230 .bw230-content{grid-template-columns:1fr}#tsz-buywait-r230 .bw230-head{align-items:flex-start}#tsz-buywait-r230 .bw230-selects{width:100%;justify-content:flex-start}#tsz-buywait-r230 .bw230-result{min-height:370px}}
+@media(max-width:440px){#tsz-buywait-r230{width:calc(100% - 18px);margin:15px auto 25px;border-radius:18px;padding:17px 13px}#tsz-buywait-r230 .bw230-head{margin:17px 0 20px}#tsz-buywait-r230 .bw230-cap{font-size:9px;letter-spacing:.08em}#tsz-buywait-r230 .bw230-content{gap:12px}#tsz-buywait-r230 .bw230-panel{border-radius:15px;padding:16px 14px}#tsz-buywait-r230 .bw230-prices{gap:8px}#tsz-buywait-r230 .bw230-currency{padding:0 8px;min-height:50px}#tsz-buywait-r230 h2{font-size:clamp(29px,9vw,38px)}#tsz-buywait-r230 .bw230-hero-number{font-size:58px}#tsz-buywait-r230 .bw230-selects{gap:8px}#tsz-buywait-r230 select{min-width:95px}}
+@media(prefers-reduced-motion:reduce){#tsz-buywait-r230 .bw230-fill{transition:none}}
