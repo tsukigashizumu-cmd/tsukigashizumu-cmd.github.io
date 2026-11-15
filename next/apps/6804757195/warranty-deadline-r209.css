@@ -1,0 +1,65 @@
+/* R209. Pure CSS editorial visuals; isolated under #tsz-warranty-r209. */
+#tsz-warranty-r209{--w-fg:#e9edf0;--w-sub:#94a8ad;--w-accent:#c5fa74;--w-line:#35464d;box-sizing:border-box;display:block;width:100%;max-width:1180px;margin:32px auto 58px;padding:0 16px;color:var(--w-fg);font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;text-align:left;isolation:isolate}
+#tsz-warranty-r209 *{box-sizing:border-box;min-width:0}
+#tsz-warranty-r209 button,#tsz-warranty-r209 select{font:inherit;cursor:pointer}
+#tsz-warranty-r209 .wr209-hero{background:linear-gradient(135deg,#162b32 0%,#111b25 52%,#0b1521 100%);border:1px solid #425761;border-radius:27px;padding:clamp(20px,4vw,52px);overflow:hidden;box-shadow:0 24px 80px #10212825;position:relative}
+#tsz-warranty-r209 .wr209-hero:before{content:'';position:absolute;inset:-190px -210px auto auto;width:450px;height:450px;pointer-events:none;border:1px solid #d4fb7819;border-radius:50%;box-shadow:0 0 0 65px #b6e86c05,0 0 0 125px #b6e86c03}
+#tsz-warranty-r209 .wr209-kicker{display:flex;align-items:center;flex-wrap:wrap;gap:12px;color:#c7d9da;letter-spacing:.09em;font-size:10px;font-weight:750;text-transform:uppercase}
+#tsz-warranty-r209 .wr209-mark{color:var(--w-accent);font-size:22px}
+#tsz-warranty-r209 .wr209-demo-pill{margin-left:auto;border:1px solid #5f725f;color:#c5fa74;border-radius:999px;padding:7px 10px;font-size:9px;letter-spacing:.04em}
+#tsz-warranty-r209 .wr209-heading-line{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin:35px 0 31px}
+#tsz-warranty-r209 .wr209-number{font-size:11px;color:var(--w-accent);letter-spacing:.22em;font-weight:800;margin:0 0 14px}
+#tsz-warranty-r209 .wr209-number span{color:#789295;font-size:10px;letter-spacing:.14em}
+#tsz-warranty-r209 h2{margin:0;color:#f7f7f0;font-size:clamp(29px,4.6vw,56px);line-height:1.13;letter-spacing:-.055em;font-weight:760;max-width:700px}
+#tsz-warranty-r209 h2 span,#tsz-warranty-r209 h2 em{display:block}
+#tsz-warranty-r209 h2 em{font-style:normal;color:var(--w-accent)}
+#tsz-warranty-r209 .wr209-lead{font-size:clamp(13px,1.25vw,16px);color:#b9cacb;line-height:1.65;max-width:560px;margin:18px 0 0}
+#tsz-warranty-r209 .wr209-selects{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;max-width:260px;flex-shrink:0}
+#tsz-warranty-r209 .wr209-selects label{color:#a6b8bc;font-size:9px;font-weight:800;letter-spacing:.08em;display:grid;gap:8px}
+#tsz-warranty-r209 .wr209-selects select{background:#23313a;border:1px solid #4b5a60;border-radius:10px;color:#f5f7f2;padding:11px;max-width:140px;font-size:12px;min-width:110px}
+#tsz-warranty-r209 .wr209-content{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:15px}
+#tsz-warranty-r209 .wr209-focus{border-radius:19px;background:radial-gradient(circle at 86% 24%,#516a393a,transparent 51%),linear-gradient(145deg,#2d4d43,#18342e 70%);border:1px solid #68857b;min-height:392px;padding:clamp(20px,2.5vw,30px);display:flex;flex-direction:column}
+#tsz-warranty-r209 .wr209-focus-top{display:flex;align-items:flex-start;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:10px;font-weight:800;letter-spacing:.11em;color:#d4e8db}
+#tsz-warranty-r209 .wr209-live{color:#93aca0;display:flex;align-items:center;gap:7px;font-size:8px;letter-spacing:.05em}
+#tsz-warranty-r209 .wr209-live-dot{display:inline-block;background:var(--w-accent);width:6px;height:6px;border-radius:50%;box-shadow:0 0 0 4px #c5fa7421}
+#tsz-warranty-r209 .wr209-focus-main{display:flex;align-items:baseline;gap:15px;margin:24px 0 4px;flex-wrap:wrap}
+#tsz-warranty-r209 .wr209-big-num{color:var(--w-accent);font-size:clamp(85px,12vw,143px);font-weight:760;letter-spacing:-.105em;line-height:.96;font-variant-numeric:tabular-nums}
+#tsz-warranty-r209 .wr209-big-label{font-size:clamp(11px,1.5vw,15px);font-weight:800;letter-spacing:.07em;color:#e1f2d4;max-width:110px;line-height:1.4}
+#tsz-warranty-r209 .wr209-focus-item{font-size:23px;font-weight:800;letter-spacing:-.035em;color:white}
+#tsz-warranty-r209 .wr209-focus-note{font-size:13px;color:#a7c5b5;line-height:1.5;margin:9px 0 14px}
+#tsz-warranty-r209 .wr209-rule{margin-top:auto;border-top:1px solid #678b794e;padding-top:15px}
+#tsz-warranty-r209 .wr209-clock-top{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:9px;font-weight:750;letter-spacing:.06em;color:#bdd2c5;margin-bottom:11px}
+#tsz-warranty-r209 #wr209-current-date{font-size:11px;letter-spacing:0;color:#e1eee0}
+#tsz-warranty-r209 .wr209-clock{display:flex;gap:7px}
+#tsz-warranty-r209 .wr209-clock button{flex:1;min-width:0;padding:12px 7px;background:#21463c;border:1px solid #5e8474;border-radius:10px;color:#c7dcce;font-size:11px;font-weight:750;letter-spacing:.025em}
+#tsz-warranty-r209 .wr209-clock button[aria-pressed="true"]{background:var(--w-accent);border-color:var(--w-accent);color:#152c22}
+#tsz-warranty-r209 .wr209-listpanel{background:#182831;border:1px solid #415761;border-radius:19px;padding:clamp(18px,2.6vw,30px);display:flex;flex-direction:column}
+#tsz-warranty-r209 .wr209-list-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+#tsz-warranty-r209 .wr209-serial{color:#a2b6b7;font-size:9px;font-weight:800;letter-spacing:.1em;margin:0 0 8px}
+#tsz-warranty-r209 .wr209-listpanel h3{font-size:clamp(19px,2vw,24px);font-weight:740;letter-spacing:-.04em;color:#f2f5f2;margin:0}
+#tsz-warranty-r209 .wr209-filter{display:flex;background:#0d1d26;border-radius:9px;padding:4px;gap:2px}
+#tsz-warranty-r209 .wr209-filter button{background:transparent;border:0;color:#9cb0b6;padding:9px 12px;border-radius:7px;font-size:10px;font-weight:800}
+#tsz-warranty-r209 .wr209-filter button[aria-pressed="true"]{background:#36505b;color:#e9f7f0}
+#tsz-warranty-r209 .wr209-list{display:flex;flex-direction:column;gap:10px}
+#tsz-warranty-r209 .wr209-record{display:flex;align-items:center;gap:15px;padding:17px 16px;border:1px solid #425660;background:#20343d;border-radius:12px}
+#tsz-warranty-r209 .wr209-glyph{display:grid;place-items:center;flex:0 0 42px;height:42px;background:#304953;color:#d9f0eb;border-radius:10px;font-size:25px}
+#tsz-warranty-r209 .wr209-desc{flex:1;display:grid;gap:6px;min-width:0}
+#tsz-warranty-r209 .wr209-desc strong{font-weight:750;font-size:14px;color:#f3f5f3;overflow-wrap:anywhere}
+#tsz-warranty-r209 .wr209-desc span{font-size:11px;color:#a0b7b8}
+#tsz-warranty-r209 .wr209-status{text-align:right;display:grid;justify-items:end;gap:6px;flex-shrink:0}
+#tsz-warranty-r209 .wr209-status b{border:1px solid #69856e;border-radius:5px;background:#375545;color:#ccefbb;padding:4px 7px;font-size:9px;letter-spacing:.02em}
+#tsz-warranty-r209 .wr209-record[data-status="expired"] .wr209-status b{background:#603d43;border-color:#8b555f;color:#ffd6d1}
+#tsz-warranty-r209 .wr209-record[data-status="soon"] .wr209-status b{background:#61533b;border-color:#8d7349;color:#fbe0a1}
+#tsz-warranty-r209 .wr209-status span{font-size:11px;color:#d3e0e2;font-weight:700;font-variant-numeric:tabular-nums}
+#tsz-warranty-r209 .wr209-list-foot{font-size:11px;color:#8fa8ae;margin:auto 0 0;padding-top:16px}
+#tsz-warranty-r209 .wr209-empty{padding:24px 8px;color:#a7b9bd;font-size:13px}
+#tsz-warranty-r209 .wr209-bottom{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:27px;flex-wrap:wrap}
+#tsz-warranty-r209 .wr209-bottom strong{color:#f3f7f5;font-size:16px;letter-spacing:-.025em}
+#tsz-warranty-r209 .wr209-bottom p{color:#a0b4b8;font-size:11px;margin:8px 0 0;line-height:1.5}
+#tsz-warranty-r209 .wr209-bottom a{border-radius:12px;background:var(--w-accent);color:#142718;padding:14px 19px;font-size:12px;font-weight:800;text-decoration:none;white-space:normal;text-align:center}
+#tsz-warranty-r209 :is(button,select,a):focus-visible{outline:3px solid #fafdd2;outline-offset:3px}
+#tsz-warranty-r209 button:hover{filter:brightness(1.11)}
+#tsz-warranty-r209[dir="rtl"]{text-align:right}
+#tsz-warranty-r209[dir="rtl"] .wr209-status{text-align:left;justify-items:start}
+@media(max-width:840px){#tsz-warranty-r209 .wr209-heading-line{flex-direction:column;gap:23px}#tsz-warranty-r209 .wr209-selects{justify-content:flex-start}#tsz-warranty-r209 .wr209-content{grid-template-columns:1fr}#tsz-warranty-r209 .wr209-focus{min-height:350px}}
+@media(max-width:400px){#tsz-warranty-r209{padding:0 9px;margin:20px auto}#tsz-warranty-r209 .wr209-hero{padding:18px;border-radius:18px}#tsz-warranty-r209 .wr209-kicker{font-size:9px}#tsz-warranty-r209 .wr209-demo-pill{margin-left:0}#tsz-warranty-r209 h2{font-size:30px}#tsz-warranty-r209 .wr209-focus{padding:18px;min-height:350px}#tsz-warranty-r209 .wr209-listpanel{padding:16px}#tsz-warranty-r209 .wr209-record{padding:12px 9px;gap:8px}#tsz-warranty-r209 .wr209-glyph{flex-basis:32px;height:34px;font-size:20px}#tsz-warranty-r209 .wr209-desc strong{font-size:13px}#tsz-warranty-r209 .wr209-status b{font-size:8px}#tsz-warranty-r209 .wr209-status span{font-size:10px}#tsz-warranty-r209 .wr209-clock button{font-size:10px;padding:11px 5px}}

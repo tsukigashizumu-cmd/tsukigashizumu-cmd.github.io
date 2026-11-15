@@ -98,8 +98,28 @@
     q('explanation').textContent=state.extra?t.explainOn:t.explainOff;
     q('store').href=`https://apps.apple.com/${state.region}/app/id6804760060`;
   }
-  langControl.addEventListener('change',()=>{state.language=langValue(langControl.value);render();});
-  countryControl.addEventListener('change',()=>{state.region=regionValue(countryControl.value);render();});
+  langControl.addEventListener('change',()=>{
+    state.language=langValue(langControl.value);
+    if(sharedLang){
+      const match=Array.from(sharedLang.options).find(option=>langValue(option.value)===state.language);
+      if(match && sharedLang.value!==match.value){
+        sharedLang.value=match.value;
+        sharedLang.dispatchEvent(new Event('change',{bubbles:true}));
+      }
+    }
+    render();
+  });
+  countryControl.addEventListener('change',()=>{
+    state.region=regionValue(countryControl.value);
+    if(sharedCountry){
+      const match=Array.from(sharedCountry.options).find(option=>String(option.value).toLowerCase()===state.region);
+      if(match && sharedCountry.value!==match.value){
+        sharedCountry.value=match.value;
+        sharedCountry.dispatchEvent(new Event('change',{bubbles:true}));
+      }
+    }
+    render();
+  });
   if(sharedLang)sharedLang.addEventListener('change',()=>{state.language=langValue(sharedLang.value);render();});
   if(sharedCountry)sharedCountry.addEventListener('change',()=>{state.region=regionValue(sharedCountry.value);render();});
   q('toggle').addEventListener('click',()=>{state.extra=!state.extra;render();});
