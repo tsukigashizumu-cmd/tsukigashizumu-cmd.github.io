@@ -1,0 +1,78 @@
+/* R223 Good Person Test: scoped CSS, no media, no external resources */
+#tsz-goodperson-r223{--gp-bg:#0e1424;--gp-peach:#f8b48a;--gp-cream:#f5ede6;--gp-muted:#a9afc0;display:block;max-width:1190px;margin:28px auto 68px;padding:0 12px;box-sizing:border-box;color:var(--gp-cream);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;line-height:1.5;text-align:start;isolation:isolate}
+#tsz-goodperson-r223 *,#tsz-goodperson-r223 *::before,#tsz-goodperson-r223 *::after{box-sizing:border-box}
+#tsz-goodperson-r223 .gp223-wrap{border:1px solid #363c51;border-radius:22px;overflow:hidden;background:radial-gradient(circle at 88% 5%,#34304b 0,transparent 36%),linear-gradient(140deg,#11182b,#101525 70%);box-shadow:0 30px 66px #11152823}
+#tsz-goodperson-r223 .gp223-top{padding:24px 34px 0;display:flex;align-items:center;justify-content:space-between;gap:13px}
+#tsz-goodperson-r223 .gp223-mark{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:850;letter-spacing:.15em;color:#f8d3b7}
+#tsz-goodperson-r223 .gp223-orb{width:25px;height:25px;border:1.5px solid #f1ad88;border-radius:50%;display:grid;place-items:center;font-size:15px;font-family:Georgia,serif;font-style:italic;color:#fae1c8;flex-shrink:0}
+#tsz-goodperson-r223 .gp223-topright{font-size:10px;letter-spacing:.14em;color:#aaa4b8;white-space:nowrap}
+#tsz-goodperson-r223 .gp223-hero{max-width:900px;padding:40px 34px 30px}
+#tsz-goodperson-r223 .gp223-eyebrow{font-size:10px;letter-spacing:.23em;font-weight:800;color:var(--gp-peach);margin:0 0 14px}
+#tsz-goodperson-r223 h2{font-size:clamp(35px,5.3vw,65px);font-weight:780;letter-spacing:-.06em;line-height:1.1;margin:0 0 16px;color:#fff5ee}
+#tsz-goodperson-r223 .gp223-lead{font-size:clamp(13px,1.4vw,17px);color:#bfc3ce;line-height:1.8;margin:0;max-width:700px}
+#tsz-goodperson-r223 .gp223-stats{margin:0 34px 16px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));background:#1d2133;border:1px solid #343548;border-radius:12px;overflow:hidden}
+#tsz-goodperson-r223 .gp223-stats>div{padding:16px 18px;display:flex;align-items:baseline;gap:12px;min-width:0}
+#tsz-goodperson-r223 .gp223-stats>div+div{border-inline-start:1px solid #37394b}
+#tsz-goodperson-r223 .gp223-stats b{font-size:22px;color:#ffcfb1;white-space:nowrap;letter-spacing:-.035em}
+#tsz-goodperson-r223 .gp223-stats span{font-size:10px;color:#aeb0c2;line-height:1.4}
+#tsz-goodperson-r223 .gp223-content{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:16px;padding:0 34px 32px;align-items:stretch}
+#tsz-goodperson-r223 .gp223-viz,#tsz-goodperson-r223 .gp223-panel{min-width:0;border:1px solid #3b4057;border-radius:15px;overflow:hidden}
+#tsz-goodperson-r223 .gp223-viz{padding:22px 22px 12px;background:linear-gradient(165deg,#25293c,#191c30)}
+#tsz-goodperson-r223 .gp223-panel{padding:23px;background:#1c2031}
+#tsz-goodperson-r223 .gp223-section{display:flex;justify-content:space-between;gap:10px;font-size:10px;letter-spacing:.16em;font-weight:800;color:#ccc7d0;text-transform:uppercase}
+#tsz-goodperson-r223 .gp223-number{color:#ffbf9d;font-size:9px;letter-spacing:.08em}
+#tsz-goodperson-r223 .gp223-dot{color:#ecae89;font-size:9px}
+#tsz-goodperson-r223 .gp223-art{height:296px;position:relative;overflow:hidden;border-radius:14px;margin:19px 0 12px;background:radial-gradient(ellipse at 72% 68%,#4b4054,#252940 65%)}
+#tsz-goodperson-r223 .gp223-ceiling{position:absolute;top:26px;left:0;right:0;display:flex;gap:8px;justify-content:center;opacity:.7}
+#tsz-goodperson-r223 .gp223-ceiling span{width:18px;height:4px;background:#d5ab91;border-radius:10px;box-shadow:0 0 21px #ecb89d}
+#tsz-goodperson-r223 .gp223-register{position:absolute;left:11%;top:32%;width:30%;height:33%;border:2px solid #9c8793;background:#3a3b53;border-radius:7px 7px 1px 1px}
+#tsz-goodperson-r223 .gp223-register::after{content:'';position:absolute;bottom:-15px;left:-5%;width:113%;height:20px;background:#b98d81;border-radius:4px}
+#tsz-goodperson-r223 .gp223-screen{position:absolute;left:22%;top:21%;width:52%;height:38%;background:#c4c9c8;border-radius:3px;color:#51546a;font-size:15px;display:grid;place-items:center;font-weight:800}
+#tsz-goodperson-r223 .gp223-counter{position:absolute;right:4%;top:-15px;width:50px;height:14px;background:#e1af8c;border-radius:2px}
+#tsz-goodperson-r223 .gp223-floor{position:absolute;height:3px;bottom:28px;left:0;right:0;background:#c8a49a4d}
+#tsz-goodperson-r223 .gp223-person{position:absolute;bottom:32px;display:flex;flex-direction:column;align-items:center;z-index:1}
+#tsz-goodperson-r223 .gp223-person-primary{left:50%;width:105px}
+#tsz-goodperson-r223 .gp223-person-second{left:76%;width:61px}
+#tsz-goodperson-r223 .gp223-head{width:47px;height:47px;background:#ebbb9c;border-radius:50%;box-shadow:inset 5px 0 0 #d9a089}
+#tsz-goodperson-r223 .gp223-person-second .gp223-head{width:36px;height:36px;background:#d9b2a5}
+#tsz-goodperson-r223 .gp223-body{width:84px;height:102px;background:#a7a8bb;border-radius:36px 36px 7px 7px;margin-top:3px}
+#tsz-goodperson-r223 .gp223-person-second .gp223-body{width:53px;height:76px;background:#d29d8a}
+#tsz-goodperson-r223 .gp223-person span{font-size:10px;font-weight:750;color:#fce9da;padding:6px 2px;white-space:nowrap}
+#tsz-goodperson-r223 .gp223-railcaption{font-size:13px;line-height:1.6;color:#d2c7cc;max-width:350px;margin:8px 0 18px}
+#tsz-goodperson-r223 .gp223-scenenum{font-size:11px;color:#ae9bab;letter-spacing:.2em;text-align:center;margin:13px 0}
+#tsz-goodperson-r223 .gp223-scene{font-size:22px;line-height:1.4;font-weight:750;letter-spacing:-.02em;color:#fff3e8;margin:21px 0 4px}
+#tsz-goodperson-r223 .gp223-details{font-size:12px;color:#adb3c4;line-height:1.65;margin:0 0 17px}
+#tsz-goodperson-r223 h3.gp223-prompt{font-size:16px;color:#f9c4a1;margin:0 0 13px}
+#tsz-goodperson-r223 .gp223-choices{display:flex;flex-direction:column;gap:8px}
+#tsz-goodperson-r223 button{font:inherit;cursor:pointer}
+#tsz-goodperson-r223 .gp223-choices button{display:flex;align-items:center;gap:10px;text-align:start;background:#2a2d41;color:#efe6e5;border:1px solid #4b4959;border-radius:9px;min-height:58px;padding:11px 12px;font-size:12px;line-height:1.45;transition:background .15s,border-color .15s;overflow-wrap:anywhere}
+#tsz-goodperson-r223 .gp223-choices button:hover:not(:disabled){border-color:#f0bb98;background:#353248}
+#tsz-goodperson-r223 .gp223-choices button[aria-pressed=true]{border-color:#ffb38b;background:#55404c;color:#fff5ee}
+#tsz-goodperson-r223 .gp223-choices button:disabled{cursor:default;opacity:.51}
+#tsz-goodperson-r223 .gp223-choices button[aria-pressed=true]:disabled{opacity:1}
+#tsz-goodperson-r223 .gp223-letter{width:28px;height:28px;display:grid;place-items:center;border:1px solid #7b6f78;border-radius:7px;flex-shrink:0;font-size:13px;color:#ffcaa9;font-weight:800}
+#tsz-goodperson-r223 .gp223-arrow{margin-inline-start:auto;flex-shrink:0;color:#faac83}
+#tsz-goodperson-r223 .gp223-hint{color:#9a9db3;font-size:11px;line-height:1.55;margin:13px 0 0}
+#tsz-goodperson-r223 .gp223-result{background:#3a2e43;border:1px solid #b47b77;border-radius:11px;padding:12px 15px;margin-top:14px}
+#tsz-goodperson-r223 .gp223-resulttop{display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:10px;color:#eec4b0;letter-spacing:.14em}
+#tsz-goodperson-r223 .gp223-resulttop strong:last-child{border:1px solid #dc9984;padding:2px 9px;border-radius:5px;color:#fff2e9;font-size:14px}
+#tsz-goodperson-r223 .gp223-result p{font-size:12px;line-height:1.65;color:#e9d7d0;margin:9px 0}
+#tsz-goodperson-r223 .gp223-result p#gp223-reflection{font-size:14px;font-weight:730;color:#ffd1b6}
+#tsz-goodperson-r223 .gp223-result span{font-size:10px;color:#d9b2a8}
+#tsz-goodperson-r223 .gp223-reset{margin-top:11px;width:100%;background:transparent;border:1px solid #e0a88b;color:#fbd1b2;font-weight:750;font-size:12px;border-radius:9px;padding:12px}
+#tsz-goodperson-r223 [hidden]{display:none!important}
+#tsz-goodperson-r223 .gp223-bottom{padding:23px 34px 29px;border-top:1px solid #33364a;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(220px,.75fr);gap:28px}
+#tsz-goodperson-r223 .gp223-context{font-size:10px;font-weight:800;letter-spacing:.16em;color:#ffb995}
+#tsz-goodperson-r223 .gp223-bottom h3{font-size:18px;font-weight:740;letter-spacing:-.02em;color:#fff4ec;margin:9px 0 5px}
+#tsz-goodperson-r223 .gp223-bottom p{font-size:11px;color:#abb0c2;line-height:1.75;margin:0;max-width:660px}
+#tsz-goodperson-r223 .gp223-controls{display:flex;flex-direction:column;gap:9px}
+#tsz-goodperson-r223 .gp223-locales{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+#tsz-goodperson-r223 label{display:flex;flex-direction:column;gap:5px;color:#aab0c1;font-size:10px;min-width:0}
+#tsz-goodperson-r223 select{width:100%;min-height:35px;font:inherit;font-size:11px;color:#f9eeee;border:1px solid #55546a;background:#2b2c40;border-radius:7px;padding:5px;min-width:0}
+#tsz-goodperson-r223 .gp223-controls>a{display:flex;align-items:center;justify-content:space-between;gap:9px;text-decoration:none;background:#f9b48b;color:#2a1c27;border-radius:8px;padding:12px;font-size:12px;font-weight:850;line-height:1.4}
+#tsz-goodperson-r223 .gp223-controls>a:hover{background:#ffcfaa}
+#tsz-goodperson-r223 button:focus-visible,#tsz-goodperson-r223 select:focus-visible,#tsz-goodperson-r223 a:focus-visible{outline:2px solid #fff5b2;outline-offset:2px}
+#tsz-goodperson-r223[dir=rtl] .gp223-person-primary{left:46%}
+@media(max-width:800px){#tsz-goodperson-r223 .gp223-content{grid-template-columns:minmax(0,1fr)}#tsz-goodperson-r223 .gp223-bottom{grid-template-columns:minmax(0,1fr)}#tsz-goodperson-r223 .gp223-art{height:220px}#tsz-goodperson-r223 .gp223-person .gp223-body{height:70px}#tsz-goodperson-r223 .gp223-person-second .gp223-body{height:56px}}
+@media(max-width:430px){#tsz-goodperson-r223{margin:15px auto 36px;padding:0 7px}#tsz-goodperson-r223 .gp223-wrap{border-radius:14px}#tsz-goodperson-r223 .gp223-top{padding:15px 14px 0}#tsz-goodperson-r223 .gp223-mark{font-size:10px;letter-spacing:.08em}#tsz-goodperson-r223 .gp223-topright{font-size:9px}#tsz-goodperson-r223 .gp223-hero{padding:29px 15px 20px}#tsz-goodperson-r223 h2{font-size:35px}#tsz-goodperson-r223 .gp223-stats{margin:0 12px 12px}#tsz-goodperson-r223 .gp223-stats>div{padding:10px 6px;display:flex;flex-direction:column;align-items:flex-start;gap:1px}#tsz-goodperson-r223 .gp223-stats b{font-size:17px}#tsz-goodperson-r223 .gp223-stats span{font-size:9px}#tsz-goodperson-r223 .gp223-content{padding:0 12px 16px;gap:10px}#tsz-goodperson-r223 .gp223-viz,#tsz-goodperson-r223 .gp223-panel{padding:16px;border-radius:10px}#tsz-goodperson-r223 .gp223-art{height:205px;margin:13px 0 8px}#tsz-goodperson-r223 .gp223-scene{font-size:19px}#tsz-goodperson-r223 .gp223-choices button{font-size:12px;min-height:56px;padding:10px}#tsz-goodperson-r223 .gp223-bottom{padding:16px 15px 20px}#tsz-goodperson-r223 .gp223-bottom h3{font-size:17px}}
+@media(prefers-reduced-motion:reduce){#tsz-goodperson-r223 *,#tsz-goodperson-r223 *:before{transition:none!important;animation:none!important}}
