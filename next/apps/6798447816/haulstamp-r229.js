@@ -33,10 +33,10 @@
     const w=read('hs229-wait',0,240),h=read('hs229-handle',0,240),wr=read('hs229-wrate',0,250),hr=read('hs229-hrate',0,250);
     el('hs229-wait-value').textContent=w;el('hs229-handle-value').textContent=h;
     const a=w*wr/60,b=h*hr/60;el('hs229-wamount').textContent=dollars(a);el('hs229-hamount').textContent=dollars(b);el('hs229-total').textContent=dollars(a+b);
-    el('hs229-share').textContent=(w+h)+' min';
+    const minuteUnit=lang==='en'?'min':i18n[lang].minutes;el('hs229-share').textContent=(w+h)+' '+minuteUnit;
     const tot=w+h,share=tot>0?w/tot*100:50;
     el('hs229-wbar').style.width=share+'%';el('hs229-hbar').style.width=(100-share)+'%';
-    root.querySelector('.hs229-bars').setAttribute('aria-label', `${i18n[lang].wait}: ${w} min; ${i18n[lang].handle}: ${h} min`);
+    root.querySelector('.hs229-bars').setAttribute('aria-label', `${i18n[lang].wait}: ${w} ${minuteUnit}; ${i18n[lang].handle}: ${h} ${minuteUnit}`);
     root.querySelectorAll('[data-scenario]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.scenario===root.dataset.scenario)));
   }
   function locale(){const d=i18n[lang];root.lang=lang;root.dir=lang==='ar'?'rtl':'ltr';root.querySelectorAll('[data-t]').forEach(n=>{n.textContent=d[n.dataset.t]||n.dataset.t;});el('hs229-language').value=lang;el('hs229-country').value=country;el('hs229-store').href=`https://apps.apple.com/${country}/app/haulstamp/id6798447816`;render();}
