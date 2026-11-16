@@ -1,0 +1,55 @@
+/* TSZ R280 Repeat Grocery List — standalone, scoped, no external assets */
+#tsz-rg280{color-scheme:dark;--rg280-bg:#0b101a;--rg280-surface:#111927;--rg280-muted:#a2aec3;--rg280-text:#f0f5ff;--rg280-line:rgba(182,199,227,.16);--rg280-blue:#a8bdff;--rg280-lime:#b7f4c8;display:block;max-width:1280px;margin:40px auto 64px;padding:0 20px;font:inherit;isolation:isolate}
+#tsz-rg280 *{box-sizing:border-box}
+#tsz-rg280 .rg280-wrap{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--rg280-text);border-radius:30px;overflow:hidden;position:relative;border:1px solid #2d3648;background:radial-gradient(ellipse 65% 80% at 3% 8%,#243b50 0%,transparent 73%),radial-gradient(ellipse 60% 70% at 97% 95%,#232445 0%,transparent 74%),#0b101a;box-shadow:0 30px 90px rgba(0,0,0,.22);line-height:1.5}
+#tsz-rg280 .rg280-wrap::before{content:"";pointer-events:none;position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.013) 1px,transparent 1px);background-size:100% 48px}
+#tsz-rg280 .rg280-top{position:relative;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:24px 32px;border-bottom:1px solid var(--rg280-line)}
+#tsz-rg280 .rg280-mark{display:flex;align-items:center;gap:9px;letter-spacing:.16em;font-size:11px;text-transform:uppercase;font-weight:750;color:var(--rg280-blue)}
+#tsz-rg280 .rg280-dot{height:9px;width:9px;flex:none;background:var(--rg280-lime);border-radius:3px;transform:rotate(-14deg);box-shadow:0 0 18px rgba(183,244,200,.5)}
+#tsz-rg280 .rg280-sels{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+#tsz-rg280 .rg280-sels label{font-size:11px;color:var(--rg280-muted);display:flex;gap:6px;align-items:center}
+#tsz-rg280 .rg280-sels select{background:#1a2433;border:1px solid #45516a;border-radius:9px;color:white;padding:7px 10px;font-size:12px;min-height:36px;max-width:126px}
+#tsz-rg280 .rg280-layout{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,490px);gap:32px;align-items:center;padding:52px 48px 50px}
+#tsz-rg280 .rg280-story{max-width:530px}
+#tsz-rg280 .rg280-kicker{display:flex;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:.18em;font-size:11px;font-weight:750;color:#b5c5dd}
+#tsz-rg280 .rg280-rule{display:inline-block;height:1px;width:35px;background:var(--rg280-lime)}
+#tsz-rg280 h2{color:#f4f7ff!important;letter-spacing:-.055em;font-size:clamp(34px,4.7vw,62px)!important;line-height:1.13!important;margin:20px 0 22px!important;padding:0!important;font-weight:780!important}
+#tsz-rg280 .rg280-lead{font-size:clamp(15px,1.6vw,18px);line-height:1.75;color:#cbd5e7;max-width:500px;margin:0 0 29px}
+#tsz-rg280 .rg280-three{display:flex;align-items:center;gap:10px;flex-wrap:wrap;color:#b7c6df;font-size:12px;font-weight:700;letter-spacing:.015em}
+#tsz-rg280 .rg280-three b{display:inline-flex;align-items:center;gap:7px;background:#1a2733;border:1px solid #405064;border-radius:100px;padding:8px 12px;color:#e7eefb}
+#tsz-rg280 .rg280-three em{font-style:normal;color:#86a8b8}
+#tsz-rg280 .rg280-note{font-size:12px;color:#a3b2ca;line-height:1.65;margin:24px 0 0}
+#tsz-rg280 .rg280-demo{background:linear-gradient(165deg,#1b2736,#101824);border:1px solid #37465a;border-radius:23px;padding:25px;min-width:0;box-shadow:0 28px 60px rgba(0,0,0,.25)}
+#tsz-rg280 .rg280-cardtop{display:flex;align-items:start;justify-content:space-between;gap:10px}
+#tsz-rg280 .rg280-cardeyebrow{font-weight:700;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#a5b8d8}
+#tsz-rg280 h3{font-size:24px!important;line-height:1.22!important;color:#fff!important;margin:5px 0 0!important;font-weight:750!important;letter-spacing:-.035em}
+#tsz-rg280 .rg280-trip{color:#c9d8f2;background:#253448;border:1px solid #4a5970;border-radius:100px;font-size:11px;font-weight:750;white-space:nowrap;padding:6px 10px}
+#tsz-rg280 .rg280-progress{margin:23px 0 19px}
+#tsz-rg280 .rg280-progress-text{display:flex;align-items:end;justify-content:space-between;gap:10px;margin-bottom:9px;font-size:12px;color:#b3c0d4}
+#tsz-rg280 .rg280-progress-text strong{font-size:21px;color:#e7efff;font-variant-numeric:tabular-nums;letter-spacing:-.04em}
+#tsz-rg280 .rg280-bar{height:7px;border-radius:99px;background:#2c394a;overflow:hidden}
+#tsz-rg280 .rg280-fill{height:100%;width:0;background:linear-gradient(90deg,#a0c5ff,#c1f4c9);border-radius:inherit;transition:width .18s ease}
+#tsz-rg280 .rg280-items{display:grid;gap:8px;max-height:390px;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin}
+#tsz-rg280 .rg280-item{min-height:47px;display:flex;width:100%;align-items:center;text-align:start;gap:12px;border-radius:11px;background:#182436;border:1px solid #314056;padding:10px 12px;color:#e9f0ff;cursor:pointer;font:inherit;font-size:14px;line-height:1.3;transition:background .15s,border-color .15s}
+#tsz-rg280 .rg280-item:hover{background:#223349;border-color:#7186a1}
+#tsz-rg280 .rg280-item:focus-visible,#tsz-rg280 button:focus-visible,#tsz-rg280 input:focus-visible,#tsz-rg280 select:focus-visible,#tsz-rg280 a:focus-visible{outline:2px solid #c5dfef;outline-offset:3px}
+#tsz-rg280 .rg280-check{width:21px;height:21px;display:grid;place-items:center;flex:none;border:1px solid #647793;border-radius:6px;font-size:13px;color:transparent;background:#101925}
+#tsz-rg280 .rg280-item[data-checked="true"] .rg280-check{background:var(--rg280-lime);border-color:var(--rg280-lime);color:#122320;font-weight:900}
+#tsz-rg280 .rg280-item[data-checked="true"] .rg280-itemname{text-decoration:line-through;color:#889ab1}
+#tsz-rg280 .rg280-add{display:flex;gap:8px;margin-top:13px}
+#tsz-rg280 .rg280-add input{min-width:0;flex:1;background:#101a28;border:1px solid #46566b;border-radius:11px;color:#fff;font:inherit;font-size:14px;min-height:45px;padding:9px 12px}
+#tsz-rg280 .rg280-add button{flex:none;border-radius:11px;background:#2c4058;border:1px solid #58728f;color:#fff;font-weight:750;padding:0 17px;min-height:45px;font:inherit;cursor:pointer}
+#tsz-rg280 .rg280-add button:disabled{opacity:.45;cursor:default}
+#tsz-rg280 .rg280-reset{width:100%;min-height:48px;margin-top:16px;background:var(--rg280-lime);border:1px solid #d8ffe4;border-radius:12px;color:#172c25;font-weight:800!important;font-size:14px!important;cursor:pointer;padding:9px 12px}
+#tsz-rg280 .rg280-reset:disabled{opacity:.53;cursor:default}
+#tsz-rg280 .rg280-feedback{margin:11px 0 0;min-height:20px;color:#beded0;font-size:12px}
+#tsz-rg280 .rg280-foot{position:relative;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:19px 32px 22px;border-top:1px solid var(--rg280-line)}
+#tsz-rg280 .rg280-disclaimer{max-width:640px;margin:0;color:#abb8ca;font-size:11px;line-height:1.6}
+#tsz-rg280 .rg280-store{flex:none;display:inline-block;text-decoration:none!important;background:#e9effd;border-radius:10px;color:#1c2c41!important;padding:11px 15px;font-size:12px;font-weight:800;white-space:nowrap}
+#tsz-rg280 [dir="rtl"] .rg280-item{text-align:right}
+#tsz-rg280 [dir="rtl"] .rg280-story,#tsz-rg280 [dir="rtl"] .rg280-demo{text-align:right}
+@media(max-width:920px){#tsz-rg280 .rg280-layout{grid-template-columns:1fr;gap:29px;padding:38px 32px}#tsz-rg280 .rg280-story{max-width:100%}#tsz-rg280 .rg280-demo{max-width:630px;width:100%;margin-inline:auto}#tsz-rg280 h2{font-size:44px!important}}
+@media(max-width:480px){#tsz-rg280{padding:0 10px;margin:22px auto 38px}#tsz-rg280 .rg280-wrap{border-radius:19px}#tsz-rg280 .rg280-top{padding:16px;align-items:flex-start}#tsz-rg280 .rg280-mark{font-size:9px;letter-spacing:.1em;max-width:155px}#tsz-rg280 .rg280-sels{justify-content:flex-end}#tsz-rg280 .rg280-sels label{font-size:10px}#tsz-rg280 .rg280-sels select{padding:5px 6px;min-height:34px;font-size:11px;max-width:83px}#tsz-rg280 .rg280-layout{padding:30px 17px;gap:24px}#tsz-rg280 h2{font-size:clamp(29px,9vw,40px)!important;margin:16px 0!important}#tsz-rg280 .rg280-lead{font-size:14px;line-height:1.66;margin-bottom:20px}#tsz-rg280 .rg280-three{gap:5px}#tsz-rg280 .rg280-three b{font-size:10px;padding:6px 9px}#tsz-rg280 .rg280-demo{padding:17px;border-radius:17px}#tsz-rg280 h3{font-size:20px!important}#tsz-rg280 .rg280-cardeyebrow{font-size:9px}#tsz-rg280 .rg280-trip{font-size:10px;padding:5px 8px}#tsz-rg280 .rg280-item{min-height:46px;font-size:13px}#tsz-rg280 .rg280-foot{padding:16px;display:grid;gap:14px}#tsz-rg280 .rg280-store{text-align:center}}
+@media(prefers-reduced-motion:reduce){#tsz-rg280 *{transition:none!important;animation:none!important}}
+/* Keep counts intelligible in Arabic RTL instead of visually reversing 0 / 6. */
+#tsz-rg280 .rg280-progress-text strong{direction:ltr;unicode-bidi:isolate}

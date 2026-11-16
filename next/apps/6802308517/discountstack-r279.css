@@ -1,0 +1,70 @@
+/* Discount Stack R279 — local-only named scenarios. All declarations scoped. */
+#ds279{box-sizing:border-box;position:relative;isolation:isolate;direction:ltr;background:radial-gradient(circle at 12% 8%,#263044 0%,transparent 37%),radial-gradient(circle at 85% 10%,#202a36 0%,transparent 42%),#0b1019;color:#f5f2ed;font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.48;overflow:hidden;min-height:740px}
+#ds279 *,#ds279 *::before,#ds279 *::after{box-sizing:border-box}
+#ds279 [dir="rtl"]{direction:rtl}
+#ds279 button,#ds279 input,#ds279 select{font:inherit}
+#ds279 button{cursor:pointer}
+#ds279 button:focus-visible,#ds279 input:focus-visible,#ds279 select:focus-visible,#ds279 a:focus-visible{outline:3px solid #b8f1d1;outline-offset:3px}
+#ds279 .ds279-shell{max-width:1160px;margin:auto;padding:52px 40px 64px}
+#ds279 .ds279-head{display:flex;gap:22px;justify-content:space-between;align-items:flex-start;margin-bottom:26px}
+#ds279 .ds279-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:10px;letter-spacing:.22em;font-weight:800;color:#99c2ba;text-transform:uppercase}
+#ds279 .ds279-dot{height:8px;width:8px;border-radius:50%;background:#b4ead2;box-shadow:0 0 0 4px #b4ead226}
+#ds279 h2{font-size:clamp(29px,4.2vw,57px);letter-spacing:-.055em;line-height:1.13;font-weight:720;margin:15px 0 12px;max-width:720px;text-wrap:balance}
+#ds279 .ds279-lead{color:#bac3c9;font-size:14px;line-height:1.85;max-width:620px;margin:0}
+#ds279 .ds279-controls{display:flex;gap:8px;align-items:center;flex-shrink:0}
+#ds279 .ds279-controls label{display:flex;flex-direction:column;gap:4px;color:#92a19f;font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+#ds279 .ds279-controls select{appearance:none;padding:11px 29px 11px 12px;background:#1e2a35;border:1px solid #354451;border-radius:9px;color:#f7f6f2;font-size:12px}
+#ds279 .ds279-grid{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(0,.82fr);gap:17px;align-items:stretch}
+#ds279 .ds279-panel{border:1px solid #34414d;background:linear-gradient(145deg,#151f2c,#111924);border-radius:20px;padding:25px;min-width:0;box-shadow:0 25px 60px #03070e24}
+#ds279 .ds279-panel-caption{font-size:11px;letter-spacing:.16em;color:#a4b3b5;text-transform:uppercase;font-weight:800;display:flex;justify-content:space-between;align-items:center;gap:7px;margin-bottom:19px}
+#ds279 .ds279-step{color:#7ec9a3;white-space:nowrap;font-size:10px}
+#ds279 .ds279-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+#ds279 .ds279-field{display:flex;flex-direction:column;gap:7px;min-width:0}
+#ds279 .ds279-field-label{font-size:11px;color:#b2bec1;font-weight:650}
+#ds279 .ds279-entry{display:flex;align-items:center;gap:7px;background:#0e1621;border:1px solid #34424d;border-radius:11px;padding:0 12px;min-width:0}
+#ds279 .ds279-entry input{border:0;outline:0!important;background:transparent;color:#f6f6f4;min-width:0;width:100%;padding:13px 0;font-size:18px;font-weight:650;letter-spacing:-.025em;font-variant-numeric:tabular-nums}
+#ds279 .ds279-entry input:focus-visible{outline:0!important}
+#ds279 .ds279-entry:focus-within{border-color:#97d0b8;box-shadow:0 0 0 2px #97d0b827}
+#ds279 .ds279-unit{color:#7f9ba7;font-size:13px;font-weight:700}
+#ds279 .ds279-journey{display:flex;gap:6px;align-items:center;margin:21px 0 15px}
+#ds279 .ds279-stage{flex:1;min-width:0;text-align:center;padding:10px 5px;background:#263c3a;border:1px solid #3b6654;border-radius:9px;color:#d3f3dd;font-size:11px;font-weight:700}
+#ds279 .ds279-arr{font-size:17px;color:#7c9b93}
+#ds279 .ds279-summary{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:15px;padding:21px;background:linear-gradient(120deg,#c2e8d4,#a9d5c8);border-radius:15px;color:#0e302a}
+#ds279 .ds279-sum-cap{font-size:11px;font-weight:730;letter-spacing:.04em}
+#ds279 .ds279-price{font-size:clamp(25px,3.1vw,42px);line-height:1.2;font-weight:780;letter-spacing:-.06em;font-variant-numeric:tabular-nums;word-break:break-word}
+#ds279 .ds279-sm{font-size:12px;line-height:1.6;color:#3b625b}
+#ds279 .ds279-bubble{background:#e0f5e7;border:1px solid #8dbfaf;border-radius:10px;padding:12px;color:#1c5449;text-align:center}
+#ds279 .ds279-bubble strong{display:block;font-size:26px;line-height:1.3;font-variant-numeric:tabular-nums}
+#ds279 .ds279-bubble span{font-size:10px;font-weight:750}
+#ds279 .ds279-difference{color:#afbec3;font-size:12px;margin-top:13px;line-height:1.6}
+#ds279 .ds279-error{color:#ffb5a9;font-size:12px;min-height:18px;margin:10px 0 0}
+#ds279 .ds279-divider{border-top:1px solid #33414c;margin:20px 0}
+#ds279 .ds279-save-row{display:flex;gap:9px}
+#ds279 .ds279-name{flex:1;min-width:0;background:#0e1621;color:#f5f4ee;border:1px solid #354551;border-radius:10px;padding:12px;font-size:13px}
+#ds279 .ds279-action{background:#b5e7ce;color:#133b31;border:0;border-radius:10px;padding:11px 17px;font-size:12px;font-weight:790;white-space:nowrap}
+#ds279 .ds279-action:disabled{opacity:.4;cursor:not-allowed}
+#ds279 .ds279-note{color:#8499a4;font-size:11px;line-height:1.7;margin-top:11px}
+#ds279 .ds279-inline{display:flex;align-items:center;justify-content:space-between;gap:8px}
+#ds279 .ds279-reset{border:0;color:#b0cfbd;background:none;font-size:11px;text-decoration:underline;text-underline-offset:3px;padding:7px}
+#ds279 .ds279-find{width:100%;min-width:0;color:#f5f4ee;border:1px solid #354551;border-radius:10px;background:#0e1621;padding:12px;font-size:13px;margin-bottom:14px}
+#ds279 .ds279-list{display:flex;flex-direction:column;gap:9px;min-height:202px}
+#ds279 .ds279-item{border:1px solid #344451;background:#202d39;border-radius:12px;padding:13px 14px;color:#ebf3ee;text-align:start;display:block;min-width:0;width:100%;transition:background .1s}
+#ds279 .ds279-item:hover{background:#30443f}
+#ds279 .ds279-item-top{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin-bottom:5px}
+#ds279 .ds279-item strong{font-size:13px;overflow-wrap:anywhere}
+#ds279 .ds279-item .ds279-item-price{font-size:15px;color:#c7edca;font-weight:750;white-space:nowrap;font-variant-numeric:tabular-nums}
+#ds279 .ds279-item p{font-size:11px;color:#aabdc2;margin:0}
+#ds279 .ds279-empty{color:#b7c5c7;font-size:12px;padding:20px;border:1px dashed #3c4c58;border-radius:12px}
+#ds279 .ds279-end{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:24px;flex-wrap:wrap}
+#ds279 .ds279-disclaimer{color:#96a8af;font-size:11px;max-width:750px;margin:0;line-height:1.65}
+#ds279 .ds279-app{display:inline-flex;justify-content:center;text-decoration:none;border:1px solid #739986;color:#dbf3e6;border-radius:10px;padding:11px 16px;font-size:12px;font-weight:800;white-space:nowrap}
+#ds279 .ds279-announce{position:absolute;clip-path:inset(50%);width:1px;height:1px;overflow:hidden;white-space:nowrap}
+#ds279 .ds279-arabic{font-family:Tahoma,"Noto Naskh Arabic",sans-serif;letter-spacing:normal}
+#ds279 .ds279-arabic h2{letter-spacing:normal;line-height:1.5}
+#ds279 .ds279-arabic .ds279-panel-caption{letter-spacing:normal}
+@media(max-width:800px){#ds279 .ds279-shell{padding:28px 18px 35px}#ds279 .ds279-grid{grid-template-columns:minmax(0,1fr)}#ds279 .ds279-head{flex-direction:column;gap:15px}#ds279 h2{font-size:34px}#ds279 .ds279-panel{padding:20px}}
+@media(max-width:400px){#ds279 .ds279-shell{padding:24px 12px 30px}#ds279 h2{font-size:30px}#ds279 .ds279-lead{font-size:12px}#ds279 .ds279-panel{padding:16px;border-radius:16px}#ds279 .ds279-fields{gap:9px}#ds279 .ds279-entry{padding:0 8px}#ds279 .ds279-entry input{font-size:16px}#ds279 .ds279-summary{padding:15px;gap:9px}#ds279 .ds279-price{font-size:27px}#ds279 .ds279-bubble strong{font-size:22px}#ds279 .ds279-save-row{flex-wrap:wrap}#ds279 .ds279-name{flex-basis:100%}#ds279 .ds279-action{flex:1}#ds279 .ds279-stage{font-size:10px}}
+@media(prefers-reduced-motion:reduce){#ds279 *{transition:none!important;animation:none!important}}
+
+#ds279.ds279-arabic .ds279-price,#ds279.ds279-arabic .ds279-item-price{direction:ltr;unicode-bidi:isolate;text-align:end}
+#ds279 .ds279-stage{direction:ltr;unicode-bidi:isolate}
