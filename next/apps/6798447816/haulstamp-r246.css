@@ -1,0 +1,55 @@
+/* R246 HaulStamp: all rules scoped to #hs246. No global styling. */
+#hs246{display:block;box-sizing:border-box;width:min(1160px,100%);padding:0 15px;margin:42px auto 38px;color:#edf5ff;font:14px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;isolation:isolate}
+#hs246 *,#hs246 *:before,#hs246 *:after{box-sizing:border-box}
+#hs246 .hs-shell{overflow:hidden;background:radial-gradient(ellipse 75% 45% at 94% 0%,#24517478,transparent),linear-gradient(135deg,#111e30 5%,#0e1926 78%);border:1px solid #35536a;border-radius:26px;padding:32px;box-shadow:0 24px 60px #030b1752}
+#hs246 button,#hs246 input,#hs246 select{font:inherit}
+#hs246 button{cursor:pointer}
+#hs246 .hs-top{display:flex;justify-content:space-between;gap:14px;align-items:start}
+#hs246 .hs-brand{display:flex;gap:10px;align-items:center;color:#d9eaff;font-size:11px;font-weight:850;letter-spacing:.14em}
+#hs246 .hs-mark{display:grid;place-items:center;width:39px;height:39px;border:1px solid #91684a;border-radius:13px;background:linear-gradient(140deg,#a77a4b,#533928);color:#fff4d3;font-size:20px}
+#hs246 .hs-brand small{display:block;color:#9bb4cc;font-size:9px;font-weight:500;letter-spacing:.08em}
+#hs246 .hs-settings{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+#hs246 .hs-settings label{display:grid;gap:3px;color:#abc2d2;font-size:10px}
+#hs246 select{border:1px solid #46637b;background:#1a3045;border-radius:10px;padding:8px 23px 8px 10px;color:#fff;max-width:147px;font-size:11px}
+#hs246 .hs-intro{margin:30px 0 25px;max-width:850px}
+#hs246 .hs-kicker{color:#f4bc77;letter-spacing:.2em;font-size:11px;font-weight:850;margin:0 0 8px}
+#hs246 h2{color:#f5faff;font-size:clamp(27px,4.3vw,50px);line-height:1.18;letter-spacing:-.05em;font-weight:860;margin:0}
+#hs246 .hs-sub{font-size:14px;line-height:1.8;color:#b3c4d7;max-width:715px;margin:14px 0 0}
+#hs246 .hs-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.98fr);gap:16px}
+#hs246 .hs-panel{border-radius:20px;border:1px solid #35516a;background:#192b3e;padding:23px;min-width:0}
+#hs246 .hs-panel.hs-result{background:linear-gradient(165deg,#233d50,#152a3e 85%)}
+#hs246 .hs-panel-title{display:flex;align-items:center;gap:9px;color:#e1f1ff;font-size:11px;letter-spacing:.14em;font-weight:850;margin:0 0 16px}
+#hs246 .hs-panel-title b{display:grid;place-items:center;background:#294a62;color:#f6ba76;border:1px solid #426881;border-radius:7px;width:26px;height:25px}
+#hs246 .hs-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+#hs246 .hs-field{display:grid;gap:7px;min-width:0}
+#hs246 .hs-field span{color:#c2d2e1;font-weight:650;font-size:11px;line-height:1.5}
+#hs246 input{width:100%;min-width:0;background:#0e2031;border:1px solid #4c6980;border-radius:11px;padding:12px;color:#f7fbff;font-weight:800;font-size:18px;font-variant-numeric:tabular-nums;direction:ltr;text-align:left;outline-offset:3px}
+#hs246 input:focus-visible,#hs246 select:focus-visible,#hs246 button:focus-visible{outline:2px solid #ffc382;outline-offset:2px}
+#hs246 .hs-presets-head{color:#92adbf;font-size:10px;letter-spacing:.13em;font-weight:850;margin:19px 0 9px}
+#hs246 .hs-presets{display:flex;gap:8px;flex-wrap:wrap}
+#hs246 .hs-presets button,#hs246 .hs-reset{border:1px solid #4e7290;border-radius:40px;background:#254156;color:#e3f2fc;font-size:11px;font-weight:750;padding:9px 13px}
+#hs246 .hs-presets button[aria-pressed=true]{border-color:#f4b673;background:#4a3b33;color:#ffdfae}
+#hs246 .hs-presets button:hover,#hs246 .hs-reset:hover{background:#42637a}
+#hs246 .hs-mini{font-size:11px;color:#94acc2;line-height:1.7;margin:17px 0 0}
+#hs246 .hs-compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+#hs246 .hs-stat{border:1px solid #406177;background:#10273b;border-radius:15px;padding:17px 14px;min-width:0}
+#hs246 .hs-stat small{font-size:10px;color:#bbccdb;font-weight:650;display:block}
+#hs246 .hs-stat strong{font-variant-numeric:tabular-nums;display:block;color:#f5faff;font-size:clamp(22px,2.8vw,36px);line-height:1.25;letter-spacing:-.04em;margin:8px 0;overflow-wrap:anywhere}
+#hs246 .hs-stat.wait strong{color:#f5be84}
+#hs246 .hs-stat.load strong{color:#80dfd0}
+#hs246 .hs-total{background:#304537;border:1px solid #77966d;margin-top:12px;padding:17px;border-radius:15px}
+#hs246 .hs-total.invalid{background:#502d33;border-color:#ba777c}
+#hs246 .hs-total small{font-weight:780;font-size:11px;color:#c9e4c5}
+#hs246 .hs-total strong{display:block;font-size:clamp(27px,4vw,44px);color:#f0ffeb;letter-spacing:-.045em;font-variant-numeric:tabular-nums;overflow-wrap:anywhere;line-height:1.3;margin:4px 0}
+#hs246 .hs-total span{font-size:11px;color:#b2d0b5}
+#hs246 .hs-detail{display:grid;grid-template-columns:1fr auto;gap:10px;padding:13px 1px;border-bottom:1px solid #425b71;align-items:baseline;font-size:11px;color:#b9ccdc}
+#hs246 .hs-detail strong{font-size:13px;color:#eaf7ff;font-variant-numeric:tabular-nums;white-space:nowrap}
+#hs246 .hs-footer{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:15px 0 0;flex-wrap:wrap}
+#hs246 .hs-footer p{color:#9fb6c9;font-size:10px;margin:0;flex:1}
+#hs246 .hs-note{border-top:1px solid #3b5770;margin:22px 0 0;padding:15px 0 0;color:#a5bed2;font-size:11px;line-height:1.8}
+#hs246 [dir=rtl] .hs-top,#hs246 [dir=rtl] .hs-footer{direction:rtl}
+#hs246 [dir=rtl] input{direction:ltr;text-align:right}
+#hs246 [dir=rtl] .hs-detail{direction:rtl}
+#hs246 .hs-number{direction:ltr;unicode-bidi:isolate;display:inline-block}
+@media(max-width:710px){#hs246 .hs-shell{padding:21px 16px}#hs246 .hs-layout{grid-template-columns:1fr}#hs246 .hs-intro{margin:24px 0 20px}#hs246 .hs-panel{padding:18px}}
+@media(max-width:375px){#hs246{padding:0 8px}#hs246 .hs-shell{padding:16px 12px;border-radius:18px}#hs246 .hs-top{flex-direction:column}#hs246 .hs-settings{justify-content:start;width:100%}#hs246 .hs-settings label{flex:1;min-width:0}#hs246 .hs-settings select{width:100%;max-width:none}#hs246 .hs-panel{padding:14px}#hs246 .hs-fields{gap:9px}#hs246 .hs-compare{gap:8px}#hs246 .hs-stat{padding:11px 9px}#hs246 .hs-stat strong{font-size:23px}#hs246 input{padding:9px 8px;font-size:16px}}

@@ -1,0 +1,56 @@
+/* R245 Vekunel: strictly scoped LP widget, no global selectors. */
+#vk245{box-sizing:border-box;display:block;width:min(100%,1160px);margin:42px auto 36px;padding:0 15px;color:#eaf7f2;font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;isolation:isolate}
+#vk245 *,#vk245 *:before,#vk245 *:after{box-sizing:border-box}
+#vk245 .vk-frame{overflow:hidden;border:1px solid #294741;border-radius:28px;background:radial-gradient(ellipse 70% 45% at 92% 0%,#264b3c73,transparent),linear-gradient(150deg,#101b1c 8%,#111e22 75%);box-shadow:0 25px 65px #02070b51;padding:32px}
+#vk245 button,#vk245 select,#vk245 input{font:inherit}
+#vk245 button{cursor:pointer}
+#vk245 .vk-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+#vk245 .vk-logo{display:flex;align-items:center;gap:12px;font-size:12px;font-weight:800;letter-spacing:.14em;color:#dcfff4}
+#vk245 .vk-logo-icon{display:grid;place-items:center;flex:0 0 37px;width:37px;height:37px;border-radius:11px;border:1px solid #477e69;background:linear-gradient(145deg,#3e735b,#153b32);font-size:19px;color:#e4f8dc}
+#vk245 .vk-logo small{display:block;font-size:9px;font-weight:500;letter-spacing:.08em;color:#89afa4}
+#vk245 .vk-selects{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+#vk245 .vk-selects label{display:grid;gap:4px;font-size:10px;color:#a7c5bb}
+#vk245 select{border-radius:10px;border:1px solid #41635d;background:#1d3235;color:#f5fffd;padding:8px 25px 8px 10px;min-width:90px;max-width:145px;font-size:11px}
+#vk245 .vk-headline{margin:32px 0 26px;max-width:780px}
+#vk245 .vk-eyebrow{margin:0 0 9px;font-size:11px;letter-spacing:.2em;font-weight:900;color:#96e9bc}
+#vk245 h2{margin:0;font-size:clamp(29px,4.1vw,52px);font-weight:820;line-height:1.2;letter-spacing:-.05em;color:#f2fff9}
+#vk245 .vk-sub{max-width:650px;font-size:14px;line-height:1.8;color:#adc5bf;margin:15px 0 0}
+#vk245 .vk-main{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:17px}
+#vk245 .vk-panel{min-width:0;border:1px solid #33534f;background:#182b2d;border-radius:20px;padding:24px}
+#vk245 .vk-panel-heading{display:flex;align-items:center;gap:9px;margin:0 0 19px;color:#dff9ee;font-size:11px;font-weight:850;letter-spacing:.13em}
+#vk245 .vk-panel-heading b{display:grid;place-items:center;width:27px;height:24px;background:#2e4a43;border-radius:7px;color:#9ef0c0;font-size:11px}
+#vk245 .vk-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+#vk245 .vk-field{min-width:0;display:grid;gap:7px}
+#vk245 .vk-field span{font-size:11px;color:#bfd6cf;font-weight:650}
+#vk245 input{display:block;width:100%;min-width:0;border-radius:11px;background:#0f1d21;border:1px solid #42655e;padding:13px 12px;color:#ecfff5;font-size:18px;font-weight:740;font-variant-numeric:tabular-nums;outline-offset:3px;direction:ltr;text-align:start}
+#vk245 input:focus-visible,#vk245 select:focus-visible,#vk245 button:focus-visible{outline:2px solid #96f0b8;outline-offset:2px}
+#vk245 .vk-presets-label{margin:22px 0 9px;font-size:10px;color:#a1c2b6;font-weight:800;letter-spacing:.13em}
+#vk245 .vk-presets{display:flex;flex-wrap:wrap;gap:8px}
+#vk245 .vk-presets button,#vk245 .vk-reset{padding:10px 12px;border-radius:100px;border:1px solid #477369;background:#223b3b;color:#d5efdf;font-size:11px;font-weight:700}
+#vk245 .vk-presets button:hover,#vk245 .vk-reset:hover{background:#355e50}
+#vk245 .vk-formula{margin:17px 0 0;font-size:11px;color:#8baea5;line-height:1.7}
+#vk245 .vk-result{background:linear-gradient(155deg,#203a35,#19312e 80%)}
+#vk245 .vk-comparison{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+#vk245 .vk-total{padding:17px 15px;background:#132b2a;border:1px solid #40645a;border-radius:15px;min-width:0}
+#vk245 .vk-total.after{border-color:#7fcc9f;background:#153b31}
+#vk245 .vk-total span{display:block;font-size:10px;font-weight:720;color:#a2c9b7}
+#vk245 .vk-total strong{display:block;margin:9px 0 1px;min-width:0;font-size:clamp(22px,2.5vw,36px);letter-spacing:-.04em;color:#f6fff9;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+#vk245 .vk-total small{font-size:10px;color:#9cbfb3}
+#vk245 .vk-outcome{display:flex;flex-direction:column;gap:5px;margin-top:12px;padding:19px;border-radius:15px;border:1px solid #74987e;background:#284435}
+#vk245 .vk-outcome[data-kind=more]{background:#493626;border-color:#a78364}
+#vk245 .vk-outcome[data-kind=same]{background:#2b3c43;border-color:#6d8a9c}
+#vk245 .vk-outcome[data-kind=invalid]{background:#482d31;border-color:#c17881}
+#vk245 .vk-outcome-label{font-size:11px;font-weight:800;color:#e5f9e8}
+#vk245 .vk-diff{font-size:clamp(23px,3vw,38px);font-weight:850;letter-spacing:-.04em;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+#vk245 .vk-outcome-detail{font-size:11px;color:#c2dbca}
+#vk245 .vk-steps{margin:15px 0 0;padding:0;display:grid;gap:9px;list-style:none}
+#vk245 .vk-steps li{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #3a5b53;padding:0 0 8px;font-size:11px;color:#c6d9d0}
+#vk245 .vk-steps strong{font-size:12px;color:#eafff6;white-space:nowrap;font-variant-numeric:tabular-nums}
+#vk245 .vk-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:17px 0 0}
+#vk245 .vk-foot p{margin:0;flex:1;font-size:10px;color:#8fada4}
+#vk245 .vk-legal{font-size:11px;line-height:1.8;color:#9cbbb2;border-top:1px solid #2a4b45;margin:24px 0 0;padding:16px 0 0}
+#vk245 [dir=rtl] .vk-top,#vk245 [dir=rtl] .vk-comparison,#vk245 [dir=rtl] .vk-main{direction:rtl}
+#vk245 [dir=rtl] input{direction:ltr;text-align:right}
+#vk245 .vk-money{unicode-bidi:isolate;direction:ltr;display:inline-block}
+@media (max-width:700px){#vk245 .vk-frame{padding:19px 16px 17px;border-radius:21px}#vk245 .vk-top{flex-wrap:wrap}#vk245 .vk-selects{justify-content:flex-start;width:100%}#vk245 .vk-headline{margin:24px 0 19px}#vk245 h2{font-size:clamp(27px,7.4vw,36px)}#vk245 .vk-main{grid-template-columns:minmax(0,1fr);gap:12px}#vk245 .vk-panel{padding:17px 15px}#vk245 .vk-fields{gap:11px}#vk245 .vk-total{padding:14px 10px}#vk245 .vk-total strong{font-size:clamp(21px,6vw,29px)}#vk245 .vk-outcome{padding:14px}#vk245 .vk-foot{align-items:flex-start}}
+@media (max-width:360px){#vk245{padding:0 7px}#vk245 .vk-frame{padding:14px 12px}#vk245 .vk-selects select{max-width:125px;min-width:82px}#vk245 .vk-panel{padding:15px 12px}#vk245 .vk-field span{font-size:10px}#vk245 input{padding:11px 8px;font-size:15px}#vk245 .vk-comparison{gap:7px}#vk245 .vk-total{padding:12px 8px}#vk245 .vk-total strong{font-size:20px}#vk245 .vk-presets button{padding:9px 10px;font-size:10px}}

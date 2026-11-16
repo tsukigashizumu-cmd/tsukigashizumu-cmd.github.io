@@ -1,0 +1,44 @@
+/* R242 Stockout Zero: scoped landing page interactive demo */
+#sz242{--sz-bg:#0a1420;--sz-card:#101f2c;--sz-edge:#294355;--sz-muted:#a9bfca;--sz-lime:#d9ff72;--sz-cyan:#7de5ed;--sz-orange:#ffc49a;box-sizing:border-box;color:#f4f9f9;background:radial-gradient(ellipse at 85% -15%,#20404a 0%,transparent 50%),linear-gradient(135deg,#101e2b,#07111b);border:1px solid #315161;border-radius:22px;padding:clamp(18px,4vw,42px);max-width:1140px;margin:52px auto;box-shadow:0 25px 85px #04121b60;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;line-height:1.48;isolation:isolate}
+#sz242 *,#sz242 *::before,#sz242 *::after{box-sizing:border-box}
+#sz242 .sz242-top{display:flex;justify-content:space-between;gap:15px;align-items:start;flex-wrap:wrap}
+#sz242 .sz242-eyebrow{display:inline-flex;align-items:center;gap:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--sz-lime);font-size:11px;font-weight:800;margin:0 0 14px}
+#sz242 .sz242-dot{width:7px;height:7px;display:inline-block;border-radius:50%;background:var(--sz-lime);box-shadow:0 0 15px var(--sz-lime)}
+#sz242 h2{font-size:clamp(26px,4.5vw,48px);line-height:1.12;letter-spacing:-.045em;color:#fff;font-weight:850;margin:0 0 12px;max-width:700px}
+#sz242 .sz242-sub{color:#b6ccd4;font-size:clamp(13px,1.7vw,16px);max-width:660px;margin:0}
+#sz242 .sz242-controls{display:flex;gap:6px;flex-wrap:wrap}
+#sz242 select{color:#eef7f8;background:#152a37;border:1px solid #385163;border-radius:9px;padding:9px 26px 9px 10px;font-size:12px;max-width:150px}
+#sz242 .sz242-layout{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);gap:17px;margin-top:25px;align-items:stretch}
+#sz242 .sz242-display{border:1px solid var(--sz-edge);background:linear-gradient(165deg,#112b33,#081924);border-radius:17px;padding:clamp(15px,3vw,25px);min-width:0;position:relative;overflow:hidden}
+#sz242 .sz242-display:after{content:'';position:absolute;width:260px;height:260px;border:1px solid #d9ff7220;border-radius:50%;top:12%;left:38%;pointer-events:none;box-shadow:0 0 0 42px #d9ff7208,0 0 0 85px #d9ff7205}
+#sz242 .sz242-status{position:relative;z-index:1;display:flex;justify-content:space-between;gap:10px;align-items:center;color:#bed2d9;font-size:11px;font-weight:700;letter-spacing:.06em}
+#sz242 .sz242-signal{color:var(--sz-lime);background:#c5fc5c19;padding:5px 9px;border:1px solid #c5fc5c45;border-radius:100px;white-space:nowrap;font-size:10px}
+#sz242 .sz242-number{position:relative;z-index:1;margin:27px 0 0;font-size:clamp(53px,9vw,100px);font-weight:850;line-height:1;letter-spacing:-.085em;font-variant-numeric:tabular-nums;color:var(--sz-lime)}
+#sz242 .sz242-number-label{position:relative;z-index:1;color:#d5e6e9;font-size:13px;margin:9px 0 22px}
+#sz242 .sz242-progress{height:7px;border-radius:20px;background:#2c4550;overflow:hidden;margin:0 0 22px}
+#sz242 .sz242-progress>span{height:100%;background:linear-gradient(90deg,#78d6e5,#d9ff72);display:block;transition:width .23s;width:0}
+#sz242 .sz242-mainbtn{position:relative;z-index:1;border:0;border-radius:12px;display:block;width:100%;min-height:64px;color:#09221d;background:var(--sz-lime);font-size:clamp(15px,2.5vw,19px);font-weight:850;cursor:pointer;box-shadow:0 12px 26px #d9ff7226}
+#sz242 .sz242-mainbtn:active{transform:scale(.989)}
+#sz242 .sz242-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:12px 0 0;position:relative;z-index:1}
+#sz242 .sz242-metric{border:1px solid #31505d;border-radius:11px;background:#152b37;padding:13px 9px;min-width:0}
+#sz242 .sz242-metric b{display:block;font-size:clamp(19px,3vw,27px);line-height:1.1;color:#f2faff;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+#sz242 .sz242-metric span{font-size:10px;color:#b6c8d1;display:block;margin-top:6px}
+#sz242 .sz242-panel{border:1px solid var(--sz-edge);border-radius:17px;background:#10202d;padding:clamp(15px,3vw,24px);min-width:0}
+#sz242 .sz242-panel-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+#sz242 h3{font-size:16px;font-weight:800;color:#f3f8fb;margin:0}
+#sz242 .sz242-tag{color:var(--sz-cyan);font-size:10px;background:#76e7ef12;border:1px solid #76e7ef35;border-radius:20px;padding:5px 8px;white-space:nowrap}
+#sz242 .sz242-upgrade{background:#182c39;border:1px solid #355061;border-radius:12px;padding:14px;display:flex;align-items:center;justify-content:space-between;gap:10px;margin:12px 0;min-width:0}
+#sz242 .sz242-upgrade b{display:block;font-size:13px;color:#f8fcfe;line-height:1.4}
+#sz242 .sz242-upgrade small{display:block;color:#b2c4ce;font-size:11px;margin-top:4px}
+#sz242 .sz242-action{background:#2a4652;color:#effaf8;border:1px solid #527383;border-radius:8px;padding:10px 12px;cursor:pointer;font-weight:800;white-space:nowrap;font-size:12px}
+#sz242 .sz242-action:disabled{opacity:.42;cursor:not-allowed}
+#sz242 .sz242-action:not(:disabled):hover{border-color:var(--sz-lime)}
+#sz242 .sz242-btm{display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:1px solid #2d4755;padding-top:18px;margin-top:18px;flex-wrap:wrap}
+#sz242 .sz242-btm p{font-size:11px;color:#a5bdc8;max-width:380px;margin:0}
+#sz242 .sz242-reset{border:1px solid #496374;background:transparent;color:#cedee8;border-radius:8px;padding:9px 13px;font-size:12px;font-weight:750;cursor:pointer}
+#sz242 .sz242-foot{color:#9bb4c2;font-size:11px;margin:16px 0 0}
+#sz242 .sz242-live{color:var(--sz-lime);font-variant-numeric:tabular-nums}
+#sz242[dir="rtl"]{text-align:right}#sz242[dir="rtl"] .sz242-number{letter-spacing:0}#sz242[dir="rtl"] .sz242-eyebrow{letter-spacing:0}
+@media(max-width:730px){#sz242 .sz242-layout{grid-template-columns:1fr}#sz242 .sz242-display:after{left:30%}#sz242 .sz242-top{display:block}#sz242 .sz242-controls{margin-top:18px}}
+@media(max-width:360px){#sz242{margin:30px 0;padding:13px;border-radius:15px}#sz242 .sz242-layout{gap:11px;margin-top:17px}#sz242 .sz242-metric{padding:10px 6px}#sz242 .sz242-upgrade{padding:10px}#sz242 .sz242-action{padding:9px 10px}#sz242 .sz242-panel{padding:12px}}
+@media(prefers-reduced-motion:reduce){#sz242 *{transition:none!important}}
