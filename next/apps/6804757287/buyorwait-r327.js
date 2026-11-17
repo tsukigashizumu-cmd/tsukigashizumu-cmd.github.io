@@ -1,0 +1,49 @@
+(()=>{
+  'use strict';
+  const ID='tsz-bw327';
+  const words={
+    en:{kicker:'THE COST OF WAITING',title:'Would you wait 14 days to save $20?',lead:'The price may never drop. But you can make the trade-off between money and time visible before you decide.',scenarios:'START WITH A SCENARIO',earbuds:'Everyday headphones',laptop:'Laptop upgrade',jacket:'A jacket',current:'Price today · USD',target:'Price you hope for · USD',days:'Days you are willing to wait',dayHelp:'Set your own limit. This is not a sale forecast.',noteTitle:'Not a price prediction',note:'These are hypothetical prices. This demo neither monitors stores nor claims a sale will occur. It does not save your inputs.',saved:'POTENTIAL SAVINGS',savedSub:'Only if your chosen target price becomes available.',perDay:'Savings you would accept per day of waiting',pct:'Of today’s price',buyNow:'BUY NOW',wait:'WAIT',judgment:'Your own trade-off, not a prediction.',positive:'You would be waiting to save the amount shown. Only you can judge if the time is worth it.',none:'Your target price is not below today’s price; there is no positive saving to wait for.',invalid:'Enter valid positive prices and a whole number of days (1–365).',footer:'This is an illustrative LP demo. The app compares price and waiting preference, not the future.',daysUnit:'days',ready:'Your chosen waiting window',meter:'of your chosen waiting window',moneyUnit:'per day',noneValue:'No saving',custom:'Custom'},
+    ja:{kicker:'待つ時間の価値',title:'14日待って20ドル安くなるなら？',lead:'値下げするかは分からない。それでも、欲しい価格と待てる時間を並べれば、自分の判断基準が見えてくる。',scenarios:'例を選択',earbuds:'普段使いのヘッドホン',laptop:'ノートパソコン',jacket:'ジャケット',current:'いまの価格 · USD',target:'希望価格 · USD',days:'待てる日数',dayHelp:'待つ期限は自分で決める。セールの予測ではありません。',noteTitle:'値下げの予測はしません',note:'価格は架空の条件です。店舗の価格を監視せず、値下げも保証しません。入力は保存しません。',saved:'期待する節約額',savedSub:'希望価格で買えた場合に限る参考額。',perDay:'待機1日あたりの節約額',pct:'いまの価格に対する割合',buyNow:'今買う',wait:'待つ',judgment:'予測ではなく、自分の判断材料。',positive:'表示額を節約するために待つ想定です。待つ価値があるかは自分で決めます。',none:'希望価格が現在価格より安くないため、待つ節約額はありません。',invalid:'価格は0以上、日数は1〜365の整数で入力してください。',footer:'LP専用の計算例です。アプリは価格と時間の比較を行い、将来の価格は予測しません。',daysUnit:'日',ready:'設定した待機期間',meter:'設定日数のうち',moneyUnit:'／日',noneValue:'節約なし',custom:'任意'},
+    ar:{kicker:'قيمة الانتظار',title:'هل تنتظر ١٤ يوماً لتوفّر ٢٠ دولاراً؟',lead:'قد لا ينخفض السعر أبداً. لكن يمكنك مقارنة المال بالوقت الذي تقبل الانتظار خلاله.',scenarios:'اختر مثالاً',earbuds:'سماعات يومية',laptop:'حاسوب محمول',jacket:'سترة',current:'السعر اليوم · USD',target:'السعر الذي تأمله · USD',days:'عدد الأيام التي تقبل انتظارها',dayHelp:'حدّد المدة بنفسك؛ هذه ليست توقعات للأسعار.',noteTitle:'لا نتنبأ بالسعر',note:'الأسعار افتراضية. لا يراقب هذا العرض المتاجر ولا يضمن أي تخفيض ولا يخزن مدخلاتك.',saved:'التوفير المحتمل',savedSub:'فقط إذا أصبح السعر الذي اخترته متاحاً.',perDay:'التوفير مقابل يوم انتظار واحد',pct:'من السعر الحالي',buyNow:'اشتر الآن',wait:'انتظر',judgment:'مقارنة شخصية وليست توقعاً.',positive:'ستنتظر لتوفير المبلغ المعروض؛ القرار بشأن قيمة الانتظار يعود إليك.',none:'السعر المستهدف ليس أقل من السعر الحالي؛ لا يوجد توفير إيجابي للانتظار.',invalid:'أدخل أسعاراً صالحة غير سالبة وعدداً صحيحاً من الأيام بين ١ و٣٦٥.',footer:'مثال توضيحي للصفحة. التطبيق يقارن السعر بمدة الانتظار دون التنبؤ بالمستقبل.',daysUnit:'أيام',ready:'مدة الانتظار التي اخترتها',meter:'من المدة المختارة',moneyUnit:'في اليوم',noneValue:'لا توفير',custom:'مخصص'}
+  };
+  const presets={earbuds:{current:129,target:109,days:14},laptop:{current:1250,target:1100,days:45},jacket:{current:85,target:75,days:7}};
+  function mount(){
+    let host=document.getElementById(ID);
+    if(!host){host=document.createElement('section');host.id=ID;const a=document.querySelector('#related');if(a&&a.parentNode)a.parentNode.insertBefore(host,a);else (document.querySelector('main')||document.body).appendChild(host)}
+    if(host.dataset.ready==='yes')return;
+    host.dataset.ready='yes';
+    const state={lang:'en',preset:'earbuds',current:129,target:109,days:14};
+    const L=()=>words[state.lang];
+    host.innerHTML=`<div class="bw-shell"><div class="bw-top"><p class="bw-kicker"><span class="bw-dot"></span><span data-t="kicker"></span></p><h2 data-t="title"></h2><p class="bw-lead" data-t="lead"></p><div class="bw-langs" role="group" aria-label="Language"><button type="button" class="bw-lang" data-lang="en">English</button><button type="button" class="bw-lang" data-lang="ja">日本語</button><button type="button" class="bw-lang" data-lang="ar">العربية</button></div></div>
+    <div class="bw-body"><div class="bw-controls"><h3 data-t="scenarios"></h3><div class="bw-presets" role="group" aria-label="Examples"><button type="button" class="bw-preset" data-preset="earbuds"></button><button type="button" class="bw-preset" data-preset="laptop"></button><button type="button" class="bw-preset" data-preset="jacket"></button></div>
+    <div class="bw-field-row"><div class="bw-field"><label for="bw327-current" class="bw-label" data-t="current"></label><div class="bw-input-wrap"><span class="bw-currency" aria-hidden="true">$</span><input id="bw327-current" class="bw-number" data-money type="number" inputmode="decimal" min="0" max="1000000" step="0.01" autocomplete="off" value="129"></div></div><div class="bw-field"><label for="bw327-target" class="bw-label" data-t="target"></label><div class="bw-input-wrap"><span class="bw-currency" aria-hidden="true">$</span><input id="bw327-target" class="bw-number" data-money type="number" inputmode="decimal" min="0" max="1000000" step="0.01" autocomplete="off" value="109"></div></div></div>
+    <div class="bw-field"><label for="bw327-days" class="bw-label" data-t="days"></label><div class="bw-slider-wrap"><input class="bw-slider" id="bw327-range" type="range" min="1" max="90" value="14" aria-label="Waiting days slider"><input class="bw-number bw-days-input" id="bw327-days" type="number" min="1" max="365" step="1" inputmode="numeric" value="14"></div><p class="bw-helper" data-t="dayHelp"></p></div><div class="bw-note"><strong data-t="noteTitle"></strong><span data-t="note"></span></div></div>
+    <div class="bw-result" aria-live="polite"><p class="bw-result-head" data-t="saved"></p><p class="bw-total" data-out="saving">$20.00</p><p class="bw-total-sub" data-t="savedSub"></p><div class="bw-timebox"><p class="bw-time-caption" data-t="ready"></p><p class="bw-time"><strong data-out="days">14</strong> <span data-out="daysUnit"></span></p><div class="bw-meter"><div class="bw-meter-fill" data-meter="true"></div></div><p class="bw-meter-note" data-out="meterNote"></p></div><div class="bw-pair"><div class="bw-stat"><span data-t="perDay"></span><strong data-out="perDay">$1.43</strong></div><div class="bw-stat"><span data-t="pct"></span><strong data-out="pct">15.5%</strong></div></div><div class="bw-judgment" data-out="judgment"></div><p class="bw-small" data-out="explain"></p></div></div><div class="bw-footer"><span class="bw-footer-icon" aria-hidden="true">ⓘ</span><span data-t="footer"></span></div></div>`;
+    const q=s=>host.querySelector(s),qa=s=>host.querySelectorAll(s),out=(key,value)=>{q(`[data-out="${key}"]`).textContent=String(value)};
+    const inputs={current:q('#bw327-current'),target:q('#bw327-target'),days:q('#bw327-days'),range:q('#bw327-range')};
+    const currency=n=>'$'+n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+    function render(){
+      host.lang=state.lang;host.dir=state.lang==='ar'?'rtl':'ltr';
+      qa('[data-t]').forEach(el=>el.textContent=L()[el.dataset.t]);
+      qa('[data-lang]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.lang===state.lang)));
+      qa('[data-preset]').forEach(el=>{el.textContent=L()[el.dataset.preset];el.setAttribute('aria-pressed',String(el.dataset.preset===state.preset))});
+      const today=state.current,target=state.target,days=state.days;
+      const valid=Number.isFinite(today)&&Number.isFinite(target)&&today>=0&&target>=0&&today<=1000000&&target<=1000000&&Number.isInteger(days)&&days>=1&&days<=365;
+      if(!valid){host.dataset.state='invalid';out('saving','—');out('days','—');out('daysUnit',L().daysUnit);out('perDay','—');out('pct','—');out('judgment',L().invalid);out('explain','');out('meterNote','');q('[data-meter]').style.width='0%';return;}
+      const saving=Math.max(0,today-target),isPositive=today>target;
+      host.dataset.state=isPositive?'positive':'none';
+      out('saving',currency(saving));out('days',days);out('daysUnit',L().daysUnit);
+      out('perDay',currency(saving/days));out('pct',today>0?(100*saving/today).toFixed(1)+'%':'0.0%');
+      out('judgment',L().judgment);out('explain',isPositive?L().positive:L().none);
+      const portion=today>0?Math.min(100,Math.max(0,saving/today*100)):0;q('[data-meter]').style.width=portion+'%';out('meterNote',portion.toFixed(1)+'% · '+L().pct);
+      inputs.range.value=String(Math.min(90,Math.max(1,days)));
+    }
+    function resetFields(){inputs.current.value=state.current;inputs.target.value=state.target;inputs.days.value=state.days;inputs.range.value=Math.min(90,state.days)}
+    qa('[data-lang]').forEach(el=>el.addEventListener('click',()=>{state.lang=el.dataset.lang;render()}));
+    qa('[data-preset]').forEach(el=>el.addEventListener('click',()=>{state.preset=el.dataset.preset;Object.assign(state,presets[state.preset]);resetFields();render()}));
+    for(const key of ['current','target','days'])inputs[key].addEventListener('input',()=>{state[key]=inputs[key].value===''?NaN:Number(inputs[key].value);state.preset='custom';render()});
+    inputs.range.addEventListener('input',()=>{state.days=Number(inputs.range.value);inputs.days.value=String(state.days);state.preset='custom';render()});
+    resetFields();render();
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount,{once:true});else mount();
+})();
