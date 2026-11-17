@@ -1,0 +1,51 @@
+/* R314 Repeat Grocery List — scoped, text-only interactive LP component */
+#repeatgrocery-r314{--rg-bg:#0c1b20;--rg-fg:#ecf7f0;--rg-mute:#9dafb0;--rg-line:#39544e;--rg-lime:#c9f3ce;--rg-card:#14272c;max-width:1120px;margin:48px auto;padding:0 14px;color:var(--rg-fg);direction:ltr;font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;box-sizing:border-box;text-align:start}
+#repeatgrocery-r314 *{box-sizing:border-box}
+#repeatgrocery-r314 .rg314-shell{border:1px solid #4a6255;background:radial-gradient(ellipse at 90% 0,#29453f 0,transparent 40%),linear-gradient(145deg,#14282d,#0d1b22 65%,#162726);border-radius:26px;padding:clamp(17px,3vw,38px);box-shadow:0 28px 65px #020e10a1;overflow:hidden}
+#repeatgrocery-r314 .rg314-top{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;flex-wrap:wrap}
+#repeatgrocery-r314 .rg314-kicker{font-size:11px;letter-spacing:.17em;color:#b6cbbf;font-weight:820;text-transform:uppercase}
+#repeatgrocery-r314 h2{font-size:clamp(24px,3.4vw,38px);line-height:1.2;letter-spacing:-.035em;max-width:600px;color:#f5faf4;margin:10px 0 10px}
+#repeatgrocery-r314 .rg314-lead{color:#b9c8be;font-size:14px;line-height:1.75;margin:0;max-width:590px}
+#repeatgrocery-r314 button,#repeatgrocery-r314 input{font:inherit}
+#repeatgrocery-r314 button{cursor:pointer}
+#repeatgrocery-r314 .rg314-langs{display:flex;align-items:center;gap:4px;background:#10212a;border:1px solid var(--rg-line);padding:4px;border-radius:12px}
+#repeatgrocery-r314 .rg314-langs button{color:#cee0db;background:transparent;border:0;min-height:35px;padding:0 10px;border-radius:8px;font-size:12px}
+#repeatgrocery-r314 button[aria-pressed="true"]{background:#c7eecb;color:#10261d}
+#repeatgrocery-r314 .rg314-grid{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.85fr);gap:19px;margin-top:25px}
+#repeatgrocery-r314 .rg314-panel{border:1px solid #36514d;border-radius:18px;padding:21px;background:#12252cdd;min-width:0}
+#repeatgrocery-r314 .rg314-panelhead{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:15px;flex-wrap:wrap}
+#repeatgrocery-r314 .rg314-panel h3{margin:0;color:#eef8ef;font-size:16px;font-weight:780;line-height:1.3}
+#repeatgrocery-r314 .rg314-count{color:#cbeacd;background:#213d3a;border:1px solid #3b6555;padding:6px 11px;border-radius:999px;font-size:12px;font-variant-numeric:tabular-nums;font-weight:850}
+#repeatgrocery-r314 .rg314-progress{height:8px;overflow:hidden;background:#263b3d;border-radius:99px;margin-bottom:20px}
+#repeatgrocery-r314 .rg314-progressfill{width:0%;height:100%;border-radius:inherit;background:linear-gradient(90deg,#8fccb2,#cbedbd);transition:width .23s ease}
+#repeatgrocery-r314 .rg314-items{display:grid;gap:9px}
+#repeatgrocery-r314 .rg314-item{min-height:54px;width:100%;text-align:start;border:1px solid #405956;border-radius:12px;display:flex;align-items:center;gap:12px;color:#f0f7f2;background:#1d3437;padding:10px 14px;font-size:14px;font-weight:680;transition:background .15s,border-color .15s}
+#repeatgrocery-r314 .rg314-item[data-done="true"]{color:#aabbb2;background:#1a2c2f;border-color:#37544a}
+#repeatgrocery-r314 .rg314-item[data-done="true"] .rg314-itemname{text-decoration:line-through;text-decoration-thickness:1px}
+#repeatgrocery-r314 .rg314-check{height:24px;width:24px;flex:0 0 24px;border-radius:7px;border:1.5px solid #789c8b;display:grid;place-items:center;color:#163026;font-size:17px;font-weight:900;line-height:1;background:#1c3336}
+#repeatgrocery-r314 .rg314-item[data-done="true"] .rg314-check{background:#b8edc5;border-color:#b8edc5}
+#repeatgrocery-r314 .rg314-itemname{overflow-wrap:anywhere}
+#repeatgrocery-r314 .rg314-add{display:flex;gap:8px;margin-top:17px}
+#repeatgrocery-r314 .rg314-add input{min-width:0;flex:1;background:#0d1f25;border:1px solid #577168;border-radius:12px;padding:12px;color:#f1fff4;font-size:14px;outline-offset:2px}
+#repeatgrocery-r314 input::placeholder{color:#829e95}
+#repeatgrocery-r314 .rg314-add button{padding:10px 16px;background:#bfdcc6;color:#132c25;border:0;border-radius:12px;font-size:13px;font-weight:800;min-height:44px}
+#repeatgrocery-r314 .rg314-hint{font-size:12px;color:#a0b8ad;line-height:1.6;margin:12px 0 0}
+#repeatgrocery-r314 .rg314-visual{display:flex;flex-direction:column;min-height:100%;gap:20px;justify-content:space-between}
+#repeatgrocery-r314 .rg314-triplabel{color:#a8c0b3;font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:800}
+#repeatgrocery-r314 .rg314-status{font-size:clamp(23px,3.5vw,35px);font-weight:850;letter-spacing:-.03em;color:#f1faf2;line-height:1.24;margin:13px 0}
+#repeatgrocery-r314 .rg314-caption{color:#b2c9ba;font-size:13px;line-height:1.7;margin:0}
+#repeatgrocery-r314 .rg314-reuse{margin-top:30px;display:flex;flex-direction:column;gap:9px}
+#repeatgrocery-r314 .rg314-reuse button{min-height:49px;background:#c9efcd;border:0;border-radius:13px;padding:10px 16px;color:#113021;font-weight:880;font-size:14px}
+#repeatgrocery-r314 .rg314-reuse button:disabled{background:#344a42;color:#a7b5af;cursor:not-allowed}
+#repeatgrocery-r314 .rg314-pulse{display:flex;gap:8px;align-items:center;margin:8px 0 2px;color:#cde8d2;font-size:13px;font-weight:750}
+#repeatgrocery-r314 .rg314-pulse i{display:block;height:9px;width:9px;background:#b6e9b9;border-radius:50%;box-shadow:0 0 0 4px #bbf5be2c}
+#repeatgrocery-r314 .rg314-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:22px;border-top:1px solid #38534f;padding-top:16px}
+#repeatgrocery-r314 .rg314-note{font-size:11px;color:#acbdb3;margin:0;line-height:1.6;max-width:700px}
+#repeatgrocery-r314 .rg314-store{font-size:12px;font-weight:800;color:#c9f3ce;text-decoration:underline;text-underline-offset:3px}
+#repeatgrocery-r314 :is(button,input):focus-visible{outline:3px solid #f6d995;outline-offset:3px}
+#repeatgrocery-r314[dir="rtl"]{text-align:right}
+#repeatgrocery-r314[dir="rtl"] .rg314-item{text-align:right}
+#repeatgrocery-r314[dir="rtl"] .rg314-add{direction:rtl}
+@media(max-width:740px){#repeatgrocery-r314{padding:0 10px;margin:30px auto}#repeatgrocery-r314 .rg314-top{display:block}#repeatgrocery-r314 .rg314-langs{width:max-content;margin-top:17px}#repeatgrocery-r314 .rg314-grid{grid-template-columns:1fr;gap:13px;margin-top:20px}#repeatgrocery-r314 .rg314-panel{padding:16px}#repeatgrocery-r314 .rg314-reuse{margin-top:10px}}
+@media(max-width:350px){#repeatgrocery-r314 .rg314-shell{padding:14px}#repeatgrocery-r314 .rg314-panel{padding:12px}#repeatgrocery-r314 .rg314-add button{padding-inline:12px}}
+@media(prefers-reduced-motion:reduce){#repeatgrocery-r314 *{transition:none!important}}

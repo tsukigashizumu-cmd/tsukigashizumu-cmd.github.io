@@ -1,0 +1,45 @@
+/* R311 Jiiya Roll — text/CSS-only dice-to-team LP demonstration */
+#tsz-jiiya-r311 { --jr-bg:#101927; --jr-stroke:#344255; --jr-ink:#f5f9ff; --jr-soft:#adbdcf; --jr-mint:#a7f1d2; --jr-amber:#fed89e; box-sizing:border-box; isolation:isolate; color:var(--jr-ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; font-size:15px; line-height:1.5; max-width:1080px; margin:clamp(26px,5vw,64px) auto; padding:clamp(18px,3.4vw,36px); border:1px solid #3a5265; border-radius:26px; overflow:hidden; background:radial-gradient(ellipse at 85% 5%,#2c4b55,transparent 45%),linear-gradient(140deg,#172638,#101720 70%);box-shadow:0 24px 70px #06101670;}
+#tsz-jiiya-r311 *, #tsz-jiiya-r311 *::before,#tsz-jiiya-r311 *::after{box-sizing:border-box}
+#tsz-jiiya-r311 [hidden]{display:none!important}
+#tsz-jiiya-r311 .jr-head{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:15px;margin-bottom:24px}
+#tsz-jiiya-r311 .jr-eyebrow{color:var(--jr-mint);font-weight:800;font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin:0}
+#tsz-jiiya-r311 h2{font-size:clamp(26px,3.3vw,40px);line-height:1.18;letter-spacing:-.035em;margin:8px 0 11px;color:var(--jr-ink);font-weight:800;max-width:20ch}
+#tsz-jiiya-r311 .jr-lead{margin:0;max-width:55ch;color:#c5d3df;font-size:14px;line-height:1.65}
+#tsz-jiiya-r311 .jr-langwrap{display:flex;flex-direction:column;gap:6px;min-width:118px;color:var(--jr-soft);font-size:12px;font-weight:650}
+#tsz-jiiya-r311 select{background:#233746;border:1px solid #536c76;border-radius:11px;color:#fff;padding:10px;font:inherit;min-height:44px;max-width:100%}
+#tsz-jiiya-r311 .jr-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.06fr);gap:16px}
+#tsz-jiiya-r311 .jr-panel{min-width:0;border:1px solid var(--jr-stroke);border-radius:20px;background:#101c2ac7;padding:clamp(16px,2.5vw,25px)}
+#tsz-jiiya-r311 .jr-caption{font-size:11px;color:#92adbd;letter-spacing:.12em;font-weight:800;text-transform:uppercase;margin:0 0 13px}
+#tsz-jiiya-r311 .jr-statrow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:18px}
+#tsz-jiiya-r311 .jr-stat{border-radius:12px;background:#233446;min-width:0;padding:13px;border:1px solid #364c5c}
+#tsz-jiiya-r311 .jr-stat span{display:block;color:#bfceda;font-size:12px;margin-bottom:5px}
+#tsz-jiiya-r311 .jr-stat strong{display:block;color:#fff;font-size:clamp(20px,3vw,32px);line-height:1.25;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+#tsz-jiiya-r311 .jr-stage{display:flex;gap:20px;align-items:center;justify-content:center;min-height:180px;padding:18px;background:radial-gradient(ellipse at 50% 70%,#34545e 0%,#1a2e3c 55%,#172431 100%);border:1px solid #3c5a64;border-radius:17px;margin-bottom:15px}
+#tsz-jiiya-r311 .jr-die{width:113px;height:113px;flex:none;border-radius:24px;background:linear-gradient(140deg,#f8fff9,#b7d7ca);box-shadow:0 8px 0 #6b8e87,0 18px 40px #030e17a6;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);padding:20px;gap:8px;transform:rotate(-6deg);transition:transform .3s ease}
+#tsz-jiiya-r311 .jr-die.jr-rolled{transform:rotate(4deg)}
+#tsz-jiiya-r311 .jr-pip{width:15px;height:15px;border-radius:99px;background:#163d46;opacity:0;align-self:center;justify-self:center}
+#tsz-jiiya-r311 .jr-pip.on{opacity:1}
+#tsz-jiiya-r311 .jr-stagecopy{max-width:135px;min-width:0}
+#tsz-jiiya-r311 .jr-stagecopy strong{display:block;font-size:clamp(18px,2.7vw,26px);font-weight:800;color:#fff}
+#tsz-jiiya-r311 .jr-stagecopy span{color:#b7ced9;font-size:12px}
+#tsz-jiiya-r311 .jr-action{display:flex;gap:10px;flex-wrap:wrap}
+#tsz-jiiya-r311 button{font:inherit;font-size:14px;font-weight:750;border:1px solid #5a7782;color:#edf5f9;background:#294351;border-radius:12px;padding:11px 15px;min-height:46px;cursor:pointer;touch-action:manipulation}
+#tsz-jiiya-r311 button:disabled{opacity:.43;cursor:not-allowed;filter:none}
+#tsz-jiiya-r311 button:hover:not(:disabled){filter:brightness(1.12)}
+#tsz-jiiya-r311 button:focus-visible,#tsz-jiiya-r311 select:focus-visible{outline:3px solid #ffdc9b;outline-offset:2px}
+#tsz-jiiya-r311 .jr-action button:first-child{background:var(--jr-mint);color:#102d31;border-color:var(--jr-mint);flex:1 1 150px;font-size:16px}
+#tsz-jiiya-r311 .jr-action button:last-child{flex:1 1 100px}
+#tsz-jiiya-r311 .jr-hirelist{display:grid;gap:10px}
+#tsz-jiiya-r311 .jr-hire{min-width:0;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:11px;border-radius:14px;border:1px solid #405464;background:#203243;padding:12px 13px}
+#tsz-jiiya-r311 .jr-hire h3{font-size:15px;color:#fff;margin:0 0 4px;font-weight:800}
+#tsz-jiiya-r311 .jr-hire p{font-size:12px;color:#b5c9d7;margin:0}
+#tsz-jiiya-r311 .jr-hire button{min-width:98px;max-width:150px;padding:10px 11px;font-size:13px;overflow-wrap:anywhere}
+#tsz-jiiya-r311 .jr-hire button.jr-done{background:#234e4c;color:var(--jr-mint);border-color:#447f72;opacity:1}
+#tsz-jiiya-r311 .jr-hint{margin:13px 0 0;border-top:1px solid #3a4c5d;padding-top:14px;font-size:12px;color:#bacdda}
+#tsz-jiiya-r311 .jr-status{min-height:24px;margin:12px 0 0;color:var(--jr-amber);font-size:13px;font-weight:650}
+#tsz-jiiya-r311 .jr-note{margin:20px 0 0;color:#adbfd0;font-size:12px;max-width:80ch}
+#tsz-jiiya-r311[dir=rtl] .jr-eyebrow,#tsz-jiiya-r311[dir=rtl] .jr-caption{letter-spacing:0}
+@media(max-width:690px){#tsz-jiiya-r311{margin:24px 6px;padding:18px;border-radius:19px}#tsz-jiiya-r311 .jr-layout{grid-template-columns:minmax(0,1fr)}#tsz-jiiya-r311 .jr-stage{min-height:146px}#tsz-jiiya-r311 .jr-die{width:95px;height:95px;padding:17px;gap:6px}#tsz-jiiya-r311 .jr-pip{width:13px;height:13px}}
+@media(max-width:360px){#tsz-jiiya-r311{padding:13px;margin-inline:2px}#tsz-jiiya-r311 .jr-panel{padding:13px}#tsz-jiiya-r311 .jr-hire{grid-template-columns:minmax(0,1fr);gap:8px}#tsz-jiiya-r311 .jr-hire button{width:100%;max-width:none}#tsz-jiiya-r311 .jr-stage{gap:12px}}
+@media(prefers-reduced-motion:reduce){#tsz-jiiya-r311 *,#tsz-jiiya-r311 *::before,#tsz-jiiya-r311 *::after{transition:none!important;animation:none!important}}

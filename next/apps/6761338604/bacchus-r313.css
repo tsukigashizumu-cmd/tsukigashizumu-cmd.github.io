@@ -1,0 +1,48 @@
+/* R313 Bacchus Karma: isolated, text-only preview module. */
+#bacchus-r313{color:#eaf2f5;direction:ltr;max-width:1140px;margin:52px auto;padding:0 16px;font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;box-sizing:border-box}
+#bacchus-r313 *{box-sizing:border-box}
+#bacchus-r313 .bk313-shell{background:linear-gradient(146deg,#151e2c 0%,#0c1420 70%,#15152b 100%);border:1px solid #3b455b;border-radius:24px;box-shadow:0 25px 70px rgba(0,0,0,.24);padding:clamp(18px,3vw,36px)}
+#bacchus-r313 .bk313-top{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap;margin-bottom:24px}
+#bacchus-r313 .bk313-kicker{text-transform:uppercase;letter-spacing:.16em;color:#a2b3d0;font-size:11px;font-weight:780}
+#bacchus-r313 h2{font-size:clamp(24px,3.4vw,37px);letter-spacing:-.035em;line-height:1.2;color:#f4f6fd;margin:9px 0 10px}
+#bacchus-r313 .bk313-lead{font-size:14px;line-height:1.7;color:#b9c7d7;max-width:660px;margin:0}
+#bacchus-r313 .bk313-languages{display:flex;gap:5px;padding:4px;background:#0e1725;border:1px solid #374356;border-radius:12px}
+#bacchus-r313 button{font:inherit;cursor:pointer}
+#bacchus-r313 .bk313-languages button{min-height:34px;border:0;border-radius:8px;background:transparent;color:#c4cfe0;font-size:12px;padding:0 11px}
+#bacchus-r313 button[aria-pressed="true"]{background:#b8f0e7;color:#0d2430}
+#bacchus-r313 .bk313-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(250px,.86fr);gap:20px}
+#bacchus-r313 .bk313-panel{background:rgba(13,21,33,.75);border:1px solid #344257;border-radius:18px;padding:20px;min-width:0}
+#bacchus-r313 .bk313-subhead{font-weight:800;font-size:14px;color:#eef3ff;margin:0 0 6px}
+#bacchus-r313 .bk313-hint{font-size:12px;line-height:1.5;color:#9eafc7;margin:0 0 18px}
+#bacchus-r313 .bk313-presets{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:18px}
+#bacchus-r313 .bk313-presets button{background:#1b2b42;color:#dce5f4;border:1px solid #46536d;border-radius:10px;min-height:38px;padding:6px 12px;font-size:12px;font-weight:700}
+#bacchus-r313 .bk313-presets button[aria-pressed="true"]{background:#a4e8dc;color:#0a2530;border-color:#a4e8dc}
+#bacchus-r313 .bk313-weight{display:grid;grid-template-columns:34px minmax(0,1fr) 43px;gap:12px;align-items:center;margin:13px 0}
+#bacchus-r313 .bk313-symbol{height:32px;width:32px;display:grid;place-items:center;background:#253b54;border:1px solid #3b5673;border-radius:9px;color:#bce8fa;font-size:18px;font-weight:900}
+#bacchus-r313 .bk313-weight input{width:100%;accent-color:#9cebd7;cursor:pointer}
+#bacchus-r313 output{font-size:13px;text-align:end;font-variant-numeric:tabular-nums;color:#d6f8f0;font-weight:800}
+#bacchus-r313 .bk313-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}
+#bacchus-r313 .bk313-primary{border:0;border-radius:12px;background:#a8eee1;color:#0a2530;padding:12px 17px;font-weight:850;min-height:44px}
+#bacchus-r313 .bk313-secondary{border:1px solid #56677e;border-radius:12px;background:#1d2b3f;color:#e4ebf7;padding:12px 15px;font-weight:750;min-height:44px}
+#bacchus-r313 .bk313-status{border-radius:12px;margin-top:16px;padding:13px;background:#1b3043;color:#dcf9f2;min-height:50px;font-size:14px;line-height:1.5}
+#bacchus-r313 .bk313-status[data-state="error"]{background:#483034;color:#ffe0d9}
+#bacchus-r313 .bk313-boardwrap{display:grid;grid-template-columns:minmax(0,1fr) 105px;gap:14px;align-items:start}
+#bacchus-r313 .bk313-board{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px;padding:9px;background:#0c1727;border:1px solid #374b64;border-radius:14px;max-width:340px;aspect-ratio:1}
+#bacchus-r313 .bk313-cell{background:#1a2c42;border:1px solid #344b65;border-radius:5px;min-width:0;min-height:0;aspect-ratio:1;padding:0;display:grid;place-items:center;color:transparent}
+#bacchus-r313 .bk313-cell[data-filled="true"]{background:linear-gradient(135deg,#b2dcff,#677ded);border-color:#a5b8ee;box-shadow:inset 0 0 0 1px #cbd9ff}
+#bacchus-r313 .bk313-cell:focus-visible,#bacchus-r313 button:focus-visible,#bacchus-r313 input:focus-visible{outline:3px solid #f5d590;outline-offset:2px}
+#bacchus-r313 .bk313-next{padding:11px 9px;background:#16263a;border:1px solid #364d69;border-radius:12px;min-height:126px;text-align:center}
+#bacchus-r313 .bk313-nextlabel{font-size:10px;color:#a7b8d0;font-weight:750;text-transform:uppercase;letter-spacing:.07em;line-height:1.4}
+#bacchus-r313 .bk313-shape{display:grid;grid-template-columns:repeat(3,16px);grid-template-rows:repeat(3,16px);gap:3px;justify-content:center;margin:12px 0 5px}
+#bacchus-r313 .bk313-square{border:1px solid #33445d;background:#1b2b3f;border-radius:3px}
+#bacchus-r313 .bk313-square[data-on="true"]{background:#b3e4ff;border-color:#d0eeff}
+#bacchus-r313 .bk313-nextname{font-weight:850;font-size:12px;color:#e4f7ff}
+#bacchus-r313 .bk313-bottom{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;border-top:1px solid #354153;margin-top:20px;padding-top:14px}
+#bacchus-r313 .bk313-note{font-size:11px;color:#9eaec3;line-height:1.55;margin:0;max-width:760px}
+#bacchus-r313 .bk313-store{font-size:12px;color:#a5eee0;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+#bacchus-r313[dir="rtl"] .bk313-shell{text-align:right}
+#bacchus-r313[dir="rtl"] .bk313-weight{direction:rtl}
+#bacchus-r313[dir="rtl"] output{text-align:left}
+#bacchus-r313[dir="rtl"] .bk313-board{direction:ltr}
+@media(max-width:700px){#bacchus-r313{padding:0 10px;margin:32px auto}#bacchus-r313 .bk313-layout{grid-template-columns:1fr}#bacchus-r313 .bk313-panel{padding:16px}#bacchus-r313 .bk313-board{margin:0 auto;width:100%;max-width:300px}#bacchus-r313 .bk313-boardwrap{grid-template-columns:minmax(0,1fr) 96px}#bacchus-r313 .bk313-top{display:block}#bacchus-r313 .bk313-languages{margin-top:17px;width:max-content}}
+@media(max-width:350px){#bacchus-r313 .bk313-shell{padding:14px}#bacchus-r313 .bk313-panel{padding:12px}#bacchus-r313 .bk313-boardwrap{grid-template-columns:minmax(0,1fr) 82px;gap:8px}#bacchus-r313 .bk313-board{gap:2px;padding:5px}#bacchus-r313 .bk313-shape{grid-template-columns:repeat(3,12px);grid-template-rows:repeat(3,12px)}#bacchus-r313 .bk313-weight{gap:7px}}

@@ -1,0 +1,38 @@
+/* R307 — Good Person Test, LP-only one-question decision demo. No external assets. */
+#tsz-goodperson-r307{--gp-bg:#111727;--gp-border:#303952;--gp-text:#f1f2fc;--gp-muted:#aab1c6;--gp-accent:#ae9dff;--gp-amber:#f4ca89;display:block;max-width:1120px;margin:34px auto 54px;color:var(--gp-text);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55;direction:ltr}
+#tsz-goodperson-r307 *{box-sizing:border-box}
+#tsz-goodperson-r307 .gp-shell{border:1px solid #3a385b;border-radius:25px;background:radial-gradient(ellipse at 85% -10%,rgba(157,132,255,.24),transparent 53%),linear-gradient(150deg,#171b2e,#0b101c 88%);padding:clamp(17px,4vw,34px);box-shadow:0 24px 70px rgba(3,6,18,.20);overflow:hidden}
+#tsz-goodperson-r307 .gp-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+#tsz-goodperson-r307 .gp-kicker{color:#c7bcff;font-size:11px;font-weight:800;letter-spacing:.17em;margin:0 0 14px}
+#tsz-goodperson-r307 h2{font-size:clamp(25px,3.3vw,39px);font-weight:790;letter-spacing:-.035em;line-height:1.24;margin:0 0 12px;color:#fff}
+#tsz-goodperson-r307 .gp-sub{color:#c0c6da;font-size:14px;max-width:610px;margin:0 0 24px}
+#tsz-goodperson-r307 .gp-langs{display:flex;flex-wrap:wrap;gap:5px;border:1px solid var(--gp-border);padding:5px;border-radius:99px;background:#090e1a}
+#tsz-goodperson-r307 button{font:inherit;cursor:pointer}
+#tsz-goodperson-r307 .gp-langs button{font-size:12px;color:#abb4cc;background:transparent;border:0;border-radius:99px;padding:7px 10px;min-height:37px}
+#tsz-goodperson-r307 .gp-langs button[aria-pressed="true"]{background:#554a88;color:#fff}
+#tsz-goodperson-r307 .gp-story{border:1px solid #343d5a;border-radius:19px;background:rgba(9,13,25,.72);padding:clamp(16px,3vw,26px)}
+#tsz-goodperson-r307 .gp-step{display:flex;align-items:center;gap:9px;color:var(--gp-amber);font-size:11px;letter-spacing:.15em;font-weight:800;margin:0 0 9px}
+#tsz-goodperson-r307 .gp-step:before{content:"";width:21px;height:1px;background:currentColor}
+#tsz-goodperson-r307 h3{margin:0 0 21px;color:#fff;font-size:clamp(18px,2.4vw,25px);line-height:1.42;font-weight:730}
+#tsz-goodperson-r307 .gp-answers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+#tsz-goodperson-r307 .gp-answer{display:flex;align-items:flex-start;gap:11px;text-align:start;color:#e6e8f2;border:1px solid #424a68;background:#20263a;padding:17px 14px;border-radius:15px;min-height:116px;overflow-wrap:anywhere;transition:background .15s,border-color .15s}
+#tsz-goodperson-r307 .gp-answer:hover:not(:disabled){background:#2d3552;border-color:#9589f5}
+#tsz-goodperson-r307 .gp-answer:focus-visible,#tsz-goodperson-r307 .gp-langs button:focus-visible,#tsz-goodperson-r307 .gp-again:focus-visible{outline:3px solid #c0aeff;outline-offset:3px}
+#tsz-goodperson-r307 .gp-answer .gp-letter{display:grid;place-items:center;flex:0 0 29px;width:29px;height:29px;border:1px solid #747ba5;border-radius:9px;color:#e0d5ff;font-size:12px;font-weight:800}
+#tsz-goodperson-r307 .gp-answer .gp-answer-text{font-size:clamp(13px,1.2vw,15px);line-height:1.5}
+#tsz-goodperson-r307 .gp-answer[aria-pressed="true"]{border-color:#b5a5ff;background:#373257;box-shadow:inset 0 0 0 1px rgba(181,165,255,.3)}
+#tsz-goodperson-r307 .gp-answer:disabled:not([aria-pressed="true"]){opacity:.48;cursor:default}
+#tsz-goodperson-r307 .gp-result{margin-top:16px;border:1px solid #72689d;border-radius:17px;padding:20px;background:linear-gradient(130deg,rgba(82,70,125,.45),rgba(22,28,43,.96));display:none}
+#tsz-goodperson-r307 .gp-result[data-visible="true"]{display:block}
+#tsz-goodperson-r307 .gp-result-label{font-size:11px;letter-spacing:.13em;font-weight:800;color:#d6c8ff;margin:0 0 8px}
+#tsz-goodperson-r307 .gp-result h4{font-size:clamp(19px,2.5vw,25px);color:#fff;margin:0 0 6px}
+#tsz-goodperson-r307 .gp-result p{margin:0;color:#d6dbea;font-size:14px}
+#tsz-goodperson-r307 .gp-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:13px;margin-top:19px}
+#tsz-goodperson-r307 .gp-again{background:transparent;color:#dbcfff;border:1px solid #7467aa;border-radius:10px;padding:10px 14px;min-height:44px}
+#tsz-goodperson-r307 .gp-again:disabled{opacity:.45;cursor:default}
+#tsz-goodperson-r307 .gp-store{display:inline-flex;align-items:center;justify-content:center;border-radius:10px;background:#e4d9ff;color:#231b3f;text-align:center;padding:12px 17px;font-size:13px;font-weight:800;min-height:45px;text-decoration:none}
+#tsz-goodperson-r307 .gp-footnote{border-top:1px solid #303650;margin:21px 0 0;padding-top:15px;color:#abb4c9;font-size:12px}
+#tsz-goodperson-r307 [dir="rtl"] .gp-answer{text-align:right}
+@media (max-width:750px){#tsz-goodperson-r307 .gp-answers{grid-template-columns:1fr}#tsz-goodperson-r307 .gp-answer{min-height:67px;padding:12px}#tsz-goodperson-r307 .gp-head{flex-direction:column}#tsz-goodperson-r307 .gp-langs{align-self:flex-start}}
+@media (max-width:360px){#tsz-goodperson-r307 .gp-shell{padding:14px;border-radius:17px}#tsz-goodperson-r307 .gp-story{padding:13px}#tsz-goodperson-r307 .gp-bottom{align-items:stretch}#tsz-goodperson-r307 .gp-store,#tsz-goodperson-r307 .gp-again{width:100%}}
+@media (prefers-reduced-motion:reduce){#tsz-goodperson-r307 *,#tsz-goodperson-r307 *::before{animation:none!important;transition:none!important}}

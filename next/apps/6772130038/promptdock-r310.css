@@ -1,0 +1,32 @@
+/* PromptDock AI R310 — isolated, prefix-scoped LP demonstration */
+#tsz-pd-r310{--pd-bg:#12151f;--pd-border:#303849;--pd-mint:#9cf0d3;--pd-muted:#a2aec4;--pd-ink:#f3f6ff;box-sizing:border-box;position:relative;isolation:isolate;max-width:1060px;margin:clamp(24px,5vw,66px) auto;padding:clamp(18px,4vw,36px);border:1px solid #334354;border-radius:23px;color:var(--pd-ink);background:radial-gradient(ellipse at 90% 0%,#293b4c 0%,transparent 42%),linear-gradient(150deg,#171c2a,#10141e 74%);box-shadow:0 28px 55px #060a1480;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5;overflow:hidden}
+#tsz-pd-r310 *,#tsz-pd-r310 *::before,#tsz-pd-r310 *::after{box-sizing:border-box}
+#tsz-pd-r310 [hidden]{display:none!important}
+#tsz-pd-r310 .pd-kicker{color:var(--pd-mint);font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase}
+#tsz-pd-r310 .pd-head{display:flex;gap:16px;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;margin-bottom:22px}
+#tsz-pd-r310 .pd-head h2{font-size:clamp(24px,3vw,37px);line-height:1.2;letter-spacing:-.025em;margin:7px 0 10px;color:#fff;font-weight:800;max-width:680px}
+#tsz-pd-r310 .pd-desc{font-size:14px;color:#b9c8d7;max-width:58ch;margin:0}
+#tsz-pd-r310 .pd-lang{padding:9px 14px;background:#273344;border:1px solid #445466;border-radius:99px;color:#fff;font-size:13px;min-width:115px}
+#tsz-pd-r310 .pd-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.04fr);gap:16px}
+#tsz-pd-r310 .pd-panel{min-width:0;border-radius:16px;background:#0e1421c9;border:1px solid var(--pd-border);padding:clamp(15px,2.4vw,22px)}
+#tsz-pd-r310 .pd-panel-heading{font-size:12px;font-weight:750;color:#c0d9e7;letter-spacing:.06em;margin:0 0 16px}
+#tsz-pd-r310 .pd-field{display:flex;flex-direction:column;gap:7px;margin:0 0 15px}
+#tsz-pd-r310 .pd-field>span{font-size:13px;color:#b9c7dc;font-weight:600}
+#tsz-pd-r310 input,#tsz-pd-r310 select,#tsz-pd-r310 textarea{max-width:100%;width:100%;border:1px solid #485567;background:#1e2938;color:#fbfdff;border-radius:11px;font:inherit;font-size:15px;padding:12px;min-height:45px;outline-offset:3px}
+#tsz-pd-r310 textarea{min-height:90px;resize:vertical;line-height:1.5}
+#tsz-pd-r310 input:focus-visible,#tsz-pd-r310 select:focus-visible,#tsz-pd-r310 button:focus-visible,#tsz-pd-r310 textarea:focus-visible{outline:2px solid var(--pd-mint)}
+#tsz-pd-r310 .pd-buttons{display:flex;flex-wrap:wrap;gap:9px;margin-top:15px}
+#tsz-pd-r310 button{border:1px solid #536476;border-radius:12px;padding:11px 14px;min-height:44px;background:#293a4b;color:#f2f7fb;font-size:14px;font-weight:750;cursor:pointer;touch-action:manipulation}
+#tsz-pd-r310 button:hover{filter:brightness(1.13)}
+#tsz-pd-r310 button.pd-primary{background:var(--pd-mint);color:#10282a;border-color:var(--pd-mint)}
+#tsz-pd-r310 .pd-output{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;max-height:340px;overflow:auto;min-height:190px;color:#e7f0fb;background:#182130;border:1px solid #344559;border-radius:12px;padding:17px;font-size:14px;line-height:1.75;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+#tsz-pd-r310 .pd-saved{margin-top:19px;border-top:1px solid #354252;padding-top:15px}
+#tsz-pd-r310 .pd-saved-title{font-weight:750;font-size:13px;color:#bfe7d9}
+#tsz-pd-r310 .pd-saved-list{display:flex;flex-wrap:wrap;gap:8px;margin:11px 0 0;padding:0;list-style:none}
+#tsz-pd-r310 .pd-saved-list button{background:#203749;padding:8px 11px;min-height:40px;max-width:100%;overflow-wrap:anywhere;font-size:12px}
+#tsz-pd-r310 .pd-feedback{margin:10px 0 0;color:#a7decf;min-height:20px;font-size:12px}
+#tsz-pd-r310 .pd-fine{margin:18px 0 0;font-size:12px;color:#9eafc2}
+#tsz-pd-r310[dir="rtl"] .pd-kicker{letter-spacing:0}
+@media(max-width:700px){#tsz-pd-r310{margin:22px 8px;padding:17px;border-radius:18px}#tsz-pd-r310 .pd-layout{grid-template-columns:minmax(0,1fr)}#tsz-pd-r310 .pd-head{gap:13px}#tsz-pd-r310 .pd-output{min-height:160px}#tsz-pd-r310 .pd-lang{min-width:90px}}
+@media(max-width:350px){#tsz-pd-r310{margin-inline:4px;padding:13px}#tsz-pd-r310 .pd-panel{padding:12px}#tsz-pd-r310 .pd-buttons button{flex:1 1 100%}}
+@media(prefers-reduced-motion:reduce){#tsz-pd-r310 *,#tsz-pd-r310 *::before,#tsz-pd-r310 *::after{animation:none!important;transition:none!important}}

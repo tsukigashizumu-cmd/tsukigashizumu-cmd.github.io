@@ -1,0 +1,52 @@
+/* R298 Kizami: scoped, isolated demonstration. No changes to legacy LP. */
+#kzr298{--kz-ink:#0b1118;--kz-card:#151f28;--kz-faint:#aab8c3;--kz-gold:#efd19b;isolation:isolate;position:relative;box-sizing:border-box;width:100%;margin:0 auto;padding:clamp(32px,5vw,68px) 16px;color:#ecf3f2;background:radial-gradient(ellipse at 50% 0%,#22383e 0,#101a22 52%,#0b131a 100%);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;text-align:start;overflow:hidden}
+#kzr298 *{box-sizing:border-box}
+#kzr298 [hidden]{display:none!important}
+#kzr298 .kz-wrap{max-width:1050px;margin:0 auto}
+#kzr298 .kz-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-bottom:26px}
+#kzr298 .kz-brand{font-size:11px;letter-spacing:.19em;color:var(--kz-gold);font-weight:750;text-transform:uppercase}
+#kzr298 .kz-selects{display:flex;gap:8px;flex-wrap:wrap}
+#kzr298 select,#kzr298 input,#kzr298 button{font:inherit;color:inherit}
+#kzr298 select,#kzr298 input{background:#18242d;border:1px solid #40515a;border-radius:10px;min-height:40px;padding:8px 10px;max-width:100%;color:#f1f5f5}
+#kzr298 .kz-selects select{font-size:12px;max-width:170px}
+#kzr298 .kz-eyebrow{font-size:12px;font-weight:700;letter-spacing:.13em;color:#e7c08c;margin:0 0 10px;text-transform:uppercase}
+#kzr298 h2{font-size:clamp(27px,4vw,47px);line-height:1.13;letter-spacing:-.035em;font-weight:770;color:#f2f7f5;margin:0 0 17px;max-width:760px}
+#kzr298 .kz-lede{max-width:650px;line-height:1.75;color:#b9c7cc;margin:0 0 31px;font-size:clamp(13px,1.6vw,16px)}
+#kzr298 .kz-grid{display:grid;grid-template-columns:minmax(0,1.07fr) minmax(0,.93fr);gap:17px;align-items:start}
+#kzr298 .kz-panel{padding:clamp(17px,3vw,28px);background:linear-gradient(165deg,#1b2932,#121e26);border:1px solid #33434b;border-radius:20px;min-width:0}
+#kzr298 .kz-panel-head{font-size:12px;letter-spacing:.1em;color:var(--kz-gold);font-weight:720;text-transform:uppercase;margin:0 0 20px}
+#kzr298 .kz-label{font-size:12px;color:#aebdc5;font-weight:650;margin-bottom:9px;display:block}
+#kzr298 .kz-activities{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:20px}
+#kzr298 .kz-chip{border:1px solid #45555a;border-radius:12px;background:#1c2b34;padding:12px 10px;min-height:55px;line-height:1.35;text-align:start;cursor:pointer;font-size:14px}
+#kzr298 .kz-chip[aria-pressed=true]{border-color:#e5c48d;background:linear-gradient(120deg,#4d4435,#2e3435);box-shadow:inset 0 0 0 1px #b99b6b}
+#kzr298 .kz-chip:focus-visible,#kzr298 .kz-pill:focus-visible,#kzr298 .kz-action:focus-visible,#kzr298 .kz-secondary:focus-visible{outline:3px solid #d4b47a;outline-offset:3px}
+#kzr298 .kz-chip span{font-size:17px;margin-inline-end:5px}
+#kzr298 .kz-mins{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+#kzr298 .kz-pill{cursor:pointer;background:#1b2b34;border:1px solid #4b5a60;border-radius:999px;min-height:39px;padding:9px 15px;font-size:13px;font-weight:650}
+#kzr298 .kz-pill[aria-pressed=true]{color:#151e22;background:#ecd5a8;border-color:#ecd5a8}
+#kzr298 .kz-mins input{width:86px;font-size:14px}
+#kzr298 .kz-action{width:100%;padding:15px;border:1px solid #edd8b1;border-radius:12px;background:#e8d3ae;color:#202321;font-weight:800;font-size:15px;cursor:pointer}
+#kzr298 .kz-action:hover{background:#f7e4bc}
+#kzr298 .kz-summary{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px}
+#kzr298 .kz-stat{background:#15252b;border:1px solid #384b4e;border-radius:13px;padding:13px}
+#kzr298 .kz-stat small{font-size:11px;color:#aebdc0;display:block;margin-bottom:7px}
+#kzr298 .kz-stat strong{font-variant-numeric:tabular-nums;font-size:clamp(23px,3vw,32px);font-weight:760;line-height:1.05;color:#f3ddb7}
+#kzr298 .kz-shaft{height:175px;border-radius:12px;background:repeating-linear-gradient(0deg,#24313a 0 1px,transparent 1px 32px),linear-gradient(180deg,#182730,#0d171f);display:flex;align-items:flex-start;justify-content:center;border:1px solid #34454e;overflow:hidden;position:relative;padding:0 18px 0}
+#kzr298 .kz-shaft:before,#kzr298 .kz-shaft:after{content:'';position:absolute;inset-block:0;width:1px;background:#50615e;opacity:.7}
+#kzr298 .kz-shaft:before{left:calc(50% - 25px)}#kzr298 .kz-shaft:after{left:calc(50% + 25px)}
+#kzr298 .kz-depth{display:flex;flex-direction:column;align-items:stretch;gap:2px;width:46px;min-height:12px;margin:0 auto;transition:.25s}
+#kzr298 .kz-strata{min-height:10px;background:linear-gradient(90deg,#a88c64,#e0c393,#ac9069);border-radius:1px;position:relative;opacity:.95}
+#kzr298 .kz-strata:nth-child(even){background:linear-gradient(90deg,#718a89,#a2bfba,#728b85)}
+#kzr298 .kz-shaft-label{position:absolute;bottom:12px;left:12px;right:12px;color:#b7c6c6;font-size:10px;text-align:center;pointer-events:none}
+#kzr298 .kz-entries{list-style:none;margin:17px 0 11px;padding:0;max-height:190px;overflow:auto}
+#kzr298 .kz-entries li{display:flex;justify-content:space-between;gap:12px;padding:11px 2px;border-bottom:1px solid #31414a;font-size:13px;align-items:center}
+#kzr298 .kz-entry-min{white-space:nowrap;font-variant-numeric:tabular-nums;color:#f0d9ad}
+#kzr298 .kz-actions{display:flex;gap:8px;flex-wrap:wrap}
+#kzr298 .kz-secondary{cursor:pointer;background:#1b2a33;color:#e4eae8;border:1px solid #465862;border-radius:10px;padding:10px 13px;min-height:40px;font-size:12px}
+#kzr298 .kz-foot{margin-top:19px;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+#kzr298 .kz-note{color:#9caeb7;font-size:11px;max-width:620px;line-height:1.6}
+#kzr298 .kz-store{display:inline-flex;align-items:center;justify-content:center;background:#e4cfac;color:#182028;text-decoration:none;padding:12px 17px;font-size:13px;font-weight:750;border-radius:10px;min-height:44px;white-space:normal}
+#kzr298 .kz-msg{margin-top:9px;min-height:1.2em;font-size:12px;color:#f6bd9a}
+#kzr298[dir=rtl] .kz-chip{text-align:right}
+@media(max-width:730px){#kzr298 .kz-grid{grid-template-columns:1fr}#kzr298 .kz-top{align-items:flex-start}#kzr298 .kz-selects{width:100%}#kzr298 .kz-selects select{flex:1;min-width:0}#kzr298 .kz-foot{align-items:stretch}#kzr298 .kz-store{width:100%}}
+@media(max-width:360px){#kzr298{padding-inline:10px}#kzr298 .kz-panel{padding:15px}#kzr298 .kz-chip{font-size:12px;padding:9px}#kzr298 .kz-pill{padding:7px 12px}#kzr298 h2{font-size:27px}}
