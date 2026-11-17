@@ -1,0 +1,49 @@
+/* R329 Warranty Deadline Tracker — scoped, isolated LP-only interactive demo. */
+#tsz-wd329{--wd-bg:#0c151d;--wd-panel:#14232c;--wd-line:#34434b;--wd-ink:#f4f2ed;--wd-muted:#a9b4b7;--wd-gold:#efc88e;--wd-green:#9cd4b9;--wd-warning:#eac195;display:block;position:relative;isolation:isolate;max-width:1120px;margin:44px auto 56px;padding:0 18px;color:var(--wd-ink);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:16px;line-height:1.5}
+#tsz-wd329 *{box-sizing:border-box}
+#tsz-wd329 .wd-shell{overflow:hidden;border:1px solid #40505a;border-radius:26px;background:radial-gradient(ellipse at 88% -15%,rgba(193,165,115,.15),transparent 44%),linear-gradient(150deg,#101e27,#0b141b);box-shadow:0 20px 50px rgba(0,0,0,.18)}
+#tsz-wd329 .wd-top{padding:clamp(23px,5vw,52px) clamp(19px,5vw,52px) 20px;position:relative}
+#tsz-wd329 .wd-overline{display:flex;align-items:center;gap:11px;color:var(--wd-gold);font-size:11px;font-weight:750;letter-spacing:.18em;text-transform:uppercase}
+#tsz-wd329 .wd-mark{display:inline-block;width:11px;height:11px;flex:0 0 auto;border:2px solid var(--wd-gold);transform:rotate(45deg);border-radius:2px}
+#tsz-wd329 h2{font-size:clamp(27px,5.3vw,51px);line-height:1.11;letter-spacing:-.048em;max-width:770px;margin:18px 0 14px;font-weight:750;color:#fbf8f0}
+#tsz-wd329 .wd-lead{font-size:clamp(14px,2vw,17px);color:#c3cbcc;max-width:660px;margin:0 0 23px}
+#tsz-wd329 .wd-lang{display:flex;flex-wrap:wrap;gap:7px}
+#tsz-wd329 button,#tsz-wd329 input,#tsz-wd329 select{font:inherit}
+#tsz-wd329 button{cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+#tsz-wd329 button:focus-visible,#tsz-wd329 input:focus-visible,#tsz-wd329 select:focus-visible{outline:2px solid #f1c98d;outline-offset:3px}
+#tsz-wd329 .wd-lang button{background:#182932;border:1px solid #44545c;color:#b8c2c4;border-radius:999px;min-height:38px;padding:6px 14px;font-size:13px}
+#tsz-wd329 .wd-lang button[aria-pressed="true"]{background:#e7c18a;color:#161b1c;border-color:#e7c18a;font-weight:740}
+#tsz-wd329 .wd-body{padding:16px clamp(18px,5vw,52px) clamp(23px,5vw,48px);display:grid;grid-template-columns:minmax(0,1.09fr) minmax(0,.91fr);gap:clamp(18px,3vw,30px)}
+#tsz-wd329 .wd-edit,#tsz-wd329 .wd-result{min-width:0;border:1px solid #35464f;border-radius:18px;background:rgba(18,32,41,.95);padding:clamp(16px,2.6vw,26px)}
+#tsz-wd329 .wd-labelcap{margin:0 0 13px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#bbcbc8;font-weight:800}
+#tsz-wd329 .wd-cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-bottom:22px}
+#tsz-wd329 .wd-cases button{min-width:0;min-height:48px;padding:8px 7px;border-radius:11px;border:1px solid #46555f;background:#22313a;color:#d3dad8;font-size:12px;font-weight:630}
+#tsz-wd329 .wd-cases button[aria-pressed="true"]{background:#e1c59b;border-color:#e1c59b;color:#182129}
+#tsz-wd329 .wd-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:12px;row-gap:17px}
+#tsz-wd329 label{display:block;font-size:12px;font-weight:650;color:#c9d1d2;margin-bottom:8px}
+#tsz-wd329 input,#tsz-wd329 select{color:#f9f8f2;border:1px solid #596670;border-radius:10px;min-width:0;width:100%;min-height:49px;padding:11px 10px;background:#0c1820;color-scheme:dark;font-variant-numeric:tabular-nums;font-size:14px}
+#tsz-wd329 input:focus,#tsz-wd329 select:focus{border-color:var(--wd-gold)}
+#tsz-wd329 .wd-full{grid-column:1/-1}
+#tsz-wd329 .wd-note{color:#9eaaad;font-size:12px;line-height:1.55;margin:20px 0 0}
+#tsz-wd329 .wd-result{display:flex;flex-direction:column;justify-content:flex-start;background:linear-gradient(160deg,#182c33,#11212b);border-color:#55655c}
+#tsz-wd329 .wd-status{display:inline-flex;width:fit-content;border-radius:999px;background:rgba(150,220,181,.12);color:#b0e2c4;border:1px solid rgba(150,220,181,.26);padding:6px 12px;font-size:11px;font-weight:780;letter-spacing:.07em;text-transform:uppercase}
+#tsz-wd329[data-status="near"] .wd-status{background:#e3b87024;color:#efd3a0;border-color:#cfad6c6a}
+#tsz-wd329[data-status="expired"] .wd-status,#tsz-wd329[data-status="invalid"] .wd-status{background:#c47e6f23;color:#f3b4a8;border-color:#d792836a}
+#tsz-wd329 .wd-number{font-size:clamp(49px,6vw,79px);letter-spacing:-.075em;line-height:1.05;font-variant-numeric:tabular-nums;color:var(--wd-ink);margin:21px 0 3px;font-weight:770}
+#tsz-wd329 .wd-unit{font-size:14px;color:#b4c2c5;font-weight:600;margin:0 0 24px}
+#tsz-wd329 .wd-rule{height:1px;background:#42545b;margin:0 0 22px}
+#tsz-wd329 .wd-datecap{margin:0 0 5px;color:#adc4ba;letter-spacing:.12em;text-transform:uppercase;font-size:11px;font-weight:800}
+#tsz-wd329 .wd-date{font-size:clamp(20px,3vw,28px);font-weight:730;letter-spacing:-.02em;margin:0 0 20px;font-variant-numeric:tabular-nums}
+#tsz-wd329 .wd-timeline{height:9px;background:#32434a;border-radius:99px;overflow:hidden;margin-bottom:9px}
+#tsz-wd329 .wd-fill{height:100%;background:linear-gradient(90deg,#8bb8a6,#e2bf8b);width:0;max-width:100%;transition:width .2s ease}
+#tsz-wd329[data-status="expired"] .wd-fill{background:#d79786}
+#tsz-wd329 .wd-progress{font-size:12px;color:#b8c3c2;margin:0 0 20px;font-variant-numeric:tabular-nums}
+#tsz-wd329 .wd-alert{border-left:2px solid #dbbd8d;padding:2px 0 2px 13px;margin-top:auto;color:#e8e5dc;font-size:13px;line-height:1.5}
+#tsz-wd329 .wd-disclaimer{border-top:1px solid #36464d;padding:17px clamp(19px,5vw,52px) 20px;background:#111e25;color:#aeb9ba;font-size:12px;line-height:1.6}
+#tsz-wd329 [dir="rtl"] .wd-alert{border-left:0;border-right:2px solid #dbbd8d;padding-left:0;padding-right:13px}
+#tsz-wd329[dir="rtl"] .wd-overline{letter-spacing:0}
+#tsz-wd329[dir="rtl"] .wd-datecap,#tsz-wd329[dir="rtl"] .wd-labelcap{letter-spacing:0}
+#tsz-wd329[dir="rtl"] input[type="date"]{direction:ltr;text-align:start}
+@media(max-width:760px){#tsz-wd329 .wd-body{grid-template-columns:1fr}#tsz-wd329 .wd-result{min-height:320px}#tsz-wd329 .wd-top{padding-bottom:10px}}
+@media(max-width:350px){#tsz-wd329{padding:0 8px}#tsz-wd329 .wd-shell{border-radius:17px}#tsz-wd329 .wd-form{gap:12px 8px}#tsz-wd329 .wd-cases{gap:5px}#tsz-wd329 .wd-cases button{font-size:11px;padding:5px 3px}#tsz-wd329 .wd-number{font-size:58px}}
+@media(prefers-reduced-motion:reduce){#tsz-wd329 .wd-fill{transition:none}}
