@@ -1,0 +1,59 @@
+/* TSZ R336 PuddingScoop — pure CSS visual, no image/video assets. */
+#tsz-ps336{display:block;max-width:1160px;margin:65px auto 84px;padding:0 18px;color:#fff0e2;font:15px/1.58 system-ui,-apple-system,"Segoe UI",sans-serif;isolation:isolate}
+#tsz-ps336 *,#tsz-ps336 *:before,#tsz-ps336 *:after{box-sizing:border-box}
+#tsz-ps336 .ps-shell{overflow:hidden;position:relative;border:1px solid #5b4c57;border-radius:28px;background:radial-gradient(ellipse at 88% 0%,#c47c5828,transparent 48%),linear-gradient(150deg,#211e29 0%,#161b25 56%,#252029 100%);box-shadow:0 24px 85px #0008}
+#tsz-ps336 button{font:inherit;cursor:pointer;touch-action:manipulation}#tsz-ps336 button:focus-visible{outline:3px solid #ffe2a0;outline-offset:3px}
+#tsz-ps336 .ps-top{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:17px clamp(18px,4vw,48px);border-bottom:1px solid #50404e}
+#tsz-ps336 .ps-brand{display:flex;align-items:center;gap:10px;color:#ffce9f;font-weight:850;font-size:11px;letter-spacing:.13em}
+#tsz-ps336 .ps-brandmark{width:34px;height:34px;border-radius:10px;border:1px solid #c68a63;background:#5c393d;display:grid;place-items:center;font-size:22px;color:#ffd89e}
+#tsz-ps336 .ps-langs{display:flex;gap:3px;padding:3px;border:1px solid #574c56;border-radius:12px;background:#2a2933;flex-wrap:wrap}
+#tsz-ps336 .ps-langs button{border:0;border-radius:8px;background:transparent;color:#c9bfc5;font-size:12px;font-weight:750;min-height:38px;padding:8px 10px}
+#tsz-ps336 .ps-langs button[aria-pressed=true]{background:#ffdaa4;color:#4b2927}
+#tsz-ps336 .ps-hero{padding:39px clamp(18px,4vw,48px) 30px}
+#tsz-ps336 .ps-eyebrow{margin:0 0 13px;color:#efb987;font-size:11px;font-weight:850;letter-spacing:.15em}
+#tsz-ps336 h2{font-size:clamp(28px,4.1vw,49px);letter-spacing:-.045em;line-height:1.17;color:#fff4e7;max-width:860px;margin:0;font-weight:850;text-wrap:balance}
+#tsz-ps336 .ps-lead{max-width:760px;font-size:15px;color:#d1c1bb;line-height:1.7;margin:18px 0 0}
+#tsz-ps336 .ps-layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:17px;padding:0 clamp(16px,4vw,46px) 34px}
+#tsz-ps336 .ps-panel{border:1px solid #57444d;border-radius:21px;min-width:0;background:#252630}
+#tsz-ps336 .ps-display{position:relative;overflow:hidden;padding:20px 20px 24px;background:radial-gradient(circle at 52% 50%,#784f453d,transparent 58%),linear-gradient(165deg,#38303a,#252630 75%)}
+#tsz-ps336 .ps-showtop{display:flex;align-items:center;justify-content:space-between;gap:9px;font-size:11px;font-weight:850;color:#debfa9;letter-spacing:.08em}
+#tsz-ps336 .ps-showtop p{margin:0}#tsz-ps336 .ps-count{border:1px solid #755f67;background:#3e343e;color:#edd0bd;border-radius:30px;padding:7px 10px;font-size:11px;letter-spacing:0}
+#tsz-ps336 .ps-pudding{display:block;position:relative;width:min(270px,93%);aspect-ratio:1.15;margin:5px auto 4px;background:transparent;border:0;outline-offset:2px;touch-action:none;user-select:none;-webkit-user-select:none;filter:drop-shadow(0 24px 20px #0c10189c)}
+#tsz-ps336 .ps-pudding-body{position:absolute;left:15%;right:15%;top:29%;bottom:17%;border-radius:18% 18% 31% 31% / 14% 14% 24% 24%;border:2px solid #f9c569;box-shadow:inset -24px -11px 22px #a44e0d6b,inset 12px 0 20px #fff0b788,0 8px 0 #6d3421;background:repeating-linear-gradient(0deg,transparent 0,transparent 19px,#d47e2344 20px,#d47e2344 23px),linear-gradient(98deg,#efae48,#ffe9a1 29%,#f6bd5f 65%,#cf7d2a);transition:transform .22s ease,filter .22s ease}
+#tsz-ps336 .ps-pudding-top{position:absolute;z-index:2;left:15%;right:15%;top:22%;height:25%;border:2px solid #ffda84;border-radius:50%;background:radial-gradient(ellipse at 32% 26%,#fff6c2 0%,#f9c96b 32%,#d78b33 83%);box-shadow:inset 0 -9px 7px #bc63226e,0 5px 0 #e7a251}
+#tsz-ps336 .ps-shine{position:absolute;z-index:3;top:26%;left:30%;width:22%;height:9%;transform:rotate(-18deg);border-radius:50%;background:#fffbd29e;filter:blur(3px)}
+#tsz-ps336 .ps-caramel{position:absolute;inset:33% 3% 0;border-radius:30%;opacity:0;background:radial-gradient(ellipse at 50% 60%,#7b291d,#4b1b21 67%,#160e1b);transition:opacity .18s ease}
+#tsz-ps336.ps-failed .ps-caramel{opacity:1}#tsz-ps336.ps-failed .ps-pudding-body{filter:saturate(.8)}
+#tsz-ps336 .ps-spoon{z-index:4;position:absolute;left:64%;top:11%;transform:rotate(-33deg);color:#f5e6d8;font-size:54px;line-height:1;text-shadow:0 1px 4px #202027}
+#tsz-ps336 .ps-drips{position:absolute;left:18%;right:18%;bottom:14%;height:4%;border-radius:50%;background:#70412699;filter:blur(5px)}
+#tsz-ps336 .ps-progress{height:9px;max-width:330px;margin:8px auto;border-radius:100px;overflow:hidden;background:#4c3940}
+#tsz-ps336 .ps-progressfill{height:100%;width:100%;background:linear-gradient(90deg,#d68545,#ffe09e);border-radius:100px;transition:width .22s ease}
+#tsz-ps336 .ps-instruction{text-align:center;color:#bdb0b3;font-size:11px;margin:12px auto 3px}
+#tsz-ps336 .ps-message{display:grid;place-items:center;text-align:center;border-radius:12px;border:1px solid #71545a;color:#ffe2b8;background:#3f313a;min-height:57px;margin:15px 0 0;padding:11px;font-size:14px;font-weight:790;line-height:1.4}
+#tsz-ps336 .ps-message.ps-lost{border-color:#b56963;background:#593239;color:#ffd6d0}
+#tsz-ps336 .ps-message.ps-saved{border-color:#619b85;background:#264c45;color:#d1ffe3}
+#tsz-ps336 .ps-control{padding:25px}
+#tsz-ps336 .ps-kicker{font-size:11px;color:#cfac99;font-weight:850;letter-spacing:.1em;margin:0 0 13px}
+#tsz-ps336 .ps-presets{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+#tsz-ps336 .ps-presets button{border-radius:11px;border:1px solid #5a535d;min-height:48px;padding:8px 6px;background:#35313b;color:#e2c9bc;font-weight:750;font-size:12px;line-height:1.4}
+#tsz-ps336 .ps-presets button[aria-pressed=true]{border-color:#edbc8b;color:#ffe4bf;background:#64413f}
+#tsz-ps336 .ps-stats{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:17px}
+#tsz-ps336 .ps-scorebox{grid-column:1/-1;border:1px solid #977464;border-radius:15px;background:linear-gradient(140deg,#ffe6bd,#e8a86f);padding:14px 18px;color:#522c25}
+#tsz-ps336 .ps-scorebox span,#tsz-ps336 .ps-sidebox span{display:block;font-size:11px;font-weight:800;line-height:1.5}
+#tsz-ps336 .ps-scorebox strong{display:block;font-size:clamp(37px,5vw,58px);line-height:1.2;font-weight:880;font-variant-numeric:tabular-nums}
+#tsz-ps336 .ps-sidebox{border-radius:12px;padding:13px;border:1px solid #64545e;background:#322f3c;color:#decbbf;min-width:0}
+#tsz-ps336 .ps-sidebox span{font-size:10px;color:#bfb2b9}
+#tsz-ps336 .ps-sidebox strong{display:block;font-size:25px;line-height:1.4;color:#f4deca;font-variant-numeric:tabular-nums}
+#tsz-ps336 .ps-buttons{display:grid;gap:10px;margin-top:18px}
+#tsz-ps336 .ps-buttons button{min-height:52px;border-radius:12px;font-size:14px;font-weight:850;padding:12px 14px;line-height:1.4}
+#tsz-ps336 .ps-scoopbtn{border:1px solid #f2c894;background:#edb579;color:#4e2d24}
+#tsz-ps336 .ps-bankbtn{border:1px solid #8cae9c;background:#3d6f61;color:#edfff6}
+#tsz-ps336 .ps-retrybtn{border:1px solid #dbbc99;background:#57423e;color:#ffe5cb}
+#tsz-ps336 button:disabled{cursor:default;opacity:.42}
+#tsz-ps336 [hidden]{display:none!important}
+#tsz-ps336 .ps-tip{color:#c6a997;font-size:12px;line-height:1.6;margin:18px 0 0}
+#tsz-ps336 .ps-legal{border-top:1px solid #4b3c45;background:#1b1d28;margin:0;padding:19px clamp(18px,4vw,48px);color:#b9aab2;font-size:11px;line-height:1.65}
+#tsz-ps336[dir=rtl] .ps-brand,#tsz-ps336[dir=rtl] .ps-eyebrow,#tsz-ps336[dir=rtl] .ps-kicker{letter-spacing:0}
+@media(max-width:830px){#tsz-ps336 .ps-layout{grid-template-columns:1fr}#tsz-ps336 .ps-pudding{max-width:260px}}
+@media(max-width:370px){#tsz-ps336{padding:0 8px}#tsz-ps336 .ps-shell{border-radius:17px}#tsz-ps336 .ps-top{flex-direction:column;align-items:flex-start;gap:10px}#tsz-ps336 .ps-layout{padding:0 10px 19px}#tsz-ps336 .ps-control{padding:15px}#tsz-ps336 .ps-hero{padding-top:27px}#tsz-ps336 .ps-display{padding:14px}#tsz-ps336 .ps-presets button{font-size:11px;padding:7px 3px}#tsz-ps336 .ps-pudding{max-width:230px}#tsz-ps336 .ps-scorebox strong{font-size:40px}}
+@media(prefers-reduced-motion:reduce){#tsz-ps336 .ps-pudding-body,#tsz-ps336 .ps-progressfill,#tsz-ps336 .ps-caramel{transition:none}}

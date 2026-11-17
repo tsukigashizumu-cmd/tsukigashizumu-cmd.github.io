@@ -1,0 +1,48 @@
+/* R334 Discount Stack: scoped, text-only interactive LP demo. */
+#tsz-ds334{display:block;max-width:1150px;margin:60px auto 84px;padding:0 18px;color:#e8eff7;font:15px/1.58 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;isolation:isolate}
+#tsz-ds334 *,#tsz-ds334 *::before,#tsz-ds334 *::after{box-sizing:border-box}
+#tsz-ds334 .ds-frame{overflow:hidden;position:relative;border:1px solid #304251;border-radius:25px;background:linear-gradient(144deg,#15222e 0%,#0c1722 53%,#10202a 100%);box-shadow:0 26px 90px #0006}
+#tsz-ds334 .ds-frame:before{content:"";position:absolute;inset:0 0 auto auto;width:min(53%,480px);height:320px;pointer-events:none;background:radial-gradient(ellipse at 80% 10%,#53b3a923,transparent 71%)}
+#tsz-ds334 button{font:inherit;cursor:pointer;touch-action:manipulation}#tsz-ds334 button:focus-visible,#tsz-ds334 input:focus-visible{outline:3px solid #ffd58b;outline-offset:3px}
+#tsz-ds334 .ds-top{display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid #2b4050;padding:18px clamp(18px,4vw,46px);position:relative}
+#tsz-ds334 .ds-brand{display:flex;gap:11px;align-items:center;letter-spacing:.16em;font-size:11px;font-weight:850;color:#a2d8cf}#tsz-ds334 .ds-brand svg{flex:none}
+#tsz-ds334 .ds-langs{display:flex;flex-wrap:wrap;gap:4px;padding:3px;border-radius:12px;background:#192b36;border:1px solid #344958}
+#tsz-ds334 .ds-langs button{min-width:35px;padding:7px 9px;border:0;border-radius:8px;background:transparent;color:#a6bbc8;font-size:12px;font-weight:700;white-space:nowrap}
+#tsz-ds334 .ds-langs button[aria-pressed=true]{background:#aee8d8;color:#173b3f}
+#tsz-ds334 .ds-hero{padding:40px clamp(18px,4vw,47px) 28px;position:relative}
+#tsz-ds334 .ds-over{font-size:11px;font-weight:850;letter-spacing:.16em;color:#87cbbf;margin:0 0 12px}
+#tsz-ds334 h2{font-size:clamp(26px,4vw,49px);font-weight:800;line-height:1.16;letter-spacing:-.04em;max-width:850px;margin:0;color:#f7f8f6;text-wrap:balance}
+#tsz-ds334 .ds-lead{font-size:15px;max-width:730px;color:#aebdca;line-height:1.8;margin:18px 0 0}
+#tsz-ds334 .ds-grid{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:17px;padding:0 clamp(16px,4vw,46px) 39px;position:relative}
+#tsz-ds334 .ds-panel{min-width:0;padding:27px;background:#162531;border:1px solid #304756;border-radius:19px}
+#tsz-ds334 .ds-kicker{margin:0 0 13px;color:#9ebbc5;font-size:10px;letter-spacing:.14em;font-weight:850}
+#tsz-ds334 .ds-presets{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-bottom:25px}
+#tsz-ds334 .ds-presets button{border:1px solid #415362;border-radius:10px;background:#1d303e;color:#cadce2;padding:10px 7px;font-size:12px;font-weight:750;line-height:1.35;min-height:46px}
+#tsz-ds334 .ds-presets button[aria-pressed=true]{border-color:#6dd0ba;background:#244840;color:#d7fff3}
+#tsz-ds334 .ds-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+#tsz-ds334 label.ds-field{display:flex;flex-direction:column;min-width:0;gap:7px}
+#tsz-ds334 .ds-field span{font-size:12px;font-weight:720;color:#b6cbd3}
+#tsz-ds334 .ds-input-wrap{display:flex;align-items:center;gap:7px;padding:0 11px;min-height:55px;border-radius:11px;border:1px solid #486070;background:#0d1d28;direction:ltr}
+#tsz-ds334 .ds-prefix,#tsz-ds334 .ds-suffix{flex:none;font-size:14px;color:#8fa9b7;font-weight:700}
+#tsz-ds334 input{min-width:0;width:100%;border:0;outline:0;background:transparent;color:#f7f9f4;font:700 23px/1.4 ui-sans-serif,system-ui;text-align:start;font-variant-numeric:tabular-nums}
+#tsz-ds334 input::-webkit-inner-spin-button,#tsz-ds334 input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+#tsz-ds334 .ds-caption{font-size:11px;line-height:1.6;color:#9fb1bf;margin:15px 0 0}
+#tsz-ds334 .ds-steps{padding:0;margin:0;list-style:none;display:grid;gap:10px}
+#tsz-ds334 .ds-step{display:flex;gap:11px;align-items:center;justify-content:space-between;border-radius:12px;border:1px solid #374b59;padding:12px 13px;background:#11212d;min-width:0}
+#tsz-ds334 .ds-step-label{font-size:12px;font-weight:680;color:#b3c7d1;min-width:0}
+#tsz-ds334 .ds-step strong{font-size:17px;white-space:nowrap;letter-spacing:-.025em;color:#e7f0f3;font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate}
+#tsz-ds334 .ds-step .ds-step-number{font-size:10px;color:#82c7bb;font-weight:820;letter-spacing:.08em;display:block}
+#tsz-ds334 .ds-final{padding:21px 20px;background:linear-gradient(133deg,#c5f0dd,#79d3bf);border-radius:15px;color:#123e41;margin:15px 0 14px}
+#tsz-ds334 .ds-final-label{font-weight:820;font-size:12px;letter-spacing:.035em;margin:0 0 5px;color:#1f5655}
+#tsz-ds334 .ds-final-value{font-size:clamp(34px,4vw,57px);font-weight:840;letter-spacing:-.05em;line-height:1.16;font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate}
+#tsz-ds334 .ds-metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#tsz-ds334 .ds-metric{background:#132a32;border:1px solid #31555d;border-radius:12px;padding:13px;min-width:0}
+#tsz-ds334 .ds-metric span{font-size:10px;color:#a3c8c9;font-weight:680;display:block;line-height:1.5}
+#tsz-ds334 .ds-metric strong{display:block;font-size:25px;font-weight:830;letter-spacing:-.04em;color:#e3f7ed;direction:ltr;unicode-bidi:isolate;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+#tsz-ds334 .ds-truth{font-size:13px;margin:16px 0 0;color:#d8a977;line-height:1.7;font-weight:650}
+#tsz-ds334 .ds-invalid{color:#ffc2a9;font-size:12px;min-height:22px;margin:10px 0 0;font-weight:740}
+#tsz-ds334 .ds-bottom{border-top:1px solid #2e4350;padding:19px clamp(18px,4vw,46px) 21px;background:#101d29;color:#90aabd;font-size:11px;line-height:1.7;margin:0}
+#tsz-ds334[dir=rtl] .ds-brand,#tsz-ds334[dir=rtl] .ds-over,#tsz-ds334[dir=rtl] .ds-kicker{letter-spacing:0}
+#tsz-ds334[dir=rtl] .ds-step-label{text-align:right}
+@media(max-width:790px){#tsz-ds334 .ds-grid{grid-template-columns:1fr}#tsz-ds334 .ds-hero{padding-top:31px}#tsz-ds334 .ds-panel{padding:21px}}
+@media(max-width:370px){#tsz-ds334{padding:0 8px}#tsz-ds334 .ds-frame{border-radius:16px}#tsz-ds334 .ds-top{align-items:flex-start;flex-direction:column;gap:10px}#tsz-ds334 .ds-grid{padding:0 11px 20px}#tsz-ds334 .ds-panel{padding:15px}#tsz-ds334 .ds-form{gap:9px}#tsz-ds334 .ds-input-wrap{min-height:49px;padding:0 7px}#tsz-ds334 input{font-size:20px}#tsz-ds334 .ds-presets button{font-size:10px;padding:6px 3px}#tsz-ds334 .ds-final-value{font-size:34px}#tsz-ds334 .ds-metric strong{font-size:20px}}
