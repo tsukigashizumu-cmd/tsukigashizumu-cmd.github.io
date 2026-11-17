@@ -1,0 +1,59 @@
+/* R292 Stockout Zero: additive-only, strictly scoped LP mini-simulation. */
+#stockout-r292{all:initial;display:block;isolation:isolate;overflow:hidden;background:#080f19;color:#eef8f8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;font-size:15px;line-height:1.55;--sz-line:#233a4a;--sz-muted:#9eb5c1;--sz-cyan:#70ead8;--sz-gold:#ffe18d}
+#stockout-r292 *,#stockout-r292 *::before,#stockout-r292 *::after{box-sizing:border-box}
+#stockout-r292 .sz292-shell{max-width:1250px;margin:0 auto;padding:24px clamp(16px,4.8vw,64px) 62px}
+#stockout-r292 .sz292-top{display:flex;align-items:center;gap:16px;justify-content:space-between;border-bottom:1px solid var(--sz-line);padding-bottom:20px}
+#stockout-r292 .sz292-brand{display:flex;gap:12px;align-items:center;min-width:0}
+#stockout-r292 .sz292-brand-icon{width:44px;height:44px;background:#70ead8;color:#052c30;border-radius:13px;display:grid;place-items:center;font-weight:900;font-size:23px;flex-shrink:0}
+#stockout-r292 .sz292-brand strong{font-size:18px;font-weight:850;letter-spacing:-.05em;display:block;line-height:1.2}
+#stockout-r292 .sz292-brand span{color:#98bcc0;letter-spacing:.12em;font-size:10px;font-weight:800;display:block}
+#stockout-r292 .sz292-switch{display:flex;gap:9px;flex-wrap:wrap;justify-content:flex-end}
+#stockout-r292 .sz292-switch label{font-size:10px;font-weight:750;color:#9eb6c0;letter-spacing:.13em;display:grid;gap:4px}
+#stockout-r292 select,#stockout-r292 input{min-width:0;max-width:100%;background:#152a3a;color:#f3fbfa;border:1px solid #3a5765;border-radius:9px;font:inherit;padding:10px 12px}
+#stockout-r292 .sz292-switch select{min-width:99px;font-size:12px;padding:8px 9px}
+#stockout-r292 .sz292-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,.74fr);align-items:center;gap:28px;padding:55px 0 42px}
+#stockout-r292 .sz292-kicker{font-size:11px;font-weight:850;letter-spacing:.2em;text-transform:uppercase;color:var(--sz-cyan)}
+#stockout-r292 h2{font:850 clamp(34px,5vw,64px)/1.09 -apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;letter-spacing:-.055em;max-width:730px;color:#f8fafa;margin:14px 0 20px}
+#stockout-r292 .sz292-description{max-width:600px;font-size:clamp(14px,1.6vw,17px);line-height:1.75;color:#aac0c9;margin:0}
+#stockout-r292 .sz292-hero-chip{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
+#stockout-r292 .sz292-hero-chip span{border:1px solid #315061;background:#102331;border-radius:20px;padding:7px 11px;font-size:11px;color:#d0e1e6;font-weight:700}
+#stockout-r292 .sz292-shelf{border:1px solid #355365;background:radial-gradient(circle at 50% 20%,#213d4e,#0c1a29 70%);border-radius:20px;padding:18px;box-shadow:0 28px 70px #0005;position:relative}
+#stockout-r292 .sz292-shelf-title{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.16em;color:#aac7cd;text-transform:uppercase;font-weight:850}
+#stockout-r292 .sz292-boxes{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:24px 0 18px}
+#stockout-r292 .sz292-box{height:68px;border-radius:7px;background:linear-gradient(140deg,#7cdec7,#1f8d91);border:1px solid #b4f3dc;box-shadow:inset 0 -9px 0 #176e71;display:grid;place-items:center;color:#0c3d42;font-size:24px;font-weight:900}
+#stockout-r292 .sz292-box:last-child{background:transparent;box-shadow:none;border:1px dashed #587181;color:#a4bac0}
+#stockout-r292 .sz292-shelf-bottom{display:flex;justify-content:space-between;gap:10px;padding-top:12px;border-top:1px solid #315061;font-size:12px;color:#d7e7e8}
+#stockout-r292 .sz292-danger{color:#ffab97!important;font-weight:850}
+#stockout-r292 .sz292-console{background:linear-gradient(170deg,#102331,#0d1927);border:1px solid #2c4857;border-radius:22px;overflow:hidden;box-shadow:0 24px 65px #0004}
+#stockout-r292 .sz292-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:25px 26px 12px}
+#stockout-r292 .sz292-overline{color:#7dabb3;font-size:10px;letter-spacing:.16em;font-weight:850;text-transform:uppercase}
+#stockout-r292 h3{font-size:clamp(21px,2.5vw,29px);letter-spacing:-.045em;font-weight:800;color:#fff;margin:7px 0 0;line-height:1.2}
+#stockout-r292 button{font:750 13px/1.3 -apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;cursor:pointer;padding:12px 15px;background:#1c3645;border:1px solid #3b5b69;border-radius:12px;color:#edf7f5}
+#stockout-r292 button:hover{border-color:#85cfc7}
+#stockout-r292 button:focus-visible,#stockout-r292 input:focus-visible,#stockout-r292 select:focus-visible,#stockout-r292 a:focus-visible{outline:2px solid #74ebd8;outline-offset:3px}
+#stockout-r292 button.sz292-primary{color:#082831;background:#70ead8;border-color:#70ead8}
+#stockout-r292 button.sz292-active{color:#102e35;background:#ffdf8b;border-color:#ffdf8b}
+#stockout-r292 .sz292-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;margin:15px 26px 0;background:#294454;border:1px solid #294454;border-radius:12px;overflow:hidden}
+#stockout-r292 .sz292-metric{padding:15px 12px 13px;background:#112a3a;min-width:0}
+#stockout-r292 .sz292-metric span{color:#a7c0c9;font-size:11px;display:block;min-height:26px}
+#stockout-r292 .sz292-metric strong{font-size:clamp(22px,3vw,32px);color:#eafaf6;font-weight:850;font-variant-numeric:tabular-nums;letter-spacing:-.05em}
+#stockout-r292 .sz292-metric strong.sz292-warn{color:#ffac9a}
+#stockout-r292 .sz292-controls{padding:22px 26px 14px}
+#stockout-r292 .sz292-control-label{display:flex;justify-content:space-between;gap:12px;color:#d4e5e9;font-size:12px;font-weight:700;margin-bottom:10px}
+#stockout-r292 .sz292-order-row{display:grid;grid-template-columns:110px 1fr 1fr;gap:9px}
+#stockout-r292 .sz292-order-row input{font-variant-numeric:tabular-nums}
+#stockout-r292 .sz292-secondary{display:flex;flex-wrap:wrap;gap:8px;margin-top:11px}
+#stockout-r292 .sz292-summary{display:flex;justify-content:space-between;gap:12px;padding:13px 16px;background:#101f2e;border:1px solid #2b4351;border-radius:10px;color:#e8f3f2;margin-top:13px;font-size:12px;align-items:center}
+#stockout-r292 .sz292-summary strong{color:#89f0d4;font-size:13px;text-align:end}
+#stockout-r292 .sz292-event{margin:0 26px 25px;border:1px solid #2b4554;border-radius:13px;padding:16px 17px;background:#101e2c}
+#stockout-r292 .sz292-event h4{font-size:12px;letter-spacing:.12em;color:#d0e7ea;text-transform:uppercase;margin:0 0 11px}
+#stockout-r292 .sz292-log{padding:0;margin:0;list-style:none;display:grid;gap:8px}
+#stockout-r292 .sz292-log li{font-size:12px;color:#a9c7cf;display:flex;gap:9px;line-height:1.5}
+#stockout-r292 .sz292-log li:before{content:'●';color:#73e4d1;font-size:9px;padding-top:3px}
+#stockout-r292 .sz292-foot{margin-top:22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+#stockout-r292 .sz292-disclaimer{font-size:12px;color:#9fb9bf;max-width:680px;margin:0}
+#stockout-r292 .sz292-foot a{background:#f0faf7;color:#112a36;text-decoration:none;border-radius:10px;padding:12px 18px;font-size:13px;font-weight:850}
+#stockout-r292 [dir=rtl]{text-align:right}
+@media(max-width:760px){#stockout-r292 .sz292-hero{grid-template-columns:1fr;padding:40px 0 29px}#stockout-r292 .sz292-shelf{max-width:420px}#stockout-r292 .sz292-head{align-items:flex-start}#stockout-r292 .sz292-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}#stockout-r292 .sz292-order-row{grid-template-columns:100px 1fr}#stockout-r292 .sz292-order-row button:last-child{grid-column:1/-1}}
+@media(max-width:380px){#stockout-r292 .sz292-shell{padding:17px 13px 42px}#stockout-r292 .sz292-top{align-items:flex-start;flex-wrap:wrap}#stockout-r292 .sz292-switch{justify-content:flex-start;width:100%}#stockout-r292 h2{font-size:35px}#stockout-r292 .sz292-head{padding:21px 16px 10px}#stockout-r292 .sz292-metrics{margin:12px 16px 0}#stockout-r292 .sz292-controls{padding:18px 16px 12px}#stockout-r292 .sz292-event{margin:0 16px 19px;padding:13px}#stockout-r292 .sz292-order-row{grid-template-columns:1fr 1fr}#stockout-r292 .sz292-order-row input{grid-column:1/-1}#stockout-r292 .sz292-order-row button:last-child{grid-column:auto}#stockout-r292 .sz292-secondary button{flex:1 1 100%}}
+@media(prefers-reduced-motion:no-preference){#stockout-r292 button{transition:background .15s,border-color .15s,transform .15s}#stockout-r292 button:active{transform:scale(.98)}}

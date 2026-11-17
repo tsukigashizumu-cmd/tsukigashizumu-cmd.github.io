@@ -1,0 +1,63 @@
+/* R291 Nokarvo additive only, fully scoped and without global document styling. */
+#nokarvo-r291{all:initial;display:block;isolation:isolate;overflow:hidden;background:#07121b;color:#f5f7f4;font:15px/1.55 -apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;--n-bg:#07121b;--n-panel:#0d202a;--n-line:#24424b;--n-muted:#a8c1c4;--n-lime:#d0f5a0;--n-coral:#ffb89b}
+#nokarvo-r291 *,#nokarvo-r291 *:before,#nokarvo-r291 *:after{box-sizing:border-box}
+#nokarvo-r291 .n291-wrap{max-width:1250px;margin:auto;padding:25px clamp(15px,4.4vw,60px) 58px}
+#nokarvo-r291 .n291-top{display:flex;gap:15px;align-items:center;justify-content:space-between;border-bottom:1px solid #23414a;padding-bottom:20px}
+#nokarvo-r291 .n291-identity{display:flex;gap:11px;align-items:center}
+#nokarvo-r291 .n291-logo{display:grid;place-items:center;width:43px;height:43px;border-radius:13px;background:#d0f5a0;color:#163b2c;font-size:24px;font-weight:900;transform:rotate(-5deg)}
+#nokarvo-r291 .n291-name{display:block;font-size:18px;font-weight:850;letter-spacing:-.035em}
+#nokarvo-r291 .n291-super{display:block;font-size:10px;letter-spacing:.13em;font-weight:700;color:#a9d2c2}
+#nokarvo-r291 .n291-switches{display:flex;flex-wrap:wrap;gap:11px}
+#nokarvo-r291 label{display:block;color:#b1c6c8;font-size:11px;font-weight:650}
+#nokarvo-r291 .n291-switches label{display:grid;gap:5px;text-transform:uppercase;letter-spacing:.085em}
+#nokarvo-r291 select,#nokarvo-r291 input{font:inherit;background:#102630;color:#f5f8f5;border:1px solid #3b5963;border-radius:10px;min-width:0;width:100%}
+#nokarvo-r291 select:focus-visible,#nokarvo-r291 input:focus-visible,#nokarvo-r291 button:focus-visible,#nokarvo-r291 a:focus-visible{outline:2px solid #d0f5a0;outline-offset:3px}
+#nokarvo-r291 .n291-switches select{min-width:105px;padding:9px 10px}
+#nokarvo-r291 .n291-hero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(220px,.7fr);gap:30px;align-items:center;padding:62px 0 48px}
+#nokarvo-r291 .n291-eyebrow{color:#d0f5a0;font-size:11px;font-weight:850;letter-spacing:.18em;text-transform:uppercase}
+#nokarvo-r291 h2{font-size:clamp(34px,5.2vw,68px);line-height:1.08;letter-spacing:-.064em;font-weight:800;margin:17px 0 17px;color:#f9fbf8;max-width:760px}
+#nokarvo-r291 .n291-desc{max-width:690px;color:#b3c8c8;font-size:clamp(14px,1.6vw,18px);line-height:1.78;margin:0}
+#nokarvo-r291 .n291-hero-tags{display:flex;gap:9px;flex-wrap:wrap;margin-top:23px}
+#nokarvo-r291 .n291-hero-tags span{border:1px solid #38525b;background:#112a31;padding:7px 11px;border-radius:9px;font-size:11px;color:#cce5d7}
+#nokarvo-r291 .n291-illustration{position:relative;min-height:220px;display:grid;place-items:center}
+#nokarvo-r291 .n291-pack{position:absolute;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:5px;width:155px;height:175px;border:1px solid #4b6767;background:linear-gradient(150deg,#315c50,#102e31);border-radius:22px;transform:rotate(-10deg);left:5%;top:12px;box-shadow:0 25px 50px #0006}
+#nokarvo-r291 .n291-pack:nth-of-type(2){transform:rotate(10deg);left:auto;right:1%;top:20px;background:linear-gradient(145deg,#424b48,#172c33)}
+#nokarvo-r291 .n291-pack b{font-size:52px;letter-spacing:-.09em;line-height:1}
+#nokarvo-r291 .n291-pack small{font-size:10px;text-transform:uppercase;letter-spacing:.16em;color:#d4e0d5;font-weight:750}
+#nokarvo-r291 .n291-illustration .n291-sticker{position:absolute;z-index:2;bottom:2px;left:27%;background:#d0f5a0;color:#224134;font-weight:850;font-size:12px;padding:12px 18px;border-radius:11px;transform:rotate(-4deg);box-shadow:0 10px 30px #0009}
+#nokarvo-r291 .n291-module{border:1px solid #31505a;background:linear-gradient(160deg,#102631,#0c1a25);border-radius:23px;overflow:hidden;box-shadow:0 26px 75px #0004}
+#nokarvo-r291 .n291-module-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-end;padding:25px 26px 0}
+#nokarvo-r291 .n291-overline{font-size:10px;color:#93bdbe;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+#nokarvo-r291 h3{color:#f7fbf7;font-size:clamp(20px,2.6vw,30px);line-height:1.2;letter-spacing:-.035em;margin:8px 0 0}
+#nokarvo-r291 .n291-presets{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+#nokarvo-r291 button{font:inherit;background:#203740;border:1px solid #465c61;border-radius:100px;padding:9px 14px;color:#e8f0ec;cursor:pointer;font-weight:700;font-size:12px;white-space:normal}
+#nokarvo-r291 button.n291-active{color:#193d30;background:#d0f5a0;border-color:#d0f5a0}
+#nokarvo-r291 .n291-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;padding:24px 26px}
+#nokarvo-r291 .n291-card{min-width:0;border:1px solid #38535c;background:#172f39;border-radius:17px;padding:21px}
+#nokarvo-r291 .n291-card.n291-winner{border-color:#95d9a3;background:linear-gradient(135deg,#183f3b,#17303a);box-shadow:inset 0 0 0 1px #4ea47c44}
+#nokarvo-r291 .n291-cardtop{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:15px}
+#nokarvo-r291 .n291-cardname{font-size:13px;font-weight:800;color:#f5f8f4}
+#nokarvo-r291 .n291-letter{display:inline-grid;place-items:center;width:30px;height:30px;background:#36545c;border-radius:8px;margin-inline-end:9px;color:#f9fffa;font-weight:850}
+#nokarvo-r291 .n291-badge{font-size:10px;font-weight:750;color:#9fb9be}
+#nokarvo-r291 .n291-winner .n291-badge{color:#d0f5a0}
+#nokarvo-r291 .n291-inputs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+#nokarvo-r291 .n291-inputs label{display:grid;gap:6px;min-width:0}
+#nokarvo-r291 .n291-inputs input{padding:10px 8px;font-size:clamp(13px,1.2vw,16px);font-weight:750;direction:ltr;text-align:left;min-height:44px}
+#nokarvo-r291 .n291-math{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:18px;padding-top:16px;border-top:1px solid #3b525a}
+#nokarvo-r291 .n291-statlabel{display:block;color:#a9c0c0;font-size:10px;text-transform:uppercase;letter-spacing:.09em;font-weight:750}
+#nokarvo-r291 .n291-number{display:block;margin-top:3px;color:#eef4ef;font-size:clamp(18px,2.2vw,26px);font-weight:800;letter-spacing:-.04em;line-height:1.23;direction:ltr;unicode-bidi:isolate;text-align:start}
+#nokarvo-r291 .n291-winner .n291-math>div:last-child .n291-number{color:#d0f5a0}
+#nokarvo-r291 .n291-amount{font-size:11px;color:#a5bbc0;margin-top:13px;min-height:17px}
+#nokarvo-r291 .n291-status{padding:0 26px 16px;color:#ffd2b6;font-size:12px;line-height:1.5}
+#nokarvo-r291 .n291-result{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(2,minmax(0,1fr));gap:12px;border-top:1px solid #37505a;padding:23px 26px 27px;background:#0b2029}
+#nokarvo-r291 .n291-results-cell{min-width:0}
+#nokarvo-r291 .n291-result strong{display:block;color:#f4f8f3;font-size:clamp(18px,2.5vw,28px);font-weight:800;line-height:1.25;letter-spacing:-.045em;margin-top:7px}
+#nokarvo-r291 .n291-result .n291-accent{color:#d0f5a0}
+#nokarvo-r291 .n291-result small{display:block;color:#b4c9c3;font-size:11px;margin-top:5px}
+#nokarvo-r291 .n291-bottom{display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:25px}
+#nokarvo-r291 .n291-disclaimer{max-width:800px;color:#9fb9b9;font-size:12px;line-height:1.7;margin:0}
+#nokarvo-r291 .n291-cta{background:#d0f5a0;color:#21452e;padding:14px 19px;border-radius:10px;text-decoration:none;font-size:13px;font-weight:850;text-align:center}
+#nokarvo-r291[dir=rtl] .n291-overline,#nokarvo-r291[dir=rtl] .n291-eyebrow,#nokarvo-r291[dir=rtl] .n291-statlabel,#nokarvo-r291[dir=rtl] .n291-super{letter-spacing:0}
+#nokarvo-r291[dir=rtl] .n291-letter{direction:ltr}
+@media(max-width:870px){#nokarvo-r291 .n291-hero{grid-template-columns:1fr;padding:44px 0 28px;gap:6px}#nokarvo-r291 .n291-illustration{min-height:180px;max-width:390px;margin:auto;width:100%}#nokarvo-r291 .n291-pack{height:142px;width:130px}#nokarvo-r291 .n291-pack b{font-size:42px}#nokarvo-r291 .n291-cards{grid-template-columns:1fr}#nokarvo-r291 .n291-result{grid-template-columns:1fr 1fr}#nokarvo-r291 .n291-result .n291-results-cell:first-child{grid-column:1/-1}}
+@media(max-width:510px){#nokarvo-r291 .n291-wrap{padding:18px 14px 40px}#nokarvo-r291 .n291-top{flex-direction:column;align-items:flex-start;gap:14px}#nokarvo-r291 .n291-switches{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:9px}#nokarvo-r291 .n291-switches select{min-width:0}#nokarvo-r291 h2{font-size:clamp(30px,9vw,45px)}#nokarvo-r291 .n291-hero{padding-top:36px}#nokarvo-r291 .n291-module-head{display:block;padding:20px 15px 0}#nokarvo-r291 .n291-presets{justify-content:flex-start;margin-top:14px}#nokarvo-r291 .n291-cards{padding:17px 13px;gap:11px}#nokarvo-r291 .n291-card{padding:13px}#nokarvo-r291 .n291-inputs{gap:6px}#nokarvo-r291 .n291-inputs input{padding:8px 5px;font-size:15px}#nokarvo-r291 .n291-math{gap:5px}#nokarvo-r291 .n291-number{font-size:clamp(17px,5vw,24px)}#nokarvo-r291 .n291-result{padding:18px 14px;gap:17px 10px}#nokarvo-r291 .n291-status{padding:0 13px 14px}#nokarvo-r291 .n291-illustration .n291-sticker{left:22%}#nokarvo-r291 .n291-bottom{align-items:stretch}#nokarvo-r291 .n291-cta{width:100%}}

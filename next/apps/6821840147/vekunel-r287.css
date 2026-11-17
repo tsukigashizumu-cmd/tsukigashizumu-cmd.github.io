@@ -1,0 +1,72 @@
+/* R287 Vekunel standalone additive LP experience. Scoped to #vekunel-r287. */
+#vekunel-r287, #vekunel-r287 * { box-sizing: border-box; }
+#vekunel-r287 {
+  --r287-ink:#f3f6ff; --r287-muted:#a4b0c9; --r287-line:rgba(202,216,247,.14);
+  --r287-teal:#78f1c1; --r287-rose:#ffb9b9; --r287-panel:#141d31;
+  isolation:isolate; position:relative; overflow:hidden; width:100%; margin:0 auto 32px;
+  color:var(--r287-ink); background:#080e1c;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  font-size:15px; font-weight:400; line-height:1.5;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+#vekunel-r287::before {content:"";position:absolute;z-index:-1;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse at 80% 6%,rgba(53,117,139,.20),transparent 43%),
+             radial-gradient(ellipse at 15% 42%,rgba(92,65,149,.13),transparent 47%),
+             linear-gradient(180deg,#0b1223 0%,#0b101e 100%)}
+#vekunel-r287 a{color:inherit;text-decoration:none}
+#vekunel-r287 button,#vekunel-r287 input,#vekunel-r287 select{font:inherit}
+#vekunel-r287 button{cursor:pointer}
+#vekunel-r287 button:focus-visible,#vekunel-r287 a:focus-visible,#vekunel-r287 input:focus-visible,#vekunel-r287 select:focus-visible{outline:3px solid var(--r287-teal);outline-offset:2px}
+#vekunel-r287 .r287-shell{max-width:1060px;margin:0 auto;padding:40px 28px 46px}
+#vekunel-r287 .r287-top{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;padding-bottom:30px;border-bottom:1px solid var(--r287-line)}
+#vekunel-r287 .r287-brand{display:flex;align-items:center;gap:10px;font-weight:770;letter-spacing:-.03em;font-size:18px}
+#vekunel-r287 .r287-mark{display:grid;place-items:center;width:32px;height:32px;border:1px solid rgba(120,241,193,.34);border-radius:11px;background:rgba(120,241,193,.11);color:var(--r287-teal);font-size:20px;font-weight:800}
+#vekunel-r287 .r287-brand-note{font-weight:500;letter-spacing:0;color:var(--r287-muted);font-size:11px}
+#vekunel-r287 .r287-tools{display:flex;flex-wrap:wrap;gap:7px}
+#vekunel-r287 .r287-tools label{display:flex;align-items:center;gap:6px;color:var(--r287-muted);font-size:11px}
+#vekunel-r287 .r287-tools select{min-height:36px;padding:5px 24px 5px 9px;border:1px solid var(--r287-line);border-radius:9px;background:#172135;color:#f5f8ff;color-scheme:dark;max-width:112px}
+#vekunel-r287 .r287-hero{max-width:760px;padding:54px 0 34px}
+#vekunel-r287 .r287-eyebrow{color:var(--r287-teal);font-size:11px;font-weight:850;letter-spacing:.18em;text-transform:uppercase}
+#vekunel-r287 h2,#vekunel-r287 h3,#vekunel-r287 p{margin:0}
+#vekunel-r287 h2{margin:16px 0 17px;line-height:1.15;font-size:clamp(30px,4.7vw,56px);font-weight:830;letter-spacing:-.054em}
+#vekunel-r287 .r287-highlight{color:var(--r287-teal)}
+#vekunel-r287 .r287-sub{max-width:630px;line-height:1.7;font-size:15px;color:var(--r287-muted)}
+#vekunel-r287 .r287-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.09fr);gap:18px;align-items:start}
+#vekunel-r287 .r287-card{min-width:0;border:1px solid var(--r287-line);border-radius:18px;background:linear-gradient(145deg,rgba(26,37,60,.95),rgba(15,23,40,.94));box-shadow:0 12px 40px rgba(0,0,0,.13)}
+#vekunel-r287 .r287-entry{padding:24px}
+#vekunel-r287 .r287-row-title{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:22px}
+#vekunel-r287 h3{font-weight:780;font-size:18px;letter-spacing:-.024em}
+#vekunel-r287 .r287-small{color:var(--r287-muted);font-size:12px}
+#vekunel-r287 .r287-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+#vekunel-r287 .r287-field{display:block;min-width:0}
+#vekunel-r287 .r287-field span{display:block;color:#c7d2e5;font-size:12px;line-height:1.35;min-height:32px;margin-bottom:6px}
+#vekunel-r287 input{width:100%;min-width:0;min-height:48px;padding:10px 11px;border-radius:10px;background:#0c1629;color:var(--r287-ink);font-size:16px;font-variant-numeric:tabular-nums;border:1px solid rgba(195,213,240,.22)}
+#vekunel-r287 input:hover{border-color:rgba(195,213,240,.40)}
+#vekunel-r287 .r287-presets{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+#vekunel-r287 .r287-presets button{min-height:39px;min-width:0;padding:8px 13px;border:1px solid rgba(170,196,230,.28);border-radius:9px;background:rgba(185,207,245,.04);color:#d6e2f2;font-size:12px;font-weight:650}
+#vekunel-r287 .r287-presets button[aria-pressed="true"]{border-color:rgba(120,241,193,.5);background:rgba(120,241,193,.12);color:var(--r287-teal)}
+#vekunel-r287 .r287-warning{margin-top:14px;min-height:23px;color:#ffd1b3;font-size:12px;line-height:1.6}
+#vekunel-r287 .r287-results{padding:24px}
+#vekunel-r287 .r287-indicator{display:inline-flex;align-items:center;gap:7px;color:var(--r287-teal);font-size:12px;font-weight:700;letter-spacing:.01em}
+#vekunel-r287 .r287-dot{width:7px;height:7px;border-radius:99px;background:currentColor;box-shadow:0 0 0 4px rgba(120,241,193,.1)}
+#vekunel-r287 .r287-total-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:18px}
+#vekunel-r287 .r287-total{min-width:0;padding:17px 14px;background:rgba(7,14,29,.55);border:1px solid rgba(176,198,239,.14);border-radius:13px}
+#vekunel-r287 .r287-total strong{display:block;font-size:clamp(20px,2.6vw,31px);font-weight:850;letter-spacing:-.06em;line-height:1.3;overflow-wrap:anywhere;font-variant-numeric:tabular-nums;margin:5px 0 6px}
+#vekunel-r287 .r287-total .r287-note{color:var(--r287-muted);font-size:11px;line-height:1.45;min-height:2.8em}
+#vekunel-r287 .r287-difference{margin-top:12px;min-height:125px;padding:18px;border-radius:13px;border:1px solid rgba(255,185,185,.32);background:linear-gradient(135deg,rgba(239,104,130,.13),rgba(74,41,68,.13))}
+#vekunel-r287 .r287-difference[data-tone="save"]{border-color:rgba(120,241,193,.37);background:linear-gradient(135deg,rgba(81,214,161,.13),rgba(26,85,83,.1))}
+#vekunel-r287 .r287-difference[data-tone="even"]{border-color:rgba(173,199,235,.29);background:rgba(191,209,240,.06)}
+#vekunel-r287 .r287-difference strong{display:block;font-size:clamp(23px,3.1vw,37px);font-weight:850;line-height:1.3;letter-spacing:-.05em;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+#vekunel-r287 .r287-difference small{display:block;color:#bfc9d9;font-size:12px;margin-top:3px;line-height:1.55}
+#vekunel-r287 .r287-formula{margin-top:16px;padding-top:13px;border-top:1px solid var(--r287-line);display:grid;gap:9px}
+#vekunel-r287 .r287-formula-line{display:flex;justify-content:space-between;align-items:baseline;gap:8px;color:var(--r287-muted);font-size:12px}
+#vekunel-r287 .r287-formula-line b{color:var(--r287-ink);font-variant-numeric:tabular-nums;font-size:13px;white-space:nowrap}
+#vekunel-r287 .r287-footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;padding:25px 0 0}
+#vekunel-r287 .r287-cta{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:11px 18px;background:var(--r287-teal);border-radius:11px;color:#06251c;font-size:14px;font-weight:820;transition:background .2s}
+#vekunel-r287 .r287-cta:hover{background:#a5f7d4}
+#vekunel-r287 .r287-disclaimer{max-width:550px;font-size:11px;color:#9caac0;line-height:1.6}
+#vekunel-r287[dir="rtl"] .r287-shell{direction:rtl}
+#vekunel-r287[dir="rtl"] input{direction:ltr;text-align:right}
+#vekunel-r287[dir="rtl"] .r287-tools select{padding:5px 9px 5px 24px}
+@media(max-width:730px){#vekunel-r287 .r287-shell{padding:23px 18px 30px}#vekunel-r287 .r287-hero{padding:32px 0 23px}#vekunel-r287 .r287-layout{grid-template-columns:minmax(0,1fr)}#vekunel-r287 .r287-entry,#vekunel-r287 .r287-results{padding:20px}}
+@media(max-width:370px){#vekunel-r287 .r287-shell{padding:18px 12px 24px}#vekunel-r287 .r287-top{gap:10px}#vekunel-r287 .r287-tools{gap:5px}#vekunel-r287 .r287-tools label{gap:4px;font-size:10px}#vekunel-r287 .r287-tools select{font-size:12px;padding:5px 12px 5px 5px;max-width:82px}#vekunel-r287 h2{font-size:30px}#vekunel-r287 .r287-form{gap:10px}#vekunel-r287 .r287-entry,#vekunel-r287 .r287-results{padding:15px}#vekunel-r287 .r287-field span{font-size:11px;min-height:44px}#vekunel-r287 input{padding:9px;font-size:16px}#vekunel-r287 .r287-total{padding:13px 10px}#vekunel-r287 .r287-total strong{font-size:21px}#vekunel-r287 .r287-difference{padding:15px}}

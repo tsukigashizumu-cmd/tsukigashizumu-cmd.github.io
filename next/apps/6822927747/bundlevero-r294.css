@@ -1,0 +1,65 @@
+/* R294 Bundlevero: scoped interactive fixed-price bundle comparison. No media / storage. */
+#bundlevero-r294{display:block;position:relative;isolation:isolate;box-sizing:border-box;width:100%;max-width:none;padding:0;margin:0;background:#080d19;color:#eef4ff;font:400 15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color-scheme:dark;direction:ltr;letter-spacing:0}
+#bundlevero-r294 *,#bundlevero-r294 *::before,#bundlevero-r294 *::after{box-sizing:border-box}
+#bundlevero-r294 .bv-shell{max-width:1180px;margin:0 auto;padding:28px 28px 42px}
+#bundlevero-r294 .bv-top{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:42px}
+#bundlevero-r294 .bv-brand{display:flex;align-items:center;gap:12px;font-size:15px;font-weight:750;letter-spacing:.01em;white-space:nowrap}
+#bundlevero-r294 .bv-brandmark{display:grid;place-items:center;width:31px;height:31px;border:1px solid #486f85;border-radius:10px;color:#6fe1ce;background:linear-gradient(140deg,#203344,#111b2d);font-weight:800}
+#bundlevero-r294 .bv-subbrand{font-weight:450;font-size:10px;color:#8494ad;letter-spacing:.12em}
+#bundlevero-r294 .bv-selects{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+#bundlevero-r294 select{appearance:auto;min-height:37px;border:1px solid #34435c;border-radius:9px;background:#161f30;color:#e3eaf6;font:inherit;font-size:12px;padding:7px;max-width:155px}
+#bundlevero-r294 .bv-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.92fr);gap:28px;align-items:center;margin-bottom:28px}
+#bundlevero-r294 .bv-kicker{font-size:10px;line-height:1.4;font-weight:800;letter-spacing:.21em;color:#6fe1ce;text-transform:uppercase}
+#bundlevero-r294 h2{max-width:610px;font-size:clamp(28px,4.5vw,58px);line-height:1.15;letter-spacing:-.045em;font-weight:800;margin:14px 0 19px;color:#f6f9ff;overflow-wrap:anywhere}
+#bundlevero-r294 .bv-lead{max-width:550px;line-height:1.8;color:#afbbcf;font-size:15px;margin:0}
+#bundlevero-r294 .bv-tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+#bundlevero-r294 .bv-tags span{border:1px solid #2a3b52;border-radius:99px;padding:7px 11px;font-size:11px;color:#bacbe1;background:#131e30}
+#bundlevero-r294 .bv-score{padding:25px;border:1px solid #2b4653;border-radius:22px;background:radial-gradient(circle at 90% 8%,rgba(50,150,135,.17),transparent 53%),linear-gradient(135deg,#142236,#0d1624);box-shadow:0 18px 60px rgba(0,0,0,.23);min-width:0}
+#bundlevero-r294 .bv-scoretop{display:flex;justify-content:space-between;gap:8px;align-items:center;color:#9fb6c4;font-size:11px}
+#bundlevero-r294 .bv-status{border-radius:25px;padding:5px 9px;background:#133831;color:#96f1dc;font-weight:700;font-size:11px;white-space:nowrap}
+#bundlevero-r294 .bv-scorevalue{font-size:clamp(35px,5.2vw,68px);font-weight:850;line-height:1.1;letter-spacing:-.04em;color:#a0f3e2;margin:17px 0 5px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+#bundlevero-r294 .bv-scorelabel{font-size:12px;color:#a8c1cf;line-height:1.5}
+#bundlevero-r294 .bv-compare{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:23px}
+#bundlevero-r294 .bv-compare>div{padding:12px;border:1px solid #2c4154;background:#101a29;border-radius:12px;min-width:0}
+#bundlevero-r294 .bv-compare span{display:block;color:#a2aec3;font-size:11px;line-height:1.5}
+#bundlevero-r294 .bv-compare strong{display:block;font-size:23px;margin-top:5px;font-variant-numeric:tabular-nums;color:#eef4ff;overflow-wrap:anywhere}
+#bundlevero-r294 .bv-work{border:1px solid #29394f;border-radius:22px;padding:25px;background:#111a2a}
+#bundlevero-r294 .bv-sectionhead{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:20px}
+#bundlevero-r294 h3{font-size:21px;letter-spacing:-.02em;line-height:1.35;color:#f4f8ff;margin:6px 0 4px}
+#bundlevero-r294 .bv-sectionhead p{font-size:12px;color:#8fa2bb;margin:0}
+#bundlevero-r294 button{font:inherit;cursor:pointer;border-radius:10px;min-height:39px}
+#bundlevero-r294 button:focus-visible,#bundlevero-r294 input:focus-visible,#bundlevero-r294 select:focus-visible,#bundlevero-r294 a:focus-visible{outline:2px solid #85ead6;outline-offset:3px}
+#bundlevero-r294 .bv-reset{border:1px solid #3c4a5d;color:#cbd7e5;background:#1b2638;padding:7px 11px;font-size:11px;white-space:normal}
+#bundlevero-r294 .bv-presets{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+#bundlevero-r294 .bv-preset{padding:8px 13px;border:1px solid #365062;background:#19283a;color:#b7ced7;font-size:12px}
+#bundlevero-r294 .bv-preset[aria-pressed="true"]{border-color:#66d7c1;background:#1a423d;color:#c1fff1}
+#bundlevero-r294 .bv-listhead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,110px) minmax(0,97px);gap:12px;padding:0 14px 9px;color:#9eb0c4;font-size:11px}
+#bundlevero-r294 .bv-items{display:grid;gap:8px}
+#bundlevero-r294 .bv-item{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,110px) minmax(0,97px);align-items:center;gap:12px;padding:13px 14px;border:1px solid #2d3d50;border-radius:13px;background:#162235}
+#bundlevero-r294 .bv-itemname{display:flex;align-items:center;gap:9px;min-width:0}
+#bundlevero-r294 .bv-itemname .bv-itemindex{color:#75e0ce;background:#27443e;border-radius:7px;padding:5px 7px;font-size:11px;flex:none}
+#bundlevero-r294 .bv-itemname strong{font-weight:650;font-size:13px;color:#e8f2ff;overflow-wrap:anywhere}
+#bundlevero-r294 .bv-money{display:flex;align-items:center;gap:5px;min-width:0}
+#bundlevero-r294 .bv-money label{font-size:11px;color:#abc1cd;flex:none}
+#bundlevero-r294 input[type="number"]{min-width:0;width:100%;max-width:100%;height:42px;padding:7px 9px;color:#f3f7ff;background:#0c1523;border:1px solid #3a4e63;border-radius:9px;font:inherit;font-size:14px;font-variant-numeric:tabular-nums}
+#bundlevero-r294 .bv-owned{display:flex;align-items:center;gap:6px;cursor:pointer;color:#cbd6e4;font-size:12px;min-height:40px;min-width:0}
+#bundlevero-r294 input[type="checkbox"]{appearance:auto;width:18px;height:18px;accent-color:#71dec8;flex:none;margin:0}
+#bundlevero-r294 .bv-item.is-owned{background:#142c2f;border-color:#366459}
+#bundlevero-r294 .bv-bundle{display:grid;grid-template-columns:1fr minmax(0,165px);align-items:center;gap:12px;margin-top:12px;padding:17px;border:1px dashed #447d76;border-radius:13px;background:#12332f}
+#bundlevero-r294 .bv-bundle strong{display:block;font-size:14px;color:#dffcf5}
+#bundlevero-r294 .bv-bundle small{display:block;color:#a9d5c9;font-size:11px;margin-top:3px}
+#bundlevero-r294 .bv-bundle .bv-money label{font-size:14px}
+#bundlevero-r294 .bv-result{display:flex;gap:12px;align-items:flex-start;margin:16px 0 0;border:1px solid #3c584f;border-radius:12px;background:#1a2b2d;padding:15px;color:#cce9e2;font-size:13px;line-height:1.6}
+#bundlevero-r294 .bv-result strong{display:block;color:#edfff8;font-size:16px;margin-bottom:4px}
+#bundlevero-r294 .bv-icon{flex:none;display:grid;place-items:center;width:27px;height:27px;background:#244d43;border-radius:50%;color:#9ef1da;font-weight:900}
+#bundlevero-r294 .bv-disclaimer{font-size:11px;line-height:1.8;color:#96a8c2;margin:21px 0 15px}
+#bundlevero-r294 .bv-cta{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:11px 19px;border-radius:11px;background:#9ef2db!important;color:#09221f!important;text-decoration:none;font-size:13px;font-weight:800}
+#bundlevero-r294 .bv-error{background:#382028;border-color:#a45469;color:#f2cfda}
+#bundlevero-r294 .bv-error strong{color:#ffe6eb}
+#bundlevero-r294 .bv-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:15px;color:#70849d;font-size:10px}
+#bundlevero-r294[dir="rtl"] .bv-kicker{letter-spacing:.03em}
+#bundlevero-r294[dir="rtl"] h2{letter-spacing:0}
+#bundlevero-r294[dir="rtl"] .bv-listhead,#bundlevero-r294[dir="rtl"] .bv-item,#bundlevero-r294[dir="rtl"] .bv-bundle{direction:rtl}
+@media(max-width:800px){#bundlevero-r294 .bv-shell{padding:22px 18px 34px}#bundlevero-r294 .bv-hero{grid-template-columns:1fr;gap:20px}#bundlevero-r294 .bv-top{margin-bottom:24px}#bundlevero-r294 .bv-scorevalue{font-size:clamp(37px,8vw,60px)}}
+@media(max-width:480px){#bundlevero-r294 .bv-shell{padding:16px 12px 28px}#bundlevero-r294 .bv-top{align-items:flex-start;margin-bottom:22px;gap:8px}#bundlevero-r294 .bv-brand{font-size:13px;gap:7px}#bundlevero-r294 .bv-brandmark{width:27px;height:27px}#bundlevero-r294 .bv-subbrand{display:none}#bundlevero-r294 .bv-selects{gap:4px}#bundlevero-r294 select{font-size:11px;min-height:34px;padding:5px 1px;max-width:94px}#bundlevero-r294 h2{font-size:clamp(27px,8.3vw,40px)}#bundlevero-r294 .bv-lead{font-size:13px}#bundlevero-r294 .bv-tags{gap:6px}#bundlevero-r294 .bv-tags span{font-size:10px;padding:5px 8px}#bundlevero-r294 .bv-score{padding:18px 15px;border-radius:18px}#bundlevero-r294 .bv-scorevalue{font-size:40px}#bundlevero-r294 .bv-compare strong{font-size:20px}#bundlevero-r294 .bv-work{padding:15px 11px;border-radius:17px}#bundlevero-r294 .bv-sectionhead h3{font-size:17px}#bundlevero-r294 .bv-reset{font-size:10px;padding:6px;min-width:68px}#bundlevero-r294 .bv-listhead,#bundlevero-r294 .bv-item{grid-template-columns:minmax(0,1fr) minmax(0,79px) minmax(0,64px);gap:6px}#bundlevero-r294 .bv-listhead{padding:0 8px 8px;font-size:9px}#bundlevero-r294 .bv-item{padding:9px 8px}#bundlevero-r294 .bv-itemname{gap:4px}#bundlevero-r294 .bv-itemname .bv-itemindex{padding:4px;font-size:9px}#bundlevero-r294 .bv-itemname strong{font-size:11px}#bundlevero-r294 .bv-money{gap:2px}#bundlevero-r294 .bv-money label{font-size:10px}#bundlevero-r294 input[type="number"]{padding:5px 4px;font-size:13px;height:40px}#bundlevero-r294 .bv-owned{font-size:10px;gap:3px}#bundlevero-r294 input[type="checkbox"]{width:15px;height:15px}#bundlevero-r294 .bv-bundle{grid-template-columns:minmax(0,1fr) minmax(0,125px);padding:11px;gap:5px}}
+@media(max-width:340px){#bundlevero-r294 .bv-shell{padding-left:9px;padding-right:9px}#bundlevero-r294 .bv-top{gap:4px}#bundlevero-r294 .bv-brand{font-size:12px}#bundlevero-r294 .bv-listhead,#bundlevero-r294 .bv-item{grid-template-columns:minmax(0,1fr) minmax(0,73px) minmax(0,59px);gap:4px}#bundlevero-r294 .bv-itemname strong{font-size:10px}#bundlevero-r294 .bv-itemname .bv-itemindex{display:none}}
