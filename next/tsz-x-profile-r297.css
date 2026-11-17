@@ -1,0 +1,65 @@
+/* TSZ LP / R297: neutral X profile links, no external dependencies. */
+.tsz-x-r297-header,
+.tsz-x-r297-footer {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  max-width: 100%;
+  text-decoration: none;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  color: inherit;
+  opacity: .76;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: .01em;
+}
+.tsz-x-r297-header {
+  min-height: 40px;
+  min-width: 40px;
+  padding: 4px 10px;
+  border: 1px solid currentColor;
+  border-radius: 100px;
+  opacity: .65;
+  background: transparent;
+}
+.tsz-x-r297-footer { padding: 4px 2px; }
+.tsz-x-r297-header:hover,
+.tsz-x-r297-footer:hover { opacity: 1; text-decoration: underline; }
+.tsz-x-r297-header:focus-visible,
+.tsz-x-r297-footer:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  opacity: 1;
+}
+/* The X control remains secondary to App Store CTAs. Allow header content to wrap on narrow screens. */
+header:has(> .tsz-x-r297-header) { flex-wrap: wrap; row-gap: 8px; }
+footer:has(> .tsz-x-r297-footer) { flex-wrap: wrap; gap: 8px 14px; }
+@media (max-width: 390px) {
+  .tsz-x-r297-header { font-size: 11px; min-height: 40px; padding: 3px 9px; }
+  .tsz-x-r297-footer { font-size: 11px; }
+}
+
+/* Legacy pages may lack native header/footer tags. Use unobtrusive normal-flow regions. */
+.tsz-x-r297-topline,
+.tsz-x-r297-bottomline {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 6px 14px;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  color: inherit;
+}
+.tsz-x-r297-topline { justify-content: flex-end; }
+.tsz-x-r297-bottomline { justify-content: center; padding-block: 14px; }
