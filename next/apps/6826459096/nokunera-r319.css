@@ -1,0 +1,43 @@
+/* R319 — Nokunera. Unique scoped LP-only batch-expiry illustration. */
+#nk319 {box-sizing:border-box;color:#e9f4ed;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at 88% 3%,rgba(85,159,125,.18),transparent 36%),linear-gradient(145deg,#0c1b1a,#112625 55%,#0b1a1a);border:1px solid #3b5950;border-radius:25px;padding:clamp(16px,4vw,34px);max-width:1040px;margin:36px auto;box-shadow:0 20px 65px rgba(0,0,0,.15);direction:ltr}
+#nk319 *,#nk319 *::before,#nk319 *::after{box-sizing:border-box}
+#nk319 [hidden]{display:none!important}
+#nk319.nk-rtl{direction:rtl}
+#nk319 .nk-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}
+#nk319 .nk-kicker{color:#a8d6b4;font-size:11px;font-weight:800;letter-spacing:.16em;margin:0 0 13px}
+#nk319 h2{font-size:clamp(23px,3.4vw,38px);max-width:640px;line-height:1.24;letter-spacing:-.035em;color:#f3fbf4;margin:0 0 13px}
+#nk319 .nk-intro{max-width:640px;color:#c0d2cd;line-height:1.75;font-size:14px;margin:0 0 18px}
+#nk319 button,#nk319 input{font:inherit}
+#nk319 button{cursor:pointer;transition:background .18s,border-color .18s,transform .18s}
+#nk319 button:focus-visible,#nk319 input:focus-visible{outline:3px solid #9cf1ad;outline-offset:3px}
+#nk319 .nk-langs{display:flex;gap:5px;padding:4px;background:#0a1618;border:1px solid #39544d;border-radius:12px}
+#nk319 .nk-langs button{background:transparent;border:0;border-radius:9px;color:#a7c1b6;font-size:12px;padding:9px;min-height:38px}
+#nk319 .nk-langs button[aria-pressed="true"]{background:#c9e9d1;color:#12251d;font-weight:800}
+#nk319 .nk-panel{border:1px solid #39574c;background:rgba(8,25,25,.66);border-radius:17px;padding:16px}
+#nk319 .nk-config{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+#nk319 label{color:#bdd4c9;display:flex;flex-direction:column;gap:7px;font-size:12px;font-weight:700;min-width:0}
+#nk319 input{width:100%;max-width:100%;min-width:0;color:#fff;background:#09201e;border:1px solid #426456;border-radius:10px;min-height:44px;padding:8px 11px;font-size:16px;color-scheme:dark}
+#nk319 input[type="date"]{font-size:15px}
+#nk319 .nk-batches{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+#nk319 .nk-batch{border:1px solid #39594d;border-radius:17px;padding:16px;background:#122c28;min-width:0}
+#nk319 .nk-batch[data-first="true"]{border-color:#cbdc91;background:linear-gradient(155deg,#234332,#122c28 65%)}
+#nk319 .nk-chip{font-size:11px;display:inline-block;color:#c8dda8;border:1px solid #5f8264;background:#1c3c30;border-radius:20px;padding:4px 10px;font-weight:750;margin-bottom:9px}
+#nk319 .nk-batch h3{color:#f2f8ed;font-size:16px;margin:0 0 12px;line-height:1.35}
+#nk319 .nk-batch-grid{display:grid;grid-template-columns:1fr 1.45fr;gap:9px}
+#nk319 .nk-batch .nk-days{font-size:13px;font-weight:800;color:#d0dfab;margin-top:13px;min-height:20px}
+#nk319 .nk-summary{margin-top:13px;padding:18px;border-radius:17px;background:#dbe9d8;color:#203c31;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px}
+#nk319 .nk-summary strong{font-size:clamp(24px,4.6vw,36px);font-variant-numeric:tabular-nums;line-height:1.2;display:block;color:#1b4130}
+#nk319 .nk-summary small{display:block;font-size:12px;letter-spacing:.02em;font-weight:700;opacity:.8;margin-bottom:5px}
+#nk319 .nk-summary p{font-size:13px;line-height:1.6;margin:8px 0 0}
+#nk319 .nk-total{text-align:center;background:#bfd6c3;padding:11px 16px;border-radius:13px;min-width:95px}
+#nk319 .nk-total b{display:block;font-size:25px;line-height:1.1;font-variant-numeric:tabular-nums}
+#nk319 .nk-total span{font-size:11px;font-weight:700}
+#nk319 .nk-actions{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin-top:13px}
+#nk319 .nk-actions button{padding:11px 18px;min-height:45px;border-radius:11px;border:1px solid #577467;background:#223a35;color:#edfbec;font-weight:700;font-size:13px}
+#nk319 .nk-actions button.nk-primary{background:#bfe4c8;color:#123021;border-color:#bfe4c8}
+#nk319 .nk-actions button:disabled{opacity:.45;cursor:not-allowed}
+#nk319 .nk-error{color:#ffd8c0;border:1px solid #ba754f;border-radius:12px;background:#3b231f;padding:11px 14px;margin-top:12px;font-size:13px}
+#nk319 .nk-note{margin:16px 0 0;color:#adcbbe;font-size:12px;line-height:1.75}
+@media(max-width:580px){#nk319{margin:20px auto;border-radius:18px;padding:14px}#nk319 .nk-langs{width:100%;justify-content:flex-start}#nk319 .nk-batches{grid-template-columns:1fr}#nk319 .nk-config{grid-template-columns:1fr 1fr}#nk319 .nk-summary{grid-template-columns:1fr auto}#nk319 .nk-batch-grid{grid-template-columns:1fr 1fr}#nk319 .nk-total{min-width:80px}}
+@media(max-width:340px){#nk319 .nk-summary{grid-template-columns:1fr}#nk319 .nk-total{justify-self:start}#nk319 .nk-config,#nk319 .nk-batch-grid{grid-template-columns:1fr}#nk319 .nk-batch{padding:12px}#nk319 input{padding:8px 10px;font-size:15px}}
+@media(prefers-reduced-motion:reduce){#nk319 button{transition:none}}
