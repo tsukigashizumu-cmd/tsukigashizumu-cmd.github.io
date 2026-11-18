@@ -47,6 +47,7 @@
     refresh();savedRender();
   }
   render(false);
+  // TSZ R373: use a single page-level language selector, including explicit en fallback.
   const pageLang=document.getElementById('p19-language');
-  if(pageLang){pageLang.addEventListener('change',()=>{const value=pageLang.value||'';const next=/^ar/i.test(value)?'ar':/^ja/i.test(value)?'ja':/^en/i.test(value)?'en':null;if(next&&locale!==next){locale=next;render(true);}});}
+  if(pageLang){const sync=()=>{const value=pageLang.value||'';const next=/^ar(?:-|$)/i.test(value)?'ar':/^ja(?:-|$)/i.test(value)?'ja':'en';if(locale!==next){locale=next;render(true);}section.dataset.tszR373SelectedLocale=value;section.dataset.tszR373Fallback=String(!/^(?:en|ja|ar)(?:-|$)/i.test(value));const own=section.querySelector('#pd-lang');if(own?.closest('label'))own.closest('label').hidden=true;};pageLang.addEventListener('change',sync);window.addEventListener('tsz:locale-change',sync);sync();}
 })();

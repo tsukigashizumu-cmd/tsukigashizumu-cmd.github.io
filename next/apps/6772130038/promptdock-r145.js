@@ -3,7 +3,8 @@
 'use strict';
 const ID='tsz-promptdock-r145';
 if(document.getElementById(ID))return;
-const langSelect=document.getElementById('p199-language');
+// TSZ R373: bind this demonstration to the real PromptDock page selector.
+const langSelect=document.getElementById('p19-language')||document.getElementById('p199-language');
 const query=new URLSearchParams(window.location.search);
 const chooseLang=s=>String(s||'en').toLowerCase().startsWith('ar')?'ar':String(s||'en').toLowerCase().startsWith('ja')?'ja':'en';
 let lang=chooseLang(query.get('lang')||(langSelect&&langSelect.value)||document.documentElement.lang||navigator.language);

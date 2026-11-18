@@ -23,6 +23,22 @@ $('p265-copy').addEventListener('click',async()=>{output();let val=prompt(),done
 $('p265-lang').addEventListener('change',e=>{output();let old=T[lang].seed;lang=T[e.target.value]?e.target.value:'en';// retain user-entered values, only translate seeded defaults if untouched
 values.forEach((v,i)=>{['subject','details','extra'].forEach((field,j)=>{if(v[field]===old[i][j])v[field]=T[lang].seed[i][j]})});labels();$('p265-status').textContent=''});
 $('p265-region').addEventListener('change',e=>{region=e.target.value==='us'?'us':'jp';labels()});
+// TSZ R373: the parent page is authoritative; preserve user-edited fields across translation.
+const shared=document.getElementById('p19-language');
+if(shared&&!stand){
+ const sync=()=>{
+  const selected=shared.value||'en-US';
+  const next=/^ja(?:-|$)/i.test(selected)?'ja':/^ar(?:-|$)/i.test(selected)?'ar':'en';
+  const own=$('p265-lang');
+  if(own&&own.value!==next){own.value=next;own.dispatchEvent(new Event('change',{bubbles:false}));}
+  if(own?.closest('label'))own.closest('label').hidden=true;
+  root.dataset.tszR373SelectedLocale=selected;
+  root.dataset.tszR373Fallback=String(!/^(?:en|ja|ar)(?:-|$)/i.test(selected));
+ };
+ shared.addEventListener('change',sync);
+ window.addEventListener('tsz:locale-change',sync);
+ sync();
+}
 labels();}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
 })();
