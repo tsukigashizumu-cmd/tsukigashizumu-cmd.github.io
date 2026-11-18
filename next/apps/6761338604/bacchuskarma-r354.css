@@ -1,0 +1,77 @@
+/* TSZ LP R354 Bacchus Karma — scoped imaginary game panel (no images/assets) */
+#tsz-bacchus-r354{--bk-bg:#121626;--bk-paper:#f5f5f8;--bk-dim:#acb4c8;--bk-violet:#a598ff;--bk-gold:#ffdc89;--bk-border:#ffffff1b;display:block!important;width:100%;min-width:0;max-width:100%;overflow:hidden;background:radial-gradient(ellipse at 80% -20%,#453276 0%,transparent 50%),linear-gradient(140deg,#101628,#121521 66%,#1b1529);color:var(--bk-paper);font:400 15px/1.5 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;isolation:isolate}
+#tsz-bacchus-r354 *,#tsz-bacchus-r354 *:before,#tsz-bacchus-r354 *:after{box-sizing:border-box}
+#tsz-bacchus-r354 button{font:inherit;cursor:pointer;touch-action:manipulation;min-width:0}
+#tsz-bacchus-r354 button:focus-visible{outline:3px solid #ffe5a7;outline-offset:3px}
+#tsz-bacchus-r354 .bk-shell{max-width:1200px;margin:auto;padding:24px clamp(16px,4vw,50px) 38px}
+#tsz-bacchus-r354 .bk-head{display:flex;align-items:center;justify-content:space-between;gap:8px;border-bottom:1px solid var(--bk-border);padding-bottom:18px}
+#tsz-bacchus-r354 .bk-logo{display:flex;align-items:center;gap:9px;color:#f5f3ff;font-weight:850;font-size:12px;letter-spacing:.065em}
+#tsz-bacchus-r354 .bk-logo i{font-size:26px;display:grid;place-items:center;width:35px;height:35px;border-radius:11px;background:#aa97ff2a;color:var(--bk-violet);font-style:normal}
+#tsz-bacchus-r354 .bk-langs{display:flex;align-items:center;gap:2px;padding:4px;border-radius:30px;background:#080d18a9;border:1px solid #ffffff20;white-space:nowrap}
+#tsz-bacchus-r354 .bk-langs button{border:0;background:transparent;color:#d6d9e4;font-weight:700;font-size:11px;border-radius:20px;padding:7px 9px}
+#tsz-bacchus-r354 .bk-langs button[aria-pressed=true]{background:#a598ff;color:#151323}
+#tsz-bacchus-r354 .bk-hero{max-width:770px;margin:35px 0 30px}
+#tsz-bacchus-r354 .bk-eyebrow{font-size:11px;font-weight:850;letter-spacing:.16em;color:var(--bk-gold);text-transform:uppercase}
+#tsz-bacchus-r354 .bk-hero h2{font-size:clamp(29px,3.8vw,50px);line-height:1.15;letter-spacing:-.047em;margin:13px 0 14px;font-weight:870;color:#fff}
+#tsz-bacchus-r354 .bk-hero p{color:#c9cddd;font-size:clamp(13px,1.3vw,16px);line-height:1.85;max-width:720px;margin:0}
+#tsz-bacchus-r354 .bk-hints{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+#tsz-bacchus-r354 .bk-hints span{font-size:11px;font-weight:700;border:1px solid #ffffff28;background:#ffffff09;border-radius:999px;padding:5px 11px;color:#d4d5e5}
+#tsz-bacchus-r354 .bk-workspace{display:grid;grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);gap:18px;align-items:stretch}
+#tsz-bacchus-r354 .bk-control,#tsz-bacchus-r354 .bk-play{border:1px solid var(--bk-border);border-radius:23px;min-width:0;padding:24px;background:#202235bd;box-shadow:0 22px 55px #070a1560}
+#tsz-bacchus-r354 .bk-play{background:radial-gradient(ellipse at 50% 20%,#302b50,#191d2b 70%);}
+#tsz-bacchus-r354 .bk-kicker{font-size:11px;letter-spacing:.13em;font-weight:900;color:var(--bk-gold);margin-bottom:22px;text-transform:uppercase}
+#tsz-bacchus-r354 .bk-label{font-size:11px;font-weight:850;letter-spacing:.085em;color:#dedff2;margin:21px 0 10px;text-transform:uppercase}
+#tsz-bacchus-r354 .bk-size{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+#tsz-bacchus-r354 .bk-size button,#tsz-bacchus-r354 .bk-select button{border:1px solid #ffffff27;background:#1a1d2f;color:#d5d9e4;border-radius:13px;padding:11px 10px;font-size:13px;font-weight:800}
+#tsz-bacchus-r354 .bk-size button[aria-pressed=true],#tsz-bacchus-r354 .bk-select button[aria-pressed=true]{border-color:#c0afff;background:#a598ff21;color:#fdfbff;box-shadow:inset 0 0 0 1px #a598ff33}
+#tsz-bacchus-r354 .bk-tiny{font-size:11px;color:#98a3b9;margin:0 0 10px}
+#tsz-bacchus-r354 .bk-weights{display:grid;gap:8px}
+#tsz-bacchus-r354 .bk-weight{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:10px;align-items:center;border:1px solid #ffffff16;border-radius:13px;background:#121727a3;padding:10px 12px;min-width:0}
+#tsz-bacchus-r354 .bk-weight-name{display:flex;align-items:center;gap:12px;min-width:0}
+#tsz-bacchus-r354 .bk-weight-name strong{font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#tsz-bacchus-r354 .bk-mini{display:grid;gap:3px;flex-shrink:0;direction:ltr;justify-content:center;align-content:center}
+#tsz-bacchus-r354 .bk-mini i{display:block;background:transparent;border-radius:3px}
+#tsz-bacchus-r354 .bk-mini i.on{background:#d0bfff;box-shadow:0 0 9px #ad8fff4d}
+#tsz-bacchus-r354 .bk-stepper{display:flex;align-items:center;gap:7px;direction:ltr}
+#tsz-bacchus-r354 .bk-stepper button{border:1px solid #ffffff26;color:#fff;background:#333852;border-radius:8px;width:29px;height:29px;padding:0;display:grid;place-items:center;font-size:20px;line-height:1}
+#tsz-bacchus-r354 .bk-stepper button:disabled{opacity:.25;cursor:not-allowed}
+#tsz-bacchus-r354 .bk-stepper b{width:15px;text-align:center;font-variant-numeric:tabular-nums;color:#e7dbff}
+#tsz-bacchus-r354 .bk-meter{grid-column:1/-1;height:3px;border-radius:10px;background:#393b52;margin-top:8px;overflow:hidden;direction:ltr}
+#tsz-bacchus-r354 .bk-meter i{display:block;background:linear-gradient(90deg,#9c83ff,#f4cc86);height:100%;border-radius:10px}
+#tsz-bacchus-r354 .bk-select{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+#tsz-bacchus-r354 .bk-select button{display:flex;flex-direction:column;align-items:center;gap:2px;padding:7px 4px;font-size:11px;min-height:65px}
+#tsz-bacchus-r354 .bk-emoji{font-size:23px;line-height:1.1;color:#dbceff}
+#tsz-bacchus-r354 .bk-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:22px}
+#tsz-bacchus-r354 .bk-actions button{border-radius:11px;min-height:43px;font-size:12px;font-weight:800;padding:9px 10px;border:1px solid #ffffff26}
+#tsz-bacchus-r354 .bk-draw{grid-column:1/-1;background:#d3bcff;color:#211a34;border:0!important}
+#tsz-bacchus-r354 .bk-subtle{background:#ffffff10;color:#f1effa}
+#tsz-bacchus-r354 .bk-subtle[aria-pressed=true]{color:var(--bk-gold);border-color:#f2d48d}
+#tsz-bacchus-r354 .bk-board-top{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-top:-7px;margin-bottom:18px}
+#tsz-bacchus-r354 .bk-board-top>div{display:flex;flex-direction:column;gap:3px}
+#tsz-bacchus-r354 .bk-overline{font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:#aeb6c7;font-weight:800}
+#tsz-bacchus-r354 .bk-board-top strong{font-size:21px;color:#f8f7ff}
+#tsz-bacchus-r354 .bk-selected{text-align:end}
+#tsz-bacchus-r354 .bk-selected strong{color:#cbb4ff;font-size:17px}
+#tsz-bacchus-r354 .bk-board-wrap{position:relative;width:min(100%,430px);margin:0 auto;isolation:isolate}
+#tsz-bacchus-r354 .bk-board{position:relative;z-index:2;display:grid;gap:clamp(3px,.6vw,6px);padding:clamp(10px,1.5vw,16px);background:#0b1120;border:1px solid #aa9cfa80;border-radius:18px;aspect-ratio:1/1;direction:ltr;box-shadow:inset 0 0 0 1px #ffffff12,0 24px 70px #03050f90;}
+#tsz-bacchus-r354 .bk-cell{background:#34364f;border:1px solid #8585b229;border-radius:clamp(3px,.6vw,6px);min-height:0;min-width:0;aspect-ratio:1/1;padding:0;transition:background .1s ease,transform .1s ease}
+#tsz-bacchus-r354 .bk-cell:hover{background:#5c5586;transform:scale(.97)}
+#tsz-bacchus-r354 .bk-cell.filled{background:linear-gradient(140deg,#e5d6ff,#8c78d2);border-color:#f6dfff;box-shadow:inset 0 2px 4px #ffffff60,0 0 12px #9980ff50}
+#tsz-bacchus-r354 .bk-board-glow{position:absolute;z-index:1;inset:6% 8%;background:#b18dff6b;filter:blur(55px)}
+#tsz-bacchus-r354 .bk-stats{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:19px}
+#tsz-bacchus-r354 .bk-stats div{background:#0b10216b;border:1px solid #ffffff16;border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:3px}
+#tsz-bacchus-r354 .bk-stats span{color:#b0b9ce;font-size:11px;font-weight:700}
+#tsz-bacchus-r354 .bk-stats strong{font-size:23px;line-height:1.2;font-variant-numeric:tabular-nums}
+#tsz-bacchus-r354 .bk-msg{background:#a598ff1a;border:1px solid #a598ff3d;padding:13px 15px;border-radius:12px;margin-top:13px;color:#e9e2ff;font-size:13px;font-weight:750;min-height:53px}
+#tsz-bacchus-r354 .bk-msg[data-kind=bad]{background:#ffbb9c18;border-color:#ffbb9c40;color:#ffd0c1}
+#tsz-bacchus-r354 .bk-instructions{font-size:13px;color:#d2d4e6;margin:13px 0 0;line-height:1.7}
+#tsz-bacchus-r354 .bk-disclaimer{font-size:11px;color:#98a2b7;margin:13px 0 0;line-height:1.7}
+#tsz-bacchus-r354 .bk-bottom{margin-top:34px;border-top:1px solid #ffffff24;padding-top:22px;color:#b9bed0}
+#tsz-bacchus-r354 .bk-bottom strong{display:block;font-size:clamp(19px,2.3vw,30px);color:#e8dbff;font-weight:850;letter-spacing:-.03em}
+#tsz-bacchus-r354 .bk-bottom p{max-width:980px;font-size:11px;line-height:1.9;margin:11px 0 0;color:#a2aabe}
+#tsz-bacchus-r354[dir=rtl] .bk-hero h2{letter-spacing:0;line-height:1.4}
+#tsz-bacchus-r354[dir=rtl] .bk-logo{letter-spacing:0}
+#tsz-bacchus-r354[dir=rtl] .bk-selected{text-align:start}
+@media(max-width:740px){#tsz-bacchus-r354 .bk-workspace{grid-template-columns:minmax(0,1fr)}#tsz-bacchus-r354 .bk-play{grid-row:1}#tsz-bacchus-r354 .bk-control{grid-row:2}#tsz-bacchus-r354 .bk-hero{margin:27px 0 22px}#tsz-bacchus-r354 .bk-play,#tsz-bacchus-r354 .bk-control{padding:18px}#tsz-bacchus-r354 .bk-kicker{margin-bottom:17px}}
+@media(max-width:390px){#tsz-bacchus-r354 .bk-shell{padding-left:12px;padding-right:12px}#tsz-bacchus-r354 .bk-logo{font-size:9px;letter-spacing:0}#tsz-bacchus-r354 .bk-logo i{width:25px;height:25px;font-size:20px}#tsz-bacchus-r354 .bk-langs button{padding:6px;font-size:10px}#tsz-bacchus-r354 .bk-play,#tsz-bacchus-r354 .bk-control{padding:14px}#tsz-bacchus-r354 .bk-board{padding:9px;gap:3px}#tsz-bacchus-r354 .bk-hero h2{font-size:28px}#tsz-bacchus-r354 .bk-weight{padding:9px}#tsz-bacchus-r354 .bk-weight-name{gap:6px}}
+@media(prefers-reduced-motion:reduce){#tsz-bacchus-r354 *{transition:none!important;animation:none!important}}
