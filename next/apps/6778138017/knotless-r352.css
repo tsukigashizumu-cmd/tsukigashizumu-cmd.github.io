@@ -1,0 +1,52 @@
+/* TSZ R352 Knotless: scoped, media-free interactive LP demonstration */
+#tsz-knotless-r352{--k-paper:#ebe7df;--k-ink:#edf2fb;--k-muted:#a7b2c7;--k-a:#91f0dc;--k-b:#b39dff;isolation:isolate;display:block!important;box-sizing:border-box;width:100%;max-width:100%;min-width:0;overflow:hidden;background:#0b101f;color:var(--k-ink);font:400 14px/1.5 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+#tsz-knotless-r352 *,#tsz-knotless-r352 *::before,#tsz-knotless-r352 *::after{box-sizing:border-box}
+#tsz-knotless-r352 button{cursor:pointer;font-family:inherit;appearance:none;-webkit-appearance:none;touch-action:manipulation}
+#tsz-knotless-r352 button:focus-visible{outline:2px solid #c2e7ec;outline-offset:3px}
+#tsz-knotless-r352 .kn-shell{position:relative;max-width:1310px;margin:0 auto;padding:23px clamp(16px,4.7vw,76px) 44px}
+#tsz-knotless-r352 .kn-shell:before{content:'';position:absolute;pointer-events:none;inset:-210px -210px auto; height:650px;background:radial-gradient(ellipse at 74% 52%,#5d57a02e,transparent 55%),radial-gradient(ellipse at 15% 38%,#186d7225,transparent 52%)}
+#tsz-knotless-r352 .kn-top{position:relative;display:flex;justify-content:space-between;align-items:center;gap:10px;padding-bottom:20px;border-bottom:1px solid #ffffff1d}
+#tsz-knotless-r352 .kn-mark{display:flex;align-items:center;gap:12px;min-width:0}
+#tsz-knotless-r352 .kn-glyph{display:grid;place-items:center;flex:none;width:36px;height:36px;border:1px solid #a5ebdb6c;border-radius:11px;background:#1c2842;color:#a9ffed;font-size:26px;font-weight:300}
+#tsz-knotless-r352 .kn-mark strong{font-size:10px;letter-spacing:.19em;font-weight:850;color:#d2e4eb;overflow-wrap:anywhere}
+#tsz-knotless-r352 .kn-lang{display:flex;gap:3px;flex:none;background:#19223a;border:1px solid #313f59;border-radius:20px;padding:3px}
+#tsz-knotless-r352 .kn-lang button{color:#b9c2d4;border:0;background:transparent;font-size:10px;font-weight:750;border-radius:16px;padding:7px 10px}
+#tsz-knotless-r352 .kn-lang button[aria-pressed=true]{background:#dcf4e9;color:#15383c}
+#tsz-knotless-r352 .kn-layout{position:relative;display:grid;grid-template-columns:minmax(0,0.88fr) minmax(0,1.12fr);gap:clamp(28px,5vw,78px);align-items:center;padding-top:43px}
+#tsz-knotless-r352 .kn-copy{min-width:0;align-self:center}
+#tsz-knotless-r352 .kn-kicker{font-size:11px;letter-spacing:.22em;font-weight:850;color:#a4e7d5;margin:0}
+#tsz-knotless-r352 h2{font-size:clamp(43px,5vw,78px)!important;line-height:1.07!important;letter-spacing:-.048em!important;color:#f6f5f4!important;font-weight:770!important;margin:20px 0!important;overflow-wrap:anywhere}
+#tsz-knotless-r352 .kn-lead{color:#c2cbd6;font-size:clamp(13px,1.55vw,17px);line-height:1.85;margin:0;max-width:530px}
+#tsz-knotless-r352 .kn-features{display:flex;flex-wrap:wrap;gap:9px;margin-top:28px}
+#tsz-knotless-r352 .kn-features span{padding:8px 11px;border:1px solid #33435b;border-radius:30px;color:#bcd2d8;font-size:10px;font-weight:700}
+#tsz-knotless-r352 .kn-pulse{margin:31px 0 12px;display:flex;align-items:center;gap:11px;color:#aaf0d9;font-size:10px;font-weight:830;letter-spacing:.16em}
+#tsz-knotless-r352 .kn-pulse i{width:7px;height:7px;flex:none;border-radius:100%;background:#9debd8;box-shadow:0 0 15px #8cf5d6}
+#tsz-knotless-r352 .kn-themes{display:flex;gap:8px;flex-wrap:wrap}
+#tsz-knotless-r352 .kn-theme{display:flex;align-items:center;gap:9px;border:1px solid #39455d;background:#182239;color:#bbc9dc;font-weight:750;border-radius:8px;padding:10px 13px;font-size:11px}
+#tsz-knotless-r352 .kn-theme[aria-pressed=true]{border-color:#a4e7da;background:#253d4b;color:#e9fdf7}
+#tsz-knotless-r352 .kn-theme i{width:9px;height:9px;border-radius:100%;background:var(--swatch);box-shadow:0 0 10px var(--swatch)}
+#tsz-knotless-r352 .kn-stage{position:relative;min-width:0;padding:clamp(12px,2.5vw,31px);border:1px solid #4a516857;border-radius:27px;background:linear-gradient(155deg,#2b2a47b8,#101c30d9 54%,#152733cd);box-shadow:0 28px 76px #0008,inset 0 1px #ffffff1b}
+#tsz-knotless-r352 .kn-stage:before{content:'';position:absolute;inset:7px;pointer-events:none;border:1px solid #ffffff0c;border-radius:21px}
+#tsz-knotless-r352 .kn-stage-head{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-bottom:16px;color:#aebcd1;font-weight:780;font-size:10px;letter-spacing:.12em}
+#tsz-knotless-r352 .kn-stage-indicator{display:flex;gap:5px;align-items:center;white-space:nowrap}
+#tsz-knotless-r352 .kn-stage-indicator i{width:5px;height:5px;border-radius:50%;background:#9cead5;box-shadow:0 0 8px #9cead5}
+#tsz-knotless-r352 .kn-tiles{direction:ltr;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(6px,1vw,12px)}
+#tsz-knotless-r352 .kn-tile{aspect-ratio:1/1;position:relative;min-width:0;width:100%;padding:8%;border:1px solid #56718b61;border-radius:clamp(9px,1vw,16px);background:radial-gradient(circle at 45% 47%,#293452,#10192d 78%);overflow:hidden;transition:border-color .2s,background .2s,transform .3s}
+#tsz-knotless-r352 .kn-tile:hover{border-color:#abeaddab;background:radial-gradient(circle at 45% 47%,#344e6a,#131f35 80%)}
+#tsz-knotless-r352 .kn-tile:active{transform:scale(.97)}
+#tsz-knotless-r352 .kn-tile svg{width:100%;height:100%;display:block;overflow:visible;transform:rotate(var(--turn,0deg));transition:transform .5s cubic-bezier(.2,.75,.1,1)}
+#tsz-knotless-r352 .kn-tile .kn-route{fill:none;stroke:var(--k-a);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 6px var(--k-a));opacity:.97}
+#tsz-knotless-r352 .kn-tile .kn-route2{stroke:var(--k-b);stroke-width:4.5;filter:drop-shadow(0 0 7px var(--k-b));opacity:.94}
+#tsz-knotless-r352 .kn-tile .kn-core{fill:var(--k-paper);filter:drop-shadow(0 0 6px var(--k-b));opacity:.72}
+#tsz-knotless-r352 .kn-tile[aria-pressed=true]{border-color:#b0f4de}
+#tsz-knotless-r352 .kn-stage-bottom{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-top:16px;color:#a9c0cc;font-size:10px;min-height:22px}
+#tsz-knotless-r352 .kn-stage-bottom .kn-quiet{color:#b3edd5;font-weight:800}
+#tsz-knotless-r352 .kn-reset{border:1px solid #526277;background:#17263a;color:#d5e7ee;padding:7px 10px;border-radius:6px;font-size:10px;font-weight:780;white-space:nowrap}
+#tsz-knotless-r352 .kn-foot{display:flex;justify-content:space-between;gap:20px;padding-top:24px;margin-top:32px;border-top:1px solid #ffffff21}
+#tsz-knotless-r352 .kn-foot b{color:#d6e9de;font-size:10px;letter-spacing:.09em}
+#tsz-knotless-r352 .kn-foot p{margin:0;max-width:780px;color:#9baec5;font-size:11px;line-height:1.8}
+#tsz-knotless-r352[dir=rtl] .kn-kicker,#tsz-knotless-r352[dir=rtl] .kn-mark strong,#tsz-knotless-r352[dir=rtl] .kn-pulse{letter-spacing:0}
+@media(max-width:920px){#tsz-knotless-r352 .kn-layout{grid-template-columns:1fr;gap:25px;padding-top:29px}#tsz-knotless-r352 h2{max-width:700px!important}#tsz-knotless-r352 .kn-stage{max-width:710px;margin:0 auto;width:100%}#tsz-knotless-r352 .kn-tile{max-height:185px}}
+@media(max-width:540px){#tsz-knotless-r352 .kn-shell{padding:16px 12px 25px}#tsz-knotless-r352 .kn-top{padding-bottom:13px;gap:7px}#tsz-knotless-r352 .kn-mark{gap:7px}#tsz-knotless-r352 .kn-mark strong{font-size:8px;max-width:120px;letter-spacing:.04em}#tsz-knotless-r352 .kn-glyph{width:26px;height:26px;font-size:18px}#tsz-knotless-r352 .kn-lang button{font-size:9px;padding:6px 7px}#tsz-knotless-r352 .kn-layout{padding-top:22px;gap:25px}#tsz-knotless-r352 h2{font-size:clamp(37px,10vw,53px)!important;margin:13px 0!important}#tsz-knotless-r352 .kn-lead{font-size:12px}#tsz-knotless-r352 .kn-features{margin-top:15px}#tsz-knotless-r352 .kn-features span{font-size:9px;padding:6px 8px}#tsz-knotless-r352 .kn-pulse{margin-top:22px}#tsz-knotless-r352 .kn-theme{padding:8px 10px;font-size:10px}#tsz-knotless-r352 .kn-stage{padding:13px;border-radius:18px}#tsz-knotless-r352 .kn-tiles{gap:6px}#tsz-knotless-r352 .kn-tile{border-radius:9px}#tsz-knotless-r352 .kn-stage-head{font-size:9px}#tsz-knotless-r352 .kn-foot{display:block}#tsz-knotless-r352 .kn-foot p{margin-top:8px}}
+@media(max-width:350px){#tsz-knotless-r352 .kn-mark strong{max-width:79px;font-size:7px}#tsz-knotless-r352 .kn-lang button{font-size:8px;padding:5px}#tsz-knotless-r352 .kn-stage{padding:10px}}
+@media(prefers-reduced-motion:reduce){#tsz-knotless-r352 .kn-tile,#tsz-knotless-r352 .kn-tile svg{transition:none}}

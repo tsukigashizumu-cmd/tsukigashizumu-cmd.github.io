@@ -1,0 +1,81 @@
+/* TSZ LP R347 | Good Person Test | self-contained no assets */
+#tsz-goodperson-r347{--gp-ink:#f6f2eb;--gp-muted:#adb0b9;--gp-accent:#ffe37d;--gp-line:#363948;--gp-panel:#1c1e29;--gp-deep:#11131b;display:block;max-width:1376px;margin:44px auto;padding:0 18px;isolation:isolate;color:var(--gp-ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;text-align:start;line-height:1.5;box-sizing:border-box}
+#tsz-goodperson-r347 *,#tsz-goodperson-r347 *:before,#tsz-goodperson-r347 *:after{box-sizing:border-box}
+#tsz-goodperson-r347 button{font:inherit;cursor:pointer}
+#tsz-goodperson-r347 button:focus-visible{outline:3px solid #ffe37d;outline-offset:3px}
+#tsz-goodperson-r347 button:disabled{cursor:default}
+#tsz-goodperson-r347 .gp-frame{overflow:hidden;background:radial-gradient(ellipse 65% 58% at 20% 30%,#2a2736 0%,transparent 82%),linear-gradient(130deg,#13141e,#151825 68%,#191e2a);border:1px solid #353849;border-radius:23px;padding:27px 34px 22px;box-shadow:0 24px 70px #0000002d}
+#tsz-goodperson-r347 .gp-header{display:flex;align-items:center;justify-content:space-between;gap:18px;padding-bottom:21px;border-bottom:1px solid var(--gp-line)}
+#tsz-goodperson-r347 .gp-wordmark{display:flex;align-items:center;gap:11px;color:#f6f2eb;font-size:11px;font-weight:850;letter-spacing:.14em}
+#tsz-goodperson-r347 .gp-icon{position:relative;display:grid;place-items:center;width:38px;height:38px;border:1px solid #f4df9e;background:#ffe37d;color:#171821;font-size:22px;font-weight:900;border-radius:10px;transform:rotate(-7deg)}
+#tsz-goodperson-r347 .gp-icon i{position:absolute;right:-4px;bottom:-4px;background:#f292a3;width:10px;height:10px;border:2px solid #11131b;border-radius:50%}
+#tsz-goodperson-r347 .gp-langs{display:flex;gap:3px;align-items:center;direction:ltr;border:1px solid #414553;border-radius:30px;padding:3px;background:#171925}
+#tsz-goodperson-r347 .gp-langs button{background:transparent;border:0;border-radius:20px;color:#bfc1cb;padding:7px 11px;font-size:11px;font-weight:700;min-width:32px;white-space:nowrap}
+#tsz-goodperson-r347 .gp-langs button.on{background:#f4e5aa;color:#171821}
+#tsz-goodperson-r347 .gp-grid{display:grid;grid-template-columns:minmax(0,1.03fr) minmax(0,1fr);gap:38px;padding-top:35px;align-items:start}
+#tsz-goodperson-r347 .gp-story{min-width:0;padding-top:7px}
+#tsz-goodperson-r347 .gp-overline{display:flex;align-items:center;gap:10px;color:#fce69b;font-size:10px;letter-spacing:.12em;font-weight:800}
+#tsz-goodperson-r347 .gp-overline-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#fce69b;box-shadow:0 0 0 5px #fce69b22}
+#tsz-goodperson-r347 .gp-story h2{font-size:clamp(38px,4.6vw,72px);font-weight:900;letter-spacing:-.055em;line-height:1.08;color:var(--gp-ink);margin:23px 0 20px;max-width:600px;overflow-wrap:break-word}
+#tsz-goodperson-r347 .gp-intro{max-width:515px;font-size:14px;line-height:1.85;color:#bcc0cd;margin:0}
+#tsz-goodperson-r347 .gp-provocation{display:flex;align-items:center;gap:9px;color:#ffe37d;font-size:12px;font-weight:850;letter-spacing:.07em;margin:27px 0}
+#tsz-goodperson-r347 .gp-provocation-q{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;border:1px solid #6d664b;color:#f9e5a2}
+#tsz-goodperson-r347 .gp-motif{height:230px;position:relative;border-radius:18px;border:1px solid #313645;background:linear-gradient(160deg,#252838,#191b2a 62%);overflow:hidden;display:flex;align-items:center;justify-content:center}
+#tsz-goodperson-r347 .gp-motif-disc{position:relative;z-index:2;width:181px;height:181px;border:1px solid #b9a777;border-radius:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(circle at 35% 30%,#3d3840,#242637 69%);box-shadow:0 0 0 15px #ffe37d0b,0 0 0 45px #ffe37d04;transform:rotate(-8deg)}
+#tsz-goodperson-r347 .gp-motif-disc span{font-size:16px;font-weight:900;letter-spacing:.18em}
+#tsz-goodperson-r347 .gp-motif-disc b{font-size:65px;line-height:1.1;color:#ffe37d;font-weight:800}
+#tsz-goodperson-r347 .gp-motif-line{position:absolute;width:130%;height:1px;background:#444958;transform:rotate(-18deg)}
+#tsz-goodperson-r347 .gp-motif-l1{top:22%}#tsz-goodperson-r347 .gp-motif-l2{bottom:24%}
+#tsz-goodperson-r347 .gp-motif-n1,#tsz-goodperson-r347 .gp-motif-n2{position:absolute;font-size:10px;font-weight:700;color:#8991a4;letter-spacing:.12em}
+#tsz-goodperson-r347 .gp-motif-n1{top:18px;left:18px}#tsz-goodperson-r347 .gp-motif-n2{right:19px;bottom:18px}
+#tsz-goodperson-r347 .gp-play{min-width:0;min-height:560px;background:linear-gradient(160deg,#252836,#1c1f2b);border:1px solid #4b4d5c;border-radius:20px;padding:23px;box-shadow:0 22px 45px #05060b4b}
+#tsz-goodperson-r347 .gp-playtop{display:flex;justify-content:space-between;align-items:start;gap:10px}
+#tsz-goodperson-r347 .gp-label{display:block;font-size:10px;font-weight:850;letter-spacing:.08em;color:#f6db94}
+#tsz-goodperson-r347 .gp-playtop h3{font-size:12px;letter-spacing:.05em;color:#dadce2;margin:6px 0 0}
+#tsz-goodperson-r347 .gp-count{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;border:1px solid #525462;border-radius:8px;color:#eee3b8;padding:8px 11px;font-size:12px;font-weight:800;white-space:nowrap;direction:ltr}
+#tsz-goodperson-r347 .gp-progress{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:24px 0 25px}
+#tsz-goodperson-r347 .gp-progress span{height:4px;border-radius:99px;background:#4f5262;transition:background .18s}
+#tsz-goodperson-r347 .gp-progress span.done{background:#fce190}
+#tsz-goodperson-r347 .gp-progress span.current{background:#e3a2b1}
+#tsz-goodperson-r347 .gp-question{display:flex;gap:14px;align-items:start;margin:0 0 22px}
+#tsz-goodperson-r347 .gp-question-index{display:grid;place-items:center;flex-shrink:0;width:43px;height:43px;border:1px solid #77738a;border-radius:12px;color:#f4e1aa;font-size:17px;font-weight:800;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;direction:ltr}
+#tsz-goodperson-r347 .gp-question h4{font-size:clamp(20px,2.2vw,29px);line-height:1.32;letter-spacing:-.024em;margin:0;color:#fff7e8;overflow-wrap:anywhere}
+#tsz-goodperson-r347 .gp-question p{font-size:12px;color:#b2b4c1;line-height:1.65;margin:10px 0 0}
+#tsz-goodperson-r347 .gp-options{display:grid;gap:10px}
+#tsz-goodperson-r347 .gp-option{display:grid;grid-template-columns:28px minmax(0,1fr) 18px;align-items:center;gap:13px;min-height:70px;width:100%;border:1px solid #535362;border-radius:11px;background:#2a2d3d;color:#f0f0f0;padding:12px 14px;text-align:start;transition:border-color .15s,background .15s,transform .15s}
+#tsz-goodperson-r347 .gp-option:not(:disabled):hover{background:#35384a;border-color:#dfbd72;transform:translateY(-1px)}
+#tsz-goodperson-r347 .gp-option-key{width:28px;height:28px;display:grid;place-items:center;background:#3a3e51;border:1px solid #555a6d;border-radius:8px;font-size:12px;font-weight:800;color:#eee1bd;direction:ltr}
+#tsz-goodperson-r347 .gp-option-text{font-size:13px;line-height:1.5;font-weight:650;overflow-wrap:break-word}
+#tsz-goodperson-r347 .gp-option-end{font-size:15px;color:#a6a8b4}
+#tsz-goodperson-r347 .gp-option.picked{background:#4d4638;border-color:#f6da84;color:#ffedbd}
+#tsz-goodperson-r347 .gp-option.picked .gp-option-key{background:#f6db94;color:#20222b;border-color:#f6db94}
+#tsz-goodperson-r347 .gp-option.picked .gp-option-end{color:#f6db94}
+#tsz-goodperson-r347 .gp-option.passed{opacity:.43}
+#tsz-goodperson-r347 .gp-actions{margin-top:19px;display:grid;gap:11px}
+#tsz-goodperson-r347 .gp-hint{color:#9da1af;font-size:11px;line-height:1.55;margin:0}
+#tsz-goodperson-r347 .gp-next,#tsz-goodperson-r347 .gp-restart{display:flex;gap:12px;align-items:center;justify-content:space-between;width:100%;padding:13px 17px;min-height:49px;border:1px solid #fce49b;border-radius:11px;background:#ffe39b;color:#22222c;font-size:13px;font-weight:850}
+#tsz-goodperson-r347 .gp-next:disabled{opacity:.36}
+#tsz-goodperson-r347 .gp-result{padding:4px 0}
+#tsz-goodperson-r347 .gp-result[hidden],#tsz-goodperson-r347 .gp-question[hidden],#tsz-goodperson-r347 .gp-options[hidden],#tsz-goodperson-r347 .gp-actions[hidden]{display:none!important}
+#tsz-goodperson-r347 .gp-result-eyebrow{color:#ffe39b;font-size:10px;font-weight:800;letter-spacing:.1em}
+#tsz-goodperson-r347 .gp-result h3{font-size:clamp(25px,2.9vw,39px);letter-spacing:-.04em;line-height:1.2;margin:18px 0 20px}
+#tsz-goodperson-r347 .gp-result-head{font-size:18px;color:#ffe39b;font-weight:850;line-height:1.5;margin:0 0 8px}
+#tsz-goodperson-r347 .gp-result-desc{color:#e1dfdf;font-size:13px;line-height:1.75;margin:0 0 20px}
+#tsz-goodperson-r347 .gp-recap{display:grid;gap:6px;margin-bottom:18px}
+#tsz-goodperson-r347 .gp-recaprow{display:flex;align-items:center;gap:13px;padding:10px 13px;background:#303344;border-radius:9px;border:1px solid #484a5a}
+#tsz-goodperson-r347 .gp-recaprow span{color:#ffdf87;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px}
+#tsz-goodperson-r347 .gp-recaprow strong{font-size:12px}
+#tsz-goodperson-r347 .gp-note{font-size:11px;color:#a7a8b7;line-height:1.65;margin:0 0 17px}
+#tsz-goodperson-r347 .gp-bottom{display:flex;align-items:center;justify-content:space-between;gap:35px;border-top:1px solid #373a48;margin-top:30px;padding:19px 0 12px}
+#tsz-goodperson-r347 .gp-bottom-label{font-weight:850;font-size:13px;color:#ffdf97}
+#tsz-goodperson-r347 .gp-bottom p{font-size:11px;line-height:1.7;color:#bcbfc9;max-width:650px;margin:7px 0 0}
+#tsz-goodperson-r347 .gp-bottom b{flex-shrink:0;max-width:255px;color:#bdb1bd;text-align:end;font-size:11px;letter-spacing:.05em}
+#tsz-goodperson-r347 .gp-legal{font-size:10px;color:#8e909f;line-height:1.7;margin:4px 0 0}
+#tsz-goodperson-r347[dir=rtl] .gp-frame{text-align:right}
+#tsz-goodperson-r347[dir=rtl] .gp-motif-disc{transform:rotate(8deg)}
+#tsz-goodperson-r347[dir=rtl] .gp-motif-n1{left:auto;right:18px}
+#tsz-goodperson-r347[dir=rtl] .gp-motif-n2{right:auto;left:19px}
+#tsz-goodperson-r347[dir=rtl] .gp-bottom b{text-align:left}
+@media(max-width:950px){#tsz-goodperson-r347 .gp-grid{grid-template-columns:1fr;gap:23px}#tsz-goodperson-r347 .gp-story{padding:0}#tsz-goodperson-r347 .gp-motif{display:none}#tsz-goodperson-r347 .gp-provocation{margin:17px 0 5px}#tsz-goodperson-r347 .gp-play{min-height:0}#tsz-goodperson-r347 .gp-story h2{max-width:760px;font-size:clamp(34px,6.2vw,58px)}#tsz-goodperson-r347 .gp-bottom{flex-direction:column;align-items:start;gap:9px}#tsz-goodperson-r347 .gp-bottom b{max-width:none;text-align:start}}
+@media(max-width:430px){#tsz-goodperson-r347{margin:17px auto;padding:0 10px}#tsz-goodperson-r347 .gp-frame{padding:15px 13px 17px;border-radius:15px}#tsz-goodperson-r347 .gp-header{gap:8px;padding-bottom:13px}#tsz-goodperson-r347 .gp-wordmark{font-size:8px;letter-spacing:.015em;gap:6px}#tsz-goodperson-r347 .gp-icon{width:25px;height:25px;border-radius:6px;font-size:15px;flex-shrink:0}#tsz-goodperson-r347 .gp-icon i{width:7px;height:7px}#tsz-goodperson-r347 .gp-langs button{padding:6px;font-size:9px}#tsz-goodperson-r347 .gp-grid{padding-top:21px;gap:20px}#tsz-goodperson-r347 .gp-overline{font-size:9px;letter-spacing:.02em}#tsz-goodperson-r347 .gp-story h2{font-size:clamp(30px,9.2vw,39px);line-height:1.17;letter-spacing:-.035em;margin:13px 0}#tsz-goodperson-r347 .gp-intro{font-size:12px;line-height:1.68}#tsz-goodperson-r347 .gp-provocation{font-size:10px}#tsz-goodperson-r347 .gp-play{padding:15px 12px;border-radius:15px}#tsz-goodperson-r347 .gp-label{font-size:9px;letter-spacing:0}#tsz-goodperson-r347 .gp-playtop h3{font-size:11px}#tsz-goodperson-r347 .gp-count{padding:6px 7px;font-size:10px}#tsz-goodperson-r347 .gp-progress{margin:18px 0 20px}#tsz-goodperson-r347 .gp-question{gap:9px;margin-bottom:17px}#tsz-goodperson-r347 .gp-question-index{width:34px;height:34px;font-size:13px;border-radius:9px}#tsz-goodperson-r347 .gp-question h4{font-size:19px;line-height:1.35}#tsz-goodperson-r347 .gp-question p{font-size:11px;margin:8px 0 0}#tsz-goodperson-r347 .gp-option{grid-template-columns:25px minmax(0,1fr) 12px;gap:8px;min-height:63px;padding:9px 8px}#tsz-goodperson-r347 .gp-option-key{width:25px;height:25px;font-size:11px}#tsz-goodperson-r347 .gp-option-text{font-size:12px;line-height:1.45}#tsz-goodperson-r347 .gp-option-end{font-size:12px}#tsz-goodperson-r347 .gp-hint{font-size:10px}#tsz-goodperson-r347 .gp-bottom{margin-top:20px}#tsz-goodperson-r347 .gp-bottom-label{font-size:12px}#tsz-goodperson-r347 .gp-bottom p{font-size:10px}#tsz-goodperson-r347 .gp-legal{font-size:9px}}
+@media(prefers-reduced-motion:reduce){#tsz-goodperson-r347 *{transition:none!important;animation:none!important}}

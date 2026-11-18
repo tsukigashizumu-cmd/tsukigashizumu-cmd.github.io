@@ -1,0 +1,93 @@
+/* TSZ LP R345 | scoped Buy Price Calculator, CSS-only graphics, no media */
+#tsz-buyprice-r345{--bp-ink:#182d37;--bp-muted:#60717a;--bp-orange:#f36e42;--bp-gold:#ffbd75;--bp-night:#172934;--bp-soft:#fbf6ed;display:block;box-sizing:border-box;width:100%;overflow:hidden;background:var(--bp-soft);color:var(--bp-ink);font:400 14px/1.5 Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;direction:ltr;isolation:isolate;text-align:start}
+#tsz-buyprice-r345 *{box-sizing:border-box}
+#tsz-buyprice-r345 button,#tsz-buyprice-r345 input{font:inherit}
+#tsz-buyprice-r345 button{cursor:pointer}
+#tsz-buyprice-r345 button:focus-visible,#tsz-buyprice-r345 input:focus-visible{outline:3px solid #f28b59;outline-offset:3px}
+#tsz-buyprice-r345 .bp-shell{max-width:1220px;margin:auto;padding:25px clamp(16px,3.2vw,40px) 21px}
+#tsz-buyprice-r345 .bp-header{display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid #ddd9d1;padding-bottom:21px}
+#tsz-buyprice-r345 .bp-logo{display:flex;align-items:center;gap:12px;font-size:10px;font-weight:850;letter-spacing:.11em;min-width:0;color:#183642}
+#tsz-buyprice-r345 .bp-logomark{display:flex;align-items:flex-end;gap:3px;width:30px;height:31px;flex-shrink:0}
+#tsz-buyprice-r345 .bp-logomark i{height:13px;width:8px;border-radius:2px 2px 0 0;background:#f36e42;transform:skew(-12deg)}
+#tsz-buyprice-r345 .bp-logomark i:nth-child(2){height:24px;background:#193742}
+#tsz-buyprice-r345 .bp-logomark i:nth-child(3){height:18px;background:#f3b66b}
+#tsz-buyprice-r345 .bp-lang{display:flex;gap:3px;background:#eae8e1;padding:4px;border-radius:99px;flex-shrink:0}
+#tsz-buyprice-r345 .bp-lang button{background:transparent;border:0;color:#52676e;border-radius:99px;font-size:10px;font-weight:750;padding:7px 10px;min-height:33px}
+#tsz-buyprice-r345 .bp-lang button[aria-pressed="true"]{background:#1c3742;color:#fff;box-shadow:0 2px 6px #1b35432b}
+#tsz-buyprice-r345 .bp-main{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(19px,4vw,70px);align-items:start;padding-top:clamp(28px,4vw,54px)}
+#tsz-buyprice-r345 .bp-left{min-width:0;padding-top:27px;display:flex;flex-direction:column}
+#tsz-buyprice-r345 .bp-kicker{display:flex;align-items:center;gap:10px;font-size:10px;letter-spacing:.13em;font-weight:900;color:#bf704d}
+#tsz-buyprice-r345 .bp-kicker i{height:2px;width:23px;flex-shrink:0;background:#e76a44}
+#tsz-buyprice-r345 .bp-left h2{font-size:clamp(31px,3.55vw,59px);font-weight:850;line-height:1.11;letter-spacing:-.052em;margin:20px 0;max-width:530px;text-wrap:balance;color:#152f38}
+#tsz-buyprice-r345 .bp-lead{color:#61717a;font-size:clamp(14px,1.3vw,17px);line-height:1.83;max-width:450px;margin:0}
+#tsz-buyprice-r345 .bp-sign{margin:45px auto 17px;position:relative;width:min(90%,390px);background:#ed6742;transform:rotate(-3deg);box-shadow:12px 14px 0 #17384419,0 20px 48px #bb6e4638;padding:25px 27px 20px;color:#fff;border-radius:7px}
+#tsz-buyprice-r345 .bp-sign:before,#tsz-buyprice-r345 .bp-sign:after{content:'';position:absolute;width:25px;height:25px;background:var(--bp-soft);border-radius:50%;top:53%}
+#tsz-buyprice-r345 .bp-sign:before{left:-13px}#tsz-buyprice-r345 .bp-sign:after{right:-13px}
+#tsz-buyprice-r345 .bp-sign-top{display:flex;justify-content:space-between;align-items:center;gap:5px}
+#tsz-buyprice-r345 .bp-sign-top>span{font-size:clamp(73px,10vw,120px);font-weight:900;line-height:.95;letter-spacing:-.075em;font-variant-numeric:tabular-nums}
+#tsz-buyprice-r345 .bp-sign-percent{font-size:.44em;vertical-align:super;letter-spacing:0}
+#tsz-buyprice-r345 .bp-sign-top small{font-weight:850;letter-spacing:.17em;font-size:clamp(13px,1.5vw,19px);border:2px solid #fff8;padding:7px;transform:rotate(90deg)}
+#tsz-buyprice-r345 .bp-sign-line{height:1px;border-bottom:2px dashed #fff9;margin-top:13px}
+#tsz-buyprice-r345 .bp-limit-sticker{display:flex;justify-content:space-between;gap:10px;align-items:center;background:#fff8ec;color:#213e46;padding:14px 16px;border-radius:4px;margin-top:17px;transform:rotate(2deg)}
+#tsz-buyprice-r345 .bp-limit-sticker span{font-size:10px;font-weight:750;max-width:110px;letter-spacing:.045em;line-height:1.3}
+#tsz-buyprice-r345 .bp-limit-sticker strong{font-size:clamp(24px,3vw,34px);font-weight:900;letter-spacing:-.04em;white-space:nowrap}
+#tsz-buyprice-r345 .bp-sign-foot{font-size:9px;font-weight:800;letter-spacing:.07em;margin-top:17px;opacity:.93}
+#tsz-buyprice-r345 .bp-promise{margin:20px 0 15px;background:#efe3d2;border-left:3px solid #df8b4d;max-width:470px;padding:12px 14px;display:flex;align-items:center;gap:12px;font-weight:750;font-size:13px}
+#tsz-buyprice-r345 .bp-promise i{font-style:normal;color:#c4743d;font-size:21px}
+#tsz-buyprice-r345 .bp-panel{min-width:0;background:#172f3a;color:#f5f4ed;padding:clamp(17px,2vw,29px);border-radius:23px;box-shadow:0 25px 65px #1d39482f}
+#tsz-buyprice-r345 .bp-panel-head,#tsz-buyprice-r345 .bp-fields-head,#tsz-buyprice-r345 .bp-minihead{display:flex;align-items:center;justify-content:space-between;gap:10px;color:#b5c5cb;font-size:10px;font-weight:800;letter-spacing:.105em;text-transform:uppercase}
+#tsz-buyprice-r345 .bp-panel-head span:last-child,#tsz-buyprice-r345 .bp-minihead span:last-child{color:#68858b;white-space:nowrap}
+#tsz-buyprice-r345 .bp-cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:13px 0 23px}
+#tsz-buyprice-r345 .bp-case{border:1px solid #385662;border-radius:9px;background:#29444f;color:#c7d5d8;min-width:0;font-size:11px;font-weight:700;min-height:45px;padding:8px 5px}
+#tsz-buyprice-r345 .bp-case[aria-pressed="true"]{background:#ffbd75;border-color:#ffd5a0;color:#17323a}
+#tsz-buyprice-r345 .bp-fields-head{border-top:1px solid #38515c;padding-top:20px;margin-bottom:12px}
+#tsz-buyprice-r345 .bp-fields-head small{font-size:9px;color:#829ca4;font-weight:650;letter-spacing:0;text-transform:none}
+#tsz-buyprice-r345 .bp-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+#tsz-buyprice-r345 .bp-fields label{display:flex;flex-direction:column;gap:6px;min-width:0;color:#c1d0d1;font-size:11px;font-weight:650}
+#tsz-buyprice-r345 .bp-input{display:flex;align-items:center;gap:5px;border:1px solid #e4e2d6;border-radius:9px;background:#fffaf1;padding:0 10px;min-width:0;height:49px;color:#547079}
+#tsz-buyprice-r345 .bp-input input{border:0;background:transparent;color:#18313b;font-size:20px;font-weight:800;min-width:0;width:100%;outline:0!important;font-variant-numeric:tabular-nums;padding:5px 0;line-height:1.3}
+#tsz-buyprice-r345 .bp-input i{font-size:13px;font-weight:800;font-style:normal;color:#6c8187}
+#tsz-buyprice-r345 .bp-error{color:#ffd0b9;border:1px solid #9b625a;border-radius:9px;background:#673b381a;padding:11px 12px;font-size:12px;margin-top:10px}
+#tsz-buyprice-r345 .bp-error[hidden]{display:none}
+#tsz-buyprice-r345 .bp-threshold{margin-top:26px;border:1px solid #42606b;border-radius:14px;padding:18px;background:linear-gradient(145deg,#274650,#1b3540)}
+#tsz-buyprice-r345 .bp-threshold-row{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:13px 0 18px}
+#tsz-buyprice-r345 .bp-big{color:#ffbb79;font-size:clamp(43px,5vw,75px);font-weight:900;letter-spacing:-.064em;line-height:1.02;font-variant-numeric:tabular-nums}
+#tsz-buyprice-r345 .bp-threshold-row small{display:block;color:#b3c6ca;font-size:10px;font-weight:800;letter-spacing:.1em;margin-top:3px}
+#tsz-buyprice-r345 .bp-threshold-doodle{position:relative;width:72px;height:72px;flex-shrink:0;border-radius:50%;border:2px dashed #ffbe78a0;transform:rotate(-17deg)}
+#tsz-buyprice-r345 .bp-threshold-doodle i{position:absolute;left:31px;top:12px;background:#ffbb79;width:3px;height:42px;border-radius:10px}
+#tsz-buyprice-r345 .bp-threshold-doodle b{position:absolute;left:18px;top:22px;width:29px;height:29px;border:3px solid #ffbb79;border-radius:50%}
+#tsz-buyprice-r345 .bp-outcome{border-radius:11px;padding:12px;display:flex;align-items:flex-start;gap:11px;background:#463b34;border:1px solid #6c564b;color:#ffccad}
+#tsz-buyprice-r345 .bp-outcome[data-state="met"]{background:#183e3b;color:#a7ead2;border-color:#31635c}
+#tsz-buyprice-r345 .bp-outcome-icon{height:28px;width:28px;display:flex;align-items:center;justify-content:center;background:#b57c50;color:#1b3035;border-radius:50%;font-size:16px;font-weight:900;flex-shrink:0}
+#tsz-buyprice-r345 .bp-outcome[data-state="met"] .bp-outcome-icon{background:#a7ead2}
+#tsz-buyprice-r345 .bp-outcome strong{font-size:11px;letter-spacing:.035em}
+#tsz-buyprice-r345 .bp-outcome p{font-size:11px;line-height:1.5;margin:4px 0 0;color:#c5c9c5}
+#tsz-buyprice-r345 .bp-totals{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:17px}
+#tsz-buyprice-r345 .bp-totals>div{display:flex;flex-direction:column;gap:5px;min-width:0}
+#tsz-buyprice-r345 .bp-totals span{color:#a9c0c6;font-size:10px;line-height:1.45}
+#tsz-buyprice-r345 .bp-totals strong{color:#fff5e7;font-size:clamp(15px,1.6vw,20px);font-variant-numeric:tabular-nums;letter-spacing:-.02em;overflow-wrap:anywhere}
+#tsz-buyprice-r345 .bp-compare{border-top:1px solid #3e5862;margin-top:20px;padding-top:19px}
+#tsz-buyprice-r345 .bp-barlabel{display:flex;justify-content:space-between;gap:8px;align-items:center;color:#b4c5c9;font-size:11px;margin:11px 0 4px}
+#tsz-buyprice-r345 .bp-barlabel strong{color:#ebf1ec;font-variant-numeric:tabular-nums}
+#tsz-buyprice-r345 .bp-bar{height:9px;background:#2c4852;border-radius:99px;overflow:hidden}
+#tsz-buyprice-r345 .bp-bar i{display:block;height:100%;background:#ffbd75;border-radius:99px;transition:width .14s ease}
+#tsz-buyprice-r345 .bp-bar-sale i{background:#8fa8b0}
+#tsz-buyprice-r345 .bp-formula{display:flex;flex-direction:column;gap:5px;margin-top:16px;padding:13px;border-radius:9px;background:#29434d}
+#tsz-buyprice-r345 .bp-formula small{font-size:10px;color:#ffd4a4;font-weight:850;letter-spacing:.07em}
+#tsz-buyprice-r345 .bp-formula span{font-size:10px;color:#cad7d8}
+#tsz-buyprice-r345 .bp-formula em{font-style:normal;font-size:10px;color:#a3bbc1;line-height:1.55;margin-top:3px}
+#tsz-buyprice-r345 .bp-reset{display:flex;justify-content:space-between;align-items:center;gap:10px;width:100%;border:1px solid #557079;background:transparent;color:#dce9e8;min-height:45px;margin-top:16px;border-radius:9px;padding:9px 13px;text-align:start;font-size:12px;font-weight:700}
+#tsz-buyprice-r345 .bp-reset b{font-size:18px;font-weight:400}
+#tsz-buyprice-r345 .bp-footer{border-top:1px solid #e2ddd5;margin-top:27px;padding-top:16px;display:flex;justify-content:space-between;gap:15px;color:#65737b;font-size:10px;line-height:1.6}
+#tsz-buyprice-r345 .bp-footer span:first-child{font-weight:800;color:#24414a;min-width:150px;letter-spacing:.04em}
+#tsz-buyprice-r345 .bp-footer span:last-child{max-width:760px}
+#tsz-buyprice-r345[dir="rtl"] .bp-sign{transform:rotate(3deg)}
+#tsz-buyprice-r345[dir="rtl"] .bp-limit-sticker{transform:rotate(-2deg)}
+#tsz-buyprice-r345[dir="rtl"] .bp-promise{border-left:none;border-right:3px solid #df8b4d}
+#tsz-buyprice-r345[dir="rtl"] .bp-logo,#tsz-buyprice-r345[dir="rtl"] .bp-kicker{letter-spacing:0}
+#tsz-buyprice-r345[dir="rtl"] .bp-input{direction:ltr;text-align:left}
+#tsz-buyprice-r345[dir="rtl"] .bp-input input{text-align:left}
+#tsz-buyprice-r345[dir="rtl"] .bp-threshold-row,#tsz-buyprice-r345[dir="rtl"] .bp-totals strong{direction:ltr;text-align:left}
+@media(max-width:900px){#tsz-buyprice-r345 .bp-main{grid-template-columns:1fr;gap:25px;padding-top:25px}#tsz-buyprice-r345 .bp-left{padding-top:0}#tsz-buyprice-r345 .bp-left h2{max-width:670px;margin:12px 0}#tsz-buyprice-r345 .bp-lead{max-width:660px}#tsz-buyprice-r345 .bp-sign{display:none}#tsz-buyprice-r345 .bp-promise{margin:17px 0 0;max-width:none}#tsz-buyprice-r345 .bp-footer{flex-direction:column}}
+@media(max-width:420px){#tsz-buyprice-r345 .bp-shell{padding:15px 13px}#tsz-buyprice-r345 .bp-logo{font-size:8px;letter-spacing:.05em;gap:7px}#tsz-buyprice-r345 .bp-logomark{transform:scale(.78);transform-origin:center left;width:24px}#tsz-buyprice-r345 .bp-lang button{padding:7px 7px;font-size:9px}#tsz-buyprice-r345 .bp-header{gap:4px;padding-bottom:13px}#tsz-buyprice-r345 .bp-left h2{font-size:clamp(27px,8.1vw,34px);letter-spacing:-.04em}#tsz-buyprice-r345 .bp-kicker{font-size:9px;letter-spacing:.06em}#tsz-buyprice-r345 .bp-lead{font-size:13px;line-height:1.66}#tsz-buyprice-r345 .bp-panel{padding:15px;border-radius:15px}#tsz-buyprice-r345 .bp-cases{gap:4px}#tsz-buyprice-r345 .bp-case{font-size:10px;padding:6px 4px;min-height:47px}#tsz-buyprice-r345 .bp-fields{gap:9px}#tsz-buyprice-r345 .bp-input{padding:0 6px;height:45px}#tsz-buyprice-r345 .bp-input input{font-size:17px}#tsz-buyprice-r345 .bp-threshold{padding:12px}#tsz-buyprice-r345 .bp-big{font-size:48px}#tsz-buyprice-r345 .bp-threshold-doodle{width:49px;height:49px}#tsz-buyprice-r345 .bp-threshold-doodle i{left:22px;top:8px;height:32px}#tsz-buyprice-r345 .bp-threshold-doodle b{left:12px;top:12px;width:24px;height:24px}#tsz-buyprice-r345 .bp-totals{gap:4px}#tsz-buyprice-r345 .bp-totals strong{font-size:13px}#tsz-buyprice-r345 .bp-totals span{font-size:9px}#tsz-buyprice-r345 .bp-formula span{font-size:9px}}
+@media(prefers-reduced-motion:reduce){#tsz-buyprice-r345 .bp-bar i{transition:none}}

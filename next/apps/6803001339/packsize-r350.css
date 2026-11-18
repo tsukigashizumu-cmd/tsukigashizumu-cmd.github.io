@@ -1,0 +1,89 @@
+/* TSZ LP R350 · Pack Size Price Compare · independent scoped design, text-only */
+#tsz-packsize-r350{direction:ltr;isolation:isolate;box-sizing:border-box;width:100%;max-width:100%;overflow:hidden;background:#f4f3ed;color:#1a2e37;font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;font-size:14px;line-height:1.5}
+#tsz-packsize-r350 *{box-sizing:border-box}
+#tsz-packsize-r350 button,#tsz-packsize-r350 input{font:inherit}
+#tsz-packsize-r350 button{cursor:pointer}
+#tsz-packsize-r350 button:focus-visible,#tsz-packsize-r350 input:focus-visible{outline:3px solid #94ddd0;outline-offset:3px}
+#tsz-packsize-r350 .ps-frame{max-width:1230px;margin:0 auto;padding:26px clamp(15px,3vw,46px) 28px}
+#tsz-packsize-r350 .ps-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:22px;border-bottom:1px solid #cfd8d1;flex-wrap:wrap}
+#tsz-packsize-r350 .ps-brand{display:flex;gap:12px;align-items:center;min-width:0}
+#tsz-packsize-r350 .ps-brand strong{font-size:11px;letter-spacing:.16em;color:#244044}
+#tsz-packsize-r350 .ps-mark{width:34px;height:34px;border-radius:9px;background:#1a3d42;display:flex;gap:2px;align-items:flex-end;justify-content:center;padding:8px 7px;flex-shrink:0;transform:rotate(-8deg)}
+#tsz-packsize-r350 .ps-mark i{height:11px;flex:1;background:#d6efad;border-radius:2px}
+#tsz-packsize-r350 .ps-mark i:nth-child(2){height:18px;background:#f7cf94}
+#tsz-packsize-r350 .ps-mark i:nth-child(3){height:14px;background:#80c4bf}
+#tsz-packsize-r350 .ps-languages{display:flex;gap:5px;flex-wrap:wrap;align-items:center}
+#tsz-packsize-r350 .ps-languages button{background:transparent;border:1px solid #cbd7d2;border-radius:8px;padding:7px 9px;font-size:11px;color:#455d60}
+#tsz-packsize-r350 .ps-languages button[aria-pressed="true"]{background:#244248;color:#fff;border-color:#244248}
+#tsz-packsize-r350 .ps-main{display:grid;grid-template-columns:minmax(0,.90fr) minmax(0,1.10fr);gap:clamp(22px,4vw,57px);margin-top:30px;align-items:start}
+#tsz-packsize-r350 .ps-story{min-width:0;padding-top:13px}
+#tsz-packsize-r350 .ps-kicker{color:#537b79;font-size:10px;font-weight:850;letter-spacing:.18em}
+#tsz-packsize-r350 .ps-story h2{font-size:clamp(30px,3.6vw,53px)!important;font-weight:900!important;line-height:1.13!important;letter-spacing:-.055em!important;color:#1b383c!important;margin:17px 0!important;max-width:515px}
+#tsz-packsize-r350 .ps-lead{max-width:500px;font-size:clamp(13px,1.3vw,16px);line-height:1.86;color:#526a68;margin:0}
+#tsz-packsize-r350 .ps-metaphor{margin-top:29px;border-radius:17px;background:#dfe9de;border:1px solid #c8dacc;padding:24px 20px 20px;box-shadow:inset 0 1px #ffffffb3}
+#tsz-packsize-r350 .ps-boxes{height:144px;display:flex;gap:clamp(10px,2vw,25px);justify-content:center;align-items:flex-end}
+#tsz-packsize-r350 .ps-visual-box{border-radius:10px 10px 4px 4px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;box-shadow:7px 9px 0 #1f48451f, inset -13px 0 #ffffff1c;flex-shrink:0}
+#tsz-packsize-r350 .ps-visual-box:after{content:"";height:8px;position:absolute;bottom:15px;left:14%;right:14%;background:#ffffff3b;border-radius:2px}
+#tsz-packsize-r350 .ps-vsmall{width:86px;height:100px;background:#30665e;color:#f5ffda}
+#tsz-packsize-r350 .ps-vbulk{width:120px;height:137px;background:#f1c887;color:#334540}
+#tsz-packsize-r350 .ps-visual-box span{font-weight:900;font-size:39px;letter-spacing:-.07em;line-height:1}
+#tsz-packsize-r350 .ps-visual-box small{font-weight:850;font-size:10px;letter-spacing:.12em}
+#tsz-packsize-r350 .ps-vs{font-size:12px;font-weight:900;align-self:center;color:#637b78;letter-spacing:.1em}
+#tsz-packsize-r350 .ps-metaphor-text{padding-top:18px;text-align:center}
+#tsz-packsize-r350 .ps-metaphor-text strong{font-size:11px;letter-spacing:.13em;color:#1f5d55}
+#tsz-packsize-r350 .ps-metaphor-text p{font-size:13px;color:#4b6761;margin:6px 0 0}
+#tsz-packsize-r350 .ps-section-num{margin:27px 0 12px;font-size:10px;color:#1d645e;font-weight:900;letter-spacing:.15em}
+#tsz-packsize-r350 .ps-section-num span{color:#3b5959;margin-inline-start:9px}
+#tsz-packsize-r350 .ps-examples{display:flex;flex-direction:column;gap:7px}
+#tsz-packsize-r350 .ps-example{border:1px solid #d1ded7;border-radius:9px;padding:12px 15px;min-height:44px;background:#fffefb;color:#385a5b;text-align:start;font-size:13px;font-weight:760}
+#tsz-packsize-r350 .ps-example[aria-pressed="true"]{background:#245250;color:#fff;border-color:#245250;box-shadow:0 4px 15px #24525022}
+#tsz-packsize-r350 .ps-motto{font-size:11px;font-weight:850;letter-spacing:.13em;color:#50746f;margin:24px 0 0}
+#tsz-packsize-r350 .ps-console{min-width:0;border-radius:22px;padding:clamp(16px,2.5vw,26px);background:#132e35;color:#f7faef;box-shadow:0 24px 50px #112a3440}
+#tsz-packsize-r350 .ps-console-head{display:flex;align-items:start;justify-content:space-between;gap:11px;flex-wrap:wrap;font-size:10px;font-weight:900;letter-spacing:.12em;color:#b1cac3}
+#tsz-packsize-r350 .ps-console-head small{font-size:10px;font-weight:650;letter-spacing:0;color:#8da7a4}
+#tsz-packsize-r350 .ps-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin-top:19px}
+#tsz-packsize-r350 .ps-option{border:1px solid #36565c;border-radius:15px;padding:13px;background:#204049;min-width:0;transition:border-color .15s}
+#tsz-packsize-r350 .ps-option[data-winner="true"]{border-color:#c9f4b7;box-shadow:inset 0 0 0 1px #c9f4b740}
+#tsz-packsize-r350 .ps-option header{display:flex;align-items:center;gap:8px;min-height:32px;margin-bottom:15px}
+#tsz-packsize-r350 .ps-option header strong{font-size:11px;line-height:1.45;min-width:0;color:#e7f5ee}
+#tsz-packsize-r350 .ps-letter{display:flex;width:30px;height:30px;border-radius:8px;background:#bdeac6;color:#24464c;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+#tsz-packsize-r350 [data-option="b"] .ps-letter{background:#f6d69e}
+#tsz-packsize-r350 .ps-fields{display:flex;flex-direction:column;gap:11px}
+#tsz-packsize-r350 .ps-field{display:flex;flex-direction:column;gap:5px;min-width:0;font-size:10px;color:#c4d9d6;font-weight:700;line-height:1.45}
+#tsz-packsize-r350 .ps-control{display:flex;align-items:center;gap:4px;min-width:0;border-radius:8px;background:#f9f8ef;border:1px solid #d5e1db;padding:0 9px;height:39px;color:#527571}
+#tsz-packsize-r350 .ps-control input{width:100%;min-width:0;background:transparent!important;border:0!important;box-shadow:none!important;outline:none!important;color:#1a3c43!important;font-size:15px!important;padding:3px 0!important;font-weight:850!important;font-variant-numeric:tabular-nums;text-align:start}
+#tsz-packsize-r350 .ps-control b,#tsz-packsize-r350 .ps-control em{font-size:12px;font-weight:850;font-style:normal;flex-shrink:0;color:#557f75}
+#tsz-packsize-r350 .ps-count{border-top:1px solid #42616a;padding-top:13px;margin-top:17px;display:flex;flex-direction:column;gap:3px}
+#tsz-packsize-r350 .ps-count span,#tsz-packsize-r350 .ps-per span{font-size:10px;color:#a8c8c0}
+#tsz-packsize-r350 .ps-count strong{font-size:20px;font-weight:850;line-height:1.2;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+#tsz-packsize-r350 .ps-per{padding-top:14px;display:flex;flex-direction:column;gap:2px}
+#tsz-packsize-r350 .ps-per strong{font-size:clamp(18px,2vw,25px);color:#e5f6b5;font-weight:900;letter-spacing:-.04em;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+#tsz-packsize-r350 .ps-error{margin-top:13px;padding:11px;background:#604138;color:#ffe4ca;border:1px solid #ab7660;border-radius:9px;font-size:11px;line-height:1.6}
+#tsz-packsize-r350 .ps-error[hidden]{display:none}
+#tsz-packsize-r350 .ps-verdict{border:1px solid #456f68;border-radius:16px;background:linear-gradient(125deg,#245849,#2e4e51);margin-top:20px;padding:19px}
+#tsz-packsize-r350 .ps-verdict-kicker{font-weight:850;font-size:10px;letter-spacing:.15em;color:#bad1c4;margin-bottom:9px}
+#tsz-packsize-r350 .ps-verdict>strong{font-size:clamp(18px,2vw,25px);line-height:1.2;display:block;font-weight:900;color:#f4ffdb}
+#tsz-packsize-r350 .ps-verdict-note{margin-top:7px;font-size:13px;color:#deecd2;line-height:1.5}
+#tsz-packsize-r350 .ps-bars{display:grid;gap:12px;margin-top:19px}
+#tsz-packsize-r350 .ps-bars>div{display:grid;grid-template-columns:16px minmax(0,1fr) 80px;align-items:center;gap:11px}
+#tsz-packsize-r350 .ps-bars b{font-size:11px;color:#e7f3e8}
+#tsz-packsize-r350 .ps-track{height:11px;background:#12322d;border-radius:20px;overflow:hidden}
+#tsz-packsize-r350 .ps-track i{display:block;background:#baeec0;border-radius:20px;height:100%;transition:width .16s}
+#tsz-packsize-r350 .ps-bars>div:nth-child(2) .ps-track i{background:#f6cd9c}
+#tsz-packsize-r350 .ps-bars small{text-align:end;font-size:10px;color:#e6f1e6;font-weight:700;font-variant-numeric:tabular-nums}
+#tsz-packsize-r350 .ps-formula{margin-top:16px;padding:15px 0 12px;border-top:1px solid #3f5b5f}
+#tsz-packsize-r350 .ps-formula strong{font-size:10px;letter-spacing:.14em;color:#c6d9cb}
+#tsz-packsize-r350 .ps-formula p{font-size:11px;line-height:1.75;color:#a4bdb8;margin:7px 0 0}
+#tsz-packsize-r350 .ps-reset{background:transparent;border:1px solid #527477;padding:10px 14px;border-radius:9px;color:#e7f3e9;font-size:11px;font-weight:800;display:flex;gap:15px;align-items:center;justify-content:space-between;width:100%;margin-top:6px}
+#tsz-packsize-r350 .ps-reset b{font-size:20px;line-height:1}
+#tsz-packsize-r350 .ps-footer{margin-top:22px;border-top:1px solid #cfd8d1;padding-top:17px;display:flex;gap:30px;align-items:start;justify-content:space-between}
+#tsz-packsize-r350 .ps-footer strong{font-size:10px;font-weight:850;letter-spacing:.12em;min-width:200px}
+#tsz-packsize-r350 .ps-footer p{max-width:800px;margin:0;font-size:11px;line-height:1.65;color:#657c7b}
+#tsz-packsize-r350[dir="rtl"] .ps-motto{letter-spacing:0}
+#tsz-packsize-r350[dir="rtl"] .ps-brand strong{letter-spacing:0}
+#tsz-packsize-r350[dir="rtl"] .ps-kicker{letter-spacing:0}
+#tsz-packsize-r350[dir="rtl"] .ps-console-head{letter-spacing:0}
+#tsz-packsize-r350[dir="rtl"] .ps-vs{letter-spacing:0}
+@media(max-width:850px){#tsz-packsize-r350 .ps-main{grid-template-columns:1fr;gap:26px}#tsz-packsize-r350 .ps-story{padding-top:0}#tsz-packsize-r350 .ps-metaphor{max-width:600px}#tsz-packsize-r350 .ps-examples{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}#tsz-packsize-r350 .ps-motto{margin:15px 0 0}}
+@media(max-width:530px){#tsz-packsize-r350 .ps-frame{padding:17px 13px 22px}#tsz-packsize-r350 .ps-header{gap:11px;padding-bottom:16px}#tsz-packsize-r350 .ps-brand strong{font-size:9px}#tsz-packsize-r350 .ps-header nav{margin-inline-start:auto}#tsz-packsize-r350 .ps-languages button{font-size:10px;padding:6px 7px}#tsz-packsize-r350 .ps-main{margin-top:19px;gap:22px}#tsz-packsize-r350 .ps-story h2{font-size:clamp(29px,9vw,40px)!important;margin:12px 0!important}#tsz-packsize-r350 .ps-metaphor{padding:14px 11px;margin-top:18px}#tsz-packsize-r350 .ps-boxes{height:110px}#tsz-packsize-r350 .ps-vsmall{height:75px;width:67px}#tsz-packsize-r350 .ps-vbulk{height:106px;width:95px}#tsz-packsize-r350 .ps-visual-box span{font-size:29px}#tsz-packsize-r350 .ps-examples{display:flex}#tsz-packsize-r350 .ps-example{min-height:42px}#tsz-packsize-r350 .ps-console{border-radius:16px;padding:13px}#tsz-packsize-r350 .ps-options{gap:7px;margin-top:14px}#tsz-packsize-r350 .ps-option{padding:9px 8px;border-radius:10px}#tsz-packsize-r350 .ps-option header{gap:5px;min-height:45px;margin-bottom:10px}#tsz-packsize-r350 .ps-option header strong{font-size:10px}#tsz-packsize-r350 .ps-letter{width:24px;height:24px;font-size:12px;border-radius:6px}#tsz-packsize-r350 .ps-fields{gap:8px}#tsz-packsize-r350 .ps-field{font-size:9px}#tsz-packsize-r350 .ps-control{padding:0 5px;height:35px}#tsz-packsize-r350 .ps-control input{font-size:13px!important}#tsz-packsize-r350 .ps-count strong{font-size:16px}#tsz-packsize-r350 .ps-per strong{font-size:19px}#tsz-packsize-r350 .ps-verdict{padding:14px;margin-top:14px}#tsz-packsize-r350 .ps-bars>div{grid-template-columns:13px minmax(0,1fr) 67px;gap:6px}#tsz-packsize-r350 .ps-footer{display:block}#tsz-packsize-r350 .ps-footer p{margin-top:10px}}
+@media(max-width:350px){#tsz-packsize-r350 .ps-frame{padding-inline:10px}#tsz-packsize-r350 .ps-languages button{padding:5px 6px}#tsz-packsize-r350 .ps-option{padding:8px 6px}#tsz-packsize-r350 .ps-option header strong{font-size:9px}#tsz-packsize-r350 .ps-control input{font-size:12px!important}#tsz-packsize-r350 .ps-console{padding:10px}}
