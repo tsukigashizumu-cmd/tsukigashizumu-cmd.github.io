@@ -18,6 +18,7 @@
   const FALLBACK_MESSAGE='The article overview and some interactive examples are not translated into this language. English text may still appear. The App Store description uses an available listing language.';
   const JA_MESSAGE='ページ本文の一部と操作型デモには未翻訳の英語が残っています。App Storeの説明文は掲載済みの言語で表示します。';
   const ES_MESSAGE='Traducción editorial al español en revisión. Algunas partes de la página pueden seguir en inglés; la descripción de App Store utiliza los datos disponibles.';
+  const FR_MESSAGE='Traduction française provisoire. Certaines sections de la page restent en anglais ; la description App Store dépend des données disponibles.';
   const DEMO_MESSAGE='This interactive example is displayed in English because a translation for the selected page language is not available.';
   let common=null, serial=0;
   const language=()=>$('p19-language')?.value||'en-US';
@@ -32,18 +33,18 @@
   }
   function synchronizeDemo(loc){
     const root=$('tsz-promptdock-r351');if(!root)return;
-    const supported=/^es-MX$/i.test(loc)?'es-MX':/^es/i.test(loc)?'es-ES':loc.startsWith('ja')?'ja':(loc.startsWith('ar')?'ar':'en');
+    const supported=/^fr-CA$/i.test(loc)?'fr-CA':/^fr/i.test(loc)?'fr-FR':/^es-MX$/i.test(loc)?'es-MX':/^es/i.test(loc)?'es-ES':loc.startsWith('ja')?'ja':(loc.startsWith('ar')?'ar':'en');
     const button=root.querySelector('[data-lang="'+supported+'"]');
     if(button&&button.getAttribute('aria-pressed')!=='true')button.click();
     else if(typeof window.TSZ_PD_R351_RENDER==='function')window.TSZ_PD_R351_RENDER();
-    if(window.TSZ_PD_R374&&!/^es(?:-(?:ES|MX))?$/i.test(loc))window.TSZ_PD_R374.apply(root,loc);
+    if(window.TSZ_PD_R374&&!/^(?:es(?:-(?:ES|MX))?|fr(?:-(?:FR|CA))?)$/i.test(loc))window.TSZ_PD_R374.apply(root,loc);
     const nav=root.querySelector('.pd-langs');
     if(nav){nav.style.display='none';nav.setAttribute('aria-hidden','true');}
     root.dataset.tszR372SelectedLocale=loc;
     root.dataset.tszR372Fallback=String(!(
       (supported==='ja'&&loc.startsWith('ja'))||
       (supported==='ar'&&loc.startsWith('ar'))||
-      (supported==='en'&&loc.startsWith('en'))||(/^es(?:-(?:ES|MX))?$/i.test(loc)&&supported.startsWith('es'))
+      (supported==='en'&&loc.startsWith('en'))||(/^es(?:-(?:ES|MX))?$/i.test(loc)&&supported.startsWith('es'))||(/^fr(?:-(?:FR|CA))?$/i.test(loc)&&supported.startsWith('fr'))
     ));
     const warning=notice('tsz-promptdock-r372-demo-notice',root.querySelector('.pd-shell')||root,true);
     const needFallback=root.dataset.tszR372Fallback==='true';
@@ -70,8 +71,8 @@
     document.documentElement.dir=RTL.has(loc)?'rtl':'ltr';
     const n=notice('tsz-promptdock-r372-translation-notice',$('p19-detail'),true);
     n.hidden=loc==='en-US';
-    n.textContent=loc.startsWith('ja')?JA_MESSAGE:loc.startsWith('es')?ES_MESSAGE:FALLBACK_MESSAGE;
-    n.lang=loc.startsWith('ja')?'ja':loc.startsWith('es')?'es':'en';
+    n.textContent=loc.startsWith('ja')?JA_MESSAGE:loc.startsWith('es')?ES_MESSAGE:loc.startsWith('fr')?FR_MESSAGE:FALLBACK_MESSAGE;
+    n.lang=loc.startsWith('ja')?'ja':loc.startsWith('es')?'es':loc.startsWith('fr')?'fr':'en';
     n.dir=loc.startsWith('ja')?'ltr':'ltr';
     n.dataset.tszR372TranslationStatus='PARTIAL_NOT_NATIVE_REVIEWED';
     synchronizeDemo(loc);
