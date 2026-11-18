@@ -465,6 +465,13 @@
     $('p199-modal-prev').disabled=m.length<2;$('p199-modal-next').disabled=m.length<2;
   }
   function openViewer(i){const dialog=$('p199-dialog');if(!dialog||!state.media.length)return;oneToOne=false;viewerShow(i);if(!dialog.open)dialog.showModal();}
+  // R365: single page-language contract for opt-in LP modules.
+  // Dispatch only after the shared page has rendered; no DOM observers or network calls.
+  function announceLocale(reason){
+    window.dispatchEvent(new CustomEvent('tsz:locale-change',{detail:{
+      locale:state.locale,dir:rtl.has(state.locale)?'rtl':'ltr',reason,version:1
+    }}));
+  }
   function bind(){
     $('p199-slide-prev').addEventListener('click',()=>{state.slide=(state.slide-1+state.media.length)%state.media.length;renderScreens();});
     $('p199-slide-next').addEventListener('click',()=>{state.slide=(state.slide+1)%state.media.length;renderScreens();});
@@ -473,7 +480,7 @@
     $('p199-fit').addEventListener('click',()=>{oneToOne=false;viewerShow(viewerIndex);});$('p199-actual').addEventListener('click',()=>{oneToOne=true;viewerShow(viewerIndex);});
     $('p199-dialog').addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();viewerShow(viewerIndex+1);}else if(e.key==='ArrowLeft'){e.preventDefault();viewerShow(viewerIndex-1);}});
     window.addEventListener('scroll',()=>{if(!window.__p199Frame){window.__p199Frame=requestAnimationFrame(()=>{window.__p199Frame=0;updateChapters();});}},{passive:true});
-    $('p199-language').addEventListener('change',()=>{state.locale=$('p199-language').value;try{localStorage.setItem('tsz-next-language',state.locale);}catch(_){}render();});
+    $('p199-language').addEventListener('change',()=>{state.locale=$('p199-language').value;try{localStorage.setItem('tsz-next-language',state.locale);}catch(_){}render();announceLocale('change');});
     $('p199-country').addEventListener('change',()=>{state.country=$('p199-country').value;try{localStorage.setItem('tsz-next-storefront-manual-v1',state.country);}catch(_){}render();void loadScreens();});
     $('p199-dialog').addEventListener('click',e=>{if(e.target===$('p199-dialog'))$('p199-dialog').close();});
   }
@@ -493,7 +500,7 @@
       for(const locale of locales){const opt=make('option','',locale);opt.value=locale;$('p199-language').append(opt);}
       for(const country of countries){const opt=make('option','',country);opt.value=country;$('p199-country').append(opt);}
       $('p199-language').value=state.locale;$('p199-country').value=state.country;
-      $('p199-status').hidden=true;$('p199-content').hidden=false;render();void loadScreens();
+      $('p199-status').hidden=true;$('p199-content').hidden=false;render();announceLocale('init');void loadScreens();
       if(location.hash){const key=location.hash.slice(1);if(/^[a-z-]+$/.test(key)&&$(key)){requestAnimationFrame(()=>$(key).scrollIntoView());}}
     }catch(e){console.warn('P199_DATA_UNAVAILABLE',e.message);$('p199-status').textContent=strings.en.error;}
   }
