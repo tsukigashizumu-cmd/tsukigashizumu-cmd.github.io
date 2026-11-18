@@ -41,6 +41,16 @@
     return {value:by[loc],locale:loc,source:'asc',fallback:loc!==state.locale};
   }
   function title(){return state.asc.apps?.[id]?.nameByLocale?.[state.locale]||getApp().name;}
+  // R369: JA/EN editorials are source-specific. Other locales must not silently inherit English prose.
+  const hasJaEnEditorial=()=>/^(?:ja|en)(?:-|$)/i.test(state.locale);
+  function r369GallerySource(shot){
+    const d=desc(),t=tx();
+    // General ASC product descriptions are not claims about an individual screenshot.
+    const paragraphs=paras(d.value);
+    const source=paragraphs.length>1?paragraphs[1]:paragraphs[0]||'';
+    return {eyebrow:t.screen,heading:title(),body:d.fallback?escLocale(t.fallback,{locale:d.locale}):(compactSource(source,220)||t.imageSource)};
+  }
+
   function subtitle(){return state.asc.apps?.[id]?.subtitleByLocale?.[state.locale]||'';}
   function paras(s){return String(s||'').replace(/\r\n/g,'\n').trim().split(/\n\s*\n/).map(p=>p.trim()).filter(Boolean);}
   function opening(s){
@@ -62,7 +72,7 @@
   // R39R5R5: PuddingScoop only. Source-locked editorial translation, not an ASC mutation.
   const PUDDING_FEATURES_I18N = {"sourceEn":["The rules are easy.\nKeep scooping to raise your score, then pull back before the caramel appears.","Maybe you can go a little further.\nBut the next scoop might end it.","Enjoy that small push-your-luck moment in short, quick sessions."],"sourceJa":["遊び方はかんたん。\nプリンをすくい続けてスコアを伸ばし、カラメルが出る前に引き返します。","まだいけそう。\nでも、次で終わるかもしれない。","そんな小さな駆け引きを、短い時間で手軽に楽しめます。"],"translations":{"de-DE":["Die Regeln sind einfach.\nSchöpfe weiter, um deine Punktzahl zu erhöhen, und höre auf, bevor das Karamell erscheint.","Vielleicht schaffst du noch einen Löffel.\nDoch der nächste könnte die Runde beenden.","Genieße diesen kleinen Nervenkitzel zwischen Weitermachen und rechtzeitigem Aufhören – auch in kurzen Spielpausen."],"ar-SA":["القواعد بسيطة.\nواصل غرف البودينغ لرفع نقاطك، ثم توقّف قبل ظهور الكراميل.","ربما تستطيع أن تغرف ملعقة أخرى.\nلكن الملعقة التالية قد تنهي الجولة.","استمتع بلحظة المخاطرة الصغيرة هذه في جولات قصيرة وسريعة."]}};
   function renderHighlights(value){
-    if(id==='6794575766'){
+    if(id==='6794575766' && hasJaEnEditorial()){
       const jp=/^ja(?:-|$)/i.test(state.locale);
       const items=hitotsubuEditorial(jp).highlights;
       const list=$('p199-points');list.replaceChildren();
@@ -87,17 +97,21 @@
     const matches=state.apps.apps.filter(a=>String(a.id)!==id).sort((a,b)=>Number(a.category!==own.category)-Number(b.category!==own.category)||String(a.name).localeCompare(String(b.name))).slice(0,3);
     matches.forEach(a=>{const link=make('a','p199-related-card');link.href='../../apps/'+a.id+'/';
       const url=imageURL(a.artworkUrl);if(url){const img=make('img','p199-related-icon');img.src=url;img.loading='lazy';img.alt='';link.append(img);}
-      const stack=make('span','p199-related-copy');stack.append(make('strong','',state.asc.apps?.[String(a.id)]?.nameByLocale?.[state.locale]||a.name),make('span','',a.category||'App'));link.append(stack,make('span','p199-related-arrow','↗'));target.append(link);
+      const stack=make('span','p199-related-copy');stack.append(make('strong','',state.asc.apps?.[String(a.id)]?.nameByLocale?.[state.locale]||a.name),make('span','',hasJaEnEditorial()?(a.category||'App'):tx().store));link.append(stack,make('span','p199-related-arrow','↗'));target.append(link);
     });
   }
   function selectLabel(){const lp=state.locale;return /^ja(?:-|$)/i.test(lp)?'日本語':'English';}
   function updateChapters(){const nodes=[...document.querySelectorAll('[data-p199-chapter]')].filter(a=>{const e=$(a.dataset.p199Chapter);return e&&!e.hidden;});let active=0;nodes.forEach((a,i)=>{if($(a.dataset.p199Chapter).getBoundingClientRect().top<190)active=i;});nodes.forEach((a,i)=>{if(i===active)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});set('p199-progress-current',String(active+1).padStart(2,'0'));set('p199-progress-total',String(nodes.length).padStart(2,'0'));set('p199-progress-name',nodes[active]?.textContent||'');$('p199-progress-fill').style.width=(100*(active+1)/Math.max(1,nodes.length))+'%';}
   function render(){
     const t=tx(),d=desc(),app=getApp();document.documentElement.lang=state.locale;document.documentElement.dir=rtl.has(state.locale)?'rtl':'ltr';
+    // R369: the original static meta description is EN; refresh it from active source text.
+    const meta=document.querySelector('meta[name="description"]');
+    if(meta){meta.content=opening(d.value).replace(/\s+/g,' ').trim().slice(0,160);meta.dataset.tszDescriptionLocale=d.locale;}
+
     document.title=title()+' · Tsukigashizumu Studio';set('p199-title',title());set('p199-crumb',title());
     const icon=$('p199-icon'),url=imageURL(app.artworkUrl);if(url){icon.src=url;icon.hidden=false;icon.onerror=()=>{icon.hidden=true;};}else icon.hidden=true;
-    const summary=heroSummary(d.value,subtitle());set('p199-lead',summary.lead||title());set('p199-intro',summary.intro);const lpEditorial=state.editorial?.apps?.[id]?.[state.locale];if(typeof lpEditorial==='string'&&lpEditorial.trim()){set('p199-lead',title());set('p199-intro',lpEditorial);$('p199-intro').dataset.tszSource='independent-editorial-not-apple';}else{$('p199-intro').removeAttribute('data-tsz-source');}if(id==='6794575766'){const copy=hitotsubuEditorial(/^ja(?:-|$)/i.test(state.locale));set('p199-lead',copy.heroLead);set('p199-intro',copy.heroIntro);}
-    set('p199-category',(app.category||'App')+' / App Store');set('p199-eyebrow',t.label);
+    const summary=heroSummary(d.value,subtitle());set('p199-lead',summary.lead||title());set('p199-intro',summary.intro);const lpEditorial=state.editorial?.apps?.[id]?.[state.locale];if(typeof lpEditorial==='string'&&lpEditorial.trim()){set('p199-lead',title());set('p199-intro',lpEditorial);$('p199-intro').dataset.tszSource='independent-editorial-not-apple';}else{$('p199-intro').removeAttribute('data-tsz-source');}if(id==='6794575766' && hasJaEnEditorial()){const copy=hitotsubuEditorial(/^ja(?:-|$)/i.test(state.locale));set('p199-lead',copy.heroLead);set('p199-intro',copy.heroIntro);}
+    set('p199-category',(hasJaEnEditorial()?(app.category||'App'):t.about)+' / App Store');set('p199-eyebrow',t.label);
     set('p199-all',t.all);set('p199-back',t.back);set('p199-store',t.store);set('p199-bottom-store',t.store);set('p199-price-note',t.price);
     $('p199-store').href=storeLink();$('p199-bottom-store').href=storeLink();set('p199-language-label',t.language);set('p199-country-label',t.region);
     for(const opt of $('p199-country').options)opt.textContent=nameFor(opt.value)+' ('+opt.value.toUpperCase()+')';
@@ -105,7 +119,7 @@
     set('p199-source','');
     const fall=$('p199-fallback');fall.hidden=!d.fallback;if(d.fallback)fall.textContent=escLocale(t.fallback,{locale:d.locale});
     set('p199-about-head',t.about);set('p199-screen-head',t.screen);set('p199-features-head',t.features);set('p199-full-head',t.full);set('p199-related-head',t.related);
-    set('p199-section-lead',id==='6794575766'?hitotsubuEditorial(/^ja(?:-|$)/i.test(state.locale)).about:opening(d.value));set('p199-about-caption',t.aboutCaption);set('p199-full-caption',t.fullCaption);set('p199-proof-caption',t.noReviews);
+    set('p199-section-lead',id==='6794575766'&&hasJaEnEditorial()?hitotsubuEditorial(/^ja(?:-|$)/i.test(state.locale)).about:opening(d.value));set('p199-about-caption',t.aboutCaption);set('p199-full-caption',t.fullCaption);set('p199-proof-caption',t.noReviews);
     set('p199-image-note',t.screenNote);set('p199-image-fallback',t.noScreen);set('p199-image-unavailable',t.noScreen);set('p199-image-count-label',t.count);
     set('p199-toc-head',t.toc);set('p199-details-label',t.full);set('p199-full-toggle',t.fullToggle);set('p199-related-caption',t.more);
     renderDescription(d.value);renderHighlights(d.value);makeRelated();
@@ -160,7 +174,7 @@
       const body=compactSource(lead===heading?next:lead)||compactSource(next)||'';
       return {heading,body:body===heading?'':body};
     }
-    const heading=sentenceFrom(next)|| (jp?'このアプリでできること':'What this app can do');
+    const heading=sentenceFrom(next)|| (hasJaEnEditorial()?(jp?'このアプリでできること':'What this app can do'):tx().about);
     const body=compactSource(next===heading?(usable[2]||lead):next)||compactSource(lead)||'';
     return {heading,body:body===heading?'':body};
   }
@@ -168,12 +182,12 @@
     const t=tx(),shot=state.media[i],jp=/^ja(?:-|$)/i.test(state.locale),row=make('article','p199-shot-row'+(n%2?' p199-shot-reverse':''));
     if(isExtra)row.classList.add('p199-shot-extra');
     const copy=make('div','p199-shot-copy');
-    const kicker=make('span','p199-shot-kicker',jp?'このアプリの見どころ':'A CLOSER LOOK');
-    const item=isExtra?{heading:jp?'ほかの操作画面':'More app screens',body:jp?'画像を押すと、画面全体を拡大して見られます。':'Open an image to see the full screen.'}:storyText(i,n);
+    const kicker=make('span','p199-shot-kicker',hasJaEnEditorial()?(jp?'このアプリの見どころ':'A CLOSER LOOK'):t.screen);
+    const item=isExtra?(hasJaEnEditorial()?{heading:jp?'ほかの操作画面':'More app screens',body:jp?'画像を押すと、画面全体を拡大して見られます。':'Open an image to see the full screen.'}:{heading:t.screen,body:t.inspect}):storyText(i,n);
     const head=make('h3','p199-shot-title',item.heading);
     const detail=make('p','p199-shot-description',item.body);
     head.dir='auto';detail.dir='auto';
-    const hint=make('span','p199-shot-hint',(jp?'画面を拡大して見る':'Tap to view full screen')+' ↗');
+    const hint=make('span','p199-shot-hint',(hasJaEnEditorial()?(jp?'画面を拡大して見る':'Tap to view full screen'):t.inspect)+' ↗');
     copy.append(kicker,head,detail,hint);
     const btn=make('button','p199-shot-button');btn.type='button';
     btn.setAttribute('aria-label',t.inspect+' '+(i+1));
@@ -189,6 +203,7 @@
     return copy[jp?"ja":"en"];
   }
   function sharedEditorialDetail(shot, jp, num){
+    if(!hasJaEnEditorial())return r369GallerySource(shot);
     if(id==='6794575766'){
       const source=Number(shot && shot.sourceIndex);
       const page=Number.isInteger(source) && source>=0 && source<3 ? hitotsubuEditorial(jp).screens[source] : null;
@@ -288,28 +303,28 @@
   // P19-9R6: shared editorial gallery pilot, no invented per-screenshot claims.
   const R6_PILOTS=new Set(["6760823598","6761338604","6762347699","6763169050","6765972725","6767983547","6768180849","6768219693","6769388691","6774479410","6775229100","6778138017","6781131521","6781497015","6781817734","6786129971","6787928513","6794575766","6795788626","6796486391","6798447816","6802814389","6804756043","6804756267","6804756535","6804756968","6804757195","6804757287","6808427228","6820674560","6821840147","6822927747"]);
   function sharedStoryStage(indexes){
-    const jp=/^ja(?:-|$)/i.test(state.locale),m=state.media;
+    const jp=/^ja(?:-|$)/i.test(state.locale),t=tx(),m=state.media;
     const section=make('section','p199r6-stage');
     const mast=make('div','p199r6-mast');
-    mast.append(make('span','p199r6-kicker','APP / SCREEN COLLECTION'),
-      make('span','p199r6-total',String(indexes.length).padStart(2,'0')+' '+(jp?'枚の掲載画像':'ORIGINAL SCREENS')));
+    mast.append(make('span','p199r6-kicker',hasJaEnEditorial()?'APP / SCREEN COLLECTION':t.label),
+      make('span','p199r6-total',String(indexes.length).padStart(2,'0')+' '+(hasJaEnEditorial()?(jp?'枚の掲載画像':'ORIGINAL SCREENS'):t.count)));
     const stage=make('div','p199r6-layout');
     const visual=make('button','p199r6-visual');visual.type='button';
     const image=make('img','p199r6-image');image.loading='eager';image.decoding='async';image.referrerPolicy='no-referrer';
-    const failText=make('span','p199r6-image-fail',jp?'画像を読み込めませんでした':'Screenshot unavailable');failText.hidden=true;
+    const failText=make('span','p199r6-image-fail',hasJaEnEditorial()?(jp?'画像を読み込めませんでした':'Screenshot unavailable'):t.imageSource);failText.hidden=true;
     image.addEventListener('error',()=>{image.hidden=true;failText.hidden=false;});
     image.addEventListener('load',()=>{image.hidden=false;failText.hidden=true;});
     visual.append(image,failText);
     const narrative=make('div','p199r6-side');
     const issue=make('span','p199r6-number');
     const heading=make('h3','p199r6-title',title());heading.dir='auto';
-    const sub=make('p','p199r6-caption',jp?'App Storeに掲載されているアプリの実画面です。':'An original app screenshot shown on the App Store.');
-    const hint=make('p','p199r6-hint',jp?'番号を選ぶと、表示する画面が切り替わります。':'Select a number to switch screenshots.');
-    const inspect=make('button','p199r6-inspect',jp?'画面を拡大':'Enlarge screenshot');inspect.type='button';
+    const sub=make('p','p199r6-caption',hasJaEnEditorial()?(jp?'App Storeに掲載されているアプリの実画面です。':'An original app screenshot shown on the App Store.'):t.imageSource);
+    const hint=make('p','p199r6-hint',hasJaEnEditorial()?(jp?'番号を選ぶと、表示する画面が切り替わります。':'Select a number to switch screenshots.'):t.inspect);
+    const inspect=make('button','p199r6-inspect',hasJaEnEditorial()?(jp?'画面を拡大':'Enlarge screenshot'):t.inspect);inspect.type='button';
     const nav=make('div','p199r6-control');
     const prev=make('button','p199r6-prev','‹'),next=make('button','p199r6-next','›');
     prev.type='button';next.type='button';
-    prev.title=jp?'前の画像':'Previous screenshot';next.title=jp?'次の画像':'Next screenshot';
+    prev.title=hasJaEnEditorial()?(jp?'前の画像':'Previous screenshot'):t.prev;next.title=hasJaEnEditorial()?(jp?'次の画像':'Next screenshot'):t.next;
     const count=make('span','p199r6-current');
     nav.append(prev,count,next);
     narrative.append(issue,heading,sub,hint,inspect,nav);stage.append(visual,narrative);
@@ -318,7 +333,7 @@
     const buttons=indexes.map((original,k)=>{
       const shot=m[original],number=String(shot.sourceIndex+1).padStart(2,'0');
       const button=make('button','p199r6-thumb');button.type='button';
-      button.setAttribute('aria-label',(jp?'画面 ':'Screenshot ')+number);
+      button.setAttribute('aria-label',(hasJaEnEditorial()?(jp?'画面 ':'Screenshot '):t.imageSource+' ')+number);
       const pic=make('img','');pic.loading='lazy';pic.decoding='async';pic.referrerPolicy='no-referrer';pic.alt='';pic.src=shot.src;
       button.append(pic,make('span','',number));
       button.addEventListener('click',()=>show(k));rail.append(button);return button;
@@ -327,14 +342,14 @@
       selected=(k+indexes.length)%indexes.length;
       const shot=m[indexes[selected]],num=String(shot.sourceIndex+1).padStart(2,'0');
       image.hidden=false;failText.hidden=true;image.src=shot.src;
-      image.alt=(jp?'実際のアプリ画面 ':'App screenshot ')+num;
-      issue.textContent=(id==='6804756267'?(jp?'買う価格の基準':'YOUR BUYING THRESHOLD'):(jp?'実画面 ':'SCREEN ')+num);
+      image.alt=(hasJaEnEditorial()?(jp?'実際のアプリ画面 ':'App screenshot '):t.imageSource+' ')+num;
+      issue.textContent=hasJaEnEditorial()?(id==='6804756267'?(jp?'買う価格の基準':'YOUR BUYING THRESHOLD'):(jp?'実画面 ':'SCREEN ')+num):t.imageSource+' '+num;
       const editorial=sharedEditorialDetail(shot, jp, num);
       heading.textContent=editorial.heading;
-      if((id==='6822927747' || id==='6778138017') && editorial.eyebrow) issue.textContent=editorial.eyebrow;
+      if(hasJaEnEditorial() && (id==='6822927747' || id==='6778138017') && editorial.eyebrow) issue.textContent=editorial.eyebrow;
       sub.textContent=editorial.body;
-      if(id==='6794575766' && editorial.eyebrow) issue.textContent=editorial.eyebrow;
-      if(id==='6798447816' && editorial.eyebrow) issue.textContent=editorial.eyebrow;
+      if(hasJaEnEditorial() && id==='6794575766' && editorial.eyebrow) issue.textContent=editorial.eyebrow;
+      if(hasJaEnEditorial() && id==='6798447816' && editorial.eyebrow) issue.textContent=editorial.eyebrow;
       hint.hidden=(id==='6804757287');
       count.textContent=num+' / '+String(indexes.length).padStart(2,'0');
       buttons.forEach((b,i)=>{b.classList.toggle('is-active',i===selected);b.setAttribute('aria-pressed',String(i===selected));});
@@ -438,17 +453,17 @@
     const hasDiscountStage=id==='6802308517'&&discountIndexes.every(i=>i>=0)&&discountIndexes.length===2;
     const preferred=hasDiscountStage?discountIndexes:m.map((_,i)=>i).slice(0,2);
     const extra=m.map((_,i)=>i).filter(i=>!preferred.includes(i));
-    if(id==='6802308517'){
+    if(id==='6802308517' && hasJaEnEditorial()){
       // Original Apple screenshots in numeric order; start on 03 when possible.
       const ordered=m.map((_,i)=>i).sort((a,b)=>m[a].sourceIndex-m[b].sourceIndex);
       holder.append(discountStoryStage(ordered));
-    } else if(R6_PILOTS.has(id)){
+    } else if(R6_PILOTS.has(id) || (id==='6802308517' && !hasJaEnEditorial())){
       const ordered=m.map((_,i)=>i).sort((a,b)=>m[a].sourceIndex-m[b].sourceIndex);
       holder.append(sharedStoryStage(ordered));
     } else preferred.forEach((i,n)=>holder.append(storyRow(i,n,false)));
     if(extra.length && id!=='6802308517' && !R6_PILOTS.has(id)){
       const more=make('details','p199-more-screens');
-      const summary=make('summary','',/^ja(?:-|$)/i.test(state.locale)?'ほかの画面を見る（'+extra.length+'枚）':'See more screenshots ('+extra.length+')');
+      const summary=make('summary','',!hasJaEnEditorial()?tx().count+' ('+extra.length+')':(/^ja(?:-|$)/i.test(state.locale)?'ほかの画面を見る（'+extra.length+'枚）':'See more screenshots ('+extra.length+')'));
       const list=make('div','p199-extra-screens');
       extra.forEach((i,n)=>list.append(storyRow(i,n,true)));
       more.append(summary,list);holder.append(more);
