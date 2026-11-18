@@ -22,7 +22,9 @@ function render(keepFocus=false){let focus=document.activeElement&&document.acti
  const row=$('[data-out="cases"]');row.replaceChildren();t.cases.forEach((v,i)=>{let b=document.createElement('button');b.type='button';b.className='pd-case';b.dataset.case=String(i);b.textContent=(i+1).toString().padStart(2,'0')+'  '+v;b.setAttribute('aria-pressed',String(i===scenario));b.addEventListener('click',()=>{scenario=i;values=[...sample[lang][i]];dirty=false;render()});row.append(b)});
  for(let i=0;i<3;i++){$('[data-field="'+i+'"]').value=values[i];}
  update();if(keepFocus&&focus!==undefined&&focus!==null){const n=$('[data-field="'+focus+'"]');if(n)n.focus()}
+ if(window.TSZ_PD_R374)window.TSZ_PD_R374.apply(root,document.getElementById('p19-language')?.value||'en-US');
 }
+window.TSZ_PD_R351_RENDER=()=>render();
 function update(){const output=makePrompt();$('[data-out="prompt"]').value=output;$('[data-out="count"]').textContent=String(countWords(output));$('[data-out="copy-state"]').textContent='';}
 function init(){root=document.createElement('section');root.id=ID;root.lang=lang;
  root.setAttribute('aria-label','PromptDock AI editable reusable prompt demo');

@@ -34,6 +34,8 @@
     const supported=loc.startsWith('ja')?'ja':(loc.startsWith('ar')?'ar':'en');
     const button=root.querySelector('[data-lang="'+supported+'"]');
     if(button&&button.getAttribute('aria-pressed')!=='true')button.click();
+    else if(typeof window.TSZ_PD_R351_RENDER==='function')window.TSZ_PD_R351_RENDER();
+    if(window.TSZ_PD_R374)window.TSZ_PD_R374.apply(root,loc);
     const nav=root.querySelector('.pd-langs');
     if(nav){nav.style.display='none';nav.setAttribute('aria-hidden','true');}
     root.dataset.tszR372SelectedLocale=loc;
@@ -45,12 +47,13 @@
     const warning=notice('tsz-promptdock-r372-demo-notice',root.querySelector('.pd-shell')||root,true);
     const needFallback=root.dataset.tszR372Fallback==='true';
     warning.hidden=!needFallback;
-    warning.textContent=needFallback?DEMO_MESSAGE:'';
-    warning.lang='en';warning.dir='ltr';
+    const translated=window.TSZ_PD_R374?.notice?.(loc);
+    warning.textContent=needFallback?(translated||DEMO_MESSAGE):'';
+    warning.lang=translated?loc:'en';warning.dir=RTL.has(loc)?'rtl':'ltr';
     // Keep original user input: the R351 module uses its own dirty-state guard.
   }
   function synchronizeChrome(loc){
-    if($('p19-detail')?.hidden)return;
+    if($('p19-detail')?.hidden){synchronizeDemo(loc);return;}
     const rows=common?.locales?.[loc];
     if(rows){
       for(const [id,key] of Object.entries(EL))set(id,rows[key]);
