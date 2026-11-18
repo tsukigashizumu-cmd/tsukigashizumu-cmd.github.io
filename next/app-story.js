@@ -102,6 +102,50 @@
   }
   function selectLabel(){const lp=state.locale;return /^ja(?:-|$)/i.test(lp)?'日本語':'English';}
   function updateChapters(){const nodes=[...document.querySelectorAll('[data-p199-chapter]')].filter(a=>{const e=$(a.dataset.p199Chapter);return e&&!e.hidden;});let active=0;nodes.forEach((a,i)=>{if($(a.dataset.p199Chapter).getBoundingClientRect().top<190)active=i;});nodes.forEach((a,i)=>{if(i===active)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});set('p199-progress-current',String(active+1).padStart(2,'0'));set('p199-progress-total',String(nodes.length).padStart(2,'0'));set('p199-progress-name',nodes[active]?.textContent||'');$('p199-progress-fill').style.width=(100*(active+1)/Math.max(1,nodes.length))+'%';}
+  // R370: localize the shared page's static HTML chrome with existing 50-code UI copy.
+  // No new translations are invented here; destination labels use existing keys.
+  function r370StaticChrome(t){
+    const put=(selector,value)=>{const el=document.querySelector(selector);if(el)el.textContent=String(value??'');};
+    const aria=(selector,value)=>{const el=document.querySelector(selector);if(el)el.setAttribute('aria-label',String(value??''));};
+    const skip=document.querySelector('.p19-skip');
+    if(skip){
+      // Keep native English skip-link wording; other languages use the translated
+      // destination name rather than falsely claiming an unreviewed 'skip' translation.
+      skip.textContent=state.locale==='en-US'?'Skip to article':t.about;
+      skip.setAttribute('aria-label',skip.textContent);
+    }
+    if(state.locale!=='en-US'){
+      put('.p19-footer > span',t.relatedText||t.all);
+    }else{
+      put('.p19-footer > span','Discover more apps made with care.');
+    }
+    put('#related .p19-secondary',t.all);
+    aria('#p199-language',t.language);
+    aria('#p199-country',t.region);
+    aria('.p199-progress',t.chap);
+    aria('.p199-toc',t.toc);
+    aria('#p199-dialog',t.imageSource);
+    aria('#p199-slide-prev',t.prev);
+    aria('#p199-slide-next',t.next);
+    aria('#p199-modal-prev',t.prev);
+    aria('#p199-modal-next',t.next);
+    aria('#p199-modal-close',t.close);
+    aria('#p199-fit',t.fit);
+    aria('#p199-actual',t.original);
+    aria('#p199-hero-open',t.inspect);
+    // The product-account handle is invariant. Do not translate or change the URL.
+    // Neutral account text avoids English-only 'Follow on X' in non-English locales.
+    const x=document.querySelector('.tsz-x-r297-footer');
+    if(x){
+      if(!x.dataset.r370OriginalText)x.dataset.r370OriginalText=x.textContent;
+      if(!x.dataset.r370OriginalAria)x.dataset.r370OriginalAria=x.getAttribute('aria-label')||'';
+      const neutral='X · @pendulum115326';
+      x.textContent=state.locale==='en-US'?x.dataset.r370OriginalText:neutral;
+      x.setAttribute('aria-label',state.locale==='en-US'?x.dataset.r370OriginalAria:neutral);
+    }
+    const xHead=document.querySelector('.tsz-x-r297-header');
+    if(xHead)xHead.setAttribute('aria-label','X · @pendulum115326');
+  }
   function render(){
     const t=tx(),d=desc(),app=getApp();document.documentElement.lang=state.locale;document.documentElement.dir=rtl.has(state.locale)?'rtl':'ltr';
     // R369: the original static meta description is EN; refresh it from active source text.
@@ -125,7 +169,7 @@
     renderDescription(d.value);renderHighlights(d.value);makeRelated();
     const chapters=[['overview',t.about],['screens',t.screen],['features',t.features],['full-description',t.full],['related',t.related]];
     const toc=$('p199-toc');toc.replaceChildren();for(const [key,label] of chapters){if($(key).hidden)continue;const a=make('a','',label);a.href='#'+key;a.dataset.p199Chapter=key;toc.append(a);}
-    renderScreens();updateChapters();
+    r370StaticChrome(t);renderScreens();updateChapters();
   }
   function screenshotResolution(src){
     try{const u=new URL(src);if(!imageURL(u.href)||!u.pathname.includes('/image/thumb/'))return '';
