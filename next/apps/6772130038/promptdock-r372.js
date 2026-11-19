@@ -26,6 +26,7 @@
   const ZH_HANS_MESSAGE='简体中文翻译仍是草案。页面部分内容可能仍为英文，App Store 描述取决于可用的商店语言。';
   const ZH_HANT_MESSAGE='繁體中文翻譯仍為草案。部分頁面內容可能仍以英文顯示；App Store 說明取決於商店所提供的語言。';
   const KO_MESSAGE='한국어 번역은 아직 초안입니다. 일부 페이지 내용은 영어로 표시될 수 있으며, App Store 설명은 제공되는 스토어 언어에 따라 달라집니다.';
+  const NL_MESSAGE='De Nederlandse vertaling is een concept. Delen van deze pagina kunnen in het Engels staan; de App Store-beschrijving hangt af van de beschikbare winkeltaal.';
   const DEMO_MESSAGE='This interactive example is displayed in English because a translation for the selected page language is not available.';
   let common=null, serial=0;
   const language=()=>$('p19-language')?.value||'en-US';
@@ -40,7 +41,7 @@
   }
   function synchronizeDemo(loc){
     const root=$('tsz-promptdock-r351');if(!root)return;
-    const supported=/^ko(?:-KR)?$/i.test(loc)?'ko':/^zh-Hant$/i.test(loc)?'zh-Hant':/^zh-Hans$/i.test(loc)?'zh-Hans':/^pt-PT$/i.test(loc)?'pt-PT':/^pt(?:-BR)?$/i.test(loc)?'pt-BR':/^it(?:-IT)?$/i.test(loc)?'it':/^de(?:-DE)?$/i.test(loc)?'de-DE':/^fr-CA$/i.test(loc)?'fr-CA':/^fr/i.test(loc)?'fr-FR':/^es-MX$/i.test(loc)?'es-MX':/^es/i.test(loc)?'es-ES':loc.startsWith('ja')?'ja':(loc.startsWith('ar')?'ar':'en');
+    const supported=/^nl(?:-NL)?$/i.test(loc)?'nl-NL':/^ko(?:-KR)?$/i.test(loc)?'ko':/^zh-Hant$/i.test(loc)?'zh-Hant':/^zh-Hans$/i.test(loc)?'zh-Hans':/^pt-PT$/i.test(loc)?'pt-PT':/^pt(?:-BR)?$/i.test(loc)?'pt-BR':/^it(?:-IT)?$/i.test(loc)?'it':/^de(?:-DE)?$/i.test(loc)?'de-DE':/^fr-CA$/i.test(loc)?'fr-CA':/^fr/i.test(loc)?'fr-FR':/^es-MX$/i.test(loc)?'es-MX':/^es/i.test(loc)?'es-ES':loc.startsWith('ja')?'ja':(loc.startsWith('ar')?'ar':'en');
     const button=root.querySelector('[data-lang="'+supported+'"]');
     if(button&&button.getAttribute('aria-pressed')!=='true')button.click();
     else if(typeof window.TSZ_PD_R351_RENDER==='function')window.TSZ_PD_R351_RENDER();
@@ -51,7 +52,7 @@
     root.dataset.tszR372Fallback=String(!(
       (supported==='ja'&&loc.startsWith('ja'))||
       (supported==='ar'&&loc.startsWith('ar'))||
-      (supported==='en'&&loc.startsWith('en'))||(/^es(?:-(?:ES|MX))?$/i.test(loc)&&supported.startsWith('es'))||(/^fr(?:-(?:FR|CA))?$/i.test(loc)&&supported.startsWith('fr'))||(/^de(?:-DE)?$/i.test(loc)&&supported==='de-DE')||(/^it(?:-IT)?$/i.test(loc)&&supported==='it')||(/^pt(?:-(?:BR|PT))?$/i.test(loc)&&supported.startsWith('pt'))||(/^zh-Hans$/i.test(loc)&&supported==='zh-Hans')||(/^zh-Hant$/i.test(loc)&&supported==='zh-Hant')||(/^ko(?:-KR)?$/i.test(loc)&&supported==='ko')
+      (supported==='en'&&loc.startsWith('en'))||(/^es(?:-(?:ES|MX))?$/i.test(loc)&&supported.startsWith('es'))||(/^fr(?:-(?:FR|CA))?$/i.test(loc)&&supported.startsWith('fr'))||(/^de(?:-DE)?$/i.test(loc)&&supported==='de-DE')||(/^it(?:-IT)?$/i.test(loc)&&supported==='it')||(/^pt(?:-(?:BR|PT))?$/i.test(loc)&&supported.startsWith('pt'))||(/^zh-Hans$/i.test(loc)&&supported==='zh-Hans')||(/^zh-Hant$/i.test(loc)&&supported==='zh-Hant')||(/^ko(?:-KR)?$/i.test(loc)&&supported==='ko')||(/^nl(?:-NL)?$/i.test(loc)&&supported==='nl-NL')
     ));
     const warning=notice('tsz-promptdock-r372-demo-notice',root.querySelector('.pd-shell')||root,true);
     const needFallback=root.dataset.tszR372Fallback==='true';
@@ -78,8 +79,8 @@
     document.documentElement.dir=RTL.has(loc)?'rtl':'ltr';
     const n=notice('tsz-promptdock-r372-translation-notice',$('p19-detail'),true);
     n.hidden=loc==='en-US';
-    n.textContent=loc.startsWith('ja')?JA_MESSAGE:loc.startsWith('es')?ES_MESSAGE:loc.startsWith('fr')?FR_MESSAGE:loc.startsWith('de')?DE_MESSAGE:loc.startsWith('it')?IT_MESSAGE:loc==='pt-PT'?PT_PT_MESSAGE:loc.startsWith('pt')?PT_BR_MESSAGE:loc==='zh-Hans'?ZH_HANS_MESSAGE:loc==='zh-Hant'?ZH_HANT_MESSAGE:loc==='ko'?KO_MESSAGE:FALLBACK_MESSAGE;
-    n.lang=loc.startsWith('ja')?'ja':loc.startsWith('es')?'es':loc.startsWith('fr')?'fr':loc.startsWith('de')?'de':loc.startsWith('it')?'it':loc.startsWith('pt')?'pt':loc==='zh-Hans'?'zh-Hans':loc==='zh-Hant'?'zh-Hant':loc==='ko'?'ko':'en';
+    n.textContent=loc.startsWith('ja')?JA_MESSAGE:loc.startsWith('es')?ES_MESSAGE:loc.startsWith('fr')?FR_MESSAGE:loc.startsWith('de')?DE_MESSAGE:loc.startsWith('it')?IT_MESSAGE:loc==='pt-PT'?PT_PT_MESSAGE:loc.startsWith('pt')?PT_BR_MESSAGE:loc==='zh-Hans'?ZH_HANS_MESSAGE:loc==='zh-Hant'?ZH_HANT_MESSAGE:loc==='ko'?KO_MESSAGE:loc.startsWith('nl')?NL_MESSAGE:FALLBACK_MESSAGE;
+    n.lang=loc.startsWith('ja')?'ja':loc.startsWith('es')?'es':loc.startsWith('fr')?'fr':loc.startsWith('de')?'de':loc.startsWith('it')?'it':loc.startsWith('pt')?'pt':loc==='zh-Hans'?'zh-Hans':loc==='zh-Hant'?'zh-Hant':loc==='ko'?'ko':loc.startsWith('nl')?'nl':'en';
     n.dir=loc.startsWith('ja')?'ltr':'ltr';
     n.dataset.tszR372TranslationStatus='PARTIAL_NOT_NATIVE_REVIEWED';
     synchronizeDemo(loc);
