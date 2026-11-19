@@ -32,6 +32,23 @@ Object.assign(copy,window.TSZ_PD_R397_TR?.modules?.["promptdock-r67"]||{});
 Object.assign(copy,window.TSZ_PD_R398_PL?.modules?.["promptdock-r67"]||{});
 Object.assign(copy,window.TSZ_PD_R399_UK?.modules?.["promptdock-r67"]||{});
 Object.assign(copy,window.TSZ_PD_R400_SV?.modules?.["promptdock-r67"]||{});
+Object.assign(copy,window.TSZ_PD_R401_DA?.modules?.["promptdock-r67"]||{});
+Object.assign(copy,window.TSZ_PD_R402_NB?.modules?.["promptdock-r67"]||{});
+Object.assign(copy,window.TSZ_PD_R403_FI?.modules?.["promptdock-r67"]||{});
+Object.assign(copy,window.TSZ_PD_R404_RO?.modules?.["promptdock-r67"]||{});
+Object.assign(copy,window.TSZ_PD_R405_EL?.modules?.["promptdock-r67"]||{});
+Object.assign(copy,window.TSZ_PD_R406_CS?.modules?.["promptdock-r67"]||{});
+Object.assign(copy,window.TSZ_PD_R407_SK?.modules?.["promptdock-r67"]||{});
+Object.assign(copy,window.TSZ_PD_R408_HU?.modules?.["promptdock-r67"]||{});
+Object.assign(copy,window.TSZ_PD_R409_HR?.modules?.["promptdock-r67"]||{});
+Object.assign(copy,window.TSZ_PD_R410_BS?.modules?.["promptdock-r67"]||{});
+Object.assign(copy,window.TSZ_PD_R411_SR_LATN?.modules?.["promptdock-r67"]||{});
+Object.assign(copy,window.TSZ_PD_R412_SR_CYRL?.modules?.["promptdock-r67"]||{});
+Object.assign(copy,window.TSZ_PD_R413_EN_GB?.modules?.["promptdock-r67"]||{});
+Object.assign(copy,window.TSZ_PD_R414_EN_AU?.modules?.["promptdock-r67"]||{});
+Object.assign(copy,window.TSZ_PD_R415_EN_CA?.modules?.["promptdock-r67"]||{});
+Object.assign(copy,window.TSZ_PD_R416_EN_NZ?.modules?.["promptdock-r67"]||{});
+Object.assign(copy,window.TSZ_PD_R417_EN_IE?.modules?.["promptdock-r67"]||{});
 const labels={
  en:{language:'Language',country:'App Store region',all:'All apps',eyebrow:'THE PROMPT YOU CAN REUSE',hero:'Your next prompt starts here.',description:'Build structured prompts from reusable templates and saved details, then copy the text to any AI assistant.',store:'View in App Store',browse:'Explore all apps',price:'Check the App Store for current pricing and availability.',section:'01 / MAKE IT REUSABLE',introTitle:'Turn repetition into a template.',introBody:'PromptDock AI lets you choose a template, fill in the changing details, and build copy-ready text. This diagram is an original illustration, not an actual app screen.',featuresTag:'02 / YOUR TEXT, YOUR TOOL',featuresTitle:'A prompt builder, not an AI chatbot.',featuresBody:'Save templates and reusable inputs. Copy your prompt or open ChatGPT to use it. The app does not generate the AI response.',fallback:'Editorial copy is available in English and Japanese; other locales show English.',bottom:'Build once. Reuse the structure.',bottomBody:'Keep repeated instructions organized so your next prompt needs fewer steps.'},
  ja:{language:'言語',country:'App Storeの国',all:'アプリ一覧',eyebrow:'再利用できるプロンプト',hero:'次の指示文は、型から始める。',description:'テンプレートと保存済みの入力を使って指示文を組み立て、好きなAIツールへコピーできます。',store:'App Storeで見る',browse:'ほかのアプリを見る',price:'最新価格と配信状況はApp Storeで確認してください。',section:'01 / 何度も使う指示',introTitle:'書き直す仕事を、テンプレートに。',introBody:'PromptDock AIは、テンプレートを選んで変わる部分だけ入力し、コピーできる指示文を作ります。図は独自の説明用ビジュアルで、実画面ではありません。',featuresTag:'02 / AIに渡す前の道具',featuresTitle:'AIチャットではなく、プロンプト作成ツール。',featuresBody:'テンプレートや入力セットを保存・再利用。コピーしたプロンプトを好きなAIツールで使えます。アプリ自身がAIの回答を生成するわけではありません。',fallback:'編集コピーは日英対応。その他のロケールでは英語を表示します。',bottom:'一度作った指示の型を、次にも。',bottomBody:'いつも書く指示の構造を保ち、次回は必要な部分だけ入力。'}
@@ -56,12 +73,29 @@ Object.assign(labels,window.TSZ_PD_R397_TR?.additional_labels||{});
 Object.assign(labels,window.TSZ_PD_R398_PL?.additional_labels||{});
 Object.assign(labels,window.TSZ_PD_R399_UK?.additional_labels||{});
 Object.assign(labels,window.TSZ_PD_R400_SV?.additional_labels||{});
+Object.assign(labels,window.TSZ_PD_R401_DA?.additional_labels||{});
+Object.assign(labels,window.TSZ_PD_R402_NB?.additional_labels||{});
+Object.assign(labels,window.TSZ_PD_R403_FI?.additional_labels||{});
+Object.assign(labels,window.TSZ_PD_R404_RO?.additional_labels||{});
+Object.assign(labels,window.TSZ_PD_R405_EL?.additional_labels||{});
+Object.assign(labels,window.TSZ_PD_R406_CS?.additional_labels||{});
+Object.assign(labels,window.TSZ_PD_R407_SK?.additional_labels||{});
+Object.assign(labels,window.TSZ_PD_R408_HU?.additional_labels||{});
+Object.assign(labels,window.TSZ_PD_R409_HR?.additional_labels||{});
+Object.assign(labels,window.TSZ_PD_R410_BS?.additional_labels||{});
+Object.assign(labels,window.TSZ_PD_R411_SR_LATN?.additional_labels||{});
+Object.assign(labels,window.TSZ_PD_R412_SR_CYRL?.additional_labels||{});
+Object.assign(labels,window.TSZ_PD_R413_EN_GB?.additional_labels||{});
+Object.assign(labels,window.TSZ_PD_R414_EN_AU?.additional_labels||{});
+Object.assign(labels,window.TSZ_PD_R415_EN_CA?.additional_labels||{});
+Object.assign(labels,window.TSZ_PD_R416_EN_NZ?.additional_labels||{});
+Object.assign(labels,window.TSZ_PD_R417_EN_IE?.additional_labels||{});
 const langEl=()=>document.getElementById('p199-language');
 const countryEl=()=>document.getElementById('p199-country');
 const standalone=()=>document.body?.classList.contains('pd67-page');
 let localeMap={'en-US':'us',ja:'jp'},manualCountry=false;
 // TSZ R373: use the actual shared page selector; standalone p199 remains supported.
-const language=()=>{const v=document.getElementById('p19-language')?.value||langEl()?.value||document.documentElement.lang||'en';return /^sv(?:-SE)?$/i.test(v)?'sv':/^uk(?:-UA)?$/i.test(v)?'uk':/^pl(?:-PL)?$/i.test(v)?'pl':/^tr(?:-TR)?$/i.test(v)?'tr':/^bn(?:-BD)?$/i.test(v)?'bn':/^hi(?:-IN)?$/i.test(v)?'hi':/^fil(?:-PH)?$/i.test(v)?'fil':/^vi(?:-VN)?$/i.test(v)?'vi':/^th(?:-TH)?$/i.test(v)?'th':/^ms(?:-MY)?$/i.test(v)?'ms':/^id(?:-ID)?$/i.test(v)?'id':/^nl(?:-NL)?$/i.test(v)?'nl-NL':/^ko(?:-KR)?$/i.test(v)?'ko':/^zh-Hant$/i.test(v)?'zh-Hant':/^zh-Hans$/i.test(v)?'zh-Hans':/^pt-PT$/i.test(v)?'pt-PT':/^pt(?:-BR)?$/i.test(v)?'pt-BR':/^it(?:-IT)?$/i.test(v)?'it':/^de(?:-DE)?$/i.test(v)?'de-DE':/^fr-CA$/i.test(v)?'fr-CA':/^fr(?:-FR)?$/i.test(v)?'fr-FR':/^es-MX$/i.test(v)?'es-MX':/^es(?:-ES)?$/i.test(v)?'es-ES':/^ja(?:-|$)/i.test(v)?'ja':'en';};
+const language=()=>{const v=document.getElementById('p19-language')?.value||langEl()?.value||document.documentElement.lang||'en';return /^en-IE$/i.test(v)?'en-IE':/^en-NZ$/i.test(v)?'en-NZ':/^en-CA$/i.test(v)?'en-CA':/^en-AU$/i.test(v)?'en-AU':/^en-GB$/i.test(v)?'en-GB':/^(?:sr|sr-Cyrl(?:-RS)?)$/i.test(v)?'sr-Cyrl':/^sr-Latn(?:-RS)?$/i.test(v)?'sr-Latn':/^bs(?:-BA)?$/i.test(v)?'bs':/^hr(?:-HR)?$/i.test(v)?'hr':/^hu(?:-HU)?$/i.test(v)?'hu':/^sk(?:-SK)?$/i.test(v)?'sk':/^cs(?:-CZ)?$/i.test(v)?'cs':/^el(?:-GR)?$/i.test(v)?'el':/^ro(?:-RO)?$/i.test(v)?'ro':/^fi(?:-FI)?$/i.test(v)?'fi':/^nb(?:-NO)?$/i.test(v)?'nb':/^da(?:-DK)?$/i.test(v)?'da':/^sv(?:-SE)?$/i.test(v)?'sv':/^uk(?:-UA)?$/i.test(v)?'uk':/^pl(?:-PL)?$/i.test(v)?'pl':/^tr(?:-TR)?$/i.test(v)?'tr':/^bn(?:-BD)?$/i.test(v)?'bn':/^hi(?:-IN)?$/i.test(v)?'hi':/^fil(?:-PH)?$/i.test(v)?'fil':/^vi(?:-VN)?$/i.test(v)?'vi':/^th(?:-TH)?$/i.test(v)?'th':/^ms(?:-MY)?$/i.test(v)?'ms':/^id(?:-ID)?$/i.test(v)?'id':/^nl(?:-NL)?$/i.test(v)?'nl-NL':/^ko(?:-KR)?$/i.test(v)?'ko':/^zh-Hant$/i.test(v)?'zh-Hant':/^zh-Hans$/i.test(v)?'zh-Hans':/^pt-PT$/i.test(v)?'pt-PT':/^pt(?:-BR)?$/i.test(v)?'pt-BR':/^it(?:-IT)?$/i.test(v)?'it':/^de(?:-DE)?$/i.test(v)?'de-DE':/^fr-CA$/i.test(v)?'fr-CA':/^fr(?:-FR)?$/i.test(v)?'fr-FR':/^es-MX$/i.test(v)?'es-MX':/^es(?:-ES)?$/i.test(v)?'es-ES':/^ja(?:-|$)/i.test(v)?'ja':'en';};
 function updateText(){const l=language(),el=document.getElementById(BLOCK);if(el){el.lang=l;el.querySelectorAll('[data-pd67-term]').forEach(n=>{const k=n.dataset.pd67Term;if(Object.prototype.hasOwnProperty.call(copy[l],k))n.textContent=copy[l][k]});}if(standalone()){document.documentElement.lang=l;document.querySelectorAll('[data-pd67-label]').forEach(n=>{const k=n.dataset.pd67Label;if(Object.prototype.hasOwnProperty.call(labels[l],k))n.textContent=labels[l][k]});}}
 function insert(){if(document.getElementById(BLOCK))return;const anchor=document.getElementById('overview')||document.querySelector('main');if(!anchor)return;const section=document.createElement('section');section.id=BLOCK;section.dataset.tszSource='promptdock-r67-editorial-template-fill-copy';section.setAttribute('aria-label','Editorial example: choose a prompt template, fill example fields and copy the text. Not a real in-app screen or AI response.');section.innerHTML=`
 <p class="pd67-kicker" data-pd67-term="tag"></p><h3 data-pd67-term="title"></h3><p class="pd67-lead" data-pd67-term="lead"></p>

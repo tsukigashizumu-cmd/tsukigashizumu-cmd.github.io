@@ -6,7 +6,7 @@ if(document.getElementById(ID))return;
 // TSZ R373: bind this demonstration to the real PromptDock page selector.
 const langSelect=document.getElementById('p19-language')||document.getElementById('p199-language');
 const query=new URLSearchParams(window.location.search);
-const chooseLang=s=>{const v=String(s||'en').toLowerCase();return v.startsWith('sv')?'sv':v.startsWith('uk')?'uk':v.startsWith('pl')?'pl':v.startsWith('tr')?'tr':v.startsWith('bn')?'bn':v.startsWith('hi')?'hi':v.startsWith('fil')?'fil':v.startsWith('vi')?'vi':v.startsWith('th')?'th':v.startsWith('ms')?'ms':v.startsWith('id')?'id':v.startsWith('nl')?'nl-NL':v.startsWith('ko')?'ko':v==='zh-hant'?'zh-Hant':v==='zh-hans'?'zh-Hans':v==='pt-pt'?'pt-PT':v.startsWith('pt')?'pt-BR':v.startsWith('it')?'it':v.startsWith('de')?'de-DE':v==='fr-ca'?'fr-CA':v.startsWith('fr')?'fr-FR':v==='es-mx'?'es-MX':v.startsWith('es')?'es-ES':v.startsWith('ar')?'ar':v.startsWith('ja')?'ja':'en';};
+const chooseLang=s=>{const v=String(s||'en').toLowerCase();return v==='en-ie'?'en-IE':v==='en-nz'?'en-NZ':v==='en-ca'?'en-CA':v==='en-au'?'en-AU':v==='en-gb'?'en-GB':v==='sr'||v.startsWith('sr-cyrl')?'sr-Cyrl':v.startsWith('sr-latn')?'sr-Latn':v.startsWith('bs')?'bs':v.startsWith('hr')?'hr':v.startsWith('hu')?'hu':v.startsWith('sk')?'sk':v.startsWith('cs')?'cs':v.startsWith('el')?'el':v.startsWith('ro')?'ro':v.startsWith('fi')?'fi':v.startsWith('nb')?'nb':v.startsWith('da')?'da':v.startsWith('sv')?'sv':v.startsWith('uk')?'uk':v.startsWith('pl')?'pl':v.startsWith('tr')?'tr':v.startsWith('bn')?'bn':v.startsWith('hi')?'hi':v.startsWith('fil')?'fil':v.startsWith('vi')?'vi':v.startsWith('th')?'th':v.startsWith('ms')?'ms':v.startsWith('id')?'id':v.startsWith('nl')?'nl-NL':v.startsWith('ko')?'ko':v==='zh-hant'?'zh-Hant':v==='zh-hans'?'zh-Hans':v==='pt-pt'?'pt-PT':v.startsWith('pt')?'pt-BR':v.startsWith('it')?'it':v.startsWith('de')?'de-DE':v==='fr-ca'?'fr-CA':v.startsWith('fr')?'fr-FR':v==='es-mx'?'es-MX':v.startsWith('es')?'es-ES':v.startsWith('ar')?'ar':v.startsWith('ja')?'ja':'en';};
 let lang=chooseLang(query.get('lang')||(langSelect&&langSelect.value)||document.documentElement.lang||navigator.language);
 const messages={
  en:{over:'PROMPTDOCK AI / REUSE THE THINKING',title:'Stop rewriting the same prompt.',lead:'Select a reusable template, fill a few fields, and see the finished instructions take shape. This is an interactive website example—not the app itself.',guide:'01 / CHOOSE A RECIPE',build:'02 / FILL THE FIELDS',preview:'03 / YOUR READY-TO-USE PROMPT',launch:'App launch brief',debug:'Bug report',aLabel:'Who is it for?',bLabel:'What should happen?',cLabel:'How should it sound?',bugA:'Affected area',bugB:'What went wrong?',bugC:'Expected result',aExample:'Indie app creators',bExample:'Introduce a new feature to existing users',cExample:'Specific, warm and concise',bugAEx:'Checkout screen',bugBEx:'The amount disappears after applying a coupon',bugCEx:'The updated total remains visible',copy:'Copy prompt',copied:'Copied to clipboard',copyFail:'Select and copy the generated text',reset:'Reset example',len:'words in prompt',loc:'Local website example',foot:'On-page example only. No prompts are sent to AI, no account is required, nothing is saved, and the app’s data is unchanged.',pLaunch:'You are writing an app update announcement.',pDebug:'You are helping diagnose a software issue.',target:'Audience',goal:'Objective',style:'Style',area:'Affected area',problem:'Observed issue',expected:'Expected behavior',instructionLaunch:'Produce a short headline, one clear benefit, and one next step. Do not invent features.',instructionDebug:'Summarize the bug, propose a small reproduction checklist, and list likely causes to investigate. Do not claim a fix is confirmed.'},
@@ -37,6 +37,23 @@ Object.assign(messages,window.TSZ_PD_R397_TR?.modules?.["promptdock-r145"]||{});
 Object.assign(messages,window.TSZ_PD_R398_PL?.modules?.["promptdock-r145"]||{});
 Object.assign(messages,window.TSZ_PD_R399_UK?.modules?.["promptdock-r145"]||{});
 Object.assign(messages,window.TSZ_PD_R400_SV?.modules?.["promptdock-r145"]||{});
+Object.assign(messages,window.TSZ_PD_R401_DA?.modules?.["promptdock-r145"]||{});
+Object.assign(messages,window.TSZ_PD_R402_NB?.modules?.["promptdock-r145"]||{});
+Object.assign(messages,window.TSZ_PD_R403_FI?.modules?.["promptdock-r145"]||{});
+Object.assign(messages,window.TSZ_PD_R404_RO?.modules?.["promptdock-r145"]||{});
+Object.assign(messages,window.TSZ_PD_R405_EL?.modules?.["promptdock-r145"]||{});
+Object.assign(messages,window.TSZ_PD_R406_CS?.modules?.["promptdock-r145"]||{});
+Object.assign(messages,window.TSZ_PD_R407_SK?.modules?.["promptdock-r145"]||{});
+Object.assign(messages,window.TSZ_PD_R408_HU?.modules?.["promptdock-r145"]||{});
+Object.assign(messages,window.TSZ_PD_R409_HR?.modules?.["promptdock-r145"]||{});
+Object.assign(messages,window.TSZ_PD_R410_BS?.modules?.["promptdock-r145"]||{});
+Object.assign(messages,window.TSZ_PD_R411_SR_LATN?.modules?.["promptdock-r145"]||{});
+Object.assign(messages,window.TSZ_PD_R412_SR_CYRL?.modules?.["promptdock-r145"]||{});
+Object.assign(messages,window.TSZ_PD_R413_EN_GB?.modules?.["promptdock-r145"]||{});
+Object.assign(messages,window.TSZ_PD_R414_EN_AU?.modules?.["promptdock-r145"]||{});
+Object.assign(messages,window.TSZ_PD_R415_EN_CA?.modules?.["promptdock-r145"]||{});
+Object.assign(messages,window.TSZ_PD_R416_EN_NZ?.modules?.["promptdock-r145"]||{});
+Object.assign(messages,window.TSZ_PD_R417_EN_IE?.modules?.["promptdock-r145"]||{});
 const defaults=type=>{const t=messages[lang];return type==='debug'?[t.bugAEx,t.bugBEx,t.bugCEx]:[t.aExample,t.bExample,t.cExample];};
 let mode='launch',values=defaults('launch');
 const root=document.createElement('section');root.id=ID;root.setAttribute('aria-labelledby','pd145-heading');
