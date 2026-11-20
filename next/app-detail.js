@@ -378,8 +378,9 @@ function zoomScreen(entry,index){
   }
   function p196RefreshLabels(){
     const t=p196Text();
-    text('p196-dash-kicker',t.kicker);text('p196-start-link',t.start+' ↗');
-    text('p196-chapter-label',t.chapter);text('p196-rail-label',t.chapter);text('p196-media-label',t.media);text('p196-storefront-label',t.store);
+    // R500: reuse approved common UI labels; preserve the legacy copy as fallback.
+    text('p196-dash-kicker',uiLabel('label',t.kicker));text('p196-start-link',uiLabel('about',t.start)+' ↗');
+    text('p196-chapter-label',uiLabel('chap',t.chapter));text('p196-rail-label',uiLabel('chap',t.chapter));text('p196-media-label',uiLabel('count',t.media));text('p196-storefront-label',uiLabel('region',t.store));
     text('p196-country',state.country.toUpperCase());text('p196-country-foot',t.country);
     text('p196-disclosure-title',uiLabel('fullToggle',t.details));
     text('p196-media-count',p196MediaLoaded?String(state.media.filter(m=>m.kind==='image').length).padStart(2,'0'):'—');
