@@ -304,10 +304,10 @@ function zoomScreen(entry,index){
       const feature=evidenceCopy(idx);
       const article=create('article','p19-proof-row');
       const detail=create('div','p19-proof-copy');
-      detail.append(create('span','p19-proof-index',(state.locale.startsWith('ar')?'الشاشة / ':'SCREEN / ')+String(idx+1).padStart(2,'0')),
+      detail.append(create('span','p19-proof-index',T().screenCaption+' / '+String(idx+1).padStart(2,'0')),
         create('h3','',feature.title),create('p','',feature.detail));
       detail.append(create('div','p193-proof-accent'));
-      detail.append(create('span','p193-proof-instruction',state.locale.startsWith('ja')?'画像を開いて操作を確認 ↗':state.locale.startsWith('ar')?'افتح الشاشة للتفاصيل ↗':'OPEN SCREEN TO EXPLORE ↗'));
+      detail.append(create('span','p193-proof-instruction',T().screenZoom+' ↗'));
       const fig=create('figure','p19-shot');
       if(entry.kind==='image'){
         const btn=create('button','p19-shot-open');btn.type='button';btn.setAttribute('aria-label',T().screenZoom+' '+(idx+1));
@@ -510,7 +510,7 @@ function zoomScreen(entry,index){
     dialog.addEventListener('close',()=>{vp.scrollTop=0;vp.scrollLeft=0;});
     for(const btn of document.querySelectorAll('[data-p19-copy]'))btn.addEventListener('click',async()=>{
       const id=btn.dataset.p19Copy;if(!$(id)||$(id).hidden)return;
-      const url=location.origin+PATH+'#'+id; // no UTM, no tracking query; real permanent chapter URL
+      const link=new URL(PATH,location.origin);link.searchParams.set('language',state.locale);link.hash=id;const url=link.href; // keep selected locale; no tracking params
       try{if(!navigator.clipboard?.writeText)throw Error('NO_CLIPBOARD');await navigator.clipboard.writeText(url);btn.textContent=T().copied;}
       catch(_){window.prompt(T().copyFail,url);}
     });
