@@ -22,6 +22,66 @@
         }
       ]
     },
+    "bn-BD": {
+      "constraints": "PromptDock প্রম্পট প্রস্তুত করে; এটি নিজে থেকে AI-এর উত্তর তৈরি করে না বা ফলাফলের নিশ্চয়তা দেয় না। ChatGPT শর্টকাট ব্যবহার করা ঐচ্ছিক।",
+      "intro": "টেমপ্লেট, সংরক্ষিত ইনপুট ও ইতিহাস দিয়ে বারবার ব্যবহারযোগ্য AI প্রম্পট তৈরি করুন।",
+      "oneLine": "একই অনুরোধ বারবার না লিখে পুনর্ব্যবহারযোগ্য AI প্রম্পট তৈরি করুন।",
+      "problem": "একই ধরনের কাজে AI ব্যবহার করার সময় একই নির্দেশনা ও বিবরণ বারবার লিখতে হতে পারে।",
+      "useCases": [
+        {
+          "detail": "খালি প্রম্পট থেকে শুরু না করে অ্যাপে থাকা একটি টেমপ্লেট বেছে নিন।",
+          "title": "পরিচিত কাজ আবার করুন"
+        },
+        {
+          "detail": "এক সেট ইনপুট সংরক্ষণ করুন এবং একই কাজের সময় আবার খুলুন।",
+          "title": "ইনপুট আবার ব্যবহার করুন"
+        },
+        {
+          "detail": "নিজস্ব প্রম্পট টেমপ্লেট তৈরি করুন এবং সেগুলোর সংজ্ঞা JSON ফাইল হিসেবে ইমপোর্ট বা এক্সপোর্ট করুন।",
+          "title": "নিজের ফরম্যাট সাজান"
+        }
+      ]
+    },
+    "ca": {
+      "constraints": "PromptDock prepara prompts; no genera automàticament respostes d’IA ni en garanteix els resultats. La drecera a ChatGPT és opcional.",
+      "intro": "Crea instruccions d’IA reutilitzables amb plantilles, dades desades i historial.",
+      "oneLine": "Crea un prompt d’IA reutilitzable en lloc de tornar a escriure la mateixa petició.",
+      "problem": "Quan repeteixes una tasca amb IA, pots acabar escrivint una vegada i una altra les mateixes instruccions i dades.",
+      "useCases": [
+        {
+          "detail": "Comença amb una plantilla inclosa en lloc de partir d’un prompt en blanc.",
+          "title": "Repeteix una tasca habitual"
+        },
+        {
+          "detail": "Desa un conjunt de dades d’entrada i recupera’l quan hagis de fer la mateixa tasca.",
+          "title": "Reutilitza les dades"
+        },
+        {
+          "detail": "Crea plantilles de prompts personalitzades i importa o exporta les definicions en format JSON.",
+          "title": "Organitza les teves plantilles"
+        }
+      ]
+    },
+    "cs": {
+      "constraints": "PromptDock sestavuje prompty, ale sám automaticky negeneruje odpovědi AI ani nezaručuje jejich kvalitu. Zkratka pro otevření ChatGPT je volitelná.",
+      "intro": "Vytvářej opakovaně použitelné AI prompty pomocí šablon, uložených vstupů a historie.",
+      "oneLine": "Vytvoř si znovu použitelný AI prompt místo opakovaného psaní stejného zadání.",
+      "problem": "Když zadáváš umělé inteligenci podobné úkoly, často znovu píšeš stejné pokyny a podrobnosti.",
+      "useCases": [
+        {
+          "detail": "Začni s připravenou šablonou, místo abys psal prompt od nuly.",
+          "title": "Opakuj známý úkol"
+        },
+        {
+          "detail": "Ulož si sadu vstupů a vrať se k ní, až budeš stejný úkol řešit znovu.",
+          "title": "Znovu použij uložené vstupy"
+        },
+        {
+          "detail": "Vytvářej vlastní šablony promptů a importuj nebo exportuj jejich definice ve formátu JSON.",
+          "title": "Spravuj vlastní šablony"
+        }
+      ]
+    },
     "da": {
       "constraints": "PromptDock opbygger prompts, men genererer ikke automatisk AI-svar og garanterer ikke kvaliteten af svarene. Genvejen til ChatGPT er valgfri.",
       "intro": "Opret AI-prompter, du kan genbruge, med skabeloner, gemte input og historik.",
@@ -59,6 +119,26 @@
         {
           "detail": "Erstelle benutzerdefinierte Prompt-Vorlagen und importiere oder exportiere ihre Definitionen als JSON.",
           "title": "Eigene Vorlagen verwalten"
+        }
+      ]
+    },
+    "el": {
+      "constraints": "Το PromptDock συνθέτει προτροπές, αλλά δεν παράγει αυτόματα απαντήσεις AI ούτε εγγυάται την ποιότητά τους. Η συντόμευση προς το ChatGPT είναι προαιρετική.",
+      "intro": "Δημιούργησε επαναχρησιμοποιήσιμες προτροπές AI με πρότυπα, αποθηκευμένες εισόδους και ιστορικό.",
+      "oneLine": "Φτιάξε μια προτροπή AI που θα χρησιμοποιείς ξανά, αντί να γράφεις κάθε φορά το ίδιο αίτημα.",
+      "problem": "Όταν ζητάς από ένα εργαλείο AI να κάνει παρόμοιες εργασίες, συχνά χρειάζεται να ξαναγράψεις τις ίδιες οδηγίες και λεπτομέρειες.",
+      "useCases": [
+        {
+          "detail": "Ξεκίνα από ένα έτοιμο πρότυπο, αντί να γράφεις μια προτροπή από την αρχή.",
+          "title": "Επανάλαβε μια γνώριμη εργασία"
+        },
+        {
+          "detail": "Αποθήκευσε ένα σύνολο εισόδων και άνοιξέ το ξανά όταν προκύψει η ίδια εργασία.",
+          "title": "Χρησιμοποίησε ξανά αποθηκευμένα δεδομένα"
+        },
+        {
+          "detail": "Δημιούργησε προσαρμοσμένα πρότυπα προτροπών και εισήγαγε ή εξήγαγε τους ορισμούς τους ως JSON.",
+          "title": "Διαχειρίσου τα δικά σου πρότυπα"
         }
       ]
     },
@@ -122,6 +202,26 @@
         }
       ]
     },
+    "fi": {
+      "constraints": "PromptDock koostaa kehotteita, mutta ei luo tekoälyn vastauksia automaattisesti eikä takaa vastausten laatua. ChatGPT-pikakuvake on valinnainen.",
+      "intro": "Luo uudelleenkäytettäviä tekoälykehotteita mallien, tallennettujen syötteiden ja historian avulla.",
+      "oneLine": "Luo uudelleen käytettävä tekoälykehote sen sijaan, että kirjoittaisit saman pyynnön yhä uudelleen.",
+      "problem": "Kun pyydät tekoälyä tekemään samankaltaisia tehtäviä, samat ohjeet ja yksityiskohdat täytyy usein kirjoittaa uudelleen.",
+      "useCases": [
+        {
+          "detail": "Aloita valmiista mallista sen sijaan, että kirjoittaisit kehotteen tyhjästä.",
+          "title": "Toista tuttu tehtävä"
+        },
+        {
+          "detail": "Tallenna syötekokonaisuus ja ota se uudelleen käyttöön, kun tehtävä toistuu.",
+          "title": "Hyödynnä tallennettuja syötteitä"
+        },
+        {
+          "detail": "Luo omia kehotemalleja ja tuo tai vie niiden määrittelyt JSON-muodossa.",
+          "title": "Ylläpidä omia malleja"
+        }
+      ]
+    },
     "fr-CA": {
       "constraints": "PromptDock prépare des requêtes pour l’IA ; il ne produit pas automatiquement de réponses et n’en garantit pas la qualité. Le raccourci vers ChatGPT demeure facultatif.",
       "intro": "Crée des requêtes d’IA réutilisables avec des modèles, des saisies enregistrées et un historique.",
@@ -159,6 +259,126 @@
         {
           "detail": "Créez vos modèles de prompts personnalisés et importez ou exportez leurs définitions au format JSON.",
           "title": "Gérer vos propres formats"
+        }
+      ]
+    },
+    "gu-IN": {
+      "constraints": "PromptDock પ્રોમ્પ્ટ તૈયાર કરે છે; તે આપમેળે AIના જવાબો બનાવતું નથી કે પરિણામની ખાતરી આપતું નથી. ChatGPT શૉર્ટકટ વૈકલ્પિક છે.",
+      "intro": "ટેમ્પલેટ, સાચવેલા ઇનપુટ અને ઇતિહાસથી ફરી ઉપયોગ કરી શકાય એવા AI પ્રોમ્પ્ટ બનાવો.",
+      "oneLine": "એ જ વિનંતી વારંવાર લખવાને બદલે ફરી વાપરી શકાય એવો AI પ્રોમ્પ્ટ બનાવો.",
+      "problem": "AI પાસે સમાન પ્રકારનું કામ વારંવાર કરાવતા હો ત્યારે એ જ સૂચનાઓ અને વિગતો ફરીથી લખવી પડી શકે છે.",
+      "useCases": [
+        {
+          "detail": "ખાલી પ્રોમ્પ્ટથી શરૂઆત કરવાને બદલે એપમાં ઉપલબ્ધ ટેમ્પલેટ પસંદ કરો.",
+          "title": "વારંવારનું કામ શરૂ કરો"
+        },
+        {
+          "detail": "ઇનપુટનો સેટ સાચવો અને ફરી એ જ કામ આવે ત્યારે તેને ખોલો.",
+          "title": "સાચવેલા ઇનપુટ ફરી વાપરો"
+        },
+        {
+          "detail": "કસ્ટમ પ્રોમ્પ્ટ ટેમ્પલેટ બનાવો અને તેની વ્યાખ્યાઓ JSON રૂપે આયાત અથવા નિકાસ કરો.",
+          "title": "પોતાના ટેમ્પલેટ ગોઠવો"
+        }
+      ]
+    },
+    "he": {
+      "constraints": "PromptDock יוצר פרומפטים, אך אינו מפיק תשובות מבינה מלאכותית באופן אוטומטי ואינו מבטיח את איכותן. קיצור הדרך ל־ChatGPT הוא אפשרות בלבד.",
+      "intro": "צרו הנחיות AI לשימוש חוזר בעזרת תבניות, קלטים שמורים והיסטוריה.",
+      "oneLine": "צרו פרומפט AI שאפשר להשתמש בו שוב, במקום לכתוב את אותה הבקשה מחדש בכל פעם.",
+      "problem": "כשמבקשים מבינה מלאכותית לבצע שוב ושוב משימות דומות, צריך לחזור על אותן הוראות ופרטים.",
+      "useCases": [
+        {
+          "detail": "התחילו מתבנית מובנית במקום מפרומפט ריק.",
+          "title": "חזרה על משימה מוכרת"
+        },
+        {
+          "detail": "שמרו קבוצת קלטים וחזרו אליה כשהמשימה עולה שוב.",
+          "title": "שימוש חוזר בקלט שמור"
+        },
+        {
+          "detail": "צרו תבניות פרומפט מותאמות אישית, וייבאו או ייצאו את ההגדרות שלהן כ־JSON.",
+          "title": "ניהול תבניות משלכם"
+        }
+      ]
+    },
+    "hi": {
+      "constraints": "PromptDock प्रॉम्प्ट तैयार करता है; यह अपने-आप AI से उत्तर नहीं बनाता और न ही उत्तर की गुणवत्ता की गारंटी देता है। ChatGPT का शॉर्टकट वैकल्पिक है।",
+      "intro": "टेम्पलेट, सहेजे गए इनपुट और इतिहास से बार-बार इस्तेमाल होने वाले AI प्रॉम्प्ट बनाएँ।",
+      "oneLine": "एक ही अनुरोध बार-बार लिखने के बजाय ऐसा AI प्रॉम्प्ट बनाएँ जिसे दोबारा इस्तेमाल किया जा सके।",
+      "problem": "जब आप AI को बार-बार मिलते-जुलते काम देते हैं, तो वही निर्देश और विवरण फिर से लिखने पड़ सकते हैं।",
+      "useCases": [
+        {
+          "detail": "खाली प्रॉम्प्ट से शुरू करने के बजाय ऐप में दिए गए टेम्पलेट का उपयोग करें।",
+          "title": "पहले से परिचित काम दोहराएँ"
+        },
+        {
+          "detail": "इनपुट का एक सेट सहेजें और वही काम फिर आने पर उसे वापस खोलें।",
+          "title": "सहेजे गए इनपुट दोबारा इस्तेमाल करें"
+        },
+        {
+          "detail": "अपने प्रॉम्प्ट टेम्पलेट बनाएँ और उनकी परिभाषाएँ JSON के रूप में इंपोर्ट या एक्सपोर्ट करें।",
+          "title": "अपने टेम्पलेट सँभालें"
+        }
+      ]
+    },
+    "hr": {
+      "constraints": "PromptDock sastavlja upite, ali sam ne generira odgovore umjetne inteligencije niti jamči njihovu kvalitetu. Prečac za ChatGPT nije obavezan.",
+      "intro": "Izradi AI upite za višekratnu upotrebu uz predloške, spremljene unose i povijest.",
+      "oneLine": "Sastavite AI upit koji možete ponovno koristiti umjesto da svaki put iznova pišete isti zahtjev.",
+      "problem": "Kada umjetnoj inteligenciji često zadajete sličan zadatak, morate ponavljati iste upute i pojedinosti.",
+      "useCases": [
+        {
+          "detail": "Počnite od ugrađenog predloška umjesto od praznog upita.",
+          "title": "Ponovite poznati zadatak"
+        },
+        {
+          "detail": "Spremite skup unosa i vratite mu se kada se zadatak ponovi.",
+          "title": "Ponovno upotrijebite spremljene unose"
+        },
+        {
+          "detail": "Izradite vlastite predloške upita te njihove definicije uvezite ili izvezite kao JSON.",
+          "title": "Održavajte vlastite formate"
+        }
+      ]
+    },
+    "hu": {
+      "constraints": "A PromptDock promptokat állít össze; nem generál automatikusan AI-választ, és nem garantálja a válasz minőségét. A ChatGPT-parancsikon használata opcionális.",
+      "intro": "Készíts újra felhasználható AI-promptokat sablonokkal, mentett bemenetekkel és előzményekkel.",
+      "oneLine": "Készíts újra felhasználható AI-promptot ahelyett, hogy újra és újra megírnád ugyanazt a kérést.",
+      "problem": "Ha gyakran kérsz hasonló feladatokat az AI-tól, újra és újra le kell írnod ugyanazokat az utasításokat és részleteket.",
+      "useCases": [
+        {
+          "detail": "Kezdj egy beépített sablonnal, ahelyett, hogy a nulláról írnál promptot.",
+          "title": "Ismétlődő feladat indítása"
+        },
+        {
+          "detail": "Ments el egy bemeneti adatkészletet, és nyisd meg újra, amikor ismét szükség van rá.",
+          "title": "Korábbi adatok újrafelhasználása"
+        },
+        {
+          "detail": "Készíts egyéni promptsablonokat, és importáld vagy exportáld a definícióikat JSON-formátumban.",
+          "title": "Saját sablonok kezelése"
+        }
+      ]
+    },
+    "id": {
+      "constraints": "PromptDock menyusun prompt, tetapi tidak otomatis menghasilkan jawaban AI atau menjamin kualitas jawabannya. Pintasan ke ChatGPT bersifat opsional.",
+      "intro": "Buat prompt AI yang dapat digunakan kembali dengan templat, input tersimpan, dan riwayat.",
+      "oneLine": "Buat prompt AI yang bisa digunakan kembali tanpa menulis permintaan yang sama berulang kali.",
+      "problem": "Saat meminta AI mengerjakan tugas serupa, Anda mungkin harus mengetik ulang instruksi dan rincian yang sama.",
+      "useCases": [
+        {
+          "detail": "Mulai dari templat bawaan, bukan menulis prompt dari awal.",
+          "title": "Ulangi tugas yang sudah dikenal"
+        },
+        {
+          "detail": "Simpan kumpulan input dan buka kembali saat tugas yang sama muncul.",
+          "title": "Gunakan kembali input Anda"
+        },
+        {
+          "detail": "Buat templat prompt khusus, lalu impor atau ekspor definisinya sebagai JSON.",
+          "title": "Kelola format Anda sendiri"
         }
       ]
     },
@@ -202,6 +422,66 @@
         }
       ]
     },
+    "kn-IN": {
+      "constraints": "PromptDock ಪ್ರಾಂಪ್ಟ್‌ಗಳನ್ನು ಸಿದ್ಧಪಡಿಸುತ್ತದೆ; AI ಉತ್ತರಗಳನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ರಚಿಸುವುದಿಲ್ಲ ಅಥವಾ ಫಲಿತಾಂಶವನ್ನು ಖಾತರಿಪಡಿಸುವುದಿಲ್ಲ. ChatGPT ಶಾರ್ಟ್‌ಕಟ್ ಐಚ್ಛಿಕವಾಗಿದೆ.",
+      "intro": "ಟೆಂಪ್ಲೇಟ್‌ಗಳು, ಉಳಿಸಿದ ಇನ್‌ಪುಟ್‌ಗಳು ಮತ್ತು ಇತಿಹಾಸದಿಂದ ಮರುಬಳಕೆ ಮಾಡಬಹುದಾದ AI ಪ್ರಾಂಪ್ಟ್‌ಗಳನ್ನು ರಚಿಸಿ.",
+      "oneLine": "ಅದೇ ವಿನಂತಿಯನ್ನು ಮತ್ತೆ ಮತ್ತೆ ಬರೆಯುವ ಬದಲು ಮರುಬಳಕೆ ಮಾಡಬಹುದಾದ AI ಪ್ರಾಂಪ್ಟ್ ರಚಿಸಿ.",
+      "problem": "ಹೋಲುವ ಕೆಲಸಗಳಿಗಾಗಿ AIಗೆ ಅದೇ ಸೂಚನೆಗಳು ಮತ್ತು ವಿವರಗಳನ್ನು ಪದೇಪದೇ ಬರೆಯಬೇಕಾಗಬಹುದು.",
+      "useCases": [
+        {
+          "detail": "ಖಾಲಿ ಪ್ರಾಂಪ್ಟ್‌ನಿಂದ ಆರಂಭಿಸುವ ಬದಲು ಆಪ್‌ನಲ್ಲಿರುವ ಟೆಂಪ್ಲೇಟ್ ಆಯ್ಕೆಮಾಡಿ.",
+          "title": "ಪರಿಚಿತ ಕೆಲಸವನ್ನು ಮತ್ತೆ ಮಾಡಿ"
+        },
+        {
+          "detail": "ಒಂದು ಇನ್‌ಪುಟ್ ಸೆಟ್ ಉಳಿಸಿ, ಕೆಲಸ ಮತ್ತೆ ಬಂದಾಗ ಅದನ್ನು ತೆರೆಯಿರಿ.",
+          "title": "ಉಳಿಸಿದ ಇನ್‌ಪುಟ್ ಮರುಬಳಸಿ"
+        },
+        {
+          "detail": "ಕಸ್ಟಮ್ ಪ್ರಾಂಪ್ಟ್ ಟೆಂಪ್ಲೇಟ್‌ಗಳನ್ನು ರಚಿಸಿ ಮತ್ತು ಅವುಗಳ ವ್ಯಾಖ್ಯಾನಗಳನ್ನು JSON ರೂಪದಲ್ಲಿ ಆಮದು ಅಥವಾ ರಫ್ತು ಮಾಡಿ.",
+          "title": "ನಿಮ್ಮದೇ ಟೆಂಪ್ಲೇಟ್‌ಗಳನ್ನು ನಿರ್ವಹಿಸಿ"
+        }
+      ]
+    },
+    "ml-IN": {
+      "constraints": "PromptDock പ്രോംപ്റ്റുകൾ തയ്യാറാക്കുകയാണ് ചെയ്യുന്നത്; AI ഉത്തരങ്ങൾ സ്വയം സൃഷ്ടിക്കുകയോ ഫലം ഉറപ്പുനൽകുകയോ ചെയ്യുന്നില്ല. ChatGPT ഷോർട്ട്‌കട്ട് ഐച്ഛികമാണ്.",
+      "intro": "ടെംപ്ലേറ്റുകളും സേവ് ചെയ്ത ഇൻപുട്ടുകളും ചരിത്രവും ഉപയോഗിച്ച് വീണ്ടും ഉപയോഗിക്കാവുന്ന AI പ്രോംപ്റ്റുകൾ തയ്യാറാക്കൂ.",
+      "oneLine": "ഒരേ അഭ്യർഥന വീണ്ടും എഴുതാതെ പുനരുപയോഗിക്കാവുന്ന AI പ്രോംപ്റ്റ് തയ്യാറാക്കൂ.",
+      "problem": "സമാനമായ ജോലികൾക്കായി AI ഉപയോഗിക്കുമ്പോൾ ഒരേ നിർദേശങ്ങളും വിശദാംശങ്ങളും വീണ്ടും വീണ്ടും എഴുതേണ്ടിവരാം.",
+      "useCases": [
+        {
+          "detail": "ശൂന്യമായ പ്രോംപ്റ്റിൽ നിന്ന് തുടങ്ങാതെ ആപ്പിലുള്ള ഒരു ടെംപ്ലേറ്റ് തിരഞ്ഞെടുക്കൂ.",
+          "title": "പരിചിതമായ ജോലി വീണ്ടും ചെയ്യൂ"
+        },
+        {
+          "detail": "ഒരു ഇൻപുട്ട് സെറ്റ് സേവ് ചെയ്ത്, ആ ജോലി വീണ്ടും വരുമ്പോൾ അത് തുറക്കൂ.",
+          "title": "സേവ് ചെയ്ത ഇൻപുട്ട് വീണ്ടും ഉപയോഗിക്കൂ"
+        },
+        {
+          "detail": "ഇഷ്ടാനുസൃത പ്രോംപ്റ്റ് ടെംപ്ലേറ്റുകൾ സൃഷ്ടിച്ച് അവയുടെ നിർവചനങ്ങൾ JSON ആയി ഇംപോർട്ട് ചെയ്യുകയോ എക്സ്പോർട്ട് ചെയ്യുകയോ ചെയ്യൂ.",
+          "title": "സ്വന്തം ടെംപ്ലേറ്റുകൾ കൈകാര്യം ചെയ്യൂ"
+        }
+      ]
+    },
+    "ms": {
+      "constraints": "PromptDock menyediakan prom; aplikasi ini tidak menjana jawapan AI secara automatik atau menjamin hasilnya. Pintasan ke ChatGPT adalah pilihan.",
+      "intro": "Cipta prom AI yang boleh digunakan semula dengan templat, input tersimpan dan sejarah.",
+      "oneLine": "Bina prom AI yang boleh digunakan semula, bukan menulis permintaan yang sama berulang kali.",
+      "problem": "Apabila anda kerap meminta AI melakukan tugas yang serupa, arahan dan butiran yang sama mungkin perlu ditaip semula.",
+      "useCases": [
+        {
+          "detail": "Gunakan templat sedia ada dan bukannya bermula dengan prom kosong.",
+          "title": "Mulakan tugas berulang"
+        },
+        {
+          "detail": "Simpan set input dan buka semula apabila tugas yang sama muncul.",
+          "title": "Guna semula input"
+        },
+        {
+          "detail": "Cipta templat prom tersuai serta import atau eksport takrifannya sebagai JSON.",
+          "title": "Urus templat sendiri"
+        }
+      ]
+    },
     "nl-NL": {
       "constraints": "PromptDock maakt prompts, maar genereert niet automatisch AI-antwoorden en garandeert de kwaliteit van antwoorden niet. De snelkoppeling naar ChatGPT is optioneel.",
       "intro": "Maak herbruikbare AI-prompts met sjablonen, opgeslagen invoer en geschiedenis.",
@@ -219,6 +499,26 @@
         {
           "detail": "Maak aangepaste promptsjablonen en importeer of exporteer de definities als JSON.",
           "title": "Je eigen sjablonen beheren"
+        }
+      ]
+    },
+    "no": {
+      "constraints": "PromptDock setter sammen instruksjoner, men lager ikke AI-svar automatisk og garanterer ikke kvaliteten på svarene. Snarveien til ChatGPT er valgfri.",
+      "intro": "Lag AI-instruksjoner du kan bruke om igjen, med maler, lagrede inndata og historikk.",
+      "oneLine": "Lag en AI-instruksjon du kan bruke igjen, i stedet for å skrive den samme forespørselen på nytt.",
+      "problem": "Når du ber AI om lignende oppgaver, må du ofte gjenta de samme instruksjonene og detaljene.",
+      "useCases": [
+        {
+          "detail": "Start med en innebygd mal i stedet for å skrive en instruksjon fra bunnen av.",
+          "title": "Gjenta en kjent oppgave"
+        },
+        {
+          "detail": "Lagre et sett med inndata og hent det fram neste gang oppgaven dukker opp.",
+          "title": "Bruk lagrede inndata på nytt"
+        },
+        {
+          "detail": "Opprett egne instruksjonsmaler, og importer eller eksporter definisjonene som JSON.",
+          "title": "Ta vare på egne maler"
         }
       ]
     },
@@ -282,6 +582,66 @@
         }
       ]
     },
+    "ro": {
+      "constraints": "PromptDock creează prompturi; nu generează automat un răspuns AI și nu garantează calitatea răspunsului. Comanda rapidă către ChatGPT este opțională.",
+      "intro": "Creează prompturi AI reutilizabile cu șabloane, date salvate și istoric.",
+      "oneLine": "Creează un prompt AI reutilizabil, în loc să rescrii mereu aceeași solicitare.",
+      "problem": "Când soliciți în mod repetat sarcini similare unui AI, poate fi nevoie să reintroduci aceleași instrucțiuni și detalii.",
+      "useCases": [
+        {
+          "detail": "Pornește de la un șablon inclus, în loc să compui un prompt de la zero.",
+          "title": "Repetă o sarcină obișnuită"
+        },
+        {
+          "detail": "Salvează un set de date introduse și revino la el atunci când sarcina apare din nou.",
+          "title": "Reutilizează datele introduse"
+        },
+        {
+          "detail": "Creează șabloane personalizate de prompt și importă sau exportă definițiile lor în format JSON.",
+          "title": "Gestionează propriile șabloane"
+        }
+      ]
+    },
+    "sk": {
+      "constraints": "PromptDock zostavuje prompty; sám negeneruje odpovede AI ani nezaručuje ich kvalitu. Skratka na ChatGPT je voliteľná.",
+      "intro": "Vytváraj opakovane použiteľné AI prompty pomocou šablón, uložených vstupov a histórie.",
+      "oneLine": "Vytvorte si opakovane použiteľný prompt pre AI namiesto opakovaného písania tej istej požiadavky.",
+      "problem": "Keď AI opakovane zadávate podobnú úlohu, musíte znova vypisovať rovnaké pokyny a podrobnosti.",
+      "useCases": [
+        {
+          "detail": "Začnite so vstavanou šablónou namiesto písania promptu od začiatku.",
+          "title": "Zopakujte známu úlohu"
+        },
+        {
+          "detail": "Uložte si sadu vstupných údajov a vráťte sa k nej, keď sa úloha zopakuje.",
+          "title": "Použite uložené vstupy"
+        },
+        {
+          "detail": "Vytvárajte vlastné šablóny promptov a importujte alebo exportujte ich definície vo formáte JSON.",
+          "title": "Spravujte vlastné šablóny"
+        }
+      ]
+    },
+    "sl-SI": {
+      "constraints": "PromptDock sestavlja pozive za UI, vendar sam ne ustvarja odgovorov umetne inteligence in ne zagotavlja njihove kakovosti. Bližnjica do ChatGPT je neobvezna.",
+      "intro": "Ustvari pozive za UI za večkratno uporabo s predlogami, shranjenimi vnosi in zgodovino.",
+      "oneLine": "Namesto da vedno znova pišete isto zahtevo, ustvarite poziv za UI, ki ga lahko večkrat uporabite.",
+      "problem": "Če umetni inteligenci pogosto zastavite podobno nalogo, morate znova vnašati ista navodila in podrobnosti.",
+      "useCases": [
+        {
+          "detail": "Začnite z vgrajeno predlogo namesto s praznim pozivom.",
+          "title": "Ponovite znano nalogo"
+        },
+        {
+          "detail": "Shranite nabor vnosov in ga znova uporabite, ko se naloga ponovi.",
+          "title": "Znova uporabite shranjene vnose"
+        },
+        {
+          "detail": "Ustvarite lastne predloge pozivov ter njihove definicije uvozite ali izvozite v obliki JSON.",
+          "title": "Upravljajte svoje predloge"
+        }
+      ]
+    },
     "sv": {
       "constraints": "PromptDock skapar promptar men genererar inte AI-svar automatiskt och garanterar inte kvaliteten på svaren. Genvägen till ChatGPT är valfri.",
       "intro": "Skapa AI-promptar som kan återanvändas med mallar, sparade inmatningar och historik.",
@@ -299,6 +659,86 @@
         {
           "detail": "Skapa egna promptmallar och importera eller exportera definitionerna som JSON.",
           "title": "Hantera egna mallar"
+        }
+      ]
+    },
+    "th": {
+      "constraints": "PromptDock ช่วยสร้างพรอมป์ แต่ไม่ได้สร้างคำตอบจาก AI โดยอัตโนมัติหรือรับประกันคุณภาพของคำตอบ ทางลัดไปยัง ChatGPT เป็นตัวเลือกที่ไม่จำเป็นต้องใช้",
+      "intro": "สร้างพรอมป์ AI ที่ใช้ซ้ำได้ด้วยเทมเพลต ข้อมูลที่บันทึกไว้ และประวัติ",
+      "oneLine": "สร้างพรอมป์ AI ที่นำกลับมาใช้ได้ โดยไม่ต้องเขียนคำขอเดิมซ้ำทุกครั้ง",
+      "problem": "เมื่อขอให้ AI ทำงานที่คล้ายกัน คุณอาจต้องพิมพ์คำสั่งและรายละเอียดเดิมซ้ำอีกครั้ง",
+      "useCases": [
+        {
+          "detail": "เริ่มจากเทมเพลตที่มีให้ แทนการเขียนพรอมป์ใหม่ทั้งหมด",
+          "title": "ทำงานที่คุ้นเคยซ้ำได้ง่ายขึ้น"
+        },
+        {
+          "detail": "บันทึกชุดข้อมูลที่กรอก และเปิดกลับมาเมื่อมีงานแบบเดิมอีกครั้ง",
+          "title": "นำข้อมูลที่กรอกไว้กลับมาใช้"
+        },
+        {
+          "detail": "สร้างเทมเพลตพรอมป์แบบกำหนดเอง และนำเข้าหรือส่งออกคำจำกัดความเป็น JSON",
+          "title": "จัดการเทมเพลตของคุณเอง"
+        }
+      ]
+    },
+    "tr": {
+      "constraints": "PromptDock istem oluşturur; ancak yapay zekâ yanıtını otomatik olarak üretmez veya yanıtın kalitesini garanti etmez. ChatGPT kısayolunu kullanmak isteğe bağlıdır.",
+      "intro": "Şablonlar, kayıtlı girdiler ve geçmişle yeniden kullanılabilir yapay zekâ istemleri oluşturun.",
+      "oneLine": "Aynı isteği yeniden yazmak yerine tekrar kullanabileceğiniz bir yapay zekâ istemi hazırlayın.",
+      "problem": "Benzer işleri yapay zekâya her yaptırışınızda aynı yönergeleri ve ayrıntıları yeniden yazmanız gerekebilir.",
+      "useCases": [
+        {
+          "detail": "İstemi sıfırdan yazmak yerine hazır bir şablonla başlayın.",
+          "title": "Sık yaptığınız bir işi tekrarlayın"
+        },
+        {
+          "detail": "Bir girdi kümesini kaydedin ve aynı iş tekrar gerektiğinde açın.",
+          "title": "Girdilerinizi yeniden kullanın"
+        },
+        {
+          "detail": "Özel istem şablonları oluşturun; tanımlarını JSON olarak içe veya dışa aktarın.",
+          "title": "Kendi şablonlarınızı yönetin"
+        }
+      ]
+    },
+    "uk": {
+      "constraints": "PromptDock формує запити, але не генерує відповіді ШІ автоматично й не гарантує їхню якість. Швидкий перехід до ChatGPT — необов’язковий.",
+      "intro": "Створюйте багаторазові запити до ШІ за допомогою шаблонів, збережених даних та історії.",
+      "oneLine": "Створіть запит до ШІ, який можна використовувати повторно, замість того щоб щоразу переписувати те саме прохання.",
+      "problem": "Коли ви знову звертаєтеся до ШІ зі схожим завданням, доводиться повторювати ті самі інструкції та деталі.",
+      "useCases": [
+        {
+          "detail": "Почніть із вбудованого шаблону, а не створюйте запит із нуля.",
+          "title": "Повторюйте знайоме завдання"
+        },
+        {
+          "detail": "Збережіть набір вхідних даних і повертайтеся до нього, коли завдання виникне знову.",
+          "title": "Використовуйте збережені дані"
+        },
+        {
+          "detail": "Створюйте власні шаблони запитів та імпортуйте або експортуйте їхні визначення у форматі JSON.",
+          "title": "Керуйте власними шаблонами"
+        }
+      ]
+    },
+    "vi": {
+      "constraints": "PromptDock tạo câu lệnh nhưng không tự động tạo câu trả lời từ AI và không bảo đảm chất lượng câu trả lời. Lối tắt mở ChatGPT là tùy chọn.",
+      "intro": "Tạo lời nhắc AI có thể tái sử dụng bằng mẫu, dữ liệu đã lưu và lịch sử.",
+      "oneLine": "Tạo câu lệnh AI có thể tái sử dụng thay vì viết lại cùng một yêu cầu.",
+      "problem": "Khi yêu cầu AI thực hiện các công việc tương tự, bạn thường phải nhập lại cùng những hướng dẫn và chi tiết.",
+      "useCases": [
+        {
+          "detail": "Bắt đầu từ mẫu có sẵn thay vì viết câu lệnh từ đầu.",
+          "title": "Lặp lại công việc quen thuộc"
+        },
+        {
+          "detail": "Lưu một bộ dữ liệu đầu vào và mở lại khi cần thực hiện công việc tương tự.",
+          "title": "Dùng lại dữ liệu đã nhập"
+        },
+        {
+          "detail": "Tạo mẫu câu lệnh tùy chỉnh, rồi nhập hoặc xuất định nghĩa mẫu dưới dạng JSON.",
+          "title": "Quản lý mẫu của riêng bạn"
         }
       ]
     }
