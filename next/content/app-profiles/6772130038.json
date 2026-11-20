@@ -1,125 +1,385 @@
 {
-  "schemaVersion": 1,
   "appId": "6772130038",
   "developerId": 1817908735,
-  "status": "published_metadata_pilot",
   "editorial": {
+    "ar-SA": {
+      "constraints": "ينشئ PromptDock مطالبات يمكنك نسخها، لكنه لا يولّد إجابة من الذكاء الاصطناعي تلقائيًا ولا يضمن جودة إجاباتها. اختصار فتح ChatGPT اختياري.",
+      "intro": "أنشئ مطالبات ذكاء اصطناعي قابلة لإعادة الاستخدام باستخدام القوالب والمدخلات المحفوظة والسجل.",
+      "oneLine": "أنشئ مطالبة ذكاء اصطناعي قابلة لإعادة الاستخدام بدل إعادة كتابة الطلب نفسه في كل مرة.",
+      "problem": "عند تكرار طلب مشابه من الذكاء الاصطناعي، قد تضطر إلى إعادة كتابة التعليمات والتفاصيل نفسها.",
+      "useCases": [
+        {
+          "detail": "ابدأ بقالب مدمج بدل كتابة المطالبة من صفحة فارغة.",
+          "title": "كرّر مهمة مألوفة"
+        },
+        {
+          "detail": "احفظ مجموعة مدخلات واستعدها عند تكرار المهمة.",
+          "title": "أعد استخدام مدخلاتك"
+        },
+        {
+          "detail": "أنشئ قوالب مخصصة واستورد تعريفاتها أو صدّرها بصيغة JSON.",
+          "title": "أدر قوالبك الخاصة"
+        }
+      ]
+    },
+    "da": {
+      "constraints": "PromptDock opbygger prompts, men genererer ikke automatisk AI-svar og garanterer ikke kvaliteten af svarene. Genvejen til ChatGPT er valgfri.",
+      "intro": "Opret AI-prompter, du kan genbruge, med skabeloner, gemte input og historik.",
+      "oneLine": "Lav en AI-prompt, du kan genbruge, i stedet for at skrive den samme anmodning igen og igen.",
+      "problem": "Når du beder AI om at udføre lignende opgaver, må du ofte skrive de samme instruktioner og detaljer igen.",
+      "useCases": [
+        {
+          "detail": "Start med en indbygget skabelon i stedet for at skrive en prompt fra bunden.",
+          "title": "Gentag en velkendt opgave"
+        },
+        {
+          "detail": "Gem et sæt input, og find det frem igen, næste gang du skal løse opgaven.",
+          "title": "Genbrug gemte input"
+        },
+        {
+          "detail": "Opret brugerdefinerede promptskabeloner, og importér eller eksportér deres definitioner som JSON.",
+          "title": "Administrer dine egne skabeloner"
+        }
+      ]
+    },
+    "de-DE": {
+      "constraints": "PromptDock erstellt Prompts; die App erzeugt nicht automatisch KI-Antworten und garantiert keine bestimmte Antwortqualität. Die ChatGPT-Verknüpfung ist optional.",
+      "intro": "Erstelle wiederverwendbare KI-Prompts mit Vorlagen, gespeicherten Eingaben und Verlauf.",
+      "oneLine": "Erstelle einen wiederverwendbaren KI-Prompt, statt dieselbe Anfrage jedes Mal neu zu formulieren.",
+      "problem": "Bei ähnlichen Anfragen an eine KI musst du häufig dieselben Anweisungen und Angaben erneut eingeben.",
+      "useCases": [
+        {
+          "detail": "Beginne mit einer integrierten Vorlage, statt einen Prompt von Grund auf neu zu schreiben.",
+          "title": "Eine bekannte Aufgabe wiederholen"
+        },
+        {
+          "detail": "Speichere einen Satz von Eingaben und rufe ihn wieder auf, wenn dieselbe Aufgabe erneut ansteht.",
+          "title": "Gespeicherte Eingaben wiederverwenden"
+        },
+        {
+          "detail": "Erstelle benutzerdefinierte Prompt-Vorlagen und importiere oder exportiere ihre Definitionen als JSON.",
+          "title": "Eigene Vorlagen verwalten"
+        }
+      ]
+    },
     "en-US": {
+      "constraints": "PromptDock creates prompts; it does not automatically produce or guarantee an AI answer. The ChatGPT shortcut is optional.",
+      "intro": "Choose a template, fill in the relevant fields, then generate a prompt you can copy. Saved input sets, history and custom templates support repeated work.",
       "oneLine": "Build a reusable AI prompt instead of rewriting the same request.",
       "problem": "Repeatedly writing a similar AI request can mean repeating the same instructions and details.",
-      "intro": "Choose a template, fill in the relevant fields, then generate a prompt you can copy. Saved input sets, history and custom templates support repeated work.",
       "useCases": [
         {
-          "title": "Repeat a familiar task",
-          "detail": "Start from a built-in template instead of a blank prompt."
+          "detail": "Start from a built-in template instead of a blank prompt.",
+          "title": "Repeat a familiar task"
         },
         {
-          "title": "Reuse your input",
-          "detail": "Save an input set and return to it when the task comes up again."
+          "detail": "Save an input set and return to it when the task comes up again.",
+          "title": "Reuse your input"
         },
         {
-          "title": "Maintain your own formats",
-          "detail": "Create custom prompt templates and import or export their definitions as JSON."
+          "detail": "Create custom prompt templates and import or export their definitions as JSON.",
+          "title": "Maintain your own formats"
         }
-      ],
-      "constraints": "PromptDock creates prompts; it does not automatically produce or guarantee an AI answer. The ChatGPT shortcut is optional."
+      ]
+    },
+    "es-ES": {
+      "constraints": "PromptDock crea prompts; no genera respuestas de IA automáticamente ni garantiza su calidad. El acceso directo a ChatGPT es opcional.",
+      "intro": "Crea prompts de IA reutilizables con plantillas, entradas guardadas e historial.",
+      "oneLine": "Crea un prompt de IA reutilizable en lugar de volver a escribir la misma petición.",
+      "problem": "Al repetir una petición similar a una IA, es posible que tengas que escribir de nuevo las mismas instrucciones y los mismos detalles.",
+      "useCases": [
+        {
+          "detail": "Empieza con una plantilla integrada en lugar de un prompt en blanco.",
+          "title": "Repite una tarea habitual"
+        },
+        {
+          "detail": "Guarda un conjunto de entradas y recupéralo cuando vuelvas a realizar la tarea.",
+          "title": "Reutiliza tus datos de entrada"
+        },
+        {
+          "detail": "Crea plantillas de prompts personalizadas e importa o exporta sus definiciones en JSON.",
+          "title": "Gestiona tus propios formatos"
+        }
+      ]
+    },
+    "es-MX": {
+      "constraints": "PromptDock crea prompts; no genera respuestas de IA automáticamente ni garantiza su calidad. El acceso directo a ChatGPT es opcional.",
+      "intro": "Crea prompts de IA reutilizables con plantillas, datos guardados e historial.",
+      "oneLine": "Crea un prompt de IA reutilizable sin tener que escribir la misma solicitud cada vez.",
+      "problem": "Al repetir una solicitud similar a una IA, tal vez tengas que volver a escribir las mismas instrucciones y los mismos detalles.",
+      "useCases": [
+        {
+          "detail": "Comienza con una plantilla incluida en vez de escribir un prompt desde cero.",
+          "title": "Repite una tarea frecuente"
+        },
+        {
+          "detail": "Guarda un conjunto de entradas y recupéralo cuando vuelvas a hacer esa tarea.",
+          "title": "Vuelve a usar tus datos de entrada"
+        },
+        {
+          "detail": "Crea plantillas de prompts personalizadas e importa o exporta sus definiciones en JSON.",
+          "title": "Organiza tus propios formatos"
+        }
+      ]
+    },
+    "fr-CA": {
+      "constraints": "PromptDock prépare des requêtes pour l’IA ; il ne produit pas automatiquement de réponses et n’en garantit pas la qualité. Le raccourci vers ChatGPT demeure facultatif.",
+      "intro": "Crée des requêtes d’IA réutilisables avec des modèles, des saisies enregistrées et un historique.",
+      "oneLine": "Préparez une requête d’IA réutilisable au lieu de réécrire la même demande chaque fois.",
+      "problem": "Quand vous faites souvent une demande semblable à une IA, vous devez parfois saisir de nouveau les mêmes consignes et renseignements.",
+      "useCases": [
+        {
+          "detail": "Commencez à partir d’un modèle fourni au lieu de rédiger une requête à partir de rien.",
+          "title": "Reprendre une tâche fréquente"
+        },
+        {
+          "detail": "Enregistrez un ensemble de saisies et récupérez-le la prochaine fois que vous faites cette tâche.",
+          "title": "Réutiliser vos données saisies"
+        },
+        {
+          "detail": "Créez des modèles de requêtes personnalisés et importez ou exportez leurs définitions en JSON.",
+          "title": "Conserver vos propres formats"
+        }
+      ]
+    },
+    "fr-FR": {
+      "constraints": "PromptDock crée des prompts ; il ne génère pas automatiquement de réponses d’IA et n’en garantit pas la qualité. Le raccourci vers ChatGPT est facultatif.",
+      "intro": "Crée des prompts d’IA réutilisables grâce aux modèles, aux saisies enregistrées et à l’historique.",
+      "oneLine": "Créez un prompt d’IA réutilisable plutôt que de reformuler chaque fois la même demande.",
+      "problem": "Lorsque vous répétez une demande similaire à une IA, vous devez souvent ressaisir les mêmes consignes et précisions.",
+      "useCases": [
+        {
+          "detail": "Partez d’un modèle intégré plutôt que d’une page de prompt vide.",
+          "title": "Répéter une tâche habituelle"
+        },
+        {
+          "detail": "Enregistrez un ensemble de données saisies et retrouvez-le lorsque la tâche revient.",
+          "title": "Réutiliser vos saisies"
+        },
+        {
+          "detail": "Créez vos modèles de prompts personnalisés et importez ou exportez leurs définitions au format JSON.",
+          "title": "Gérer vos propres formats"
+        }
+      ]
+    },
+    "it": {
+      "constraints": "PromptDock crea prompt, ma non genera automaticamente risposte AI né ne garantisce la qualità. Il collegamento rapido a ChatGPT è facoltativo.",
+      "intro": "Crea prompt AI riutilizzabili con modelli, input salvati e cronologia.",
+      "oneLine": "Crea un prompt AI riutilizzabile invece di riscrivere ogni volta la stessa richiesta.",
+      "problem": "Quando invii richieste simili a un sistema di AI, rischi di ripetere le stesse istruzioni e informazioni.",
+      "useCases": [
+        {
+          "detail": "Parti da un modello integrato invece di scrivere un prompt da zero.",
+          "title": "Ripeti un’attività abituale"
+        },
+        {
+          "detail": "Salva un insieme di input e recuperalo quando devi svolgere di nuovo la stessa attività.",
+          "title": "Riutilizza i dati inseriti"
+        },
+        {
+          "detail": "Crea modelli di prompt personalizzati e importa o esporta le relative definizioni in JSON.",
+          "title": "Gestisci i tuoi modelli"
+        }
+      ]
     },
     "ja": {
+      "constraints": "PromptDockはプロンプトを作成する道具です。AIの回答を自動生成したり、回答品質を保証したりするものではありません。ChatGPTへのショートカットは任意です。",
+      "intro": "テンプレートを選び、必要な項目を入力してプロンプトを生成・コピー。入力セットの保存、履歴、カスタムテンプレートで反復作業を助けます。",
       "oneLine": "同じAIへの依頼を毎回書き直さず、使い回せるプロンプトを作る。",
       "problem": "似た依頼を繰り返すたび、指示や条件を最初から書く手間が生じます。",
-      "intro": "テンプレートを選び、必要な項目を入力してプロンプトを生成・コピー。入力セットの保存、履歴、カスタムテンプレートで反復作業を助けます。",
       "useCases": [
         {
-          "title": "よく使う依頼を繰り返す",
-          "detail": "白紙から書き始めず、内蔵テンプレートを起点にする。"
+          "detail": "白紙から書き始めず、内蔵テンプレートを起点にする。",
+          "title": "よく使う依頼を繰り返す"
         },
         {
-          "title": "前回の条件から再開する",
-          "detail": "保存した入力セットを呼び戻して、次の依頼に使う。"
+          "detail": "保存した入力セットを呼び戻して、次の依頼に使う。",
+          "title": "前回の条件から再開する"
         },
         {
-          "title": "自分用の書式を管理する",
-          "detail": "カスタムテンプレートを作り、JSONで書き出し・読み込みする。"
+          "detail": "カスタムテンプレートを作り、JSONで書き出し・読み込みする。",
+          "title": "自分用の書式を管理する"
         }
-      ],
-      "constraints": "PromptDockはプロンプトを作成する道具です。AIの回答を自動生成したり、回答品質を保証したりするものではありません。ChatGPTへのショートカットは任意です。"
+      ]
+    },
+    "nl-NL": {
+      "constraints": "PromptDock maakt prompts, maar genereert niet automatisch AI-antwoorden en garandeert de kwaliteit van antwoorden niet. De snelkoppeling naar ChatGPT is optioneel.",
+      "intro": "Maak herbruikbare AI-prompts met sjablonen, opgeslagen invoer en geschiedenis.",
+      "oneLine": "Maak een herbruikbare AI-prompt in plaats van steeds dezelfde vraag opnieuw te schrijven.",
+      "problem": "Bij vergelijkbare verzoeken aan AI moet je vaak dezelfde instructies en gegevens opnieuw invoeren.",
+      "useCases": [
+        {
+          "detail": "Begin met een ingebouwd sjabloon in plaats van een prompt helemaal zelf te schrijven.",
+          "title": "Een terugkerende taak uitvoeren"
+        },
+        {
+          "detail": "Bewaar een set invoergegevens en haal die terug wanneer de taak opnieuw voorkomt.",
+          "title": "Opgeslagen invoer opnieuw gebruiken"
+        },
+        {
+          "detail": "Maak aangepaste promptsjablonen en importeer of exporteer de definities als JSON.",
+          "title": "Je eigen sjablonen beheren"
+        }
+      ]
+    },
+    "pl": {
+      "constraints": "PromptDock tworzy prompty; nie generuje automatycznie odpowiedzi AI ani nie gwarantuje ich jakości. Skrót do ChatGPT jest opcjonalny.",
+      "intro": "Twórz prompty AI do ponownego użycia dzięki szablonom, zapisanym danym i historii.",
+      "oneLine": "Utwórz prompt AI do ponownego użycia zamiast za każdym razem pisać tę samą prośbę od nowa.",
+      "problem": "Przy podobnych prośbach do AI często trzeba ponownie wpisywać te same instrukcje i szczegóły.",
+      "useCases": [
+        {
+          "detail": "Zacznij od wbudowanego szablonu zamiast tworzyć prompt od zera.",
+          "title": "Powtarzaj znane zadanie"
+        },
+        {
+          "detail": "Zapisz zestaw danych wejściowych i wróć do niego, gdy zadanie się powtórzy.",
+          "title": "Wykorzystuj zapisane dane ponownie"
+        },
+        {
+          "detail": "Twórz niestandardowe szablony promptów oraz importuj lub eksportuj ich definicje w formacie JSON.",
+          "title": "Zarządzaj własnymi szablonami"
+        }
+      ]
+    },
+    "pt-BR": {
+      "constraints": "O PromptDock cria prompts; ele não gera respostas de IA automaticamente nem garante a qualidade das respostas. O atalho para o ChatGPT é opcional.",
+      "intro": "Crie prompts de IA reutilizáveis com modelos, entradas salvas e histórico.",
+      "oneLine": "Crie um prompt de IA reutilizável em vez de reescrever o mesmo pedido a cada vez.",
+      "problem": "Quando você faz pedidos parecidos a uma IA com frequência, pode acabar repetindo as mesmas instruções e informações.",
+      "useCases": [
+        {
+          "detail": "Comece com um modelo pronto em vez de criar um prompt do zero.",
+          "title": "Repita uma tarefa conhecida"
+        },
+        {
+          "detail": "Salve um conjunto de entradas e recupere-o quando precisar realizar a mesma tarefa novamente.",
+          "title": "Reutilize suas entradas"
+        },
+        {
+          "detail": "Crie modelos de prompts personalizados e importe ou exporte suas definições em JSON.",
+          "title": "Organize seus próprios modelos"
+        }
+      ]
+    },
+    "pt-PT": {
+      "constraints": "O PromptDock cria prompts; não gera automaticamente respostas de IA nem garante a qualidade dessas respostas. O atalho para o ChatGPT é opcional.",
+      "intro": "Cria prompts de IA reutilizáveis com modelos, entradas guardadas e histórico.",
+      "oneLine": "Cria um prompt de IA reutilizável em vez de voltares a escrever o mesmo pedido.",
+      "problem": "Ao fazeres pedidos semelhantes a uma IA, podes acabar por repetir as mesmas instruções e informações.",
+      "useCases": [
+        {
+          "detail": "Começa com um modelo incluído, em vez de escrever um prompt de raiz.",
+          "title": "Repete uma tarefa habitual"
+        },
+        {
+          "detail": "Guarda um conjunto de entradas e recupera-o quando voltares a realizar a mesma tarefa.",
+          "title": "Reutiliza os teus dados"
+        },
+        {
+          "detail": "Cria modelos de prompts personalizados e importa ou exporta as respetivas definições em JSON.",
+          "title": "Mantém os teus próprios modelos"
+        }
+      ]
+    },
+    "sv": {
+      "constraints": "PromptDock skapar promptar men genererar inte AI-svar automatiskt och garanterar inte kvaliteten på svaren. Genvägen till ChatGPT är valfri.",
+      "intro": "Skapa AI-promptar som kan återanvändas med mallar, sparade inmatningar och historik.",
+      "oneLine": "Skapa en AI-prompt som du kan återanvända i stället för att skriva samma förfrågan om och om igen.",
+      "problem": "När du ber AI om liknande saker behöver du ofta skriva samma instruktioner och detaljer på nytt.",
+      "useCases": [
+        {
+          "detail": "Börja med en inbyggd mall i stället för att skriva en prompt från grunden.",
+          "title": "Upprepa en vanlig uppgift"
+        },
+        {
+          "detail": "Spara en uppsättning inmatningar och hämta den när uppgiften dyker upp igen.",
+          "title": "Återanvänd sparade inmatningar"
+        },
+        {
+          "detail": "Skapa egna promptmallar och importera eller exportera definitionerna som JSON.",
+          "title": "Hantera egna mallar"
+        }
+      ]
     }
   },
+  "faq": [],
   "features": [
     {
       "featureId": "template-select",
-      "source": "asc-description",
-      "mediaIds": []
+      "mediaIds": [],
+      "source": "asc-description"
     },
     {
       "featureId": "prompt-generate",
-      "source": "asc-description",
-      "mediaIds": []
+      "mediaIds": [],
+      "source": "asc-description"
     },
     {
       "featureId": "save-and-history",
-      "source": "asc-description",
-      "mediaIds": []
+      "mediaIds": [],
+      "source": "asc-description"
     },
     {
       "featureId": "custom-templates",
-      "source": "asc-description",
-      "mediaIds": []
+      "mediaIds": [],
+      "source": "asc-description"
     }
   ],
+  "lastEditorialReviewUTC": null,
   "media": [],
-  "story": {
-    "approved": false,
-    "byLocale": {}
+  "publishedScreenEvidence": {
+    "entries": [
+      {
+        "en-US": {
+          "detail": "The first published screen introduces how to use PromptDock.",
+          "title": "A guide before you start"
+        },
+        "featureId": "template-select",
+        "index": 0,
+        "ja": {
+          "detail": "最初の公開画面では、PromptDockの基本的な操作の流れを案内しています。",
+          "title": "最初に使い方を確認"
+        }
+      },
+      {
+        "en-US": {
+          "detail": "The template list provides a starting point instead of another blank request.",
+          "title": "Browse reusable templates"
+        },
+        "featureId": "template-select",
+        "index": 1,
+        "ja": {
+          "detail": "テンプレート一覧から、白紙ではなく既存の型を選べます。",
+          "title": "テンプレートから始める"
+        }
+      },
+      {
+        "en-US": {
+          "detail": "The composition screen shows the fields and the prompt generated from them.",
+          "title": "Fill fields and generate"
+        },
+        "featureId": "prompt-generate",
+        "index": 2,
+        "ja": {
+          "detail": "入力項目と、それを使って生成したプロンプトが同じ画面に表示されています。",
+          "title": "項目を埋めて生成する"
+        }
+      }
+    ],
+    "evidenceType": "observed_apple_store_published_screens_2026_11_01",
+    "mediaRequiresCurrentStorefront": true,
+    "storefront": "jp"
   },
-  "faq": [],
+  "schemaVersion": 1,
   "source": {
     "appId": "6772130038",
     "description": "next/data/asc-localizations.json apps.6772130038.descriptionByLocale / next/data/apps.json",
     "publishedScreenshots": "Optional public Apple iTunes Lookup response, independently validated by trackId, artistId, country and CDN host; no media bundled"
   },
-  "lastEditorialReviewUTC": null,
-  "publishedScreenEvidence": {
-    "storefront": "jp",
-    "evidenceType": "observed_apple_store_published_screens_2026_11_01",
-    "mediaRequiresCurrentStorefront": true,
-    "entries": [
-      {
-        "index": 0,
-        "featureId": "template-select",
-        "en-US": {
-          "title": "A guide before you start",
-          "detail": "The first published screen introduces how to use PromptDock."
-        },
-        "ja": {
-          "title": "最初に使い方を確認",
-          "detail": "最初の公開画面では、PromptDockの基本的な操作の流れを案内しています。"
-        }
-      },
-      {
-        "index": 1,
-        "featureId": "template-select",
-        "en-US": {
-          "title": "Browse reusable templates",
-          "detail": "The template list provides a starting point instead of another blank request."
-        },
-        "ja": {
-          "title": "テンプレートから始める",
-          "detail": "テンプレート一覧から、白紙ではなく既存の型を選べます。"
-        }
-      },
-      {
-        "index": 2,
-        "featureId": "prompt-generate",
-        "en-US": {
-          "title": "Fill fields and generate",
-          "detail": "The composition screen shows the fields and the prompt generated from them."
-        },
-        "ja": {
-          "title": "項目を埋めて生成する",
-          "detail": "入力項目と、それを使って生成したプロンプトが同じ画面に表示されています。"
-        }
-      }
-    ]
+  "status": "published_metadata_pilot",
+  "story": {
+    "approved": false,
+    "byLocale": {}
   }
 }

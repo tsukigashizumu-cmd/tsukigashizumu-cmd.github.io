@@ -37,10 +37,11 @@
       screenZoom:'画像を拡大',screenClose:'閉じる ×',screenSource:'Apple App Store · {country} ストア · 公開画像 {number}',screenHint:'画像を押すと拡大できます。選択中のストアで公開されている画像で、作成したデモ画像ではありません。',
       genericScreenTitle:'実際のアプリ画面',genericScreenText:'App Storeで公開されている実画面です。機能の詳細は掲載説明全文も確認してください。',
       usecaseSource:'公開されている機能説明に基づく使用例です。利用者の体験談ではありません。',mediaLastCheck:'アプリ更新により公開画像の内容が変わる場合があります。',expectation:'PromptDockはコピー・再利用できるプロンプトを生成します。AIの回答を自動生成するものではありません。'
-    }
+    },
+    'ar-SA':{"language":"اللغة","region":"منطقة App Store","all":"جميع التطبيقات","store":"عرض في App Store ↗","back":"تصفّح التطبيقات","note":"تختلف الأسعار والتوفّر حسب المنطقة. تحقّق منهما في App Store.","toc":"في هذه الصفحة","overview":"ما المشكلة التي يحلّها؟","screens":"شاشات التطبيق الفعلية","workflow":"كيف يعمل","usecases":"متى يفيدك؟","story":"لماذا صُمّم؟","description":"وصف App Store الكامل","related":"اكتشف المزيد","constraint":"ما الذي يمكنك توقّعه؟","steps":["اختر قالبًا","املأ الحقول","أنشئ التوجيه وانسخه"],"screensNote":"لقطات شاشة منشورة لهذا التطبيق في App Store للمنطقة المختارة، وقد تتغيّر مع تحديث التطبيق.","screenCaption":"لقطة شاشة من App Store","fallback":"يظهر هذا الوصف باللغة {language} لأن وصفًا باللغة {requested} غير متاح في البيانات الحالية.","source":"المصدر: وصف App Store باللغة {language}، وليس شهادة مستخدم مختلقة.","relatedText":"اكتشف تطبيقات أخرى حسب الغرض والسعر والفئة في قائمة التطبيقات.","copied":"تم نسخ الرابط","copy":"نسخ رابط القسم","copyFail":"انسخ رابط هذا القسم:","error":"تعذّر تحميل بيانات التطبيق المتحقّق منها. افتح صفحته في App Store.","footer":"قد تتغيّر معلومات App Store. تحقّق من البيانات الحالية قبل التنزيل.","editorialFallback":"يظهر الشرح التحريري لهذه الصفحة بالإنجليزية. يستخدم وصف App Store أدناه لغة النسخة المتاحة.","screenZoom":"تكبير لقطة الشاشة","screenClose":"إغلاق ×","screenSource":"Apple App Store · متجر {country} · الصورة المنشورة {number}","screenHint":"اضغط على لقطة الشاشة لفحصها. الصور منشورة في App Store وليست عرضًا توضيحيًا مصطنعًا.","genericScreenTitle":"شاشة فعلية من التطبيق","genericScreenText":"هذه شاشة منشورة في App Store. راجع الوصف أدناه لمعرفة التفاصيل الكاملة للميزات.","usecaseSource":"أمثلة استخدام تستند إلى الميزات المنشورة، وليست شهادات مستخدمين.","mediaLastCheck":"قد تتغيّر لقطات الشاشة المنشورة عند تحديث التطبيق.","expectation":"ينشئ PromptDock توجيهات يمكنك نسخها وإعادة استخدامها، ولا يقدّم إجابة من الذكاء الاصطناعي تلقائيًا."}
   };
   const state={base:null,asc:null,profile:null,mappings:null,siteEditorial:null,uiCopy:null,locale:'en-US',country:'us',media:[]};
-  const RTL=new Set(['ar-SA','he','ur-PK']);
+  const RTL=new Set(['ar','ar-SA','he','ur-PK']);
   const text=(id,value)=>{const e=$(id);if(e)e.textContent=String(value??'');};
   const isStr=x=>typeof x==='string'&&Boolean(x.trim());
   function safeURL(raw,type){
@@ -173,9 +174,9 @@
     entries.forEach((_,i)=>{const b=create('button','p193-stage-dot',String(i+1).padStart(2,'0'));b.type='button';b.setAttribute('aria-label',(T().screenCaption)+' '+(i+1));b.setAttribute('aria-pressed',String(i===heroSlide));
       b.addEventListener('click',()=>{heroSlide=i;renderHeroScreenshot(verified);});dots.append(b);});
     const heroCaption=format(T().screenSource,{country:state.country.toUpperCase(),number:heroSlide+1});
-    text('p19-hero-img-caption',heroCaption+(entry.quality==='limited'?(state.locale.startsWith('ja')?' · 縮小版画像':' · reduced-size preview'):''));
+    text('p19-hero-img-caption',heroCaption+(entry.quality==='limited'?(state.locale.startsWith('ja')?' · 縮小版画像':state.locale.startsWith('ar')?' · معاينة مصغّرة':' · reduced-size preview'):''));
     $('p193-stage-primary').onclick=()=>zoomScreen(entries[heroSlide],verified.indexOf(entries[heroSlide]));
-    text('p193-stage-cta',state.locale.startsWith('ja')?'実画面を詳しく見る ↗':'EXPLORE THE SCREEN ↗');
+    text('p193-stage-cta',state.locale.startsWith('ja')?'実画面を詳しく見る ↗':state.locale.startsWith('ar')?'استكشف الشاشة الفعلية ↗':'EXPLORE THE SCREEN ↗');
   }
   function evidenceCopy(index){
     const conf=state.profile.publishedScreenEvidence;
@@ -189,16 +190,17 @@
 // resolution rendition of the SAME thumbnail; verify dimensions and aspect.
 let viewerIndex=0, viewerZoom=1, viewerRequest=0;
 function viewerItems(){return state.media.filter(v=>v.kind==='image');}
-function qualityText(japanese, kind, width, height){
+function qualityText(locale, kind, width, height){
   const dimensions=width&&height ? width+' × '+height+' px' : '';
-  if(kind==='loading')return japanese?'画像の解像度を確認しています…':'Checking screenshot resolution…';
-  if(kind==='high')return japanese?'高解像度版を表示中：'+dimensions:'Higher-resolution image: '+dimensions;
-  if(kind==='limited')return japanese?'元画像が小さいため拡大を制限：'+dimensions+'。拡大しても文字の情報量は増えません。':'Limited by source image: '+dimensions+'. Enlarging cannot restore text detail.';
-  return japanese?'公開画像の実解像度：'+dimensions:'Published screenshot resolution: '+dimensions;
+  const japanese=locale.startsWith('ja'),arabic=locale.startsWith('ar');
+  if(kind==='loading')return japanese?'画像の解像度を確認しています…':arabic?'جارٍ فحص دقة لقطة الشاشة…':'Checking screenshot resolution…';
+  if(kind==='high')return japanese?'高解像度版を表示中：'+dimensions:arabic?'عرض الصورة بدقة أعلى: '+dimensions:'Higher-resolution image: '+dimensions;
+  if(kind==='limited')return japanese?'元画像が小さいため拡大を制限：'+dimensions+'。拡大しても文字の情報量は増えません。':arabic?'التكبير محدود بدقة الصورة الأصلية: '+dimensions+'. لا يمكن للتكبير استعادة تفاصيل النص.':'Limited by source image: '+dimensions+'. Enlarging cannot restore text detail.';
+  return japanese?'公開画像の実解像度：'+dimensions:arabic?'الدقة الفعلية للصورة المنشورة: '+dimensions:'Published screenshot resolution: '+dimensions;
 }
 function setViewerQuality(kind){
   const img=$('p19-zoom-img'),note=$('p194-quality-note');if(!note)return;
-  note.textContent=qualityText(state.locale.startsWith('ja'),kind,img.naturalWidth,img.naturalHeight);
+  note.textContent=qualityText(state.locale,kind,img.naturalWidth,img.naturalHeight);
   note.dataset.quality=kind;
 }
 function higherAppleImage(src){
@@ -266,7 +268,7 @@ function viewerShow(index){
     setViewerQuality(entry.quality==='high'?'high':(img.naturalWidth<800||img.naturalHeight<1600?'limited':'normal'));
     if(entry.quality!=='high')tryHigherResolution(entry,request);
   };
-  img.onerror=()=>{if(request===viewerRequest){const n=$('p194-quality-note');n.textContent=state.locale.startsWith('ja')?'画像を読み込めませんでした。':'Unable to load screenshot.';n.dataset.quality='limited';}};
+  img.onerror=()=>{if(request===viewerRequest){const n=$('p194-quality-note');n.textContent=state.locale.startsWith('ja')?'画像を読み込めませんでした。':state.locale.startsWith('ar')?'تعذّر تحميل لقطة الشاشة.':'Unable to load screenshot.';n.dataset.quality='limited';}};
   img.referrerPolicy='no-referrer';img.src=entry.src;img.alt=T().screenCaption+' '+(viewerIndex+1);
   text('p193-viewer-count',String(viewerIndex+1).padStart(2,'0')+' / '+String(items.length).padStart(2,'0'));
   text('p19-zoom-label',evidenceCopy(state.media.indexOf(entry)).title);
@@ -294,10 +296,10 @@ function zoomScreen(entry,index){
       const feature=evidenceCopy(idx);
       const article=create('article','p19-proof-row');
       const detail=create('div','p19-proof-copy');
-      detail.append(create('span','p19-proof-index','SCREEN / '+String(idx+1).padStart(2,'0')),
+      detail.append(create('span','p19-proof-index',(state.locale.startsWith('ar')?'الشاشة / ':'SCREEN / ')+String(idx+1).padStart(2,'0')),
         create('h3','',feature.title),create('p','',feature.detail));
       detail.append(create('div','p193-proof-accent'));
-      detail.append(create('span','p193-proof-instruction',state.locale.startsWith('ja')?'画像を開いて操作を確認 ↗':'OPEN SCREEN TO EXPLORE ↗'));
+      detail.append(create('span','p193-proof-instruction',state.locale.startsWith('ja')?'画像を開いて操作を確認 ↗':state.locale.startsWith('ar')?'افتح الشاشة للتفاصيل ↗':'OPEN SCREEN TO EXPLORE ↗'));
       const fig=create('figure','p19-shot');
       if(entry.kind==='image'){
         const btn=create('button','p19-shot-open');btn.type='button';btn.setAttribute('aria-label',T().screenZoom+' '+(idx+1));
@@ -314,7 +316,7 @@ function zoomScreen(entry,index){
         video.loop=false;video.src=entry.src;if(entry.poster)video.poster=entry.poster;fig.append(video);
       }
       const originalCaption=format(T().screenSource,{country:state.country.toUpperCase(),number:idx+1});
-      const qualitySuffix=entry.quality==='limited'?(state.locale.startsWith('ja')?' · 元画像の解像度が不足':' · low-resolution source'):'';
+      const qualitySuffix=entry.quality==='limited'?(state.locale.startsWith('ja')?' · 元画像の解像度が不足':state.locale.startsWith('ar')?' · دقة المصدر محدودة':' · low-resolution source'):'';
       fig.append(create('figcaption','',originalCaption+qualitySuffix));
       article.append(detail,fig);wrap.append(article);
       if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){article.classList.add('p193-proof-ready');requestAnimationFrame(()=>article.classList.add('p193-proof-visible'));}
@@ -324,7 +326,7 @@ function zoomScreen(entry,index){
   // P19-6: chapter progress is navigation position, NOT tasks completed or scroll percentage.
   // Only visible sections participate. Hidden story/media never inflate the denominator.
   let p196MediaLoaded=false;
-  const p196Text=()=>state.locale.startsWith('ja')?{
+  const p196Text=()=>state.locale.startsWith('ar')?{"kicker":"استكشف التطبيق","start":"ابدأ القراءة","chapter":"القسم الحالي","media":"لقطات الشاشة المنشورة","store":"متجر App Store المختار","loading":"جارٍ التحقّق من الصور المنشورة","unavailable":"الصور المنشورة غير متاحة","available":"صور منشورة في App Store","country":"تحقّق من السعر في App Store","details":"اعرض وصف App Store الكامل","progress":"القسم الحالي"}:state.locale.startsWith('ja')?{
     kicker:'この商品のガイド',start:'最初から読む',chapter:'現在の章',media:'公開スクリーンショット',store:'選択したストア',
     loading:'公開画像を確認しています',unavailable:'公開画像を取得できませんでした',available:'実際に確認できた公開画像',
     country:'価格・公開状況はApp Storeで確認',details:'App Storeの説明全文を展開',progress:'現在の章'
@@ -410,6 +412,24 @@ function zoomScreen(entry,index){
     text('p19-usecase-source',copy.usecaseSource);
     text('p19-bottom-store',copy.store);$('p19-bottom-store').href=storeLink();
     text('p19-zoom-close',copy.screenClose);
+    if(state.locale.startsWith('ar')){
+      $('p19-zoom-close').setAttribute('aria-label','إغلاق عارض الصور');
+      $('p193-prev').setAttribute('aria-label','الصورة السابقة');
+      $('p193-next').setAttribute('aria-label','الصورة التالية');
+      $('p193-zoom-plus').setAttribute('aria-label','تكبير');
+      $('p193-zoom-minus').setAttribute('aria-label','تصغير');
+      text('p193-zoom-fit','ملاءمة');
+      $('p193-zoom-viewport').setAttribute('aria-label','لقطة شاشة قابلة للتكبير؛ مرّر لفحصها');
+    }else{
+      const ja=state.locale.startsWith('ja');
+      $('p19-zoom-close').setAttribute('aria-label',ja?'画像ビューアを閉じる':'Close image viewer');
+      $('p193-prev').setAttribute('aria-label',ja?'前の画像':'Previous screenshot');
+      $('p193-next').setAttribute('aria-label',ja?'次の画像':'Next screenshot');
+      $('p193-zoom-plus').setAttribute('aria-label',ja?'拡大':'Zoom in');
+      $('p193-zoom-minus').setAttribute('aria-label',ja?'縮小':'Zoom out');
+      text('p193-zoom-fit',ja?'合わせる':'Fit');
+      $('p193-zoom-viewport').setAttribute('aria-label',ja?'拡大できる画像。スクロールして確認':'Zoomable screenshot; scroll to inspect');
+    }
     for(const btn of document.querySelectorAll('[data-p19-copy]'))btn.textContent=copy.copy;
     text('p19-contents-heading',copy.toc);
     document.querySelector('.p19-footer span').textContent=copy.footer;
