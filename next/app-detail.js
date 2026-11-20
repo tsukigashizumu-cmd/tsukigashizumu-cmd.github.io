@@ -95,6 +95,8 @@
   }
   function buildSelectors(){
     const langs=$('p19-language');
+    // R493: remove legacy preloaded options before generating the official 50.
+    langs.replaceChildren();
     Object.keys(state.mappings.storefrontByLocale).forEach(c=>{
       const opt=document.createElement('option');opt.value=c;opt.textContent=c+' · '+localeLabel(c);langs.append(opt);
     });
@@ -102,6 +104,12 @@
     langs.addEventListener('change',()=>{
       state.locale=langs.value;
       try{localStorage.setItem('tsz-next-language',state.locale);}catch(_){}
+      // R494: keep the selected App Store locale in the shareable URL and on reload.
+      try{
+        const link=new URL(window.location.href);
+        link.searchParams.set('language',state.locale);
+        window.history.replaceState(window.history.state,'',link.pathname+link.search+link.hash);
+      }catch(_){}
       // Country stays independent, regardless of language changes.
       render();
     });
