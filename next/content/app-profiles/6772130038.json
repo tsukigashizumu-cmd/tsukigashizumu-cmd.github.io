@@ -142,6 +142,66 @@
         }
       ]
     },
+    "en-AU": {
+      "constraints": "PromptDock generates prompts; it does not automatically create or guarantee an AI response. The ChatGPT shortcut is optional.",
+      "intro": "Choose a template, enter the details you need and generate a prompt to copy. Saved input sets, history and custom templates help you return to a familiar workflow.",
+      "oneLine": "Build a reusable AI prompt without typing the same request every time.",
+      "problem": "Similar AI tasks can mean entering the same instructions and details over and over.",
+      "useCases": [
+        {
+          "detail": "Pick a ready-made template rather than starting with a blank prompt.",
+          "title": "Repeat a familiar task"
+        },
+        {
+          "detail": "Save a set of inputs and open it again when the task comes around.",
+          "title": "Reuse your saved details"
+        },
+        {
+          "detail": "Create custom prompt templates and import or export their definitions as JSON.",
+          "title": "Manage your own formats"
+        }
+      ]
+    },
+    "en-CA": {
+      "constraints": "PromptDock generates prompts; it does not automatically create or guarantee an AI response. The ChatGPT shortcut is optional.",
+      "intro": "Start with a template, fill in the relevant fields and generate a prompt you can copy. Saved input sets, history and custom templates make repeated work easier.",
+      "oneLine": "Make a reusable AI prompt instead of rewriting a familiar request.",
+      "problem": "Writing similar AI requests can mean repeating the same directions and details.",
+      "useCases": [
+        {
+          "detail": "Choose a built-in template rather than starting from an empty prompt.",
+          "title": "Repeat a routine task"
+        },
+        {
+          "detail": "Save a group of input values and return to it the next time.",
+          "title": "Reuse saved input"
+        },
+        {
+          "detail": "Create custom prompt templates and import or export their definitions as JSON.",
+          "title": "Keep your own templates"
+        }
+      ]
+    },
+    "en-GB": {
+      "constraints": "PromptDock generates prompts; it does not automatically create or guarantee an AI response. The ChatGPT shortcut is optional.",
+      "intro": "Choose a template, complete the relevant fields and generate a prompt to copy. Saved input sets, history and custom templates support recurring tasks.",
+      "oneLine": "Create a reusable AI prompt without rewriting the same request.",
+      "problem": "Similar AI requests often involve entering the same instructions and details repeatedly.",
+      "useCases": [
+        {
+          "detail": "Select a built-in template instead of writing a prompt from scratch.",
+          "title": "Repeat a regular task"
+        },
+        {
+          "detail": "Save a set of inputs and return to it when the task arises again.",
+          "title": "Reuse saved details"
+        },
+        {
+          "detail": "Create your own prompt templates and import or export their definitions as JSON.",
+          "title": "Organise custom formats"
+        }
+      ]
+    },
     "en-US": {
       "constraints": "PromptDock creates prompts; it does not automatically produce or guarantee an AI answer. The ChatGPT shortcut is optional.",
       "intro": "Choose a template, fill in the relevant fields, then generate a prompt you can copy. Saved input sets, history and custom templates support repeated work.",
