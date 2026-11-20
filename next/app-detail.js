@@ -68,6 +68,7 @@
   }
   function format(s,vars){return String(s).replace(/\{(\w+)\}/g,(_,k)=>vars[k]??'');}
   const T=()=>{const fallback=STRINGS[state.locale]||STRINGS[state.locale.startsWith('ja')?'ja':'en-US'];const translated=state.uiCopy?.locales?.[state.locale];return translated?{...fallback,...translated}:fallback;};
+  const uiLabel=(key,fallback)=>{const translated=state.uiCopy?.locales?.[state.locale]?.[key];return isStr(translated)?translated:fallback;};
   async function json(path){const r=await fetch(base+path,{cache:'no-store'});if(!r.ok)throw Error('DATA_HTTP_'+r.status);return r.json();}
   function verify(baseData,asc,profile,map){
     if(!baseData||baseData.developerId!==ARTIST_ID||!Array.isArray(baseData.apps))throw Error('INVALID_BASE');
@@ -183,8 +184,9 @@
       b.addEventListener('click',()=>{heroSlide=i;renderHeroScreenshot(verified);});dots.append(b);});
     const heroCaption=format(T().screenSource,{country:state.country.toUpperCase(),number:heroSlide+1});
     text('p19-hero-img-caption',heroCaption+(entry.quality==='limited'?(state.locale.startsWith('ja')?' · 縮小版画像':state.locale.startsWith('ar')?' · معاينة مصغّرة':' · reduced-size preview'):''));
+    $('p193-stage-primary').setAttribute('aria-label',uiLabel('inspect',T().screenZoom)+' '+(heroSlide+1));
     $('p193-stage-primary').onclick=()=>zoomScreen(entries[heroSlide],verified.indexOf(entries[heroSlide]));
-    text('p193-stage-cta',state.locale.startsWith('ja')?'実画面を詳しく見る ↗':state.locale.startsWith('ar')?'استكشف الشاشة الفعلية ↗':'EXPLORE THE SCREEN ↗');
+    text('p193-stage-cta',uiLabel('inspect',T().screenZoom)+' ↗');
   }
   function evidenceCopy(index){
     const conf=state.profile.publishedScreenEvidence;
@@ -208,7 +210,16 @@ function qualityText(locale, kind, width, height){
 }
 function setViewerQuality(kind){
   const img=$('p19-zoom-img'),note=$('p194-quality-note');if(!note)return;
-  note.textContent=qualityText(state.locale,kind,img.naturalWidth,img.naturalHeight);
+  const dimensions=img.naturalWidth&&img.naturalHeight ? img.naturalWidth+' x '+img.naturalHeight+' px' : '';
+  const label=uiLabel('quality','');
+  const warning=uiLabel('qualityLimited','');
+  if(kind==='limited'&&isStr(label)&&isStr(warning)){
+    note.textContent=label+': '+dimensions+' - '+warning;
+  }else if((kind==='normal'||kind==='high')&&isStr(label)){
+    note.textContent=label+': '+dimensions;
+  }else{
+    note.textContent=qualityText(state.locale,kind,img.naturalWidth,img.naturalHeight);
+  }
   note.dataset.quality=kind;
 }
 function higherAppleImage(src){
@@ -307,17 +318,17 @@ function zoomScreen(entry,index){
       detail.append(create('span','p19-proof-index',T().screenCaption+' / '+String(idx+1).padStart(2,'0')),
         create('h3','',feature.title),create('p','',feature.detail));
       detail.append(create('div','p193-proof-accent'));
-      detail.append(create('span','p193-proof-instruction',T().screenZoom+' ↗'));
+      detail.append(create('span','p193-proof-instruction',uiLabel('inspect',T().screenZoom)+' ↗'));
       const fig=create('figure','p19-shot');
       if(entry.kind==='image'){
-        const btn=create('button','p19-shot-open');btn.type='button';btn.setAttribute('aria-label',T().screenZoom+' '+(idx+1));
+        const btn=create('button','p19-shot-open');btn.type='button';btn.setAttribute('aria-label',uiLabel('inspect',T().screenZoom)+' '+(idx+1));
         const img=create('img','');img.src=entry.src;img.alt=T().screenCaption+' '+(idx+1);
         img.loading='lazy';img.referrerPolicy='no-referrer';
         img.addEventListener('error',()=>{
           article.remove();
           if(!wrap.children.length){$('screens').hidden=true;renderHeroScreenshot([]);renderToc();}
         });
-        btn.append(img,create('span','p19-shot-zoom',T().screenZoom+' ↗'));
+        btn.append(img,create('span','p19-shot-zoom',uiLabel('inspect',T().screenZoom)+' ↗'));
         btn.addEventListener('click',()=>zoomScreen(entry,idx));fig.append(btn);
       }else if(entry.kind==='video'){
         const video=create('video','');video.controls=true;video.preload='none';video.autoplay=false;
@@ -357,7 +368,7 @@ function zoomScreen(entry,index){
     $('p196-bar').style.width=(100*current/total)+'%';
     $('p196-progress-track').setAttribute('aria-valuemax',String(total));
     $('p196-progress-track').setAttribute('aria-valuenow',String(current));
-    $('p196-progress-track').setAttribute('aria-label',p196Text().progress);
+    $('p196-progress-track').setAttribute('aria-label',uiLabel('chap',p196Text().progress));
     // Keep the active chapter visible in horizontal mobile navigation.
     const active=chapters[index];
     if(active&&window.matchMedia('(max-width: 820px)').matches&&active.getAttribute('aria-current')==='location'){
@@ -370,7 +381,7 @@ function zoomScreen(entry,index){
     text('p196-dash-kicker',t.kicker);text('p196-start-link',t.start+' ↗');
     text('p196-chapter-label',t.chapter);text('p196-rail-label',t.chapter);text('p196-media-label',t.media);text('p196-storefront-label',t.store);
     text('p196-country',state.country.toUpperCase());text('p196-country-foot',t.country);
-    text('p196-disclosure-title',t.details);
+    text('p196-disclosure-title',uiLabel('fullToggle',t.details));
     text('p196-media-count',p196MediaLoaded?String(state.media.filter(m=>m.kind==='image').length).padStart(2,'0'):'—');
     text('p196-media-foot',!p196MediaLoaded?t.loading:state.media.filter(m=>m.kind==='image').length?t.available:t.unavailable);
   }
@@ -438,6 +449,13 @@ function zoomScreen(entry,index){
       text('p193-zoom-fit',ja?'合わせる':'Fit');
       $('p193-zoom-viewport').setAttribute('aria-label',ja?'拡大できる画像。スクロールして確認':'Zoomable screenshot; scroll to inspect');
     }
+    // Reuse authored locale-specific screenshot controls when present; retain verified fallbacks.
+    const commonScreens=state.uiCopy?.locales?.[state.locale]||{};
+    if(isStr(commonScreens.close))text('p19-zoom-close',commonScreens.close+' ×');
+    $('p19-zoom-close').setAttribute('aria-label',uiLabel('close',$('p19-zoom-close').getAttribute('aria-label')));
+    $('p193-prev').setAttribute('aria-label',uiLabel('prev',$('p193-prev').getAttribute('aria-label')));
+    $('p193-next').setAttribute('aria-label',uiLabel('next',$('p193-next').getAttribute('aria-label')));
+    text('p193-zoom-fit',uiLabel('fit',$('p193-zoom-fit').textContent));
     for(const btn of document.querySelectorAll('[data-p19-copy]'))btn.textContent=copy.copy;
     text('p19-contents-heading',copy.toc);
     document.querySelector('.p19-footer span').textContent=copy.footer;
