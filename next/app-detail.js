@@ -165,6 +165,13 @@
     if(good)text('p19-story-body',story);
   }
   let heroSlide=0;
+  // R504: keep every screenshot surface and its counter in sync after a load failure.
+  function excludeFailedScreen(entry){
+    if(!state.media.includes(entry))return;
+    state.media=state.media.filter(item=>item!==entry);
+    heroSlide=0;
+    renderMedia();
+  }
   function renderHeroScreenshot(verified){
     const hero=$('p19-hero-evidence'),fallback=$('p19-hero-fallback'),img=$('p19-hero-img');
     const entries=verified.filter(v=>v.kind==='image');
@@ -172,7 +179,7 @@
     heroSlide=Math.min(heroSlide,entries.length-1);
     hero.hidden=false;fallback.hidden=true;
     const entry=entries[heroSlide];img.src=entry.src;img.alt=T().screenCaption+' '+(heroSlide+1);
-    img.referrerPolicy='no-referrer';img.onerror=()=>{hero.hidden=true;fallback.hidden=false;};
+    img.referrerPolicy='no-referrer';img.onerror=()=>excludeFailedScreen(entry);
     $('p193-stage-stack').replaceChildren();
     entries.slice(0,3).forEach((shot,i)=>{if(i===heroSlide)return;
       const el=create('div','p193-stack-card');el.style.setProperty('--p193-i',String(i));
@@ -183,7 +190,9 @@
     entries.forEach((_,i)=>{const b=create('button','p193-stage-dot',String(i+1).padStart(2,'0'));b.type='button';b.setAttribute('aria-label',(T().screenCaption)+' '+(i+1));b.setAttribute('aria-pressed',String(i===heroSlide));
       b.addEventListener('click',()=>{heroSlide=i;renderHeroScreenshot(verified);});dots.append(b);});
     const heroCaption=format(T().screenSource,{country:state.country.toUpperCase(),number:heroSlide+1});
-    text('p19-hero-img-caption',heroCaption+(entry.quality==='limited'?(state.locale.startsWith('ja')?' · 縮小版画像':state.locale.startsWith('ar')?' · معاينة مصغّرة':' · reduced-size preview'):''));
+    // R501: the same authored warning now appears in the hero and the zoom viewer.
+    const heroQuality=entry.quality==='limited'?' · '+uiLabel('qualityLimited',state.locale.startsWith('ja')?'縮小版画像':state.locale.startsWith('ar')?'معاينة مصغّرة':'reduced-size preview'):'';
+    text('p19-hero-img-caption',heroCaption+heroQuality);
     $('p193-stage-primary').setAttribute('aria-label',uiLabel('inspect',T().screenZoom)+' '+(heroSlide+1));
     $('p193-stage-primary').onclick=()=>zoomScreen(entries[heroSlide],verified.indexOf(entries[heroSlide]));
     text('p193-stage-cta',uiLabel('inspect',T().screenZoom)+' ↗');
@@ -287,7 +296,7 @@ function viewerShow(index){
     setViewerQuality(entry.quality==='high'?'high':(img.naturalWidth<800||img.naturalHeight<1600?'limited':'normal'));
     if(entry.quality!=='high')tryHigherResolution(entry,request);
   };
-  img.onerror=()=>{if(request===viewerRequest){const n=$('p194-quality-note');n.textContent=state.locale.startsWith('ja')?'画像を読み込めませんでした。':state.locale.startsWith('ar')?'تعذّر تحميل لقطة الشاشة.':'Unable to load screenshot.';n.dataset.quality='limited';}};
+  img.onerror=()=>{if(request===viewerRequest){const dialog=$('p19-zoom-dialog');if(dialog.open)dialog.close();excludeFailedScreen(entry);}};
   img.referrerPolicy='no-referrer';img.src=entry.src;img.alt=T().screenCaption+' '+(viewerIndex+1);
   text('p193-viewer-count',String(viewerIndex+1).padStart(2,'0')+' / '+String(items.length).padStart(2,'0'));
   text('p19-zoom-label',evidenceCopy(state.media.indexOf(entry)).title);
@@ -324,10 +333,7 @@ function zoomScreen(entry,index){
         const btn=create('button','p19-shot-open');btn.type='button';btn.setAttribute('aria-label',uiLabel('inspect',T().screenZoom)+' '+(idx+1));
         const img=create('img','');img.src=entry.src;img.alt=T().screenCaption+' '+(idx+1);
         img.loading='lazy';img.referrerPolicy='no-referrer';
-        img.addEventListener('error',()=>{
-          article.remove();
-          if(!wrap.children.length){$('screens').hidden=true;renderHeroScreenshot([]);renderToc();}
-        });
+        img.addEventListener('error',()=>excludeFailedScreen(entry));
         btn.append(img,create('span','p19-shot-zoom',uiLabel('inspect',T().screenZoom)+' ↗'));
         btn.addEventListener('click',()=>zoomScreen(entry,idx));fig.append(btn);
       }else if(entry.kind==='video'){
@@ -335,7 +341,8 @@ function zoomScreen(entry,index){
         video.loop=false;video.src=entry.src;if(entry.poster)video.poster=entry.poster;fig.append(video);
       }
       const originalCaption=format(T().screenSource,{country:state.country.toUpperCase(),number:idx+1});
-      const qualitySuffix=entry.quality==='limited'?(state.locale.startsWith('ja')?' · 元画像の解像度が不足':state.locale.startsWith('ar')?' · دقة المصدر محدودة':' · low-resolution source'):'';
+      // R501: show an authored low-resolution warning in all 50 supported locales.
+      const qualitySuffix=entry.quality==='limited'?' · '+uiLabel('qualityLimited',state.locale.startsWith('ja')?'元画像の解像度が不足':state.locale.startsWith('ar')?'دقة المصدر محدودة':'low-resolution source'):'';
       fig.append(create('figcaption','',originalCaption+qualitySuffix));
       article.append(detail,fig);wrap.append(article);
       if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){article.classList.add('p193-proof-ready');requestAnimationFrame(()=>article.classList.add('p193-proof-visible'));}
@@ -537,7 +544,7 @@ function zoomScreen(entry,index){
   function validatePublicShots(item){
     if(item?.trackId!==Number(APP_ID)||item?.artistId!==ARTIST_ID||item?.kind!=='software')return [];
     const urls=Array.isArray(item.screenshotUrls)?item.screenshotUrls:[];
-    return urls.slice(0,5).map(url=>safeURL(url,'image')).filter(Boolean)
+    return urls.map(url=>safeURL(url,'image')).filter(Boolean).slice(0,10)
       .map((src,i)=>({kind:'image',src,caption:T().screenCaption+' '+(i+1)}));
   }
   // P19-5: All published screen surfaces must be driven by the SAME
@@ -564,7 +571,7 @@ function zoomScreen(entry,index){
       probeScreenshot(entry.src),
       largeURL?probeScreenshot(largeURL):Promise.resolve(null)
     ]);
-    if(!source){return {...entry,quality:'unverified'};}
+    if(!source)return null;
     const sameAspect=larger&&Math.abs((larger.width/larger.height)-(source.width/source.height))<.035;
     const improved=Boolean(larger&&sameAspect&&larger.width>=source.width*1.5&&larger.height>=source.height*1.5);
     const chosen=improved?larger:source;
@@ -576,7 +583,7 @@ function zoomScreen(entry,index){
   async function resolveAllPublishedScreens(entries){
     // Resolve each rendition once, then use it in hero, stack, feature rows,
     // and the viewer. No visual element silently retains the low-res thumbnail.
-    return Promise.all(entries.map(resolvePublishedScreenshot));
+    return (await Promise.all(entries.map(resolvePublishedScreenshot))).filter(Boolean);
   }
   let mediaLoadSerial=0;
   async function loadPublicScreens(){
