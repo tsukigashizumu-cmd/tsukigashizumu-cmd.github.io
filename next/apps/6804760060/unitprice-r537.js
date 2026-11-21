@@ -101,13 +101,48 @@
   document.body.dataset.r537HorizontalFit=String(document.documentElement.scrollWidth<=innerWidth+2);
   document.body.dataset.r537Status='READY';
  }
+ // Browser language tags often differ from App Store Connect's 50 supported locale IDs.
+ // Resolve only to an existing locale: never add unsupported ASC languages or silently
+ // turn Shahmukhi Punjabi (pa-PK) into Gurmukhi Punjabi (pa-IN).
+ function resolveLocaleTag(raw,available){
+  const tag=String(raw||'').trim().replace(/_/g,'-').toLowerCase();
+  if(!tag)return null;
+  const exact=available.find(x=>x.toLowerCase()===tag);
+  if(exact)return exact;
+  const parts=tag.split('-'),lang=parts[0];
+  const region=parts.find(x=>/^[a-z]{2}$/.test(x)&&x!==lang)||'';
+  const has=id=>available.includes(id)?id:null;
+  if(lang==='zh'){
+   if(parts.includes('hant'))return has('zh-Hant');
+   if(parts.includes('hans'))return has('zh-Hans');
+   if(['tw','hk','mo'].includes(region))return has('zh-Hant');
+   return has('zh-Hans');
+  }
+  if(lang==='pa' && (parts.includes('arab')||region==='pk'))return null;
+  if(lang==='es'){
+   if(parts.includes('419')||(region&&region!=='es'&&region!=='gq'))return has('es-MX');
+   return has('es-ES');
+  }
+  if(lang==='fr')return has(region==='ca'?'fr-CA':'fr-FR');
+  if(lang==='en'){
+   if(region==='ca')return has('en-CA');
+   if(region==='au'||region==='nz')return has('en-AU');
+   if(['gb','ie','za'].includes(region))return has('en-GB');
+   return has('en-US');
+  }
+  if(lang==='pt')return has(region==='br'||!region?'pt-BR':'pt-PT');
+  if(['no','nb','nn'].includes(lang))return has('no');
+  if(lang==='iw')return has('he'); // Older browsers' deprecated Hebrew language tag.
+  return available.find(x=>x.split('-')[0].toLowerCase()===lang)||null;
+ }
  function chooseLocale(requested,available){
-  if(requested&&available.includes(requested))return requested;
-  if(requested){const near=available.find(x=>x.toLowerCase()===requested.toLowerCase());if(near)return near;}
-  if(!requested){for(const prefer of (navigator.languages||[navigator.language||'en-US'])){
-    const exact=available.find(x=>x.toLowerCase()===String(prefer).toLowerCase());if(exact)return exact;
-    const partial=available.find(x=>x.split('-')[0].toLowerCase()===String(prefer).split('-')[0].toLowerCase());if(partial)return partial;
-  }}
+  if(requested)return resolveLocaleTag(requested,available)||'en-US';
+  const preferences=Array.isArray(navigator.languages)&&navigator.languages.length?
+   navigator.languages:[navigator.language||'en-US'];
+  for(const prefer of preferences){
+   const match=resolveLocaleTag(prefer,available);
+   if(match)return match;
+  }
   return 'en-US';
  }
  async function init(){
