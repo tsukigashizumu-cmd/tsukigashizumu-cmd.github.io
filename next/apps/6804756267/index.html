@@ -125,7 +125,7 @@ body[data-p199-id="6804756267"] #p199-gallery .p199r6-thumb:focus-visible,body[d
       </section>
       <section id="bp530-demo" aria-labelledby="bp530-heading">
         <h2 id="bp530-heading">Choose your price before a sale</h2>
-        <p class="bp530-example"><bdi>Regular 120 · Target 90 · Example discount 20%</bdi></p>
+        <p class="bp530-example"><bdi id="bp530-example">Regular 120 · Target 90 · Example discount 20%</bdi></p>
         <div class="bp530-grid">
           <label><span id="bp530-regular-label">Regular price</span><input type="number" id="bp530-regular" value="120" min="0.01" max="1000000000" step="0.01" inputmode="decimal"></label>
           <label><span id="bp530-target-label">Your buy price</span><input type="number" id="bp530-target" value="90" min="0" max="1000000000" step="0.01" inputmode="decimal"></label>
@@ -178,7 +178,7 @@ function calculate(p,target,off){
 function number(v,l){return new Intl.NumberFormat(l,{minimumFractionDigits:2,maximumFractionDigits:2}).format(v);}
 function result(){
  const l=lang.value,nums=inputs.map(e=>e.value.trim()===''?NaN:Number(e.value)),r=calculate(...nums);
- for(const [id,k,unit] of [['bp530-needed','needed','%'],['bp530-after','after',' USD'],['bp530-gap','gap',' USD']]){
+ for(const [id,k,unit] of [['bp530-needed','needed','%'],['bp530-after','after',''],['bp530-gap','gap','']]){
   const e=q(id);e.textContent=r?number(r[k],l)+unit:'—';e.dataset.raw=r?String(r[k]):'';
  }
 }
@@ -187,7 +187,7 @@ function sync(){
  q('p199-title').textContent=c.name;q('p199-lead').textContent=c.subtitle;
  q('p199-intro').textContent=c.promo;q('p199-intro').dataset.tszSource='asc-promotional-text-r530';
  const ids=['bp530-heading','bp530-regular-label','bp530-target-label','bp530-offer-label','bp530-needed-label','bp530-after-label','bp530-gap-label','bp530-note'];
- ids.forEach((id,i)=>q(id).textContent=c.demo[i]);q('bp530-demo').lang=l;q('bp530-demo').dir=document.documentElement.dir;
+ ids.forEach((id,i)=>q(id).textContent=c.demo[i]);q('bp530-example').textContent=c.demo[1]+' 120 · '+c.demo[2]+' 90 · '+c.demo[3]+' 20%';q('bp530-demo').lang=l;q('bp530-demo').dir=document.documentElement.dir;
  for(const id of ['p199-store','p199-bottom-store']){const a=q(id);a.textContent=c.store+' ↗';a.href='https://apps.apple.com/'+encodeURIComponent(s)+'/app/id6804756267';}
  const url=new URL(location.href);url.searchParams.set('language',l);url.searchParams.set('storefront',s);history.replaceState(history.state,'',url.href);
  result();document.body.dataset.bp530Ready=l;
