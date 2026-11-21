@@ -70,6 +70,23 @@
   const T=()=>{const fallback=STRINGS[state.locale]||STRINGS[state.locale.startsWith('ja')?'ja':'en-US'];const translated=state.uiCopy?.locales?.[state.locale];return translated?{...fallback,...translated}:fallback;};
   const uiLabel=(key,fallback)=>{const translated=state.uiCopy?.locales?.[state.locale]?.[key];return isStr(translated)?translated:fallback;};
   async function json(path){const r=await fetch(base+path,{cache:'no-store'});if(!r.ok)throw Error('DATA_HTTP_'+r.status);return r.json();}
+  // R517R2: the 50-locale common UI is mandatory, not an optional English fallback.
+  // Retry only its fetch failures before rendering a localized page.
+  async function requiredCommonUI(){
+    let lastError;
+    for(let attempt=0;attempt<3;attempt++){
+      try{
+        const copy=await json('data/tsz-r39r4-common-ui.json');
+        if(copy?.schemaVersion!==1||copy.kind!=='tsz-common-article-ui-exact-reuse'||Object.keys(copy.locales||{}).length!==50)
+          throw Error('INVALID_COMMON_UI_DATA');
+        return copy;
+      }catch(error){
+        lastError=error;
+        if(attempt<2)await new Promise(resolve=>setTimeout(resolve,150*(attempt+1)));
+      }
+    }
+    throw Error('COMMON_UI_REQUIRED_UNAVAILABLE_'+(lastError?.message||'UNKNOWN'));
+  }
   function verify(baseData,asc,profile,map){
     if(!baseData||baseData.developerId!==ARTIST_ID||!Array.isArray(baseData.apps))throw Error('INVALID_BASE');
     const app=baseData.apps.find(a=>a.id===Number(APP_ID));
@@ -92,10 +109,18 @@
     state.locale=match(url)||match(saved)||browser.map(match).find(Boolean)||'en-US';
     let manual='';try{manual=localStorage.getItem('tsz-next-storefront-manual-v1')||'';}catch(_){}
     const countries=[...new Set(['us',...Object.values(state.mappings.storefrontByLocale)])];
-    // R516: a validated shareable storefront takes priority over local device preferences.
-    const linkedCountry=new URLSearchParams(location.search).get('storefront');
+    // R517: accept case-insensitive valid storefront codes; make the URL match the selected region.
+    const rawCountry=new URLSearchParams(location.search).get('storefront');
+    const linkedCountry=rawCountry===null?'':rawCountry.trim().toLowerCase();
     state.country=countries.includes(linkedCountry)?linkedCountry:
       (countries.includes(manual)?manual:(state.mappings.storefrontByLocale[state.locale]||'us'));
+    if(rawCountry!==null && rawCountry!==state.country){
+      try{
+        const link=new URL(window.location.href);
+        link.searchParams.set('storefront',state.country);
+        window.history.replaceState(window.history.state,'',link.pathname+link.search+link.hash);
+      }catch(_){}
+    }
   }
   function buildSelectors(){
     const langs=$('p19-language');
@@ -702,10 +727,10 @@ function zoomScreen(entry,index){
     bindChapters();
     try{
       const [baseData,asc,profile,map,siteEditorial,uiCopy]=await Promise.all([
-        json('data/apps.json'),json('data/asc-localizations.json'),json('content/app-profiles/'+APP_ID+'.json'),json('data/locale-storefronts.json'),json('data/tsz-r39-editorial-intros.json').catch(()=>null),json('data/tsz-r39r4-common-ui.json').catch(()=>null)
+        json('data/apps.json'),json('data/asc-localizations.json'),json('content/app-profiles/'+APP_ID+'.json'),json('data/locale-storefronts.json'),json('data/tsz-r39-editorial-intros.json').catch(()=>null),requiredCommonUI()
       ]);
       verify(baseData,asc,profile,map);
-      Object.assign(state,{base:baseData,asc,profile,mappings:map,siteEditorial:siteEditorial?.schemaVersion===1&&siteEditorial.kind==='tsz-independent-lp-editorial-summary'?siteEditorial:null,uiCopy:uiCopy?.schemaVersion===1&&uiCopy.kind==='tsz-common-article-ui-exact-reuse'&&Object.keys(uiCopy.locales||{}).length===50?uiCopy:null});
+      Object.assign(state,{base:baseData,asc,profile,mappings:map,siteEditorial:siteEditorial?.schemaVersion===1&&siteEditorial.kind==='tsz-independent-lp-editorial-summary'?siteEditorial:null,uiCopy:uiCopy});
       pickLocale();buildSelectors();
       $('p19-load').hidden=true;$('p19-detail').hidden=false;
       render();setupMotion();void loadPublicScreens();
