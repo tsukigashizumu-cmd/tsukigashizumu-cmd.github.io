@@ -17,7 +17,7 @@
       "store": "عرض التطبيق",
       "features": "نظرة عن قرب",
       "benefitUnits": "قارن الوزن والحجم والطول",
-      "benefitDiscounts": "خصمان والضريبة",
+      "benefitDiscounts": "ما يصل إلى خصمين والضريبة",
       "benefitHistory": "احفظ المقارنات على جهازك"
     },
     "bn-BD": {
@@ -32,7 +32,7 @@
       "store": "অ্যাপ দেখুন",
       "features": "আরও বিস্তারিত",
       "benefitUnits": "ওজন, আয়তন ও দৈর্ঘ্যের তুলনা",
-      "benefitDiscounts": "দুটি ছাড় ও কর",
+      "benefitDiscounts": "সর্বোচ্চ দুটি ছাড় ও কর",
       "benefitHistory": "ডিভাইসে তুলনা সংরক্ষণ"
     },
     "ca": {
@@ -47,7 +47,7 @@
       "store": "Veure app",
       "features": "Més detalls",
       "benefitUnits": "Compara pes, volum i longitud",
-      "benefitDiscounts": "Dos descomptes i impostos",
+      "benefitDiscounts": "Fins a dos descomptes i impostos",
       "benefitHistory": "Desa comparacions al dispositiu"
     },
     "cs": {
@@ -62,7 +62,7 @@
       "store": "Zobrazit aplikaci",
       "features": "Podrobnější pohled",
       "benefitUnits": "Porovnejte hmotnost, objem a délku",
-      "benefitDiscounts": "Dvě slevy a daň",
+      "benefitDiscounts": "Až dvě slevy a daň",
       "benefitHistory": "Ukládejte porovnání do zařízení"
     },
     "da": {
@@ -77,7 +77,7 @@
       "store": "Se app",
       "features": "Se nærmere",
       "benefitUnits": "Sammenlign vægt, volumen og længde",
-      "benefitDiscounts": "To rabatter og moms",
+      "benefitDiscounts": "Op til to rabatter og moms",
       "benefitHistory": "Gem sammenligninger på enheden"
     },
     "de-DE": {
@@ -92,7 +92,7 @@
       "store": "App ansehen",
       "features": "Genauer betrachtet",
       "benefitUnits": "Gewicht, Volumen und Länge vergleichen",
-      "benefitDiscounts": "Zwei Rabatte und Steuer",
+      "benefitDiscounts": "Bis zu zwei Rabatte und Steuern",
       "benefitHistory": "Vergleiche auf dem Gerät speichern"
     },
     "el": {
@@ -107,7 +107,7 @@
       "store": "Προβολή εφαρμογής",
       "features": "Μια πιο προσεκτική ματιά",
       "benefitUnits": "Σύγκρινε βάρος, όγκο και μήκος",
-      "benefitDiscounts": "Δύο εκπτώσεις και φόρο",
+      "benefitDiscounts": "Έως δύο εκπτώσεις και φόρος",
       "benefitHistory": "Αποθήκευσε συγκρίσεις στη συσκευή"
     },
     "en-AU": {
@@ -212,7 +212,7 @@
       "store": "Katso sovellus",
       "features": "Tutustu tarkemmin",
       "benefitUnits": "Vertaa painoa, tilavuutta ja pituutta",
-      "benefitDiscounts": "Kaksi alennusta ja vero",
+      "benefitDiscounts": "Enintään kaksi alennusta ja vero",
       "benefitHistory": "Tallenna vertailut laitteelle"
     },
     "fr-CA": {
@@ -257,7 +257,7 @@
       "store": "એપ જુઓ",
       "features": "વધુ વિગતે જુઓ",
       "benefitUnits": "વજન, ઘનફળ અને લંબાઈની સરખામણી",
-      "benefitDiscounts": "બે છૂટ અને કર",
+      "benefitDiscounts": "વધુમાં વધુ બે છૂટ અને કર",
       "benefitHistory": "ડિવાઇસમાં સરખામણીઓ સાચવો"
     },
     "he": {
@@ -287,7 +287,7 @@
       "store": "ऐप देखें",
       "features": "करीब से देखें",
       "benefitUnits": "वज़न, आयतन और लंबाई की तुलना",
-      "benefitDiscounts": "दो छूट और कर",
+      "benefitDiscounts": "अधिकतम दो छूट और कर",
       "benefitHistory": "डिवाइस पर तुलनाएँ सहेजें"
     },
     "hr": {
@@ -302,7 +302,7 @@
       "store": "Pogledaj aplikaciju",
       "features": "Pogled izbliza",
       "benefitUnits": "Usporedite težinu, obujam i duljinu",
-      "benefitDiscounts": "Dva popusta i porez",
+      "benefitDiscounts": "Do dva popusta i porez",
       "benefitHistory": "Spremite usporedbe na uređaj"
     },
     "hu": {
@@ -317,7 +317,7 @@
       "store": "App megtekintése",
       "features": "Közelebbről",
       "benefitUnits": "Tömeg, térfogat és hossz összevetése",
-      "benefitDiscounts": "Két kedvezmény és adó",
+      "benefitDiscounts": "Akár két kedvezmény és adó",
       "benefitHistory": "Összehasonlítások mentése az eszközön"
     },
     "id": {
@@ -332,7 +332,7 @@
       "store": "Lihat aplikasi",
       "features": "Lihat lebih dekat",
       "benefitUnits": "Bandingkan berat, volume, dan panjang",
-      "benefitDiscounts": "Dua diskon dan pajak",
+      "benefitDiscounts": "Hingga dua diskon dan pajak",
       "benefitHistory": "Simpan perbandingan di perangkat"
     },
     "it": {
@@ -347,7 +347,7 @@
       "store": "Vedi app",
       "features": "Uno sguardo più da vicino",
       "benefitUnits": "Confronta peso, volume e lunghezza",
-      "benefitDiscounts": "Due sconti e imposte",
+      "benefitDiscounts": "Fino a due sconti e imposte",
       "benefitHistory": "Salva confronti sul dispositivo"
     },
     "ja": {
@@ -377,7 +377,7 @@
       "store": "ಆ್ಯಪ್ ನೋಡಿ",
       "features": "ಹೆಚ್ಚು ವಿವರ",
       "benefitUnits": "ತೂಕ, ಪರಿಮಾಣ ಮತ್ತು ಉದ್ದ ಹೋಲಿಸಿ",
-      "benefitDiscounts": "ಎರಡು ರಿಯಾಯಿತಿಗಳು ಮತ್ತು ತೆರಿಗೆ",
+      "benefitDiscounts": "ಗರಿಷ್ಠ ಎರಡು ರಿಯಾಯಿತಿಗಳು ಮತ್ತು ತೆರಿಗೆ",
       "benefitHistory": "ಹೋಲಿಕೆಗಳನ್ನು ಸಾಧನದಲ್ಲಿ ಉಳಿಸಿ"
     },
     "ko": {
@@ -407,7 +407,7 @@
       "store": "ആപ്പ് കാണൂ",
       "features": "കൂടുതൽ വിവരങ്ങൾ",
       "benefitUnits": "ഭാരം, അളവ്, നീളം താരതമ്യം",
-      "benefitDiscounts": "രണ്ട് കിഴിവുകളും നികുതിയും",
+      "benefitDiscounts": "പരമാവധി രണ്ട് കിഴിവുകളും നികുതിയും",
       "benefitHistory": "താരതമ്യങ്ങൾ ഉപകരണത്തിൽ സംരക്ഷിക്കുക"
     },
     "mr-IN": {
@@ -422,7 +422,7 @@
       "store": "अ‍ॅप पाहा",
       "features": "अधिक जवळून पाहा",
       "benefitUnits": "वजन, घनफळ आणि लांबीची तुलना",
-      "benefitDiscounts": "दोन सूट आणि कर",
+      "benefitDiscounts": "कमाल दोन सवलती आणि कर",
       "benefitHistory": "तुलना डिव्हाइसवर जतन करा"
     },
     "ms": {
@@ -437,7 +437,7 @@
       "store": "Lihat aplikasi",
       "features": "Lihat lebih dekat",
       "benefitUnits": "Bandingkan berat, isi padu dan panjang",
-      "benefitDiscounts": "Dua diskaun dan cukai",
+      "benefitDiscounts": "Sehingga dua diskaun dan cukai",
       "benefitHistory": "Simpan perbandingan pada peranti"
     },
     "nl-NL": {
@@ -452,7 +452,7 @@
       "store": "Bekijk app",
       "features": "Meer informatie",
       "benefitUnits": "Vergelijk gewicht, volume en lengte",
-      "benefitDiscounts": "Twee kortingen en belasting",
+      "benefitDiscounts": "Tot twee kortingen en belasting",
       "benefitHistory": "Bewaar vergelijkingen op je apparaat"
     },
     "no": {
@@ -467,7 +467,7 @@
       "store": "Se app",
       "features": "Se nærmere",
       "benefitUnits": "Sammenlign vekt, volum og lengde",
-      "benefitDiscounts": "To rabatter og avgift",
+      "benefitDiscounts": "Opptil to rabatter og avgift",
       "benefitHistory": "Lagre sammenligninger på enheten"
     },
     "or-IN": {
@@ -482,7 +482,7 @@
       "store": "ଆପ୍ ଦେଖନ୍ତୁ",
       "features": "ଅଧିକ ବିବରଣୀ",
       "benefitUnits": "ଓଜନ, ଆୟତନ ଓ ଲମ୍ବ ତୁଳନା",
-      "benefitDiscounts": "ଦୁଇଟି ରିହାତି ଓ କର",
+      "benefitDiscounts": "ସର୍ବାଧିକ ଦୁଇଟି ରିହାତି ଓ କର",
       "benefitHistory": "ଡିଭାଇସରେ ତୁଳନା ସଂରକ୍ଷଣ"
     },
     "pa-IN": {
@@ -497,7 +497,7 @@
       "store": "ਐਪ ਵੇਖੋ",
       "features": "ਹੋਰ ਵੇਰਵਾ",
       "benefitUnits": "ਭਾਰ, ਆਇਤਨ ਅਤੇ ਲੰਬਾਈ ਦੀ ਤੁਲਨਾ",
-      "benefitDiscounts": "ਦੋ ਛੋਟਾਂ ਅਤੇ ਟੈਕਸ",
+      "benefitDiscounts": "ਵੱਧ ਤੋਂ ਵੱਧ ਦੋ ਛੋਟਾਂ ਅਤੇ ਟੈਕਸ",
       "benefitHistory": "ਤੁਲਨਾਵਾਂ ਡਿਵਾਈਸ ਉੱਤੇ ਸੰਭਾਲੋ"
     },
     "pl": {
@@ -512,7 +512,7 @@
       "store": "Zobacz aplikację",
       "features": "Bliższe spojrzenie",
       "benefitUnits": "Porównuj wagę, objętość i długość",
-      "benefitDiscounts": "Dwa rabaty i podatek",
+      "benefitDiscounts": "Maksymalnie dwa rabaty i podatek",
       "benefitHistory": "Zapisuj porównania na urządzeniu"
     },
     "pt-BR": {
@@ -527,7 +527,7 @@
       "store": "Ver app",
       "features": "Saiba mais",
       "benefitUnits": "Compare peso, volume e comprimento",
-      "benefitDiscounts": "Dois descontos e impostos",
+      "benefitDiscounts": "Até dois descontos e impostos",
       "benefitHistory": "Salve comparações no dispositivo"
     },
     "pt-PT": {
@@ -542,7 +542,7 @@
       "store": "Ver app",
       "features": "Saiba mais",
       "benefitUnits": "Compare peso, volume e comprimento",
-      "benefitDiscounts": "Dois descontos e impostos",
+      "benefitDiscounts": "Até dois descontos e impostos",
       "benefitHistory": "Guarde comparações no dispositivo"
     },
     "ro": {
@@ -557,7 +557,7 @@
       "store": "Vezi aplicația",
       "features": "Mai multe detalii",
       "benefitUnits": "Compară greutatea, volumul și lungimea",
-      "benefitDiscounts": "Două reduceri și taxe",
+      "benefitDiscounts": "Până la două reduceri și taxe",
       "benefitHistory": "Salvează comparațiile pe dispozitiv"
     },
     "ru": {
@@ -572,7 +572,7 @@
       "store": "Смотреть приложение",
       "features": "Подробнее",
       "benefitUnits": "Сравнивайте вес, объём и длину",
-      "benefitDiscounts": "Две скидки и налог",
+      "benefitDiscounts": "До двух скидок и налог",
       "benefitHistory": "Сохраняйте сравнения на устройстве"
     },
     "sk": {
@@ -587,7 +587,7 @@
       "store": "Zobraziť aplikáciu",
       "features": "Bližší pohľad",
       "benefitUnits": "Porovnajte hmotnosť, objem a dĺžku",
-      "benefitDiscounts": "Dve zľavy a daň",
+      "benefitDiscounts": "Až dve zľavy a daň",
       "benefitHistory": "Uložte porovnania do zariadenia"
     },
     "sl-SI": {
@@ -602,7 +602,7 @@
       "store": "Ogled aplikacije",
       "features": "Podrobnejši pogled",
       "benefitUnits": "Primerjajte težo, prostornino in dolžino",
-      "benefitDiscounts": "Dva popusta in davek",
+      "benefitDiscounts": "Do dva popusta in davek",
       "benefitHistory": "Primerjave shranite v napravi"
     },
     "sv": {
@@ -617,7 +617,7 @@
       "store": "Visa app",
       "features": "En närmare titt",
       "benefitUnits": "Jämför vikt, volym och längd",
-      "benefitDiscounts": "Två rabatter och skatt",
+      "benefitDiscounts": "Upp till två rabatter och skatt",
       "benefitHistory": "Spara jämförelser på enheten"
     },
     "ta-IN": {
@@ -632,7 +632,7 @@
       "store": "செயலியைப் பார்க்கவும்",
       "features": "மேலும் விரிவாக",
       "benefitUnits": "எடை, கொள்ளளவு, நீளம் ஒப்பிடுக",
-      "benefitDiscounts": "இரண்டு தள்ளுபடிகள் மற்றும் வரி",
+      "benefitDiscounts": "அதிகபட்சம் இரண்டு தள்ளுபடிகள் மற்றும் வரி",
       "benefitHistory": "ஒப்பீடுகளைச் சாதனத்தில் சேமிக்கவும்"
     },
     "te-IN": {
@@ -647,7 +647,7 @@
       "store": "యాప్ చూడండి",
       "features": "మరిన్ని వివరాలు",
       "benefitUnits": "బరువు, పరిమాణం, పొడవు పోల్చండి",
-      "benefitDiscounts": "రెండు తగ్గింపులు మరియు పన్ను",
+      "benefitDiscounts": "గరిష్టంగా రెండు తగ్గింపులు మరియు పన్ను",
       "benefitHistory": "పోలికలను పరికరంలో సేవ్ చేయండి"
     },
     "th": {
@@ -662,7 +662,7 @@
       "store": "ดูแอป",
       "features": "ดูเพิ่มเติม",
       "benefitUnits": "เปรียบเทียบน้ำหนัก ปริมาตร และความยาว",
-      "benefitDiscounts": "ส่วนลดสองรายการและภาษี",
+      "benefitDiscounts": "ส่วนลดสูงสุดสองรายการและภาษี",
       "benefitHistory": "บันทึกการเปรียบเทียบบนอุปกรณ์"
     },
     "tr": {
@@ -677,7 +677,7 @@
       "store": "Uygulamayı gör",
       "features": "Daha yakından bakın",
       "benefitUnits": "Ağırlık, hacim ve uzunluğu karşılaştır",
-      "benefitDiscounts": "İki indirim ve vergi",
+      "benefitDiscounts": "En fazla iki indirim ve vergi",
       "benefitHistory": "Karşılaştırmaları cihazda sakla"
     },
     "uk": {
@@ -692,7 +692,7 @@
       "store": "Переглянути застосунок",
       "features": "Докладніше",
       "benefitUnits": "Порівнюйте вагу, об’єм і довжину",
-      "benefitDiscounts": "Дві знижки та податок",
+      "benefitDiscounts": "До двох знижок і податок",
       "benefitHistory": "Зберігайте порівняння на пристрої"
     },
     "ur-PK": {
@@ -707,7 +707,7 @@
       "store": "ایپ دیکھیں",
       "features": "مزید تفصیل",
       "benefitUnits": "وزن، حجم اور لمبائی کا موازنہ",
-      "benefitDiscounts": "دو رعایتیں اور ٹیکس",
+      "benefitDiscounts": "زیادہ سے زیادہ دو رعایتیں اور ٹیکس",
       "benefitHistory": "موازنے اپنے آلے پر محفوظ کریں"
     },
     "vi": {
@@ -722,7 +722,7 @@
       "store": "Xem ứng dụng",
       "features": "Xem chi tiết",
       "benefitUnits": "So sánh khối lượng, thể tích và chiều dài",
-      "benefitDiscounts": "Hai mức giảm giá và thuế",
+      "benefitDiscounts": "Tối đa hai mức giảm giá và thuế",
       "benefitHistory": "Lưu so sánh trên thiết bị"
     },
     "zh-Hans": {
@@ -737,7 +737,7 @@
       "store": "查看应用",
       "features": "深入了解",
       "benefitUnits": "比较重量、容量与长度",
-      "benefitDiscounts": "两次折扣与税费",
+      "benefitDiscounts": "最多两次折扣及税费",
       "benefitHistory": "将对比记录保存在设备上"
     },
     "zh-Hant": {
@@ -752,7 +752,7 @@
       "store": "查看 App",
       "features": "深入了解",
       "benefitUnits": "比較重量、容量與長度",
-      "benefitDiscounts": "兩次折扣與稅費",
+      "benefitDiscounts": "最多兩次折扣及稅費",
       "benefitHistory": "將比較記錄儲存在裝置上"
     }
   },

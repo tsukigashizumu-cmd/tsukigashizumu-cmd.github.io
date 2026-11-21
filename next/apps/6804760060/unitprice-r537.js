@@ -5,6 +5,17 @@
  const state={locale:'en-US',region:'us',extra:false};
  const appUrl=()=>`https://apps.apple.com/${state.region}/app/id${APP_ID}`;
  const safeRegion=s=>/^[a-z]{2}$/.test(s||'')?s:null;
+ // Display language and App Store country are separate. These browser tags have a
+ // supported App Store country beyond the 40 countries implied by the 50 LP locales.
+ // This is only a first-visit hint, never a statement of the user's Apple ID region
+ // or a guarantee that this particular app is available in that country.
+ const ALIAS_COUNTRIES=new Set(['hk','mo','sg','be','ie','nz','ar','ao','at','eg']);
+ const countryHintFromLanguageTag=raw=>{
+  const segments=String(raw||'').trim().replace(/_/g,'-').toLowerCase().split('-');
+  for(const segment of segments.slice(1))if(ALIAS_COUNTRIES.has(segment))return segment;
+  return null;
+ };
+
  const money=n=>'$'+n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
  const nativeLanguageLabel=locale=>{
   // Show a recognizable endonym, retaining the exact App Store locale code for disambiguation.
@@ -157,9 +168,17 @@
    const params=new URLSearchParams(location.search);
    const requested=params.get('language');
    state.locale=chooseLocale(requested,available);
-   const regions=[...new Set(['us','jp',...Object.values(data.storefrontByLocale)])].sort();
+   // Use the first supported browser language as the country hint only when there
+   // is no explicit URL country. Do not take a country from an unsupported language.
+   const preferences=Array.isArray(navigator.languages)&&navigator.languages.length?
+    navigator.languages:[navigator.language||'en-US'];
+   const matchedTag=requested ? (resolveLocaleTag(requested,available)?requested:null) :
+    (preferences.find(tag=>resolveLocaleTag(tag,available))||null);
+   const hintedCountry=countryHintFromLanguageTag(matchedTag);
+   const regions=[...new Set(['us','jp',...Object.values(data.storefrontByLocale),...ALIAS_COUNTRIES])].sort();
    const country=params.get('storefront')?.toLowerCase();
-   state.region=(safeRegion(country)&&regions.includes(country))?country:data.storefrontByLocale[state.locale];
+   state.region=(safeRegion(country)&&regions.includes(country))?country:
+    (hintedCountry||data.storefrontByLocale[state.locale]);
    $('r537-language').replaceChildren();
    for(const loc of available.sort((a,b)=>a==='en-US'?-1:b==='en-US'?1:a==='ja'?-1:b==='ja'?1:a.localeCompare(b))){const opt=document.createElement('option');opt.value=loc;opt.textContent=nativeLanguageLabel(loc);$('r537-language').add(opt);}
    $('r537-country').replaceChildren();
