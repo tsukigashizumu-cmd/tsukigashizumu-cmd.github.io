@@ -95,3 +95,17 @@ html:is(:lang(ar-SA),:lang(ur-PK),:lang(pa-IN),:lang(bn-BD),:lang(gu-IN),:lang(h
  .r537-demo > .r537-verdict strong{font-size:25px}
  .r537-demo > .r537-verdict .r537-diff{font-size:16px}
 }
+
+/* R537R6: app capabilities explicitly backed by the public Unit Price App Store description.
+   Independent LP editorial drafts; no ASC source modification and no third-party imagery. */
+.r537-benefits{scroll-margin-top:26px;padding:24px 0 34px;border-top:1px solid #314057}
+.r537-benefits-head{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.r537-benefits-head h2{font-size:clamp(19px,2.5vw,28px);font-weight:800;line-height:1.32;letter-spacing:normal;margin:0;overflow-wrap:anywhere}
+.r537-benefits-mark{font-size:25px;color:var(--mint);flex:none}
+.r537-benefit-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.r537-benefit{display:flex;align-items:center;gap:13px;min-width:0;min-height:94px;margin:0;padding:19px 20px;border:1px solid #33445f;border-radius:15px;background:#152238}
+.r537-benefit-icon{display:grid;place-items:center;flex:none;min-width:35px;height:35px;font-size:17px;letter-spacing:0;color:var(--mint);background:#23334c;border-radius:10px;direction:ltr}
+.r537-benefit p{margin:0;color:#f1f5fc;font-size:15px;font-weight:650;line-height:1.5;overflow-wrap:anywhere;letter-spacing:normal}
+.r537-footer>a{color:#d4dff0;text-decoration:underline;text-underline-offset:4px}
+@media(max-width:900px){.r537-benefit-grid{grid-template-columns:1fr}.r537-benefit{min-height:72px}}
+@media(max-width:590px){.r537-benefits{padding:18px 0 25px}.r537-benefit-grid{gap:8px}.r537-benefit{padding:13px 15px;min-height:64px;border-radius:12px}.r537-benefit-icon{min-width:32px;height:32px;font-size:15px}.r537-benefit p{font-size:14px;line-height:1.46}}

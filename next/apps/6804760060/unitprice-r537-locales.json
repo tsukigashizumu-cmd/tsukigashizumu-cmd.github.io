@@ -15,7 +15,10 @@
       "region": "بلد متجر App Store أو منطقته",
       "all": "استكشف التطبيقات",
       "store": "عرض التطبيق",
-      "features": "نظرة عن قرب"
+      "features": "نظرة عن قرب",
+      "benefitUnits": "قارن الوزن والحجم والطول",
+      "benefitDiscounts": "خصمان والضريبة",
+      "benefitHistory": "احفظ المقارنات على جهازك"
     },
     "bn-BD": {
       "headline": "প্রতি এককে কোনটি সস্তা?",
@@ -27,7 +30,10 @@
       "region": "App Store-এর দেশ বা অঞ্চল",
       "all": "অ্যাপগুলো দেখুন",
       "store": "অ্যাপ দেখুন",
-      "features": "আরও বিস্তারিত"
+      "features": "আরও বিস্তারিত",
+      "benefitUnits": "ওজন, আয়তন ও দৈর্ঘ্যের তুলনা",
+      "benefitDiscounts": "দুটি ছাড় ও কর",
+      "benefitHistory": "ডিভাইসে তুলনা সংরক্ষণ"
     },
     "ca": {
       "headline": "Quin surt més barat per unitat?",
@@ -39,7 +45,10 @@
       "region": "País o regió de l’App Store",
       "all": "Explora les apps",
       "store": "Veure app",
-      "features": "Més detalls"
+      "features": "Més detalls",
+      "benefitUnits": "Compara pes, volum i longitud",
+      "benefitDiscounts": "Dos descomptes i impostos",
+      "benefitHistory": "Desa comparacions al dispositiu"
     },
     "cs": {
       "headline": "Co je levnější na jednotku?",
@@ -51,7 +60,10 @@
       "region": "Země nebo oblast App Storu",
       "all": "Prozkoumat aplikace",
       "store": "Zobrazit aplikaci",
-      "features": "Podrobnější pohled"
+      "features": "Podrobnější pohled",
+      "benefitUnits": "Porovnejte hmotnost, objem a délku",
+      "benefitDiscounts": "Dvě slevy a daň",
+      "benefitHistory": "Ukládejte porovnání do zařízení"
     },
     "da": {
       "headline": "Hvad er billigst pr. enhed?",
@@ -63,7 +75,10 @@
       "region": "App Store-land eller -område",
       "all": "Udforsk apps",
       "store": "Se app",
-      "features": "Se nærmere"
+      "features": "Se nærmere",
+      "benefitUnits": "Sammenlign vægt, volumen og længde",
+      "benefitDiscounts": "To rabatter og moms",
+      "benefitHistory": "Gem sammenligninger på enheden"
     },
     "de-DE": {
       "headline": "Welches Produkt ist pro Einheit günstiger?",
@@ -75,7 +90,10 @@
       "region": "Land oder Region des App Store",
       "all": "Apps entdecken",
       "store": "App ansehen",
-      "features": "Genauer betrachtet"
+      "features": "Genauer betrachtet",
+      "benefitUnits": "Gewicht, Volumen und Länge vergleichen",
+      "benefitDiscounts": "Zwei Rabatte und Steuer",
+      "benefitHistory": "Vergleiche auf dem Gerät speichern"
     },
     "el": {
       "headline": "Ποιο είναι φθηνότερο ανά μονάδα;",
@@ -87,7 +105,10 @@
       "region": "Χώρα ή περιοχή App Store",
       "all": "Εξερευνήστε εφαρμογές",
       "store": "Προβολή εφαρμογής",
-      "features": "Μια πιο προσεκτική ματιά"
+      "features": "Μια πιο προσεκτική ματιά",
+      "benefitUnits": "Σύγκρινε βάρος, όγκο και μήκος",
+      "benefitDiscounts": "Δύο εκπτώσεις και φόρο",
+      "benefitHistory": "Αποθήκευσε συγκρίσεις στη συσκευή"
     },
     "en-AU": {
       "headline": "Which one is cheaper per unit?",
@@ -99,7 +120,10 @@
       "region": "App Store country or region",
       "all": "Explore the apps",
       "store": "View app",
-      "features": "A closer look"
+      "features": "A closer look",
+      "benefitUnits": "Compare weight, volume & length",
+      "benefitDiscounts": "Up to two discounts & tax",
+      "benefitHistory": "Save comparisons on your device"
     },
     "en-CA": {
       "headline": "Which one is cheaper per unit?",
@@ -111,7 +135,10 @@
       "region": "App Store country or region",
       "all": "Explore the apps",
       "store": "View app",
-      "features": "A closer look"
+      "features": "A closer look",
+      "benefitUnits": "Compare weight, volume & length",
+      "benefitDiscounts": "Up to two discounts & tax",
+      "benefitHistory": "Save comparisons on your device"
     },
     "en-GB": {
       "headline": "Which one is cheaper per unit?",
@@ -123,7 +150,10 @@
       "region": "App Store country or region",
       "all": "Explore the apps",
       "store": "View app",
-      "features": "A closer look"
+      "features": "A closer look",
+      "benefitUnits": "Compare weight, volume & length",
+      "benefitDiscounts": "Up to two discounts & tax",
+      "benefitHistory": "Save comparisons on your device"
     },
     "en-US": {
       "headline": "Which one is cheaper per unit?",
@@ -135,7 +165,10 @@
       "region": "App Store country or region",
       "all": "Explore the apps",
       "store": "View app",
-      "features": "A closer look"
+      "features": "A closer look",
+      "benefitUnits": "Compare weight, volume & length",
+      "benefitDiscounts": "Up to two discounts & tax",
+      "benefitHistory": "Save comparisons on your device"
     },
     "es-ES": {
       "headline": "¿Cuál sale más barato por unidad?",
@@ -147,7 +180,10 @@
       "region": "País o región del App Store",
       "all": "Explora las apps",
       "store": "Ver app",
-      "features": "Más detalles"
+      "features": "Más detalles",
+      "benefitUnits": "Compara peso, volumen y longitud",
+      "benefitDiscounts": "Hasta dos descuentos e impuestos",
+      "benefitHistory": "Guarda comparaciones en tu dispositivo"
     },
     "es-MX": {
       "headline": "¿Cuál cuesta menos por unidad?",
@@ -159,7 +195,10 @@
       "region": "País o región de App Store",
       "all": "Explora las apps",
       "store": "Ver app",
-      "features": "Más detalles"
+      "features": "Más detalles",
+      "benefitUnits": "Compara peso, volumen y longitud",
+      "benefitDiscounts": "Hasta dos descuentos e impuestos",
+      "benefitHistory": "Guarda comparaciones en tu dispositivo"
     },
     "fi": {
       "headline": "Kumpi on halvempi yksikköä kohti?",
@@ -171,7 +210,10 @@
       "region": "App Storen maa tai alue",
       "all": "Tutustu sovelluksiin",
       "store": "Katso sovellus",
-      "features": "Tutustu tarkemmin"
+      "features": "Tutustu tarkemmin",
+      "benefitUnits": "Vertaa painoa, tilavuutta ja pituutta",
+      "benefitDiscounts": "Kaksi alennusta ja vero",
+      "benefitHistory": "Tallenna vertailut laitteelle"
     },
     "fr-CA": {
       "headline": "Lequel coûte moins cher à l’unité ?",
@@ -183,7 +225,10 @@
       "region": "Pays ou région de l’App Store",
       "all": "Explorer les apps",
       "store": "Voir l’app",
-      "features": "En savoir plus"
+      "features": "En savoir plus",
+      "benefitUnits": "Comparez poids, volume et longueur",
+      "benefitDiscounts": "Jusqu’à deux remises et les taxes",
+      "benefitHistory": "Enregistrez les comparaisons sur l’appareil"
     },
     "fr-FR": {
       "headline": "Lequel coûte moins cher à l’unité ?",
@@ -195,7 +240,10 @@
       "region": "Pays ou région de l’App Store",
       "all": "Explorer les apps",
       "store": "Voir l’app",
-      "features": "En savoir plus"
+      "features": "En savoir plus",
+      "benefitUnits": "Comparez poids, volume et longueur",
+      "benefitDiscounts": "Jusqu’à deux remises et les taxes",
+      "benefitHistory": "Enregistrez les comparaisons sur l’appareil"
     },
     "gu-IN": {
       "headline": "એકમ દીઠ કયું સસ્તું છે?",
@@ -207,7 +255,10 @@
       "region": "App Store નો દેશ અથવા પ્રદેશ",
       "all": "એપ્સ શોધો",
       "store": "એપ જુઓ",
-      "features": "વધુ વિગતે જુઓ"
+      "features": "વધુ વિગતે જુઓ",
+      "benefitUnits": "વજન, ઘનફળ અને લંબાઈની સરખામણી",
+      "benefitDiscounts": "બે છૂટ અને કર",
+      "benefitHistory": "ડિવાઇસમાં સરખામણીઓ સાચવો"
     },
     "he": {
       "headline": "מה זול יותר ליחידה?",
@@ -219,7 +270,10 @@
       "region": "מדינה או אזור של ה-App Store",
       "all": "לגלות אפליקציות",
       "store": "הצגת האפליקציה",
-      "features": "מבט מקרוב"
+      "features": "מבט מקרוב",
+      "benefitUnits": "השוו משקל, נפח ואורך",
+      "benefitDiscounts": "עד שתי הנחות ומס",
+      "benefitHistory": "שמרו השוואות במכשיר"
     },
     "hi": {
       "headline": "प्रति इकाई कौन सा सस्ता है?",
@@ -231,7 +285,10 @@
       "region": "App Store का देश या क्षेत्र",
       "all": "ऐप्स देखें",
       "store": "ऐप देखें",
-      "features": "करीब से देखें"
+      "features": "करीब से देखें",
+      "benefitUnits": "वज़न, आयतन और लंबाई की तुलना",
+      "benefitDiscounts": "दो छूट और कर",
+      "benefitHistory": "डिवाइस पर तुलनाएँ सहेजें"
     },
     "hr": {
       "headline": "Što je jeftinije po jedinici?",
@@ -243,7 +300,10 @@
       "region": "Država ili regija App Storea",
       "all": "Istražite aplikacije",
       "store": "Pogledaj aplikaciju",
-      "features": "Pogled izbliza"
+      "features": "Pogled izbliza",
+      "benefitUnits": "Usporedite težinu, obujam i duljinu",
+      "benefitDiscounts": "Dva popusta i porez",
+      "benefitHistory": "Spremite usporedbe na uređaj"
     },
     "hu": {
       "headline": "Melyik olcsóbb egységárban?",
@@ -255,7 +315,10 @@
       "region": "App Store országa vagy régiója",
       "all": "Alkalmazások felfedezése",
       "store": "App megtekintése",
-      "features": "Közelebbről"
+      "features": "Közelebbről",
+      "benefitUnits": "Tömeg, térfogat és hossz összevetése",
+      "benefitDiscounts": "Két kedvezmény és adó",
+      "benefitHistory": "Összehasonlítások mentése az eszközön"
     },
     "id": {
       "headline": "Mana yang lebih murah per satuan?",
@@ -267,7 +330,10 @@
       "region": "Negara atau wilayah App Store",
       "all": "Jelajahi aplikasi",
       "store": "Lihat aplikasi",
-      "features": "Lihat lebih dekat"
+      "features": "Lihat lebih dekat",
+      "benefitUnits": "Bandingkan berat, volume, dan panjang",
+      "benefitDiscounts": "Dua diskon dan pajak",
+      "benefitHistory": "Simpan perbandingan di perangkat"
     },
     "it": {
       "headline": "Quale costa meno per unità?",
@@ -279,7 +345,10 @@
       "region": "Paese o area geografica dell’App Store",
       "all": "Esplora le app",
       "store": "Vedi app",
-      "features": "Uno sguardo più da vicino"
+      "features": "Uno sguardo più da vicino",
+      "benefitUnits": "Confronta peso, volume e lunghezza",
+      "benefitDiscounts": "Due sconti e imposte",
+      "benefitHistory": "Salva confronti sul dispositivo"
     },
     "ja": {
       "headline": "本当に単価が安いのは、どっち？",
@@ -291,7 +360,10 @@
       "region": "App Storeの国・地域",
       "all": "アプリを探す",
       "store": "アプリを見る",
-      "features": "もう少し詳しく"
+      "features": "もう少し詳しく",
+      "benefitUnits": "重さ・容量・長さを比較",
+      "benefitDiscounts": "最大2回の割引と税金",
+      "benefitHistory": "比較結果を端末に保存"
     },
     "kn-IN": {
       "headline": "ಪ್ರತಿ ಘಟಕಕ್ಕೆ ಯಾವುದು ಅಗ್ಗ?",
@@ -303,7 +375,10 @@
       "region": "App Store ದೇಶ ಅಥವಾ ಪ್ರದೇಶ",
       "all": "ಆ್ಯಪ್‌ಗಳನ್ನು ಅನ್ವೇಷಿಸಿ",
       "store": "ಆ್ಯಪ್ ನೋಡಿ",
-      "features": "ಹೆಚ್ಚು ವಿವರ"
+      "features": "ಹೆಚ್ಚು ವಿವರ",
+      "benefitUnits": "ತೂಕ, ಪರಿಮಾಣ ಮತ್ತು ಉದ್ದ ಹೋಲಿಸಿ",
+      "benefitDiscounts": "ಎರಡು ರಿಯಾಯಿತಿಗಳು ಮತ್ತು ತೆರಿಗೆ",
+      "benefitHistory": "ಹೋಲಿಕೆಗಳನ್ನು ಸಾಧನದಲ್ಲಿ ಉಳಿಸಿ"
     },
     "ko": {
       "headline": "단위당 어느 제품이 더 저렴할까요?",
@@ -315,7 +390,10 @@
       "region": "App Store 국가 또는 지역",
       "all": "앱 둘러보기",
       "store": "앱 보기",
-      "features": "자세히 보기"
+      "features": "자세히 보기",
+      "benefitUnits": "무게·부피·길이 비교",
+      "benefitDiscounts": "최대 두 번의 할인과 세금",
+      "benefitHistory": "비교 결과를 기기에 저장"
     },
     "ml-IN": {
       "headline": "ഒരു യൂണിറ്റിന് ഏതാണ് വിലകുറവ്?",
@@ -327,7 +405,10 @@
       "region": "App Store രാജ്യം അല്ലെങ്കിൽ പ്രദേശം",
       "all": "ആപ്പുകൾ കണ്ടെത്തൂ",
       "store": "ആപ്പ് കാണൂ",
-      "features": "കൂടുതൽ വിവരങ്ങൾ"
+      "features": "കൂടുതൽ വിവരങ്ങൾ",
+      "benefitUnits": "ഭാരം, അളവ്, നീളം താരതമ്യം",
+      "benefitDiscounts": "രണ്ട് കിഴിവുകളും നികുതിയും",
+      "benefitHistory": "താരതമ്യങ്ങൾ ഉപകരണത്തിൽ സംരക്ഷിക്കുക"
     },
     "mr-IN": {
       "headline": "प्रति युनिट कोणते स्वस्त आहे?",
@@ -339,7 +420,10 @@
       "region": "App Store देश किंवा प्रदेश",
       "all": "अ‍ॅप्स शोधा",
       "store": "अ‍ॅप पाहा",
-      "features": "अधिक जवळून पाहा"
+      "features": "अधिक जवळून पाहा",
+      "benefitUnits": "वजन, घनफळ आणि लांबीची तुलना",
+      "benefitDiscounts": "दोन सूट आणि कर",
+      "benefitHistory": "तुलना डिव्हाइसवर जतन करा"
     },
     "ms": {
       "headline": "Yang mana lebih murah seunit?",
@@ -351,7 +435,10 @@
       "region": "Negara atau rantau App Store",
       "all": "Terokai aplikasi",
       "store": "Lihat aplikasi",
-      "features": "Lihat lebih dekat"
+      "features": "Lihat lebih dekat",
+      "benefitUnits": "Bandingkan berat, isi padu dan panjang",
+      "benefitDiscounts": "Dua diskaun dan cukai",
+      "benefitHistory": "Simpan perbandingan pada peranti"
     },
     "nl-NL": {
       "headline": "Welk product is goedkoper per eenheid?",
@@ -363,7 +450,10 @@
       "region": "Land of regio van de App Store",
       "all": "Ontdek de apps",
       "store": "Bekijk app",
-      "features": "Meer informatie"
+      "features": "Meer informatie",
+      "benefitUnits": "Vergelijk gewicht, volume en lengte",
+      "benefitDiscounts": "Twee kortingen en belasting",
+      "benefitHistory": "Bewaar vergelijkingen op je apparaat"
     },
     "no": {
       "headline": "Hvilken er billigst per enhet?",
@@ -375,7 +465,10 @@
       "region": "Land eller område for App Store",
       "all": "Utforsk appene",
       "store": "Se app",
-      "features": "Se nærmere"
+      "features": "Se nærmere",
+      "benefitUnits": "Sammenlign vekt, volum og lengde",
+      "benefitDiscounts": "To rabatter og avgift",
+      "benefitHistory": "Lagre sammenligninger på enheten"
     },
     "or-IN": {
       "headline": "ପ୍ରତି ଏକକରେ କେଉଁଟି ଶସ୍ତା?",
@@ -387,7 +480,10 @@
       "region": "App Store ଦେଶ କିମ୍ବା ଅଞ୍ଚଳ",
       "all": "ଆପ୍ ଖୋଜନ୍ତୁ",
       "store": "ଆପ୍ ଦେଖନ୍ତୁ",
-      "features": "ଅଧିକ ବିବରଣୀ"
+      "features": "ଅଧିକ ବିବରଣୀ",
+      "benefitUnits": "ଓଜନ, ଆୟତନ ଓ ଲମ୍ବ ତୁଳନା",
+      "benefitDiscounts": "ଦୁଇଟି ରିହାତି ଓ କର",
+      "benefitHistory": "ଡିଭାଇସରେ ତୁଳନା ସଂରକ୍ଷଣ"
     },
     "pa-IN": {
       "headline": "ਪ੍ਰਤੀ ਇਕਾਈ ਕਿਹੜਾ ਸਸਤਾ ਹੈ?",
@@ -399,7 +495,10 @@
       "region": "App Store ਦਾ ਦੇਸ਼ ਜਾਂ ਖੇਤਰ",
       "all": "ਐਪਾਂ ਲੱਭੋ",
       "store": "ਐਪ ਵੇਖੋ",
-      "features": "ਹੋਰ ਵੇਰਵਾ"
+      "features": "ਹੋਰ ਵੇਰਵਾ",
+      "benefitUnits": "ਭਾਰ, ਆਇਤਨ ਅਤੇ ਲੰਬਾਈ ਦੀ ਤੁਲਨਾ",
+      "benefitDiscounts": "ਦੋ ਛੋਟਾਂ ਅਤੇ ਟੈਕਸ",
+      "benefitHistory": "ਤੁਲਨਾਵਾਂ ਡਿਵਾਈਸ ਉੱਤੇ ਸੰਭਾਲੋ"
     },
     "pl": {
       "headline": "Który produkt jest tańszy za jednostkę?",
@@ -411,7 +510,10 @@
       "region": "Kraj lub region App Store",
       "all": "Odkryj aplikacje",
       "store": "Zobacz aplikację",
-      "features": "Bliższe spojrzenie"
+      "features": "Bliższe spojrzenie",
+      "benefitUnits": "Porównuj wagę, objętość i długość",
+      "benefitDiscounts": "Dwa rabaty i podatek",
+      "benefitHistory": "Zapisuj porównania na urządzeniu"
     },
     "pt-BR": {
       "headline": "Qual sai mais barato por unidade?",
@@ -423,7 +525,10 @@
       "region": "País ou região da App Store",
       "all": "Explore os apps",
       "store": "Ver app",
-      "features": "Saiba mais"
+      "features": "Saiba mais",
+      "benefitUnits": "Compare peso, volume e comprimento",
+      "benefitDiscounts": "Dois descontos e impostos",
+      "benefitHistory": "Salve comparações no dispositivo"
     },
     "pt-PT": {
       "headline": "Qual fica mais barato por unidade?",
@@ -435,7 +540,10 @@
       "region": "País ou região da App Store",
       "all": "Explorar as apps",
       "store": "Ver app",
-      "features": "Saiba mais"
+      "features": "Saiba mais",
+      "benefitUnits": "Compare peso, volume e comprimento",
+      "benefitDiscounts": "Dois descontos e impostos",
+      "benefitHistory": "Guarde comparações no dispositivo"
     },
     "ro": {
       "headline": "Care costă mai puțin pe unitate?",
@@ -447,7 +555,10 @@
       "region": "Țara sau regiunea din App Store",
       "all": "Explorează aplicațiile",
       "store": "Vezi aplicația",
-      "features": "Mai multe detalii"
+      "features": "Mai multe detalii",
+      "benefitUnits": "Compară greutatea, volumul și lungimea",
+      "benefitDiscounts": "Două reduceri și taxe",
+      "benefitHistory": "Salvează comparațiile pe dispozitiv"
     },
     "ru": {
       "headline": "Что дешевле за единицу?",
@@ -459,7 +570,10 @@
       "region": "Страна или регион App Store",
       "all": "Открыть приложения",
       "store": "Смотреть приложение",
-      "features": "Подробнее"
+      "features": "Подробнее",
+      "benefitUnits": "Сравнивайте вес, объём и длину",
+      "benefitDiscounts": "Две скидки и налог",
+      "benefitHistory": "Сохраняйте сравнения на устройстве"
     },
     "sk": {
       "headline": "Čo je lacnejšie za jednotku?",
@@ -471,7 +585,10 @@
       "region": "Krajina alebo región App Storu",
       "all": "Objavte aplikácie",
       "store": "Zobraziť aplikáciu",
-      "features": "Bližší pohľad"
+      "features": "Bližší pohľad",
+      "benefitUnits": "Porovnajte hmotnosť, objem a dĺžku",
+      "benefitDiscounts": "Dve zľavy a daň",
+      "benefitHistory": "Uložte porovnania do zariadenia"
     },
     "sl-SI": {
       "headline": "Kaj je cenejše na enoto?",
@@ -483,7 +600,10 @@
       "region": "Država ali regija App Store",
       "all": "Raziščite aplikacije",
       "store": "Ogled aplikacije",
-      "features": "Podrobnejši pogled"
+      "features": "Podrobnejši pogled",
+      "benefitUnits": "Primerjajte težo, prostornino in dolžino",
+      "benefitDiscounts": "Dva popusta in davek",
+      "benefitHistory": "Primerjave shranite v napravi"
     },
     "sv": {
       "headline": "Vilken är billigast per enhet?",
@@ -495,7 +615,10 @@
       "region": "App Store-land eller -region",
       "all": "Utforska apparna",
       "store": "Visa app",
-      "features": "En närmare titt"
+      "features": "En närmare titt",
+      "benefitUnits": "Jämför vikt, volym och längd",
+      "benefitDiscounts": "Två rabatter och skatt",
+      "benefitHistory": "Spara jämförelser på enheten"
     },
     "ta-IN": {
       "headline": "ஒரு அலகுக்கு எது மலிவானது?",
@@ -507,7 +630,10 @@
       "region": "App Store நாடு அல்லது பகுதி",
       "all": "செயலிகளை ஆராயுங்கள்",
       "store": "செயலியைப் பார்க்கவும்",
-      "features": "மேலும் விரிவாக"
+      "features": "மேலும் விரிவாக",
+      "benefitUnits": "எடை, கொள்ளளவு, நீளம் ஒப்பிடுக",
+      "benefitDiscounts": "இரண்டு தள்ளுபடிகள் மற்றும் வரி",
+      "benefitHistory": "ஒப்பீடுகளைச் சாதனத்தில் சேமிக்கவும்"
     },
     "te-IN": {
       "headline": "యూనిట్‌కు ఏది చౌక?",
@@ -519,7 +645,10 @@
       "region": "App Store దేశం లేదా ప్రాంతం",
       "all": "యాప్‌లను అన్వేషించండి",
       "store": "యాప్ చూడండి",
-      "features": "మరిన్ని వివరాలు"
+      "features": "మరిన్ని వివరాలు",
+      "benefitUnits": "బరువు, పరిమాణం, పొడవు పోల్చండి",
+      "benefitDiscounts": "రెండు తగ్గింపులు మరియు పన్ను",
+      "benefitHistory": "పోలికలను పరికరంలో సేవ్ చేయండి"
     },
     "th": {
       "headline": "ชิ้นไหนถูกกว่าต่อหน่วย?",
@@ -531,7 +660,10 @@
       "region": "ประเทศหรือภูมิภาคของ App Store",
       "all": "สำรวจแอป",
       "store": "ดูแอป",
-      "features": "ดูเพิ่มเติม"
+      "features": "ดูเพิ่มเติม",
+      "benefitUnits": "เปรียบเทียบน้ำหนัก ปริมาตร และความยาว",
+      "benefitDiscounts": "ส่วนลดสองรายการและภาษี",
+      "benefitHistory": "บันทึกการเปรียบเทียบบนอุปกรณ์"
     },
     "tr": {
       "headline": "Birim başına hangisi daha ucuz?",
@@ -543,7 +675,10 @@
       "region": "App Store ülkesi veya bölgesi",
       "all": "Uygulamaları keşfedin",
       "store": "Uygulamayı gör",
-      "features": "Daha yakından bakın"
+      "features": "Daha yakından bakın",
+      "benefitUnits": "Ağırlık, hacim ve uzunluğu karşılaştır",
+      "benefitDiscounts": "İki indirim ve vergi",
+      "benefitHistory": "Karşılaştırmaları cihazda sakla"
     },
     "uk": {
       "headline": "Що дешевше за одиницю?",
@@ -555,7 +690,10 @@
       "region": "Країна або регіон App Store",
       "all": "Переглянути застосунки",
       "store": "Переглянути застосунок",
-      "features": "Докладніше"
+      "features": "Докладніше",
+      "benefitUnits": "Порівнюйте вагу, об’єм і довжину",
+      "benefitDiscounts": "Дві знижки та податок",
+      "benefitHistory": "Зберігайте порівняння на пристрої"
     },
     "ur-PK": {
       "headline": "فی یونٹ کون سا سستا ہے؟",
@@ -567,7 +705,10 @@
       "region": "App Store کا ملک یا علاقہ",
       "all": "ایپس دریافت کریں",
       "store": "ایپ دیکھیں",
-      "features": "مزید تفصیل"
+      "features": "مزید تفصیل",
+      "benefitUnits": "وزن، حجم اور لمبائی کا موازنہ",
+      "benefitDiscounts": "دو رعایتیں اور ٹیکس",
+      "benefitHistory": "موازنے اپنے آلے پر محفوظ کریں"
     },
     "vi": {
       "headline": "Sản phẩm nào rẻ hơn theo đơn vị?",
@@ -579,7 +720,10 @@
       "region": "Quốc gia hoặc khu vực của App Store",
       "all": "Khám phá ứng dụng",
       "store": "Xem ứng dụng",
-      "features": "Xem chi tiết"
+      "features": "Xem chi tiết",
+      "benefitUnits": "So sánh khối lượng, thể tích và chiều dài",
+      "benefitDiscounts": "Hai mức giảm giá và thuế",
+      "benefitHistory": "Lưu so sánh trên thiết bị"
     },
     "zh-Hans": {
       "headline": "哪件商品的单位价格更低？",
@@ -591,7 +735,10 @@
       "region": "App Store 国家或地区",
       "all": "探索应用",
       "store": "查看应用",
-      "features": "深入了解"
+      "features": "深入了解",
+      "benefitUnits": "比较重量、容量与长度",
+      "benefitDiscounts": "两次折扣与税费",
+      "benefitHistory": "将对比记录保存在设备上"
     },
     "zh-Hant": {
       "headline": "哪件商品的單位價格更低？",
@@ -603,7 +750,10 @@
       "region": "App Store 國家或地區",
       "all": "探索 App",
       "store": "查看 App",
-      "features": "深入了解"
+      "features": "深入了解",
+      "benefitUnits": "比較重量、容量與長度",
+      "benefitDiscounts": "兩次折扣與稅費",
+      "benefitHistory": "將比較記錄儲存在裝置上"
     }
   },
   "storefrontByLocale": {

@@ -6,6 +6,43 @@
  const appUrl=()=>`https://apps.apple.com/${state.region}/app/id${APP_ID}`;
  const safeRegion=s=>/^[a-z]{2}$/.test(s||'')?s:null;
  const money=n=>'$'+n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+ const nativeLanguageLabel=locale=>{
+  // Show a recognizable endonym, retaining the exact App Store locale code for disambiguation.
+  const base=locale.startsWith('zh-')?locale:locale.split('-')[0];
+  const fallbacks={'en':'English','ja':'日本語','ar':'العربية','he':'עברית','pa':'ਪੰਜਾਬੀ','zh-Hans':'简体中文','zh-Hant':'繁體中文'};
+  let label=fallbacks[base]||base;
+  try{
+   if(typeof Intl.DisplayNames==='function'){
+    const proposed=new Intl.DisplayNames([locale],{type:'language'}).of(base);
+    if(proposed && proposed.toLowerCase()!==base.toLowerCase())label=proposed;
+   }
+  }catch(_){/* Supported locale codes are always retained. */}
+  return label+' · '+locale;
+ };
+
+ const regionDisplayName=(region,locale)=>{
+  // Preserve the ISO code first, so compact controls remain unambiguous.
+  const code=region.toUpperCase();
+  if(typeof Intl.DisplayNames==='function'){
+   for(const tag of [locale,'en']){
+    try{
+     const label=new Intl.DisplayNames([tag],{type:'region'}).of(code);
+     if(label&&label.toUpperCase()!==code)return code+' · '+label;
+    }catch(_){/* Fall through to an English name or ISO code. */}
+   }
+  }
+  return code;
+ };
+ function renderRegionOptions(){
+  const picker=$('r537-country');
+  for(const option of picker.options){
+   option.textContent=regionDisplayName(option.value,state.locale);
+   option.title=option.textContent;
+  }
+  picker.value=state.region;
+  picker.title=picker.selectedOptions.length?picker.selectedOptions[0].textContent:state.region.toUpperCase();
+ }
+
  const setText=(id,val)=>{const node=$(id);if(node)node.textContent=val;};
  const percentExtra=()=>state.extra ? 0.9 : 1;
  let data=null;
@@ -36,14 +73,19 @@
   document.documentElement.lang=state.locale;
   document.documentElement.dir=RTL.has(state.locale)?'rtl':'ltr';
   $('r537-language').value=state.locale;
-  $('r537-country').value=state.region;
+  renderRegionOptions();
   $('r537-language-label').textContent=t.language;
   $('r537-country-label').textContent=t.region;
   $('r537-headline').textContent=t.headline;
   $('r537-lead').textContent=t.lead;
   $('r537-store-label').textContent=t.store;
   $('r537-store-bottom-label').textContent=t.store;
-  $('r537-all').textContent=t.all;
+  $('r537-all').textContent=t.features;
+  $('r537-benefits-head').textContent=t.features;
+  $('r537-benefit-units').textContent=t.benefitUnits;
+  $('r537-benefit-discounts').textContent=t.benefitDiscounts;
+  $('r537-benefit-history').textContent=t.benefitHistory;
+  $('r537-footer-all').textContent=t.all;
   $('r537-lower').textContent=t.lower;
   $('r537-action').textContent=t.action;
   $('r537-skip').textContent='↓ '+t.headline;
@@ -71,12 +113,12 @@
  async function init(){
   if(document.body.dataset.p199Id!==APP_ID)return;
   try{
-   const response=await fetch('./unitprice-r537-locales.json?v=r537r2-20261122',{cache:'no-store'});
+   const response=await fetch('./unitprice-r537-locales.json?v=r537r6-20261122',{cache:'no-store'});
    if(!response.ok)throw Error('LOCALE_FETCH_'+response.status);
    data=await response.json();
    const available=Object.keys(data.locales||{});
    if(data.appId!==APP_ID||available.length!==50||Object.keys(data.storefrontByLocale||{}).length!==50||
-      !available.every(k=>data.storefrontByLocale[k]&&['headline','lead','lower','action','note','language','region','all','store'].every(f=>typeof data.locales[k][f]==='string'&&data.locales[k][f].trim())))throw Error('LOCALE_DATA_INVALID');
+      !available.every(k=>data.storefrontByLocale[k]&&['headline','lead','lower','action','note','language','region','all','store','features','benefitUnits','benefitDiscounts','benefitHistory'].every(f=>typeof data.locales[k][f]==='string'&&data.locales[k][f].trim())))throw Error('LOCALE_DATA_INVALID');
    const params=new URLSearchParams(location.search);
    const requested=params.get('language');
    state.locale=chooseLocale(requested,available);
@@ -84,7 +126,7 @@
    const country=params.get('storefront')?.toLowerCase();
    state.region=(safeRegion(country)&&regions.includes(country))?country:data.storefrontByLocale[state.locale];
    $('r537-language').replaceChildren();
-   for(const loc of available.sort((a,b)=>a==='en-US'?-1:b==='en-US'?1:a==='ja'?-1:b==='ja'?1:a.localeCompare(b))){const opt=document.createElement('option');opt.value=loc;opt.textContent=loc;$('r537-language').add(opt);}
+   for(const loc of available.sort((a,b)=>a==='en-US'?-1:b==='en-US'?1:a==='ja'?-1:b==='ja'?1:a.localeCompare(b))){const opt=document.createElement('option');opt.value=loc;opt.textContent=nativeLanguageLabel(loc);$('r537-language').add(opt);}
    $('r537-country').replaceChildren();
    for(const region of regions){const opt=document.createElement('option');opt.value=region;opt.textContent=region.toUpperCase();$('r537-country').add(opt);}
    $('r537-language').addEventListener('change',()=>{
