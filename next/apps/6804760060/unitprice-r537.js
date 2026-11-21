@@ -130,8 +130,9 @@
    $('r537-country').replaceChildren();
    for(const region of regions){const opt=document.createElement('option');opt.value=region;opt.textContent=region.toUpperCase();$('r537-country').add(opt);}
    $('r537-language').addEventListener('change',()=>{
+    // Language changes affect copy and country names, not a shopper's App Store destination.
+    // The initial storefront is still chosen from the locale unless a valid URL override exists.
     state.locale=$('r537-language').value;
-    state.region=data.storefrontByLocale[state.locale];
     renderLocale();writeUrl();
    });
    $('r537-country').addEventListener('change',()=>{
