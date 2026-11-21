@@ -92,7 +92,10 @@
     state.locale=match(url)||match(saved)||browser.map(match).find(Boolean)||'en-US';
     let manual='';try{manual=localStorage.getItem('tsz-next-storefront-manual-v1')||'';}catch(_){}
     const countries=[...new Set(['us',...Object.values(state.mappings.storefrontByLocale)])];
-    state.country=countries.includes(manual)?manual:(state.mappings.storefrontByLocale[state.locale]||'us');
+    // R516: a validated shareable storefront takes priority over local device preferences.
+    const linkedCountry=new URLSearchParams(location.search).get('storefront');
+    state.country=countries.includes(linkedCountry)?linkedCountry:
+      (countries.includes(manual)?manual:(state.mappings.storefrontByLocale[state.locale]||'us'));
   }
   function buildSelectors(){
     const langs=$('p19-language');
@@ -112,6 +115,10 @@
         window.history.replaceState(window.history.state,'',link.pathname+link.search+link.hash);
       }catch(_){}
       // Country stays independent, regardless of language changes.
+      // R512: refresh country names for the new UI language without changing storefront.
+      for(const option of region.options){
+        option.textContent=regionLabel(option.value)+' ('+option.value.toUpperCase()+')';
+      }
       render();
     });
     const region=$('p19-region');
@@ -121,6 +128,20 @@
     region.addEventListener('change',()=>{
       state.country=region.value;
       try{localStorage.setItem('tsz-next-storefront-manual-v1',state.country);}catch(_){}
+      // R516: keep the selected storefront in the URL, preserving locale, hash and unrelated params.
+      try{
+        const link=new URL(window.location.href);
+        link.searchParams.set('storefront',state.country);
+        window.history.replaceState(window.history.state,'',link.pathname+link.search+link.hash);
+      }catch(_){}
+      // R511: do not label a previous storefront's screenshots as this storefront's.
+      ++mediaLoadSerial;
+      state.media=[];
+      p196MediaLoaded=false;
+      heroSlide=0;
+      ++viewerRequest;
+      const openViewer=$('p19-zoom-dialog');
+      if(openViewer?.open)openViewer.close();
       render();setupMotion();void loadPublicScreens();
     });
   }
@@ -168,9 +189,38 @@
   // R504: keep every screenshot surface and its counter in sync after a load failure.
   function excludeFailedScreen(entry){
     if(!state.media.includes(entry))return;
+    // R509: preserve the selected screenshot if a different image fails to load.
+    const imagesBefore=state.media.filter(item=>item.kind==='image');
+    const selected=imagesBefore[heroSlide]||null;
+    const priorIndex=heroSlide;
+    // R510: keep the zoom viewer on the same surviving image, or its nearest neighbor.
+    const dialog=$('p19-zoom-dialog');
+    const viewerWasOpen=Boolean(dialog?.open);
+    const viewed=viewerWasOpen?imagesBefore[viewerIndex]||null:null;
+    const oldViewerIndex=viewerIndex;
     state.media=state.media.filter(item=>item!==entry);
-    heroSlide=0;
+    const imagesAfter=state.media.filter(item=>item.kind==='image');
+    const stillSelected=selected&&selected!==entry?imagesAfter.indexOf(selected):-1;
+    heroSlide=stillSelected>=0?stillSelected:Math.min(priorIndex,Math.max(imagesAfter.length-1,0));
     renderMedia();
+    if(viewerWasOpen){
+      if(!imagesAfter.length){
+        ++viewerRequest;
+        dialog.close();
+      }else{
+        const remainingIndex=viewed&&viewed!==entry?imagesAfter.indexOf(viewed):-1;
+        if(remainingIndex>=0){
+          // R515: another screenshot failed; keep the loaded viewer image, zoom, scroll and upgrade request intact.
+          viewerIndex=remainingIndex;
+          text('p193-viewer-count',String(viewerIndex+1).padStart(2,'0')+' / '+String(imagesAfter.length).padStart(2,'0'));
+          $('p193-prev').disabled=imagesAfter.length<2;
+          $('p193-next').disabled=imagesAfter.length<2;
+        }else{
+          // The image currently in the viewer failed: choose its nearest surviving neighbor.
+          viewerShow(Math.min(oldViewerIndex,imagesAfter.length-1));
+        }
+      }
+    }
   }
   function renderHeroScreenshot(verified){
     const hero=$('p19-hero-evidence'),fallback=$('p19-hero-fallback'),img=$('p19-hero-img');
@@ -178,7 +228,7 @@
     if(!entries.length){hero.hidden=true;fallback.hidden=false;img.removeAttribute('src');return;}
     heroSlide=Math.min(heroSlide,entries.length-1);
     hero.hidden=false;fallback.hidden=true;
-    const entry=entries[heroSlide];img.alt=T().screenCaption+' '+(heroSlide+1);
+    const entry=entries[heroSlide],sourceIndex=Number.isInteger(entry.sourceIndex)?entry.sourceIndex:heroSlide;img.alt=T().screenCaption+' '+(sourceIndex+1);
     img.referrerPolicy='no-referrer';img.onerror=()=>excludeFailedScreen(entry);img.src=entry.src;
     $('p193-stage-stack').replaceChildren();
     entries.slice(0,3).forEach((shot,i)=>{if(i===heroSlide)return;
@@ -188,13 +238,13 @@
       el.append(preview);$('p193-stage-stack').append(el);
     });
     const dots=$('p193-stage-dots');dots.replaceChildren();
-    entries.forEach((_,i)=>{const b=create('button','p193-stage-dot',String(i+1).padStart(2,'0'));b.type='button';b.setAttribute('aria-label',(T().screenCaption)+' '+(i+1));b.setAttribute('aria-pressed',String(i===heroSlide));
+    entries.forEach((shot,i)=>{const originalNumber=(Number.isInteger(shot.sourceIndex)?shot.sourceIndex:i)+1;const b=create('button','p193-stage-dot',String(originalNumber).padStart(2,'0'));b.type='button';b.setAttribute('aria-label',(T().screenCaption)+' '+originalNumber);b.setAttribute('aria-pressed',String(i===heroSlide));
       b.addEventListener('click',()=>{heroSlide=i;renderHeroScreenshot(verified);});dots.append(b);});
-    const heroCaption=format(T().screenSource,{country:state.country.toUpperCase(),number:heroSlide+1});
+    const heroCaption=format(T().screenSource,{country:state.country.toUpperCase(),number:sourceIndex+1});
     // R501: the same authored warning now appears in the hero and the zoom viewer.
     const heroQuality=entry.quality==='limited'?' · '+uiLabel('qualityLimited',state.locale.startsWith('ja')?'縮小版画像':state.locale.startsWith('ar')?'معاينة مصغّرة':'reduced-size preview'):'';
     text('p19-hero-img-caption',heroCaption+heroQuality);
-    $('p193-stage-primary').setAttribute('aria-label',uiLabel('inspect',T().screenZoom)+' '+(heroSlide+1));
+    $('p193-stage-primary').setAttribute('aria-label',uiLabel('inspect',T().screenZoom)+' '+(sourceIndex+1));
     $('p193-stage-primary').onclick=()=>zoomScreen(entries[heroSlide],verified.indexOf(entries[heroSlide]));
     text('p193-stage-cta',uiLabel('inspect',T().screenZoom)+' ↗');
   }
@@ -284,15 +334,16 @@ function tryHigherResolution(entry,request){
         img.onerror=removeFailedOriginal;
         img.onload=()=>{
           if(request!==viewerRequest)return;
-          viewerZoom=1;viewerSize();
+          // R514: restoring a verified original must not erase the user's zoom or position.
+          viewerSize(true);
           setViewerQuality(entry.quality==='high'?'high':(img.naturalWidth<800||img.naturalHeight<1600?'limited':'normal'));
         };
         img.src=entry.src;
         if(img.complete&&img.naturalWidth)img.onload();
       };
-      img.onload=()=>{if(request!==viewerRequest)return;viewerZoom=1;viewerSize();setViewerQuality('high');};
+      img.onload=()=>{if(request!==viewerRequest)return;viewerSize(true);setViewerQuality('high');};
       img.src=upgraded;
-      if(img.complete&&img.naturalWidth){viewerZoom=1;viewerSize();setViewerQuality('high');}
+      if(img.complete&&img.naturalWidth){viewerSize(true);setViewerQuality('high');}
     }
   };
   probe.onerror=()=>{};
@@ -303,6 +354,7 @@ function viewerShow(index){
   const request=++viewerRequest;
   viewerIndex=(index+items.length)%items.length;viewerZoom=1;
   const entry=items[viewerIndex],img=$('p19-zoom-img');
+  const sourceIndex=Number.isInteger(entry.sourceIndex)?entry.sourceIndex:state.media.indexOf(entry);
   img.style.width='';img.style.height='';
   img.onload=()=>{
     if(request!==viewerRequest)return;
@@ -310,11 +362,12 @@ function viewerShow(index){
     setViewerQuality(entry.quality==='high'?'high':(img.naturalWidth<800||img.naturalHeight<1600?'limited':'normal'));
     if(entry.quality!=='high')tryHigherResolution(entry,request);
   };
-  img.onerror=()=>{if(request===viewerRequest){const dialog=$('p19-zoom-dialog');if(dialog.open)dialog.close();excludeFailedScreen(entry);}};
-  img.referrerPolicy='no-referrer';img.src=entry.src;img.alt=T().screenCaption+' '+(viewerIndex+1);
+  // R510: remove a failed zoom image and continue on the next surviving screenshot.
+  img.onerror=()=>{if(request===viewerRequest)excludeFailedScreen(entry);};
+  img.referrerPolicy='no-referrer';img.src=entry.src;img.alt=T().screenCaption+' '+(sourceIndex+1);
   text('p193-viewer-count',String(viewerIndex+1).padStart(2,'0')+' / '+String(items.length).padStart(2,'0'));
-  text('p19-zoom-label',evidenceCopy(state.media.indexOf(entry)).title);
-  text('p19-zoom-source',format(T().screenSource,{country:state.country.toUpperCase(),number:state.media.indexOf(entry)+1}));
+  text('p19-zoom-label',evidenceCopy(sourceIndex).title);
+  text('p19-zoom-source',format(T().screenSource,{country:state.country.toUpperCase(),number:sourceIndex+1}));
   $('p194-view-store').href=storeLink();
   $('p193-prev').disabled=items.length<2;$('p193-next').disabled=items.length<2;
   setViewerQuality('loading');
@@ -335,17 +388,19 @@ function zoomScreen(entry,index){
     renderHeroScreenshot(verified);
     text('p19-media-source',T().mediaLastCheck);
     for(const [idx,entry] of verified.entries()){
-      const feature=evidenceCopy(idx);
+      // R507: source ordinal survives failed image removals and gallery reindexing.
+      const sourceIndex=Number.isInteger(entry.sourceIndex)?entry.sourceIndex:idx;
+      const feature=evidenceCopy(sourceIndex);
       const article=create('article','p19-proof-row');
       const detail=create('div','p19-proof-copy');
-      detail.append(create('span','p19-proof-index',T().screenCaption+' / '+String(idx+1).padStart(2,'0')),
+      detail.append(create('span','p19-proof-index',T().screenCaption+' / '+String(sourceIndex+1).padStart(2,'0')),
         create('h3','',feature.title),create('p','',feature.detail));
       detail.append(create('div','p193-proof-accent'));
       detail.append(create('span','p193-proof-instruction',uiLabel('inspect',T().screenZoom)+' ↗'));
       const fig=create('figure','p19-shot');
       if(entry.kind==='image'){
-        const btn=create('button','p19-shot-open');btn.type='button';btn.setAttribute('aria-label',uiLabel('inspect',T().screenZoom)+' '+(idx+1));
-        const img=create('img','');img.alt=T().screenCaption+' '+(idx+1);
+        const btn=create('button','p19-shot-open');btn.type='button';btn.setAttribute('aria-label',uiLabel('inspect',T().screenZoom)+' '+(sourceIndex+1));
+        const img=create('img','');img.alt=T().screenCaption+' '+(sourceIndex+1);
         img.loading='lazy';img.referrerPolicy='no-referrer';
         img.addEventListener('error',()=>excludeFailedScreen(entry));img.src=entry.src;
         btn.append(img,create('span','p19-shot-zoom',uiLabel('inspect',T().screenZoom)+' ↗'));
@@ -354,7 +409,7 @@ function zoomScreen(entry,index){
         const video=create('video','');video.controls=true;video.preload='none';video.autoplay=false;
         video.loop=false;video.src=entry.src;if(entry.poster)video.poster=entry.poster;fig.append(video);
       }
-      const originalCaption=format(T().screenSource,{country:state.country.toUpperCase(),number:idx+1});
+      const originalCaption=format(T().screenSource,{country:state.country.toUpperCase(),number:sourceIndex+1});
       // R501: show an authored low-resolution warning in all 50 supported locales.
       const qualitySuffix=entry.quality==='limited'?' · '+uiLabel('qualityLimited',state.locale.startsWith('ja')?'元画像の解像度が不足':state.locale.startsWith('ar')?'دقة المصدر محدودة':'low-resolution source'):'';
       fig.append(create('figcaption','',originalCaption+qualitySuffix));
@@ -421,6 +476,21 @@ function zoomScreen(entry,index){
     });
     p196RefreshLabels();p196UpdateProgress(wrap.querySelector('[aria-current="location"]')?.dataset.p19Chapter||wrap.querySelector('a')?.dataset.p19Chapter);
   }
+  // R513: refresh an open screenshot viewer after the UI language changes.
+  // The image source, selected screenshot and zoom factor must not change.
+  function refreshOpenViewerLocale(){
+    const dialog=$('p19-zoom-dialog');
+    if(!dialog?.open)return;
+    const entry=viewerItems()[viewerIndex];
+    if(!entry)return;
+    const sourceIndex=Number.isInteger(entry.sourceIndex)?entry.sourceIndex:state.media.indexOf(entry);
+    $('p19-zoom-img').alt=T().screenCaption+' '+(sourceIndex+1);
+    text('p19-zoom-label',evidenceCopy(sourceIndex).title);
+    text('p19-zoom-source',format(T().screenSource,{country:state.country.toUpperCase(),number:sourceIndex+1}));
+    $('p194-view-store').href=storeLink();
+    const note=$('p194-quality-note');
+    if(note)setViewerQuality(note.dataset.quality||'loading');
+  }
   function render(){
     const copy=T(), ed=editable(), desc=descValue(), app=state.base.apps.find(x=>x.id===Number(APP_ID));
     document.documentElement.lang=state.locale;
@@ -481,7 +551,7 @@ function zoomScreen(entry,index){
     for(const btn of document.querySelectorAll('[data-p19-copy]'))btn.textContent=copy.copy;
     text('p19-contents-heading',copy.toc);
     document.querySelector('.p19-footer span').textContent=copy.footer;
-    renderToc();setActiveToc();
+    renderToc();setActiveToc();refreshOpenViewerLocale();
   }
   function setActiveToc(){
     const links=[...document.querySelectorAll('[data-p19-chapter]')];
@@ -531,7 +601,12 @@ function zoomScreen(entry,index){
     $('p193-zoom-fit').addEventListener('click',()=>{viewerZoom=1;viewerSize();});
     dialog.addEventListener('keydown',ev=>{
       if(ev.key==='ArrowLeft'||ev.key==='ArrowRight'){
-        if(viewerItems().length>1){ev.preventDefault();viewerShow(viewerIndex+(ev.key==='ArrowLeft'?-1:1));}
+        if(viewerItems().length>1){
+          ev.preventDefault();
+          // R513: visual navigation direction reverses for RTL locales.
+          const direction=document.documentElement.dir==='rtl'?-1:1;
+          viewerShow(viewerIndex+(ev.key==='ArrowLeft'?-1:1)*direction);
+        }
       }else if(ev.key==='+'||ev.key==='='){ev.preventDefault();viewerStep(.25);}
       else if(ev.key==='-'){ev.preventDefault();viewerStep(-.25);}
       else if(ev.key==='0'){ev.preventDefault();viewerZoom=1;viewerSize();}
@@ -550,7 +625,7 @@ function zoomScreen(entry,index){
     dialog.addEventListener('close',()=>{vp.scrollTop=0;vp.scrollLeft=0;});
     for(const btn of document.querySelectorAll('[data-p19-copy]'))btn.addEventListener('click',async()=>{
       const id=btn.dataset.p19Copy;if(!$(id)||$(id).hidden)return;
-      const link=new URL(PATH,location.origin);link.searchParams.set('language',state.locale);link.hash=id;const url=link.href; // keep selected locale; no tracking params
+      const link=new URL(PATH,location.origin);link.searchParams.set('language',state.locale);link.searchParams.set('storefront',state.country);link.hash=id;const url=link.href; // only validated locale and storefront; no tracking params
       try{if(!navigator.clipboard?.writeText)throw Error('NO_CLIPBOARD');await navigator.clipboard.writeText(url);btn.textContent=T().copied;}
       catch(_){window.prompt(T().copyFail,url);}
     });
@@ -558,8 +633,9 @@ function zoomScreen(entry,index){
   function validatePublicShots(item){
     if(item?.trackId!==Number(APP_ID)||item?.artistId!==ARTIST_ID||item?.kind!=='software')return [];
     const urls=Array.isArray(item.screenshotUrls)?item.screenshotUrls:[];
-    return urls.map(url=>safeURL(url,'image')).filter(Boolean).slice(0,10)
-      .map((src,i)=>({kind:'image',src,caption:T().screenCaption+' '+(i+1)}));
+    // Preserve the Apple listing ordinal before URL filtering and the 10-image cap.
+    return urls.map((url,sourceIndex)=>({src:safeURL(url,'image'),sourceIndex})).filter(row=>Boolean(row.src)).slice(0,10)
+      .map(({src,sourceIndex})=>({kind:'image',src,sourceIndex,caption:T().screenCaption+' '+(sourceIndex+1)}));
   }
   // P19-5: All published screen surfaces must be driven by the SAME
   // successfully decoded image resolution. P19-4 only upgraded the viewer.
@@ -603,7 +679,7 @@ function zoomScreen(entry,index){
   async function loadPublicScreens(){
     const serial=++mediaLoadSerial;
     const approved=state.profile.media.filter(m=>m.verified===true&&m.approvedByOwner===true&&localMediaURL(m.src,m.type))
-      .map(m=>({kind:m.type==='video'?'video':'image',src:localMediaURL(m.src,m.type),
+      .map((m,sourceIndex)=>({sourceIndex,kind:m.type==='video'?'video':'image',src:localMediaURL(m.src,m.type),
         poster:m.poster&&localMediaURL(m.poster,'screenshot')||'',caption:m.captionByLocale?.[state.locale]||m.captionByLocale?.['en-US']||''}));
     if(approved.length){state.media=approved;p196MediaLoaded=true;renderMedia();renderToc();return;}
     p196MediaLoaded=false;state.media=[];renderMedia();renderToc();
