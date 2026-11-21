@@ -88,6 +88,35 @@
 <!-- TSZ_PROMPTDOCK_R372_LOCALE_BRIDGE_START -->
 <script defer src="./promptdock-r372.js?v=r432-20261120"></script>
 <!-- TSZ_PROMPTDOCK_R372_LOCALE_BRIDGE_END -->
+<style id="tsz-r520-rtl-skip-link">
+/* Keep the keyboard skip link inside the RTL layout without hiding it from assistive technology. */
+html[dir="rtl"] .p19-skip:not(:focus) {
+  left: auto;
+  right: 0;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+html[dir="rtl"] .p19-skip:focus {
+  left: auto;
+  right: 8px;
+  top: 5px;
+}
+</style>
+<style id="tsz-r521-first-screen-cta">
+#tsz-r265-root.tsz-r521-shared .p265-hero { grid-template-columns: minmax(0,1fr); }
+#tsz-r265-root.tsz-r521-shared .p265-locales { display: none !important; }
+#tsz-r521-store[hidden] { display: none !important; }
+#tsz-r521-store { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; max-width: 100%; min-height: 44px; margin-top: 16px; padding: 10px 18px; border-radius: 12px; background: #f8f7ff; color: #292855; font: inherit; font-weight: 750; line-height: 1.35; text-align: center; text-decoration: none; overflow-wrap: anywhere; }
+#tsz-r521-store:hover { background: #e9e5ff; }
+#tsz-r521-store:focus-visible { outline: 3px solid #bfb5ff; outline-offset: 3px; }
+@media (max-width: 600px) { #tsz-r521-store { display: flex; width: 100%; } }
+</style>
 </head>
 <body data-p19-app-id="6772130038" class="p193">
 <!-- TSZ_X_R297_HEADER_START -->
@@ -174,5 +203,47 @@
 <a class="tsz-x-r297-footer" href="https://x.com/pendulum115326" target="_blank" rel="noopener noreferrer" aria-label="X profile: @pendulum115326">Follow on X · @pendulum115326</a>
 </div>
 <!-- TSZ_X_R297_FOOTER_END -->
+<script id="tsz-r521-store-bridge">
+(() => {
+  'use strict';
+  const q = id => document.getElementById(id);
+  const main = q('p19-main'), detail = q('p19-detail'), source = q('p19-store-link'), region = q('p19-region');
+  if (!main || !detail || !source || !region || !q('p19-language')) return;
+  let root, early, lower, observingLower = false;
+  const lowerObserver = new MutationObserver(sync);
+  function sync() {
+    if (!root) {
+      root = q('tsz-r265-root');
+      const lead = root?.querySelector('.p265-hero .p265-lead');
+      lower = q('p265-store');
+      if (!lead || !lower) { root = null; return; }
+      early = document.createElement('a');
+      early.id = 'tsz-r521-store';
+      early.target = '_blank'; early.rel = 'noopener noreferrer'; early.hidden = true;
+      lead.after(early);
+      mountObserver.disconnect();
+    }
+    const country = region.value, href = source.href, label = source.textContent.trim();
+    const valid = !detail.hidden && /^[a-z]{2}$/.test(country) &&
+      href === 'https://apps.apple.com/' + country + '/app/id6772130038' && !!label;
+    if (!valid) { early.hidden = true; root.classList.remove('tsz-r521-shared'); return; }
+    if (early.href !== href) early.href = href;
+    if (early.textContent !== label) early.textContent = label;
+    if (lower.href !== href) lower.href = href;
+    early.hidden = false;
+    root.classList.add('tsz-r521-shared');
+    if (!observingLower) { lowerObserver.observe(lower, {attributes:true, attributeFilter:['href']}); observingLower = true; }
+  }
+  const mountObserver = new MutationObserver(sync);
+  mountObserver.observe(main, {childList:true, subtree:true});
+  const observer = new MutationObserver(sync);
+  observer.observe(source, {attributes:true, attributeFilter:['href'], childList:true, characterData:true, subtree:true});
+  observer.observe(detail, {attributes:true, attributeFilter:['hidden']});
+  region.addEventListener('change', sync);
+  q('p19-language').addEventListener('change', sync);
+  window.addEventListener('tsz:locale-change', sync);
+  sync();
+})();
+</script>
 </body>
 </html>

@@ -148,6 +148,9 @@
       selected=(index+count)%count;state.selected=selected;
       error.hidden=true;picture.src=images[selected];picture.alt=`PromptDock AI ${ui.alt} ${String(selected+1).padStart(2,'0')}`;
       issue.textContent=`${ui.screen} ${String(selected+1).padStart(2,'0')}`;
+      // R522: identify the actual published screenshot source, not the selected storefront.
+      const sourceRegion=make('bdi','tsz-r522-source-region','App Store: '+region.toUpperCase());
+      sourceRegion.dir='ltr';issue.append(' \u00b7 ',sourceRegion);
       headline.textContent=copy[selected][0];body.textContent=copy[selected][1];
       counter.textContent=`${String(selected+1).padStart(2,'0')} / ${String(count).padStart(2,'0')}`;
       buttons.forEach((button,n)=>{const active=n===selected;button.classList.toggle('is-selected',active);button.setAttribute('aria-pressed',String(active));});
