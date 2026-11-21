@@ -55,3 +55,43 @@ html[dir="rtl"] .r537-item .r537-unit {justify-content:flex-start}
 .r537-math-equation{flex:1 1 160px;font-size:11px;letter-spacing:0;overflow-wrap:anywhere}
 .r537-math-line strong{font-size:12px;font-weight:850;color:var(--muted);white-space:nowrap}
 @media(max-width:380px){.r537-math-line{gap:2px 7px}.r537-math-equation{flex-basis:100%;order:2}.r537-math-line strong{order:1;margin-left:auto}}
+
+/* R537R3: on small screens, the actual interactive control precedes prices and is discoverable in the first viewport. */
+.r537-demo > .r537-toggle{margin:0 0 16px;min-height:52px}
+.r537-demo > .r537-demo-top{margin-bottom:14px}
+.r537-demo > .r537-toggle .r537-check{flex-shrink:0}
+@media(max-width:590px){
+ .r537-demo > .r537-toggle{margin-bottom:13px;min-height:48px;line-height:1.32}
+ .r537-demo > .r537-demo-top{margin-bottom:12px}
+}
+
+/* R537R4: keep connected/complex-script glyphs readable. Negative tracking breaks matras/conjuncts. */
+html:is(:lang(ar-SA),:lang(ur-PK),:lang(pa-IN),:lang(bn-BD),:lang(gu-IN),:lang(hi),:lang(kn-IN),:lang(ml-IN),:lang(mr-IN),:lang(or-IN),:lang(ta-IN),:lang(te-IN),:lang(th)) .r537-intro h1 {
+  letter-spacing:normal; line-height:1.28; font-weight:750; overflow-wrap:break-word; word-break:normal;
+}
+@media(max-width:590px) {
+  html:is(:lang(ar-SA),:lang(ur-PK),:lang(pa-IN),:lang(bn-BD),:lang(gu-IN),:lang(hi),:lang(kn-IN),:lang(ml-IN),:lang(mr-IN),:lang(or-IN),:lang(ta-IN),:lang(te-IN),:lang(th)) .r537-intro h1 {
+    font-size:clamp(30px,8.8vw,40px); line-height:1.28;
+  }
+}
+
+/* R537R5: put the existing live winner/difference immediately after the switch.
+   No new numbers, strings, or calculations: the existing r537 JS updates these nodes. */
+.r537-demo > .r537-verdict{margin:0 0 14px;min-height:55px;padding:8px 12px;gap:9px;border:1px solid #374967}
+.r537-demo > .r537-verdict > div:first-child{gap:10px;min-width:0}
+.r537-demo > .r537-verdict strong{flex:none;font-size:30px}
+.r537-demo > .r537-verdict .r537-diff{font-size:19px;flex:none}
+@media(max-width:590px){
+ .r537-demo > .r537-verdict{padding:7px 9px;min-height:52px;margin-bottom:11px;flex-wrap:nowrap}
+ .r537-demo > .r537-verdict > div:first-child{gap:7px;min-width:0}
+ .r537-demo > .r537-verdict span{font-size:9px;line-height:1.2}
+ .r537-demo > .r537-verdict strong{font-size:27px}
+ .r537-demo > .r537-verdict .r537-diff{font-size:17px;white-space:nowrap}
+ .r537-demo > .r537-verdict .r537-diff small{font-size:10px}
+}
+@media(max-width:380px){
+ .r537-demo > .r537-verdict {gap:5px}
+ .r537-demo > .r537-verdict span {font-size:8px}
+ .r537-demo > .r537-verdict strong{font-size:25px}
+ .r537-demo > .r537-verdict .r537-diff{font-size:16px}
+}
