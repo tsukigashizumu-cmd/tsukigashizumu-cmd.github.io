@@ -1,4 +1,4 @@
-/* R537: Unit Price ONLY. Locale-specific editorial is separate from unavailable ASC metadata. */
+/* R537R20: Unit Price ONLY. Authenticated ASC names are never fabricated when an optional JSON request fails. */
 (()=>{'use strict';
  const APP_ID='6804760060',RTL=new Set(['ar-SA','he','ur-PK']);
  const $=id=>document.getElementById(id);
@@ -56,7 +56,7 @@
 
  const setText=(id,val)=>{const node=$(id);if(node)node.textContent=val;};
  const percentExtra=()=>state.extra ? 0.9 : 1;
- let data=null;
+ let data=null,asc=null;
  function renderCalculation(){
   const a=9*.9*percentExtra()*1.08/.75,b=10.5*1.08;
   const aWins=a<b, winner=aWins?'A':'B';
@@ -81,6 +81,9 @@
  function renderLocale(){
   if(!data||!data.locales[state.locale])return;
   const t=data.locales[state.locale];
+  const verified=asc && asc.locales[state.locale];
+  // The fictional comparison works even when the optional ASC name/subtitle asset is missing.
+  // Never invent ASC-localized metadata: display a neutral product label in that case.
   document.documentElement.lang=state.locale;
   document.documentElement.dir=RTL.has(state.locale)?'rtl':'ltr';
   $('r537-language').value=state.locale;
@@ -93,6 +96,9 @@
   $('r537-store-bottom-label').textContent=t.store;
   $('r537-all').textContent=t.features;
   $('r537-benefits-head').textContent=t.features;
+  setText('r537-after-head',verified ? verified.name : 'Unit Price');
+  setText('r537-asc-subtitle',verified ? verified.subtitle : '');
+  $('r537-asc-subtitle').hidden=!verified;
   $('r537-benefit-units').textContent=t.benefitUnits;
   $('r537-benefit-discounts').textContent=t.benefitDiscounts;
   $('r537-benefit-history').textContent=t.benefitHistory;
@@ -104,7 +110,8 @@
   $('r537-note-bottom').textContent=t.note;
   $('r537-demo').setAttribute('aria-label',t.headline+' '+t.note);
   for(const link of document.querySelectorAll('[data-r537-store]'))link.href=appUrl();
-  document.title=`Unit Price · ${t.headline} · Tsukigashizumu Studio`;
+  document.title=verified ? `${verified.name} · ${verified.subtitle} · Tsukigashizumu Studio` :
+   `Unit Price · ${t.headline} · Tsukigashizumu Studio`;
   document.querySelector('meta[name="description"]').content=t.lead;
   renderCalculation();
   const rect=$('r537-store-main').getBoundingClientRect();
@@ -165,6 +172,49 @@
    const available=Object.keys(data.locales||{});
    if(data.appId!==APP_ID||available.length!==50||Object.keys(data.storefrontByLocale||{}).length!==50||
       !available.every(k=>data.storefrontByLocale[k]&&['headline','lead','lower','action','note','language','region','all','store','features','benefitUnits','benefitDiscounts','benefitHistory'].every(f=>typeof data.locales[k][f]==='string'&&data.locales[k][f].trim())))throw Error('LOCALE_DATA_INVALID');
+   // The ASC snapshot is optional for rendering the editorial demo. Validate it as a
+   // complete 50-locale set; on failure discard the entire snapshot rather than mix
+   // trusted and unverified labels. No public page needs an ASC credential.
+   try {
+    // A stalled optional ASC asset must never hold the calculator hostage.
+    // Bound both response headers and streaming JSON, then abort late work.
+    const controller=new AbortController();
+    let watchdog=null;
+    let candidate;
+    try {
+     const timeout=new Promise((_,reject)=>{
+      watchdog=setTimeout(()=>{
+       controller.abort();
+       reject(Error('ASC_ASSET_TIMEOUT'));
+      },3000);
+     });
+     candidate=await Promise.race([
+      (async()=>{
+       const ascResponse=await fetch('./unitprice-r537-asc.json?v=r537r18-20261122',{
+        cache:'no-store',signal:controller.signal
+       });
+       if(!ascResponse.ok)throw Error('ASC_ASSET_HTTP_ERROR');
+       return ascResponse.json();
+      })(),timeout
+     ]);
+    }finally{clearTimeout(watchdog);}
+    const ascLocales=Object.keys(candidate.locales||{});
+    if(candidate.appId!==APP_ID || candidate.versionString!=='1.0.1' ||
+       candidate.source!=='AUTHENTICATED_APP_STORE_CONNECT_API' ||
+       candidate.nativeTranslationReview!=='PENDING' ||
+       ascLocales.length!==50 ||
+       !available.every(loc=>candidate.locales[loc] &&
+        ['name','subtitle'].every(key=>typeof candidate.locales[loc][key]==='string'&&candidate.locales[loc][key].trim())))
+       throw Error('ASC_ASSET_INVALID');
+    asc=candidate;
+    document.body.dataset.r537AscStatus='READY';
+   } catch (_) {
+    // Metadata unavailable is not a fatal error for a fictional calculation demo.
+    // Keep truthful, generic product labeling and preserve App Store destinations.
+    asc=null;
+    document.body.dataset.r537AscStatus='UNAVAILABLE';
+    document.body.dataset.r537AscFallback='EDITORIAL_ONLY';
+   }
    const params=new URLSearchParams(location.search);
    const requested=params.get('language');
    state.locale=chooseLocale(requested,available);
@@ -203,6 +253,7 @@
    renderLocale();
   }catch(err){
    document.body.dataset.r537Status='ERROR';
+   if(document.body.dataset.r537AscStatus!=='READY')document.body.dataset.r537AscStatus='ERROR';
    document.body.dataset.r537Error=String(err&&err.message||err).slice(0,100);
   }
  }

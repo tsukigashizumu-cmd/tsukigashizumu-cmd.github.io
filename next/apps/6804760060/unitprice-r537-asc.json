@@ -1,0 +1,208 @@
+{
+  "appId": "6804760060",
+  "versionString": "1.0.1",
+  "source": "AUTHENTICATED_APP_STORE_CONNECT_API",
+  "nativeTranslationReview": "PENDING",
+  "locales": {
+    "ar-SA": {
+      "name": "UnitPrice سعر الوحدة",
+      "subtitle": "أيهما أرخص فعلاً؟"
+    },
+    "bn-BD": {
+      "name": "একক দামের তুলনা",
+      "subtitle": "আসলে কোনটি সস্তা?"
+    },
+    "ca": {
+      "name": "UnitPrice Preu Unitari",
+      "subtitle": "Quina opció surt més barata?"
+    },
+    "cs": {
+      "name": "Jednotková cena",
+      "subtitle": "Co je skutečně levnější?"
+    },
+    "da": {
+      "name": "UnitPrice Enhedspris",
+      "subtitle": "Hvad er faktisk billigst?"
+    },
+    "de-DE": {
+      "name": "Stückpreis Vergleich",
+      "subtitle": "Was ist wirklich günstiger?"
+    },
+    "el": {
+      "name": "Τιμή μονάδας",
+      "subtitle": "Ποιο είναι πιο φθηνό;"
+    },
+    "en-AU": {
+      "name": "Unit Price",
+      "subtitle": "Which One Is Actually Cheaper?"
+    },
+    "en-CA": {
+      "name": "UnitPrice Compare",
+      "subtitle": "Which One Is Actually Cheaper?"
+    },
+    "en-GB": {
+      "name": "Unit Price",
+      "subtitle": "Which One Is Actually Cheaper?"
+    },
+    "en-US": {
+      "name": "UnitPrice Cost Compare",
+      "subtitle": "Which One Is Actually Cheaper?"
+    },
+    "es-ES": {
+      "name": "Comparador de precio unitario",
+      "subtitle": "¿Cuál sale más barato?"
+    },
+    "es-MX": {
+      "name": "Comparador de precio unitario",
+      "subtitle": "¿Cuál sale más barato?"
+    },
+    "fi": {
+      "name": "UnitPrice Yksikköhinta",
+      "subtitle": "Kumpi on oikeasti halvempi?"
+    },
+    "fr-CA": {
+      "name": "Comparateur de prix unitaire",
+      "subtitle": "Lequel coûte vraiment moins?"
+    },
+    "fr-FR": {
+      "name": "Comparateur de prix unitaire",
+      "subtitle": "Lequel est vraiment moins cher"
+    },
+    "gu-IN": {
+      "name": "એકમ કિંમત તુલના",
+      "subtitle": "ખરેખર સસ્તુ કયું?"
+    },
+    "he": {
+      "name": "השוואת מחיר ליחידה",
+      "subtitle": "מה באמת זול יותר?"
+    },
+    "hi": {
+      "name": "इकाई मूल्य तुलना",
+      "subtitle": "असल में सस्ता कौन?"
+    },
+    "hr": {
+      "name": "Jedinična cijena",
+      "subtitle": "Što je stvarno jeftinije?"
+    },
+    "hu": {
+      "name": "Egységár összehasonlítás",
+      "subtitle": "Melyik olcsóbb valójában?"
+    },
+    "id": {
+      "name": "Banding harga satuan",
+      "subtitle": "Mana yang lebih murah?"
+    },
+    "it": {
+      "name": "UnitPrice Prezzo Unitario",
+      "subtitle": "Quale costa davvero meno?"
+    },
+    "ja": {
+      "name": "UnitPrice 単価比較",
+      "subtitle": "結局どっちが本当に安い？"
+    },
+    "kn-IN": {
+      "name": "ಘಟಕ ಬೆಲೆ ಹೋಲಿಕೆ",
+      "subtitle": "ನಿಜವಾಗಿ ಯಾವುದು ಅಗ್ಗ?"
+    },
+    "ko": {
+      "name": "단가 비교",
+      "subtitle": "실제로 더 싼 쪽은?"
+    },
+    "ml-IN": {
+      "name": "യൂണിറ്റ് വില താരതമ്യം",
+      "subtitle": "ശരിക്കും വിലകുറഞ്ഞത് ഏത്?"
+    },
+    "mr-IN": {
+      "name": "प्रति युनिट किंमत तुलना",
+      "subtitle": "खरंच स्वस्त कोणते?"
+    },
+    "ms": {
+      "name": "Banding harga seunit",
+      "subtitle": "Mana satu lebih murah?"
+    },
+    "nl-NL": {
+      "name": "Eenheidsprijs vergelijken",
+      "subtitle": "Welke is echt goedkoper?"
+    },
+    "no": {
+      "name": "UnitPrice Enhetspris",
+      "subtitle": "Hva er egentlig billigst?"
+    },
+    "or-IN": {
+      "name": "ଇଉନିଟ୍ ଦାମ",
+      "subtitle": "ସତରେ ସସ୍ତା କେଉଁଟି?"
+    },
+    "pa-IN": {
+      "name": "ਯੂਨਿਟ ਕੀਮਤ",
+      "subtitle": "ਅਸਲ ਵਿੱਚ ਸਸਤਾ ਕਿਹੜਾ?"
+    },
+    "pl": {
+      "name": "Cena jednostkowa",
+      "subtitle": "Co naprawdę jest tańsze?"
+    },
+    "pt-BR": {
+      "name": "Comparador de preço unitário",
+      "subtitle": "Qual é realmente mais barato?"
+    },
+    "pt-PT": {
+      "name": "Comparador de preço unitário",
+      "subtitle": "Qual é mesmo mais barato?"
+    },
+    "ro": {
+      "name": "UnitPrice Preț Unitar",
+      "subtitle": "Care este mai ieftin?"
+    },
+    "ru": {
+      "name": "Цена за единицу",
+      "subtitle": "Что на самом деле дешевле?"
+    },
+    "sk": {
+      "name": "Jednotková cena",
+      "subtitle": "Čo je naozaj lacnejšie?"
+    },
+    "sl-SI": {
+      "name": "Primerjava cene na enoto",
+      "subtitle": "Kaj je res ceneje?"
+    },
+    "sv": {
+      "name": "Jämför styckpris",
+      "subtitle": "Vilken är faktiskt billigast?"
+    },
+    "ta-IN": {
+      "name": "அலகு விலை ஒப்பீடு",
+      "subtitle": "உண்மையில் எது மலிவு?"
+    },
+    "te-IN": {
+      "name": "యూనిట్ ధర పోలిక",
+      "subtitle": "నిజంగా ఏది చవక?"
+    },
+    "th": {
+      "name": "UnitPrice ราคาต่อหน่วย",
+      "subtitle": "อันไหนถูกกว่าจริง?"
+    },
+    "tr": {
+      "name": "UnitPrice Birim Fiyat",
+      "subtitle": "Hangisi daha ucuz?"
+    },
+    "uk": {
+      "name": "Ціна за одиницю",
+      "subtitle": "Що насправді дешевше?"
+    },
+    "ur-PK": {
+      "name": "فی یونٹ قیمت",
+      "subtitle": "اصل میں سستا کون سا ہے؟"
+    },
+    "vi": {
+      "name": "So sánh giá đơn vị",
+      "subtitle": "Món nào thực sự rẻ hơn?"
+    },
+    "zh-Hans": {
+      "name": "单价比较",
+      "subtitle": "到底哪个更便宜？"
+    },
+    "zh-Hant": {
+      "name": "單價比較",
+      "subtitle": "到底哪個更便宜？"
+    }
+  }
+}
