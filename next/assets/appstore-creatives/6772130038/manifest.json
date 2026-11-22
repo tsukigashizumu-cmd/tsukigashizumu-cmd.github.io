@@ -1,5 +1,51 @@
 {
   "appId": "6772130038",
+  "approvedVariants": {
+    "header": {
+      "en-US": [
+        {
+          "assetId": "4dc00019-3a68-80f6-800f-ba87cab3d62b",
+          "file": "header-4dc00019-3a68-80f6-800f-ba87cab3d62b.png",
+          "height": 1646,
+          "selectionEvidence": "APPLE_APPROVED_ACTIVE_MULTI_PLACEMENT",
+          "sha256": "b95e519ac96a1e0e724f77a1fb98a29a91a4e188fb5bf75c526776aaaf0d49c5",
+          "storePlacementVerified": true,
+          "width": 3840
+        },
+        {
+          "assetId": "96400019-3a68-80f6-8026-d142698b6e92",
+          "file": "header-96400019-3a68-80f6-8026-d142698b6e92.png",
+          "height": 1646,
+          "selectionEvidence": "APPLE_APPROVED_ACTIVE_MULTI_PLACEMENT",
+          "sha256": "eee1181137cfc3d407995d3078f5500c112fec051122be780209bea6df3dd90b",
+          "storePlacementVerified": true,
+          "width": 3840
+        }
+      ]
+    },
+    "search": {
+      "en-US": [
+        {
+          "assetId": "3f800019-3a68-80f6-8018-748bd1c56702",
+          "file": "search-3f800019-3a68-80f6-8018-748bd1c56702.png",
+          "height": 1280,
+          "selectionEvidence": "APPLE_APPROVED_ACTIVE_MULTI_PLACEMENT",
+          "sha256": "2bd2aa41f4e8ff779d778aa72ed24fbd287ee34395ee5f75f63f7ac71501287a",
+          "storePlacementVerified": true,
+          "width": 1920
+        },
+        {
+          "assetId": "fb800019-3a68-80f6-8030-56c9eb860692",
+          "file": "search-fb800019-3a68-80f6-8030-56c9eb860692.png",
+          "height": 1280,
+          "selectionEvidence": "APPLE_APPROVED_ACTIVE_MULTI_PLACEMENT",
+          "sha256": "33161454d3378d56c757881e9c3ebe2e9784bd55568434048f535fac3697ab2f",
+          "storePlacementVerified": true,
+          "width": 1920
+        }
+      ]
+    }
+  },
   "placements": {
     "header": {},
     "search": {}

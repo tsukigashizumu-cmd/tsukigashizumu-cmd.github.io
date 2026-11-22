@@ -168,6 +168,94 @@
       if (visual.dataset.tszAcDesired === desired) delete visual.dataset.tszAcPending;
     }, { once: true });
   };
+
+  // R558: display every proven, competing APPROVED+ACTIVE artwork in a separate
+  // gallery. Do not arbitrarily promote any candidate into the single-image hero.
+  // Legacy placements and all non-variant LPs retain their old rendering path.
+  const variantMediaFor = (manifest, kind) => {
+    const slots = manifest && manifest.approvedVariants && manifest.approvedVariants[kind];
+    if (!slots || typeof slots !== 'object' || Array.isArray(slots)) return [];
+    const lang = localeKey(currentLocale());
+    let key = Object.keys(slots).find(k => localeKey(k) === lang);
+    if (!key) {
+      const group = lang.split('-')[0];
+      const candidates = Object.keys(slots).filter(k => localeKey(k).split('-')[0] === group);
+      // Regional alias is safe only when exactly one Apple locale is known.
+      if (candidates.length === 1) key = candidates[0];
+    }
+    if (!key || !Array.isArray(slots[key]) || slots[key].length < 2 || slots[key].length > 8) return [];
+    const entries = slots[key].map(safeMedia);
+    if (entries.some(x => !x) || new Set(entries.map(x => x.key)).size !== entries.length) return [];
+    return entries;
+  };
+  const removeVariantGallery = () => {
+    document.querySelectorAll('[data-tsz-ac-variant-gallery]').forEach(node => node.remove());
+  };
+  const renderVariantGallery = manifest => {
+    const rows = [];
+    for (const kind of ['header', 'search']) {
+      for (const media of variantMediaFor(manifest, kind)) rows.push({ kind, media });
+    }
+    if (!rows.length) { removeVariantGallery(); return; }
+    const root = activeRoot();
+    if (!root) return;
+    const key = rows.map(x => x.kind + ':' + x.media.key).join('|');
+    let fig = document.querySelector('[data-tsz-ac-variant-gallery]');
+    if (fig && fig.dataset.tszAcVariantKey !== key) { fig.remove(); fig = null; }
+    if (!fig) {
+      fig = document.createElement('figure');
+      fig.className = 'tsz-ac-variant-gallery';
+      fig.dataset.tszAcVariantGallery = 'true';
+      fig.dataset.tszAcVariantKey = key;
+      // The Apple-approved header and search creative sets serve different
+      // purposes. Group and label them instead of mixing all four as unnamed
+      // decorative images. Labels are intentionally not product claims.
+      fig.setAttribute('role', 'region');
+      fig.setAttribute('aria-label', 'App Store creative previews');
+      for (const kind of ['header', 'search']) {
+        const groupRows = rows.filter(row => row.kind === kind);
+        if (!groupRows.length) continue;
+        const group = document.createElement('div');
+        group.className = 'tsz-ac-variant-section';
+        group.dataset.tszAcVariantSection = kind;
+        const heading = document.createElement('p');
+        heading.className = 'tsz-ac-variant-title';
+        heading.textContent = kind === 'header' ? 'App Store header' : 'App Store search results';
+        group.appendChild(heading);
+        const grid = document.createElement('div');
+        grid.className = 'tsz-ac-variant-grid';
+        groupRows.forEach(({media}, index) => {
+          const img = makeImage(media, 'tsz-ac-variant-image', 'search');
+          // Independent QA role: do not confuse variants with canonical slots.
+          delete img.dataset.tszAcRole;
+          img.dataset.tszAcVariantRole = kind;
+          img.dataset.tszAcVariantFile = media.key;
+          img.alt = heading.textContent + ', option ' + (index + 1) + ' of ' + groupRows.length;
+          grid.appendChild(img);
+        });
+        group.appendChild(grid);
+        fig.appendChild(group);
+      }
+    }
+    let style = document.getElementById('tsz-ac-variant-style');
+    if (!style) {
+      style = document.createElement('style');
+      style.id = 'tsz-ac-variant-style';
+      style.textContent = '.tsz-ac-variant-gallery{display:block;width:min(100%,980px);max-width:100%;margin:1.25rem auto;padding:0;box-sizing:border-box}' +
+        '.tsz-ac-variant-section{margin:0 0 1.4rem;max-width:100%}' +
+        '.tsz-ac-variant-title{font:600 clamp(.85rem,2.6vw,1rem)/1.4 system-ui,sans-serif;letter-spacing:.01em;margin:0 0 .55rem;color:inherit}' +
+        '.tsz-ac-variant-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px;align-items:center;max-width:100%}' +
+        '.tsz-ac-variant-image{display:block;width:100%;max-width:100%;height:auto;max-height:310px;object-fit:contain;border-radius:12px;box-sizing:border-box;box-shadow:0 2px 12px rgba(0,0,0,.11)}';
+      document.head.appendChild(style);
+    }
+    const anchor = anchorFor('search', root) || anchorFor('header', root);
+    const parent = anchor && visibleTree(anchor.parentElement) ? anchor.parentElement : root;
+    if (visibleTree(parent) && fig.parentElement !== parent) {
+      if (anchor && parent === anchor.parentElement) anchor.after(fig);
+      else parent.appendChild(fig);
+    }
+  };
+
   const render = manifest => {
     // This metadata is diagnostic, not a claim that all 50 locales are supported.
     document.documentElement.dataset.tszAcLocale = currentLocale();
@@ -190,6 +278,7 @@
     }
     if (search) placeFigure(search, 'search');
     else removeSlot('search');
+    renderVariantGallery(manifest);
   };
   const start = async () => {
     // A single transient localhost/static-host failure must not permanently hide artwork.
