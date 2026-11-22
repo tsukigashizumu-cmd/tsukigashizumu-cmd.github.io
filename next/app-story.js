@@ -32,7 +32,22 @@
   function nameFor(code){try{return new Intl.DisplayNames([state.locale],{type:'region'}).of(code.toUpperCase())||code.toUpperCase();}catch(_){return code.toUpperCase();}}
   function langFor(code){try{return new Intl.DisplayNames([state.locale],{type:'language'}).of(code.split('-')[0])||code;}catch(_){return code;}}
   function storeLink(){return 'https://apps.apple.com/'+state.country+'/app/id'+id;}
-  function readJSON(path){return fetch('../../'+path,{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('HTTP_'+r.status);return r.json();});}
+  // TSZ_R555_BOUNDED_JSON_RECOVERY: retry only transient network/HTTP/partial responses.
+  // Preserve cache policy. Never retry 4xx except 408/429 or a valid but rejected catalog.
+  async function readJSON(path){
+    for(let attempt=0;attempt<3;attempt++){
+      try{
+        const r=await fetch('../../'+path,{cache:'no-store'});
+        if(!r.ok)throw Error('HTTP_'+r.status);
+        return await r.json();
+      }catch(error){
+        const message=String(error&&error.message||'');
+        const transient=(error instanceof TypeError)||(error instanceof SyntaxError)||/^HTTP_(?:408|429|5[0-9]{2})$/.test(message);
+        if(!transient||attempt===2)throw error;
+        await new Promise(resolve=>setTimeout(resolve,attempt===0?250:650));
+      }
+    }
+  }
   function getApp(){return state.apps.apps.find(a=>String(a.id)===id);}
   function desc(){
     const row=state.asc.apps?.[id]||null;const by=row?.descriptionByLocale||{};
