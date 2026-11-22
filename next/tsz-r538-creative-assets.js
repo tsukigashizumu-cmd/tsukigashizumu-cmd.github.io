@@ -1,4 +1,4 @@
-/* TSZ LP R548: safe locale-selector discovery and synchronized artwork re-render; preserves R547 locale normalization and R546 recovery.
+/* TSZ LP R553: safe locale-selector discovery and synchronized artwork re-render; preserves R547 locale normalization and R546 recovery.
    The browser never calls Apple APIs. Manifests and approved artwork stay local. */
 (() => {
   'use strict';
@@ -16,11 +16,20 @@
   const candidateLocaleOptions = el => el && el.tagName === 'SELECT'
     ? Array.from(el.options).filter(o => isLocaleCode(o.value) && !o.disabled)
     : [];
+  // R553: only a control that visitors can actually use may drive LP artwork.
+  // Secondary hidden demo selectors must not silently change the main LP locale.
+  // visibleTree is declared below and available by the time start() invokes this.
+  const visibleLocaleControl = el => {
+    if (!el || el.tagName !== 'SELECT' || !visibleTree(el)) return false;
+    const rect = el.getBoundingClientRect();
+    return rect.width > 1 && rect.height > 1;
+  };
   const findLanguageControl = () => {
-    const controls = Array.from(document.querySelectorAll(LANGUAGE_SELECTOR));
-    // Prefer a real, populated language selector; never select another menu just
-    // because it appears first in the DOM. A control with no locale codes is not a locale source.
-    return controls.find(el => candidateLocaleOptions(el).length >= 2) ||
+    const controls = Array.from(document.querySelectorAll(LANGUAGE_SELECTOR)).filter(visibleLocaleControl);
+    // On mixed pages, #p199-language is the primary 50-locale art selector.
+    // Do NOT promote a 2/3-locale demo selector into an invented 50-locale UI.
+    const primary50 = controls.find(el => el.id === 'p199-language' && candidateLocaleOptions(el).length === 50);
+    return primary50 || controls.find(el => candidateLocaleOptions(el).length >= 2) ||
       controls.find(el => candidateLocaleOptions(el).length === 1) || null;
   };
   const currentLocale = () => {
