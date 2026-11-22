@@ -188,7 +188,50 @@
     if (entries.some(x => !x) || new Set(entries.map(x => x.key)).size !== entries.length) return [];
     return entries;
   };
+  // R560: native dialog supports keyboard Escape, focus management and touch
+  // without external image hosts or a second enlarged image asset.
+  let variantPreviewReturnFocus = null;
+  const closeVariantPreview = () => {
+    const dialog = document.getElementById('tsz-ac-variant-dialog');
+    if (dialog && dialog.open) dialog.close();
+    if (dialog) dialog.remove();
+    const back = variantPreviewReturnFocus;
+    variantPreviewReturnFocus = null;
+    if (back && back.isConnected) back.focus({ preventScroll: true });
+  };
+  const openVariantPreview = (media, label, trigger) => {
+    closeVariantPreview();
+    const dialog = document.createElement('dialog');
+    dialog.id = 'tsz-ac-variant-dialog';
+    dialog.className = 'tsz-ac-variant-dialog';
+    dialog.setAttribute('aria-label', label);
+    const close = document.createElement('button');
+    close.type = 'button';
+    close.className = 'tsz-ac-variant-close';
+    close.textContent = 'Close preview';
+    close.setAttribute('aria-label', 'Close image preview');
+    close.addEventListener('click', () => closeVariantPreview());
+    const img = makeImage(media, 'tsz-ac-variant-enlarged', 'header');
+    img.alt = label;
+    img.loading = 'eager';
+    dialog.append(close, img);
+    dialog.addEventListener('click', event => {
+      if (event.target === dialog) closeVariantPreview();
+    });
+    dialog.addEventListener('close', () => {
+      if (dialog.isConnected) dialog.remove();
+      const back = variantPreviewReturnFocus;
+      variantPreviewReturnFocus = null;
+      if (back && back.isConnected) back.focus({ preventScroll: true });
+    }, { once: true });
+    document.body.append(dialog);
+    variantPreviewReturnFocus = trigger;
+    if (typeof dialog.showModal === 'function') dialog.showModal();
+    else { dialog.setAttribute('open', ''); dialog.setAttribute('aria-modal', 'true'); }
+    close.focus({ preventScroll: true });
+  };
   const removeVariantGallery = () => {
+    closeVariantPreview();
     document.querySelectorAll('[data-tsz-ac-variant-gallery]').forEach(node => node.remove());
   };
   const renderVariantGallery = manifest => {
@@ -201,7 +244,7 @@
     if (!root) return;
     const key = rows.map(x => x.kind + ':' + x.media.key).join('|');
     let fig = document.querySelector('[data-tsz-ac-variant-gallery]');
-    if (fig && fig.dataset.tszAcVariantKey !== key) { fig.remove(); fig = null; }
+    if (fig && fig.dataset.tszAcVariantKey !== key) { closeVariantPreview(); fig.remove(); fig = null; }
     if (!fig) {
       fig = document.createElement('figure');
       fig.className = 'tsz-ac-variant-gallery';
@@ -230,8 +273,16 @@
           delete img.dataset.tszAcRole;
           img.dataset.tszAcVariantRole = kind;
           img.dataset.tszAcVariantFile = media.key;
-          img.alt = heading.textContent + ', option ' + (index + 1) + ' of ' + groupRows.length;
-          grid.appendChild(img);
+          img.alt = heading.textContent + ', image ' + (index + 1) + ' of ' + groupRows.length;
+          const trigger = document.createElement('button');
+          trigger.type = 'button';
+          trigger.className = 'tsz-ac-variant-trigger';
+          trigger.dataset.tszAcVariantTrigger = kind;
+          trigger.setAttribute('aria-label', 'Enlarge ' + img.alt);
+          trigger.title = 'View larger';
+          trigger.appendChild(img);
+          trigger.addEventListener('click', () => openVariantPreview(media, img.alt, trigger));
+          grid.appendChild(trigger);
         });
         group.appendChild(grid);
         fig.appendChild(group);
@@ -244,8 +295,14 @@
       style.textContent = '.tsz-ac-variant-gallery{display:block;width:min(100%,980px);max-width:100%;margin:1.25rem auto;padding:0;box-sizing:border-box}' +
         '.tsz-ac-variant-section{margin:0 0 1.4rem;max-width:100%}' +
         '.tsz-ac-variant-title{font:600 clamp(.85rem,2.6vw,1rem)/1.4 system-ui,sans-serif;letter-spacing:.01em;margin:0 0 .55rem;color:inherit}' +
-        '.tsz-ac-variant-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px;align-items:center;max-width:100%}' +
-        '.tsz-ac-variant-image{display:block;width:100%;max-width:100%;height:auto;max-height:310px;object-fit:contain;border-radius:12px;box-sizing:border-box;box-shadow:0 2px 12px rgba(0,0,0,.11)}';
+        '.tsz-ac-variant-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:12px;align-items:center;max-width:100%}' +
+        '.tsz-ac-variant-trigger{display:block;width:100%;border:0;padding:0;background:transparent;cursor:zoom-in;border-radius:12px;box-sizing:border-box}' +
+        '.tsz-ac-variant-trigger:focus-visible,.tsz-ac-variant-close:focus-visible{outline:3px solid #3b82f6;outline-offset:3px}' +
+        '.tsz-ac-variant-image{display:block;width:100%;max-width:100%;height:auto;max-height:310px;object-fit:contain;border-radius:12px;box-sizing:border-box;box-shadow:0 2px 12px rgba(0,0,0,.11)}' +
+        '.tsz-ac-variant-dialog{position:fixed;inset:0;margin:auto;padding:44px 16px 16px;border:0;border-radius:14px;max-width:min(1040px,92vw);width:max-content;max-height:90vh;overflow:auto;box-sizing:border-box;background:#fff;color:#111}' +
+        '.tsz-ac-variant-dialog::backdrop{background:rgba(0,0,0,.82)}' +
+        '.tsz-ac-variant-close{position:absolute;right:12px;top:10px;border:1px solid #bbb;border-radius:6px;padding:6px 12px;font:600 14px system-ui,sans-serif;color:#111;background:#fff;cursor:pointer}' +
+        '.tsz-ac-variant-enlarged{display:block;max-width:100%;width:auto;height:auto;max-height:75vh;object-fit:contain;margin:auto}';
       document.head.appendChild(style);
     }
     const anchor = anchorFor('search', root) || anchorFor('header', root);
