@@ -270,6 +270,39 @@
       zoom.setAttribute('aria-label', 'Reset image zoom to fit');
     });
     resetZoom();
+    // R567: two-finger pinch controls only the existing fit/2x detail mode.
+    // No external image source, tracking, browser/page zoom or gallery change.
+    // Gesture recognition is on the image viewport; single-touch navigation
+    // continues to be handled by the R562 image-specific swipe recognizer.
+    let pinchStart = null;
+    const pinchDistance = touches => Math.hypot(
+      touches[0].clientX - touches[1].clientX,
+      touches[0].clientY - touches[1].clientY
+    );
+    imageViewport.addEventListener('touchstart', event => {
+      if (event.touches.length !== 2) { pinchStart = null; return; }
+      const distance = pinchDistance(event.touches);
+      if (!Number.isFinite(distance) || distance < 20) { pinchStart = null; return; }
+      pinchStart = { distance, zoom: imageViewport.dataset.tszAcVariantZoom, acted: false };
+    }, { passive: true });
+    imageViewport.addEventListener('touchmove', event => {
+      if (!pinchStart) return;
+      if (event.touches.length !== 2) { pinchStart = null; return; }
+      if (event.cancelable) event.preventDefault();
+      const ratio = pinchDistance(event.touches) / pinchStart.distance;
+      if (pinchStart.acted) return;
+      if (pinchStart.zoom === '1' && ratio >= 1.28) {
+        zoom.click();
+        pinchStart.acted = true;
+      } else if (pinchStart.zoom === '2' && ratio <= 0.78) {
+        zoom.click();
+        pinchStart.acted = true;
+      }
+    }, { passive: false });
+    imageViewport.addEventListener('touchend', event => {
+      if (event.touches.length < 2) pinchStart = null;
+    }, { passive: true });
+    imageViewport.addEventListener('touchcancel', () => { pinchStart = null; }, { passive: true });
     let retrySerial = 0;
     const previewLoaded = () => {
       image.removeAttribute('aria-busy');
