@@ -1,0 +1,17 @@
+{
+  "appId": "6781131521",
+  "placements": {
+    "header": {},
+    "search": {
+      "default": {
+        "assetId": "57c00019-42fd-8b01-8021-8f39cba592d4",
+        "file": "search-57c00019-42fd-8b01-8021-8f39cba592d4.png",
+        "height": 1280,
+        "sha256": "0e5104ec8e3cf2c0088e0a827a671fd338a3e94a79c5ec08f08bc2e789391e45",
+        "width": 1920
+      }
+    }
+  },
+  "schema": 1,
+  "source": "ASC_APPROVED_LIBRARY_AND_PLACEMENTS"
+}

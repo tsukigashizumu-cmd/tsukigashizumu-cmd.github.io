@@ -1,0 +1,25 @@
+{
+  "appId": "6794575766",
+  "placements": {
+    "header": {
+      "default": {
+        "assetId": "a6c00019-4fcf-8f96-8035-1632816973a2",
+        "file": "header-a6c00019-4fcf-8f96-8035-1632816973a2.png",
+        "height": 1646,
+        "sha256": "a34fea7e1dd05e4004cf3f1ebff49fcdd6f88e948031cc378d31a9544716528b",
+        "width": 3840
+      }
+    },
+    "search": {
+      "default": {
+        "assetId": "c4400019-4fcf-8f96-800a-7a1ffe3b7a58",
+        "file": "search-c4400019-4fcf-8f96-800a-7a1ffe3b7a58.png",
+        "height": 1280,
+        "sha256": "4788e4823eaa955db059bef0761cecdabae1f6a9a8ebaa485a2a8f12fa8705df",
+        "width": 1920
+      }
+    }
+  },
+  "schema": 1,
+  "source": "ASC_APPROVED_LIBRARY_AND_PLACEMENTS"
+}
