@@ -1,13 +1,52 @@
 {
   "appId": "6781131521",
   "placements": {
-    "header": {},
+    "header": {
+      "en": {
+        "assetId": "73c00019-42fd-8b01-8018-e8fb70df1c50",
+        "file": "header-73c00019-42fd-8b01-8018-e8fb70df1c50.png",
+        "height": 1646,
+        "localeAliasOf": "en-US",
+        "selectionEvidence": "APPROVED_ASSET_ACTIVE_PLACEMENT",
+        "sha256": "075c4c877a8d3197bdd33034305c030e23eaa05b38326912ba6d7b8d67894989",
+        "storePlacementVerified": true,
+        "width": 3840
+      },
+      "en-US": {
+        "assetId": "73c00019-42fd-8b01-8018-e8fb70df1c50",
+        "file": "header-73c00019-42fd-8b01-8018-e8fb70df1c50.png",
+        "height": 1646,
+        "selectionEvidence": "APPROVED_ASSET_ACTIVE_PLACEMENT",
+        "sha256": "075c4c877a8d3197bdd33034305c030e23eaa05b38326912ba6d7b8d67894989",
+        "storePlacementVerified": true,
+        "width": 3840
+      }
+    },
     "search": {
       "default": {
         "assetId": "57c00019-42fd-8b01-8021-8f39cba592d4",
         "file": "search-57c00019-42fd-8b01-8021-8f39cba592d4.png",
         "height": 1280,
         "sha256": "0e5104ec8e3cf2c0088e0a827a671fd338a3e94a79c5ec08f08bc2e789391e45",
+        "width": 1920
+      },
+      "en": {
+        "assetId": "57c00019-42fd-8b01-8021-8f39cba592d4",
+        "file": "search-57c00019-42fd-8b01-8021-8f39cba592d4.png",
+        "height": 1280,
+        "localeAliasOf": "en-US",
+        "selectionEvidence": "APPROVED_ASSET_ACTIVE_PLACEMENT",
+        "sha256": "0e5104ec8e3cf2c0088e0a827a671fd338a3e94a79c5ec08f08bc2e789391e45",
+        "storePlacementVerified": true,
+        "width": 1920
+      },
+      "en-US": {
+        "assetId": "57c00019-42fd-8b01-8021-8f39cba592d4",
+        "file": "search-57c00019-42fd-8b01-8021-8f39cba592d4.png",
+        "height": 1280,
+        "selectionEvidence": "APPROVED_ASSET_ACTIVE_PLACEMENT",
+        "sha256": "0e5104ec8e3cf2c0088e0a827a671fd338a3e94a79c5ec08f08bc2e789391e45",
+        "storePlacementVerified": true,
         "width": 1920
       }
     }
