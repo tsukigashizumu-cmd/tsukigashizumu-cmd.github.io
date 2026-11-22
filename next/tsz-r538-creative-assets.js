@@ -188,8 +188,8 @@
     if (entries.some(x => !x) || new Set(entries.map(x => x.key)).size !== entries.length) return [];
     return entries;
   };
-  // R560: native dialog supports keyboard Escape, focus management and touch
-  // without external image hosts or a second enlarged image asset.
+  // R561: move between verified images of the SAME Apple artwork kind without
+  // closing the native modal. Never mix header/search or invent a locale.
   let variantPreviewReturnFocus = null;
   const closeVariantPreview = () => {
     const dialog = document.getElementById('tsz-ac-variant-dialog');
@@ -199,22 +199,73 @@
     variantPreviewReturnFocus = null;
     if (back && back.isConnected) back.focus({ preventScroll: true });
   };
-  const openVariantPreview = (media, label, trigger) => {
+  const openVariantPreview = (items, initialIndex, trigger) => {
     closeVariantPreview();
+    // The immutable, validated media group comes from variantMediaFor().
+    if (!Array.isArray(items) || items.length < 2 || items.length > 8 ||
+        !Number.isInteger(initialIndex) || initialIndex < 0 || initialIndex >= items.length ||
+        items.some(item => !item || !item.media || typeof item.label !== 'string')) return;
     const dialog = document.createElement('dialog');
     dialog.id = 'tsz-ac-variant-dialog';
     dialog.className = 'tsz-ac-variant-dialog';
-    dialog.setAttribute('aria-label', label);
+    const heading = document.createElement('p');
+    heading.className = 'tsz-ac-variant-preview-heading';
+    heading.id = 'tsz-ac-variant-dialog-title';
+    heading.setAttribute('aria-live', 'polite');
+    dialog.setAttribute('aria-labelledby', heading.id);
     const close = document.createElement('button');
     close.type = 'button';
     close.className = 'tsz-ac-variant-close';
     close.textContent = 'Close preview';
     close.setAttribute('aria-label', 'Close image preview');
     close.addEventListener('click', () => closeVariantPreview());
-    const img = makeImage(media, 'tsz-ac-variant-enlarged', 'header');
-    img.alt = label;
-    img.loading = 'eager';
-    dialog.append(close, img);
+    const image = document.createElement('img');
+    image.className = 'tsz-ac-variant-enlarged';
+    image.decoding = 'async';
+    image.loading = 'eager';
+    image.draggable = false;
+    const nav = document.createElement('div');
+    nav.className = 'tsz-ac-variant-nav';
+    const previous = document.createElement('button');
+    previous.type = 'button';
+    previous.className = 'tsz-ac-variant-nav-button';
+    previous.dataset.tszAcVariantPrevious = 'true';
+    previous.textContent = 'Previous';
+    previous.setAttribute('aria-label', 'Previous image in this section');
+    const count = document.createElement('span');
+    count.className = 'tsz-ac-variant-counter';
+    count.dataset.tszAcVariantCounter = 'true';
+    count.setAttribute('aria-hidden', 'true');
+    const next = document.createElement('button');
+    next.type = 'button';
+    next.className = 'tsz-ac-variant-nav-button';
+    next.dataset.tszAcVariantNext = 'true';
+    next.textContent = 'Next';
+    next.setAttribute('aria-label', 'Next image in this section');
+    let selected = initialIndex;
+    const show = newIndex => {
+      selected = (newIndex + items.length) % items.length;
+      const item = items[selected];
+      // Keep the same IMG element, allowing native focus/scroll restoration.
+      heading.textContent = item.label;
+      image.alt = item.label;
+      image.width = item.media.width;
+      image.height = item.media.height;
+      image.src = item.media.url;
+      count.textContent = String(selected + 1) + ' / ' + String(items.length);
+      dialog.dataset.tszAcVariantIndex = String(selected);
+    };
+    previous.addEventListener('click', () => show(selected - 1));
+    next.addEventListener('click', () => show(selected + 1));
+    dialog.addEventListener('keydown', event => {
+      if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        event.preventDefault();
+        show(selected + (event.key === 'ArrowRight' ? 1 : -1));
+      }
+    });
+    nav.append(previous, count, next);
+    dialog.append(close, heading, image, nav);
     dialog.addEventListener('click', event => {
       if (event.target === dialog) closeVariantPreview();
     });
@@ -226,6 +277,7 @@
     }, { once: true });
     document.body.append(dialog);
     variantPreviewReturnFocus = trigger;
+    show(initialIndex);
     if (typeof dialog.showModal === 'function') dialog.showModal();
     else { dialog.setAttribute('open', ''); dialog.setAttribute('aria-modal', 'true'); }
     close.focus({ preventScroll: true });
@@ -267,13 +319,16 @@
         group.appendChild(heading);
         const grid = document.createElement('div');
         grid.className = 'tsz-ac-variant-grid';
+        const galleryItems = groupRows.map(({ media }, i) => ({
+          media, label: heading.textContent + ', image ' + (i + 1) + ' of ' + groupRows.length
+        }));
         groupRows.forEach(({media}, index) => {
           const img = makeImage(media, 'tsz-ac-variant-image', 'search');
           // Independent QA role: do not confuse variants with canonical slots.
           delete img.dataset.tszAcRole;
           img.dataset.tszAcVariantRole = kind;
           img.dataset.tszAcVariantFile = media.key;
-          img.alt = heading.textContent + ', image ' + (index + 1) + ' of ' + groupRows.length;
+          img.alt = galleryItems[index].label;
           const trigger = document.createElement('button');
           trigger.type = 'button';
           trigger.className = 'tsz-ac-variant-trigger';
@@ -281,7 +336,7 @@
           trigger.setAttribute('aria-label', 'Enlarge ' + img.alt);
           trigger.title = 'View larger';
           trigger.appendChild(img);
-          trigger.addEventListener('click', () => openVariantPreview(media, img.alt, trigger));
+          trigger.addEventListener('click', () => openVariantPreview(galleryItems, index, trigger));
           grid.appendChild(trigger);
         });
         group.appendChild(grid);
@@ -297,12 +352,16 @@
         '.tsz-ac-variant-title{font:600 clamp(.85rem,2.6vw,1rem)/1.4 system-ui,sans-serif;letter-spacing:.01em;margin:0 0 .55rem;color:inherit}' +
         '.tsz-ac-variant-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:12px;align-items:center;max-width:100%}' +
         '.tsz-ac-variant-trigger{display:block;width:100%;border:0;padding:0;background:transparent;cursor:zoom-in;border-radius:12px;box-sizing:border-box}' +
-        '.tsz-ac-variant-trigger:focus-visible,.tsz-ac-variant-close:focus-visible{outline:3px solid #3b82f6;outline-offset:3px}' +
+        '.tsz-ac-variant-trigger:focus-visible,.tsz-ac-variant-close:focus-visible,.tsz-ac-variant-nav-button:focus-visible{outline:3px solid #3b82f6;outline-offset:3px}' +
         '.tsz-ac-variant-image{display:block;width:100%;max-width:100%;height:auto;max-height:310px;object-fit:contain;border-radius:12px;box-sizing:border-box;box-shadow:0 2px 12px rgba(0,0,0,.11)}' +
         '.tsz-ac-variant-dialog{position:fixed;inset:0;margin:auto;padding:44px 16px 16px;border:0;border-radius:14px;max-width:min(1040px,92vw);width:max-content;max-height:90vh;overflow:auto;box-sizing:border-box;background:#fff;color:#111}' +
         '.tsz-ac-variant-dialog::backdrop{background:rgba(0,0,0,.82)}' +
         '.tsz-ac-variant-close{position:absolute;right:12px;top:10px;border:1px solid #bbb;border-radius:6px;padding:6px 12px;font:600 14px system-ui,sans-serif;color:#111;background:#fff;cursor:pointer}' +
-        '.tsz-ac-variant-enlarged{display:block;max-width:100%;width:auto;height:auto;max-height:75vh;object-fit:contain;margin:auto}';
+        '.tsz-ac-variant-enlarged{display:block;max-width:100%;width:auto;height:auto;max-height:69vh;object-fit:contain;margin:auto}' +
+        '.tsz-ac-variant-preview-heading{margin:0 70px .6rem 0;font:600 15px/1.5 system-ui,sans-serif}' +
+        '.tsz-ac-variant-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:.75rem auto 0;max-width:460px}' +
+        '.tsz-ac-variant-counter{font:500 14px system-ui,sans-serif;white-space:nowrap}' +
+        '.tsz-ac-variant-nav-button{font:600 14px system-ui,sans-serif;border:1px solid #bbb;border-radius:8px;background:#fff;color:#111;padding:9px 14px;min-height:42px;cursor:pointer}';
       document.head.appendChild(style);
     }
     const anchor = anchorFor('search', root) || anchorFor('header', root);
