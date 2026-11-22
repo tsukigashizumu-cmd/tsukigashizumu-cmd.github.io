@@ -224,6 +224,28 @@
     image.decoding = 'async';
     image.loading = 'eager';
     image.draggable = false;
+    // Give visitors explicit feedback when a large approved artwork is still
+    // decoding or genuinely failed to load; never silently show a broken IMG.
+    const loadStatus = document.createElement('p');
+    loadStatus.className = 'tsz-ac-variant-loadstatus';
+    loadStatus.dataset.tszAcVariantLoadstatus = 'true';
+    loadStatus.setAttribute('role', 'status');
+    loadStatus.setAttribute('aria-live', 'polite');
+    loadStatus.setAttribute('aria-atomic', 'true');
+    loadStatus.hidden = true;
+    const previewLoaded = () => {
+      image.removeAttribute('aria-busy');
+      loadStatus.hidden = true;
+      loadStatus.textContent = '';
+    };
+    image.addEventListener('load', () => {
+      if (image.complete && image.naturalWidth > 0) previewLoaded();
+    });
+    image.addEventListener('error', () => {
+      image.removeAttribute('aria-busy');
+      loadStatus.hidden = false;
+      loadStatus.textContent = 'Image unavailable';
+    });
     const nav = document.createElement('div');
     nav.className = 'tsz-ac-variant-nav';
     const previous = document.createElement('button');
@@ -253,7 +275,12 @@
       image.alt = item.label;
       image.width = item.media.width;
       image.height = item.media.height;
+      image.setAttribute('aria-busy', 'true');
+      loadStatus.hidden = false;
+      loadStatus.textContent = 'Loading image…';
       image.src = item.media.url;
+      // A decoded cache hit is already usable; no artificial loading delay.
+      if (image.complete && image.naturalWidth > 0) previewLoaded();
       count.textContent = String(selected + 1) + ' / ' + String(items.length);
       count.setAttribute('aria-label', 'Image ' + (selected + 1) + ' of ' + items.length);
       dialog.dataset.tszAcVariantIndex = String(selected);
@@ -305,7 +332,7 @@
       }
     });
     nav.append(previous, count, next);
-    dialog.append(close, heading, image, nav);
+    dialog.append(close, heading, image, loadStatus, nav);
     dialog.addEventListener('click', event => {
       if (event.target === dialog) closeVariantPreview();
     });
@@ -403,6 +430,7 @@
         '.tsz-ac-variant-dialog::backdrop{background:rgba(0,0,0,.82)}' +
         '.tsz-ac-variant-close{position:absolute;right:12px;top:10px;border:1px solid #bbb;border-radius:6px;padding:6px 12px;font:600 14px system-ui,sans-serif;color:#111;background:#fff;cursor:pointer}' +
         '.tsz-ac-variant-enlarged{display:block;max-width:100%;width:auto;height:auto;max-height:69vh;object-fit:contain;margin:auto;touch-action:pan-y;user-select:none;-webkit-user-select:none}' +
+        '.tsz-ac-variant-loadstatus:not([hidden]){display:block;text-align:center;margin:.5rem 0;font:500 13px/1.5 system-ui,sans-serif;color:inherit}' +
         '.tsz-ac-variant-preview-heading{margin:0 70px .6rem 0;font:600 15px/1.5 system-ui,sans-serif}' +
         '.tsz-ac-variant-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:.75rem auto 0;max-width:460px}' +
         '.tsz-ac-variant-counter{font:500 14px system-ui,sans-serif;white-space:nowrap}' +
