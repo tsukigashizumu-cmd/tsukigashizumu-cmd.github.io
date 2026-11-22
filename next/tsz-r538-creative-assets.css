@@ -1,11 +1,31 @@
-/* R538: additions only. Existing LP CSS and typography remain authoritative. */
+/* TSZ LP R546: preserve responsive visible figures while boot retries are pending. */
 .tsz-ac-showcase[hidden] { display:none !important; }
-.tsz-ac-showcase { display:block; margin:clamp(18px,2.5vw,34px) 0; padding:0; max-width:100%; overflow:hidden; border-radius:clamp(12px,2vw,22px); border:1px solid rgba(158,182,195,.26); background:#152033; box-shadow:0 14px 35px rgba(0,0,0,.16); }
-.tsz-ac-showcase-img { display:block; width:100%; height:auto; max-height:min(52vw,540px); object-fit:contain; margin:auto; }
-.tsz-ac-showcase-header .tsz-ac-showcase-img { max-height:min(38vw,460px); object-fit:cover; }
+.tsz-ac-showcase:not([hidden]) {
+  display:block !important; visibility:visible !important; opacity:1 !important;
+  width:min(100%, 1120px); max-width:100%; min-width:0; box-sizing:border-box;
+  margin:clamp(18px,2.5vw,34px) auto; padding:0;
+  overflow:hidden; border-radius:clamp(12px,2vw,22px);
+  border:1px solid rgba(158,182,195,.26); background:#152033;
+  box-shadow:0 14px 35px rgba(0,0,0,.16);
+}
+.tsz-ac-showcase > .tsz-ac-showcase-img {
+  display:block !important; position:static !important; float:none !important;
+  width:100% !important; max-width:100% !important; height:auto !important;
+  margin:0 auto !important; object-fit:contain;
+  visibility:visible !important; opacity:1 !important;
+}
+.tsz-ac-showcase-search > .tsz-ac-showcase-img { max-height:min(52vw,540px); }
+.tsz-ac-showcase-header > .tsz-ac-showcase-img { max-height:none; }
 .up45-page .up45-visual.tsz-ac-visual-ready { padding:0; min-height:260px; aspect-ratio:3840 / 1646; }
 .up45-page .up45-visual.tsz-ac-visual-ready > :not(.tsz-ac-hero-img) { display:none !important; }
-.up45-page .up45-visual.tsz-ac-visual-ready > .tsz-ac-hero-img { display:block; width:100%; height:100%; position:absolute; inset:0; object-fit:cover; }
-@media(max-width:700px) { .tsz-ac-showcase[hidden] { display:none !important; }
-.tsz-ac-showcase { margin:18px 0; border-radius:14px; } .tsz-ac-showcase-img { max-height:none; } .up45-page .up45-visual.tsz-ac-visual-ready { aspect-ratio:3/2; min-height:0; } }
-@media(prefers-reduced-motion:reduce) { .tsz-ac-showcase,.tsz-ac-hero-img { transition:none !important; } }
+.up45-page .up45-visual.tsz-ac-visual-ready > .tsz-ac-hero-img {
+  display:block; width:100%; height:100%; position:absolute; inset:0; object-fit:contain;
+}
+@media(max-width:700px) {
+  .tsz-ac-showcase:not([hidden]) { margin:18px auto; border-radius:14px; }
+  .tsz-ac-showcase-search > .tsz-ac-showcase-img { max-height:none; }
+  .up45-page .up45-visual.tsz-ac-visual-ready { aspect-ratio:3840/1646; min-height:0; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .tsz-ac-showcase, .tsz-ac-hero-img { transition:none !important; }
+}
