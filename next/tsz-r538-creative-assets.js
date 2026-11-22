@@ -235,7 +235,9 @@
     const count = document.createElement('span');
     count.className = 'tsz-ac-variant-counter';
     count.dataset.tszAcVariantCounter = 'true';
-    count.setAttribute('aria-hidden', 'true');
+    count.setAttribute('role', 'status');
+    count.setAttribute('aria-live', 'polite');
+    count.setAttribute('aria-atomic', 'true');
     const next = document.createElement('button');
     next.type = 'button';
     next.className = 'tsz-ac-variant-nav-button';
@@ -253,6 +255,7 @@
       image.height = item.media.height;
       image.src = item.media.url;
       count.textContent = String(selected + 1) + ' / ' + String(items.length);
+      count.setAttribute('aria-label', 'Image ' + (selected + 1) + ' of ' + items.length);
       dialog.dataset.tszAcVariantIndex = String(selected);
     };
     // R562: only a clear, single-finger, horizontal image gesture changes art.
@@ -292,6 +295,10 @@
     next.addEventListener('click', () => show(selected + 1));
     dialog.addEventListener('keydown', event => {
       if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+      if (event.key === 'Home' || event.key === 'End') {
+        event.preventDefault();
+        show(event.key === 'Home' ? 0 : items.length - 1);
+      }
       if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
         event.preventDefault();
         show(selected + (event.key === 'ArrowRight' ? 1 : -1));
@@ -368,7 +375,11 @@
           trigger.dataset.tszAcVariantTrigger = kind;
           trigger.setAttribute('aria-label', 'Enlarge ' + img.alt);
           trigger.title = 'View larger';
-          trigger.appendChild(img);
+          const position = document.createElement('span');
+          position.className = 'tsz-ac-variant-position';
+          position.textContent = 'Image ' + (index + 1) + ' / ' + groupRows.length;
+          position.setAttribute('aria-hidden', 'true');
+          trigger.append(img, position);
           trigger.addEventListener('click', () => openVariantPreview(galleryItems, index, trigger));
           grid.appendChild(trigger);
         });
@@ -386,6 +397,7 @@
         '.tsz-ac-variant-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:12px;align-items:center;max-width:100%}' +
         '.tsz-ac-variant-trigger{display:block;width:100%;border:0;padding:0;background:transparent;cursor:zoom-in;border-radius:12px;box-sizing:border-box}' +
         '.tsz-ac-variant-trigger:focus-visible,.tsz-ac-variant-close:focus-visible,.tsz-ac-variant-nav-button:focus-visible{outline:3px solid #3b82f6;outline-offset:3px}' +
+        '.tsz-ac-variant-position{display:block;text-align:center;margin:.4rem 0 .12rem;font:500 12px/1.4 system-ui,sans-serif;color:inherit;opacity:.9}' +
         '.tsz-ac-variant-image{display:block;width:100%;max-width:100%;height:auto;max-height:310px;object-fit:contain;border-radius:12px;box-sizing:border-box;box-shadow:0 2px 12px rgba(0,0,0,.11)}' +
         '.tsz-ac-variant-dialog{position:fixed;inset:0;margin:auto;padding:44px 16px 16px;border:0;border-radius:14px;max-width:min(1040px,92vw);width:max-content;max-height:90vh;overflow:auto;box-sizing:border-box;background:#fff;color:#111}' +
         '.tsz-ac-variant-dialog::backdrop{background:rgba(0,0,0,.82)}' +
