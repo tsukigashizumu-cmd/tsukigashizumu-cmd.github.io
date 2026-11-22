@@ -546,7 +546,12 @@
   async function start(){
     bind();try{
       const [apps,asc,map,editorial,uiCopy]=await Promise.all([readJSON('data/apps.json'),readJSON('data/asc-localizations.json'),readJSON('data/locale-storefronts.json'),readJSON('data/tsz-r39-editorial-intros.json').catch(()=>null),readJSON('data/tsz-r39r4-common-ui.json').catch(()=>null)]);
-      if(apps.developerId!==ARTIST||!Array.isArray(apps.apps)||apps.apps.length!==34||!apps.apps.find(a=>String(a.id)===id&&a.artistId===ARTIST))throw Error('INVALID_CATALOG');
+      // TSZ_R554_CATALOG_GUARD: validate ownership, IDs and uniqueness, not a frozen list length.
+      // An actual new app in the catalog must not break every existing story page.
+      if(!apps || apps.developerId!==ARTIST || !Array.isArray(apps.apps) || !apps.apps.length ||
+        !apps.apps.every(a=>a && a.artistId===ARTIST && /^\d{8,12}$/.test(String(a.id))) ||
+        new Set(apps.apps.map(a=>String(a.id))).size!==apps.apps.length ||
+        !apps.apps.some(a=>String(a.id)===id))throw Error('INVALID_CATALOG');
       if(asc.developerId!==ARTIST||asc.schemaVersion!==1||!asc.apps||!Array.isArray(asc.baselineIds))throw Error('INVALID_ASC');
       if(map.developerId!==ARTIST||Object.keys(map.storefrontByLocale||{}).length!==50)throw Error('INVALID_STOREFRONTS');
       state.apps=apps;state.asc=asc;state.map=map;state.editorial=editorial?.schemaVersion===1&&editorial.kind==='tsz-independent-lp-editorial-summary'?editorial:null;state.uiCopy=uiCopy?.schemaVersion===1&&uiCopy.kind==='tsz-common-article-ui-exact-reuse'&&Object.keys(uiCopy.locales||{}).length===50?uiCopy:null;
