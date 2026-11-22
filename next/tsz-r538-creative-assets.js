@@ -414,9 +414,20 @@
         event.preventDefault();
         show(event.key === 'Home' ? 0 : items.length - 1);
       }
-      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
-        event.preventDefault();
-        show(selected + (event.key === 'ArrowRight' ? 1 : -1));
+      if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(event.key)) {
+        const horizontal = event.key === 'ArrowLeft' || event.key === 'ArrowRight';
+        if (imageViewport.dataset.tszAcVariantZoom === '2') {
+          // R569: four-way keyboard pan inside the zoomed Apple-approved image.
+          // No arrow may replace artwork while zoomed; PageUp/Down remain native.
+          event.preventDefault();
+          const extent = horizontal ? imageViewport.clientWidth : imageViewport.clientHeight;
+          const step = Math.max(120, Math.round(extent * 0.6));
+          if (horizontal) imageViewport.scrollLeft += event.key === 'ArrowRight' ? step : -step;
+          else imageViewport.scrollTop += event.key === 'ArrowDown' ? step : -step;
+        } else if (horizontal) {
+          event.preventDefault();
+          show(selected + (event.key === 'ArrowRight' ? 1 : -1));
+        }
       }
     });
     nav.append(previous, count, next);
