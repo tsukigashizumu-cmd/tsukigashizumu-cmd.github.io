@@ -233,10 +233,21 @@
     loadStatus.setAttribute('aria-live', 'polite');
     loadStatus.setAttribute('aria-atomic', 'true');
     loadStatus.hidden = true;
+    // An unavailable preview must provide a recovery action. It reloads only
+    // the currently selected, locally validated Apple artwork, not the page.
+    const retry = document.createElement('button');
+    retry.type = 'button';
+    retry.className = 'tsz-ac-variant-retry';
+    retry.dataset.tszAcVariantRetry = 'true';
+    retry.textContent = 'Retry image';
+    retry.setAttribute('aria-label', 'Retry loading this image');
+    retry.hidden = true;
+    let retrySerial = 0;
     const previewLoaded = () => {
       image.removeAttribute('aria-busy');
       loadStatus.hidden = true;
       loadStatus.textContent = '';
+      retry.hidden = true;
     };
     image.addEventListener('load', () => {
       if (image.complete && image.naturalWidth > 0) previewLoaded();
@@ -245,6 +256,7 @@
       image.removeAttribute('aria-busy');
       loadStatus.hidden = false;
       loadStatus.textContent = 'Image unavailable';
+      retry.hidden = false;
     });
     const nav = document.createElement('div');
     nav.className = 'tsz-ac-variant-nav';
@@ -278,6 +290,7 @@
       image.setAttribute('aria-busy', 'true');
       loadStatus.hidden = false;
       loadStatus.textContent = 'Loading image…';
+      retry.hidden = true;
       image.src = item.media.url;
       // A decoded cache hit is already usable; no artificial loading delay.
       if (image.complete && image.naturalWidth > 0) previewLoaded();
@@ -285,6 +298,18 @@
       count.setAttribute('aria-label', 'Image ' + (selected + 1) + ' of ' + items.length);
       dialog.dataset.tszAcVariantIndex = String(selected);
     };
+    retry.addEventListener('click', () => {
+      // Never accept a user-provided URL: item.media.url comes from safeMedia().
+      const item = items[selected];
+      const url = new URL(item.media.url, document.baseURI);
+      url.searchParams.set('tsz_preview_retry', String(++retrySerial));
+      image.setAttribute('aria-busy', 'true');
+      loadStatus.hidden = false;
+      loadStatus.textContent = 'Loading image…';
+      retry.hidden = true;
+      image.src = url.href;
+      if (image.complete && image.naturalWidth > 0) previewLoaded();
+    });
     // R562: only a clear, single-finger, horizontal image gesture changes art.
     // Tap, short drags, vertical page scrolling and multi-touch never navigate.
     let swipeStart = null;
@@ -332,7 +357,7 @@
       }
     });
     nav.append(previous, count, next);
-    dialog.append(close, heading, image, loadStatus, nav);
+    dialog.append(close, heading, image, loadStatus, retry, nav);
     dialog.addEventListener('click', event => {
       if (event.target === dialog) closeVariantPreview();
     });
@@ -431,6 +456,8 @@
         '.tsz-ac-variant-close{position:absolute;right:12px;top:10px;border:1px solid #bbb;border-radius:6px;padding:6px 12px;font:600 14px system-ui,sans-serif;color:#111;background:#fff;cursor:pointer}' +
         '.tsz-ac-variant-enlarged{display:block;max-width:100%;width:auto;height:auto;max-height:69vh;object-fit:contain;margin:auto;touch-action:pan-y;user-select:none;-webkit-user-select:none}' +
         '.tsz-ac-variant-loadstatus:not([hidden]){display:block;text-align:center;margin:.5rem 0;font:500 13px/1.5 system-ui,sans-serif;color:inherit}' +
+        '.tsz-ac-variant-retry:not([hidden]){display:block;margin:.35rem auto .8rem;padding:9px 17px;font:600 14px/1.3 system-ui,sans-serif;border:1px solid #888;border-radius:8px;background:#fff;color:#111;cursor:pointer}' +
+        '.tsz-ac-variant-retry:focus-visible{outline:3px solid #146dcc;outline-offset:3px}' +
         '.tsz-ac-variant-preview-heading{margin:0 70px .6rem 0;font:600 15px/1.5 system-ui,sans-serif}' +
         '.tsz-ac-variant-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:.75rem auto 0;max-width:460px}' +
         '.tsz-ac-variant-counter{font:500 14px system-ui,sans-serif;white-space:nowrap}' +
