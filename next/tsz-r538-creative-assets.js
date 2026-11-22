@@ -255,6 +255,39 @@
       count.textContent = String(selected + 1) + ' / ' + String(items.length);
       dialog.dataset.tszAcVariantIndex = String(selected);
     };
+    // R562: only a clear, single-finger, horizontal image gesture changes art.
+    // Tap, short drags, vertical page scrolling and multi-touch never navigate.
+    let swipeStart = null;
+    image.addEventListener('touchstart', event => {
+      if (event.touches.length !== 1) { swipeStart = null; return; }
+      const touch = event.touches[0];
+      swipeStart = { x: touch.clientX, y: touch.clientY,
+        started: Date.now(), identifier: touch.identifier };
+    }, { passive: true });
+    image.addEventListener('touchmove', event => {
+      if (!swipeStart) return;
+      if (event.touches.length !== 1) { swipeStart = null; return; }
+      const touch = event.touches[0];
+      if (touch.identifier !== swipeStart.identifier) { swipeStart = null; return; }
+      const dx = touch.clientX - swipeStart.x;
+      const dy = touch.clientY - swipeStart.y;
+      // Once vertical scrolling is dominant, ignore the entire gesture.
+      if (Math.abs(dy) > 24 && Math.abs(dy) > Math.abs(dx) * 1.15)
+        swipeStart = null;
+    }, { passive: true });
+    image.addEventListener('touchend', event => {
+      const start = swipeStart;
+      swipeStart = null;
+      if (!start || event.changedTouches.length !== 1 || event.touches.length !== 0) return;
+      const touch = event.changedTouches[0];
+      if (touch.identifier !== start.identifier) return;
+      const dx = touch.clientX - start.x;
+      const dy = touch.clientY - start.y;
+      if (Date.now() - start.started > 1500 ||
+          Math.abs(dx) < 55 || Math.abs(dx) < Math.abs(dy) * 1.6) return;
+      show(selected + (dx < 0 ? 1 : -1));
+    }, { passive: true });
+    image.addEventListener('touchcancel', () => { swipeStart = null; }, { passive: true });
     previous.addEventListener('click', () => show(selected - 1));
     next.addEventListener('click', () => show(selected + 1));
     dialog.addEventListener('keydown', event => {
@@ -357,7 +390,7 @@
         '.tsz-ac-variant-dialog{position:fixed;inset:0;margin:auto;padding:44px 16px 16px;border:0;border-radius:14px;max-width:min(1040px,92vw);width:max-content;max-height:90vh;overflow:auto;box-sizing:border-box;background:#fff;color:#111}' +
         '.tsz-ac-variant-dialog::backdrop{background:rgba(0,0,0,.82)}' +
         '.tsz-ac-variant-close{position:absolute;right:12px;top:10px;border:1px solid #bbb;border-radius:6px;padding:6px 12px;font:600 14px system-ui,sans-serif;color:#111;background:#fff;cursor:pointer}' +
-        '.tsz-ac-variant-enlarged{display:block;max-width:100%;width:auto;height:auto;max-height:69vh;object-fit:contain;margin:auto}' +
+        '.tsz-ac-variant-enlarged{display:block;max-width:100%;width:auto;height:auto;max-height:69vh;object-fit:contain;margin:auto;touch-action:pan-y;user-select:none;-webkit-user-select:none}' +
         '.tsz-ac-variant-preview-heading{margin:0 70px .6rem 0;font:600 15px/1.5 system-ui,sans-serif}' +
         '.tsz-ac-variant-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:.75rem auto 0;max-width:460px}' +
         '.tsz-ac-variant-counter{font:500 14px system-ui,sans-serif;white-space:nowrap}' +
