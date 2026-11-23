@@ -72,17 +72,20 @@
     el.getBoundingClientRect().width > 2;
   const makeImage = (media, className, kind) => {
     const img = document.createElement('img');
-    img.src = media.url;
     img.alt = ''; // Decorative art: LP localized copy remains the accessible description.
+    // Reserve the final geometry and set fetch/decode policy before starting the request.
     img.width = media.width;
     img.height = media.height;
     img.decoding = 'async';
     img.loading = kind === 'header' ? 'eager' : 'lazy';
+    if ('fetchPriority' in img) img.fetchPriority = kind === 'header' ? 'high' : 'auto';
     img.draggable = false;
     img.className = className;
     img.dataset.tszAcRole = kind;
     img.addEventListener('load', () => { img.dataset.tszAcLoaded = img.naturalWidth ? 'true' : 'false'; }, { once: true });
     img.addEventListener('error', () => { img.dataset.tszAcLoaded = 'error'; }, { once: true });
+    // Set src last so geometry, hints, and listeners are already in place.
+    img.src = media.url;
     return img;
   };
   const activeRoot = () => {
@@ -223,6 +226,7 @@
     image.className = 'tsz-ac-variant-enlarged';
     image.decoding = 'async';
     image.loading = 'eager';
+    if ('fetchPriority' in image) image.fetchPriority = 'high';
     image.draggable = false;
     // Give visitors explicit feedback when a large approved artwork is still
     // decoding or genuinely failed to load; never silently show a broken IMG.
@@ -604,7 +608,10 @@
       const rerender = () => {
         if (scheduled) return;
         scheduled = true;
-        setTimeout(() => { scheduled = false; render(manifest); }, 60);
+        // Coalesce event bursts into the next paint instead of imposing a fixed 60ms delay.
+        const paint = () => { scheduled = false; render(manifest); };
+        if (typeof window.requestAnimationFrame === 'function') window.requestAnimationFrame(paint);
+        else setTimeout(paint, 16);
       };
       render(manifest);
       // Late story hydration can replace the whole main node without a mutation
