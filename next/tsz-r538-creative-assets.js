@@ -625,16 +625,17 @@
       window.addEventListener('resize', rerender, { passive: true });
       // Some LPs rebuild hero/feature DOM after initial page load or locale switch.
       // React only to external changes; mutations made by our figures are ignored.
+      // Ignore every mutation owned by this renderer, including the approved
+      // gallery, native image dialog, injected CSS and legacy hero figures.
+      // Locale controls and external LP hydration must still trigger rerender.
+      const ownedArtworkNode = node => node instanceof Element && !!node.closest(
+        '.tsz-ac-showcase, .tsz-ac-hero-img, [data-tsz-ac-variant-gallery], ' +
+        '#tsz-ac-variant-dialog, #tsz-ac-variant-style');
       const observer = new MutationObserver(records => {
         const external = records.some(record => {
-          if (record.type === 'attributes') {
-            const target = record.target;
-            return !(target instanceof Element &&
-              (target.closest('.tsz-ac-showcase') || target.classList.contains('tsz-ac-hero-img')));
-          }
+          if (record.type === 'attributes') return !ownedArtworkNode(record.target);
           return Array.from(record.addedNodes).concat(Array.from(record.removedNodes)).some(node =>
-            node.nodeType === 1 && !(node.matches?.('.tsz-ac-showcase, .tsz-ac-hero-img') ||
-              node.closest?.('.tsz-ac-showcase')));
+            node.nodeType === 1 && !ownedArtworkNode(node));
         });
         if (external) rerender();
       });
