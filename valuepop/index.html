@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>単価チョイス</title>
-  <meta name="description" content="安いと思ったのに、違った。価格にも容量にも振り回されないために、単価比較、最安値、平均、中央値までまとめて確認できる価格比較アプリ。">
+  <meta name="description" content="一番大きいパックが最安とは限らない。単価チョイスは数量・割引・過去の登録価格を比べ、最安値・平均・中央値で納得の買い物を助けます。">
   <link rel="alternate" hreflang="ja" href="https://tsukigashizumu-cmd.github.io/valuepop/">
   <link rel="alternate" hreflang="en" href="https://tsukigashizumu-cmd.github.io/valuepop/en/">
   <link rel="alternate" hreflang="x-default" href="https://tsukigashizumu-cmd.github.io/valuepop/">
@@ -895,18 +895,17 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <div class="eyebrow">安いと思ったのに、違った。</div>
+          <div class="eyebrow">一番大きいパックが、一番お得とは限らない。</div>
           <h1>単価チョイス</h1>
           <p class="hero-lead">
-            容量違い・価格違いの商品を前に、「どれが本当に安いのか」で迷ったことはありませんか？
-            単価チョイス は、価格と数量を入れるだけで、単価・最安値・平均・中央値までまとめて確認できる価格比較アプリです。
+            値札が一番安い商品も、一番大きなパックも、単価では最安とは限りません。価格と数量から単価を比較し、割引も反映。登録した商品の最安値・平均・中央値を確かめ、次の買い物では保存済みの店舗・商品を再利用できます。
           </p>
 
           <div class="hero-points" aria-label="単価チョイス の要点">
-            <span class="hero-point">単価比較</span>
-            <span class="hero-point">最安値・平均・中央値</span>
-            <span class="hero-point">登録内容を保存</span>
-            <span class="hero-point">比較機能をまとめて利用</span>
+            <span class="hero-point">1個あたりの単価で比較</span>
+            <span class="hero-point">％引・額引も反映</span>
+            <span class="hero-point">最安値・平均・中央値を確認</span>
+            <span class="hero-point">店舗・商品を保存して再利用</span>
           </div>
 
           <div class="hero-actions">
@@ -934,6 +933,42 @@
             <span id="valuepop-toggle-label">停止する</span>
           </button>
         </div>
+      </div>
+    </section>
+
+    <section class="section r575r7-value-section" id="r575r7-value-proof" aria-labelledby="r575r7-value-title" style="background:#f5f8f4;color:#173529">
+      <div class="container">
+        <div style="max-width:780px;margin:0 auto 26px;text-align:center">
+          <div style="font-size:.78rem;font-weight:750;letter-spacing:.08em;color:#385c48">比較例・実際のアプリ画面ではありません</div>
+          <h2 class="section-title" id="r575r7-value-title" style="margin:10px auto">真ん中の5個入りが最安。大容量が正解とは限らない。</h2>
+          <p class="section-lead" style="margin:0 auto">値札の安さだけでは分からない。同じ商品を同じ単位で比べると、結果が変わります。</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:14px;max-width:980px;margin:0 auto">
+          <article style="padding:22px;border-radius:16px;background:#fff;border:1px solid #cadacd;box-shadow:0 6px 20px #1a332508" aria-label="小パック 90円毎個">
+            <div style="font-weight:700;font-size:1.04rem">小パック</div>
+            <p style="margin:9px 0;color:#49614e">3個入り · 270円</p>
+            <div style="font-size:1.9rem;font-weight:800">90円<span style="font-size:.9rem;font-weight:500"> / 個</span></div>
+            <p style="font-size:.84rem;margin:8px 0 0;color:#49614e">270 ÷ 3</p>
+          </article>
+          <article style="padding:22px;border-radius:16px;background:#e0f2e4;border:2px solid #287344;box-shadow:0 6px 20px #1a332512" aria-label="中パック 最安 79円毎個">
+            <div style="font-weight:700;font-size:1.04rem">中パック · 単価が最安</div>
+            <p style="margin:9px 0;color:#305c40">5個入り · 395円</p>
+            <div style="font-size:1.9rem;font-weight:800;color:#125b35">79円<span style="font-size:.9rem;font-weight:500"> / 個</span></div>
+            <p style="font-size:.84rem;margin:8px 0 0;color:#305c40">395 ÷ 5</p>
+          </article>
+          <article style="padding:22px;border-radius:16px;background:#fff;border:1px solid #cadacd;box-shadow:0 6px 20px #1a332508" aria-label="大パック 90円毎個">
+            <div style="font-weight:700;font-size:1.04rem">大パック</div>
+            <p style="margin:9px 0;color:#49614e">8個入り · 720円</p>
+            <div style="font-size:1.9rem;font-weight:800">90円<span style="font-size:.9rem;font-weight:500"> / 個</span></div>
+            <p style="font-size:.84rem;margin:8px 0 0;color:#49614e">720 ÷ 8</p>
+          </article>
+        </div>
+        <div id="r575r8-unit-gap" role="group" aria-label="単価の比較" style="max-width:820px;margin:22px auto 0;padding:22px 18px;border-radius:18px;background:#153f2b;color:#fff;text-align:center;box-shadow:0 8px 24px #153f2b20">
+          <h3 style="font-size:clamp(1.13rem,2.9vw,1.55rem);line-height:1.4;margin:0 auto 10px;color:#fff">大パックより、1個あたり11円安い。</h3>
+          <p style="font-size:.94rem;line-height:1.7;max-width:680px;margin:0 auto 17px;color:#ecf6ef">同じ単位で比較すると、中パックは大パックより1個あたり11円安い計算です。購入総額の節約を保証するものではありません。</p>
+          <a id="r575r8-cta" href="https://apps.apple.com/app/id6762347699" style="display:inline-block;max-width:100%;box-sizing:border-box;border-radius:999px;background:#fff;color:#133e29;font-weight:800;font-size:.95rem;line-height:1.45;text-decoration:none;padding:13px 24px;box-shadow:0 3px 12px #051f1140">自分の価格を比べる — App Storeで見る</a>
+        </div>
+        <p style="font-size:.92rem;line-height:1.7;max-width:780px;margin:22px auto 0;text-align:center;color:#355c44">金額は説明用の架空の例です。店舗の実売価格やアプリ画面ではありません。単価チョイスでは自分で価格・数量を入力し、割引を反映して比較し、登録内容を次回に活用できます。</p>
       </div>
     </section>
 
